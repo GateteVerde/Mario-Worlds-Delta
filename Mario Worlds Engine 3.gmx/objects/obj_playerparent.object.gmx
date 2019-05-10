@@ -36,10 +36,10 @@
 state = cs_state_idle;
 
 //Handles the player's mode
-//0:    Normal
-//1:    Warp
-//2:    Jump
-//3:    Climb
+//-100:    Normal
+//-101:    Warp
+//-102:    Jump
+//-103:    Climb
 mode = cs_mode_normal;
 
 //Handles the player's facing direction

@@ -32,6 +32,23 @@
         <sprites name="Super">
           <sprite>sprites\spr_mario_super_walk</sprite>
           <sprite>sprites\spr_mario_super_jump</sprite>
+          <sprite>sprites\spr_mario_super_run</sprite>
+          <sprite>sprites\spr_mario_super_runjump</sprite>
+          <sprite>sprites\spr_mario_super_skid</sprite>
+          <sprite>sprites\spr_mario_super_climb</sprite>
+          <sprite>sprites\spr_mario_super_climbpunch</sprite>
+          <sprite>sprites\spr_mario_super_swim</sprite>
+          <sprite>sprites\spr_mario_super_hold</sprite>
+          <sprite>sprites\spr_mario_super_holdswim</sprite>
+          <sprite>sprites\spr_mario_super_crouch</sprite>
+          <sprite>sprites\spr_mario_super_spin</sprite>
+          <sprite>sprites\spr_mario_super_slide</sprite>
+          <sprite>sprites\spr_mario_super_kick</sprite>
+          <sprite>sprites\spr_mario_super_clear</sprite>
+          <sprite>sprites\spr_mario_super_wallrun</sprite>
+          <sprite>sprites\spr_mario_super_wallrun2</sprite>
+          <sprite>sprites\spr_mario_super_somersault</sprite>
+          <sprite>sprites\spr_mario_super_ride</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -65,7 +82,6 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
-  <shaders name="shaders"/>
   <objects name="objects">
     <objects name="Parents">
       <objects name="Players &amp; NPCs">
@@ -80,7 +96,11 @@
       </objects>
     </objects>
   </objects>
-  <constants number="5">
+  <constants number="9">
+    <constant name="cs_mode_jump">-103</constant>
+    <constant name="cs_mode_climb">-102</constant>
+    <constant name="cs_mode_warp">-101</constant>
+    <constant name="cs_mode_normal">-100</constant>
     <constant name="cs_state_idle">0</constant>
     <constant name="cs_state_walk">1</constant>
     <constant name="cs_state_jump">2</constant>
