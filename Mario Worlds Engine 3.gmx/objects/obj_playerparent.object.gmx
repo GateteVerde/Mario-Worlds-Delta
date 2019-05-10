@@ -33,14 +33,7 @@
 //2:    Jump
 //3:    Climb
 //4:    Wallrun
-state = cs_state_idle;
-
-//Handles the player's mode
-//-100:    Normal
-//-101:    Warp
-//-102:    Jump
-//-103:    Climb
-mode = cs_mode_normal;
+state = cs_idle;
 
 //Handles the player's facing direction
 //1:    Right
@@ -128,6 +121,9 @@ wiggle = 0;
 
 //Handles the player combos and gives extra lives
 hitcombo = 0;
+
+//Handles the player invincibility palette
+isflashing = 0;
 
 //Change direction of the projectiles when spinning
 dir = 1;

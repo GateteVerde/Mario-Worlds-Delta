@@ -25,7 +25,6 @@
           <sprite>sprites\spr_mario_small_kick</sprite>
           <sprite>sprites\spr_mario_small_clear</sprite>
           <sprite>sprites\spr_mario_small_wallrun</sprite>
-          <sprite>sprites\spr_mario_small_wallrun2</sprite>
           <sprite>sprites\spr_mario_small_somersault</sprite>
           <sprite>sprites\spr_mario_small_ride</sprite>
         </sprites>
@@ -46,11 +45,14 @@
           <sprite>sprites\spr_mario_super_kick</sprite>
           <sprite>sprites\spr_mario_super_clear</sprite>
           <sprite>sprites\spr_mario_super_wallrun</sprite>
-          <sprite>sprites\spr_mario_super_wallrun2</sprite>
           <sprite>sprites\spr_mario_super_somersault</sprite>
+          <sprite>sprites\spr_mario_super_shoot</sprite>
           <sprite>sprites\spr_mario_super_ride</sprite>
         </sprites>
+        <sprite>sprites\spr_pal_mario</sprite>
+        <sprite>sprites\spr_pal_mario_invincibility</sprite>
       </sprites>
+      <sprite>sprites\spr_mario_dead</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collisions">
@@ -65,6 +67,8 @@
           <sprite>sprites\spr_slope_22l</sprite>
           <sprite>sprites\spr_slope_67r</sprite>
           <sprite>sprites\spr_slope_67l</sprite>
+          <sprite>sprites\spr_slope_22r_w</sprite>
+          <sprite>sprites\spr_slope_22l_w</sprite>
           <sprite>sprites\spr_ceilslope_22r</sprite>
           <sprite>sprites\spr_ceilslope_22l</sprite>
           <sprite>sprites\spr_ceilslope_45r</sprite>
@@ -78,10 +82,40 @@
         <sprite>sprites\spr_pmask_big</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_mark_u</sprite>
+    <sprite>sprites\spr_mark_d</sprite>
+    <sprite>sprites\spr_mark_l</sprite>
+    <sprite>sprites\spr_mark_r</sprite>
     <sprite>sprites\spr_mark_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="Players">
+      <scripts name="Mario">
+        <scripts name="Animations">
+          <script>scripts\scr_mario_walk.gml</script>
+          <script>scripts\scr_mario_jump.gml</script>
+          <script>scripts\scr_mario_run.gml</script>
+          <script>scripts\scr_mario_runjump.gml</script>
+          <script>scripts\scr_mario_skid.gml</script>
+          <script>scripts\scr_mario_climb.gml</script>
+          <script>scripts\scr_mario_climbpunch.gml</script>
+          <script>scripts\scr_mario_swim.gml</script>
+          <script>scripts\scr_mario_hold.gml</script>
+          <script>scripts\scr_mario_holdswim.gml</script>
+          <script>scripts\scr_mario_crouch.gml</script>
+          <script>scripts\scr_mario_spin.gml</script>
+          <script>scripts\scr_mario_slide.gml</script>
+          <script>scripts\scr_mario_kick.gml</script>
+          <script>scripts\scr_mario_clear.gml</script>
+          <script>scripts\scr_mario_wallrun.gml</script>
+          <script>scripts\scr_mario_somersault.gml</script>
+          <script>scripts\scr_mario_ride.gml</script>
+        </scripts>
+      </scripts>
+    </scripts>
+  </scripts>
   <objects name="objects">
     <objects name="Parents">
       <objects name="Players &amp; NPCs">
@@ -96,16 +130,13 @@
       </objects>
     </objects>
   </objects>
-  <constants number="9">
-    <constant name="cs_mode_jump">-103</constant>
-    <constant name="cs_mode_climb">-102</constant>
-    <constant name="cs_mode_warp">-101</constant>
-    <constant name="cs_mode_normal">-100</constant>
-    <constant name="cs_state_idle">0</constant>
-    <constant name="cs_state_walk">1</constant>
-    <constant name="cs_state_jump">2</constant>
-    <constant name="cs_state_climb">3</constant>
-    <constant name="cs_state_wallrun">4</constant>
+  <constants number="6">
+    <constant name="cs_small">0</constant>
+    <constant name="cs_super">1</constant>
+    <constant name="cs_fire">2</constant>
+    <constant name="cs_ice">3</constant>
+    <constant name="cs_cape">4</constant>
+    <constant name="cs_hammer">5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
