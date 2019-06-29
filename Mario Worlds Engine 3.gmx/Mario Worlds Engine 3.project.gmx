@@ -6,138 +6,69 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprites name="Players">
+    <sprites name="Playable Characters">
       <sprites name="Mario">
         <sprites name="Small">
+          <sprite>sprites\spr_mario_small</sprite>
           <sprite>sprites\spr_mario_small_walk</sprite>
           <sprite>sprites\spr_mario_small_jump</sprite>
           <sprite>sprites\spr_mario_small_run</sprite>
           <sprite>sprites\spr_mario_small_runjump</sprite>
           <sprite>sprites\spr_mario_small_skid</sprite>
           <sprite>sprites\spr_mario_small_climb</sprite>
-          <sprite>sprites\spr_mario_small_climbpunch</sprite>
           <sprite>sprites\spr_mario_small_swim</sprite>
+          <sprite>sprites\spr_mario_small_swim2</sprite>
           <sprite>sprites\spr_mario_small_hold</sprite>
-          <sprite>sprites\spr_mario_small_holdswim</sprite>
+          <sprite>sprites\spr_mario_small_hold2</sprite>
           <sprite>sprites\spr_mario_small_crouch</sprite>
           <sprite>sprites\spr_mario_small_spin</sprite>
           <sprite>sprites\spr_mario_small_slide</sprite>
           <sprite>sprites\spr_mario_small_kick</sprite>
           <sprite>sprites\spr_mario_small_clear</sprite>
-          <sprite>sprites\spr_mario_small_wallrun</sprite>
-          <sprite>sprites\spr_mario_small_somersault</sprite>
           <sprite>sprites\spr_mario_small_ride</sprite>
         </sprites>
-        <sprites name="Super">
-          <sprite>sprites\spr_mario_super_walk</sprite>
-          <sprite>sprites\spr_mario_super_jump</sprite>
-          <sprite>sprites\spr_mario_super_run</sprite>
-          <sprite>sprites\spr_mario_super_runjump</sprite>
-          <sprite>sprites\spr_mario_super_skid</sprite>
-          <sprite>sprites\spr_mario_super_climb</sprite>
-          <sprite>sprites\spr_mario_super_climbpunch</sprite>
-          <sprite>sprites\spr_mario_super_swim</sprite>
-          <sprite>sprites\spr_mario_super_hold</sprite>
-          <sprite>sprites\spr_mario_super_holdswim</sprite>
-          <sprite>sprites\spr_mario_super_crouch</sprite>
-          <sprite>sprites\spr_mario_super_spin</sprite>
-          <sprite>sprites\spr_mario_super_slide</sprite>
-          <sprite>sprites\spr_mario_super_kick</sprite>
-          <sprite>sprites\spr_mario_super_clear</sprite>
-          <sprite>sprites\spr_mario_super_wallrun</sprite>
-          <sprite>sprites\spr_mario_super_somersault</sprite>
-          <sprite>sprites\spr_mario_super_shoot</sprite>
-          <sprite>sprites\spr_mario_super_ride</sprite>
+        <sprites name="Big">
+          <sprite>sprites\spr_mario_big</sprite>
+          <sprite>sprites\spr_mario_big_walk</sprite>
+          <sprite>sprites\spr_mario_big_jump</sprite>
+          <sprite>sprites\spr_mario_big_run</sprite>
+          <sprite>sprites\spr_mario_big_runjump</sprite>
+          <sprite>sprites\spr_mario_big_skid</sprite>
+          <sprite>sprites\spr_mario_big_climb</sprite>
+          <sprite>sprites\spr_mario_big_swim</sprite>
+          <sprite>sprites\spr_mario_big_swim2</sprite>
+          <sprite>sprites\spr_mario_big_hold</sprite>
+          <sprite>sprites\spr_mario_big_hold2</sprite>
+          <sprite>sprites\spr_mario_big_crouch</sprite>
+          <sprite>sprites\spr_mario_big_spin</sprite>
+          <sprite>sprites\spr_mario_big_slide</sprite>
+          <sprite>sprites\spr_mario_big_kick</sprite>
+          <sprite>sprites\spr_mario_big_clear</sprite>
+          <sprite>sprites\spr_mario_big_ride</sprite>
         </sprites>
-        <sprite>sprites\spr_pal_mario</sprite>
-        <sprite>sprites\spr_pal_mario_invincibility</sprite>
-      </sprites>
-      <sprite>sprites\spr_mario_dead</sprite>
-    </sprites>
-    <sprites name="Masks">
-      <sprites name="Collisions">
-        <sprite>sprites\spr_square</sprite>
-        <sprite>sprites\spr_square_b</sprite>
-        <sprite>sprites\spr_square_c</sprite>
-        <sprite>sprites\spr_square_d</sprite>
-        <sprites name="Slopes">
-          <sprite>sprites\spr_slope_45r</sprite>
-          <sprite>sprites\spr_slope_45l</sprite>
-          <sprite>sprites\spr_slope_22r</sprite>
-          <sprite>sprites\spr_slope_22l</sprite>
-          <sprite>sprites\spr_slope_67r</sprite>
-          <sprite>sprites\spr_slope_67l</sprite>
-          <sprite>sprites\spr_slope_22r_w</sprite>
-          <sprite>sprites\spr_slope_22l_w</sprite>
-          <sprite>sprites\spr_ceilslope_22r</sprite>
-          <sprite>sprites\spr_ceilslope_22l</sprite>
-          <sprite>sprites\spr_ceilslope_45r</sprite>
-          <sprite>sprites\spr_ceilslope_45l</sprite>
+        <sprites name="Fire">
+          <sprite>sprites\spr_mario_fire_shoot</sprite>
         </sprites>
-        <sprite>sprites\spr_linemask</sprite>
-        <sprite>sprites\spr_squaremask</sprite>
-      </sprites>
-      <sprites name="Player">
-        <sprite>sprites\spr_pmask</sprite>
-        <sprite>sprites\spr_pmask_big</sprite>
+        <sprites name="Cape">
+          <sprites name="Parts">
+            <sprite>sprites\spr_cape</sprite>
+            <sprite>sprites\spr_cape_walk</sprite>
+            <sprite>sprites\spr_cape_up</sprite>
+            <sprite>sprites\spr_cape_down</sprite>
+            <sprite>sprites\spr_cape_fall</sprite>
+            <sprite>sprites\spr_cape_spin</sprite>
+            <sprite>sprites\spr_cape_spin_fall</sprite>
+            <sprite>sprites\spr_cape_climb</sprite>
+            <sprite>sprites\spr_cape_turn</sprite>
+          </sprites>
+          <sprite>sprites\spr_mario_cape_dive</sprite>
+        </sprites>
+        <sprite>sprites\spr_mario_dead</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_mark_u</sprite>
-    <sprite>sprites\spr_mark_d</sprite>
-    <sprite>sprites\spr_mark_l</sprite>
-    <sprite>sprites\spr_mark_r</sprite>
-    <sprite>sprites\spr_mark_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <scripts name="Players">
-      <scripts name="Mario">
-        <scripts name="Animations">
-          <script>scripts\scr_mario_walk.gml</script>
-          <script>scripts\scr_mario_jump.gml</script>
-          <script>scripts\scr_mario_run.gml</script>
-          <script>scripts\scr_mario_runjump.gml</script>
-          <script>scripts\scr_mario_skid.gml</script>
-          <script>scripts\scr_mario_climb.gml</script>
-          <script>scripts\scr_mario_climbpunch.gml</script>
-          <script>scripts\scr_mario_swim.gml</script>
-          <script>scripts\scr_mario_hold.gml</script>
-          <script>scripts\scr_mario_holdswim.gml</script>
-          <script>scripts\scr_mario_crouch.gml</script>
-          <script>scripts\scr_mario_spin.gml</script>
-          <script>scripts\scr_mario_slide.gml</script>
-          <script>scripts\scr_mario_kick.gml</script>
-          <script>scripts\scr_mario_clear.gml</script>
-          <script>scripts\scr_mario_wallrun.gml</script>
-          <script>scripts\scr_mario_somersault.gml</script>
-          <script>scripts\scr_mario_ride.gml</script>
-        </scripts>
-      </scripts>
-    </scripts>
-  </scripts>
-  <objects name="objects">
-    <objects name="Parents">
-      <objects name="Players &amp; NPCs">
-        <object>objects\obj_playerparent</object>
-      </objects>
-    </objects>
-    <objects name="Do Not Use!">
-      <objects name="Player">
-        <objects name="Controllable">
-          <object>objects\obj_mario</object>
-        </objects>
-      </objects>
-    </objects>
-  </objects>
-  <constants number="6">
-    <constant name="cs_small">0</constant>
-    <constant name="cs_super">1</constant>
-    <constant name="cs_fire">2</constant>
-    <constant name="cs_ice">3</constant>
-    <constant name="cs_cape">4</constant>
-    <constant name="cs_hammer">5</constant>
-  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
