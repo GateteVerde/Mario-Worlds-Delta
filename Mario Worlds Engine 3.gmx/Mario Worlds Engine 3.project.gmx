@@ -50,20 +50,69 @@
           <sprite>sprites\spr_mario_fire_shoot</sprite>
         </sprites>
         <sprites name="Cape">
-          <sprites name="Parts">
-            <sprite>sprites\spr_cape</sprite>
-            <sprite>sprites\spr_cape_walk</sprite>
-            <sprite>sprites\spr_cape_up</sprite>
-            <sprite>sprites\spr_cape_down</sprite>
-            <sprite>sprites\spr_cape_fall</sprite>
-            <sprite>sprites\spr_cape_spin</sprite>
-            <sprite>sprites\spr_cape_spin_fall</sprite>
-            <sprite>sprites\spr_cape_climb</sprite>
-            <sprite>sprites\spr_cape_turn</sprite>
-          </sprites>
           <sprite>sprites\spr_mario_cape_dive</sprite>
         </sprites>
         <sprite>sprites\spr_mario_dead</sprite>
+      </sprites>
+      <sprites name="Luigi">
+        <sprites name="Small">
+          <sprite>sprites\spr_luigi_small</sprite>
+          <sprite>sprites\spr_luigi_small_walk</sprite>
+          <sprite>sprites\spr_luigi_small_jump</sprite>
+          <sprite>sprites\spr_luigi_small_run</sprite>
+          <sprite>sprites\spr_luigi_small_runjump</sprite>
+          <sprite>sprites\spr_luigi_small_skid</sprite>
+          <sprite>sprites\spr_luigi_small_climb</sprite>
+          <sprite>sprites\spr_luigi_small_swim</sprite>
+          <sprite>sprites\spr_luigi_small_swim2</sprite>
+          <sprite>sprites\spr_luigi_small_hold</sprite>
+          <sprite>sprites\spr_luigi_small_hold2</sprite>
+          <sprite>sprites\spr_luigi_small_crouch</sprite>
+          <sprite>sprites\spr_luigi_small_spin</sprite>
+          <sprite>sprites\spr_luigi_small_slide</sprite>
+          <sprite>sprites\spr_luigi_small_kick</sprite>
+          <sprite>sprites\spr_luigi_small_clear</sprite>
+          <sprite>sprites\spr_luigi_small_ride</sprite>
+        </sprites>
+        <sprites name="Big">
+          <sprite>sprites\spr_luigi_big</sprite>
+          <sprite>sprites\spr_luigi_big_walk</sprite>
+          <sprite>sprites\spr_luigi_big_jump</sprite>
+          <sprite>sprites\spr_luigi_big_run</sprite>
+          <sprite>sprites\spr_luigi_big_runjump</sprite>
+          <sprite>sprites\spr_luigi_big_skid</sprite>
+          <sprite>sprites\spr_luigi_big_climb</sprite>
+          <sprite>sprites\spr_luigi_big_swim</sprite>
+          <sprite>sprites\spr_luigi_big_swim2</sprite>
+          <sprite>sprites\spr_luigi_big_hold</sprite>
+          <sprite>sprites\spr_luigi_big_hold2</sprite>
+          <sprite>sprites\spr_luigi_big_crouch</sprite>
+          <sprite>sprites\spr_luigi_big_spin</sprite>
+          <sprite>sprites\spr_luigi_big_slide</sprite>
+          <sprite>sprites\spr_luigi_big_kick</sprite>
+          <sprite>sprites\spr_luigi_big_clear</sprite>
+          <sprite>sprites\spr_luigi_big_ride</sprite>
+        </sprites>
+        <sprites name="Fire">
+          <sprite>sprites\spr_luigi_fire_shoot</sprite>
+        </sprites>
+        <sprites name="Cape">
+          <sprite>sprites\spr_luigi_cape_dive</sprite>
+        </sprites>
+        <sprite>sprites\spr_luigi_dead</sprite>
+      </sprites>
+      <sprites name="Miscellaneous">
+        <sprites name="Cape Parts">
+          <sprite>sprites\spr_cape</sprite>
+          <sprite>sprites\spr_cape_walk</sprite>
+          <sprite>sprites\spr_cape_up</sprite>
+          <sprite>sprites\spr_cape_down</sprite>
+          <sprite>sprites\spr_cape_fall</sprite>
+          <sprite>sprites\spr_cape_spin</sprite>
+          <sprite>sprites\spr_cape_spin_fall</sprite>
+          <sprite>sprites\spr_cape_climb</sprite>
+          <sprite>sprites\spr_cape_turn</sprite>
+        </sprites>
       </sprites>
     </sprites>
   </sprites>
