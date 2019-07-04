@@ -113,14 +113,63 @@
           <sprite>sprites\spr_cape_climb</sprite>
           <sprite>sprites\spr_cape_turn</sprite>
         </sprites>
-        <sprites name="Palettes">
-          <sprite>sprites\spr_pal_master</sprite>
+        <sprites name="Masks">
+          <sprite>sprites\spr_mask_a</sprite>
+          <sprite>sprites\spr_mask_b</sprite>
+          <sprite>sprites\spr_mask_player</sprite>
+          <sprite>sprites\spr_mask_player_big</sprite>
         </sprites>
+        <sprite>sprites\spr_helmet</sprite>
+        <sprite>sprites\spr_helmet_b</sprite>
+        <sprite>sprites\spr_palette_master</sprite>
       </sprites>
     </sprites>
+    <sprites name="Masks">
+      <sprites name="Collision">
+        <sprite>sprites\spr_square</sprite>
+        <sprite>sprites\spr_square_b</sprite>
+        <sprite>sprites\spr_square_c</sprite>
+        <sprite>sprites\spr_square_d</sprite>
+        <sprites name="Slopes">
+          <sprites name="Ceiling">
+            <sprite>sprites\spr_ceiling_slope_r</sprite>
+            <sprite>sprites\spr_ceiling_slope_l</sprite>
+            <sprite>sprites\spr_ceiling_slope_steep_r</sprite>
+            <sprite>sprites\spr_ceiling_slope_steep_l</sprite>
+          </sprites>
+          <sprite>sprites\spr_slope_r</sprite>
+          <sprite>sprites\spr_slope_l</sprite>
+          <sprite>sprites\spr_slope_steep_r</sprite>
+          <sprite>sprites\spr_slope_steep_l</sprite>
+        </sprites>
+        <sprite>sprites\spr_square_hurt</sprite>
+        <sprite>sprites\spr_square_hurt_lethal</sprite>
+      </sprites>
+    </sprites>
+    <sprite>sprites\spr_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_player_start</object>
+    <objects name="Special">
+      <objects name="Parents">
+        <objects name="Player / NPC Parents">
+          <objects name="Player">
+            <object>objects\obj_playerparent</object>
+          </objects>
+        </objects>
+      </objects>
+      <objects name="Do Not Use!">
+        <objects name="Main">
+          <object>objects\obj_mario</object>
+          <object>objects\obj_luigi</object>
+          <object>objects\obj_bound_top</object>
+          <object>objects\obj_bound_bottom</object>
+        </objects>
+      </objects>
+    </objects>
+  </objects>
   <help>
     <rtf>help.rtf</rtf>
   </help>
