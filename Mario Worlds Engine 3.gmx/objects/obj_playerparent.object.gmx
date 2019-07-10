@@ -48,8 +48,9 @@ state = statetype.idle;
 //-1:   Left
 xscale = 1;
 
-//Checks up if the player is stuck in a wall and sets the movement direction if the player gets stuck in a solid.
-dir = 1;
+//Handle the player direction when stuck on a solid.
+//1:    Right
+//-1:   Left
 direct = 1;
 direct2 = 0;
 
@@ -89,6 +90,12 @@ kicking = 0;
 //Prevents damage on the player
 invulnerable = false;
 
+//Checks if the player is stuck on a solid surface
+inwall = 0;
+
+//Displays a firing frame when shooting a projectile
+firing = 0;
+
 //Manage colours in the player object
 isflashing = 0;
 
@@ -98,6 +105,206 @@ hitcombo = 0;
 //Call the following objects
 instance_create(0, 0, obj_bound_top);
 instance_create(0, 0, obj_bound_bottom);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End turning animation
+
+turnnow = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make the player blink when invulnerable
+
+if (invulnerable == true) {
+
+    image_alpha = !image_alpha;
+    alarm[1] = 1;
+}
+else
+    image_alpha = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End invulnerability
+
+invulnerable = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player logic
+
+//Update Player's Physics
+player_physics();
+
+//If the player is not swimming
+if (swimming == false) {
+
+    //If the player is not sliding down a slope
+    if (sliding == false) {
+    
+        //If the player is not climbing
+        if (state != statetype.climb) {
+        
+            //Perform default player physics
+            player_behaviour();
+            
+            //Increment P-Meter
+            player_run();
+        }
+        
+        //Otherwise, if the player is climbing
+        else if (state == statetype.climb) {
+        
+            //Perform player climb physics
+            player_behaviour_climb();
+            
+            //Stop running
+            run = false;
+            
+            //Decrement P-Meter
+            if (pmeter &gt; 0)
+                pmeter--;
+        }
+    }
+    
+    //Otherwise, if the player is sliding down a slope
+    else if (sliding == true) {
+    
+        //Perform player slide physics
+        player_behaviour_slide();
+        
+        //Stop running
+        run = false;
+        
+        //Decrement P-Meter
+        if (pmeter &gt; 0)
+            pmeter--;
+    }
+}
+
+//Otherwise, if the player is swimming
+else if (swimming == true) {
+
+    //Perform player swim physics
+    player_behaviour_swim();
+    
+    //Stop running
+    run = false;
+    
+    //Decrement P-Meter
+    if (pmeter &gt; 0)
+        pmeter--;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset values
+
+//Allow the player to jump again
+jumping = 0;
+
+//End spin jump
+jumpstyle = 0;
+
+//Reset combos when not sliding down a slope
+if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
+    hitcombo = 0;
 </string>
           </argument>
         </arguments>
