@@ -25,9 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Player's start position.
+            <string>///The player initial position
 
+//If the player did not came from another room
+if (global.postchange == -1) {
 
+    //Create a new player in this object
+    player_create(xstart, ystart);
+}
+
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>

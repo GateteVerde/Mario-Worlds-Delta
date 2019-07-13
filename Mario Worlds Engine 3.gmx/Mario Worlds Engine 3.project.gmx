@@ -45,9 +45,7 @@
           <sprite>sprites\spr_mario_big_kick</sprite>
           <sprite>sprites\spr_mario_big_clear</sprite>
           <sprite>sprites\spr_mario_big_ride</sprite>
-        </sprites>
-        <sprites name="Fire">
-          <sprite>sprites\spr_mario_fire_shoot</sprite>
+          <sprite>sprites\spr_mario_big_shoot</sprite>
         </sprites>
         <sprites name="Cape">
           <sprite>sprites\spr_mario_cape_dive</sprite>
@@ -92,9 +90,7 @@
           <sprite>sprites\spr_luigi_big_kick</sprite>
           <sprite>sprites\spr_luigi_big_clear</sprite>
           <sprite>sprites\spr_luigi_big_ride</sprite>
-        </sprites>
-        <sprites name="Fire">
-          <sprite>sprites\spr_luigi_fire_shoot</sprite>
+          <sprite>sprites\spr_luigi_big_shoot</sprite>
         </sprites>
         <sprites name="Cape">
           <sprite>sprites\spr_luigi_cape_dive</sprite>
@@ -122,6 +118,7 @@
         <sprite>sprites\spr_helmet</sprite>
         <sprite>sprites\spr_helmet_b</sprite>
         <sprite>sprites\spr_palette_master</sprite>
+        <sprite>sprites\spr_palette_invincibility</sprite>
       </sprites>
     </sprites>
     <sprites name="Masks">
@@ -142,6 +139,13 @@
           <sprite>sprites\spr_slope_steep_r</sprite>
           <sprite>sprites\spr_slope_steep_l</sprite>
         </sprites>
+        <sprites name="Slippery">
+          <sprite>sprites\spr_slippery</sprite>
+          <sprite>sprites\spr_slippery_slope_r</sprite>
+          <sprite>sprites\spr_slippery_slope_l</sprite>
+          <sprite>sprites\spr_slippery_slope_steep_r</sprite>
+          <sprite>sprites\spr_slippery_slope_steep_l</sprite>
+        </sprites>
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
       </sprites>
@@ -152,11 +156,33 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Player">
-      <scripts name="Physics">
+      <scripts name="Animation">
+        <script>scripts\player_idle.gml</script>
+        <script>scripts\player_walk.gml</script>
+        <script>scripts\player_jump.gml</script>
         <script>scripts\player_run.gml</script>
+        <script>scripts\player_runjump.gml</script>
+        <script>scripts\player_skid.gml</script>
+        <script>scripts\player_climb.gml</script>
+        <script>scripts\player_swim.gml</script>
+        <script>scripts\player_swim2.gml</script>
+        <script>scripts\player_hold.gml</script>
+        <script>scripts\player_hold2.gml</script>
+        <script>scripts\player_crouch.gml</script>
+        <script>scripts\player_spin.gml</script>
+        <script>scripts\player_slide.gml</script>
+        <script>scripts\player_kick.gml</script>
+        <script>scripts\player_clear.gml</script>
+        <script>scripts\player_ride.gml</script>
+        <script>scripts\player_shoot.gml</script>
+      </scripts>
+      <scripts name="Physics">
+        <script>scripts\player_meter.gml</script>
         <script>scripts\player_physics.gml</script>
         <script>scripts\player_physics_floor.gml</script>
       </scripts>
+      <script>scripts\player_create.gml</script>
+      <script>scripts\player_set_palette.gml</script>
     </scripts>
     <scripts name="Utility">
       <scripts name="Shaders">
@@ -192,6 +218,13 @@
         <object>objects\obj_slope_steep_r</object>
         <object>objects\obj_slope_steep_l</object>
       </objects>
+      <objects name="Slippery">
+        <object>objects\obj_slippery</object>
+        <object>objects\obj_slippery_slope_r</object>
+        <object>objects\obj_slippery_slope_l</object>
+        <object>objects\obj_slippery_slope_steep_r</object>
+        <object>objects\obj_slippery_slope_steep_l</object>
+      </objects>
       <object>objects\obj_hurtblock</object>
       <object>objects\obj_hurtblock_lethal</object>
     </objects>
@@ -202,12 +235,14 @@
             <object>objects\obj_playerparent</object>
           </objects>
         </objects>
+        <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
       </objects>
       <objects name="Do Not Use!">
-        <objects name="Main">
+        <objects name="Mario">
           <object>objects\obj_mario</object>
+          <object>objects\obj_luigi</object>
           <object>objects\obj_bound_top</object>
           <object>objects\obj_bound_bottom</object>
         </objects>
@@ -218,6 +253,12 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
   </rooms>
+  <constants number="4">
+    <constant name="cs_pow_small">0</constant>
+    <constant name="cs_pow_super">1</constant>
+    <constant name="cs_pow_fire">2</constant>
+    <constant name="cs_pow_cape">3</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

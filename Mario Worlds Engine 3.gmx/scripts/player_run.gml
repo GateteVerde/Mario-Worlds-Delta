@@ -1,50 +1,37 @@
 ///player_run();
 
 /*
-**  Usage:
+**  Name:
 **      player_run();
 **
-**  Purpose:
-**      Makes the player run faster and allows him to do special abilities.
+**  Function:
+**      Returns the appropiate run sprite for the player
 */
 
-//If the player horizontal speed is equal greater than the value given in "hspeed_run"
-if (abs(hspeed) > hspeed_run-0.1) {
+//Check powerup
+switch (global.powerup) {
 
-    //If the player is not jumping or climbing
-    if (state != statetype.jump)
-    && (state != statetype.climb) {
+    //Small
+    case (cs_pow_small): {
     
-        //If the P-Meter is full
-        if (pmeter > 112) {
-        
-            //Keep it full
-            pmeter = 112;
+        //Mario
+        if (global.player == 0)
+            return spr_mario_small_run;
             
-            //Make the player able to run
-            if (run == false)
-                run = true;
-        }
-        
-        //Otherwise, fill it
-        else
-            pmeter += 2;
-    }
+        //Luigi
+        else if (global.player == 1)
+            return spr_luigi_small_run;
+    } break;
     
-    //Otherwise if the player is on the ground and not running
-    else if (run == false) && (pmeter > 0)
-        pmeter--;
-}
-
-//Otherwise, if the player horizontal speed is lower than the value given in "hspeed_run".
-else if (run == false)
-&& (abs(hspeed) < hspeed_run)
-&& ((state == statetype.idle) || (state == statetype.walk)) {
-
-    //Make the player walk
-    run = false;
+    //Default
+    default: {
     
-    //Empty the P-Meter
-    if (pmeter > 0)
-        pmeter--;
+        //Mario
+        if (global.player == 0)
+            return spr_mario_big_run;
+            
+        //Luigi
+        else if (global.player == 1)
+            return spr_luigi_big_run;
+    } break;
 }

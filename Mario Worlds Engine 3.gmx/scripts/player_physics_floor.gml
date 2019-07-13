@@ -16,7 +16,8 @@ if (vspeed > 0) {
     
     //If that ground exists and the player is above it...
     if (semisolid) 
-    && (y < semisolid.bbox_top-11) {
+    && (y < semisolid.bbox_top-11) 
+    && (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.bbox_top-1, obj_solid, 1, 0)) {
     
         //Snap above the platform
         y = semisolid.bbox_top-16;

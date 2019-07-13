@@ -544,15 +544,45 @@ if (mode = 1)
 var file = file_text_open_write("settings.dat");
 
 //Save fullscreen settings
-file_text_write_string(file,string(fullscreen));
+file_text_write_string(file, string(fullscreen));
 file_text_writeln(file);
 
 //Save filtering settings
-file_text_write_string(file,string(filter));
+file_text_write_string(file, string(filter));
 file_text_writeln(file);
 
 //Save vsync settings
-file_text_write_string(file,string(vsync));
+file_text_write_string(file, string(vsync));
+file_text_writeln(file);
+
+//Save up key
+file_text_write_string(file, string(global.key_u));
+file_text_writeln(file);
+
+//Save down key
+file_text_write_string(file, string(global.key_d));
+file_text_writeln(file);
+
+//Save left key
+file_text_write_string(file, string(global.key_l));
+file_text_writeln(file);
+
+//Save right key
+file_text_write_string(file, string(global.key_r));
+file_text_writeln(file);
+
+//Save action keys
+var i;
+i = 0;
+repeat (4) {
+
+    file_text_write_string(file, string(global.key_action[i]));
+    if (i &lt; 3) {
+    
+        file_text_readln(file);
+        i++;
+    }
+}
 
 //Close the file
 file_text_close(file);
@@ -584,7 +614,7 @@ file_text_close(file);
 if (file_exists("settings.dat")) {
 
     //Open the file
-    var file = file_text_open_read("settings.dat");
+    var file = file_text_open_read("settings.dat");    
 
     //Set fullscreen mode based on the read value
     fullscreen = real(file_text_read_string(file));
@@ -596,6 +626,36 @@ if (file_exists("settings.dat")) {
 
     //Set vsync based on the read value
     vsync = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved up Key
+    global.key_u = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved down key
+    global.key_d = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved ' key
+    global.key_l = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Right' key
+    global.key_r = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Fire 1' to 'Fire 4' keys
+    var i
+    i = 0;
+    repeat (4) {
+    
+        global.key_action[i] = real(file_text_read_string(file));
+        if (i &lt; 3) {
+        
+            file_text_readln(file);
+            i++
+        }
+    }
 
     //Close the file
     file_text_close(file);
@@ -610,6 +670,30 @@ else {
 
     //VSync is off by default
     vsync = 0;
+    
+    //Up key
+    global.key_u = vk_up;
+    
+    //Down key
+    global.key_d = vk_down;
+    
+    //Left key
+    global.key_l = vk_left;
+    
+    //Right key
+    global.key_r = vk_right;
+    
+    //Action 1 (Shift)
+    global.key_action[0] = vk_shift;
+    
+    //Action 2 (Control)
+    global.key_action[1] = vk_control;
+    
+    //Action 3 (Space)
+    global.key_action[2] = vk_space;
+    
+    //Action 4 (Enter)
+    global.key_action[3] = vk_enter;
 }
 
 //Apply loaded settings
