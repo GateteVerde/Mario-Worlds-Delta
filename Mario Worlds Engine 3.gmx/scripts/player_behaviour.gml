@@ -8,6 +8,9 @@
 **      Manages movement of the player.
 */
 
+//Check if above a slope
+slope = player_check_slope();
+
 //Figure out player's state
 if (gravity == 0)
 && ((collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0))
@@ -169,31 +172,35 @@ if (inwall == false)
         if (inwall == 0)
             xscale = 1;
             
-        //Check up the player's horizontal speed
-        if (hspeed < hspeedmax) {
-        
-            //If the player is not overlapping a slippery surface
-            if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
+        //If there's not a wall on the way
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4),obj_solid,1,0)) {
             
-                //If the player is not moving or moving to the right, increment speed
-                if (hspeed >= 0)
-                    hspeed += acc;
+            //Check up the player's horizontal speed
+            if (hspeed < hspeedmax) {
+            
+                //If the player is not overlapping a slippery surface
+                if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
                 
-                //Otherwise, if the player is moving in the opposite direction, go a little bit faster
-                else
-                    hspeed += acc_turn;
-            }
-            
-            //Otherwise, if the player is overlapping a slippery surface
-            else if (collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
-            
-                //If the player is not moving or moving to the right, increment speed
-                if (hspeed >= 0)
-                    hspeed += acc/2;
+                    //If the player is not moving or moving to the right, increment speed
+                    if (hspeed >= 0)
+                        hspeed += acc;
+                    
+                    //Otherwise, if the player is moving in the opposite direction, go a little bit faster
+                    else
+                        hspeed += acc_turn;
+                }
                 
-                //Otherwise, if the player is moving in the opposite direction, go a little bit faster
-                else
-                    hspeed += acc_turn/2;                            
+                //Otherwise, if the player is overlapping a slippery surface
+                else if (collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
+                
+                    //If the player is not moving or moving to the right, increment speed
+                    if (hspeed >= 0)
+                        hspeed += acc/2;
+                    
+                    //Otherwise, if the player is moving in the opposite direction, go a little bit faster
+                    else
+                        hspeed += acc_turn/2;                            
+                }
             }
         }
     }
@@ -212,31 +219,35 @@ if (inwall == false)
         if (inwall == 0)
             xscale = -1;
             
-        //Check up the player's horizontal speed
-        if (hspeed > -hspeedmax) {
-        
-            //If the player is not overlapping a slippery surface
-            if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
-            
-                //If the player is not moving or moving to the right, increment speed
-                if (hspeed <= 0)
-                    hspeed += -acc;
+        //If there's not a wall on the way
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
                 
-                //Otherwise, if the player is moving in the opposite direction, go a little bit faster
-                else
-                    hspeed += -acc_turn;
-            }
+            //Check up the player's horizontal speed
+            if (hspeed > -hspeedmax) {
             
-            //Otherwise, if the player is overlapping a slippery surface
-            else if (collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
-            
-                //If the player is not moving or moving to the right, increment speed
-                if (hspeed <= 0)
-                    hspeed += -acc/2;
+                //If the player is not overlapping a slippery surface
+                if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
                 
-                //Otherwise, if the player is moving in the opposite direction, go a little bit faster
-                else
-                    hspeed += -acc_turn/2;                            
+                    //If the player is not moving or moving to the right, increment speed
+                    if (hspeed <= 0)
+                        hspeed += -acc;
+                    
+                    //Otherwise, if the player is moving in the opposite direction, go a little bit faster
+                    else
+                        hspeed += -acc_turn;
+                }
+                
+                //Otherwise, if the player is overlapping a slippery surface
+                else if (collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
+                
+                    //If the player is not moving or moving to the right, increment speed
+                    if (hspeed <= 0)
+                        hspeed += -acc/2;
+                    
+                    //Otherwise, if the player is moving in the opposite direction, go a little bit faster
+                    else
+                        hspeed += -acc_turn/2;                            
+                }
             }
         }            
     }

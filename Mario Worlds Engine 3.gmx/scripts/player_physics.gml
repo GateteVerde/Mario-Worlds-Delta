@@ -8,31 +8,34 @@
 **      Manages the physics of the player object
 */
 
+//Check if above a slope
+slope = player_check_slope();
+
 //Manage floor collision
 player_physics_floor();
 
 //If moving right and the player bumps a wall to the right
 if (hspeed > 0) 
-&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
+&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
     
     //Stop horizontal movement
     hspeed = 0;
     
     //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0))
+    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
     && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x--;
 }
 
 //Otherwise, if moving left and the player bumps a wall to the left
 else if (hspeed < 0)
-&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
+&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
     
     //Stop horizontal movement
     hspeed = 0;
     
     //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
     && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x++;
 }
@@ -164,7 +167,7 @@ if (vspeed == 0)
     
     //If the player gets stuck
     if (inwall == false)
-    && (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4,obj_solid,1,0)) {
+    && (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4,obj_solid,1,0)) {
     
         //If the direction was not set, set it up
         if (direct2 == 0) then direct2 = xscale;
@@ -180,7 +183,7 @@ if (vspeed == 0)
     else if (inwall == true) {
     
         //If the player is not longer stuck, allow movement
-        if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+        if (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
         || (crouch == true) 
         || (global.powerup == cs_pow_small) {
         

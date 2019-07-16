@@ -392,6 +392,9 @@ player_set_palette();
 //Draw the player
 draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
 
+//Draw the mask
+draw_sprite_ext(mask_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+
 //Reset palette
 pal_swap_reset();
 </string>
