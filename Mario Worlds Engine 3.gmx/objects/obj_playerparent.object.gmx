@@ -42,6 +42,7 @@ enum statetype {
     climb
 }
 state = statetype.idle;
+delay = 0;
 
 //Handle player's facing direction.
 //1:   Right
@@ -72,7 +73,6 @@ jumpstyle = 0;
 run = false;
 
 //Allow player to turn while moving
-skidnow = false;
 turnnow = false;
 
 //Manages player movement if sliding
@@ -107,6 +107,9 @@ hitcombo = 0;
 
 //Check if the player is on a slippery surface
 inice = 0;
+
+//Maximum horizontal speed
+hspeedmax = 1.5;
 
 //Call the following objects
 instance_create(0, 0, obj_bound_top);
@@ -251,7 +254,7 @@ if (swimming == 0) {
     }
     
     //Otherwise, if the player is sliding down a slope
-    else if (sliding == 1) {
+    else if (sliding == true) {
     
         //Perform player slide physics
         player_behaviour_slide();
@@ -266,7 +269,7 @@ if (swimming == 0) {
 }
 
 //Otherwise, if the player is swimming
-else if (swimming == 1) {
+else if (swimming == true) {
 
     //Perform player swim physics
     player_behaviour_swim();
@@ -311,6 +314,54 @@ jumpstyle = 0;
 //Reset combos when not sliding down a slope
 if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
     hitcombo = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Hop when stomping a enemy
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Hurt the player
+
+
 </string>
           </argument>
         </arguments>

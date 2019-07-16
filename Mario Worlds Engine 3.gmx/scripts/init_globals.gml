@@ -71,8 +71,8 @@ for (var i=0; i<8; i++;) {
 global.bonus = -1;
 
 //Is Mario riding a yoshi?
-global.yoshi = 0;
-global.yoshicolour = 0;
+global.mount = 0;
+global.mountcolour = 0;
 
 //Item in reserve
 global.reserveitem = 0;

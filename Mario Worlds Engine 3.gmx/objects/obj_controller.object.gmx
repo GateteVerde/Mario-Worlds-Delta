@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-99</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -50,6 +50,9 @@ message = "";
 //Game width / heigh
 global.gw = 384;
 global.gh = 216;
+
+//Display FPS
+showfps = false;
 
 //Disable application surface automatic drawing
 application_surface_draw_enable(0)
@@ -109,7 +112,7 @@ event_user(1);
             <kind>1</kind>
             <string>///Return to title
 
-//room_goto(rm_titlescreen);
+room_goto_next();
 </string>
           </argument>
         </arguments>
@@ -212,6 +215,12 @@ instance_deactivate_all(1);
 //Set mode to fade from black
 mode = 0;
 
+//Stop fade
+fade = 0;
+
+//Activate all
+instance_activate_all();
+
 //Delete the screenshot
 if (background_exists(back))
     background_delete(back);
@@ -292,7 +301,7 @@ else if (keyboard_check_pressed(ord('R'))) {
     event_user(3);
     
     //Go to the title screen
-    room_goto(rm_titlescreen);
+    //room_goto(rm_titlescreen);
 }
 
 //Fullscreen (Handled by GM: Studio)
@@ -448,7 +457,7 @@ if (mode == 0) {
 }
 
 //Start fading
-done = 0;
+fade = 0;
 
 //To black
 mode = 1;
@@ -571,18 +580,21 @@ file_text_writeln(file);
 file_text_write_string(file, string(global.key_r));
 file_text_writeln(file);
 
-//Save action keys
-var i;
-i = 0;
-repeat (4) {
+//Save action 1 key
+file_text_write_string(file, string(global.key_action[0]));
+file_text_writeln(file);
 
-    file_text_write_string(file, string(global.key_action[i]));
-    if (i &lt; 3) {
-    
-        file_text_readln(file);
-        i++;
-    }
-}
+//Save action 2 key
+file_text_write_string(file, string(global.key_action[1]));
+file_text_writeln(file);
+
+//Save action 3 key
+file_text_write_string(file, string(global.key_action[2]));
+file_text_writeln(file);
+
+//Save action 4 key
+file_text_write_string(file, string(global.key_action[3]));
+file_text_writeln(file);
 
 //Close the file
 file_text_close(file);
@@ -644,18 +656,20 @@ if (file_exists("settings.dat")) {
     global.key_r = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Fire 1' to 'Fire 4' keys
-    var i
-    i = 0;
-    repeat (4) {
+    //Set saved 'Action 1' Key (Default: Shift)
+    global.key_action[0] = real(file_text_read_string(file));
+    file_text_readln(file);
     
-        global.key_action[i] = real(file_text_read_string(file));
-        if (i &lt; 3) {
-        
-            file_text_readln(file);
-            i++
-        }
-    }
+    //Set saved 'Action 2' Key (Default: Control)
+    global.key_action[1] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 3' Key (Default: Space)
+    global.key_action[2] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 4' Key (Default: Enter)
+    global.key_action[3] = real(file_text_read_string(file));
 
     //Close the file
     file_text_close(file);
@@ -698,6 +712,9 @@ else {
 
 //Apply loaded settings
 alarm[5] = 1;
+
+//Go to title screen
+alarm[4] = 60;
 </string>
           </argument>
         </arguments>
@@ -723,10 +740,10 @@ alarm[5] = 1;
             <string>///Deals with the application surface, window size, and fading.
 
 //Disable alpha blending
-draw_enable_alphablend(0)
+draw_enable_alphablend(0);
 
 //Set the pixelate shader
-if (done &lt; 1) {
+if (fade &lt; 1) {
 
     shader_set(shd_pixel);
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);
@@ -751,10 +768,10 @@ shader_reset();
 draw_enable_alphablend(1);
 
 //Fades the screen to and from black
-if (done &lt; 1) {
+if (fade &lt; 1) {
 
     //Increment fading
-    done += 1/30;
+    fade += 1/30;
 
     //Fade from black
     if (mode = 0) {
@@ -809,7 +826,7 @@ if (background_exists(back)) {
 }
 
 //Set the font
-draw_set_font(global.font);
+//draw_set_font(global.font);
 
 //Align the font
 draw_set_halign(fa_right);

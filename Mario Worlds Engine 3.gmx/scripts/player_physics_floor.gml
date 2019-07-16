@@ -12,15 +12,15 @@
 if (vspeed > 0) {
 
     //Check for a semisolid ground
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1+vspeed, obj_semisolid, 1, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
     
     //If that ground exists and the player is above it...
     if (semisolid) 
-    && (y < semisolid.bbox_top-11) 
-    && (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.bbox_top-1, obj_solid, 1, 0)) {
+    && (y < semisolid.y-11) 
+    && (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
     
         //Snap above the platform
-        y = semisolid.bbox_top-16;
+        y = semisolid.y-16;
         
         //Stop vertical movement
         vspeed = 0;
@@ -32,14 +32,14 @@ if (vspeed > 0) {
 }
 
 //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+4, obj_slopeparent, 1, 0))
-&& (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_slopeparent, 1, 0))
+if (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+4, obj_slopeparent, 1, 0))
+&& (!collision_rectangle(x, bbox_bottom-4, x, bbox_bottom-4, obj_slopeparent, 1, 0))
 && (state == statetype.walk)
     y += 4;
 
 //Handle collision with slopes
-if (collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
-&& (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+if (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
+&& (!collision_rectangle(x, bbox_bottom-8, x, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
     //If moving down
     if (vspeed > 0) {
@@ -54,6 +54,6 @@ if (collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_s
     
     //Prevent the player from getting embed inside a slope
     if (vspeed > -0.85)
-        while (collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
+        while (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
             y--;
 }

@@ -43,9 +43,6 @@ acc_turn = 0.15;
 //Deceleration
 dec = 0.0375;
 
-//Deceleration (when turning)
-dec_turn = 0.072;
-
 //Gravity
 grav = 0.3625;
 
@@ -118,15 +115,14 @@ if (crouch == true) {
     }
     
     //Cancel turning
-    skidnow = 0;
     turnnow = 0;
     
     //Set up the mask
     mask_index = spr_mask_player;
     
     //Stop 'Skid' sound
-    if (audio_is_playing(snd_skid))
-        audio_stop_sound(snd_skid);
+    /*if (audio_is_playing(snd_skid))
+        audio_stop_sound(snd_skid);*/
 }
 
 //Otherwise, if Mario is not longer crouched down
@@ -192,8 +188,8 @@ else if (crouch == false) {
                         image_index = 0;
                         
                         //Play 'Skid' sound
-                        if (!audio_is_playing(snd_skid))
-                            audio_play_sound(snd_skid, 0, true);                    
+                        //if (!audio_is_playing(snd_skid))
+                            //audio_play_sound(snd_skid, 0, true);                    
                     }
                     
                     //Otherwise
@@ -323,81 +319,107 @@ else if (crouch == false) {
     //Otherwise, if the player is holding something
     else if (holding == true) {
     
-        //If Mario is not moving
-        if (state == statetype.idle) {
+        //If Mario is turning around
+        if (turnnow == true) {
         
             //Set the sprite
-            sprite_index = player_hold();
+            sprite_index = player_spin();
             
             //Do not animate
             image_speed = 0;
-            
-            //But set the appropiate frame
-            if (keyboard_check(global.key_u))
-                image_index = 1;
-            else
-                image_index = 0;
+            image_index = 1;
         }
+    
+        //Otherwise, if Mario is not turning around
+        else {
         
-        //Otherwise, if Mario is walking
-        else if (state == statetype.walk) {
-        
-            //Set the sprite
-            sprite_index = player_hold2();
-                        
-            //Animate
-            image_speed = (0.065*(inice*2))+abs(hspeed)/7.5;                       
-        }
-        
-        //Otherwise, if Mario is jumping
-        else if (state == statetype.jump) {
-        
-            //If Mario is not swimming
-            if (swimming == false) {
-            
-                //If Mario is doing a spinjump
-                if (jumpstyle == true) {
-                
-                    //Set the sprite
-                    sprite_index = player_spin();
-                    
-                    //Animate
-                    image_speed = 0.5;
-                }
-                
-                //Otherwise, if Mario is not doing a spinjump
-                else if (jumpstyle == false) {
-                
-                    //Set the sprite
-                    sprite_index = player_hold2();
-                    
-                    //Do not animate
-                    image_speed = 0;
-                    image_index = 0;
-                }
-            }
-            
-            //Otherwise, if the player is swimming
-            else if (swimming == true) {
+            //If Mario is not moving
+            if (state == statetype.idle) {
             
                 //Set the sprite
-                sprite_index = player_swim2();
+                sprite_index = player_hold();
                 
-                //If moving down
-                if (vspeed &gt; 0)
-                    image_speed = 0.15;
+                //Do not animate
+                image_speed = 0;
                 
-                //Otherwise
-                else {
-                
-                    //Do not animate
-                    image_speed = 0;
+                //But set the appropiate frame
+                if (keyboard_check(global.key_u))
+                    image_index = 1;
+                else
                     image_index = 0;
+            }
+            
+            //Otherwise, if Mario is walking
+            else if (state == statetype.walk) {
+            
+                //Set the sprite
+                sprite_index = player_hold2();
+                            
+                //Animate
+                image_speed = (0.065*(inice*2))+abs(hspeed)/7.5;                       
+            }
+            
+            //Otherwise, if Mario is jumping
+            else if (state == statetype.jump) {
+            
+                //If Mario is not swimming
+                if (swimming == false) {
+                
+                    //If Mario is doing a spinjump
+                    if (jumpstyle == true) {
+                    
+                        //Set the sprite
+                        sprite_index = player_spin();
+                        
+                        //Animate
+                        image_speed = 0.5;
+                    }
+                    
+                    //Otherwise, if Mario is not doing a spinjump
+                    else if (jumpstyle == false) {
+                    
+                        //Set the sprite
+                        sprite_index = player_hold2();
+                        
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+                
+                //Otherwise, if the player is swimming
+                else if (swimming == true) {
+                
+                    //Set the sprite
+                    sprite_index = player_swim2();
+                    
+                    //If moving down
+                    if (vspeed &gt; 0)
+                        image_speed = 0.15;
+                    
+                    //Otherwise
+                    else {
+                    
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
+                    }
                 }
             }
         }
     }
+    
+    //Set up the mask
+    if (global.powerup &gt; cs_pow_small)
+        mask_index = spr_mask_player_big;
+    else
+        mask_index = spr_mask_player;
 }
+
+/*Force end skid sound
+if (sprite_index != player_skid()) 
+&amp;&amp; (audio_is_playing(snd_skid))
+    audio_stop_sound(snd_skid);*/
 
 //Force end firing animation if walking
 if (firing &gt; 0)

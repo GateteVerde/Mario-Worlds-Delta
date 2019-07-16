@@ -176,11 +176,18 @@
         <script>scripts\player_ride.gml</script>
         <script>scripts\player_shoot.gml</script>
       </scripts>
+      <scripts name="Behaviour">
+        <script>scripts\player_behaviour.gml</script>
+        <script>scripts\player_behaviour_climb.gml</script>
+        <script>scripts\player_behaviour_slide.gml</script>
+        <script>scripts\player_behaviour_swim.gml</script>
+      </scripts>
       <scripts name="Physics">
         <script>scripts\player_meter.gml</script>
         <script>scripts\player_physics.gml</script>
         <script>scripts\player_physics_floor.gml</script>
       </scripts>
+      <script>scripts\allow_move.gml</script>
       <script>scripts\player_create.gml</script>
       <script>scripts\player_set_palette.gml</script>
     </scripts>
@@ -240,7 +247,7 @@
         <object>objects\obj_slopeparent_ceiling</object>
       </objects>
       <objects name="Do Not Use!">
-        <objects name="Mario">
+        <objects name="Players">
           <object>objects\obj_mario</object>
           <object>objects\obj_luigi</object>
           <object>objects\obj_bound_top</object>
@@ -252,6 +259,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_engine</room>
   </rooms>
   <constants number="4">
     <constant name="cs_pow_small">0</constant>

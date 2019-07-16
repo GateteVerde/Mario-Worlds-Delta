@@ -11,36 +11,30 @@
 //Manage floor collision
 player_physics_floor();
 
-//If moving right...
-if (hspeed > 0) {
-
-    //...and the player bumps a wall to the right
-    if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solid, 1, 0)) {
+//If moving right and the player bumps a wall to the right
+if (hspeed > 0) 
+&& (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0)) {
     
-        //Stop horizontal movement
-        hspeed = 0;
-        
-        //Prevent the player from getting embed in the wall
-        while (collision_rectangle(x, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-        && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-            x--;
-    }
+    //Stop horizontal movement
+    hspeed = 0;
+    
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0))
+    && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x--;
 }
 
-//Otherwise, if moving left...
-else if (hspeed < 0) {
-
-    //...and the player bumps a wall to the left
-    if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)) {
+//Otherwise, if moving left and the player bumps a wall to the left
+else if (hspeed < 0)
+&& (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
     
-        //Stop horizontal movement
-        hspeed = 0;
-        
-        //Prevent the player from getting embed in the wall
-        while (collision_rectangle(bbox_left, bbox_top+4, x, bbox_bottom-1, obj_solid, 1, 0))
-        && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-            x++;
-    }
+    //Stop horizontal movement
+    hspeed = 0;
+    
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+    && (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x++;
 }
 
 //If moving up...
@@ -64,7 +58,7 @@ if (vspeed < 0) {
         if (state != statetype.climb) {
         
             //Play 'Bump' sound
-            audio_play_sound(snd_bump, 0, false);
+            //audio_play_sound(snd_bump, 0, false);
             
             //Stop variable jumping
             jumping = 2;
@@ -84,32 +78,13 @@ if (state != statetype.climb) {
             crouch = true;
         
         //Otherwise, make the player get up
-        else if (!keyboard_check(global.key_d)) {
-        
-            //If there's a solid right above
-            if (collision_rectangle(bbox_left, bbox_top-16, bbox_right, bbox_top, obj_solid, 1, 0)) {
-            
-                //If the direction was not set, set it up.
-                if (direct2 == 0) {
-                
-                    direct2 = xscale;
-                }
-                
-                //Begin wall movement
-                inwall = true;
-                
-                //Set the movement direction
-                direct = -direct2;
-            }
-            
-            //Stop crouching down
+        else if (!keyboard_check(global.key_d))
             crouch = false;
-        }        
     }
     
-    //Manage player projectiles if 'Control' is pressed and the barrier is deactivated.
+    /*Manage player projectiles if 'Control' is pressed and the barrier is deactivated.
     if (keyboard_check_pressed(vk_control)) && (obj_levelcontrol.barrier == false)
-        alarm[10] = 1;
+        alarm[10] = 1;*/
 }
 
 //Otherwise, if the player is climbing
@@ -159,7 +134,7 @@ else if (!water)
             if (keyboard_check(global.key_action[0])) {
             
                 //Play 'Jump' sound
-                audio_play_sound(snd_jump, 0, false);
+                //audio_play_sound(snd_jump, 0, false);
                 
                 //Stop swimming
                 swimming = false;
@@ -182,33 +157,53 @@ else if (!water)
     }
 }
 
-//If the player is stuck in a wall
-if (inwall == true) {
+//Free the player is he is stuck on a solid.
+if (vspeed == 0)
+&& (crouch == false) 
+&& (mask_index == spr_mask_player_big) {
     
-    //If the player is not longer stuck, allow movement
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
-    || (crouch == true) 
-    || (global.powerup == cs_pow_small) {
+    //If the player gets stuck
+    if (inwall == false)
+    && (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_top+4,obj_solid,1,0)) {
     
-        //End wall movement
-        inwall = false;
+        //If the direction was not set, set it up
+        if (direct2 == 0) then direct2 = xscale;
         
-        //Reset movement direction
-        direct2 = 0;
+        //Begin movement
+        inwall = true;
+        
+        //Set the movement direction
+        direct = -direct2;
     }
     
-    //Push the player until it is not stuck
-    x += 1*sign(direct);
+    //Otherwise, if the player gets stuck on a wall.
+    else if (inwall == true) {
     
-    //If the player collides with a wall while being stuck, reverse direction
-    if (collision_rectangle(bbox_left, y+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    || (collision_rectangle(bbox_right, y+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-        direct = -direct;
+        //If the player is not longer stuck, allow movement
+        if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+        || (crouch == true) 
+        || (global.powerup == cs_pow_small) {
+        
+            //End wall movement
+            inwall = false;
+            
+            //Reset movement direction
+            direct2 = 0;
+        }
+        
+        //Push the player until it is not stuck
+        x += 1*sign(direct);
+        
+        //If the player collides with a wall while being stuck, reverse direction
+        if (collision_rectangle(bbox_left, y+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_right, y+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+            direct = -direct;
+    }
 }
 
 //Unstuck in case of overlapping a solid completely
-if (state < 2)
-&& (inwall == 0)
+if (inwall == false)
+&& (state != statetype.jump)
     while (collision_rectangle(x-1, bbox_top, x+1, bbox_bottom, obj_solid, 1, 0))
         y--;
         
@@ -224,6 +219,7 @@ if (y < -96)
 //Otherwise, if he is falling.
 else {
 
+    /*
     //If the player falls into a pit
     if (bbox_bottom > room_height+32) {
     
@@ -231,4 +227,5 @@ else {
         instance_destroy();
         exit;
     }
+    */
 }
