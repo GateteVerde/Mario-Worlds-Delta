@@ -8,12 +8,9 @@
 **      Manages movement of the player.
 */
 
-//Check if above a slope
-slope = player_check_slope();
-
 //Figure out player's state
 if (gravity == 0)
-&& ((collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0))
+&& ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
 || (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+1, obj_slopeparent, 1, 0))) {
 
     //If the player is not moving up
@@ -258,29 +255,13 @@ if (inwall == false)
         //If the player is not overlapping a slippery surface
         if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
         
-            //If the player is not crouched down
-            if (crouch == false) {
+            //Reduce player's horizontal speed
+            hspeed = max(0, abs(hspeed)-dec)*sign(hspeed);
             
-                //Reduce player's horizontal speed
-                hspeed = max(0, abs(hspeed)-dec)*sign(hspeed);
-                
-                //Set horizontal speed to 0 when the horizontal speed hits value in 'dec'.
-                if (hspeed < dec)
-                && (hspeed > dec*-1)
-                    hspeed = 0;
-            }
-            
-            //Otherwise, if the player is crouched down
-            else if (crouch == true) {
-            
-                //Reduce player's horizontal speed yet slower
-                hspeed = max(0, abs(hspeed)-(dec/2))*sign(hspeed);
-                
-                //Set horizontal speed to 0 when the horizontal speed hits value in 'dec/4'.
-                if (hspeed < (dec/2))
-                && (hspeed > -(dec/2))
-                    hspeed = 0;
-            }
+            //Set horizontal speed to 0 when the horizontal speed hits value in 'dec'.
+            if (hspeed < dec)
+            && (hspeed > dec*-1)
+                hspeed = 0;
         }
         
         //Otherwise, if the player is overlapping a slippery surface
@@ -303,29 +284,13 @@ else if (vspeed == 0) {
     //If the player is not overlapping a slippery surface
     if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
     
-        //If the player is not crouched down
-        if (crouch == false) {
+        //Reduce player's horizontal speed
+        hspeed = max(0, abs(hspeed)-dec)*sign(hspeed);
         
-            //Reduce player's horizontal speed
-            hspeed = max(0, abs(hspeed)-dec)*sign(hspeed);
-            
-            //Set horizontal speed to 0 when the horizontal speed hits value in 'dec'.
-            if (hspeed < dec)
-            && (hspeed > dec*-1)
-                hspeed = 0;
-        }
-        
-        //Otherwise, if the player is crouched down
-        else if (crouch == true) {
-        
-            //Reduce player's horizontal speed yet slower
-            hspeed = max(0, abs(hspeed)-(dec/2))*sign(hspeed);
-            
-            //Set horizontal speed to 0 when the horizontal speed hits value in 'dec/4'.
-            if (hspeed < (dec/2))
-            && (hspeed > -(dec/2))
-                hspeed = 0;
-        }
+        //Set horizontal speed to 0 when the horizontal speed hits value in 'dec'.
+        if (hspeed < dec)
+        && (hspeed > dec*-1)
+            hspeed = 0;
     }
     
     //Otherwise, if the player is overlapping a slippery surface

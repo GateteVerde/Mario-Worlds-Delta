@@ -111,7 +111,11 @@ inice = 0;
 //Maximum horizontal speed
 hspeedmax = 1.5;
 
+//Is the player on a sloped terrain?
+slope = 0;
+
 //Call the following objects
+instance_create(x, y, obj_camera);
 instance_create(0, 0, obj_bound_top);
 instance_create(0, 0, obj_bound_bottom);
 </string>
@@ -219,8 +223,58 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Player Logic
 
-//Update Player's Physics
-player_physics();
+//Check if above a slope
+slope = player_inslope();
+
+//If moving down
+if (vspeed &gt; 0) {
+
+    //Check for a semisolid ground
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
+    
+    //If that ground exists and the player is above it...
+    if (semisolid) 
+    &amp;&amp; (y &lt; semisolid.y-11) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+    
+        //Snap above the platform
+        y = semisolid.y-16;
+        
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+        
+        //Reset values
+        event_user(15);
+    }
+}
+
+//Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
+if (collision_rectangle(x, bbox_bottom, x, bbox_bottom+4, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x, bbox_bottom-4, x, bbox_bottom-4, obj_slopeparent, 1, 0))
+&amp;&amp; (state == statetype.walk)
+    y += 4;
+
+//Handle collision with slopes
+if (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x, bbox_bottom-8, x, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+    //If moving down
+    if (vspeed &gt; 0) {
+    
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+        
+        //Reset values
+        event_user(15);
+    }
+    
+    //Prevent the player from getting embed inside a slope
+    if (vspeed &gt; -0.85)
+        while (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
+            y--;
+}
 
 //If the player is not swimming
 if (swimming == 0) {
@@ -280,6 +334,219 @@ else if (swimming == true) {
     //Decrement P-Meter
     if (pmeter &gt; 0)
         pmeter--;
+}
+
+//If moving right and the player bumps a wall to the right
+if (hspeed &gt; 0) 
+&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+    
+    //Stop horizontal movement
+    hspeed = 0;
+    
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x--;
+}
+
+//Otherwise, if moving left and the player bumps a wall to the left
+else if (hspeed &lt; 0)
+&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+    
+    //Stop horizontal movement
+    hspeed = 0;
+    
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x++;
+}
+
+//If moving up...
+if (vspeed &lt; 0) {
+
+    //...and the player bumps a ceiling
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+    
+        //If the player is jumping or climbing
+        if (state == statetype.jump) 
+        || (state == statetype.climb) {
+        
+            while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0)) 
+                y++;
+        }
+        
+        //Stop vertical movement
+        vspeed = 0;
+        
+        //If the player is not climbing
+        if (state != statetype.climb) {
+        
+            //Play 'Bump' sound
+            //audio_play_sound(snd_bump, 0, false);
+            
+            //Stop variable jumping
+            jumping = 2;
+        }
+    }
+}
+
+//If the player is not climbing
+if (state != statetype.climb) {
+
+    //If the player is not jumping and the controls are not disabled
+    if (control_enable == true)
+    &amp;&amp; (state != statetype.jump) {
+    
+        //Makes the player crouch down if 'Down' is held
+        if (keyboard_check(global.key_d)) 
+            crouch = true;
+        
+        //Otherwise, make the player get up
+        else if (!keyboard_check(global.key_d))
+            crouch = false;
+    }
+    
+    /*Manage player projectiles if 'Control' is pressed and the barrier is deactivated.
+    if (keyboard_check_pressed(vk_control)) &amp;&amp; (obj_levelcontrol.barrier == false)
+        alarm[10] = 1;*/
+}
+
+//Otherwise, if the player is climbing
+else if (state == statetype.climb) {
+
+    //Disable ducking
+    crouch = false;
+    
+    //Disable spin jump
+    jumpstyle = false;
+}
+
+//Check for a swimming surface
+var water = collision_rectangle(bbox_left, y-1, bbox_right, y, obj_swim, 0, 0);
+
+//If there's a swimming surface
+if (water) 
+&amp;&amp; (swimming == false) {
+
+    //Halve current horizontal speed
+    hspeed = hspeed/2;
+    
+    //Make the player swim
+    swimming = true;
+    
+    //Disable ducking
+    crouch = false;
+    
+    //Stop vertical movement
+    gravity = 0;
+    if (vspeed &gt; 0)
+        vspeed = 0;
+}
+
+//Otherwise, if the player had enough swimming and wants to get out of water
+else if (!water)
+&amp;&amp; (swimming == true) {
+
+    //If there's not a solid above
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+    
+        //If the player is moving up
+        if (vspeed &lt; 0)
+        &amp;&amp; (state == statetype.jump) {
+        
+            //If 'Action 0' is being held
+            if (keyboard_check(global.key_action[0])) {
+            
+                //Play 'Jump' sound
+                //audio_play_sound(snd_jump, 0, false);
+                
+                //Stop swimming
+                swimming = false;
+                
+                //Allow variable jump
+                jumping = 1;
+                
+                //Set vertical speed
+                vspeed = -jumpstrength;
+            }
+            
+            //Otherwise, stop vertical movement
+            else {
+            
+                //If moving up
+                if (vspeed &lt; 0)
+                    vspeed = 0;
+            }
+        }
+    }
+}
+
+//Free the player is he is stuck on a solid.
+if (vspeed == 0)
+&amp;&amp; (crouch == false) 
+&amp;&amp; (mask_index == spr_mask_player_big) {
+    
+    //If the player gets stuck
+    if (inwall == false)
+    &amp;&amp; (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4,obj_solid,1,0)) {
+    
+        //If the direction was not set, set it up
+        if (direct2 == 0) then direct2 = xscale;
+        
+        //Begin movement
+        inwall = true;
+        
+        //Set the movement direction
+        direct = -direct2;
+    }
+    
+    //Otherwise, if the player gets stuck on a wall.
+    else if (inwall == true) {
+    
+        //If the player is not longer stuck, allow movement
+        if (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+        || (crouch == true) 
+        || (global.powerup == cs_pow_small) {
+        
+            //End wall movement
+            inwall = false;
+            
+            //Reset movement direction
+            direct2 = 0;
+        }
+        
+        //Push the player until it is not stuck
+        x += 1*sign(direct);
+        
+        //If the player collides with a wall while being stuck, reverse direction
+        if (collision_rectangle(bbox_left, y+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_right, y+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+            direct = -direct;
+    }
+}
+
+//Unstuck in case of overlapping a solid completely
+if (inwall == false)
+&amp;&amp; (state != statetype.jump)
+    while (collision_rectangle(x-1, bbox_top, x+1, bbox_bottom, obj_solid, 1, 0))
+        y--;
+        
+//If the player is not in contact with water.
+if (!collision_rectangle(bbox_left, y, bbox_right, bbox_bottom, obj_swim, 0, 0))
+&amp;&amp; (swimming == true)
+    swimming = false;
+
+//Prevent the player from going too high on the level
+if (y &lt; -96)
+    y = -96;
+    
+//Otherwise, if he is falling.
+else {
+
+    //If the player falls into a pit, restart the room
+    if (bbox_bottom &gt; room_height+32)
+        room_restart();
 }
 </string>
           </argument>
@@ -391,9 +658,6 @@ player_set_palette();
 
 //Draw the player
 draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
-
-//Draw the mask
-draw_sprite_ext(mask_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
 
 //Reset palette
 pal_swap_reset();

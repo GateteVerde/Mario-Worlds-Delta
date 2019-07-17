@@ -229,42 +229,6 @@ if (background_exists(back))
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Update camera
-
-//Set the width / height of the camera.
-view_wport[0] = global.gw;
-view_hport[0] = global.gh;
-view_wview[0] = global.gw;
-view_hview[0] = global.gh;
-
-//Enable views
-view_enabled = true;
-
-//Make view 0 visible
-if (view_visible[0] == false)
-    view_visible[0] = true;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="5" enumb="18">
       <action>
         <libid>1</libid>
@@ -505,6 +469,51 @@ alarm[1] = 1;
       </action>
     </event>
     <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set view parameters
+
+//Make view 0 visible if not visible
+view_visible[0] = true;
+
+//Enable views if not enabled
+view_enabled = true;
+
+//Update wport
+view_wport[0] = global.gw;
+
+//Update hport
+view_hport[0] = global.gh;
+
+//Update wview
+view_wview[0] = global.gw;
+
+//Update hview
+view_hview[0] = global.gh; 
+
+//Update hborder
+view_hborder[0] = global.gw/2;
+
+//Update vborder
+view_vborder[0] = global.gh/2;
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
