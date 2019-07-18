@@ -396,6 +396,7 @@ if (state != statetype.climb) {
 
     //If the player is not jumping and the controls are not disabled
     if (control_enable == true)
+    &amp;&amp; (sliding == false)
     &amp;&amp; (state != statetype.jump) {
     
         //Makes the player crouch down if 'Down' is held

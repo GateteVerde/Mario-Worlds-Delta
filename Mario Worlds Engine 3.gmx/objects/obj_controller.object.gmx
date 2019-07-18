@@ -265,7 +265,7 @@ else if (keyboard_check_pressed(ord('R'))) {
     event_user(3);
     
     //Go to the title screen
-    //room_goto(rm_titlescreen);
+    room_goto(rm_engine);
 }
 
 //Fullscreen (Handled by GM: Studio)

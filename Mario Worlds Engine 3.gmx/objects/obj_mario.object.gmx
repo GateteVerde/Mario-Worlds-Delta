@@ -93,6 +93,12 @@ hspeed_run_full = 3.5;
             <kind>1</kind>
             <string>///Manage Mario's animation
 
+//Check if Mario is on a slippery surface
+if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom, obj_iceparent, 1, 0))
+    inice = true;
+else
+    inice = false;
+
 //If Mario is crouched down
 if (crouch == true) {
 
@@ -196,7 +202,7 @@ else if (crouch == false) {
                     else {
                         
                         //Animate
-                        image_speed = (0.065*(inice*2))+abs(hspeed)/7.5;
+                        image_speed = (0.065*(inice*4))+abs(hspeed)/7.5;
                         
                         //Set up the sprite
                         if (run == true)
@@ -356,7 +362,7 @@ else if (crouch == false) {
                 sprite_index = player_hold2();
                             
                 //Animate
-                image_speed = (0.065*(inice*2))+abs(hspeed)/7.5;                       
+                image_speed = (0.065*(inice*4))+abs(hspeed)/7.5;                       
             }
             
             //Otherwise, if Mario is jumping
