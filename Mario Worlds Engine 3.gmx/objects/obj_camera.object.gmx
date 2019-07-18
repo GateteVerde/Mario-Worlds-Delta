@@ -29,6 +29,10 @@
 
 //Orientation
 orientation = 1;
+
+//Camera Y
+camera_y = 0;
+camera_timer = 30;
 </string>
           </argument>
         </arguments>
@@ -86,13 +90,118 @@ if (instance_exists(obj_playerparent)) {
             x = obj_playerparent.x-32;
     }
     
+    //Set camera vertical position
+    event_user(0);
+    
     //Stay relative to player's y position
-    y = obj_playerparent.y;
+    y = obj_playerparent.y+camera_y;
+    
+    //Prevent the player from going outside the view
+    if (obj_playerparent.x &lt; view_xview[0]+8) {
+    
+        obj_playerparent.x = view_xview[0]+8;
+        if (obj_playerparent.hspeed &lt; 0)
+            obj_playerparent.hspeed = 0;
+    }
+    else if (obj_playerparent.x &gt; view_xview[0] + view_wview[0]-8) {
+    
+        obj_playerparent.x = view_xview[0] + view_wview[0]-8;
+        if (obj_playerparent.hspeed &gt; 0)
+            obj_playerparent.hspeed = 0;    
+    }
+}
+
+//Otherwise, cancel camera y scroll
+else {
+
+    //Reset timer
+    camera_timer = 60;
+    
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
 }
 
 //Round position
 x = round(x);
 y = round(y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Adjust camera y position
+
+//Make sure the player is not doing anything
+if (obj_playerparent.state == statetype.idle) {
+    
+    //If the 'Up' key is pressed
+    if (keyboard_check(global.key_u)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y -= 4;
+            if (camera_y &lt; -64)
+                camera_y = -64;
+        }
+    }
+    
+    //Otherwise, if the 'Down' key is pressed
+    else if (keyboard_check(global.key_d)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y += 4;
+            if (camera_y &gt; 64)
+                camera_y = 64;
+        }
+    }
+    
+    //Otherwise, reset it
+    else {
+    
+        //Reset timer
+        camera_timer = 30;
+        
+        //Return camera position
+        if (camera_y &gt; 0)
+            camera_y -= 4;
+        else if (camera_y &lt; 0)
+            camera_y += 4;            
+    }
+}
+else {
+
+    //Reset timer
+    camera_timer = 30;
+    
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
+}
 </string>
           </argument>
         </arguments>

@@ -11,7 +11,7 @@
 //Figure out player's state
 if (gravity == 0)
 && ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
-|| (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+1, obj_slopeparent, 1, 0))) {
+|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1, obj_slopeparent, 1, 0))) {
 
     //If the player is not moving up
     if (vspeed >= 0) {

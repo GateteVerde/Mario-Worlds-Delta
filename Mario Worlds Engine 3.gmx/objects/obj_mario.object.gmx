@@ -229,7 +229,7 @@ else if (crouch == false) {
                             if (run == true) {
                             
                                 //Set the sprite
-                                sprite_index = player_run();
+                                sprite_index = player_runjump();
                                 
                                 //Do not animate
                                 image_speed = 0;

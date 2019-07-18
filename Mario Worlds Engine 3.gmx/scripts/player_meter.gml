@@ -37,8 +37,7 @@ if (abs(hspeed) > hspeed_run-0.1) {
 }
 
 //Otherwise, if the player horizontal speed is lower than the value given in "hspeed_run".
-else if (run == false)
-&& (abs(hspeed) < hspeed_run)
+else if (abs(hspeed) < hspeed_run)
 && ((state == statetype.idle) || (state == statetype.walk)) {
 
     //Make the player walk

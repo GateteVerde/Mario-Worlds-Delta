@@ -234,11 +234,11 @@ if (vspeed &gt; 0) {
     
     //If that ground exists and the player is above it...
     if (semisolid) 
-    &amp;&amp; (y &lt; semisolid.y-11) 
+    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
     
         //Snap above the platform
-        y = semisolid.y-16;
+        y = semisolid.bbox_top-16;
         
         //Stop vertical movement
         vspeed = 0;
@@ -250,14 +250,14 @@ if (vspeed &gt; 0) {
 }
 
 //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-if (collision_rectangle(x, bbox_bottom, x, bbox_bottom+4, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x, bbox_bottom-4, x, bbox_bottom-4, obj_slopeparent, 1, 0))
+if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
 &amp;&amp; (state == statetype.walk)
     y += 4;
 
 //Handle collision with slopes
-if (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x, bbox_bottom-8, x, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
     //If moving down
     if (vspeed &gt; 0) {
@@ -272,7 +272,7 @@ if (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0)
     
     //Prevent the player from getting embed inside a slope
     if (vspeed &gt; -0.85)
-        while (collision_rectangle(x, bbox_bottom-4, x, bbox_bottom, obj_slopeparent, 1, 0))
+        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
             y--;
 }
 
@@ -289,7 +289,7 @@ if (swimming == 0) {
             player_behaviour();
             
             //Increment P-Meter
-            player_run();
+            player_meter();
         }
         
         //Otherwise, if the player is climbing
