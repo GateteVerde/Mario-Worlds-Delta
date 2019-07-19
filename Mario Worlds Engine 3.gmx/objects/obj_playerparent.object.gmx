@@ -301,12 +301,8 @@ if (vspeed &gt; 0) {
 //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
 if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-&amp;&amp; (state == statetype.walk) {
-
+&amp;&amp; (state == statetype.walk)
     y += 4;
-    while (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+1, obj_semisolid, 0, 0))
-        y--;
-}
 
 //Handle collision with slopes
 if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
