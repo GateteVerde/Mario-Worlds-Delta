@@ -38,7 +38,7 @@ jumpstrength_spin = 3.23375;
 acc = 0.06;
 
 //Acceleration (when turning)
-acc_turn = 0.15;
+acc_turn = 0.2;
 
 //Deceleration
 dec = 0.0375;
@@ -182,7 +182,7 @@ else if (crouch == false) {
                 else if (state == statetype.walk) {
                 
                     //Before setting the walk sprite, check if Mario is moving in the opposite direction
-                    if (((hspeed &gt; 0.1) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (xscale == 1)))
+                    if (((hspeed &gt; 0.1) &amp;&amp; (keyboard_check(global.key_l)) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (keyboard_check(global.key_r)) &amp;&amp; (xscale == 1)))
                     &amp;&amp; (swimming == false)
                     &amp;&amp; (!inice) {
                     
@@ -191,11 +191,7 @@ else if (crouch == false) {
                         
                         //Do not animate
                         image_speed = 0;
-                        image_index = 0;
-                        
-                        //Play 'Skid' sound
-                        //if (!audio_is_playing(snd_skid))
-                            //audio_play_sound(snd_skid, 0, true);                    
+                        image_index = 0;             
                     }
                     
                     //Otherwise
@@ -399,8 +395,12 @@ else if (crouch == false) {
                     //Set the sprite
                     sprite_index = player_swim2();
                     
-                    //If moving down
-                    if (vspeed &gt; 0)
+                    //If moving up
+                    if ((vspeed &lt; 0) &amp;&amp; (dive == 0))
+                        image_speed = 0.15;
+                        
+                    //Otherwise, if moving down while holding
+                    else if ((vspeed &gt; 0) &amp;&amp; (dive == 1))
                         image_speed = 0.15;
                     
                     //Otherwise
@@ -421,11 +421,6 @@ else if (crouch == false) {
     else
         mask_index = spr_mask_player;
 }
-
-/*Force end skid sound
-if (sprite_index != player_skid()) 
-&amp;&amp; (audio_is_playing(snd_skid))
-    audio_stop_sound(snd_skid);*/
 
 //Force end firing animation if walking
 if (firing &gt; 0)

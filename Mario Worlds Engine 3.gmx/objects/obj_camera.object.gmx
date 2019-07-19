@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_eventmarker</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>10</depth>
+  <visible>-1</visible>
+  <depth>-6</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -235,6 +235,63 @@ else {
     else if (camera_y &lt; 0)
         camera_y += 4;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the HUD
+
+//Set font
+draw_set_font(global.font);
+
+//Set colour
+draw_set_colour(c_white);
+
+//Lives
+draw_sprite_ext(spr_hud_mario, global.player, view_xview[0]+8, view_yview[0]+8, 1, 1, 0, c_white, 1);
+draw_text(view_xview[0]+64, view_yview[0]+8, string_format(lives, 2, 0));
+
+//Coins
+draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+104, view_yview[0]+8, 1, 1, 0, c_white, 1);
+draw_text(view_xview[0]+120, view_yview[0]+8, string_add_zeros(global.coins, 2));
+
+//Dragon Coins
+var a;
+a = 0;
+repeat (ds_map_size(global.dcoins)) {
+
+    draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
+    a += 16;
+}
+
+//Reserve Box
+draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+8, 1, 1, 0, c_white, 1);
+/* Items will be drawn later*/
+
+//Score
+draw_text(view_xview[0]+view_wview[0]-128, view_yview[0]+8, string_add_zeros(score, 8));
+
+//Timer
+draw_sprite_ext(spr_hud_time, -1, view_xview[0]+view_wview[0]-48, view_yview[0]+8, 1, 1, 0, c_white, 1);
+draw_text(view_xview[0]+view_wview[0]-32, view_yview[0]+8, string_add_zeros(global.time, 3));
 </string>
           </argument>
         </arguments>

@@ -118,7 +118,7 @@ if (inwall == false)
             else {
             
                 //Play 'Spin' sound
-                //audio_play_sound(snd_spin, 0, false);
+                audio_play_sound(snd_spin, 0, false);
                 
                 //Set jump style
                 jumpstyle = true;
@@ -129,7 +129,7 @@ if (inwall == false)
         else {
         
             //Play 'Jump' sound
-            //audio_play_sound(snd_jump, 0, false);
+            audio_play_sound(snd_jump, 0, false);
             
             //Set jump style
             jumpstyle = false;
@@ -353,9 +353,10 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 1,
 }
 
 //If 'Down' is pressed and there's a slope below the player
-if (keyboard_check_pressed(global.key_d)) 
+if (keyboard_check(global.key_d)) 
 && (control_enable == true)
-&& (sliding == false) 
+&& (sliding == false)
+&& (state != statetype.jump)
 && (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //If the player is not holding anything or it is riding yoshi
@@ -364,13 +365,15 @@ if (keyboard_check_pressed(global.key_d))
         //Start sliding down slope
         sliding = true;
         
+        //Stop crouching down
+        crouch = false;
+        
         //Boost slide
-        hspeed = 0.05*sign(xscale);
+        if (hspeed == 0)
+            hspeed = 0.05*sign(xscale);
+        else
+            hspeed = hspeed/2;
     }
-    
-    //Otherwise, crouch down
-    else
-        crouch = true;
 }
 
 //Cape float

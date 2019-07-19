@@ -114,10 +114,59 @@ hspeedmax = 1.5;
 //Is the player on a sloped terrain?
 slope = 0;
 
+//Makes the player dive when holding an item underwater
+dive = 0;
+
+//Begin alarms
+alarm[11] = 1;
+
 //Call the following objects
 instance_create(x, y, obj_camera);
 instance_create(0, 0, obj_bound_top);
 instance_create(0, 0, obj_bound_bottom);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create eyecandy when certain conditions meet
+
+//If the player is skidding, crouched or sliding down a slope
+if (crouch == true) 
+|| (sliding == true) 
+|| (sprite_index == player_skid()) {
+
+    //Make sure that the player is moving
+    if (state == statetype.walk) {
+    
+        alarm[11] = 4;
+        if (instance_number(obj_smoke) &lt; 3)
+            instance_create(x, bbox_bottom, obj_smoke);
+    }
+    else
+        alarm[11] = 1;
+}
+
+//Otherwise
+else
+    alarm[11] = 1;
 </string>
           </argument>
         </arguments>
@@ -252,8 +301,12 @@ if (vspeed &gt; 0) {
 //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
 if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-&amp;&amp; (state == statetype.walk)
+&amp;&amp; (state == statetype.walk) {
+
     y += 4;
+    while (collision_rectangle(x, bbox_bottom+1, x, bbox_bottom+1, obj_semisolid, 0, 0))
+        y--;
+}
 
 //Handle collision with slopes
 if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
@@ -271,7 +324,7 @@ if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1
     }
     
     //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -0.85)
+    if (vspeed &gt; -1)
         while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
             y--;
 }
@@ -366,13 +419,15 @@ else if (hspeed &lt; 0)
 if (vspeed &lt; 0) {
 
     //...and the player bumps a ceiling
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //If the player is jumping or climbing
         if (state == statetype.jump) 
         || (state == statetype.climb) {
         
-            while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0)) 
+            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
                 y++;
         }
         
@@ -383,12 +438,35 @@ if (vspeed &lt; 0) {
         if (state != statetype.climb) {
         
             //Play 'Bump' sound
-            //audio_play_sound(snd_bump, 0, false);
+            audio_play_sound(snd_bump, 0, false);
             
             //Stop variable jumping
             jumping = 2;
         }
     }
+}
+
+//Prevent the player from overlapping ceiling slopes
+if (state == statetype.jump) 
+|| (state == statetype.climb) {
+
+    //While the player overlaps a slope
+    while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)) {
+    
+        //Move it down
+        y++;
+        
+        //If moving up
+        if (vspeed &lt; 0) {
+        
+            //Stop vertical movement
+            vspeed = 0;
+            
+            //Play 'Bump' sound
+            if (!audio_is_playing(snd_bump))
+                audio_play_sound(snd_bump, 0, false);            
+        }
+    }            
 }
 
 //If the player is not climbing
@@ -408,9 +486,9 @@ if (state != statetype.climb) {
             crouch = false;
     }
     
-    /*Manage player projectiles if 'Control' is pressed and the barrier is deactivated.
-    if (keyboard_check_pressed(vk_control)) &amp;&amp; (obj_levelcontrol.barrier == false)
-        alarm[10] = 1;*/
+    //Manage player projectiles if 'Action 2' is pressed and the barrier is deactivated.
+    if (keyboard_check_pressed(global.key_action[1])) &amp;&amp; (obj_camera.barrier == false)
+        alarm[10] = 1;
 }
 
 //Otherwise, if the player is climbing
@@ -450,7 +528,8 @@ else if (!water)
 &amp;&amp; (swimming == true) {
 
     //If there's not a solid above
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) {
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //If the player is moving up
         if (vspeed &lt; 0)
@@ -460,7 +539,7 @@ else if (!water)
             if (keyboard_check(global.key_action[0])) {
             
                 //Play 'Jump' sound
-                //audio_play_sound(snd_jump, 0, false);
+                audio_play_sound(snd_jump, 0, false);
                 
                 //Stop swimming
                 swimming = false;
@@ -662,6 +741,31 @@ draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, i
 
 //Reset palette
 pal_swap_reset();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up fake holding pose
+
+holding = !holding;
 </string>
           </argument>
         </arguments>

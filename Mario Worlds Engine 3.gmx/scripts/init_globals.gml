@@ -96,4 +96,4 @@ global.onoff_block = 0;
 global.moons = ds_map_create();
 
 //Handle the data structure of the ace coins.
-global.acecoins = ds_map_create();
+global.dcoins = ds_map_create();

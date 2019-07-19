@@ -54,6 +54,9 @@ global.gh = 216;
 //Display FPS
 showfps = false;
 
+//In-Game Font
+global.font = font_add_sprite(spr_font, ord('!'), 0, 0);
+
 //Disable application surface automatic drawing
 application_surface_draw_enable(0)
 
