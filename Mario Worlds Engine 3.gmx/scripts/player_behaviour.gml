@@ -381,11 +381,5 @@ if (keyboard_check(global.key_d))
 if (global.powerup == cs_pow_cape)
 && (flying == 0)
 && (vspeed > 0)
-&& (keyboard_check(global.key_action[0])) {
-
-    //Slow down
-    if (vspeed > 0.5)
-        vspeed -= 0.05;
-    else
-        vspeed = 0.5;
-}
+&& (keyboard_check(global.key_action[0]))
+    vspeed = 0.5;

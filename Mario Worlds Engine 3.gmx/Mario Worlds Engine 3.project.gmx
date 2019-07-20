@@ -270,8 +270,13 @@
       </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
-          <object>objects\obj_mario</object>
-          <object>objects\obj_luigi</object>
+          <objects name="Skins">
+            <object>objects\obj_mario</object>
+            <object>objects\obj_luigi</object>
+          </objects>
+          <objects name="Cape">
+            <object>objects\obj_cape</object>
+          </objects>
           <object>objects\obj_bound_top</object>
           <object>objects\obj_bound_bottom</object>
         </objects>
