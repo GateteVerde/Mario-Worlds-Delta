@@ -378,7 +378,8 @@ if (keyboard_check(global.key_d))
 }
 
 //Cape float
-if (global.powerup == cs_pow_cape)
+if ((global.powerup == cs_pow_cape)
+|| (global.powerup == cs_pow_firecape))
 && (flying == 0)
 && (vspeed > 0)
 && (keyboard_check(global.key_action[0]))

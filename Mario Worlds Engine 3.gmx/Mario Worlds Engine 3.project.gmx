@@ -289,11 +289,12 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_engine</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
     <constant name="cs_pow_small">0</constant>
     <constant name="cs_pow_super">1</constant>
     <constant name="cs_pow_fire">2</constant>
     <constant name="cs_pow_cape">3</constant>
+    <constant name="cs_pow_firecape">4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

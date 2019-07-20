@@ -43,6 +43,9 @@ enum capestate {
     cape_climb
 }
 state = capestate.cape_idle;
+
+//Cape position
+yy = 0;
 </string>
           </argument>
         </arguments>
@@ -78,7 +81,7 @@ if (state == capestate.cape_idle) {
         sprite_index = spr_cape_down;
         
         //Animate
-        image_speed = 0.15;
+        image_speed = 0.2;
         image_index = 0;
     }
 }
@@ -94,13 +97,13 @@ else if (state == capestate.cape_walk) {
         sprite_index = spr_cape_up;
         
         //Animate
-        image_speed = 0.15;
+        image_speed = 0.2;
         image_index = 0;
     }
     
     //If the following cape sprite is being used, update based on hspeed
     if (sprite_index == spr_cape_walk)
-        image_speed = (0.065*(obj_playerparent.inice*4))+abs(obj_playerparent.hspeed)/7.5;
+        image_speed = 0.065+abs(obj_playerparent.hspeed)/7.5;
 }
 
 //Cape - Jump Up
@@ -114,7 +117,7 @@ else if (state == capestate.cape_jump_up) {
         sprite_index = spr_cape_down;
         
         //Animate
-        image_speed = 0.15;
+        image_speed = 0.2;
         image_index = 0;
     }
 }
@@ -130,7 +133,7 @@ else if (state == capestate.cape_jump_down) {
         sprite_index = spr_cape_up;
         
         //Animate
-        image_speed = 0.15;
+        image_speed = 0.2;
         image_index = 0;
     }
 }
@@ -206,7 +209,7 @@ if (sprite_index == spr_cape_up) {
         sprite_index = spr_cape_walk;
         
         //Animate
-        image_speed = 0.1;
+        image_speed = 0.2;
     }
     
     //Otherwise, if the state is cape_jump_down
@@ -254,7 +257,9 @@ else if (sprite_index == spr_cape_down) {
             <kind>1</kind>
             <string>///Draw the cape
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+//Only draw if the player has a cape
+if (global.powerup &gt; cs_pow_fire)
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

@@ -132,7 +132,8 @@ if (crouch == true) {
         with (mycape) {
         
             state = capestate.cape_idle;
-            depth = -4
+            depth = -4;
+            yy = 1;
         }
     }
     else if (state == statetype.walk) {
@@ -141,6 +142,7 @@ if (crouch == true) {
         
             state = capestate.cape_walk;
             depth = -4;
+            yy = 1
         }
     }
     else if (state == statetype.jump) {
@@ -150,6 +152,7 @@ if (crouch == true) {
         
             //Set depth
             depth = -4;
+            yy = 1;
         
             //If moving up
             if (other.vspeed &lt; 0)
@@ -180,6 +183,7 @@ else if (crouch == false) {
                     
                         state = capestate.cape_idle;
                         depth = -4;
+                        yy = 0;
                     }
                 
                     //If Mario is firing up a projectile
@@ -222,6 +226,7 @@ else if (crouch == false) {
                     
                         state = capestate.cape_walk;
                         depth = -4;
+                        yy = 0;
                     }
                 
                     //Before setting the walk sprite, check if Mario is moving in the opposite direction
@@ -291,6 +296,7 @@ else if (crouch == false) {
                             
                                 //Set depth
                                 depth = -4;
+                                yy = 0;
                             
                                 //If moving up
                                 if (other.vspeed &lt; 0)
@@ -336,6 +342,7 @@ else if (crouch == false) {
                         
                             //Set depth
                             depth = -4;
+                            yy = 0;
                         
                             //If moving up
                             if (other.vspeed &lt; 0)
@@ -368,6 +375,7 @@ else if (crouch == false) {
                     
                         //Set depth
                         depth = -6;
+                        yy = 0;
                         
                         //Set cape
                         state = capestate.cape_climb;
@@ -405,7 +413,8 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         state = capestate.cape_idle;
-                        depth = -4
+                        depth = -4;
+                        yy = 0;
                     }
                 }
                 else if (state == statetype.walk) {
@@ -414,6 +423,7 @@ else if (crouch == false) {
                     
                         state = capestate.cape_walk;
                         depth = -4;
+                        yy = 0;
                     }
                 }
                 else if (state == statetype.jump) {
@@ -423,6 +433,7 @@ else if (crouch == false) {
                     
                         //Set depth
                         depth = -4;
+                        yy = 0;
                     
                         //If moving up
                         if (other.vspeed &lt; 0)
@@ -450,7 +461,8 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     state = capestate.cape_idle;
-                    depth = -4
+                    depth = -4;
+                    yy = 2;
                 }
             }
             else if (state == statetype.walk) {
@@ -459,6 +471,7 @@ else if (crouch == false) {
                 
                     state = capestate.cape_walk;
                     depth = -4;
+                    yy = 2;
                 }
             }
             else if (state == statetype.jump) {
@@ -468,6 +481,7 @@ else if (crouch == false) {
                 
                     //Set depth
                     depth = -4;
+                    yy = 2;
                 
                     //If moving up
                     if (other.vspeed &lt; 0)
@@ -504,6 +518,7 @@ else if (crouch == false) {
                 
                     state = capestate.cape_idle;
                     depth = -4;
+                    yy = 0;
                 }
             
                 //Set the sprite
@@ -521,6 +536,14 @@ else if (crouch == false) {
             
             //Otherwise, if Mario is walking
             else if (state == statetype.walk) {
+            
+                //Set cape state
+                with (mycape) {
+                
+                    state = capestate.cape_walk;
+                    depth = -4;
+                    yy = 0;
+                }
             
                 //Set the sprite
                 sprite_index = player_hold2();
@@ -540,6 +563,9 @@ else if (crouch == false) {
                                                                 
                         //Set cape state
                         with (mycape) {
+                        
+                            //Set y position
+                            yy = 0;
                         
                             //If moving up
                             if (other.vspeed &lt; 0)
@@ -569,6 +595,7 @@ else if (crouch == false) {
                         
                             //Set depth
                             depth = -4;
+                            yy = 0;
                         
                             //If moving up
                             if (other.vspeed &lt; 0)
@@ -594,6 +621,7 @@ else if (crouch == false) {
                     
                         //Set depth
                         depth = -4;
+                        yy = 0;
                     
                         //If moving up
                         if (other.vspeed &lt; 0)
