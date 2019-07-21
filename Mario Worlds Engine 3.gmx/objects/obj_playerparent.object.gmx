@@ -39,7 +39,8 @@ enum statetype {
     idle,
     walk,
     jump,
-    climb
+    climb,
+    flying
 }
 state = statetype.idle;
 delay = 0;
