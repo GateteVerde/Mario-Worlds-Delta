@@ -118,6 +118,7 @@ slope = 0;
 dive = 0;
 
 //Makes the player able to fly
+fly = 0;
 flying = 0;
 
 //Manages the cape sprite
@@ -199,6 +200,69 @@ if (crouch == true)
 //Otherwise
 else
     alarm[11] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage player projectiles
+
+//If controls are not disabled and the player is not doing a special movement
+if (control_enable == true)
+&amp;&amp; (holding == 0)
+&amp;&amp; (kicking == 0)
+&amp;&amp; (sliding == 0)
+&amp;&amp; (jumpstyle == 0) {
+
+    //If the player is not crouched down
+    if (crouch == false) {
+    
+        //If the player has the fire powerup
+        if (global.powerup == cs_pow_fire) {
+        
+        }
+        
+        //Otherwise, if the player has either the cape or the fire cape
+        else if ((global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape)) {
+        
+            //If the player is spinning, reset spins
+            if (instance_exists(obj_spinner)) {
+                        
+                with (obj_spinner) {
+                
+                    audio_stop_sound(snd_spin);
+                    audio_play_sound(snd_spin, 0, false);
+                    spin = 0;
+                }
+            }
+            
+            //Otherwise
+            else {
+            
+                with (instance_create(x, y, obj_spinner))
+                    if (global.powerup == cs_pow_firecape)                    
+                        alarm[0] = 1;                    
+            }            
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -515,7 +579,8 @@ if (state != statetype.climb) {
     }
     
     //Manage player projectiles if 'Action 2' is pressed and the barrier is deactivated.
-    if (keyboard_check_pressed(global.key_action[1])) &amp;&amp; (obj_camera.barrier == false)
+    if (keyboard_check_pressed(global.key_action[1])) 
+    &amp;&amp; (obj_camera.barrier == true)
         alarm[10] = 1;
 }
 
@@ -547,8 +612,17 @@ if (water)
     
     //Stop vertical movement
     gravity = 0;
-    if (vspeed &gt; 0)
+    if (vspeed &gt; 0) {
+    
         vspeed = 0;
+    }
+        
+    //Create a splash effect
+    with (instance_create(x, water.y-16, obj_smoke)) {
+     
+        sprite_index = spr_splash;
+        image_speed = 0.3;
+    }
 }
 
 //Otherwise, if the player had enough swimming and wants to get out of water
@@ -577,12 +651,19 @@ else if (!water)
                 
                 //Set vertical speed
                 vspeed = -jumpstrength;
+                
+                //Create a splash effect
+                with (instance_create(x, y-16, obj_smoke)) {
+                
+                    sprite_index = spr_splash;
+                    image_speed = 0.3;
+                }
             }
             
             //Otherwise, stop vertical movement
             else {
             
-                //If moving up
+                //If moving up, stop vertical movement
                 if (vspeed &lt; 0)
                     vspeed = 0;
             }
@@ -689,6 +770,58 @@ jumpstyle = 0;
 //Reset combos when not sliding down a slope
 if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
     hitcombo = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="20">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage player projectiles
+
+//If controls are not disabled and the player is not doing a special movement
+if (control_enable == true)
+&amp;&amp; (holding == 0)
+&amp;&amp; (kicking == 0)
+&amp;&amp; (sliding == 0)
+&amp;&amp; (jumpstyle == 0) {
+
+    //If the player is not crouched down
+    if (crouch == false) {
+    
+        //If the player has the fire powerup
+        if (global.powerup == cs_pow_fire) {
+        
+        }
+        
+        //Otherwise, if the player has either the cape or the fire cape
+        else if ((global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape)) {
+        
+            //If the player is not spinning
+            if (instance_number(obj_spinner) &lt; 1) {
+            
+                with (instance_create(x, y, obj_spinner))
+                    if (global.powerup == cs_pow_firecape)                    
+                        alarm[0] = 1;
+            }            
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

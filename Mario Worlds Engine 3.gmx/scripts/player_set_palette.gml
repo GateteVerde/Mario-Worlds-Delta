@@ -11,7 +11,6 @@
 //Create temporary variables
 var pal, numb;
 
-/*
 //If the player is invincible
 if (instance_exists(obj_invincibility)) {
 
@@ -31,13 +30,6 @@ else {
     //Set the palette position
     numb = global.powerup;
 }
-*/
-
-//Set the master palette
-pal = spr_palette_master;
-    
-//Set the palette position
-numb = global.powerup;
 
 //Return pal_swap_set
 return pal_swap_set(pal, numb);

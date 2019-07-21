@@ -6,9 +6,11 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_bump</sound>
+    <sound>sound\snd_capefly</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_swim</sound>
+    <sound>sound\snd_thud</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -54,6 +56,7 @@
         </sprites>
         <sprites name="Cape">
           <sprite>sprites\spr_mario_cape_dive</sprite>
+          <sprite>sprites\spr_mario_cape_smash</sprite>
         </sprites>
         <sprite>sprites\spr_mario_dead</sprite>
       </sprites>
@@ -99,6 +102,7 @@
         </sprites>
         <sprites name="Cape">
           <sprite>sprites\spr_luigi_cape_dive</sprite>
+          <sprite>sprites\spr_luigi_cape_smash</sprite>
         </sprites>
         <sprite>sprites\spr_luigi_dead</sprite>
       </sprites>
@@ -158,6 +162,7 @@
     <sprites name="Special">
       <sprites name="Eyecandy">
         <sprite>sprites\spr_smoke</sprite>
+        <sprite>sprites\spr_splash</sprite>
       </sprites>
       <sprites name="GUI">
         <sprites name="In-Level">
@@ -276,11 +281,14 @@
           </objects>
           <objects name="Cape">
             <object>objects\obj_cape</object>
+            <object>objects\obj_cape_fly</object>
           </objects>
+          <object>objects\obj_spinner</object>
           <object>objects\obj_bound_top</object>
           <object>objects\obj_bound_bottom</object>
         </objects>
         <object>objects\obj_smoke</object>
+        <object>objects\obj_invincibility</object>
       </objects>
     </objects>
     <object>objects\obj_controller</object>

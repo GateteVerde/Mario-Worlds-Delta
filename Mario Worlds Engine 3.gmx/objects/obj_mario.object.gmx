@@ -597,7 +597,7 @@ else if (crouch == false) {
                             depth = -4;
                             yy = 0;
                         
-                            //If moving up
+                            //Set state
                             if (other.vspeed &lt; 0)
                                 state = capestate.cape_jump_up;
                             else

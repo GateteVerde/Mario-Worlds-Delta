@@ -139,15 +139,35 @@ if (inwall == false)
         state = statetype.jump;
         
         //Enable variable jumping
-        jumping = 1;
+        jumping = 1; 
         
-        //Jump high if you have the frog powerup, and you are not riding anything
-        if (jumpstyle == true)        
-            vspeed = -jumpstrength_spin+abs(hspeed)/7.5*-1;
-    
-        //Jump depending of the horizontal speed.
-        else     
-            vspeed = -jumpstrength+abs(hspeed)/7.5*-1;  
+        //If the player is running and has the cape powerup
+        if (run)
+        && (global.powerup >= cs_pow_cape) {
+        
+            //Set vertical speed
+            vspeed = -(jumpstrength*1.5)+abs(hspeed)/7.5*-1;
+            
+            //Initialize fly
+            if (flying == 0)
+            && (crouch == 0)
+            && (holding == 0)
+            && (jumpstyle == 0)
+            && (global.mount == 0)
+                flying = 1;
+            else
+                flying = 0;
+        }
+        else {
+                
+            //Jump high if you have the frog powerup, and you are not riding anything
+            if (jumpstyle == true)        
+                vspeed = -jumpstrength_spin+abs(hspeed)/7.5*-1;
+        
+            //Jump depending of the horizontal speed.
+            else     
+                vspeed = -jumpstrength+abs(hspeed)/7.5*-1;
+        }
     }
     
     //Check if the player should still be variable jumping
@@ -161,7 +181,7 @@ if (inwall == false)
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != 1)) {
         
-            turning = true;
+            turnnow = true;
             alarm[2] = 6;
         }
         
@@ -208,7 +228,7 @@ if (inwall == false)
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != -1)) {
         
-            turning = true;
+            turnnow = true;
             alarm[2] = 6;
         }
         
@@ -379,8 +399,28 @@ if (keyboard_check(global.key_d))
 
 //Cape float
 if ((global.powerup == cs_pow_cape)
-|| (global.powerup == cs_pow_firecape))
-&& (flying == 0)
-&& (vspeed > 0)
-&& (keyboard_check(global.key_action[0]))
-    vspeed = 0.5;
+|| (global.powerup == cs_pow_firecape)) {
+
+    //Slowly fall down
+    if (flying == 0)
+    && (vspeed > 0)
+    && (keyboard_check(global.key_action[0]))
+        vspeed = 0.5;
+        
+    //Otherwise, if flying
+    else if (flying == 1) {
+    
+        //Increment fly timer
+        fly++;
+        if (fly > 25) && (vspeed > 0) {
+        
+            //Create flying object
+            if (instance_number(obj_cape_fly) == 0) {
+                
+                flying = 2;
+                imflying = instance_create(x, y, obj_cape_fly);
+                    imflying.vspeed = other.vspeed/2;
+            }
+        }
+    }
+}
