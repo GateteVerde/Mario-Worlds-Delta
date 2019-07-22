@@ -46,14 +46,18 @@ if (vspeed > 4)
     
 //Set up the player's maximum horizontal speed.
 if (keyboard_check(global.key_action[1])) { //If the control key is being held.
-    
-    //If the P-Meter is filled up.
-    if (run) 
-        hspeedmax = hspeed_run_full;
-    
-    //Otherwise, if the P-Meter is not filled up.
-    else    
-        hspeedmax = hspeed_run;
+
+    //If the player is not flying
+    if (flying == 0) {
+        
+        //If the P-Meter is filled up.
+        if (run)
+            hspeedmax = hspeed_run_full;
+        
+        //Otherwise, if the P-Meter is not filled up.
+        else    
+            hspeedmax = hspeed_run;
+    }
 }               
 
 //Otherwise, do not reduce speed until the player makes contact with the ground.  
@@ -419,7 +423,7 @@ if ((global.powerup == cs_pow_cape)
                 
                 flying = 2;
                 imflying = instance_create(x, y, obj_cape_fly);
-                    imflying.vspeed = other.vspeed/2;
+                    imflying.vspeed = self.vspeed/2;
             }
         }
     }

@@ -6,8 +6,665 @@
   <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <maskName>spr_mask_player_big</maskName>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cape Flight
+
+//Can the player fly?
+canfly = 0;
+
+//Can the player dive?
+candive = 0;
+dive_index = 0;
+
+//Facing direction
+xscale = obj_playerparent.xscale;
+
+//Can the player slam the floor
+smash = 0;
+
+//Set horizontal speed
+hspeed = obj_playerparent.hspeed;
+
+//Make the player invisible
+obj_playerparent.visible = false;
+
+//Do not animate
+image_speed = 0;
+image_single = 2;
+
+//Fake img index
+img_index = 0;
+
+//Is the object in ground?
+onground = 0;
+
+//Leave trail
+alarm[0] = 4;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make player visible
+
+//If the player exists
+if (instance_exists(obj_playerparent)) {
+    
+    //Make player visible
+    obj_playerparent.visible = true;
+    
+    //Make player able to fly
+    obj_playerparent.flying = 0;
+    
+    //If the object is not smashing the ground
+    if (smash == 0)
+        obj_playerparent.hspeed = self.hspeed
+    else
+        obj_playerparent.hspeed = self.hspeed/2
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Leave a smoke trail when in ground
+
+alarm[0] = 4;
+if (gravity == 0) {
+
+    if (instance_number(obj_smoke) &lt; 3)
+        instance_create(x, bbox_bottom, obj_smoke);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player logic + Animation
+
+//Set fake image index
+img_index = round(image_index);
+
+//If not diving
+if (smash == 0) {
+
+    //Set the sprite
+    sprite_index = spr_mario_cape_dive;
+    
+    //Fall
+    if (vspeed &gt; 0.5) 
+        image_single = 0
+        
+    //Otherwise
+    else {
+    
+        //Moving up
+        if (vspeed &lt; -0.5)
+            image_single = 2
+            
+        //About to move up
+        else
+            image_single = 1
+    }
+}
+
+//Otherwise, if diving
+else {
+
+    //Set sprite
+    sprite_index = spr_mario_cape_smash;
+    
+    //Set frame
+    image_single = round(dive_index);
+}
+
+image_xscale = xscale;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cape flight logic
+
+//Keep the player in position if it exists
+if (instance_exists(obj_playerparent)) {
+
+    obj_playerparent.x = self.x;
+    obj_playerparent.y = self.y;
+}
+
+//If moving down
+if (vspeed &gt;= 0) {
+
+    //Check for a semisolid
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
+    
+    //If there's a semisolid in position
+    if (semisolid) 
+    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) {
+    
+        //Snap above the platform
+        y = semisolid.bbox_top-16;
+        
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+        
+        //Handle events
+        event_user(0);
+    }
+}
+
+//Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
+if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
+&amp;&amp; (vspeed == 0)
+    y += 4;
+
+//Handle collision with slopes
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+    //If moving down
+    if (vspeed &gt;= 0) {
+    
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+        
+        //Handle events
+        event_user(0);
+    }
+    
+    //Prevent the player from getting embed inside a slope
+    if (vspeed &gt; -1)
+        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+            y--;
+}
+
+//Manage gravity
+if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolid, 0, 0))
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0)) {
+
+    vspeed = 0;
+    gravity = 0;
+}
+else {
+
+    gravity = 0.1;
+    onground = 0;
+}
+
+//Allow diving
+if (keyboard_check_released(global.key_l))
+|| (keyboard_check_released(global.key_r))
+    candive = 1;
+    
+//If diving is allowed
+if (candive == 1) {
+
+    //If facing left and 'Left' is pressed
+    if (keyboard_check(global.key_l))
+    &amp;&amp; (xscale = -1)
+    &amp;&amp; (vspeed &gt;= 0)
+        smash = 1;
+        
+    //Otherwise, if facing right and 'Right' is pressed
+    else if (keyboard_check(global.key_r))
+    &amp;&amp; (xscale == 1)
+    &amp;&amp; (vspeed &gt;= 0)
+        smash = 1;
+}
+
+//If moving right and the player bumps a wall to the right
+if (hspeed &gt; 0) 
+&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed+1, bbox_bottom-4, obj_solid, 1, 0)) {
+
+    //Stop horizontal movement
+    hspeed = 0;
+
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x--;
+}
+
+//Otherwise, if moving left and the player bumps a wall to the left
+else if (hspeed &lt; 0)
+&amp;&amp; (collision_rectangle(bbox_left+hspeed-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
+
+    //Stop horizontal movement
+    hspeed = 0;
+
+    //Prevent the player from getting embed in the wall
+    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        x++;
+}
+
+//Stop flying
+if ((hspeed &lt; 0.26) 
+&amp;&amp; (hspeed &gt; -0.26)
+&amp;&amp; (gravity == 0))
+|| (global.mount == 1)
+|| (global.powerup &lt; cs_pow_cape)
+|| (!instance_exists(obj_playerparent))
+|| (!keyboard_check(global.key_action[1]))
+    event_user(1);
+    
+//Diving sprite sequence
+if (smash == 1) {
+
+    dive_index += 0.1;
+    if (dive_index &gt; 2)
+        dive_index = 2;
+}
+else {
+
+    dive_index = 0;
+}
+    
+//Bump ceilings
+if (vspeed &lt; 0) {
+
+    //...and the player bumps a ceiling
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))
+        y -= vspeed;
+}
+
+//Cap horizontal speed
+if (hspeed &gt; 3.5)
+    hspeed = 3.5;
+if (hspeed &lt; -3.5)
+    hspeed = -3.5;
+
+//Cap vertical speed
+if (smash == 0) {
+
+    if (vspeed &gt; 2)
+        vspeed = 2;
+}
+else {
+
+    if (vspeed &gt; 4)
+        vspeed = 4;
+}
+
+//Increment speed when diving
+if (smash == 1) 
+&amp;&amp; (gravity == 0) {
+
+    //If 'Left' is pressed
+    if (keyboard_check(global.key_l))
+    &amp;&amp; (hspeed &gt; -3.5)
+    &amp;&amp; (xscale == -1)
+    &amp;&amp; (!collision_rectangle(bbox_left+hspeed-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+        hspeed -= 0.1;
+        
+    //Otherwise, if 'Right' is pressed
+    else if (keyboard_check(global.key_r))
+    &amp;&amp; (hspeed &lt; 3.5)
+    &amp;&amp; (xscale == 1)
+    &amp;&amp; (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed+1, bbox_bottom-4, obj_solid, 1, 0))
+        hspeed += 0.1;
+}
+
+//If moving up
+if (vspeed &lt; 1.5) {
+
+    //If 'Left' is pressed
+    if ((keyboard_check(global.key_l)) &amp;&amp; (smash == 0) &amp;&amp; (xscale == 1))
+    || ((keyboard_check(global.key_r)) &amp;&amp; (smash == 0) &amp;&amp; (xscale == -1))
+        event_user(3);
+}
+
+//If 'Left' or 'Right' is pressed
+if (vspeed &gt; 1.5) {
+    
+    if ((keyboard_check_pressed(global.key_l)) &amp;&amp; (xscale == 1))
+    || ((keyboard_check_pressed(global.key_r)) &amp;&amp; (xscale == -1))
+        event_user(2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_swim">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy
+
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cap vertical movement
+
+//Set the frame
+image_single = 0;
+
+//Cap vertical speed
+if (vspeed &gt; 0.25)
+    vspeed = 0.25;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Glide up
+
+//Play 'Cape' sound
+audio_play_sound(snd_capefly, 0, false);
+
+//If not smashing
+if (smash == 0)
+    vspeed = -3;
+    
+//Otherwise, if smashing
+else if (smash == 1) {
+
+    switch (img_index) {
+    
+        case (0): vspeed = -3; break;
+        case (1): vspeed = -3.5; break;
+        case (2): vspeed = -4.5; break;
+    }
+}
+
+//Return to normal state
+smash = 0;
+
+//Reset dive index
+dive_index = 0;
+
+//Set the sprite
+sprite_index = spr_mario_cape_dive;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy
+
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Slide or smash the ground
+
+//If the player is not smashing the ground
+if (smash == 0)
+    onground = 1;
+
+//Otherwise
+else {
+
+    //If the player's head is right at the bottom
+    if (dive_index == 2) {
+
+        //Play 'Thud' sound
+        audio_play_sound(snd_thud, 0, false);
+    
+        //Destroy
+        instance_destroy();
+    }
+    else {
+    
+        smash = 0;
+        dive_index = 0;
+    }
+}
+
+//Check for a slope
+slope_below = collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0);
+
+//If there's a slope below the player
+if (slope_below) {
+
+    //If the player's horizontal speed is not at the limit, allow slide
+    if (abs(hspeed) != 2.5)
+        hspeed += slope_below.add;
+}
+
+//Otherwise, if there's not a slope below
+else if (gravity == 0) {
+
+    //If the player is not overlapping a slippery surface
+    if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
+
+        //Reduce player's horizontal speed yet slower
+        hspeed = max(0, abs(hspeed)-0.05)*sign(hspeed);
+        
+        //Set horizontal speed to 0 when the horizontal speed hits value in 'dec/8'.
+        if (hspeed &lt; 0.05)
+        &amp;&amp; (hspeed &gt; -0.05)
+            hspeed = 0;
+    }
+    
+    //Otherwise, slow down slower
+    else {
+
+        //Reduce player's horizontal speed yet slower
+        hspeed = max(0, abs(hspeed)-0.0125)*sign(hspeed);
+        
+        //Set horizontal speed to 0 when the horizontal speed hits value in 'dec/8'.
+        if (hspeed &lt; 0.0125)
+        &amp;&amp; (hspeed &gt; -0.0125)
+            hspeed = 0;    
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the player
+
+//Set the palette
+player_set_palette();
+
+//Draw the player
+draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+
+//Reset shader
+pal_swap_reset();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

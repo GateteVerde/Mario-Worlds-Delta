@@ -128,15 +128,35 @@ if (instance_exists(obj_playerparent)) {
     //If the barrier is not enabled
     if (barrier == true) {
         
-        //Prevent the player from going outside the view
+        //If the player is at the leftmost part of the view
         if (obj_playerparent.x &lt; view_xview[0]+8) {
         
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[0]+8;
+                if (obj_cape_fly.hspeed &lt; 0)
+                    obj_cape_fly.hspeed = 0;
+            }
+            
+            //Prevent the player from getting outside the view
             obj_playerparent.x = view_xview[0]+8;
             if (obj_playerparent.hspeed &lt; 0)
                 obj_playerparent.hspeed = 0;
         }
+        
+        //Otherwise, if the player is at the rightmost part of the view
         else if (obj_playerparent.x &gt; view_xview[0] + view_wview[0]-8) {
         
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[0] + view_wview[0]-8;
+                if (obj_cape_fly.hspeed &gt; 0)
+                    obj_cape_fly.hspeed = 0;                    
+            }
+            
+            //Prevent the player from getting outside the view
             obj_playerparent.x = view_xview[0] + view_wview[0]-8;
             if (obj_playerparent.hspeed &gt; 0)
                 obj_playerparent.hspeed = 0;    
