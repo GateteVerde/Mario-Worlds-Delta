@@ -414,7 +414,7 @@ if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1
     }
     
     //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -1)
+    if (vspeed &gt; -1)    
         while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
             y--;
 }

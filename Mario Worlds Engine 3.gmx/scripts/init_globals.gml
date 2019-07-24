@@ -12,13 +12,28 @@
 global.Pal_Shader = shd_palette_swapper;
 pal_swap_init_system(global.Pal_Shader);
 
+//Item Enumerators
+enum itemtype {
+
+    coin,
+    coin_plus,
+    mushroom,
+    fireflower,
+    fireflower_plus,
+    feather,
+    feather_plus,
+    star,
+    lifeup,
+    rotten    
+}
+
 //Remember music from rooms
 //global.music = bgm_gameover;
 
 //Current Player
 //0: Mario
 //1: Luigi
-global.player = 0;
+global.player = 1;
 
 //Time Limit
 global.time = 0;
