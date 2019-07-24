@@ -299,8 +299,13 @@ else if (crouch == false) {
                                 yy = 0;
                             
                                 //If moving up
-                                if (other.vspeed &lt; 0)
-                                    state = capestate.cape_jump_up;
+                                if (other.vspeed &lt; 0) {
+                                
+                                    if (other.flying &gt; 0)
+                                        state = capestate.cape_walk;
+                                    else
+                                        state = capestate.cape_jump_up;
+                                }
                                 else
                                     state = capestate.cape_jump_down;                                    
                             }

@@ -102,8 +102,13 @@ else if (state == capestate.cape_walk) {
     }
     
     //If the following cape sprite is being used, update based on hspeed
-    if (sprite_index == spr_cape_walk)
-        image_speed = 0.065+abs(obj_playerparent.hspeed)/7.5;
+    if (sprite_index == spr_cape_walk) {
+    
+        if (obj_playerparent.flying &gt; 0)
+            image_speed = 0.15;
+        else
+            image_speed = 0.065+abs(obj_playerparent.hspeed)/7.5;
+    }
 }
 
 //Cape - Jump Up

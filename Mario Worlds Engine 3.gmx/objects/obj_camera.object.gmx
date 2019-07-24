@@ -99,24 +99,24 @@ if (instance_exists(obj_playerparent)) {
         
     //If the camera is at the right
     if (orientation == 1)
-    &amp;&amp; (obj_playerparent.x &gt; x-32) {
+    &amp;&amp; (obj_playerparent.x &gt; x-33) {
     
         //Scroll at a certain speed until the camera catches up
-        if (obj_playerparent.x &gt; x-28)
-            x += 4+obj_playerparent.hspeed;
+        if (obj_playerparent.x &gt; x-29)
+            x += 3+obj_playerparent.hspeed;
         else
-            x = obj_playerparent.x+32;
+            x = obj_playerparent.x+33;
     }
     
     //Otherwise, if the camera is at the left
     else if (orientation == -1) 
-    &amp;&amp; (obj_playerparent.x &lt; x+32) {
+    &amp;&amp; (obj_playerparent.x &lt; x+33) {
     
         //Scroll at a certain speed until the camera catches up
-        if (obj_playerparent.x &lt; x+28)
-            x -= 4-obj_playerparent.hspeed;
+        if (obj_playerparent.x &lt; x+29)
+            x -= 3-obj_playerparent.hspeed;
         else
-            x = obj_playerparent.x-32;
+            x = obj_playerparent.x-33;
     }
     
     //Set camera vertical position

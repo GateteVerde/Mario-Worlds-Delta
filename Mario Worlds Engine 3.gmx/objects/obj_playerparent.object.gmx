@@ -122,9 +122,6 @@ dive = 0;
 fly = 0;
 flying = 0;
 
-//Manages the cape sprite
-capespr = spr_cape;
-
 //Begin alarms
 alarm[11] = 1;
 
@@ -771,58 +768,6 @@ jumpstyle = 0;
 //Reset combos when not sliding down a slope
 if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
     hitcombo = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="20">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Manage player projectiles
-
-//If controls are not disabled and the player is not doing a special movement
-if (control_enable == true)
-&amp;&amp; (holding == 0)
-&amp;&amp; (kicking == 0)
-&amp;&amp; (sliding == 0)
-&amp;&amp; (jumpstyle == 0) {
-
-    //If the player is not crouched down
-    if (crouch == false) {
-    
-        //If the player has the fire powerup
-        if (global.powerup == cs_pow_fire) {
-        
-        }
-        
-        //Otherwise, if the player has either the cape or the fire cape
-        else if ((global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape)) {
-        
-            //If the player is not spinning
-            if (instance_number(obj_spinner) &lt; 1) {
-            
-                with (instance_create(x, y, obj_spinner))
-                    if (global.powerup == cs_pow_firecape)                    
-                        alarm[0] = 1;
-            }            
-        }
-    }
-}
 </string>
           </argument>
         </arguments>

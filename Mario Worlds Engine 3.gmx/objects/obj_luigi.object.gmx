@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///It's the man in green, Luigi!
+            <string>///It's Luigi, the king of second bananas!
 
 //Inherit event from obj_playerparent
 event_inherited();
@@ -38,7 +38,7 @@ jumpstrength_spin = 3.23375;
 acc = 0.06;
 
 //Acceleration (when turning)
-acc_turn = 0.15;
+acc_turn = 0.2;
 
 //Deceleration
 dec = 0.0375;
@@ -56,7 +56,7 @@ acc_swim = 0.025;
 acc_turn_swim = 0.05;
 
 //In water deceleration
-dec_swim = 0.007;
+dec_swim = 0.025;
 
 //Gravity (Underwater)
 grav_swim = 0.03;
@@ -69,6 +69,606 @@ hspeed_run = 2.7;
 
 //Maximum horizontal speed (Full Meter)
 hspeed_run_full = 3.5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage Luigi's animation
+
+//Check if Luigi is on a slippery surface
+if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom, obj_iceparent, 1, 0))
+    inice = true;
+else
+    inice = false;
+
+//If Luigi is crouched down
+if (crouch == true) {
+
+    //Set up the crouch sprite
+    sprite_index = player_crouch();
+    
+    //Do not animate
+    image_speed = 0;
+    
+    //If Luigi is not holding anything
+    if (holding == 0)
+        image_index = 0;
+    
+    //Otherwise, if Luigi is holding something
+    else {
+    
+        //You can set up multiple holding states if you want
+        if (holding == 1)
+            image_index = 1;
+    }
+    
+    //Cancel turning
+    turnnow = 0;
+    
+    //Set up the mask
+    mask_index = spr_mask_player;
+
+    //Set up the cape state
+    if (state == statetype.idle) {
+    
+        with (mycape) {
+        
+            state = capestate.cape_idle;
+            depth = -4;
+            yy = 1;
+        }
+    }
+    else if (state == statetype.walk) {
+    
+        with (mycape) {
+        
+            state = capestate.cape_walk;
+            depth = -4;
+            yy = 1
+        }
+    }
+    else if (state == statetype.jump) {
+    
+        //With the cape
+        with (mycape) {
+        
+            //Set depth
+            depth = -4;
+            yy = 1;
+        
+            //If moving up
+            if (other.vspeed &lt; 0)
+                state = capestate.cape_jump_up;
+            else
+                state = capestate.cape_jump_down;
+        }
+    }
+}
+
+//Otherwise, if Luigi is not longer crouched down
+else if (crouch == false) {
+
+    //If Luigi is not holding anything
+    if (holding == 0) {
+    
+        //If Luigi is not sliding down a slope
+        if (sliding == false) {
+        
+            //If Luigi is not kicking anything
+            if (kicking == false) {
+            
+                //If Luigi is not moving
+                if (state == statetype.idle) {
+                
+                    //Set cape state
+                    with (mycape) {
+                    
+                        state = capestate.cape_idle;
+                        depth = -4;
+                        yy = 0;
+                    }
+                
+                    //If Luigi is firing up a projectile
+                    if (firing &gt; 0)
+                    &amp;&amp; (global.powerup == cs_pow_fire) {
+                    
+                        //Set the sprite
+                        sprite_index = player_shoot();
+                        
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
+                        
+                        //Decrement firing
+                        firing--;
+                    }
+                    
+                    //Otherwise, if Luigi is not firing up a projectile
+                    else {
+                    
+                        //Set the sprite
+                        sprite_index = player_idle();
+                        
+                        //Do not animate
+                        image_speed = 0;
+                        
+                        //But set the appropiate frame
+                        if (keyboard_check(global.key_u))
+                            image_index = 1;
+                        else
+                            image_index = 0;
+                    }
+                }
+                
+                //Otherwise, if Luigi is walking
+                else if (state == statetype.walk) {
+                
+                    //Set cape state
+                    with (mycape) {
+                    
+                        state = capestate.cape_walk;
+                        depth = -4;
+                        yy = 0;
+                    }
+                
+                    //Before setting the walk sprite, check if Luigi is moving in the opposite direction
+                    if (((hspeed &gt; 0.1) &amp;&amp; (keyboard_check(global.key_l)) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (keyboard_check(global.key_r)) &amp;&amp; (xscale == 1)))
+                    &amp;&amp; (swimming == false)
+                    &amp;&amp; (!inice) {
+                    
+                        //Set the sprite
+                        sprite_index = player_skid();
+                        
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;             
+                    }
+                    
+                    //Otherwise
+                    else {
+                        
+                        //Animate
+                        image_speed = (0.065*(inice*4))+abs(hspeed)/7.5;
+                        
+                        //Set up the sprite
+                        if (run == true)
+                            sprite_index = player_run();
+                        else
+                            sprite_index = player_walk();
+                    }
+                }
+                
+                //Otherwise, if Luigi is jumping
+                else if (state == statetype.jump) {
+                
+                    //If Luigi is not swimming
+                    if (swimming == false) {
+                    
+                        //If Luigi is doing a spinjump
+                        if (jumpstyle == true) {
+                        
+                            //Set cape state
+                            with (mycape) {
+                            
+                                //If moving up
+                                if (other.vspeed &lt; 0)
+                                    state = capestate.cape_spin_up;
+                                else
+                                    state = capestate.cape_spin_down;
+                            
+                                //Set the depth first
+                                if (image_index &gt; 2.99)
+                                    depth = -6;
+                                else
+                                    depth = -4;                                
+                            }
+                        
+                            //Set the sprite
+                            sprite_index = player_spin();
+                            
+                            //Animate
+                            image_speed = 0.5;
+                        }
+                        
+                        //Otherwise, if Luigi is not doing a spinjump
+                        else if (jumpstyle == false) {
+                        
+                            //With the cape
+                            with (mycape) {
+                            
+                                //Set depth
+                                depth = -4;
+                                yy = 0;
+                            
+                                //If moving up
+                                if (other.vspeed &lt; 0) {
+                                
+                                    if (other.flying &gt; 0)
+                                        state = capestate.cape_walk;
+                                    else
+                                        state = capestate.cape_jump_up;
+                                }
+                                else
+                                    state = capestate.cape_jump_down;                                    
+                            }
+                        
+                            //If Luigi is running
+                            if (run == true) {
+                            
+                                //Set the sprite
+                                sprite_index = player_runjump();
+                                
+                                //Do not animate
+                                image_speed = 0;
+                                image_index = 0;
+                            }
+                            
+                            //Otherwise, if Luigi is not running
+                            else if (run == false) {
+                            
+                                //Set the sprite
+                                sprite_index = player_jump();
+                                
+                                //Do not animate
+                                image_speed = 0;
+                                
+                                //But set the appropiate frame
+                                if (vspeed &lt; 0)
+                                    image_index = 0;
+                                else
+                                    image_index = 1;
+                            }
+                        }
+                    }
+                    
+                    //Otherwise, if Luigi is swimming
+                    else if (swimming == true) {
+                    
+                        //With the cape
+                        with (mycape) {
+                        
+                            //Set depth
+                            depth = -4;
+                            yy = 0;
+                        
+                            //If moving up
+                            if (other.vspeed &lt; 0)
+                                state = capestate.cape_jump_up;
+                            else
+                                state = capestate.cape_jump_down;                                    
+                        }
+                    
+                        //Set the sprite
+                        sprite_index = player_swim();
+                        
+                        //If moving up, animate
+                        if (vspeed &lt; 0)
+                            image_speed = 0.15;
+                            
+                        //Otherwise, do not animate
+                        else {
+                        
+                            image_speed = 0;
+                            image_index = 0;
+                        }
+                    }
+                }
+                
+                //Otherwise, if Luigi is climbing
+                else if (state == statetype.climb) {
+                
+                    //Set the cape sprite
+                    with (mycape) {
+                    
+                        //Set depth
+                        depth = -6;
+                        yy = 0;
+                        
+                        //Set cape
+                        state = capestate.cape_climb;
+                    }
+                
+                    //Set the sprite
+                    sprite_index = player_climb();
+                    
+                    //If moving
+                    if (speed &gt; 0)
+                        image_speed = 0.15;
+                    
+                    //Otherwise, if not moving
+                    else {
+                    
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+            }
+            
+            //Otherwise, if the player is kicking something
+            else if (kicking == true) {
+            
+                //Set the sprite
+                sprite_index = player_kick();
+                
+                //Do not animate
+                image_speed = 0;
+                image_index = 0;
+                
+                //Set up the cape state
+                if (state == statetype.idle) {
+                
+                    with (mycape) {
+                    
+                        state = capestate.cape_idle;
+                        depth = -4;
+                        yy = 0;
+                    }
+                }
+                else if (state == statetype.walk) {
+                
+                    with (mycape) {
+                    
+                        state = capestate.cape_walk;
+                        depth = -4;
+                        yy = 0;
+                    }
+                }
+                else if (state == statetype.jump) {
+                
+                    //With the cape
+                    with (mycape) {
+                    
+                        //Set depth
+                        depth = -4;
+                        yy = 0;
+                    
+                        //If moving up
+                        if (other.vspeed &lt; 0)
+                            state = capestate.cape_jump_up;
+                        else
+                            state = capestate.cape_jump_down;
+                    }
+                }
+            }
+        }
+        
+        //Otherwise, if the player is sliding down a slope
+        else if (sliding == true) {
+        
+            //Set the sprite
+            sprite_index = player_slide();
+            
+            //Do not animate
+            image_speed = 0;
+            image_index = 0;
+                    
+            //Set up the cape state
+            if (state == statetype.idle) {
+            
+                with (mycape) {
+                
+                    state = capestate.cape_idle;
+                    depth = -4;
+                    yy = 2;
+                }
+            }
+            else if (state == statetype.walk) {
+            
+                with (mycape) {
+                
+                    state = capestate.cape_walk;
+                    depth = -4;
+                    yy = 2;
+                }
+            }
+            else if (state == statetype.jump) {
+            
+                //With the cape
+                with (mycape) {
+                
+                    //Set depth
+                    depth = -4;
+                    yy = 2;
+                
+                    //If moving up
+                    if (other.vspeed &lt; 0)
+                        state = capestate.cape_jump_up;
+                    else
+                        state = capestate.cape_jump_down;
+                }
+            }
+        }
+    }
+    
+    //Otherwise, if the player is holding something
+    else if (holding == true) {
+    
+        //If Luigi is turning around
+        if (turnnow == true) {
+        
+            //Set the sprite
+            sprite_index = player_spin();
+            
+            //Do not animate
+            image_speed = 0;
+            image_index = 1;
+        }
+    
+        //Otherwise, if Luigi is not turning around
+        else {
+        
+            //If Luigi is not moving
+            if (state == statetype.idle) {
+            
+                //Set cape state
+                with (mycape) {
+                
+                    state = capestate.cape_idle;
+                    depth = -4;
+                    yy = 0;
+                }
+            
+                //Set the sprite
+                sprite_index = player_hold();
+                
+                //Do not animate
+                image_speed = 0;
+                
+                //But set the appropiate frame
+                if (keyboard_check(global.key_u))
+                    image_index = 1;
+                else
+                    image_index = 0;
+            }
+            
+            //Otherwise, if Luigi is walking
+            else if (state == statetype.walk) {
+            
+                //Set cape state
+                with (mycape) {
+                
+                    state = capestate.cape_walk;
+                    depth = -4;
+                    yy = 0;
+                }
+            
+                //Set the sprite
+                sprite_index = player_hold2();
+                            
+                //Animate
+                image_speed = (0.065*(inice*4))+abs(hspeed)/7.5;                       
+            }
+            
+            //Otherwise, if Luigi is jumping
+            else if (state == statetype.jump) {
+            
+                //If Luigi is not swimming
+                if (swimming == false) {
+                
+                    //If Luigi is doing a spinjump
+                    if (jumpstyle == true) {
+                                                                
+                        //Set cape state
+                        with (mycape) {
+                        
+                            //Set y position
+                            yy = 0;
+                        
+                            //If moving up
+                            if (other.vspeed &lt; 0)
+                                state = capestate.cape_spin_up;
+                            else
+                                state = capestate.cape_spin_down;
+                        
+                            //Set the depth first
+                            if (image_index &gt; 2.99)
+                                depth = -6;
+                            else
+                                depth = -4;                                
+                        }
+                    
+                        //Set the sprite
+                        sprite_index = player_spin();
+                        
+                        //Animate
+                        image_speed = 0.5;
+                    }
+                    
+                    //Otherwise, if Luigi is not doing a spinjump
+                    else if (jumpstyle == false) {
+                    
+                        //With the cape
+                        with (mycape) {
+                        
+                            //Set depth
+                            depth = -4;
+                            yy = 0;
+                        
+                            //Set state
+                            if (other.vspeed &lt; 0)
+                                state = capestate.cape_jump_up;
+                            else
+                                state = capestate.cape_jump_down;
+                        }
+                    
+                        //Set the sprite
+                        sprite_index = player_hold2();
+                        
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+                
+                //Otherwise, if the player is swimming
+                else if (swimming == true) {
+                
+                    //With the cape
+                    with (mycape) {
+                    
+                        //Set depth
+                        depth = -4;
+                        yy = 0;
+                    
+                        //If moving up
+                        if (other.vspeed &lt; 0)
+                            state = capestate.cape_jump_up;
+                        else
+                            state = capestate.cape_jump_down;
+                    }
+                
+                    //Set the sprite
+                    sprite_index = player_swim2();
+                    
+                    //If moving up
+                    if ((vspeed &lt; 0) &amp;&amp; (dive == 0))
+                        image_speed = 0.15;
+                        
+                    //Otherwise, if moving down while holding
+                    else if ((vspeed &gt; 0) &amp;&amp; (dive == 1))
+                        image_speed = 0.15;
+                    
+                    //Otherwise
+                    else {
+                    
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    //Set up the mask
+    if (global.powerup &gt; cs_pow_small)
+        mask_index = spr_mask_player_big;
+    else
+        mask_index = spr_mask_player;
+}
+
+//Force end firing animation if walking
+if (firing &gt; 0)
+&amp;&amp; (state == statetype.walk)
+    firing = 0;
 </string>
           </argument>
         </arguments>

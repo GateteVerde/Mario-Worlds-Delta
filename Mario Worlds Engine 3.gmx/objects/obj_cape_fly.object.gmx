@@ -158,7 +158,7 @@ img_index = round(image_index);
 if (smash == 0) {
 
     //Set the sprite
-    sprite_index = spr_mario_cape_dive;
+    sprite_index = player_dive();
     
     //Fall
     if (vspeed &gt; 0.5) 
@@ -168,7 +168,7 @@ if (smash == 0) {
     else {
     
         //Moving up
-        if (vspeed &lt; -0.5)
+        if (vspeed &lt; -1)
             image_single = 2
             
         //About to move up
@@ -181,7 +181,7 @@ if (smash == 0) {
 else {
 
     //Set sprite
-    sprite_index = spr_mario_cape_smash;
+    sprite_index = player_smash();
     
     //Set frame
     image_single = round(dive_index);
@@ -223,7 +223,7 @@ if (instance_exists(obj_playerparent)) {
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
     //If there's a semisolid in position
     if (semisolid) 
@@ -248,7 +248,7 @@ if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent,
     y += 4;
 
 //Handle collision with slopes
-if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+1, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
     //If moving down
@@ -514,9 +514,10 @@ smash = 0;
 
 //Reset dive index
 dive_index = 0;
+image_speed = 0.15;
 
 //Set the sprite
-sprite_index = spr_mario_cape_dive;
+sprite_index = player_dive();
 </string>
           </argument>
         </arguments>
@@ -626,6 +627,35 @@ else if (gravity == 0) {
         &amp;&amp; (hspeed &gt; -0.0125)
             hspeed = 0;    
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End diving animation
+
+if (sprite_index == spr_mario_cape_dive) {
+
+    image_speed = 0;
+    image_index = 2;
 }
 </string>
           </argument>

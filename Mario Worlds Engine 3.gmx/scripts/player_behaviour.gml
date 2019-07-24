@@ -423,6 +423,7 @@ if ((global.powerup == cs_pow_cape)
                 
                 flying = 2;
                 imflying = instance_create(x, y, obj_cape_fly);
+                    imflying.xscale = self.xscale;
                     imflying.vspeed = self.vspeed/2;
             }
         }
