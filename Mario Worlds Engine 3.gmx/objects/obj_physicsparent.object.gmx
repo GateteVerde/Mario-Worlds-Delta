@@ -106,6 +106,32 @@ else if (!water)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_spinner">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bump with cape
+
+if (vspeed &gt;= 0)
+    vspeed = -5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_blockparent">
       <action>
         <libid>1</libid>
@@ -123,11 +149,12 @@ else if (!water)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Bump when above
+            <string>///Bump with block
 
 if (other.vspeed &lt; 0)
-&amp;&amp; (y &lt; other.bbox_top-11)
-    vspeed = -3;
+&amp;&amp; (vspeed &gt;= 0)
+&amp;&amp; (y &lt; bbox_bottom-11)
+    vspeed = -5;
 </string>
           </argument>
         </arguments>
@@ -227,11 +254,11 @@ else {
     else {
     
         //Gravity
-        gravity = 0.03;
+        gravity = 0.1;
         
         //Cap vertical speed
-        if (vspeed &gt; 1)
-            vspeed = 1;
+        if (vspeed &gt; 2)
+            vspeed = 2;
     }
 }
 
@@ -242,13 +269,11 @@ if (vspeed &lt; 0) {
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
-        //If the NPC is jumping or climbing, prevent it from getting embed
-        if (state == statetype.jump) 
-        || (state == statetype.climb) {
+        //Prevent the NPC from getting embed on the ceiling      
+        while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))) {
         
-            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
-            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
-                y++;
+            y++;
         }
         
         //Stop vertical movement

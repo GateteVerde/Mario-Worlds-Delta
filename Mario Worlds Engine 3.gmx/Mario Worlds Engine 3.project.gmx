@@ -11,6 +11,7 @@
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_spin</sound>
+    <sound>sound\snd_sprout</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_thud</sound>
   </sounds>
@@ -179,6 +180,7 @@
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
       </sprites>
+      <sprite>sprites\spr_spinnermask</sprite>
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
@@ -286,6 +288,8 @@
       <script>scripts\string_add_zeros.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
+    <script>scripts\enum_get_sprite.gml</script>
+    <script>scripts\sprite_make_object.gml</script>
     <script>scripts\audio_stop_play_sound.gml</script>
   </scripts>
   <shaders name="shaders">
@@ -330,6 +334,15 @@
     </objects>
     <objects name="Items">
       <object>objects\obj_coin</object>
+      <objects name="Powerups">
+        <objects name="Pickups">
+          <object>objects\obj_mushroom</object>
+          <object>objects\obj_fireflower</object>
+          <object>objects\obj_feather</object>
+          <object>objects\obj_star</object>
+          <object>objects\obj_1up</object>
+        </objects>
+      </objects>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -383,6 +396,10 @@
         </objects>
         <objects name="Items">
           <objects name="Powerups">
+            <objects name="Pickups">
+              <object>objects\obj_feather_sprout</object>
+            </objects>
+            <object>objects\obj_powerup_sprout</object>
             <object>objects\obj_invincibility</object>
           </objects>
         </objects>

@@ -3,9 +3,9 @@
   <spriteName>spr_mushroom</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
-  <parentName>obj_physicsparent</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,33 +25,57 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///The parent object for all powerups
+            <string>///A powerup that is coming from a block
 
-//Inherit event from parent object
-event_inherited();
+//Do not animate
+image_speed = 0;
 
-//Animate
-image_speed = 0.15;
+//Item check
+alarm[0] = 1;
 
-//Permission
-permission = 1;
+//If there is a solid on top of the block
+if (position_meeting(x,y-8,obj_solid)) {
 
-//Powerup
-powerup = cs_pow_super;
+    //Go down if both sides are blocked
+    if (position_meeting(x-16,y+8,obj_solid))
+    &amp;&amp; (position_meeting(x+16,y+8,obj_solid))
+        vspeed = 0.5;
 
-//Sequence
-//0: Small to Big
-//1: Big to Small
-//2: Powerup
-//3: Powerdown
-//4: Transform
-sequence = 0;
+    //Go right if the left side is blocked
+    else if (position_meeting(x-16,y+8,obj_solid))
+        hspeed = 0.5;
+
+    //Go left if the right side is blocked
+    else if (position_meeting(x+16,y+8,obj_solid))
+        hspeed = -0.5;
+
+    //Otherwise, go towards the player
+    else {
+    
+        //If Mario does exist.
+        if (instance_exists(obj_mario)) {
+        
+            if (obj_mario.x &gt; x)
+                hspeed = 0.5;
+            else
+                hspeed = -0.5;
+        }
+        
+        //Otherwise, if it does not exist.
+        else
+            hspeed = -0.5;
+    }
+}
+
+//Otherwise, move up
+else
+    vspeed = -0.5;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_spinner">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -68,15 +92,30 @@ sequence = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Ignore event
+            <string>///Item check
 
-exit;
+//Feather
+if (sprite_index == spr_feather)
+    instance_create(x, y, obj_feather_sprout);
+    
+//Otherwise
+else {
+
+    //Play 'Sprout' sound
+    audio_play_sound(snd_sprout, 0, false);
+    
+    //Exit
+    exit;
+}
+
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_blockparent">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -93,9 +132,33 @@ exit;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Ignore event
+            <string>///Turn into a real item when outside the block
 
-exit;
+//If the item is no longer overlapping a solid
+if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
+
+    //Create an item
+    with (sprite_make_object(x, y, sprite_index)) {
+    
+        //If moving up
+        if (other.vspeed &lt; 0)
+            alarm[10] = 1;
+            
+        //Otherwise, stop it
+        else {
+        
+            permission = 0;
+            y--;
+        }
+        
+        //If the item is underwater, make it swim
+        if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+            swimming = true;
+    }
+    
+    //Destroy
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
