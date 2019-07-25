@@ -28,7 +28,7 @@
             <string>///The player is spinning with the cape
 
 //Play 'Spin' sound
-audio_play_sound(snd_spin, 0, false);
+audio_stop_play_sound(snd_spin, 0, false);
 
 //Animate
 image_speed = 0.5;

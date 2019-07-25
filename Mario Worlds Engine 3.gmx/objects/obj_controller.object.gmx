@@ -44,6 +44,10 @@ fade = 0;
 //Screenshot of the game, if it exists
 back = -1;
 
+//Screen shaking
+port_x = 0;
+port_y = 0;
+
 //Game message
 message = "";
 
@@ -62,6 +66,44 @@ application_surface_draw_enable(0)
 
 //Set the epsilon value for floating point numbers
 math_set_epsilon(0.00001);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make the screen shake when certain sounds are playing.
+
+if (audio_is_playing(snd_thud)) {
+    
+    //Repeat
+    alarm[11] = 1;    
+    
+    //Shake the screen...    
+    port_x = random_range(4,-4);
+    port_y = random_range(4,-4);
+}
+else {
+
+    port_x = 0;
+    port_y = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -227,6 +269,33 @@ instance_activate_all();
 //Delete the screenshot
 if (background_exists(back))
     background_delete(back);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handle various in-game variables
+
+//Make the screen shake when the 'Thwomp' sound plays
+if (!audio_is_playing(snd_thud))
+    alarm[11] = 2;
 </string>
           </argument>
         </arguments>
@@ -761,17 +830,11 @@ if (fade &lt; 1) {
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);
 }
 
-//No Filter
-if (filter = 0)
-    draw_surface(application_surface, 0, 0);
+//Draw a rectangle
+draw_rectangle_colour(0, 0, global.gw*(filter+1), global.gh*(filter+1), c_black, c_black, c_black, c_black, 0);
 
-//2x Filtering 
-else if (filter = 1)
-    draw_surface_stretched(application_surface, 0, 0, global.gw*2, global.gh*2);
-
-//3x Filtering
-else if (filter = 2)
-    draw_surface_stretched(application_surface, 0, 0, global.gw*3, global.gh*3);
+//Draw the application surface
+draw_surface_stretched(application_surface, port_x*(filter+1), port_y*(filter+1), global.gw*(filter+1), global.gh*(filter+1));
 
 //Reset the shader
 shader_reset();

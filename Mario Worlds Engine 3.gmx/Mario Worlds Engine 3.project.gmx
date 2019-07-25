@@ -5,8 +5,10 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\snd_1up</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_capefly</sound>
+    <sound>sound\snd_coin</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_swim</sound>
@@ -144,6 +146,10 @@
         <sprite>sprites\spr_1up</sprite>
         <sprite>sprites\spr_rotten</sprite>
       </sprites>
+      <sprite>sprites\spr_coin</sprite>
+      <sprite>sprites\spr_coin_10</sprite>
+      <sprite>sprites\spr_coin_30</sprite>
+      <sprite>sprites\spr_coin_50</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -190,6 +196,7 @@
         </sprites>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_splash</sprite>
+        <sprite>sprites\spr_sparkle</sprite>
       </sprites>
       <sprites name="Modifiers">
         <sprites name="Items">
@@ -279,6 +286,7 @@
       <script>scripts\string_add_zeros.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
+    <script>scripts\audio_stop_play_sound.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
@@ -320,6 +328,9 @@
         <object>objects\obj_qblock</object>
       </objects>
     </objects>
+    <objects name="Items">
+      <object>objects\obj_coin</object>
+    </objects>
     <objects name="Special">
       <objects name="Parents">
         <objects name="Player / NPC Parents">
@@ -327,6 +338,7 @@
             <object>objects\obj_playerparent</object>
           </objects>
           <object>objects\obj_physicsparent</object>
+          <object>objects\obj_powerupparent</object>
         </objects>
         <objects name="In-Level Parents">
           <object>objects\obj_modparent</object>
@@ -367,6 +379,7 @@
         </objects>
         <objects name="Blocks">
           <object>objects\obj_emptyblock</object>
+          <object>objects\obj_blockcoin</object>
         </objects>
         <objects name="Items">
           <objects name="Powerups">
@@ -374,7 +387,11 @@
           </objects>
         </objects>
         <objects name="Eyecandy">
+          <objects name="Score">
+            <object>objects\obj_score</object>
+          </objects>
           <object>objects\obj_smoke</object>
+          <object>objects\obj_sparkle</object>
         </objects>
       </objects>
     </objects>

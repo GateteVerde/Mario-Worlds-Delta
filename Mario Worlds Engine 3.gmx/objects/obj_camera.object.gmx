@@ -291,7 +291,7 @@ draw_text(view_xview[0]+64, view_yview[0]+8, string_format(lives, 2, 0));
 
 //Coins
 draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+104, view_yview[0]+8, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+120, view_yview[0]+8, string_add_zeros(global.coins, 2));
+draw_text(view_xview[0]+120, view_yview[0]+8, string_format(global.coins, 2, 0));
 
 //Dragon Coins
 var a;

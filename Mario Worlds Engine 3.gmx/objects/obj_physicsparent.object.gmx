@@ -7,7 +7,337 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Physics Parent
+
+//Is the object in a slope?
+slope = false;
+
+//Is the object underwater?
+swimming = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Physics logic
+
+//Default wall collision
+event_user(3);
+
+//Default floor collision
+event_user(4);
+
+//Check for water
+var water = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0);
+
+//If there's water
+if (water)
+&amp;&amp; (swimming == false) {
+
+    //Make the object swim
+    swimming = true;
+    
+    //Stop vertical movement
+    if (vspeed &gt; 0) {
+    
+        vspeed = 0;
+        gravity = 0;
+    }
+    
+    //Create a splash effect
+    with (instance_create(round(bbox_left+bbox_right)/2-8, water.y-16, obj_smoke)) {
+     
+        sprite_index = spr_splash;
+        image_speed = 0.3;
+    }
+}
+
+//Otherwise
+else if (!water)
+&amp;&amp; (swimming == true) {
+
+    //Stop swimming
+    swimming = false;
+    
+    //Create a splash effect
+    with (instance_create(round(bbox_left+bbox_right)/2-8, y-16, obj_smoke)) {
+     
+        sprite_index = spr_splash;
+        image_speed = 0.3;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_blockparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bump when above
+
+if (other.vspeed &lt; 0)
+&amp;&amp; (y &lt; other.bbox_top-11)
+    vspeed = -3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="14">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Default floor collision
+
+//Check if above a slope
+slope = player_inslope();
+
+//If moving down
+if (vspeed &gt; 0) {
+
+    //Check for a semisolid ground
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
+    
+    //If that ground exists and the player is above it...
+    if (semisolid) 
+    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+    
+        //Snap above the platform
+        y = semisolid.bbox_top-16;
+        
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+    }
+}
+
+//Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
+if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
+&amp;&amp; (vspeed == 0)
+&amp;&amp; (hspeed != 0)
+    y += 4;
+
+//Handle collision with slopes
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+    //If moving down
+    if (vspeed &gt; 0) {
+    
+        //Stop vertical movement
+        vspeed = 0;
+        gravity = 0;
+    }
+    
+    //Prevent the player from getting embed inside a slope
+    if (vspeed &gt; -1)    
+        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+            y--;
+}
+
+//Check for floor objects
+if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1,obj_semisolid, 0, 0))
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_semisolid, 0, 0))
+|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1,obj_slopeparent,1,0)) {
+
+    //Stop vertical movement
+    gravity = 0;
+    if (vspeed &gt; 0)
+        vspeed = 0;
+}
+else {
+
+    //Set the gravity when not underwater
+    if (!swimming) {
+    
+        //Gravity
+        gravity = 0.2;
+        
+        //Cap vertical speed
+        if (vspeed &gt; 4)
+            vspeed = 4;
+    }
+    
+    //Otherwise, set the gravity when underwater
+    else {
+    
+        //Gravity
+        gravity = 0.03;
+        
+        //Cap vertical speed
+        if (vspeed &gt; 1)
+            vspeed = 1;
+    }
+}
+
+//If moving up...
+if (vspeed &lt; 0) {
+
+    //...and the NPC bumps a ceiling
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
+    
+        //If the NPC is jumping or climbing, prevent it from getting embed
+        if (state == statetype.jump) 
+        || (state == statetype.climb) {
+        
+            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
+                y++;
+        }
+        
+        //Stop vertical movement
+        vspeed = 0;
+    }
+}
+
+//Prevent the NPC from overlapping ceiling slopes
+if (vspeed != 0) {
+
+    //While the player overlaps a slope
+    while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)) {
+    
+        //Move it down
+        y++;
+        
+        //If moving up
+        if (vspeed &lt; 0)
+            vspeed = 0;
+    }            
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Default wall collision
+
+//If moving right and the player bumps a wall to the right
+if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0))) {
+    
+    //Stop horizontal movement
+    hspeed = -hspeed;
+    
+    //Prevent getting embed on walls
+    while (collision_rectangle(bbox_left,bbox_top+4,bbox_left,bbox_bottom-1,obj_solid,1,0))
+        x++;
+    while (collision_rectangle(bbox_left,bbox_top+4,bbox_right,bbox_bottom-1,obj_solid,1,0))
+        x--;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw NPC
+
+draw_sprite_ext(sprite_index, -1, x, y+1, 1, 1, 0, c_white, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

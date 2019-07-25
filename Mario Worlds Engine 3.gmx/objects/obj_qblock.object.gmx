@@ -127,11 +127,8 @@ if (sprout == itemtype.coin_plus) {
     else
         event_inherited();
 }
-else {
-
-    //Perform end of bump event from parent
+else
     event_inherited();
-}
 </string>
           </argument>
         </arguments>
@@ -171,7 +168,9 @@ if (sprout == itemtype.coin_plus) {
 }
 
 //Create the coin
-
+if (sprout == itemtype.coin)
+|| (sprout == itemtype.coin_plus)
+    instance_create(x, ystart-16, obj_blockcoin);
 </string>
           </argument>
         </arguments>
