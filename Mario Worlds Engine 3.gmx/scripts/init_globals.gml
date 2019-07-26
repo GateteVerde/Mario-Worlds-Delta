@@ -33,7 +33,7 @@ enum itemtype {
 //Current Player
 //0: Mario
 //1: Luigi
-global.player = 1;
+global.player = 0;
 
 //Time Limit
 global.time = 0;

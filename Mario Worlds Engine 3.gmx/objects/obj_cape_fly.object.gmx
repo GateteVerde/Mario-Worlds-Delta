@@ -162,18 +162,18 @@ if (smash == 0) {
     
     //Fall
     if (vspeed &gt; 0.5) 
-        image_single = 0
+        image_single = 0;
         
     //Otherwise
     else {
     
         //Moving up
         if (vspeed &lt; -1)
-            image_single = 2
+            image_single = 2;
             
         //About to move up
         else
-            image_single = 1
+            image_single = 1;
     }
 }
 
@@ -220,10 +220,10 @@ if (instance_exists(obj_playerparent)) {
 }
 
 //If moving down
-if (vspeed &gt;= 0) {
+if (vspeed &gt; 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
     //If there's a semisolid in position
     if (semisolid) 
@@ -235,9 +235,6 @@ if (vspeed &gt;= 0) {
         //Stop vertical movement
         vspeed = 0;
         gravity = 0;
-        
-        //Handle events
-        event_user(0);
     }
 }
 
@@ -248,18 +245,15 @@ if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent,
     y += 4;
 
 //Handle collision with slopes
-if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+1, obj_slopeparent, 1, 0))
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
     //If moving down
-    if (vspeed &gt;= 0) {
+    if (vspeed &gt; 0) {
     
         //Stop vertical movement
         vspeed = 0;
         gravity = 0;
-        
-        //Handle events
-        event_user(0);
     }
     
     //Prevent the player from getting embed inside a slope
@@ -274,6 +268,7 @@ if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj
 
     vspeed = 0;
     gravity = 0;
+    event_user(0);
 }
 else {
 
@@ -329,9 +324,10 @@ else if (hspeed &lt; 0)
 }
 
 //Stop flying
-if ((hspeed &lt; 0.26) 
+if ((!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom+vspeed, obj_slopeparent, 1, 0)
+&amp;&amp; (hspeed &lt; 0.26) 
 &amp;&amp; (hspeed &gt; -0.26)
-&amp;&amp; (gravity == 0))
+&amp;&amp; (gravity == 0)))
 || (global.mount == 1)
 || (global.powerup &lt; cs_pow_cape)
 || (!instance_exists(obj_playerparent))
@@ -345,10 +341,6 @@ if (smash == 1) {
     if (dive_index &gt; 2)
         dive_index = 2;
 }
-else {
-
-    dive_index = 0;
-}
     
 //Bump ceilings
 if (vspeed &lt; 0) {
@@ -360,10 +352,10 @@ if (vspeed &lt; 0) {
 }
 
 //Cap horizontal speed
-if (hspeed &gt; 3.5)
-    hspeed = 3.5;
-if (hspeed &lt; -3.5)
-    hspeed = -3.5;
+if (hspeed &gt; 3)
+    hspeed = 3;
+else if (hspeed &lt; -3)
+    hspeed = -3;
 
 //Cap vertical speed
 if (smash == 0) {
@@ -379,18 +371,18 @@ else {
 
 //Increment speed when diving
 if (smash == 1) 
-&amp;&amp; (gravity == 0) {
+&amp;&amp; (gravity &gt; 0) {
 
     //If 'Left' is pressed
     if (keyboard_check(global.key_l))
-    &amp;&amp; (hspeed &gt; -3.5)
+    &amp;&amp; (hspeed &gt; -3)
     &amp;&amp; (xscale == -1)
     &amp;&amp; (!collision_rectangle(bbox_left+hspeed-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
         hspeed -= 0.1;
         
     //Otherwise, if 'Right' is pressed
     else if (keyboard_check(global.key_r))
-    &amp;&amp; (hspeed &lt; 3.5)
+    &amp;&amp; (hspeed &lt; 3)
     &amp;&amp; (xscale == 1)
     &amp;&amp; (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed+1, bbox_bottom-4, obj_solid, 1, 0))
         hspeed += 0.1;
@@ -511,10 +503,7 @@ else if (smash == 1) {
 
 //Return to normal state
 smash = 0;
-
-//Reset dive index
 dive_index = 0;
-image_speed = 0.15;
 
 //Set the sprite
 sprite_index = player_dive();
@@ -579,6 +568,20 @@ else {
 
         //Play 'Thud' sound
         audio_play_sound(snd_thud, 0, false);
+        
+        //Create a moving smoke effect to the left
+        with (instance_create(bbox_left, bbox_bottom, obj_smoke)) {
+        
+            sprite_index = spr_smoke_big;
+            hspeed = -1;
+        }
+        
+        //Create a moving smoke effect to the right
+        with (instance_create(bbox_right, bbox_bottom, obj_smoke)) {
+        
+            sprite_index = spr_smoke_big;
+            hspeed = 1;
+        }
     
         //Destroy
         instance_destroy();

@@ -304,7 +304,17 @@ repeat (ds_map_size(global.dcoins)) {
 
 //Reserve Box
 draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+8, 1, 1, 0, c_white, 1);
-/* Items will be drawn later*/
+switch (global.reserveitem) {
+
+    //Mushroom
+    case (cs_pow_super): draw_sprite_ext(spr_mushroom, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+14, 1, 1, 0, c_white, 1); break;
+    
+    //Fire Flower
+    case (cs_pow_fire): draw_sprite_ext(spr_fireflower, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+14, 1, 1, 0, c_white, 1); break;
+    
+    //Mushroom
+    case (cs_pow_cape): draw_sprite_ext(spr_feather, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+14, 1, 1, 0, c_white, 1); break;
+}
 
 //Score
 draw_text(view_xview[0]+view_wview[0]-128, view_yview[0]+8, string_add_zeros(score, 8));

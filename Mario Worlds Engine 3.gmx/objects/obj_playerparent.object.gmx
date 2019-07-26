@@ -33,6 +33,11 @@ gravity_enable = true;
 //Enable / disable control
 control_enable = true;
 
+//Movement variables
+grav_s = 0;
+hspd_s = 0;
+vspd_s = 0;
+
 //Handle player's state.
 enum statetype {
 
@@ -369,77 +374,95 @@ invulnerable = false;
 //Check if above a slope
 slope = player_inslope();
 
-//If moving down
-if (vspeed &gt; 0) {
-
-    //Check for a semisolid ground
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
-    
-    //If that ground exists and the player is above it...
-    if (semisolid) 
-    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
-    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
-    
-        //Snap above the platform
-        y = semisolid.bbox_top-16;
-        
-        //Stop vertical movement
-        vspeed = 0;
-        gravity = 0;
-        
-        //Reset values
-        event_user(15);
-    }
-}
-
-//Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-&amp;&amp; (state == statetype.walk)
-    y += 4;
-
-//Handle collision with slopes
-if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+//If gravity is enabled
+if (gravity_enable == true) {
 
     //If moving down
     if (vspeed &gt; 0) {
     
-        //Stop vertical movement
-        vspeed = 0;
-        gravity = 0;
+        //Check for a semisolid ground
+        var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
         
-        //Reset values
-        event_user(15);
+        //If that ground exists and the player is above it...
+        if (semisolid) 
+        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+        
+            //Snap above the platform
+            y = semisolid.bbox_top-16;
+            
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
+            
+            //Reset values
+            event_user(15);
+        }
     }
     
-    //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -1)    
-        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-            y--;
-}
-
-//If the player is not swimming
-if (swimming == 0) {
-
-    //If the player is not sliding down a slope
-    if (sliding == 0) {
+    //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
+    if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
+    &amp;&amp; (state == statetype.walk)
+        y += 4;
     
-        //If the player is not climbing
-        if (state != statetype.climb) {
+    //Handle collision with slopes
+    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+    
+        //If moving down
+        if (vspeed &gt; 0) {
         
-            //Perform default player physics
-            player_behaviour();
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
             
-            //Increment P-Meter
-            player_meter();
+            //Reset values
+            event_user(15);
         }
         
-        //Otherwise, if the player is climbing
-        else if (state == statetype.climb) {
+        //Prevent the player from getting embed inside a slope
+        if (vspeed &gt; -1)    
+            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                y--;
+    }
+    
+    //If the player is not swimming
+    if (swimming == 0) {
+    
+        //If the player is not sliding down a slope
+        if (sliding == 0) {
         
-            //Perform player climb physics
-            player_behaviour_climb();
+            //If the player is not climbing
+            if (state != statetype.climb) {
+            
+                //Perform default player physics
+                player_behaviour();
+                
+                //Increment P-Meter
+                player_meter();
+            }
+            
+            //Otherwise, if the player is climbing
+            else if (state == statetype.climb) {
+            
+                //Perform player climb physics
+                player_behaviour_climb();
+                
+                //Stop running
+                run = false;
+                
+                //Decrement P-Meter
+                if (pmeter &gt; 0)
+                    pmeter--;
+            }
+        }
+        
+        //Otherwise, if the player is sliding down a slope
+        else if (sliding == true) {
+        
+            //Perform player slide physics
+            player_behaviour_slide();
             
             //Stop running
             run = false;
@@ -450,11 +473,11 @@ if (swimming == 0) {
         }
     }
     
-    //Otherwise, if the player is sliding down a slope
-    else if (sliding == true) {
+    //Otherwise, if the player is swimming
+    else if (swimming == true) {
     
-        //Perform player slide physics
-        player_behaviour_slide();
+        //Perform player swim physics
+        player_behaviour_swim();
         
         //Stop running
         run = false;
@@ -463,20 +486,6 @@ if (swimming == 0) {
         if (pmeter &gt; 0)
             pmeter--;
     }
-}
-
-//Otherwise, if the player is swimming
-else if (swimming == true) {
-
-    //Perform player swim physics
-    player_behaviour_swim();
-    
-    //Stop running
-    run = false;
-    
-    //Decrement P-Meter
-    if (pmeter &gt; 0)
-        pmeter--;
 }
 
 //If moving right and the player bumps a wall to the right
@@ -577,7 +586,8 @@ if (state != statetype.climb) {
     }
     
     //Manage player projectiles if 'Action 2' is pressed and the barrier is deactivated.
-    if (keyboard_check_pressed(global.key_action[1])) 
+    if (keyboard_check_pressed(global.key_action[1]))
+    &amp;&amp; (instance_number(obj_camera) &gt; 0)
     &amp;&amp; (obj_camera.barrier == true)
         alarm[10] = 1;
 }
@@ -773,6 +783,66 @@ if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="24">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Recover gravity, hspeed and vspeed
+
+gravity = grav_s;
+grav_s = 0;
+hspeed = hspd_s;
+hspd_s = 0;
+vspeed = vspd_s;
+vspd_s = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="23">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stop gravity, hspeed and vspeed and save the values
+
+grav_s = gravity;
+gravity = 0;
+hspd_s = hspeed;
+hspeed = 0;
+vspd_s = vspeed;
+vspeed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -848,58 +918,6 @@ draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, i
 
 //Reset palette
 pal_swap_reset();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set up fake holding pose
-
-holding = !holding;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Change powerup
-
-global.powerup++;
-if (global.powerup &gt; cs_pow_firecape)
-    global.powerup = cs_pow_small;
 </string>
           </argument>
         </arguments>

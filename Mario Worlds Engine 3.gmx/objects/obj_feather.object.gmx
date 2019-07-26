@@ -30,16 +30,12 @@
 //Inherit event from parent
 event_inherited();
 
+//Do not animate
+image_speed = 0;
+image_index = 0;
+
 //Powerup
 powerup = cs_pow_cape;
-
-//Sequence
-//0: Small to Big
-//1: Big to Small
-//2: Powerup
-//3: Powerdown
-//4: Transform
-sequence = 4;
 </string>
           </argument>
         </arguments>
@@ -108,6 +104,85 @@ if (other.vspeed &lt; 0)
     //Destroy
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn into 'Cape' or 'Fire Cape'
+
+//Get 1000 points
+with (instance_create(x-8, y, obj_score)) event_user(5);
+
+//Turn into cape
+if (global.powerup != cs_pow_fire) 
+&amp;&amp; (global.powerup != cs_pow_cape) 
+&amp;&amp; (global.powerup != cs_pow_firecape) {
+
+    //Play 'Feather' sound
+    audio_play_sound(snd_feather, 0, false);
+    
+    //If the previous powerup was a mushroom
+    if (global.powerup == cs_pow_super) 
+    &amp;&amp; (global.reserveitem == cs_pow_small) {
+    
+        //Hold a mushroom in reserve
+        global.reserveitem = cs_pow_super;
+    }
+    
+    //Perform animation sequence
+    _transform = instance_create(0, 0, obj_player_transform);
+        _transform.oldpowerup = global.powerup;
+        _transform.newpowerup = powerup;    
+}
+
+//Otherwise, perform various actions
+else {
+
+    //If the player has already the fire flower
+    if (global.powerup == cs_pow_fire) {
+    
+        //Play 'Feather' sound
+        audio_play_sound(snd_feather, 0, false);
+    
+        //Perform animation sequence
+        _transform = instance_create(0, 0, obj_player_transform);
+            _transform.oldpowerup = global.powerup;
+            _transform.newpowerup = 4;           
+    }
+    
+    //Otherwise, if the player has already fire or fire cape...
+    else if (global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape) {
+    
+        //Play 'Reserve' sound
+        audio_play_sound(snd_reserve, 0, false);
+    
+        //Hold a fire flower in reserve
+        if (global.reserveitem != cs_pow_cape)
+            global.reserveitem = cs_pow_cape;
+    }
+}
+
+//Destroy
+instance_destroy();
+
 </string>
           </argument>
         </arguments>
