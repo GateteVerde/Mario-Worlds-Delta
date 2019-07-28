@@ -28,7 +28,7 @@
             <string>///A coin
 
 //Animate
-image_speed = 0.15;
+image_speed = 0.2;
 </string>
           </argument>
         </arguments>
@@ -63,7 +63,10 @@ global.coins++;
 score += 10;
 
 //Create a sparkle
-instance_create(x, y, obj_sparkle);
+repeat (4) {
+
+    instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
+}
 
 //Destroy
 instance_destroy();

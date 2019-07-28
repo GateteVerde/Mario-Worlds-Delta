@@ -12,11 +12,17 @@
 global.Pal_Shader = shd_palette_swapper;
 pal_swap_init_system(global.Pal_Shader);
 
+//Streams
+global._stream = noone;
+global._stream_starman = noone;
+global._stream_pswitch = noone;
+
 //Item Enumerators
 enum itemtype {
 
     coin,
-    coin_plus,
+    coin_star,
+    coin_multi,
     mushroom,
     fireflower,
     fireflower_plus,
@@ -24,11 +30,11 @@ enum itemtype {
     feather_plus,
     star,
     lifeup,
-    rotten    
+    poison   
 }
 
 //Remember music from rooms
-//global.music = bgm_gameover;
+global.levelmusic = 'Game Over';
 
 //Current Player
 //0: Mario

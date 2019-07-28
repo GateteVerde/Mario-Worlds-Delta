@@ -1,8 +1,11 @@
-///player_set_palette();
+///player_set_palette(object);
 
 /*
 **  Usage:
-**      player_set_palette();
+**      player_set_palette(object);
+**
+**  Given:
+**      object  = Object to hereby flashing variable
 **
 **  Purpose:
 **      Sets up the palette to be used on the player
@@ -18,7 +21,7 @@ if (instance_exists(obj_invincibility)) {
     pal = spr_palette_invincibility;
     
     //Set the palette position
-    numb = isflashing;
+    numb = argument[0].isflashing;
 }
 
 //Otherwise, if the player is not invincible

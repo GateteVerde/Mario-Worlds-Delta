@@ -3,20 +3,112 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <datafiles number="13" name="datafiles">
+    <datafiles number="13" name="music">
+      <datafile>
+        <name>dead.ogg</name>
+        <exists>-1</exists>
+        <size>64092</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>dead.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>invincibility.ogg</name>
+        <exists>-1</exists>
+        <size>739368</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>invincibility.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>levelmusic.ogg</name>
+        <exists>-1</exists>
+        <size>1555173</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>levelmusic.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>pswitch.ogg</name>
+        <exists>-1</exists>
+        <size>420741</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>pswitch.ogg</filename>
+      </datafile>
+    </datafiles>
+    <datafile>
+      <name>mwe3music.ini</name>
+      <exists>-1</exists>
+      <size>93</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>mwe3music.ini</filename>
+    </datafile>
+  </datafiles>
+  <NewExtensions>
+    <extension index="0">extensions\FMODGMS</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\snd_1up</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_feather</sound>
+    <sound>sound\snd_hurry</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_powerup</sound>
+    <sound>sound\snd_reserve</sound>
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_thud</sound>
-    <sound>sound\snd_reserve</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -148,12 +240,9 @@
         <sprite>sprites\spr_feather</sprite>
         <sprite>sprites\spr_star</sprite>
         <sprite>sprites\spr_1up</sprite>
-        <sprite>sprites\spr_rotten</sprite>
+        <sprite>sprites\spr_poison</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
-      <sprite>sprites\spr_coin_10</sprite>
-      <sprite>sprites\spr_coin_30</sprite>
-      <sprite>sprites\spr_coin_50</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -199,9 +288,15 @@
           <sprite>sprites\spr_8000pts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
         </sprites>
+        <sprites name="Blend">
+          <sprite>sprites\spr_ring</sprite>
+        </sprites>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
         <sprite>sprites\spr_sparkle</sprite>
+        <sprite>sprites\spr_sparkle_small</sprite>
+        <sprite>sprites\spr_sparkle_small_green</sprite>
+        <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_splash</sprite>
       </sprites>
       <sprites name="Modifiers">
@@ -214,9 +309,10 @@
             <sprite>sprites\spr_modifier_feather_alt</sprite>
             <sprite>sprites\spr_modifier_star</sprite>
             <sprite>sprites\spr_modifier_1up</sprite>
-            <sprite>sprites\spr_modifier_rotten</sprite>
+            <sprite>sprites\spr_modifier_poison</sprite>
           </sprites>
-          <sprite>sprites\spr_modifier_10coin</sprite>
+          <sprite>sprites\spr_modifier_coin_star</sprite>
+          <sprite>sprites\spr_modifier_coin_multi</sprite>
         </sprites>
       </sprites>
       <sprites name="GUI">
@@ -292,6 +388,21 @@
       <script>scripts\string_add_zeros.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
+    <scripts name="FMODGMS">
+      <scripts name="Utility">
+        <script>scripts\ReadMe_EffectParameters.gml</script>
+        <script>scripts\FMODGMS_Util_BeatsToSamples.gml</script>
+        <script>scripts\FMODGMS_Util_SecondsToSamples.gml</script>
+        <script>scripts\FMODGMS_Util_SamplesToSeconds.gml</script>
+        <script>scripts\FMODGMS_Util_SamplesToBeats.gml</script>
+        <script>scripts\FMODGMS_Snd_TypeToString.gml</script>
+        <script>scripts\FMODGMS_Snd_TagDataTypeToString.gml</script>
+        <script>scripts\FMODGMS_Snd_TagTypeToString.gml</script>
+        <script>scripts\FMODGMS_Effect_TypeToString.gml</script>
+      </scripts>
+      <script>scripts\FMODGMS_Play.gml</script>
+      <script>scripts\FMODGMS_Stop.gml</script>
+    </scripts>
     <script>scripts\enum_get_sprite.gml</script>
     <script>scripts\sprite_get_powerup.gml</script>
     <script>scripts\sprite_make_object.gml</script>
@@ -304,7 +415,6 @@
   <objects name="objects">
     <object>objects\obj_player_start</object>
     <object>objects\obj_levelcontrol</object>
-    <object>objects\obj_camera</object>
     <objects name="Collision">
       <object>objects\obj_solid</object>
       <object>objects\obj_semisolid</object>
@@ -341,7 +451,6 @@
       </objects>
     </objects>
     <objects name="Items">
-      <object>objects\obj_coin</object>
       <objects name="Powerups">
         <objects name="Pickups">
           <object>objects\obj_mushroom</object>
@@ -351,6 +460,7 @@
           <object>objects\obj_1up</object>
         </objects>
       </objects>
+      <object>objects\obj_coin</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -381,7 +491,8 @@
             <object>objects\obj_modifier_1up</object>
             <object>objects\obj_modifier_rotten</object>
           </objects>
-          <object>objects\obj_modifier_coin10</object>
+          <object>objects\obj_modifier_coin_star</object>
+          <object>objects\obj_modifier_coin_multi</object>
         </objects>
       </objects>
       <objects name="Do Not Use!">
@@ -418,9 +529,14 @@
           <objects name="Score">
             <object>objects\obj_score</object>
           </objects>
+          <objects name="Blend">
+            <object>objects\obj_ring</object>
+            <object>objects\obj_ring_1up</object>
+          </objects>
           <object>objects\obj_smoke</object>
           <object>objects\obj_sparkle</object>
         </objects>
+        <object>objects\obj_hud</object>
       </objects>
     </objects>
     <object>objects\obj_controller</object>

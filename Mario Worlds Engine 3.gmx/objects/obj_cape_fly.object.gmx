@@ -217,6 +217,7 @@ if (instance_exists(obj_playerparent)) {
 
     obj_playerparent.x = self.x;
     obj_playerparent.y = self.y;
+    obj_playerparent.hspeed = self.hspeed;
 }
 
 //If moving down
@@ -685,7 +686,7 @@ if (sprite_index == spr_mario_cape_dive) {
             <string>///Draw the player
 
 //Set the palette
-player_set_palette();
+player_set_palette(obj_playerparent);
 
 //Draw the player
 draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);

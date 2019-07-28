@@ -92,6 +92,61 @@ if (gravity == 0) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make the player invulnerable
+
+
+//Play a powerup sound
+audio_play_sound(snd_powerup, 0, false);
+
+//If the player is already invincible
+if (instance_exists(obj_invincibility)) {
+
+    //Extend the timer on his invincibility
+    obj_invincibility.alarm[0] = 720;
+    obj_invincibility.alarm[2] = 1;
+    
+    //Deny invincibility end.
+    if (obj_invincibility.alarm[1] &gt; 0)    
+        obj_invincibility.alarm[1] = -1;    
+}
+
+//Otherwise, if it's not invincible.
+else {
+
+    //Create invincibility
+    instance_create(x,y,obj_invincibility);
+}
+
+//Get 1000 points
+with (instance_create(x-8, y, obj_score)) event_user(5);
+
+//Create ring
+instance_create(x, y+8, obj_ring);
+
+//Destroy
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>

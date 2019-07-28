@@ -33,6 +33,9 @@ audio_stop_play_sound(snd_1up, 0, false);
 //Get a life
 with (instance_create(x-8, y, obj_score)) event_user(9);
 
+//Create ring
+instance_create(x, y+8, obj_ring_1up);
+
 //Destroy
 instance_destroy();
 </string>

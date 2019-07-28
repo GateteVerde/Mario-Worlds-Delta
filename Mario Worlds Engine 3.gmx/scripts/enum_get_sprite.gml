@@ -53,5 +53,5 @@ switch (argument[0]) {
     case (itemtype.lifeup): return spr_1up; break;
     
     //Rotten
-    case (itemtype.rotten): return spr_rotten; break;
+    case (itemtype.poison): return spr_poison; break;
 }

@@ -117,7 +117,7 @@ if (sprout == itemtype.coin) {
             <string>///End block 
 
 //If this item held more than 1 coin
-if (sprout == itemtype.coin_plus) {
+if (sprout == itemtype.coin_multi) {
 
     //If the timer is still going on, allow the block to be hit again.
     if (timer &lt; 2)
@@ -127,6 +127,22 @@ if (sprout == itemtype.coin_plus) {
     else
         event_inherited();
 }
+
+//Otherwise, if this item holds a starman and the player is invincible
+else if (sprout == itemtype.coin_star) {
+
+    //If the player is still invulnerable
+    if (instance_exists(obj_invincibility)) {
+    
+        //Sprout out a starman
+        with (instance_create(x+8, y, obj_powerup_sprout))
+            sprite_index = enum_get_sprite(itemtype.star);
+    }
+    
+    //Inherit event
+    event_inherited();
+}
+
 else {
 
     //If the item inside is not a coin
@@ -165,7 +181,7 @@ else {
             <string>///Create a coin
 
 //If the block holds more than 1 coin
-if (sprout == itemtype.coin_plus) {
+if (sprout == itemtype.coin_multi) {
 
     //Engage timer
     if (timer == 0) {
@@ -180,7 +196,8 @@ if (sprout == itemtype.coin_plus) {
 
 //Create the coin
 if (sprout == itemtype.coin)
-|| (sprout == itemtype.coin_plus)
+|| (sprout == itemtype.coin_multi)
+|| ((sprout == itemtype.coin_star) &amp;&amp; (instance_number(obj_invincibility) == 0))
     instance_create(x, ystart-16, obj_blockcoin);
 </string>
           </argument>

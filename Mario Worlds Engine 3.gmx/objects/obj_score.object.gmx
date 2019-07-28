@@ -56,8 +56,12 @@ friction = 0.0175;
             <kind>1</kind>
             <string>///Destroy if there's no vertical speed
 
-if (vspeed == 0)
-    instance_destroy();
+if (vspeed == 0) {
+
+    image_alpha -= 0.05;
+    if (image_alpha &lt; 0.05)
+        instance_destroy();
+}
 </string>
           </argument>
         </arguments>

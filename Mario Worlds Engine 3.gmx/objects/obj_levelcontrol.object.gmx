@@ -27,6 +27,42 @@
             <kind>1</kind>
             <string>///Level controller
 
+/*
+**  This item uses creation code!
+**
+**  levelmusic = The level music. (Any sound resource you load in, check up obj_persistent Game Start event for a list of songs that you can use.)
+**  leveltime = The time limit in seconds. (Optional)
+*/
+
+//Default values
+levelmusic = 0;
+leveltime = 0;
+
+//Play music
+if (global.pswitch == 0)
+&amp;&amp; (global.starman == 0)
+    alarm[0] = 3;
+
+//Is music disabled?
+musicdisable = false;
+
+//Is the P-Switch active?
+switchon = 0;
+
+//Temporary music
+temp = noone;
+
+//Orientation
+orientation = 1;
+
+//Camera Y
+camera_y = 0;
+camera_timer = 30;
+
+//Barrier
+barrier = 0;
+alarm[5] = 3;
+
 //Fade in / fade out
 ready = 0;
 
@@ -37,6 +73,160 @@ background_alpha[1] = 0;
 //Background blend values
 background_blend[0] = c_blue;
 background_blend[1] = c_blue;
+
+//Create HUD
+instance_create(0, 0, obj_hud);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Enable barrier
+
+barrier = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Play 'Hurry' sound
+
+audio_play_sound(snd_hurry, 0, false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Decrement the timer variable
+
+//If there's time left
+if (global.time &gt; 0) {
+
+    //Decrement
+    global.time--;
+    
+    //Decrement again after a second
+    alarm[2] = 60;
+    
+    //If there's 101 seconds left, play 'Hurry' sound
+    if (global.time == 101)
+        alarm[3] = 60;
+        
+    //Otherwise, if there's 1 second left
+    else if (global.time == 1)
+        alarm[4] = 61;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stop the music
+
+FMODGMS_Stop(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Plays the music
+
+//If the music is not disabled and the switch is not active
+if (musicdisable == 0)
+&amp;&amp; (switchon == 0)
+&amp;&amp; (global._isplaying[0] == false) {
+
+    //Play the theme
+    FMODGMS_Play(levelmusic, 0);
+    
+    //Make sure the music is playing
+    global._isplaying[0] = true;
+}
 </string>
           </argument>
         </arguments>
@@ -79,6 +269,322 @@ else if (ready == 1) {
         ready = 0;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Deals with various game logic parameters
+
+///Manage position of the camera
+
+//If the player object exists, follow it
+if (instance_exists(obj_playerparent)) {
+
+    //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left.
+    if (obj_playerparent.hspeed &lt; 0) &amp;&amp; (obj_playerparent.x &lt; x-56)
+        orientation = -1;
+        
+    //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
+    else if (obj_playerparent.hspeed &gt; 0) &amp;&amp; (obj_playerparent.x &gt; x+56)
+        orientation = 1;
+        
+    //If the camera is at the right
+    if (orientation == 1)
+    &amp;&amp; (obj_playerparent.x &gt; x-33) {
+    
+        //Scroll at a certain speed until the camera catches up
+        if (obj_playerparent.x &gt; x-29)
+            x += 3+obj_playerparent.hspeed;
+        else
+            x = obj_playerparent.x+33;
+    }
+    
+    //Otherwise, if the camera is at the left
+    else if (orientation == -1) 
+    &amp;&amp; (obj_playerparent.x &lt; x+33) {
+    
+        //Scroll at a certain speed until the camera catches up
+        if (obj_playerparent.x &lt; x+29)
+            x -= 3-obj_playerparent.hspeed;
+        else
+            x = obj_playerparent.x-33;
+    }
+    
+    //Set camera vertical position
+    event_user(0);
+    
+    //Stay relative to player's y position
+    y = obj_playerparent.y+camera_y;
+    
+    //If the barrier is not enabled
+    if (barrier == true) {
+        
+        //If the player is at the leftmost part of the view
+        if (obj_playerparent.x &lt; view_xview[0]+8) {
+        
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[0]+8;
+                if (obj_cape_fly.hspeed &lt; 0)
+                    obj_cape_fly.hspeed = 0;
+            }
+            
+            //Prevent the player from getting outside the view
+            obj_playerparent.x = view_xview[0]+8;
+            if (obj_playerparent.hspeed &lt; 0)
+                obj_playerparent.hspeed = 0;
+        }
+        
+        //Otherwise, if the player is at the rightmost part of the view
+        else if (obj_playerparent.x &gt; view_xview[0] + view_wview[0]-8) {
+        
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[0] + view_wview[0]-8;
+                if (obj_cape_fly.hspeed &gt; 0)
+                    obj_cape_fly.hspeed = 0;                    
+            }
+            
+            //Prevent the player from getting outside the view
+            obj_playerparent.x = view_xview[0] + view_wview[0]-8;
+            if (obj_playerparent.hspeed &gt; 0)
+                obj_playerparent.hspeed = 0;    
+        }
+    }
+}
+
+//Otherwise, cancel camera y scroll
+else {
+
+    //Reset timer
+    camera_timer = 60;
+    
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
+}
+
+//Round position
+x = round(x);
+y = round(y);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage music pitch
+
+for (i=0; i&lt;3; i++) {
+
+    //If the music is playing
+    if (global._isplaying[i] == true) {
+                    
+        //If the time is greater than 0 and lower than 101, speed up music.        
+        if (global.time &gt; 0)
+        &amp;&amp; (global.time &lt; 101)
+        &amp;&amp; (obj_levelcontrol.musicdisable == false)
+            FMODGMS_Chan_Set_Pitch(global._channel[i], 1.13);
+            
+        //Otherwise, set up the regular speed
+        else
+            FMODGMS_Chan_Set_Pitch(global._channel[i], 1);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="14">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Disable music and prevent it from playing
+
+//Disable music
+musicdisable = 1;
+
+//Disable all channels
+for (i=0; i&lt;3; i++)
+    FMODGMS_Stop(i);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Adjust camera y position
+
+//Make sure the player is not doing anything
+if (obj_playerparent.state == statetype.idle) {
+    
+    //If the 'Up' key is pressed
+    if (keyboard_check(global.key_u)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y -= 4;
+            if (camera_y &lt; -64)
+                camera_y = -64;
+        }
+    }
+    
+    //Otherwise, if the 'Down' key is pressed
+    else if (keyboard_check(global.key_d)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y += 4;
+            if (camera_y &gt; 64)
+                camera_y = 64;
+        }
+    }
+    
+    //Otherwise, reset it
+    else {
+    
+        //Reset timer
+        camera_timer = 30;
+        
+        //Return camera position
+        if (camera_y &gt; 0)
+            camera_y -= 4;
+        else if (camera_y &lt; 0)
+            camera_y += 4;            
+    }
+}
+else {
+
+    //Reset timer
+    camera_timer = 30;
+    
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handles Mario Start, checkpoints, and other stuff
+
+//If the time is set to something, and was not set in a previous room, set it
+if (leveltime &gt; 0) &amp;&amp; (global.time = 0)
+    global.time = leveltime;
+
+//If the timer was set, begin ticking
+if (global.time &gt; 0)
+    alarm[2] = 60
 </string>
           </argument>
         </arguments>

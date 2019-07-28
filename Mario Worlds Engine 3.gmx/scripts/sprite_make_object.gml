@@ -28,5 +28,5 @@ switch (argument[2]) {
     case (spr_1up): return instance_create(argument[0], argument[1], obj_1up);
     
     //Rotten
-    case (spr_rotten): return instance_create(argument[0], argument[1], obj_rotten);
+    case (spr_poison): return instance_create(argument[0], argument[1], obj_poison);
 }

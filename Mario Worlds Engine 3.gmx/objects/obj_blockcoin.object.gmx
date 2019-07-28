@@ -68,8 +68,11 @@ if ((vspeed &gt; 0) &amp;&amp; (y &gt; ystart-16)) {
     //Get 10 points
     with (instance_create(x, y, obj_score)) event_user(0);
     
-    //Create sparkle
-    instance_create(x, y, obj_sparkle);
+    //Create a sparkle
+    repeat (4) {
+    
+        instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
+    }
     
     //Destroy
     instance_destroy();
