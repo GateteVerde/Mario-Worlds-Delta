@@ -372,6 +372,18 @@ invulnerable = false;
 //Check if above a slope
 slope = player_inslope();
 
+//Update palette
+if (instance_exists(obj_invincibility)) {
+
+    isflashing += 0.1;
+    if (isflashing &gt; 6)
+        isflashing = 1;
+}
+else {
+
+    isflashing = 0;
+}
+
 //If gravity is enabled
 if (gravity_enable == true) {
 
@@ -526,6 +538,31 @@ if (vspeed &lt; 0) {
             while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
             || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
                 y++;
+        }
+        
+        //Check if there's a block on the way.
+        var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
+        
+        //If there's a block on the way.
+        if (block) {
+            
+            //If the block has NOT been hit.
+            if (block.ready == 0) {
+        
+                //Trigger block events
+                with (block) {
+                
+                    //Block is hit
+                    ready = 1;
+                    
+                    //Set vertical speed
+                    vspeed = -2.25;
+                    alarm[0] = 4;
+                    
+                    //Perform block specific events
+                    event_user(0);
+                }
+            }
         }
         
         //Stop vertical movement
@@ -743,10 +780,6 @@ else {
     if (bbox_bottom &gt; room_height+32)
         room_restart();
 }
-
-isflashing += 0.2;
-if (isflashing &gt; 6)
-    isflashing = 0;
 </string>
           </argument>
         </arguments>

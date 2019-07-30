@@ -38,6 +38,9 @@ alarm[3] = 1;
 
 //Combo
 hitcombo = 0;
+
+//Warn the player
+warning = 0;
 </string>
           </argument>
         </arguments>
@@ -87,7 +90,7 @@ if (instance_exists(obj_playerparent)) {
 }
 
 //Repeat
-alarm[3] = round(random_range(1, 16));
+alarm[3] = 4;
 </string>
           </argument>
         </arguments>
@@ -112,19 +115,12 @@ alarm[3] = round(random_range(1, 16));
             <kind>1</kind>
             <string>///Play invincibility music
 
-//With the level control
+//End level music and reset global.music
 obj_levelcontrol.alarm[1] = 1;
 
-//Play 'Starman' theme if the 'P-Switch' one is not playing
-if (global._isplaying[1] == false)
-&amp;&amp; (global._isplaying[2] == false) {
-
-    //Play the theme
-    FMODGMS_Play('Invincibility', 1);
-    
-    //Make sure the music will play
-    global._isplaying[1] = true;
-}
+//Play 'Starman' theme
+if (!audio_is_playing(bgm_star))
+    audio_play_sound(bgm_star, 0, true);
 </string>
           </argument>
         </arguments>
@@ -150,8 +146,10 @@ if (global._isplaying[1] == false)
             <string>///Destroy
 
 //Make Mario vulnerable to all attacks.
-if (instance_exists(obj_playerparent))
+if (instance_exists(obj_playerparent)) {
+
     obj_playerparent.invulnerable = false;
+}
 
 //Destroy
 instance_destroy();
@@ -179,14 +177,14 @@ instance_destroy();
             <kind>1</kind>
             <string>///End invincibility
 
-//Stop theme
-FMODGMS_Stop(1);
+//Stop starman music
+audio_stop_sound(bgm_star);
 
-//With the level controller
-obj_levelcontrol.alarm[0] = 3;
+//Play level music
+obj_levelcontrol.alarm[0] = 2;
 
 //Destroy
-alarm[1] = 90;
+alarm[1] = 60;
 </string>
           </argument>
         </arguments>
@@ -224,6 +222,18 @@ if (instance_exists(obj_playerparent)) {
     //Get the mask from the player
     mask_index = obj_playerparent.mask_index;
 }
+
+//Warn the player that the starman effect is running out
+if ((warning == 0) &amp;&amp; (alarm[0] &lt;= 120)) {
+
+    //Play 'Switch Timer' sound
+    audio_play_sound(snd_switchtimer, 0, false);
+    
+    //Warn
+    warning = 1;
+}
+else if ((warning == 1) &amp;&amp; (alarm[0] &gt; 120)) 
+    warning = 0;
 </string>
           </argument>
         </arguments>

@@ -31,7 +31,12 @@
 if (global.postchange == -1) {
 
     //Create a new player in this object
-    player_create(xstart, ystart);
+    with (player_create(xstart, ystart)) {
+    
+        //Put camera in position
+        if (instance_exists(obj_levelcontrol))
+            obj_levelcontrol.x = x;
+    }
 }
 
 //Destroy

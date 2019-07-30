@@ -34,11 +34,11 @@ audio_stop_play_sound(snd_coin, 0, false);
 global.coins++;
 
 //Set the vertical speed
-vspeed = -3;
+vspeed = -4;
 gravity = 0.2;
 
 //Animate
-image_speed = 0.2;
+image_speed = 0.4;
 </string>
           </argument>
         </arguments>

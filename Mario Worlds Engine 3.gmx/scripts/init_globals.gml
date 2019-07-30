@@ -12,11 +12,6 @@
 global.Pal_Shader = shd_palette_swapper;
 pal_swap_init_system(global.Pal_Shader);
 
-//Streams
-global._stream = noone;
-global._stream_starman = noone;
-global._stream_pswitch = noone;
-
 //Item Enumerators
 enum itemtype {
 

@@ -128,52 +128,6 @@ alarm[1] = 4;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Bump the block from below
-
-//Check for the player
-var player = collision_line(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_playerparent, 0, 0);
-
-//If the block can be bumped
-if (ready == 0) {
-
-    //If the player is on position
-    if (player) 
-    &amp;&amp; (player.vspeed &lt;= 0)
-    &amp;&amp; (player.state = statetype.jump) {
-    
-        //Begin bump sequence
-        vspeed = -2.25;
-        alarm[0] = 4;
-        
-        //Block is hit
-        ready = 1;
-        
-        //Perform block events
-        event_user(0);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_spinner">
       <action>
         <libid>1</libid>
