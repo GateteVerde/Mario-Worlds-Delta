@@ -5,7 +5,7 @@
 **      allow_move();
 **
 **  Purpose:
-**      Allows the player to move if he is crouched down
+**      Allows the player to move if he is crouched down or flying
 */
 
 //If the player is crouched down
@@ -17,5 +17,11 @@ if (crouch == true) {
     else
         return false;
 }
-else
-    return true;
+else {
+
+    //If the player is flying
+    if (flying == 1)
+        return false;
+    else
+        return true;
+}

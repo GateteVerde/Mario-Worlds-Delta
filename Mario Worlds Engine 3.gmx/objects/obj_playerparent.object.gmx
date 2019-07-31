@@ -238,6 +238,16 @@ if (control_enable == true)
         //If the player has the fire powerup
         if (global.powerup == cs_pow_fire) {
         
+            //If there's less than 2 fireballs in view
+            if (instance_number(obj_fireball) &lt; 2) {
+            
+                firing = 9;
+                with (instance_create(x, y, obj_fireball)) {
+                
+                    vspeed = 4;
+                    hspeed = 4*other.xscale;
+                }
+            }
         }
         
         //Otherwise, if the player has either the cape or the fire cape

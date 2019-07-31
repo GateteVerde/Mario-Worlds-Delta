@@ -20,6 +20,7 @@
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
     <sound>sound\snd_feather</sound>
+    <sound>sound\snd_fireball</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_kick</sound>
@@ -149,6 +150,7 @@
         <sprite>sprites\spr_palette_master</sprite>
         <sprite>sprites\spr_palette_invincibility</sprite>
       </sprites>
+      <sprite>sprites\spr_player</sprite>
     </sprites>
     <sprites name="Blocks">
       <sprites name="Item Blocks">
@@ -175,12 +177,22 @@
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
+        <sprites name="Projectiles">
+          <sprite>sprites\spr_fireball</sprite>
+          <sprite>sprites\spr_fireball_l</sprite>
+        </sprites>
         <sprite>sprites\spr_mushroom</sprite>
         <sprite>sprites\spr_fireflower</sprite>
         <sprite>sprites\spr_feather</sprite>
         <sprite>sprites\spr_star</sprite>
         <sprite>sprites\spr_1up</sprite>
         <sprite>sprites\spr_poison</sprite>
+      </sprites>
+      <sprites name="Platforms">
+        <sprite>sprites\spr_platform</sprite>
+      </sprites>
+      <sprites name="Decor">
+        <sprite>sprites\spr_water</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_10</sprite>
@@ -232,14 +244,15 @@
         </sprites>
         <sprites name="Blend">
           <sprite>sprites\spr_ring</sprite>
+          <sprite>sprites\spr_sparkle</sprite>
           <sprite>sprites\spr_spinthump</sprite>
         </sprites>
+        <sprite>sprites\spr_cinder</sprite>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
-        <sprite>sprites\spr_sparkle</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
-        <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
+        <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_splash</sprite>
       </sprites>
       <sprites name="Modifiers">
@@ -272,7 +285,10 @@
         <sprite>sprites\spr_font</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_up</sprite>
+    <sprite>sprites\spr_down</sprite>
+    <sprite>sprites\spr_left</sprite>
+    <sprite>sprites\spr_right</sprite>
     <sprite>sprites\spr_eventmarker</sprite>
   </sprites>
   <backgrounds name="background">
@@ -343,6 +359,7 @@
       <script>scripts\enum_get_sprite.gml</script>
       <script>scripts\sprite_get_powerup.gml</script>
       <script>scripts\sprite_create_object.gml</script>
+      <script>scripts\draw_sprite_tiled_area_ext.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
     <script>scripts\shard_create.gml</script>
@@ -409,6 +426,14 @@
           <object>objects\obj_1up</object>
         </objects>
       </objects>
+      <objects name="Platforms">
+        <object>objects\obj_platform</object>
+      </objects>
+      <objects name="Decor">
+        <objects name="Liquids">
+          <object>objects\obj_water</object>
+        </objects>
+      </objects>
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
@@ -432,6 +457,7 @@
         <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
+        <object>objects\obj_platformparent</object>
       </objects>
       <objects name="Modifiers">
         <objects name="Blocks">
@@ -482,6 +508,9 @@
             <objects name="Pickups">
               <object>objects\obj_feather_sprout</object>
             </objects>
+            <objects name="Projectiles">
+              <object>objects\obj_fireball</object>
+            </objects>
             <object>objects\obj_powerup_sprout</object>
             <object>objects\obj_invincibility</object>
           </objects>
@@ -495,12 +524,17 @@
             <object>objects\obj_ring_1up</object>
             <object>objects\obj_spinthump</object>
           </objects>
+          <object>objects\obj_cinder</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_sparkle</object>
         </objects>
         <object>objects\obj_hud</object>
       </objects>
     </objects>
+    <object>objects\obj_up</object>
+    <object>objects\obj_down</object>
+    <object>objects\obj_left</object>
+    <object>objects\obj_right</object>
     <object>objects\obj_controller</object>
   </objects>
   <rooms name="rooms">

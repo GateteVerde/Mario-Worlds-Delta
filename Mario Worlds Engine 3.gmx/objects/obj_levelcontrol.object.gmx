@@ -347,11 +347,11 @@ else if (ready == 1) {
 if (instance_exists(obj_playerparent)) {
 
     //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left.
-    if (obj_playerparent.hspeed &lt; 0) &amp;&amp; (obj_playerparent.x &lt; x-56)
+    if ((obj_playerparent.hspeed &lt; 0) || (obj_playerparent.x &lt; xprevious)) &amp;&amp; (obj_playerparent.x &lt; x-56)
         orientation = -1;
         
     //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
-    else if (obj_playerparent.hspeed &gt; 0) &amp;&amp; (obj_playerparent.x &gt; x+56)
+    else if ((obj_playerparent.hspeed &gt; 0) || (obj_playerparent.x &gt; xprevious)) &amp;&amp; (obj_playerparent.x &gt; x+56)
         orientation = 1;
         
     //If the camera is at the right
