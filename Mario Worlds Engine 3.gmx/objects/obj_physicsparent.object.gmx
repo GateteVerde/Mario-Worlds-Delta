@@ -154,7 +154,7 @@ if (vspeed &gt;= 0)
 if (other.vspeed &lt; 0)
 &amp;&amp; (vspeed &gt;= 0)
 &amp;&amp; (y &lt; bbox_bottom-11)
-    vspeed = -5;
+    vspeed = -2.5;
 </string>
           </argument>
         </arguments>

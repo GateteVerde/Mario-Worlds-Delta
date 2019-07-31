@@ -1,8 +1,8 @@
-///sprite_make_object(x,y,sprite)
+///sprite_create_object(x,y,sprite)
 
 /*
 **  Usage:
-**      sprite_make_object(x,y,sprite)
+**      sprite_create_object(x,y,sprite)
 **
 **  Given:
 **      x           X Coordinate

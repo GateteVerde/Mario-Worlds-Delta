@@ -47,7 +47,7 @@ a = 0;
 repeat (ds_map_size(global.dcoins)) {
 
     draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
-    a += 16;
+    a += 8;
 }
 
 //Reserve Box

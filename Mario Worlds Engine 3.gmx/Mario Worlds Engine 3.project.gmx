@@ -14,12 +14,15 @@
       <sound>sound\bgm_death</sound>
     </sounds>
     <sound>sound\snd_1up</sound>
+    <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_coin</sound>
+    <sound>sound\snd_coin_big</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_jump</sound>
+    <sound>sound\snd_kick</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
     <sound>sound\snd_spin</sound>
@@ -160,6 +163,8 @@
         </sprites>
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
+        <sprite>sprites\spr_brick_blue</sprite>
+        <sprite>sprites\spr_brick_blue_th</sprite>
       </sprites>
       <sprites name="Triggers">
         <sprite>sprites\spr_onoffblock_on</sprite>
@@ -178,6 +183,8 @@
         <sprite>sprites\spr_poison</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
+      <sprite>sprites\spr_coin_10</sprite>
+      <sprite>sprites\spr_coin_ace</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -225,6 +232,7 @@
         </sprites>
         <sprites name="Blend">
           <sprite>sprites\spr_ring</sprite>
+          <sprite>sprites\spr_spinthump</sprite>
         </sprites>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
@@ -235,6 +243,10 @@
         <sprite>sprites\spr_splash</sprite>
       </sprites>
       <sprites name="Modifiers">
+        <sprites name="Blocks">
+          <sprite>sprites\spr_modifier_brick</sprite>
+          <sprite>sprites\spr_modifier_brick_flip</sprite>
+        </sprites>
         <sprites name="Items">
           <sprites name="Powerups">
             <sprite>sprites\spr_modifier_shroom</sprite>
@@ -307,6 +319,7 @@
         <script>scripts\player_meter.gml</script>
         <script>scripts\player_inslope.gml</script>
       </scripts>
+      <script>scripts\can_hold.gml</script>
       <script>scripts\allow_move.gml</script>
       <script>scripts\player_create.gml</script>
       <script>scripts\player_set_palette.gml</script>
@@ -319,14 +332,20 @@
         <script>scripts\pal_swap_reset.gml</script>
         <script>scripts\pal_swap_get_pal_count.gml</script>
       </scripts>
+      <scripts name="Sound">
+        <script>scripts\audio_stop_play_sound.gml</script>
+      </scripts>
+      <scripts name="Text">
+        <script>scripts\string_add_zeros.gml</script>
+      </scripts>
       <script>scripts\init_globals.gml</script>
-      <script>scripts\string_add_zeros.gml</script>
+      <script>scripts\outside_view.gml</script>
+      <script>scripts\enum_get_sprite.gml</script>
+      <script>scripts\sprite_get_powerup.gml</script>
+      <script>scripts\sprite_create_object.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
-    <script>scripts\enum_get_sprite.gml</script>
-    <script>scripts\sprite_get_powerup.gml</script>
-    <script>scripts\sprite_make_object.gml</script>
-    <script>scripts\audio_stop_play_sound.gml</script>
+    <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
@@ -369,6 +388,11 @@
         </objects>
         <object>objects\obj_qblock</object>
       </objects>
+      <objects name="Bricks">
+        <object>objects\obj_brick</object>
+        <object>objects\obj_brick_flip</object>
+        <object>objects\obj_brick_flip_flipping</object>
+      </objects>
       <objects name="Triggers">
         <object>objects\obj_onoffblock</object>
         <object>objects\obj_onoffplatform_red</object>
@@ -386,12 +410,17 @@
         </objects>
       </objects>
       <object>objects\obj_coin</object>
+      <object>objects\obj_coin_10</object>
+      <object>objects\obj_coin_ace</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
         <objects name="Player / NPC Parents">
           <objects name="Player">
             <object>objects\obj_playerparent</object>
+          </objects>
+          <objects name="NPCs">
+            <object>objects\obj_parhold</object>
           </objects>
           <object>objects\obj_physicsparent</object>
           <object>objects\obj_powerupparent</object>
@@ -405,6 +434,10 @@
         <object>objects\obj_slopeparent_ceiling</object>
       </objects>
       <objects name="Modifiers">
+        <objects name="Blocks">
+          <object>objects\obj_modifier_brick</object>
+          <object>objects\obj_modifier_brick_flip</object>
+        </objects>
         <objects name="Items">
           <objects name="Powerups">
             <object>objects\obj_modifier_shroom</object>
@@ -438,6 +471,9 @@
           <object>objects\obj_spinner</object>
         </objects>
         <objects name="Blocks">
+          <objects name="Bricks">
+            <object>objects\obj_shard</object>
+          </objects>
           <object>objects\obj_emptyblock</object>
           <object>objects\obj_blockcoin</object>
         </objects>
@@ -457,6 +493,7 @@
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
+            <object>objects\obj_spinthump</object>
           </objects>
           <object>objects\obj_smoke</object>
           <object>objects\obj_sparkle</object>

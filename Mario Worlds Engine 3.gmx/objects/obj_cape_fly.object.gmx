@@ -285,13 +285,39 @@ if (smash == 1) {
         dive_index = 2;
 }
     
-//Bump ceilings
+//If moving up...
 if (vspeed &lt; 0) {
 
     //...and the player bumps a ceiling
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
-    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))
-        y -= vspeed;
+    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
+    
+        //If the player is jumping or climbing
+        if (state == statetype.jump) {
+        
+            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
+                y++;
+        }
+        
+        //Stop vertical movement
+        vspeed = 0;
+    }
+}
+
+//Prevent the player from overlapping ceiling slopes
+if (state == statetype.jump) {
+
+    //While the player overlaps a slope
+    while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)) {
+    
+        //Move it down
+        y++;
+        
+        //If moving up
+        if (vspeed &lt; 0)
+            vspeed = 0;
+    }            
 }
 
 //Cap horizontal speed
