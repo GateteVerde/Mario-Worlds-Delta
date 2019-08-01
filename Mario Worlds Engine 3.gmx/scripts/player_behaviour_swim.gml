@@ -74,11 +74,14 @@ if (inwall == false)
         //Switch to jump state
         state = statetype.jump;
         
+        //Set vertical speed
+        vspeed = -1.5;
+        
         //If 'Up' is pressed
         if (keyboard_check(global.key_u)) {
         
             //Set the vertical speed
-            vspeed -= 2;
+            vspeed -= 1;
             
             //Dismount from yoshi
             if (global.mount == 1) {
@@ -89,11 +92,7 @@ if (inwall == false)
         
         //Otherwise, if 'Down' is pressed
         else if (keyboard_check(global.key_d))
-            vspeed -= 0.5;
-            
-        //Otherwise, swim normally.
-        else
-            vspeed -= 1.5;
+            vspeed += 1;
     }
     
     //Make the player float when holding an item

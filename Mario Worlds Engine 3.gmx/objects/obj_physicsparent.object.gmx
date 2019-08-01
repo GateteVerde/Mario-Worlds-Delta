@@ -27,11 +27,68 @@
             <kind>1</kind>
             <string>///Physics Parent
 
+//Does this item bounce in the ground?
+bouncy = false;
+
 //Is the object in a slope?
 slope = false;
 
 //Is the object underwater?
 swimming = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with moving platforms
+
+/*
+//  IMPORTANT NOTE:
+//
+//  This event must be called in a 'End Step' event, otherwise it will not work properly.
+*/
+
+//Check for a moving platform
+var moving = collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+2, obj_platformparent,0,0);
+
+//If there's a moving platform
+if (moving) {
+
+    //With this platform
+    with (moving) {
+    
+        //If this instance is on the platform
+        if (collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top+vspeed, other.id, 0, 0)) 
+        &amp;&amp; (other.id.bbox_bottom &lt; yprevious+5)
+        &amp;&amp; (other.id.vspeed == 0) {
+                
+            //Snap the instance vertically
+            other.id.y = ceil(bbox_top-(sprite_height-sprite_get_yoffset(sprite_index)));
+            
+            //Move the player horizontally if there is no solid in his way
+            if (x &lt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_left-1, other.id.bbox_top+4, other.id.bbox_left, other.id.bbox_bottom-5,obj_solid,0,0))
+            || (x &gt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_right, other.id.bbox_top+4, other.id.bbox_right+1, other.id.bbox_bottom-5,obj_solid,0,0))
+                other.id.x += x-xprevious;
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -197,8 +254,20 @@ if (vspeed &gt; 0) {
         y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
         
         //Stop vertical movement
-        vspeed = 0;
-        gravity = 0;
+        if (bouncy == 0) {
+        
+            vspeed = 0;
+            gravity = 0;
+        }
+        
+        //Otherwise
+        else {
+        
+            if (vspeed &gt; 0.5)
+                vspeed = -vspeed/2.5;
+            else
+                vspeed = 0;
+        }
     }
 }
 
@@ -215,10 +284,22 @@ if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1
 
     //If moving down
     if (vspeed &gt; 0) {
-    
+        
         //Stop vertical movement
-        vspeed = 0;
-        gravity = 0;
+        if (bouncy == 0) {
+        
+            vspeed = 0;
+            gravity = 0;
+        }
+        
+        //Otherwise
+        else {
+        
+            if (vspeed &gt; 0.5)
+                vspeed = -vspeed/2.5;
+            else
+                vspeed = 0;
+        }
     }
     
     //Prevent the player from getting embed inside a slope
@@ -274,6 +355,33 @@ if (vspeed &lt; 0) {
         || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))) {
         
             y++;
+        }
+        
+        //Check if there's a block on the way.
+        var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
+        
+        //If there's a block on the way.
+        if (block) 
+        &amp;&amp; (object_index == obj_parhold) {
+            
+            //If the block has NOT been hit.
+            if (block.ready == 0) {
+        
+                //Trigger block events
+                with (block) {
+                
+                    //Block is hit
+                    ready = 1;
+                    
+                    //Set vertical speed
+                    vspeed = -2.25;
+                    alarm[0] = 4;
+                    alarm[3] = 4;
+                    
+                    //Perform block specific events
+                    event_user(0);
+                }
+            }
         }
         
         //Stop vertical movement

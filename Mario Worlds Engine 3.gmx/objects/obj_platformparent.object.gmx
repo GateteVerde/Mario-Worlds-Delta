@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Manage player collision
+            <string>///Manage player and NPC collision
 
 //If the player is on this moving platform
-if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
+if (collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top+vspeed, obj_playerparent, 0, 0))
 &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
 &amp;&amp; (obj_playerparent.state != statetype.jump) {
 
@@ -43,7 +43,7 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playe
     else {
     
         //Snap the player vertically
-        obj_playerparent.y = ceil(bbox_top-16);
+        obj_playerparent.y = ceil(bbox_top-(sprite_height-sprite_get_yoffset(sprite_index)));
         
         //Snap the player horizontally
         obj_playerparent.x += x-xprevious;

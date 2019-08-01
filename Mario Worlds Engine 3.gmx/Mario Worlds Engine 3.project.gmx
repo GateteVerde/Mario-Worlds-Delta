@@ -193,6 +193,8 @@
       </sprites>
       <sprites name="Decor">
         <sprite>sprites\spr_water</sprite>
+        <sprite>sprites\spr_waterfall</sprite>
+        <sprite>sprites\spr_waterfall_bottom</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_10</sprite>
@@ -432,6 +434,7 @@
       <objects name="Decor">
         <objects name="Liquids">
           <object>objects\obj_water</object>
+          <object>objects\obj_waterfall</object>
         </objects>
       </objects>
       <object>objects\obj_coin</object>
