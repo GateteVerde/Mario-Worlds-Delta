@@ -302,6 +302,10 @@ if (held == false) {
                 if (abs(hspeed) &lt; 0.0375)
                     hspeed = 0;            
             }
+            
+            //Move up if in contact with a slope
+            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))    
+                y--;
         }
                 
         //Stop it if it gets stuck in a solid
@@ -515,13 +519,8 @@ else if (keyboard_check(global.key_d)) {
         hspeed = 0;
     }
     
-    //If there's not a slope in place...
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
-        hspeed = 0.5*obj_playerparent.xscale;
-    
-    //Otherwise
-    else
-        vspeed = 0.1;    
+    //Set the horizontal speed
+    hspeed = 0.5*obj_playerparent.xscale;
 }
 
 //Otherwise, if neither 'Up' or 'Down' is pressed
@@ -546,28 +545,17 @@ else {
                 vspeed = -2;
             
             //If the object is not on contact with a slope
-            if (!collision_rectangle(x-2, bbox_top, x-2, bbox_bottom-4, obj_slopeparent, 1, 0))
+            if (!collision_rectangle(x-2, bbox_bottom-4, x-2, bbox_bottom, obj_slopeparent, 1, 0))
                 hspeed = (obj_playerparent.hspeed+1*obj_playerparent.xscale)/1.5;
                 
             //Otherwise, do not apply horizontal speed
-            else {
-                   
-                vspeed = 0.1;
-                hspeed = 0.1*sign(obj_playerparent.xscale);
-            }
+            else
+                hspeed = 0.5*sign(obj_playerparent.xscale);
         }
         
         //Otherwise, leave it on the ground
-        else {
-            
-            //If there's not a slope in place...
-            if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
-                hspeed = 0.5*obj_playerparent.xscale;
-            
-            //Otherwise
-            else
-                vspeed = 0.1;        
-        }
+        else
+            hspeed = 0.5*obj_playerparent.xscale;
     }
     else
         inwall = true;

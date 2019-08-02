@@ -68,8 +68,8 @@ background_alpha[0] = 1;
 background_alpha[1] = 0;
 
 //Background blend values
-background_blend[0] = c_purple;
-background_blend[1] = c_purple;
+background_blend[0] = c_red;
+background_blend[1] = c_red;
 
 //Create HUD
 instance_create(0, 0, obj_hud);

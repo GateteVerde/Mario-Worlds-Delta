@@ -66,7 +66,7 @@ swimming = false;
 */
 
 //Check for a moving platform
-var moving = collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+2, obj_platformparent,0,0);
+var moving = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_bottom+4+vspeed, obj_platformparent,0,0);
 
 //If there's a moving platform
 if (moving) {
@@ -75,7 +75,7 @@ if (moving) {
     with (moving) {
     
         //If this instance is on the platform
-        if (collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top+vspeed, other.id, 0, 0)) 
+        if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4+other.id.vspeed, other.id, 0, 0)) 
         &amp;&amp; (other.id.bbox_bottom &lt; yprevious+5)
         &amp;&amp; (other.id.vspeed == 0) {
                 
@@ -282,28 +282,24 @@ if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent,
 if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
-    //If moving down
-    if (vspeed &gt; 0) {
-        
-        //Stop vertical movement
-        if (bouncy == 0) {
-        
+    //Stop vertical movement
+    if (bouncy == 0) {
+    
+        vspeed = 0;
+        gravity = 0;
+    }
+    
+    //Otherwise
+    else {
+    
+        if (vspeed &gt; 0.5)
+            vspeed = -vspeed/2.5;
+        else
             vspeed = 0;
-            gravity = 0;
-        }
-        
-        //Otherwise
-        else {
-        
-            if (vspeed &gt; 0.5)
-                vspeed = -vspeed/2.5;
-            else
-                vspeed = 0;
-        }
     }
     
     //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -1)    
+    if (vspeed &gt; -0.85)    
         while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
             y--;
 }
