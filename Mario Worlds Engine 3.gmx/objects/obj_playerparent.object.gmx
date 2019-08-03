@@ -244,8 +244,8 @@ if (control_enable == true)
                 firing = 9;
                 with (instance_create(x, y, obj_fireball)) {
                 
-                    vspeed = 4;
-                    hspeed = 4*other.xscale;
+                    vspeed = 3;
+                    hspeed = 3*other.xscale;
                 }
             }
         }
@@ -269,7 +269,7 @@ if (control_enable == true)
             
                 with (instance_create(x, y, obj_spinner))
                     if (global.powerup == cs_pow_firecape)                    
-                        alarm[0] = 1;                    
+                        alarm[0] = 4;                    
             }            
         }
     }

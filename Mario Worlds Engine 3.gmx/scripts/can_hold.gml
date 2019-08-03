@@ -10,6 +10,7 @@
 
 if (keyboard_check(global.key_action[1]))
 && (instance_exists(obj_playerparent))
+&& (!instance_exists(obj_cape_fly))
 && (global.mount == 0)
 && (obj_playerparent.holding = 0)
 && (obj_playerparent.sliding = 0)

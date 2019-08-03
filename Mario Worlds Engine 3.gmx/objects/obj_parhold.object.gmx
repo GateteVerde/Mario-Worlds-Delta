@@ -303,8 +303,8 @@ if (held == false) {
                     hspeed = 0;            
             }
             
-            //Move up if in contact with a slope
-            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))    
+            //Prevent passing through slopes
+            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
                 y--;
         }
                 
@@ -520,7 +520,7 @@ else if (keyboard_check(global.key_d)) {
     }
     
     //Set the horizontal speed
-    hspeed = 0.5*obj_playerparent.xscale;
+    hspeed = 0.5*sign(obj_playerparent.xscale);
 }
 
 //Otherwise, if neither 'Up' or 'Down' is pressed

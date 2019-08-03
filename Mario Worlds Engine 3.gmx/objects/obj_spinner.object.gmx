@@ -41,6 +41,9 @@ spin = 0;
 
 //Make the player invisible
 obj_playerparent.visible = false;
+
+//Initial direction
+dir = obj_playerparent.xscale;
 </string>
           </argument>
         </arguments>
@@ -76,6 +79,66 @@ with (obj_playerparent) {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toss a fireball to the right
+
+dir = -dir;
+with (instance_create(x, y, obj_fireball)) {
+
+    vspeed = 3;
+    hspeed = 3*sign(other.dir);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toss a fireball to the right
+
+with (instance_create(x, y, obj_fireball)) {
+
+    vspeed = 3;
+    hspeed = 3*sign(other.dir);
+}
+alarm[1] = 16;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -98,9 +161,10 @@ with (obj_playerparent) {
 //If the player does exist.
 if (instance_exists(obj_playerparent)) {
 
-    //If the player does have the raccoon, tanooki or cat suit.
+    //If the player does have the cape and it is not holding anything
     if (global.powerup == cs_pow_cape) 
-    || (global.powerup == cs_pow_firecape) {
+    || (global.powerup == cs_pow_firecape) 
+    &amp;&amp; (obj_playerparent.holding == 0) {
     
         x = round(obj_playerparent.x);
         y = round(obj_playerparent.y);

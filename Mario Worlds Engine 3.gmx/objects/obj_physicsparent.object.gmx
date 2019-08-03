@@ -242,77 +242,51 @@ slope = player_inslope();
 //If moving down
 if (vspeed &gt; 0) {
 
-    //Check for a semisolid ground
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
+    //Check for a semisolid
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
-    //If that ground exists and the player is above it...
-    if (semisolid) 
-    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
-    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+    //If there's a semisolid below
+    if (semisolid)
+    &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
+        y = semisolid.y+floor(y-bbox_bottom-0.9);
+}
+
+//Embed into the slope to ensure correct slope mechanics
+if (collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
+&amp;&amp; (vspeed == 0)
+    y += 4;
+
+///Handle slope collisions
+if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+    while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+        y--;
+}
+
+//Check for floor objects
+if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
+|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1, obj_slopeparent,1,0)) {
+
+    //Stop vertical movement
+    gravity = 0;
+    if (vspeed &gt; 0) {
     
-        //Snap above the platform
-        y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
-        
-        //Stop vertical movement
-        if (bouncy == 0) {
-        
+        //If the object cannot bounce
+        if (bouncy == 0)
             vspeed = 0;
-            gravity = 0;
-        }
         
         //Otherwise
         else {
         
             if (vspeed &gt; 0.5)
-                vspeed = -vspeed/2.5;
+                vspeed = -vspeed/2;
             else
                 vspeed = 0;
         }
     }
-}
-
-//Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-&amp;&amp; (vspeed == 0)
-&amp;&amp; (hspeed != 0)
-    y += 4;
-
-//Handle collision with slopes
-if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-&amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
-
-    //Stop vertical movement
-    if (bouncy == 0) {
-    
-        vspeed = 0;
-        gravity = 0;
-    }
-    
-    //Otherwise
-    else {
-    
-        if (vspeed &gt; 0.5)
-            vspeed = -vspeed/2.5;
-        else
-            vspeed = 0;
-    }
-    
-    //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -0.85)    
-        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-            y--;
-}
-
-//Check for floor objects
-if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1,obj_semisolid, 0, 0))
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_semisolid, 0, 0))
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1,obj_slopeparent,1,0)) {
-
-    //Stop vertical movement
-    gravity = 0;
-    if (vspeed &gt; 0)
-        vspeed = 0;
 }
 else {
 
@@ -423,18 +397,30 @@ if (vspeed != 0) {
             <kind>1</kind>
             <string>///Default wall collision
 
-//If moving right and the player bumps a wall to the right
-if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)))
-|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0))) {
+//If moving right and the NPC bumps a wall to the right
+if (hspeed &gt; 0) 
+&amp;&amp; (collision_rectangle(bbox_right, bbox_top+5, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
     
     //Stop horizontal movement
     hspeed = -hspeed;
     
-    //Prevent getting embed on walls
-    while (collision_rectangle(bbox_left,bbox_top+4,bbox_left,bbox_bottom-1,obj_solid,1,0))
-        x++;
-    while (collision_rectangle(bbox_left,bbox_top+4,bbox_right,bbox_bottom-1,obj_solid,1,0))
+    //Prevent the NPC from getting embed in the wall
+    while (collision_rectangle(bbox_right, bbox_top+5, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+5, obj_solid, 0, 0))
         x--;
+}
+
+//Otherwise, if moving left and the NPC bumps a wall to the left
+else if (hspeed &lt; 0)
+&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+5, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+    
+    //Stop horizontal movement
+    hspeed = -hspeed;
+    
+    //Prevent the NPC from getting embed in the wall
+    while (collision_rectangle(bbox_left, bbox_top+5, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+5, obj_solid, 0, 0))
+        x++;
 }
 </string>
           </argument>

@@ -309,32 +309,57 @@ else if (crouch == false) {
                                 else
                                     state = capestate.cape_jump_down;                                    
                             }
-                        
-                            //If Mario is running
-                            if (run == true) {
+                            
+                            //If Mario is firing a projectile
+                            if (firing &gt; 0) {
                             
                                 //Set the sprite
-                                sprite_index = player_runjump();
+                                sprite_index = player_swim();
                                 
                                 //Do not animate
                                 image_speed = 0;
-                                image_index = 0;
+                                
+                                //Decrement firing
+                                firing--;
+                                
+                                //Set up the frame
+                                if (firing &lt; 3)
+                                    image_index = 2;
+                                else if (firing &gt;= 3) &amp;&amp; (firing &lt; 6)
+                                    image_index = 1;
+                                else if (firing &gt;= 6) &amp;&amp; (firing &lt; 10)
+                                    image_index = 0;
                             }
                             
-                            //Otherwise, if Mario is not running
-                            else if (run == false) {
-                            
-                                //Set the sprite
-                                sprite_index = player_jump();
+                            //Otherwise, if Mario is not firing a projectile
+                            else {
+                        
+                                //If Mario is running
+                                if (run == true) {
                                 
-                                //Do not animate
-                                image_speed = 0;
-                                
-                                //But set the appropiate frame
-                                if (vspeed &lt; 0)
+                                    //Set the sprite
+                                    sprite_index = player_runjump();
+                                    
+                                    //Do not animate
+                                    image_speed = 0;
                                     image_index = 0;
-                                else
-                                    image_index = 1;
+                                }
+                                
+                                //Otherwise, if Mario is not running
+                                else if (run == false) {
+                                
+                                    //Set the sprite
+                                    sprite_index = player_jump();
+                                    
+                                    //Do not animate
+                                    image_speed = 0;
+                                    
+                                    //But set the appropiate frame
+                                    if (vspeed &lt; 0)
+                                        image_index = 0;
+                                    else
+                                        image_index = 1;
+                                }
                             }
                         }
                     }
@@ -355,19 +380,41 @@ else if (crouch == false) {
                             else
                                 state = capestate.cape_jump_down;                                    
                         }
-                    
+                        
                         //Set the sprite
                         sprite_index = player_swim();
                         
-                        //If moving up, animate
-                        if (vspeed &lt; 0)
-                            image_speed = 0.15;
+                        //If Mario is firing a projectile
+                        if (firing &gt; 0) {
                             
-                        //Otherwise, do not animate
-                        else {
-                        
+                            //Do not animate
                             image_speed = 0;
-                            image_index = 0;
+                            
+                            //Decrement firing
+                            firing--;
+                            
+                            //Set up the frame
+                            if (firing &lt; 3)
+                                image_index = 2;
+                            else if (firing &gt;= 3) &amp;&amp; (firing &lt; 6)
+                                image_index = 1;
+                            else if (firing &gt;= 6) &amp;&amp; (firing &lt; 10)
+                                image_index = 0;
+                        }
+                        
+                        //Otherwise
+                        else {
+                            
+                            //If moving up, animate
+                            if (vspeed &lt; 0)
+                                image_speed = 0.15;
+                                
+                            //Otherwise, do not animate
+                            else {
+                            
+                                image_speed = 0;
+                                image_index = 0;
+                            }
                         }
                     }
                 }
