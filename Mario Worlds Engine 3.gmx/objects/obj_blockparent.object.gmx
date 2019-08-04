@@ -33,6 +33,9 @@ image_speed = 0.2;
 //Whether this block is hit
 ready = 0;
 
+//Shard sprite
+shardsprite = noone;
+
 //Make the block solid
 mysolid = instance_create(x, y, obj_solid);
 </string>
@@ -187,6 +190,68 @@ if (ready == 0) {
     
     //Perform block events
     event_user(0);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+event_user(15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bomb destroy event
+
+if (shardsprite != noone) {
+    
+    //Play 'Break' sound
+    audio_play_sound(snd_break, 0, false);
+    
+    //Create shards    
+    shard_create(x+8, y+8, shardsprite, 3, 6, 45);
+    shard_create(x+8, y+8, shardsprite, 1, 6, 60);
+    shard_create(x+8, y+8, shardsprite, 0, 6, 120);
+    shard_create(x+8, y+8, shardsprite, 2, 6, 135);
+        
+    //Destroy
+    instance_destroy();
 }
 </string>
           </argument>

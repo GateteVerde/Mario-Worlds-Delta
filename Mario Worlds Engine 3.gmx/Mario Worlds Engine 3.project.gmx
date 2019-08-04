@@ -169,6 +169,7 @@
         <sprite>sprites\spr_brick_flip</sprite>
         <sprite>sprites\spr_brick_blue</sprite>
         <sprite>sprites\spr_brick_blue_th</sprite>
+        <sprite>sprites\spr_brick_stone</sprite>
       </sprites>
       <sprites name="Triggers">
         <sprite>sprites\spr_onoffblock_on</sprite>
@@ -418,6 +419,7 @@
       <objects name="Bricks">
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_flip</object>
+        <object>objects\obj_brick_stone</object>
       </objects>
       <objects name="Triggers">
         <object>objects\obj_onoffblock</object>
