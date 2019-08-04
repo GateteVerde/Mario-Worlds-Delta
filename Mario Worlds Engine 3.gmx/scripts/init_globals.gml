@@ -25,7 +25,8 @@ enum itemtype {
     feather_plus,
     star,
     lifeup,
-    poison   
+    poison,
+    trampoline   
 }
 
 //Remember music from rooms

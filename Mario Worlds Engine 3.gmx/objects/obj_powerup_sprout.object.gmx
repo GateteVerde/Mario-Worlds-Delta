@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///A powerup that is coming from a block
 
+//Does this object bounce outta the block
+bouncy = 0;
+
 //Do not animate
 image_speed = 0;
 
@@ -104,6 +107,17 @@ else {
     //Play 'Sprout' sound
     audio_play_sound(snd_sprout, 0, false);
     
+    //If moving up...
+    if (vspeed &lt; 0) {
+    
+        //...and the sprite is one of the following, make it bounce.
+        if (sprite_index == spr_trampoline) {
+
+            vspeed = -1.5;
+            bouncy = 1;
+        }
+    }
+    
     //Exit
     exit;
 }
@@ -141,8 +155,12 @@ if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid
     with (sprite_create_object(x, y, sprite_index)) {
     
         //If moving up
-        if (other.vspeed &lt; 0)
+        if (other.vspeed &lt; 0) {
+        
             alarm[10] = 1;
+            if (other.bouncy == 1)
+                vspeed = -1.5;
+        }
             
         //Otherwise, stop it
         else {

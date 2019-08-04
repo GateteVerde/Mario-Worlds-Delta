@@ -33,6 +33,7 @@
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
     <sound>sound\snd_thud</sound>
+    <sound>sound\snd_trampoline</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -175,6 +176,7 @@
         <sprite>sprites\spr_onoffplatform_red</sprite>
         <sprite>sprites\spr_onoffplatform_blue</sprite>
       </sprites>
+      <sprite>sprites\spr_noteblock</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
@@ -200,6 +202,8 @@
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
+      <sprite>sprites\spr_trampoline</sprite>
+      <sprite>sprites\spr_trampoline_end</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -273,6 +277,9 @@
             <sprite>sprites\spr_modifier_star</sprite>
             <sprite>sprites\spr_modifier_1up</sprite>
             <sprite>sprites\spr_modifier_poison</sprite>
+          </sprites>
+          <sprites name="Interactive">
+            <sprite>sprites\spr_modifier_trampoline</sprite>
           </sprites>
           <sprite>sprites\spr_modifier_coin_star</sprite>
           <sprite>sprites\spr_modifier_coin_multi</sprite>
@@ -411,13 +418,13 @@
       <objects name="Bricks">
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_flip</object>
-        <object>objects\obj_brick_flip_flipping</object>
       </objects>
       <objects name="Triggers">
         <object>objects\obj_onoffblock</object>
         <object>objects\obj_onoffplatform_red</object>
         <object>objects\obj_onoffplatform_blue</object>
       </objects>
+      <object>objects\obj_noteblock</object>
     </objects>
     <objects name="Items">
       <objects name="Powerups">
@@ -427,6 +434,7 @@
           <object>objects\obj_feather</object>
           <object>objects\obj_star</object>
           <object>objects\obj_1up</object>
+          <object>objects\obj_poison</object>
         </objects>
       </objects>
       <objects name="Platforms">
@@ -441,6 +449,7 @@
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
+      <object>objects\obj_trampoline</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -479,6 +488,9 @@
             <object>objects\obj_modifier_1up</object>
             <object>objects\obj_modifier_rotten</object>
           </objects>
+          <objects name="Interactive">
+            <object>objects\obj_modifier_trampoline</object>
+          </objects>
           <object>objects\obj_modifier_coin_star</object>
           <object>objects\obj_modifier_coin_multi</object>
         </objects>
@@ -503,6 +515,7 @@
         <objects name="Blocks">
           <objects name="Bricks">
             <object>objects\obj_shard</object>
+            <object>objects\obj_brick_flip_flipping</object>
           </objects>
           <object>objects\obj_emptyblock</object>
           <object>objects\obj_blockcoin</object>

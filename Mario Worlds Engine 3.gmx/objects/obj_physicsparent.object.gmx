@@ -77,7 +77,7 @@ if (moving) {
         //If this instance is on the platform
         if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4+other.id.vspeed, other.id, 0, 0)) 
         &amp;&amp; (other.id.bbox_bottom &lt; yprevious+5)
-        &amp;&amp; (other.id.vspeed == 0) {
+        &amp;&amp; (other.id.gravity == 0) {
                 
             //Snap the instance vertically
             other.id.y = ceil(bbox_top-(sprite_height-sprite_get_yoffset(sprite_index)));
@@ -328,11 +328,11 @@ if (vspeed &lt; 0) {
         }
         
         //Check if there's a block on the way.
-        var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
+        var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top-1, obj_blockparent, 0, 0);
         
         //If there's a block on the way.
         if (block) 
-        &amp;&amp; (object_index == obj_parhold) {
+        &amp;&amp; (object_get_parent(object_index) == obj_parhold) {
             
             //If the block has NOT been hit.
             if (block.ready == 0) {

@@ -69,28 +69,16 @@ warning = 0;
 if (instance_exists(obj_playerparent)) {
 
     //If the player is small or is crouched down.
-    if (mask_index == spr_mask_player) {
-    
-        with (instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle)) {
-        
-            sprite_index = spr_sparkle_small_blue;
-            image_speed = 0.2;
-        }
-    }
+    if (mask_index == spr_mask_player) 
+        instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle);
     
     //Otherwise 
-    else if (mask_index == spr_mask_player_big) {
-    
-        with (instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle)) {
-        
-            sprite_index = spr_sparkle_small_blue;
-            image_speed = 0.2;
-        }
-    }
+    else if (mask_index == spr_mask_player_big)
+        instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle);
 }
 
 //Repeat
-alarm[3] = 4;
+alarm[3] = 2;
 </string>
           </argument>
         </arguments>

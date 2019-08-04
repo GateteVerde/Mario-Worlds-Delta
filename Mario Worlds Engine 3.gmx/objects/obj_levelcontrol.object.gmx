@@ -437,6 +437,27 @@ else {
 //Round position
 x = round(x);
 y = round(y);
+
+//Get 1-UP for each 100 coins
+if (global.coins &gt; 99) {
+
+    //Play '1UP' sound
+    audio_play_sound(snd_1up, 0, false);    
+    
+    //Reset counter
+    global.coins -= 100;
+    
+    //Get 1-UP
+    lives++;
+}
+
+//Drop reserve item
+if (instance_exists(obj_playerparent))
+&amp;&amp; (barrier == 1)
+&amp;&amp; (obj_playerparent.control_enable == true)
+&amp;&amp; (keyboard_check_pressed(global.key_action[2]))
+    event_user(1);
+
 </string>
           </argument>
         </arguments>
@@ -469,6 +490,29 @@ musicdisable = 1;
 
 //Stop starman theme
 audio_stop_sound(bgm_star);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Release reserve item
 </string>
           </argument>
         </arguments>

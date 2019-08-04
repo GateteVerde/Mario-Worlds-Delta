@@ -52,6 +52,9 @@ switch (argument[0]) {
     //1UP
     case (itemtype.lifeup): return spr_1up; break;
     
-    //Rotten
+    //Poison
     case (itemtype.poison): return spr_poison; break;
+    
+    //Trampoline
+    case (itemtype.trampoline): return spr_trampoline; break;
 }
