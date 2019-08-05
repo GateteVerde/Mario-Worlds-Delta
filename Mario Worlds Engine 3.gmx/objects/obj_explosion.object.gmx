@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_blowmask</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -28,28 +28,51 @@
             <string>///Explosion
 
 //Play 'Explosion' sound
-audio_play_sound(snd_explosion, 0, false);
+audio_stop_play_sound(snd_explosion, 0, false);
 
-//Destroy
+//Make invisible
 alarm[0] = 4;
 
+//Create smoke
+with (instance_create(x+8+lengthdir_x(20, 45), y+8+lengthdir_y(20, 45), obj_smoke)) sprite_index = spr_smoke_big;
+with (instance_create(x+8+lengthdir_x(20, 135), y+8+lengthdir_y(20, 135), obj_smoke)) sprite_index = spr_smoke_big;
+with (instance_create(x+8+lengthdir_x(20, 225), y+8+lengthdir_y(20, 225), obj_smoke)) sprite_index = spr_smoke_big;
+with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_smoke)) sprite_index = spr_smoke_big;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate more stars and destroy
+
 //Create stars
-var a;
-a = 90;
+var b;
+b = 270;
 repeat (5) {
 
-    with (instance_create(x+8, y+8, obj_spinstar)) {
-    
-        motion_set(a, 1.5);
-    }
-    a += 72;
+    instance_create(x+8+lengthdir_x(32, b), y+8+lengthdir_y(32, b), obj_spinstar);
+    b += 72;
 }
 
-//Create smoke
-with (instance_create(x-5, y-5, obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x+21, y-5, obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x-5, y+21, obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x+21, y+21, obj_smoke)) sprite_index = spr_smoke_big; 
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -72,9 +95,22 @@ with (instance_create(x+21, y+21, obj_smoke)) sprite_index = spr_smoke_big;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy
+            <string>///Make invisible, generate stars
 
-instance_destroy();
+//Make invisible
+visible = 0;
+
+//Create stars
+var a;
+a = 90;
+repeat (5) {
+
+    instance_create(x+8+lengthdir_x(16, a), y+8+lengthdir_y(16, a), obj_spinstar);
+    a += 72;
+}
+
+//Create a new set of stars and destroy
+alarm[1] = 4;
 </string>
           </argument>
         </arguments>
@@ -99,7 +135,33 @@ instance_destroy();
             <kind>1</kind>
             <string>///Destroy the block
 
-with (other) event_user(15);
+if (visible)
+    with (other) event_user(15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Do not draw
+
+exit;
 </string>
           </argument>
         </arguments>

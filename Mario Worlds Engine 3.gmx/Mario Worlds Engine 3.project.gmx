@@ -34,6 +34,7 @@
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
     <sound>sound\snd_thud</sound>
+    <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
   </sounds>
   <sprites name="sprites">
@@ -180,6 +181,7 @@
         <sprite>sprites\spr_onoffplatform_blue</sprite>
       </sprites>
       <sprite>sprites\spr_noteblock</sprite>
+      <sprite>sprites\spr_noteblock_hidden</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
@@ -195,6 +197,12 @@
         <sprite>sprites\spr_poison</sprite>
       </sprites>
       <sprites name="Platforms">
+        <sprites name="Belts">
+          <sprite>sprites\spr_conveyor_r</sprite>
+          <sprite>sprites\spr_conveyor_l</sprite>
+          <sprite>sprites\spr_conveyor_ledge_left</sprite>
+          <sprite>sprites\spr_conveyor_ledge_right</sprite>
+        </sprites>
         <sprite>sprites\spr_platform</sprite>
       </sprites>
       <sprites name="Decor">
@@ -263,6 +271,7 @@
         <sprite>sprites\spr_note</sprite>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
+        <sprite>sprites\spr_smoke_huge</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
@@ -285,12 +294,23 @@
             <sprite>sprites\spr_modifier_1up</sprite>
             <sprite>sprites\spr_modifier_poison</sprite>
           </sprites>
+          <sprites name="Platforms">
+            <sprites name="Belts">
+              <sprite>sprites\spr_modifier_belt_right</sprite>
+              <sprite>sprites\spr_modifier_belt_right_fast</sprite>
+              <sprite>sprites\spr_modifier_belt_left</sprite>
+              <sprite>sprites\spr_modifier_belt_left_fast</sprite>
+            </sprites>
+          </sprites>
           <sprites name="Interactive">
             <sprite>sprites\spr_modifier_trampoline</sprite>
           </sprites>
           <sprite>sprites\spr_modifier_coin_star</sprite>
           <sprite>sprites\spr_modifier_coin_multi</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Palettes">
+        <sprite>sprites\spr_palette_conveyor</sprite>
       </sprites>
       <sprites name="GUI">
         <sprites name="In-Level">
@@ -433,6 +453,7 @@
         <object>objects\obj_onoffplatform_blue</object>
       </objects>
       <object>objects\obj_noteblock</object>
+      <object>objects\obj_noteblock_hidden</object>
     </objects>
     <objects name="Items">
       <objects name="Powerups">
@@ -446,6 +467,9 @@
         </objects>
       </objects>
       <objects name="Platforms">
+        <objects name="Belts">
+          <object>objects\obj_conveyor</object>
+        </objects>
         <object>objects\obj_platform</object>
       </objects>
       <objects name="Decor">
@@ -474,6 +498,7 @@
         <objects name="In-Level Parents">
           <object>objects\obj_modparent</object>
           <object>objects\obj_blockparent</object>
+          <object>objects\obj_conveyorparent</object>
         </objects>
         <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
@@ -495,6 +520,14 @@
             <object>objects\obj_modifier_star</object>
             <object>objects\obj_modifier_1up</object>
             <object>objects\obj_modifier_rotten</object>
+          </objects>
+          <objects name="Platforms">
+            <objects name="Belts">
+              <object>objects\obj_modifier_belt_right</object>
+              <object>objects\obj_modifier_belt_right_fast</object>
+              <object>objects\obj_modifier_belt_left</object>
+              <object>objects\obj_modifier_belt_left_fast</object>
+            </objects>
           </objects>
           <objects name="Interactive">
             <object>objects\obj_modifier_trampoline</object>

@@ -533,6 +533,26 @@ if (gravity_enable == true) {
     }
 }
 
+//Collision with conveyor
+conveyor = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_conveyorparent, 0, 0);
+if (conveyor)
+&amp;&amp; (conveyor.image_speed != 0) {
+
+    //If the conveyor is moving to the right
+    if (conveyor.image_speed &gt; 0) {
+    
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0))
+            x += conveyor.image_speed;
+    }
+    
+    //Otherwise, if the conveyor is moving to the left
+    else if (conveyor.image_speed &lt; 0) {
+    
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+            x += conveyor.image_speed;            
+    }
+}
+
 //If moving right and the player bumps a wall to the right
 if (hspeed &gt; 0) 
 &amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {

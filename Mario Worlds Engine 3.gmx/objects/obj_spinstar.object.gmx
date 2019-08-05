@@ -79,9 +79,9 @@ if (scale &lt; 0.05)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw note
+            <string>///Draw star
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), scale, scale, direction, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), scale, scale, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

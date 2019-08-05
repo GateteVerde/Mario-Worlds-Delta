@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_blowmask_big</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>obj_explosion</parentName>
@@ -25,52 +25,92 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Big Explosion
+            <string>///Explosion
 
-//Play 'Explosion' sound
-audio_play_sound(snd_explosion, 0, false);
+//Play 'Big Thud' sound
+audio_stop_play_sound(snd_thud_big, 0, false);
+
+//Make invisible
+alarm[0] = 4;
+
+//Create smoke
+with (instance_create(x+16+lengthdir_x(32, 45), y+16+lengthdir_y(32, 45), obj_smoke)) sprite_index = spr_smoke_huge;
+with (instance_create(x+16+lengthdir_x(32, 135), y+16+lengthdir_y(32, 135), obj_smoke)) sprite_index = spr_smoke_huge;
+with (instance_create(x+16+lengthdir_x(32, 225), y+16+lengthdir_y(32, 225), obj_smoke)) sprite_index = spr_smoke_huge;
+with (instance_create(x+16+lengthdir_x(32, 315), y+16+lengthdir_y(32, 315), obj_smoke)) sprite_index = spr_smoke_huge;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate more stars and destroy
+
+//Create stars
+var b;
+b = 270;
+repeat (5) {
+
+    instance_create(x+16+lengthdir_x(48, b), y+16+lengthdir_y(48, b), obj_spinstar);
+    b += 72;
+}
 
 //Destroy
-alarm[0] = 4;
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make invisible, generate stars
+
+//Make invisible
+visible = 0;
 
 //Create stars
 var a;
 a = 90;
 repeat (5) {
 
-    with (instance_create(x+16, y+16, obj_spinstar)) {
-    
-        motion_set(a, 1.5);
-        scale = 2;
-    }
+    instance_create(x+16+lengthdir_x(24, a), y+16+lengthdir_y(24, a), obj_spinstar);
     a += 72;
 }
 
-//Create smoke
-with (instance_create(x-9, y-9, obj_smoke)) {
-
-    sprite_index = spr_smoke_big;
-    image_xscale = 2;
-    image_yscale = 2;
-}
-with (instance_create(x+41, y-9, obj_smoke)) {
-
-    sprite_index = spr_smoke_big;
-    image_xscale = 2;
-    image_yscale = 2;
-}
-with (instance_create(x-9, y+41, obj_smoke)) {
-
-    sprite_index = spr_smoke_big;
-    image_xscale = 2;
-    image_yscale = 2;
-}
-with (instance_create(x+41, y+41, obj_smoke)) {
-
-    sprite_index = spr_smoke_big;
-    image_xscale = 2;
-    image_yscale = 2;
-}
+//Create a new set of stars and destroy
+alarm[1] = 4;
 </string>
           </argument>
         </arguments>
