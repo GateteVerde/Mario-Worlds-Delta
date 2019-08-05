@@ -20,6 +20,7 @@
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
+    <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
     <sound>sound\snd_hurry</sound>
@@ -164,6 +165,7 @@
         <sprites name="Shards">
           <sprite>sprites\spr_shard</sprite>
           <sprite>sprites\spr_shard_flip</sprite>
+          <sprite>sprites\spr_shard_stone</sprite>
         </sprites>
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
@@ -234,6 +236,8 @@
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
       </sprites>
+      <sprite>sprites\spr_blowmask</sprite>
+      <sprite>sprites\spr_blowmask_big</sprite>
       <sprite>sprites\spr_spinnermask</sprite>
     </sprites>
     <sprites name="Special">
@@ -256,11 +260,13 @@
           <sprite>sprites\spr_spinthump</sprite>
         </sprites>
         <sprite>sprites\spr_cinder</sprite>
+        <sprite>sprites\spr_note</sprite>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
+        <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_splash</sprite>
       </sprites>
       <sprites name="Modifiers">
@@ -533,6 +539,8 @@
             <object>objects\obj_powerup_sprout</object>
             <object>objects\obj_invincibility</object>
           </objects>
+          <object>objects\obj_explosion</object>
+          <object>objects\obj_explosion_big</object>
         </objects>
         <objects name="Eyecandy">
           <objects name="Score">
@@ -544,9 +552,11 @@
             <object>objects\obj_spinthump</object>
           </objects>
           <object>objects\obj_cinder</object>
+          <object>objects\obj_note</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
           <object>objects\obj_sparkle</object>
+          <object>objects\obj_spinstar</object>
         </objects>
         <object>objects\obj_hud</object>
       </objects>
