@@ -119,6 +119,36 @@ event_user(3);
 //Default floor collision
 event_user(4);
 
+//Default conveyor collision
+event_user(5);
+
+//Check for lava
+var lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 0, 0);
+
+//If there's lava
+if (lava) {
+
+    //Play 'Burn' sound
+    audio_play_sound(snd_burn, 0, false);
+
+    //Create smoke
+    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_big;
+    
+    //Create splash effect
+    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2-8, obj_smoke)) {
+    
+        if (lava.sprite_index == spr_lava)
+            sprite_index = spr_splash_lava;
+        else if (lava.sprite_index == spr_lava_choco)
+            sprite_index = spr_splash_choco;
+        else if (lava.sprite_index == spr_lava_poison)
+            sprite_index = spr_splash_poison;        
+    }
+    
+    //Destroy
+    instance_destroy();
+}
+
 //Check for water
 var water = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0);
 
@@ -217,6 +247,51 @@ if (other.vspeed &lt; 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="15">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Default conveyor collision
+
+//Collision with conveyor
+var conveyor = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_conveyorparent, 0, 0);
+
+//If there's a conveyor
+if (conveyor)
+&amp;&amp; (conveyor.image_speed != 0) {
+
+    //If the conveyor is moving to the right
+    if (conveyor.image_speed &gt; 0) {
+    
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0))
+            x += conveyor.image_speed;
+    }
+    
+    //Otherwise, if the conveyor is moving to the left
+    else if (conveyor.image_speed &lt; 0) {
+    
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
+            x += conveyor.image_speed;            
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
@@ -240,7 +315,7 @@ if (other.vspeed &lt; 0)
 slope = player_inslope();
 
 //If moving down
-if (vspeed &gt; 0) {
+if (vspeed &gt;= 0) {
 
     //Check for a semisolid
     var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
@@ -248,7 +323,7 @@ if (vspeed &gt; 0) {
     //If there's a semisolid below
     if (semisolid)
     &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
-        y = semisolid.y+floor(y-bbox_bottom-0.9);
+        y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
 }
 
 //Embed into the slope to ensure correct slope mechanics
@@ -406,7 +481,7 @@ if (hspeed &gt; 0)
     
     //Prevent the NPC from getting embed in the wall
     while (collision_rectangle(bbox_right, bbox_top+5, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+5, obj_solid, 0, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x--;
 }
 
@@ -419,7 +494,7 @@ else if (hspeed &lt; 0)
     
     //Prevent the NPC from getting embed in the wall
     while (collision_rectangle(bbox_left, bbox_top+5, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+5, obj_solid, 0, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x++;
 }
 </string>

@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>-7</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -68,6 +68,10 @@ if (instance_exists(obj_playerparent)) {
     //Obtain the current facing direction from the player
     image_xscale = obj_playerparent.xscale;
 }
+
+//Make following objects invisible
+with (obj_water) visible = 0;
+with (obj_effectsparent) visible = 0;
 
 //Start animation
 alarm[0] = 1;
@@ -212,6 +216,14 @@ back = background_create_from_surface(application_surface, 0, 0, 384, 216, 0, 0)
 
 //Deactivate all instances
 instance_deactivate_all(1);
+
+//Activate water
+instance_activate_object(obj_water);
+with (obj_water) visible = 1;
+
+//Activate effects
+instance_activate_object(obj_effectsparent);
+with (obj_effectsparent) visible = 1;
 
 //Activate controller object
 instance_activate_object(obj_controller);

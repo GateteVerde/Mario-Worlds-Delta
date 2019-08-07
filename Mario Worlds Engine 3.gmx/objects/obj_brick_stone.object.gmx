@@ -28,7 +28,7 @@
             <string>///Shatter it
 
 //If the explosion is visible
-if (visible == 1) {
+if (other.visible == 1) {
     
     //Play 'Break' sound
     audio_stop_play_sound(snd_break, 0, false);

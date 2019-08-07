@@ -17,6 +17,7 @@
     <sound>sound\snd_1up</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
+    <sound>sound\snd_burn</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
@@ -206,6 +207,11 @@
         <sprite>sprites\spr_platform</sprite>
       </sprites>
       <sprites name="Decor">
+        <sprites name="Lava">
+          <sprite>sprites\spr_lava</sprite>
+          <sprite>sprites\spr_lava_choco</sprite>
+          <sprite>sprites\spr_lava_poison</sprite>
+        </sprites>
         <sprite>sprites\spr_water</sprite>
         <sprite>sprites\spr_waterfall</sprite>
         <sprite>sprites\spr_waterfall_bottom</sprite>
@@ -215,6 +221,8 @@
       <sprite>sprites\spr_coin_ace</sprite>
       <sprite>sprites\spr_trampoline</sprite>
       <sprite>sprites\spr_trampoline_end</sprite>
+      <sprite>sprites\spr_trampoline_hyper</sprite>
+      <sprite>sprites\spr_trampoline_hyper_end</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -277,6 +285,9 @@
         <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_splash</sprite>
+        <sprite>sprites\spr_splash_lava</sprite>
+        <sprite>sprites\spr_splash_choco</sprite>
+        <sprite>sprites\spr_splash_poison</sprite>
       </sprites>
       <sprites name="Modifiers">
         <sprites name="Blocks">
@@ -326,6 +337,7 @@
     <sprite>sprites\spr_down</sprite>
     <sprite>sprites\spr_left</sprite>
     <sprite>sprites\spr_right</sprite>
+    <sprite>sprites\spr_endmarker</sprite>
     <sprite>sprites\spr_eventmarker</sprite>
   </sprites>
   <backgrounds name="background">
@@ -335,6 +347,7 @@
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
+      <background>background\tls_pipes</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -474,7 +487,14 @@
       </objects>
       <objects name="Decor">
         <objects name="Liquids">
+          <objects name="Lava">
+            <object>objects\obj_lava</object>
+            <object>objects\obj_lava_tides</object>
+            <object>objects\obj_choco_tides</object>
+            <object>objects\obj_poison_tides</object>
+          </objects>
           <object>objects\obj_water</object>
+          <object>objects\obj_water_tides</object>
           <object>objects\obj_waterfall</object>
         </objects>
       </objects>
@@ -482,6 +502,7 @@
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
       <object>objects\obj_trampoline</object>
+      <object>objects\obj_trampoline_hyper</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -500,6 +521,7 @@
           <object>objects\obj_blockparent</object>
           <object>objects\obj_conveyorparent</object>
         </objects>
+        <object>objects\obj_effectsparent</object>
         <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
@@ -582,23 +604,24 @@
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
+            <object>objects\obj_sparkle</object>
             <object>objects\obj_spinthump</object>
           </objects>
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
-          <object>objects\obj_sparkle</object>
           <object>objects\obj_spinstar</object>
         </objects>
         <object>objects\obj_hud</object>
       </objects>
+      <object>objects\obj_controller</object>
     </objects>
     <object>objects\obj_up</object>
     <object>objects\obj_down</object>
     <object>objects\obj_left</object>
     <object>objects\obj_right</object>
-    <object>objects\obj_controller</object>
+    <object>objects\obj_endmarker</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

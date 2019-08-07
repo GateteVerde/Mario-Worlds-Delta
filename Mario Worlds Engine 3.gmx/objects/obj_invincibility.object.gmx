@@ -69,7 +69,7 @@ warning = 0;
 if (instance_exists(obj_playerparent)) {
 
     //If the player is small or is crouched down.
-    if (mask_index == spr_mask_player) 
+    if (mask_index == spr_mask_player)
         instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle);
     
     //Otherwise 

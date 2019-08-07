@@ -113,7 +113,7 @@ else {
         //...and the sprite is one of the following, make it bounce.
         if (sprite_index == spr_trampoline) {
 
-            vspeed = -1.5;
+            vspeed = -2.5;
             bouncy = 1;
         }
     }
@@ -159,7 +159,7 @@ if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid
         
             alarm[10] = 1;
             if (other.bouncy == 1)
-                vspeed = -1.5;
+                vspeed = -2.5;
         }
             
         //Otherwise, stop it
