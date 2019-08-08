@@ -385,7 +385,9 @@ if (keyboard_check(global.key_d))
 && (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_semisolid, 1, 0)) {
  
     //If the player is not holding anything or it is riding yoshi
-    if (holding == 0) || (holding == 99) {
+    if ((holding == 0) 
+    || (holding == 99))
+    && (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_escalatorparent, 0, 0)) {
     
         //Start sliding down slope
         sliding = true;

@@ -2,11 +2,11 @@
 <object>
   <spriteName>spr_escalator_r</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
-  <depth>-1</depth>
+  <visible>0</visible>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_escalatorparent</parentName>
-  <maskName>spr_slope_steep_r</maskName>
+  <parentName>&lt;undefined&gt;</parentName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -25,16 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Right Escalator
+            <string>///The parent object for all escalators
 
-//Animate
-image_speed = 0.2;
+//Do not animate
+image_speed = 0;
 
-//Add
-add = 0.2;
-
-//Create slope object
-myslope = instance_create(x, y, obj_slope_steep_r);
+//Addition
+add = 0;
 </string>
           </argument>
         </arguments>

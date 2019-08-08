@@ -447,10 +447,13 @@ if (gravity_enable == true) {
     
     //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
     if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-    &amp;&amp; ((state == statetype.walk) 
-    || ((state == statetype.idle) &amp;&amp; (x != xprevious)))
-        y += 4;
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0)) {
+    
+        //If the player is moving or the player is not moving and it is being pushed
+        if (state == statetype.walk)
+        || ((state == statetype.idle) &amp;&amp; (x-xprevious != 0))
+            y += 4;
+    }
     
     //Handle collision with slopes
     if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
@@ -535,7 +538,7 @@ if (gravity_enable == true) {
 }
 
 //Collision with conveyor
-conveyor = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_conveyorparent, 0, 0);
+var conveyor = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom+1, obj_conveyorparent, 0, 0);
 if (conveyor)
 &amp;&amp; (conveyor.image_speed != 0) {
 
@@ -551,6 +554,25 @@ if (conveyor)
     
         if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
             x += conveyor.image_speed;            
+    }
+}
+
+//Collision with escalator
+var escalator = collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_escalatorparent, 1, 0);
+if (escalator)
+&amp;&amp; (escalator.image_speed != 0) {
+
+    //If the player is on the ground and it is not sliding down a slope, make it move.
+    if (sliding == false)
+    &amp;&amp; (state != statetype.jump) {
+    
+        //Move horizontally
+        x += escalator.add;
+        
+        //Ensure that the player has correct escalator collision
+        if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, escalator.myslope, 1, 0))
+        &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, escalator.myslope, 1, 0))
+            y++;
     }
 }
 

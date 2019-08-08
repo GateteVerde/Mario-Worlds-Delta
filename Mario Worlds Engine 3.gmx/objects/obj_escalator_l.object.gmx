@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_escalatorparent</parentName>
   <maskName>spr_slope_steep_l</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,42 +28,13 @@
             <string>///Left Escalator
 
 //Animate
-image_speed = 0.25;
+image_speed = -0.2;
 
-//Create a slope
+//Add
+add = -0.2;
+
+//Create slope object
 myslope = instance_create(x, y, obj_slope_steep_l);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Make the player ascend the escalator
-
-//If the escalator is moving
-if (image_speed != 0) {
-    
-    //With the player
-    if (collision_rectangle(obj_playerparent.x-2, obj_playerparent.bbox_bottom-4, obj_playerparent.x+2, obj_playerparent.bbox_bottom+1, id, 0, 0)) 
-    &amp;&amp; (obj_playerparent.state != statetype.jump)   
-        obj_playerparent.x += -image_speed;
-}
 </string>
           </argument>
         </arguments>

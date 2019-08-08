@@ -493,8 +493,8 @@
           <object>objects\obj_conveyor</object>
           <object>objects\obj_escalator_r</object>
           <object>objects\obj_escalator_l</object>
-          <object>objects\obj_escalator_r_down</object>
-          <object>objects\obj_escalator_l_down</object>
+          <object>objects\obj_escalator_down_r</object>
+          <object>objects\obj_escalator_down_l</object>
           <object>objects\obj_escalator_joint</object>
         </objects>
         <object>objects\obj_platform</object>
@@ -535,10 +535,13 @@
           <object>objects\obj_powerupparent</object>
         </objects>
         <objects name="In-Level Parents">
-          <object>objects\obj_blockparent</object>
+          <objects name="Collision">
+            <object>objects\obj_platformparent</object>
+            <object>objects\obj_conveyorparent</object>
+            <object>objects\obj_escalatorparent</object>
+          </objects>
           <object>objects\obj_modparent</object>
-          <object>objects\obj_platformparent</object>
-          <object>objects\obj_conveyorparent</object>
+          <object>objects\obj_blockparent</object>
         </objects>
         <object>objects\obj_effectsparent</object>
         <object>objects\obj_iceparent</object>

@@ -298,6 +298,24 @@ if (conveyor)
             x += conveyor.image_speed;            
     }
 }
+
+//Collision with escalator
+var escalator = collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_escalatorparent, 1, 0);
+if (escalator)
+&amp;&amp; (escalator.image_speed != 0) {
+
+    //If the NPC is on the ground...
+    if (vspeed == 0) {
+    
+        //Move horizontally
+        x += escalator.add;
+        
+        //Ensure that the player has correct escalator collision
+        if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, escalator.myslope, 1, 0))
+        &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, escalator.myslope, 1, 0))
+            y++;
+    }
+}
 </string>
           </argument>
         </arguments>

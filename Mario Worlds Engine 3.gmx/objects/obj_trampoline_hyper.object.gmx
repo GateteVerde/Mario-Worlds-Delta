@@ -121,7 +121,7 @@ if (ready == false) {
 }
 
 //If the spring is ready.
-else if (ready == true) {
+if (ready) {
 
     with (obj_playerparent) {
     
@@ -137,7 +137,8 @@ else if (ready == true) {
         //Stop sliding
         sliding = 0;
         
-        //Set the y position
+        //Set the position
+        x += other.x-other.xprevious;
         y = other.bbox_top+(other.image_index*2)-14;
     }
 }
