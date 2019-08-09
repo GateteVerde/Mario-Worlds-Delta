@@ -199,6 +199,14 @@
         <sprite>sprites\spr_poison</sprite>
       </sprites>
       <sprites name="Platforms">
+        <sprites name="Common">
+          <sprite>sprites\spr_platform_48</sprite>
+          <sprite>sprites\spr_platform_64</sprite>
+          <sprite>sprites\spr_platform_80</sprite>
+          <sprite>sprites\spr_platform_falling_48</sprite>
+          <sprite>sprites\spr_platform_falling_64</sprite>
+          <sprite>sprites\spr_platform_falling_80</sprite>
+        </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
           <sprite>sprites\spr_conveyor_l</sprite>
@@ -208,7 +216,6 @@
           <sprite>sprites\spr_escalator_l</sprite>
           <sprite>sprites\spr_escalator_joint</sprite>
         </sprites>
-        <sprite>sprites\spr_platform</sprite>
         <sprite>sprites\spr_donut</sprite>
         <sprite>sprites\spr_donut_triple</sprite>
         <sprite>sprites\spr_donut_red</sprite>
@@ -489,6 +496,10 @@
         </objects>
       </objects>
       <objects name="Platforms">
+        <objects name="Common">
+          <object>objects\obj_platform</object>
+          <object>objects\obj_platform_falling</object>
+        </objects>
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
           <object>objects\obj_escalator_r</object>
@@ -497,7 +508,6 @@
           <object>objects\obj_escalator_down_l</object>
           <object>objects\obj_escalator_joint</object>
         </objects>
-        <object>objects\obj_platform</object>
         <object>objects\obj_donut</object>
         <object>objects\obj_donut_triple</object>
         <object>objects\obj_donut_red</object>

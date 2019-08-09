@@ -151,7 +151,7 @@ if (ready) {
         sliding = 0;
         
         //Set the position
-        x += other.x-other.xprevious;
+        x += other.x-x;
         y = other.y+(other.image_index*2)-14;
     }
 }
