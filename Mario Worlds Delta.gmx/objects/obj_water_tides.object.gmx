@@ -50,11 +50,11 @@ alarm[0] = 360;
 alarm[1] = 7;
 
 //Create a water surface
-water = instance_create(x,y,obj_swim);
+water = instance_create(x, y, obj_swim);
 with (water) {
 
-    image_xscale = room_width/16;
-    image_yscale = room_height/16;
+    image_xscale = room_width;
+    image_yscale = room_height;
 }
 </string>
           </argument>
@@ -82,7 +82,7 @@ with (water) {
 
 alarm[1] = 7;
 if (push)
-    instance_create(view_xview[0]+view_wview[0],random_range(y+16,room_height),obj_bubble_v);
+    instance_create(view_xview[0]+view_wview[0], random_range(y+16, room_height), obj_bubble_v);
 </string>
           </argument>
         </arguments>
@@ -169,23 +169,11 @@ player = collision_rectangle(water.bbox_left, water.bbox_top, water.bbox_right, 
 if (player)
 &amp;&amp; (player.swimming == true) {
 
-    //If this is lava, kill
-    if (lava != 0) {
-
-        //Add 'Destroy' event    
-    }
-
     //If this object can push
     if (push == true)
         while (!collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
             player.x -= 0.3;
 }
-
-//If this is lava
-if (lava == 1)
-    sprite_index = spr_lava;
-else if (lava == 2)
-    sprite_index = spr_lava_p;
 </string>
           </argument>
         </arguments>
@@ -236,10 +224,7 @@ image_index = 1;
             <string>///Draw the water
 
 //Set the blending mode.
-if (lava == 0) {
-
-    draw_set_blend_mode(bm_add);
-}
+draw_set_blend_mode(bm_add);
 
 //Draw water
 draw_sprite_tiled_area_ext(sprite_index, -1, x, y, x, y, x+room_width-1, y+15, c_white, 1);

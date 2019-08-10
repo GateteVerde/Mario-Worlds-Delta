@@ -37,6 +37,9 @@ image_index = 0;
 //Make it bounce
 bouncy = 1;
 
+//Previous x position
+xprev = x;
+
 //Whether the player is on this trampoline
 ready = 0;
 s_ready = 0;
@@ -123,23 +126,21 @@ if (ready == false) {
 //If the spring is ready.
 if (ready) {
 
-    with (obj_playerparent) {
+    //If the player exists
+    if (instance_exists(obj_playerparent)) {
     
-        //Set the state
-        state = statetype.idle;
+        //Set player state
+        obj_playerparent.state = statetype.idle;
         
-        //Disable gravity
-        enable_gravity = 0;
+        //Disable player gravity
+        obj_playerparent.enable_gravity = false;
         
-        //Stop jumping
-        jumping = 2;
+        //Stop jumping / sliding
+        obj_playerparent.jumping = 2;
+        obj_playerparent.sliding = 0;
         
-        //Stop sliding
-        sliding = 0;
-        
-        //Set the position
-        x += other.x-x;
-        y = other.bbox_top+(other.image_index*2)-14;
+        //Snap in position
+        obj_playerparent.y = ceil(bbox_top+(image_index*2)-16);
     }
 }
 </string>
