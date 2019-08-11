@@ -212,7 +212,7 @@ alarm[2] = 6;
             <string>///Freeze all object and begin animation
 
 //Take a screenshot
-back = background_create_from_surface(application_surface, 0, 0, 384, 216, 0, 0);
+back = background_create_from_surface(application_surface, 0, 0, global.gw, global.gh, 0, 0);
 
 //Deactivate all instances
 instance_deactivate_all(1);

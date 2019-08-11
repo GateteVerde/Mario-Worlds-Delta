@@ -52,8 +52,8 @@ port_y = 0;
 message = "";
 
 //Game width / heigh
-global.gw = 384;
-global.gh = 216;
+global.gw = 400;
+global.gh = 300;
 
 //Display FPS
 showfps = false;
@@ -901,7 +901,7 @@ if (background_exists(back)) {
 }
 
 //Set the font
-//draw_set_font(global.font);
+draw_set_font(global.font);
 
 //Align the font
 draw_set_halign(fa_right);
@@ -911,15 +911,15 @@ if (showfps) {
 
     //Display message
     if (message != "")
-        draw_text_colour(view_xview[0]+382, view_yview[0]+206, string(message), c_white, c_white, c_white, c_white, 1);
+        draw_text_colour(view_xview[0] + view_wview[0]-2, view_yview[0] + view_hview[0] - 10, string(message), c_white, c_white, c_white, c_white, 1);
         
     //Otherwise, display FPS.
     else
-        draw_text_colour(view_xview[0]+382, view_yview[0]+206, string(fps), c_white, c_white, c_white, c_white, 1);
+        draw_text_colour(view_xview[0] + view_wview[0]-2, view_yview[0] + view_hview[0] - 10, string(fps), c_white, c_white, c_white, c_white, 1);
 }
 else if (message != "") {
 
-    draw_text_colour(view_xview[0]+382, view_yview[0]+206, string(message), c_white, c_white, c_white, c_white, 1);
+    draw_text_colour(view_xview[0] + view_wview[0]-2, view_yview[0] + view_hview[0] - 10, string(message), c_white, c_white, c_white, c_white, 1);
 }
     
 //Re-align the font
