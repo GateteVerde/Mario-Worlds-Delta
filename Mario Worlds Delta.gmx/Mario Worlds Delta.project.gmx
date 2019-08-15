@@ -15,10 +15,12 @@
       <sound>sound\bgm_star</sound>
     </sounds>
     <sound>sound\snd_1up</sound>
+    <sound>sound\snd_beep</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_burn</sound>
     <sound>sound\snd_capefly</sound>
+    <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
     <sound>sound\snd_explosion</sound>
@@ -29,8 +31,11 @@
     <sound>sound\snd_kick</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
+    <sound>sound\snd_spikes</sound>
+    <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_sprout</sound>
+    <sound>sound\snd_star_get</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
@@ -176,6 +181,10 @@
         <sprite>sprites\spr_brick_stone</sprite>
       </sprites>
       <sprites name="Triggers">
+        <sprites name="Spike Blocks">
+          <sprite>sprites\spr_spikeblock_red</sprite>
+          <sprite>sprites\spr_spikeblock_blue</sprite>
+        </sprites>
         <sprite>sprites\spr_onoffblock_on</sprite>
         <sprite>sprites\spr_onoffblock_off</sprite>
         <sprite>sprites\spr_onoffplatform_red</sprite>
@@ -210,12 +219,6 @@
           <sprite>sprites\spr_platform_falling_64</sprite>
           <sprite>sprites\spr_platform_falling_80</sprite>
         </sprites>
-        <sprites name="Special">
-          <sprite>sprites\spr_spikeblock</sprite>
-          <sprite>sprites\spr_spikeblock_b</sprite>
-          <sprite>sprites\spr_spikeblock_red</sprite>
-          <sprite>sprites\spr_spikeblock_blue</sprite>
-        </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
           <sprite>sprites\spr_conveyor_l</sprite>
@@ -248,6 +251,11 @@
       <sprite>sprites\spr_trampoline_end</sprite>
       <sprite>sprites\spr_trampoline_hyper</sprite>
       <sprite>sprites\spr_trampoline_hyper_end</sprite>
+      <sprite>sprites\spr_spikeblock</sprite>
+      <sprite>sprites\spr_spikeblock_b</sprite>
+      <sprite>sprites\spr_beepblock_red</sprite>
+      <sprite>sprites\spr_beepblock_blue</sprite>
+      <sprite>sprites\spr_beepblock_empty</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -486,6 +494,10 @@
         <object>objects\obj_brick_stone</object>
       </objects>
       <objects name="Triggers">
+        <objects name="Spike Blocks">
+          <object>objects\obj_spikeblock_red</object>
+          <object>objects\obj_spikeblock_blue</object>
+        </objects>
         <object>objects\obj_onoffblock</object>
         <object>objects\obj_onoffplatform_red</object>
         <object>objects\obj_onoffplatform_blue</object>
@@ -508,12 +520,6 @@
         <objects name="Common">
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
-        </objects>
-        <objects name="Special">
-          <object>objects\obj_spikeblock</object>
-          <object>objects\obj_spikeblock_g</object>
-          <object>objects\obj_spikeblock_red</object>
-          <object>objects\obj_spikeblock_blue</object>
         </objects>
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
@@ -546,6 +552,10 @@
       <object>objects\obj_coin_ace</object>
       <object>objects\obj_trampoline</object>
       <object>objects\obj_trampoline_hyper</object>
+      <object>objects\obj_spikeblock</object>
+      <object>objects\obj_spikeblock_g</object>
+      <object>objects\obj_beepblock_red</object>
+      <object>objects\obj_beepblock_blue</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">

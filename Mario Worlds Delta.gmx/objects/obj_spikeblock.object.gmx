@@ -86,7 +86,7 @@ else
             <kind>1</kind>
             <string>///Animate
 
-image_speed = 0.3;
+image_speed = 0.5;
 </string>
           </argument>
         </arguments>
@@ -111,6 +111,13 @@ image_speed = 0.3;
             <kind>1</kind>
             <string>///Show spikes
 
+//Play 'Spikes Appear' sound, if not outside the view
+if (!outside_view(16)) {
+
+    audio_stop_play_sound(snd_spikes_appear, 0, false);
+}
+
+//Set frame
 image_index = 1;
 alarm[1] = 60;
 </string>
@@ -169,6 +176,12 @@ if (image_index &gt; 1) {
           <argument>
             <kind>1</kind>
             <string>///Stop animation and hide spikes after a while
+
+//Play 'Spikes' sound if not outside the view
+if (!outside_view(32)) {
+
+    audio_stop_play_sound(snd_spikes, 0, false);    
+}
 
 //Do not animate
 image_speed = 0;

@@ -118,7 +118,7 @@ if (image_index &gt; 1) {
             <kind>1</kind>
             <string>///Make spikes appear
 
-image_speed = 0.3;
+image_speed = 0.5;
 </string>
           </argument>
         </arguments>
@@ -168,6 +168,12 @@ alarm[0] = 5;
           <argument>
             <kind>1</kind>
             <string>///Stop animation and wait until then
+
+//Play 'Spikes' sound if not outside the view
+if (!outside_view(32)) {
+
+    audio_stop_play_sound(snd_spikes, 0, false);    
+}
 
 //Do not animate
 image_speed = 0;
