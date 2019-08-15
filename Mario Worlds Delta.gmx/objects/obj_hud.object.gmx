@@ -41,13 +41,28 @@ draw_text(view_xview[0]+64, view_yview[0]+8, string_format(lives, 2, 0));
 draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+104, view_yview[0]+8, 1, 1, 0, c_white, 1);
 draw_text(view_xview[0]+120, view_yview[0]+8, string_format(global.coins, 2, 0));
 
-//Dragon Coins
-var a;
-a = 0;
-repeat (ds_map_size(global.dcoins)) {
+//If there's less than 5 coins collected
+if (ds_map_size(global.dcoins) &lt; 5) {
+    
+    var a;
+    a = 0;
+    repeat (ds_map_size(global.dcoins)) {
+    
+        draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
+        a += 8;
+    }
+}
 
-    draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
-    a += 8;
+//Otherwise, if there's 5 or more collected
+else {
+
+    var a;
+    a = 0;
+    repeat (5) {
+    
+        draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
+        a += 8;
+    }    
 }
 
 //Reserve Box

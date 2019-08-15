@@ -210,6 +210,12 @@
           <sprite>sprites\spr_platform_falling_64</sprite>
           <sprite>sprites\spr_platform_falling_80</sprite>
         </sprites>
+        <sprites name="Special">
+          <sprite>sprites\spr_spikeblock</sprite>
+          <sprite>sprites\spr_spikeblock_b</sprite>
+          <sprite>sprites\spr_spikeblock_red</sprite>
+          <sprite>sprites\spr_spikeblock_blue</sprite>
+        </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
           <sprite>sprites\spr_conveyor_l</sprite>
@@ -503,6 +509,12 @@
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
         </objects>
+        <objects name="Special">
+          <object>objects\obj_spikeblock</object>
+          <object>objects\obj_spikeblock_g</object>
+          <object>objects\obj_spikeblock_red</object>
+          <object>objects\obj_spikeblock_blue</object>
+        </objects>
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
           <object>objects\obj_escalator_r</object>
@@ -652,6 +664,7 @@
         </objects>
         <object>objects\obj_hud</object>
       </objects>
+      <object>objects\obj_debug</object>
       <object>objects\obj_controller</object>
     </objects>
     <object>objects\obj_up</object>
