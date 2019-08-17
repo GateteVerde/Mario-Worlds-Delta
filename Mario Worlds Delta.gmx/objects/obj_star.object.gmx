@@ -143,9 +143,6 @@ if (gravity == 0) {
 //Play 'Powerup' sound
 audio_play_sound(snd_powerup, 0, false);
 
-//Play 'Star Get' sound
-audio_play_sound(snd_star_get, 0, false);
-
 //If the player is already invincible
 if (instance_exists(obj_invincibility)) {
 

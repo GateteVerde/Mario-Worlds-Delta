@@ -23,6 +23,7 @@
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
+    <sound>sound\snd_engine</sound>
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
@@ -35,7 +36,7 @@
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_sprout</sound>
-    <sound>sound\snd_star_get</sound>
+    <sound>sound\snd_stomp</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
@@ -209,15 +210,20 @@
       </sprites>
       <sprites name="Platforms">
         <sprites name="Common">
+          <sprites name="Path">
+            <sprite>sprites\spr_path_limit</sprite>
+          </sprites>
           <sprite>sprites\spr_platform_48</sprite>
           <sprite>sprites\spr_platform_64</sprite>
           <sprite>sprites\spr_platform_80</sprite>
-          <sprite>sprites\spr_platform_path_48</sprite>
-          <sprite>sprites\spr_platform_path_64</sprite>
-          <sprite>sprites\spr_platform_path_80</sprite>
           <sprite>sprites\spr_platform_falling_48</sprite>
           <sprite>sprites\spr_platform_falling_64</sprite>
           <sprite>sprites\spr_platform_falling_80</sprite>
+          <sprite>sprites\spr_engine</sprite>
+          <sprite>sprites\spr_engine_saw</sprite>
+          <sprite>sprites\spr_engine_platform_48</sprite>
+          <sprite>sprites\spr_engine_platform_64</sprite>
+          <sprite>sprites\spr_engine_platform_80</sprite>
         </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
@@ -288,6 +294,7 @@
       <sprite>sprites\spr_blowmask</sprite>
       <sprite>sprites\spr_blowmask_big</sprite>
       <sprite>sprites\spr_spinnermask</sprite>
+      <sprite>sprites\spr_path</sprite>
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
@@ -381,6 +388,7 @@
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
       <background>background\tls_pipes</background>
+      <background>background\tls_paths</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -446,6 +454,8 @@
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
     <script>scripts\shard_create.gml</script>
+    <script>scripts\grab_pivots.gml</script>
+    <script>scripts\pivot_set.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
@@ -518,8 +528,13 @@
       </objects>
       <objects name="Platforms">
         <objects name="Common">
+          <objects name="Path">
+            <object>objects\obj_path_limit</object>
+            <object>objects\obj_path_changer</object>
+          </objects>
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
+          <object>objects\obj_engine</object>
         </objects>
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
@@ -652,6 +667,9 @@
           </objects>
           <objects name="Platforms">
             <object>objects\obj_donut_ticker</object>
+            <object>objects\obj_path_mask</object>
+            <object>objects\obj_engine_blade</object>
+            <object>objects\obj_engine_platform</object>
           </objects>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
@@ -687,12 +705,40 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_engine</room>
   </rooms>
-  <constants number="5">
+  <constants number="33">
+    <constant name="cs_seesaw">-104</constant>
+    <constant name="cs_rope">-103</constant>
+    <constant name="cs_saw">-102</constant>
+    <constant name="cs_platform">-101</constant>
     <constant name="cs_pow_small">0</constant>
     <constant name="cs_pow_super">1</constant>
     <constant name="cs_pow_fire">2</constant>
     <constant name="cs_pow_cape">3</constant>
     <constant name="cs_pow_firecape">4</constant>
+    <constant name="cs_left">1</constant>
+    <constant name="cs_down">2</constant>
+    <constant name="cs_right">3</constant>
+    <constant name="cs_up">4</constant>
+    <constant name="cs_upleft">5</constant>
+    <constant name="cs_upright">6</constant>
+    <constant name="cs_downleft">7</constant>
+    <constant name="cs_downright">8</constant>
+    <constant name="cs_upright_sl">9</constant>
+    <constant name="cs_upleft_sl">10</constant>
+    <constant name="cs_downleft_sl">11</constant>
+    <constant name="cs_downright_sl">12</constant>
+    <constant name="cs_upleft_s">13</constant>
+    <constant name="cs_upright_s">14</constant>
+    <constant name="cs_downleft_s">15</constant>
+    <constant name="cs_downright_s">16</constant>
+    <constant name="cs_circle_upright">17</constant>
+    <constant name="cs_circle_upleft">18</constant>
+    <constant name="cs_circle_downright">19</constant>
+    <constant name="cs_circle_downleft">20</constant>
+    <constant name="cs_ccircle_upright">21</constant>
+    <constant name="cs_ccircle_upleft">22</constant>
+    <constant name="cs_ccircle_downleft">23</constant>
+    <constant name="cs_ccircle_downright">24</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
