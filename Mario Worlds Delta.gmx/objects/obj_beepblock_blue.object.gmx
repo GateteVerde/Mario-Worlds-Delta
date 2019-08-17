@@ -74,8 +74,11 @@ if (beep &gt; 0) {
 //Otherwise, if the block cannot animate more
 else {
 
-    //Play 'Clack' sound
-    audio_stop_play_sound(snd_clack, 0, false);
+    //Play 'Clack' sound if not outside the view
+    if (!outside_view(16)) {
+    
+        audio_stop_play_sound(snd_clack, 0, false);
+    }
     
     //If solid
     if (sprite_index == spr_beepblock_blue) {
