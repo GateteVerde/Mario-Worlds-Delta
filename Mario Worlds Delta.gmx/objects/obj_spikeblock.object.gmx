@@ -194,6 +194,48 @@ alarm[2] = 180;
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the spikeblock
+
+//Draw the base
+draw_sprite_part(sprite_index, -1, 6, 6, 32, 32, round(x), round(y));
+
+//If there's not a solid above
+if (!place_meeting(x, y-1, obj_solid))
+    draw_sprite_part(sprite_index, -1, 0, 0, 44, 6, round(x)-6, round(y)-6);
+
+//If there's not a solid below
+if (!place_meeting(x, y+32, obj_solid))
+    draw_sprite_part(sprite_index, -1, 0, 38, 44, 6, round(x)-6, round(y)+32);
+    
+//If there's not a solid at the left
+if (!place_meeting(x-1, y, obj_solid))
+    draw_sprite_part(sprite_index, -1, 0, 0, 6, 44, round(x)-6, round(y)-6);
+    
+//If there's not a solid at the right
+if (!place_meeting(x+32, y, obj_solid))
+    draw_sprite_part(sprite_index, -1, 38, 0, 6, 44, round(x)+32, round(y)-6);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
