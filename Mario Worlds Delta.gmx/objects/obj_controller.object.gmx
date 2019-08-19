@@ -61,6 +61,9 @@ showfps = false;
 //In-Game Font
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);
 
+//In-Message Font
+global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);
+
 //Disable application surface automatic drawing
 application_surface_draw_enable(0)
 
