@@ -30,6 +30,7 @@
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_kick</sound>
+    <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
     <sound>sound\snd_spikes</sound>
@@ -43,6 +44,7 @@
     <sound>sound\snd_thud</sound>
     <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
+    <sound>sound\snd_intro</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -221,6 +223,7 @@
           <sprite>sprites\spr_platform_falling_80</sprite>
           <sprite>sprites\spr_engine</sprite>
           <sprite>sprites\spr_engine_saw</sprite>
+          <sprite>sprites\spr_engine_rope</sprite>
           <sprite>sprites\spr_engine_platform_48</sprite>
           <sprite>sprites\spr_engine_platform_64</sprite>
           <sprite>sprites\spr_engine_platform_80</sprite>
@@ -308,6 +311,7 @@
           <sprite>sprites\spr_2000pts</sprite>
           <sprite>sprites\spr_4000pts</sprite>
           <sprite>sprites\spr_8000pts</sprite>
+          <sprite>sprites\spr_poisonpts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
         </sprites>
         <sprites name="Blend">
@@ -390,6 +394,7 @@
       <background>background\tls_pipes</background>
       <background>background\tls_paths</background>
     </backgrounds>
+    <background>background\bgr_presents</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -612,7 +617,7 @@
             <object>objects\obj_modifier_feather_alt</object>
             <object>objects\obj_modifier_star</object>
             <object>objects\obj_modifier_1up</object>
-            <object>objects\obj_modifier_rotten</object>
+            <object>objects\obj_modifier_poison</object>
           </objects>
           <objects name="Platforms">
             <objects name="Belts">
@@ -668,6 +673,7 @@
           <objects name="Platforms">
             <object>objects\obj_donut_ticker</object>
             <object>objects\obj_path_mask</object>
+            <object>objects\obj_engine_rope</object>
             <object>objects\obj_engine_blade</object>
             <object>objects\obj_engine_platform</object>
           </objects>

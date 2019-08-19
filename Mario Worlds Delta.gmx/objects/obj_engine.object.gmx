@@ -100,8 +100,10 @@ alarm[2] = 1;
             <kind>1</kind>
             <string>///*engine noises*
 
-//Stop n' Play 'Engine' sound if inside the view
-if ((type == cs_saw) &amp;&amp; (!outside_view(8))) {
+//Stop n' Play 'Engine' sound if visible and inside the view
+if (visible)
+&amp;&amp; (ready == 1)
+&amp;&amp; (outside_view(8) == false) {
 
     audio_stop_play_sound(snd_engine, 0, false);
 }
@@ -135,8 +137,9 @@ alarm[2] = 14;
 //Add variables for position
 smoke++;
 
-//If the mounted item is a saw, exhaust smoke
-if (type == cs_saw) {
+//If the engine is visible and it is moving
+if (visible) 
+&amp;&amp; (ready == 1) {
 
     //Process
     if ((smoke == 1) || (smoke == 3)) {
@@ -207,8 +210,8 @@ if (type == cs_saw)
 //Create a platform, if told
 else if (type == cs_platform) {
 
-    //Slowdown engine
-    image_speed = 0.15;
+    //Make invisible
+    visible = false;
     
     //Create a 48 pixel platform
     mount = instance_create(x, y-8, obj_engine_platform);
@@ -224,6 +227,31 @@ else if (type == cs_platform) {
         mount.sprite_index = spr_engine_platform_64;
     else if (length == 2)
         mount.sprite_index = spr_engine_platform_80;
+}
+
+//Create a rope, if told
+else if (type == cs_rope) {
+
+    //Slowdown engine
+    image_speed = 0.15;
+    
+    //Create a rope
+    mount = instance_create(x, y+7, obj_engine_rope); 
+    
+    //Check if moving
+    mount.ready = ready;
+    
+    //Set this rope as the engine attachment
+    mount.engine = ID;
+    
+    //Do not move
+    ID.speeds = 0;
+    
+    //Set the length of the rope
+    if (length == 0)
+        mount.length = 4;
+    else
+        mount.length = length;
 }
 </string>
           </argument>
@@ -279,6 +307,25 @@ if (instance_exists(ID)) {
             mount.x = ID.x;
             mount.y = ID.y-8;
         }            
+    }
+    
+    //Otherwise, if this is a rope
+    else if (type == cs_rope) {
+    
+        //If the rope is moving
+        if (mount.ready == 1) {
+        
+            //If not ready, move
+            if (ready == 0) {
+            
+                ready = 1;
+                ID.speeds = spd;
+            }
+                    
+            //Stay on the path guider, otherwise it would just not stay on the engine all sloppy
+            mount.x = ID.x;
+            mount.y = ID.y+7;
+        }
     }
 }
 else 

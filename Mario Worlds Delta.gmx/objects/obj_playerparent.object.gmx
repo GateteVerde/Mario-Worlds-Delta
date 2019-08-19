@@ -1036,7 +1036,54 @@ else
             <kind>1</kind>
             <string>///Hurt the player
 
-
+//If the player is not invulnerable
+if (invulnerable == false) {
+    
+    //If the player is riding a yoshi
+    if (global.mount == 1) {
+    
+    }
+    
+    //Otherwise, if the player is not riding a yoshi
+    else {
+    
+        //If the player powerup is greater than mushroom
+        if (global.powerup &gt; cs_pow_super) {
+        
+            //Play 'Powerdown' sound
+            audio_play_sound(snd_powerdown, 0, false);
+            
+            //Perform animation sequence
+            _transform = instance_create(0, 0, obj_player_transform);
+                _transform.oldpowerup = global.powerup;
+                _transform.newpowerup = cs_pow_super;    
+        }
+        
+        //Otherwise, if the player is big
+        else if (global.powerup == cs_pow_super) {
+        
+            //Play 'Powerdown' sound
+            audio_play_sound(snd_powerdown, 0, false);
+            
+            //Drop reserve item
+            with (obj_levelcontrol) {
+            
+                if (global.reserveitem &gt; cs_pow_small)
+                    event_user(1);
+            }
+            
+            //Perform animation sequence
+            _transform = instance_create(0, 0, obj_player_transform);
+                _transform.oldpowerup = global.powerup;
+                _transform.newpowerup = cs_pow_small;    
+        }
+    }
+    
+    //Become invulnerable
+    invulnerable = true;
+    alarm[0] = 90;
+    alarm[1] = 1;
+}
 </string>
           </argument>
         </arguments>

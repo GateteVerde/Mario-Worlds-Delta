@@ -795,7 +795,10 @@ else {
 alarm[5] = 1;
 
 //Go to title screen
-alarm[4] = 60;
+alarm[4] = 200;
+
+//Play 'Intro' sound
+audio_play_sound(snd_intro, 0, false);
 </string>
           </argument>
         </arguments>
