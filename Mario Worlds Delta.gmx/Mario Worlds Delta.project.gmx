@@ -242,6 +242,7 @@
         <sprite>sprites\spr_donut_red</sprite>
         <sprite>sprites\spr_donut_red_triple</sprite>
         <sprite>sprites\spr_donut_appear</sprite>
+        <sprite>sprites\spr_blocktrain</sprite>
       </sprites>
       <sprites name="Decor">
         <sprites name="Lava">
@@ -553,6 +554,7 @@
         <object>objects\obj_donut_triple</object>
         <object>objects\obj_donut_red</object>
         <object>objects\obj_donut_red_triple</object>
+        <object>objects\obj_blocktrain</object>
       </objects>
       <objects name="Decor">
         <objects name="Liquids">
@@ -671,11 +673,19 @@
             <object>objects\obj_invincibility</object>
           </objects>
           <objects name="Platforms">
+            <objects name="Common">
+              <objects name="Path">
+                <object>objects\obj_path_mask</object>
+              </objects>
+              <object>objects\obj_engine_rope</object>
+              <object>objects\obj_engine_blade</object>
+              <object>objects\obj_engine_platform</object>
+            </objects>
             <object>objects\obj_donut_ticker</object>
-            <object>objects\obj_path_mask</object>
-            <object>objects\obj_engine_rope</object>
-            <object>objects\obj_engine_blade</object>
-            <object>objects\obj_engine_platform</object>
+            <object>objects\obj_blocktrain_front</object>
+            <object>objects\obj_blocktrain_back</object>
+            <object>objects\obj_blocktrain_middle</object>
+            <object>objects\obj_blocktrain_killer</object>
           </objects>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>

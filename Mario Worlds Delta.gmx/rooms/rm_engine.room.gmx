@@ -272,6 +272,19 @@
     <instance objName="obj_qblock" x="848" y="192" name="inst_004F8C12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="864" y="192" name="inst_8CC7C7D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_poison" x="848" y="192" name="inst_67E19443" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="832" y="80" name="inst_459B474B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="816" y="80" name="inst_CD0F623A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="800" y="80" name="inst_5DDF98CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="784" y="80" name="inst_E81B26A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="768" y="80" name="inst_306B9477" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_blocktrain" x="768" y="64" name="inst_5F2A900A" locked="0" code="length = 4;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_blocktrain" x="832" y="96" name="inst_7D87ACF7" locked="0" code="length = 4;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_right" x="768" y="64" name="inst_3EF13A05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_down" x="864" y="64" name="inst_C6B7C88A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_left" x="848" y="112" name="inst_E3F2934D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_left" x="832" y="96" name="inst_2AEC3146" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_right" x="752" y="48" name="inst_064D04BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_up" x="736" y="96" name="inst_A268630E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="224" y="224" w="16" h="16" xo="2" yo="146" id="10003258" name="inst_F7E28E7D" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -1129,6 +1142,11 @@
     <tile bgName="tls_pipes" x="1104" y="336" w="16" h="16" xo="2" yo="20" id="10004054" name="inst_9BA1E381" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_pipes" x="1136" y="320" w="16" h="16" xo="2" yo="20" id="10004055" name="inst_DCFEFC7A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_pipes" x="1136" y="336" w="16" h="16" xo="2" yo="20" id="10004056" name="inst_86CA337E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="768" y="80" w="16" h="16" xo="74" yo="2" id="10004135" name="inst_3D9B0E02" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="832" y="80" w="16" h="16" xo="110" yo="2" id="10004136" name="inst_09A3A0C6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="784" y="80" w="16" h="16" xo="92" yo="2" id="10004137" name="inst_27E9FCFF" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="816" y="80" w="16" h="16" xo="92" yo="2" id="10004138" name="inst_CDD509A9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="800" y="80" w="16" h="16" xo="92" yo="2" id="10004143" name="inst_CC0F5E7E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
