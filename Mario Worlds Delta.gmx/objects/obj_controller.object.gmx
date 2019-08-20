@@ -51,12 +51,16 @@ port_y = 0;
 //Game message
 message = "";
 
+
+//Display FPS
+showfps = false;
+
 //Game width / heigh
 global.gw = 384;
 global.gh = 216;
 
-//Display FPS
-showfps = false;
+//Freeze the screen?
+global.screenfreeze = false;
 
 //In-Game Font
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);
@@ -233,7 +237,7 @@ window_center();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Deactivate everything
+            <string>///Deactivate objects
 
 instance_deactivate_all(1);
 </string>

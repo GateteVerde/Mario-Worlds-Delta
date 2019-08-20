@@ -128,6 +128,7 @@ fly = 0;
 flying = 0;
 
 //Begin alarms
+alarm[8] = 1;
 alarm[11] = 1;
 
 //Call cape draw object
@@ -299,6 +300,33 @@ if (control_enable == true)
             <string>///End kicking animation
 
 kicking = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate bubble effect
+
+alarm[8] = 60+random_range(-30, 30)
+if (swimming == true)
+    instance_create(x, bbox_top, obj_bubble)
 </string>
           </argument>
         </arguments>

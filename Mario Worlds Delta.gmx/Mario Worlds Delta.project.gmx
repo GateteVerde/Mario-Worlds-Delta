@@ -303,6 +303,11 @@
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
+        <sprites name="Blend">
+          <sprite>sprites\spr_ring</sprite>
+          <sprite>sprites\spr_sparkle</sprite>
+          <sprite>sprites\spr_spinthump</sprite>
+        </sprites>
         <sprites name="Scores">
           <sprite>sprites\spr_10pts</sprite>
           <sprite>sprites\spr_100pts</sprite>
@@ -316,11 +321,11 @@
           <sprite>sprites\spr_poisonpts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
         </sprites>
-        <sprites name="Blend">
-          <sprite>sprites\spr_ring</sprite>
-          <sprite>sprites\spr_sparkle</sprite>
-          <sprite>sprites\spr_spinthump</sprite>
+        <sprites name="Weather">
+          <sprite>sprites\spr_rain</sprite>
+          <sprite>sprites\spr_snow</sprite>
         </sprites>
+        <sprite>sprites\spr_bubble</sprite>
         <sprite>sprites\spr_cinder</sprite>
         <sprite>sprites\spr_note</sprite>
         <sprite>sprites\spr_smoke</sprite>
@@ -331,8 +336,8 @@
         <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_splash</sprite>
-        <sprite>sprites\spr_splash_lava</sprite>
         <sprite>sprites\spr_splash_choco</sprite>
+        <sprite>sprites\spr_splash_lava</sprite>
         <sprite>sprites\spr_splash_poison</sprite>
       </sprites>
       <sprites name="Modifiers">
@@ -410,7 +415,9 @@
     </backgrounds>
     <background>background\bgr_presents</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pth_bubble</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Player">
       <scripts name="Animation">
@@ -485,6 +492,7 @@
   <objects name="objects">
     <object>objects\obj_player_start</object>
     <object>objects\obj_levelcontrol</object>
+    <object>objects\obj_rainmaker</object>
     <objects name="Collision">
       <object>objects\obj_solid</object>
       <object>objects\obj_semisolid</object>
@@ -716,8 +724,10 @@
             <object>objects\obj_sparkle</object>
             <object>objects\obj_spinthump</object>
           </objects>
+          <object>objects\obj_bubble</object>
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
+          <object>objects\obj_rain</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
           <object>objects\obj_spinstar</object>

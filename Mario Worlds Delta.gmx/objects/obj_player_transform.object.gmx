@@ -38,43 +38,51 @@ loopnumb = 0;
 //Screenshot
 back = -1;
 
-//Make the player invisible
-if (instance_exists(obj_playerparent)) {
-
-    //Obtain the current sprite from the player
-    sprite_index = obj_playerparent.sprite_index;
+//If the screen can freeze
+if (global.screenfreeze == true) {
     
-    //Obtain the current frame from the player
-    image_index = obj_playerparent.image_index;
+    //Make the player invisible
+    if (instance_exists(obj_playerparent)) {
     
-    //Do not animate
-    image_speed = 0;
-    
-    //Make invisible
-    obj_playerparent.visible = false;
-    
-    //Obtain cape
-    if (obj_cape.visible == true) {
-    
-        //Obtain sprite from cape
-        capesprite = obj_cape.sprite_index;
-        capeframe = obj_cape.image_index;
+        //Obtain the current sprite from the player
+        sprite_index = obj_playerparent.sprite_index;
+        
+        //Obtain the current frame from the player
+        image_index = obj_playerparent.image_index;
+        
+        //Do not animate
+        image_speed = 0;
+        
+        //Make invisible
+        obj_playerparent.visible = false;
+        
+        //Obtain cape
+        if (obj_cape.visible == true) {
+        
+            //Obtain sprite from cape
+            capesprite = obj_cape.sprite_index;
+            capeframe = obj_cape.image_index;
+        }
+        
+        //Stay in position
+        x = obj_playerparent.x;
+        y = obj_playerparent.y;
+        
+        //Obtain the current facing direction from the player
+        image_xscale = obj_playerparent.xscale;
     }
     
-    //Stay in position
-    x = obj_playerparent.x;
-    y = obj_playerparent.y;
+    //Make following objects invisible
+    with (obj_water) visible = 0;
+    with (obj_effectsparent) visible = 0;
     
-    //Obtain the current facing direction from the player
-    image_xscale = obj_playerparent.xscale;
+    //Start animation
+    alarm[0] = 1;
 }
 
-//Make following objects invisible
-with (obj_water) visible = 0;
-with (obj_effectsparent) visible = 0;
-
-//Start animation
-alarm[0] = 1;
+//Otherwise, transform instantly
+else
+    alarm[2] = 1;
 </string>
           </argument>
         </arguments>
@@ -108,24 +116,39 @@ sprite_index = obj_playerparent.sprite_index;
 //If the animation does not longer loop, exit
 if (loop == 0) {
 
-    //Delete screenshot
-    background_delete(back);
-    
-    //Activate instances
-    instance_activate_all();
-    
-    //With the player
-    with (obj_playerparent) {
-    
-        //Disable gravity
-        gravity_enable = true;
+    //If the screen did froze
+    if (global.screenfreeze == true) {
+
+        //Delete screenshot
+        background_delete(back);
         
-        //Resume movement
-        event_user(14);
+        //Activate instances
+        instance_activate_all();
         
-        //Make invisible
-        visible = true;
+        //Activate particles
+        with (obj_rainmaker) event_user(1);
         
+        //With the player
+        with (obj_playerparent) {
+        
+            //Disable gravity
+            gravity_enable = true;
+            
+            //Resume movement
+            event_user(14);
+            
+            //Make invisible
+            visible = true;
+            
+            //Reset alarm 0
+            if (alarm[0] &gt; -1)
+                alarm[0] = 90;
+        }
+    }
+    
+    //Otherwise
+    else {
+    
         //Reset alarm 0
         if (alarm[0] &gt; -1)
             alarm[0] = 90;
@@ -225,6 +248,10 @@ with (obj_water) visible = 1;
 instance_activate_object(obj_effectsparent);
 with (obj_effectsparent) visible = 1;
 
+//Activate rain object
+instance_activate_object(obj_rainmaker);
+with (obj_rainmaker) event_user(0);
+
 //Activate controller object
 instance_activate_object(obj_controller);
 
@@ -241,6 +268,9 @@ with (obj_playerparent) {
     //Make invisible
     visible = false;
 }
+
+//Deactivate particles
+with (obj_rainmaker) event_user(0);
 
 //Make the object visible
 visible = true;
