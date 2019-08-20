@@ -148,6 +148,10 @@ if (lava) {
     //Create splash effect
     with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2-8, obj_smoke)) {
     
+        //Set the animation speed
+        image_speed = 0.3
+        
+        //Set the sprite
         if (lava.sprite_index == spr_lava)
             sprite_index = spr_splash_lava;
         else if (lava.sprite_index == spr_lava_choco)
