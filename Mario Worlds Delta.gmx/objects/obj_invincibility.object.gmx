@@ -78,7 +78,10 @@ if (instance_exists(obj_playerparent)) {
 }
 
 //Repeat
-alarm[3] = 2;
+if (obj_invincibility.alarm[0] &gt; 120)
+    alarm[3] = 2;
+else
+    alarm[3] = 8;
 </string>
           </argument>
         </arguments>
@@ -107,7 +110,8 @@ alarm[3] = 2;
 obj_levelcontrol.alarm[1] = 1;
 
 //Play 'Starman' theme
-if (!audio_is_playing(bgm_star))
+if (!audio_is_playing(bgm_pswitch))
+&amp;&amp; (!audio_is_playing(bgm_star))
     audio_play_sound(bgm_star, 0, true);
 </string>
           </argument>

@@ -44,8 +44,7 @@ enum statetype {
     idle,
     walk,
     jump,
-    climb,
-    flying
+    climb
 }
 state = statetype.idle;
 delay = 0;
@@ -127,7 +126,11 @@ dive = 0;
 fly = 0;
 flying = 0;
 
+//Projectile direction when spinning
+dir = 1;
+
 //Begin alarms
+alarm[3] = 1;
 alarm[8] = 1;
 alarm[11] = 1;
 
@@ -190,9 +193,8 @@ if (crouch == true)
     //Make sure that the player is moving
     if (state == statetype.walk) {
     
+        instance_create(x, bbox_bottom, obj_smoke);
         alarm[11] = 4;
-        if (instance_number(obj_smoke) &lt; 3)
-            instance_create(x, bbox_bottom, obj_smoke);
     }
     else
         alarm[11] = 1;
@@ -332,6 +334,55 @@ if (swimming == true)
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Throw projectiles when spinning
+
+//If the player is doing a spinjump and it's not riding anything
+if (jumpstyle == 1) 
+&amp;&amp; (global.mount == 0) {
+    
+    //Fireball
+    if (global.powerup == cs_pow_fire) 
+    || (global.powerup == cs_pow_firecape) {
+    
+        with (instance_create(x, y, obj_fireball)) 
+            hspeed = 3*sign(other.dir);
+    }         
+    
+    //Change the facing direction
+    dir = -dir;
+    
+    //Set alarm based on direction
+    if (dir == 1)
+        alarm[3] = 15;
+    else
+        alarm[3] = 30;
+}
+
+//Otherwise, deny event
+else
+    alarm[3] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -438,9 +489,18 @@ slope = player_inslope();
 //Update palette
 if (instance_exists(obj_invincibility)) {
 
-    isflashing += 0.1;
-    if (isflashing &gt; 6)
-        isflashing = 1;
+    if (obj_invincibility.alarm[0] &gt; 120) {
+    
+        isflashing += 0.1;
+        if (isflashing &gt; 6)
+            isflashing = 1;
+    }
+    else {
+    
+        isflashing += 0.025;
+        if (isflashing &gt; 6)
+            isflashing = 1;
+    }
 }
 else {
 
@@ -606,28 +666,32 @@ if (escalator)
 
 //If moving right and the player bumps a wall to the right
 if (hspeed &gt; 0) 
-&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
-    
-    //Stop horizontal movement
-    hspeed = 0;
+&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
     
     //Prevent the player from getting embed in the wall
     while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0)) {
+
         x--;
+    }
+    
+    //Stop horizontal speed
+    hspeed = 0;
 }
 
 //Otherwise, if moving left and the player bumps a wall to the left
 else if (hspeed &lt; 0)
-&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
-    
-    //Stop horizontal movement
-    hspeed = 0;
+&amp;&amp; (collision_rectangle(bbox_left-hspeed, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
     
     //Prevent the player from getting embed in the wall
     while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0)) {
+    
         x++;
+    }
+    
+    //Stop horizontal speed
+    hspeed = 0;
 }
 
 //If moving up...

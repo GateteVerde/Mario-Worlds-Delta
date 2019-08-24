@@ -55,6 +55,12 @@ switch (argument[0]) {
     //Poison
     case (itemtype.poison): return spr_poison; break;
     
+    //P-Switch
+    case (itemtype.pswitch): return spr_pswitch; break;
+    
     //Trampoline
     case (itemtype.trampoline): return spr_trampoline; break;
+    
+    //Detonator
+    case (itemtype.detonator): return spr_detonator; break;
 }

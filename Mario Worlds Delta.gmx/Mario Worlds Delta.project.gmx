@@ -31,6 +31,7 @@
     <sound>sound\snd_intro</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_kick</sound>
+    <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
@@ -173,15 +174,10 @@
         <sprite>sprites\spr_qblock_hidden</sprite>
       </sprites>
       <sprites name="Bricks">
-        <sprites name="Shards">
-          <sprite>sprites\spr_shard</sprite>
-          <sprite>sprites\spr_shard_flip</sprite>
-          <sprite>sprites\spr_shard_stone</sprite>
-        </sprites>
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
-        <sprite>sprites\spr_brick_blue</sprite>
-        <sprite>sprites\spr_brick_blue_th</sprite>
+        <sprite>sprites\spr_brick_throw</sprite>
+        <sprite>sprites\spr_brick_throw_th</sprite>
         <sprite>sprites\spr_brick_stone</sprite>
       </sprites>
       <sprites name="Triggers">
@@ -194,9 +190,11 @@
         <sprite>sprites\spr_onoffplatform_red</sprite>
         <sprite>sprites\spr_onoffplatform_blue</sprite>
       </sprites>
+      <sprite>sprites\spr_iceblock</sprite>
       <sprite>sprites\spr_msgblock</sprite>
       <sprite>sprites\spr_noteblock</sprite>
       <sprite>sprites\spr_noteblock_hidden</sprite>
+      <sprite>sprites\spr_bombblock</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
@@ -228,6 +226,7 @@
           <sprite>sprites\spr_engine_platform_48</sprite>
           <sprite>sprites\spr_engine_platform_64</sprite>
           <sprite>sprites\spr_engine_platform_80</sprite>
+          <sprite>sprites\spr_engine_grinder</sprite>
         </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
@@ -246,22 +245,28 @@
         <sprite>sprites\spr_blocktrain</sprite>
       </sprites>
       <sprites name="Decor">
-        <sprites name="Lava">
-          <sprite>sprites\spr_lava</sprite>
-          <sprite>sprites\spr_lava_choco</sprite>
-          <sprite>sprites\spr_lava_poison</sprite>
+        <sprites name="Liquids">
+          <sprites name="Lava">
+            <sprite>sprites\spr_lava</sprite>
+            <sprite>sprites\spr_lava_choco</sprite>
+            <sprite>sprites\spr_lava_poison</sprite>
+          </sprites>
+          <sprite>sprites\spr_water</sprite>
+          <sprite>sprites\spr_waterfall</sprite>
+          <sprite>sprites\spr_waterfall_bottom</sprite>
         </sprites>
-        <sprite>sprites\spr_water</sprite>
-        <sprite>sprites\spr_waterfall</sprite>
-        <sprite>sprites\spr_waterfall_bottom</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
+      <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
+      <sprite>sprites\spr_pswitch</sprite>
+      <sprite>sprites\spr_pswitch_press</sprite>
       <sprite>sprites\spr_trampoline</sprite>
       <sprite>sprites\spr_trampoline_end</sprite>
       <sprite>sprites\spr_trampoline_hyper</sprite>
       <sprite>sprites\spr_trampoline_hyper_end</sprite>
+      <sprite>sprites\spr_detonator</sprite>
       <sprite>sprites\spr_spikeblock</sprite>
       <sprite>sprites\spr_spikeblock_b</sprite>
       <sprite>sprites\spr_beepblock_red</sprite>
@@ -298,14 +303,55 @@
       </sprites>
       <sprite>sprites\spr_blowmask</sprite>
       <sprite>sprites\spr_blowmask_big</sprite>
-      <sprite>sprites\spr_spinnermask</sprite>
       <sprite>sprites\spr_path</sprite>
+      <sprite>sprites\spr_24mask</sprite>
+      <sprite>sprites\spr_spinnermask</sprite>
+    </sprites>
+    <sprites name="Modifiers">
+      <sprites name="Blocks">
+        <sprite>sprites\spr_modifier_brick</sprite>
+        <sprite>sprites\spr_modifier_brick_flip</sprite>
+      </sprites>
+      <sprites name="Items">
+        <sprites name="Powerups">
+          <sprite>sprites\spr_modifier_shroom</sprite>
+          <sprite>sprites\spr_modifier_fireflower</sprite>
+          <sprite>sprites\spr_modifier_fireflower_alt</sprite>
+          <sprite>sprites\spr_modifier_feather</sprite>
+          <sprite>sprites\spr_modifier_feather_alt</sprite>
+          <sprite>sprites\spr_modifier_star</sprite>
+          <sprite>sprites\spr_modifier_1up</sprite>
+          <sprite>sprites\spr_modifier_poison</sprite>
+        </sprites>
+        <sprites name="Platforms">
+          <sprites name="Belts">
+            <sprite>sprites\spr_modifier_belt_right</sprite>
+            <sprite>sprites\spr_modifier_belt_right_fast</sprite>
+            <sprite>sprites\spr_modifier_belt_left</sprite>
+            <sprite>sprites\spr_modifier_belt_left_fast</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="Interactive">
+          <sprite>sprites\spr_modifier_pswitch</sprite>
+          <sprite>sprites\spr_modifier_trampoline</sprite>
+          <sprite>sprites\spr_modifier_detonator</sprite>
+        </sprites>
+        <sprite>sprites\spr_modifier_coin_star</sprite>
+        <sprite>sprites\spr_modifier_coin_multi</sprite>
+      </sprites>
+      <sprite>sprites\spr_up</sprite>
+      <sprite>sprites\spr_down</sprite>
+      <sprite>sprites\spr_left</sprite>
+      <sprite>sprites\spr_right</sprite>
+      <sprite>sprites\spr_endmarker</sprite>
+      <sprite>sprites\spr_eventmarker</sprite>
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
         <sprites name="Blend">
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_sparkle</sprite>
+          <sprite>sprites\spr_sparkle_blue</sprite>
           <sprite>sprites\spr_spinthump</sprite>
         </sprites>
         <sprites name="Scores">
@@ -321,13 +367,25 @@
           <sprite>sprites\spr_poisonpts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
         </sprites>
+        <sprites name="Shards">
+          <sprites name="Bricks">
+            <sprite>sprites\spr_shard</sprite>
+            <sprite>sprites\spr_shard_flip</sprite>
+            <sprite>sprites\spr_shard_blue</sprite>
+          </sprites>
+          <sprite>sprites\spr_shard_ice</sprite>
+          <sprite>sprites\spr_shard_stone</sprite>
+        </sprites>
         <sprites name="Weather">
           <sprite>sprites\spr_rain</sprite>
+          <sprite>sprites\spr_rain_sp</sprite>
           <sprite>sprites\spr_snow</sprite>
         </sprites>
         <sprite>sprites\spr_bubble</sprite>
         <sprite>sprites\spr_cinder</sprite>
         <sprite>sprites\spr_note</sprite>
+        <sprite>sprites\spr_shellthump</sprite>
+        <sprite>sprites\spr_shellthump_st</sprite>
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
         <sprite>sprites\spr_smoke_huge</sprite>
@@ -340,38 +398,8 @@
         <sprite>sprites\spr_splash_lava</sprite>
         <sprite>sprites\spr_splash_poison</sprite>
       </sprites>
-      <sprites name="Modifiers">
-        <sprites name="Blocks">
-          <sprite>sprites\spr_modifier_brick</sprite>
-          <sprite>sprites\spr_modifier_brick_flip</sprite>
-        </sprites>
-        <sprites name="Items">
-          <sprites name="Powerups">
-            <sprite>sprites\spr_modifier_shroom</sprite>
-            <sprite>sprites\spr_modifier_fireflower</sprite>
-            <sprite>sprites\spr_modifier_fireflower_alt</sprite>
-            <sprite>sprites\spr_modifier_feather</sprite>
-            <sprite>sprites\spr_modifier_feather_alt</sprite>
-            <sprite>sprites\spr_modifier_star</sprite>
-            <sprite>sprites\spr_modifier_1up</sprite>
-            <sprite>sprites\spr_modifier_poison</sprite>
-          </sprites>
-          <sprites name="Platforms">
-            <sprites name="Belts">
-              <sprite>sprites\spr_modifier_belt_right</sprite>
-              <sprite>sprites\spr_modifier_belt_right_fast</sprite>
-              <sprite>sprites\spr_modifier_belt_left</sprite>
-              <sprite>sprites\spr_modifier_belt_left_fast</sprite>
-            </sprites>
-          </sprites>
-          <sprites name="Interactive">
-            <sprite>sprites\spr_modifier_trampoline</sprite>
-          </sprites>
-          <sprite>sprites\spr_modifier_coin_star</sprite>
-          <sprite>sprites\spr_modifier_coin_multi</sprite>
-        </sprites>
-      </sprites>
       <sprites name="Palettes">
+        <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
       </sprites>
       <sprites name="GUI">
@@ -395,13 +423,8 @@
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
+      <sprite>sprites\spr_lightningsheet</sprite>
     </sprites>
-    <sprite>sprites\spr_up</sprite>
-    <sprite>sprites\spr_down</sprite>
-    <sprite>sprites\spr_left</sprite>
-    <sprite>sprites\spr_right</sprite>
-    <sprite>sprites\spr_endmarker</sprite>
-    <sprite>sprites\spr_eventmarker</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Level Backgrounds">
@@ -417,6 +440,7 @@
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_bubble</path>
+    <path>paths\pth_snow</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Player">
@@ -458,6 +482,10 @@
       <script>scripts\player_set_palette.gml</script>
     </scripts>
     <scripts name="Utility">
+      <scripts name="Events">
+        <script>scripts\pswitch_on.gml</script>
+        <script>scripts\pswitch_off.gml</script>
+      </scripts>
       <scripts name="Shaders">
         <script>scripts\init_pixel.gml</script>
         <script>scripts\pal_swap_init_system.gml</script>
@@ -481,9 +509,9 @@
       <script>scripts\draw_sprite_tiled_area_ext.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
     </scripts>
-    <script>scripts\shard_create.gml</script>
-    <script>scripts\grab_pivots.gml</script>
     <script>scripts\pivot_set.gml</script>
+    <script>scripts\grab_pivots.gml</script>
+    <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
@@ -493,6 +521,7 @@
     <object>objects\obj_player_start</object>
     <object>objects\obj_levelcontrol</object>
     <object>objects\obj_rainmaker</object>
+    <object>objects\obj_snowmaker</object>
     <objects name="Collision">
       <object>objects\obj_solid</object>
       <object>objects\obj_semisolid</object>
@@ -530,6 +559,7 @@
       <objects name="Bricks">
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_flip</object>
+        <object>objects\obj_brick_throw</object>
         <object>objects\obj_brick_stone</object>
       </objects>
       <objects name="Triggers">
@@ -541,9 +571,11 @@
         <object>objects\obj_onoffplatform_red</object>
         <object>objects\obj_onoffplatform_blue</object>
       </objects>
+      <object>objects\obj_iceblock</object>
       <object>objects\obj_msgblock</object>
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
+      <object>objects\obj_bombblock</object>
     </objects>
     <objects name="Items">
       <objects name="Powerups">
@@ -580,6 +612,12 @@
         <object>objects\obj_donut_red_triple</object>
         <object>objects\obj_blocktrain</object>
       </objects>
+      <objects name="Interactive">
+        <object>objects\obj_pswitch</object>
+        <object>objects\obj_trampoline</object>
+        <object>objects\obj_trampoline_hyper</object>
+        <object>objects\obj_detonator</object>
+      </objects>
       <objects name="Decor">
         <objects name="Liquids">
           <objects name="Lava">
@@ -594,14 +632,51 @@
         </objects>
       </objects>
       <object>objects\obj_coin</object>
+      <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
-      <object>objects\obj_trampoline</object>
-      <object>objects\obj_trampoline_hyper</object>
       <object>objects\obj_spikeblock</object>
       <object>objects\obj_spikeblock_g</object>
       <object>objects\obj_beepblock_red</object>
       <object>objects\obj_beepblock_blue</object>
+    </objects>
+    <objects name="Modifiers">
+      <objects name="Blocks">
+        <object>objects\obj_modifier_brick</object>
+        <object>objects\obj_modifier_brick_flip</object>
+      </objects>
+      <objects name="Items">
+        <objects name="Powerups">
+          <object>objects\obj_modifier_shroom</object>
+          <object>objects\obj_modifier_fireflower</object>
+          <object>objects\obj_modifier_fireflower_alt</object>
+          <object>objects\obj_modifier_feather</object>
+          <object>objects\obj_modifier_feather_alt</object>
+          <object>objects\obj_modifier_star</object>
+          <object>objects\obj_modifier_1up</object>
+          <object>objects\obj_modifier_poison</object>
+        </objects>
+        <objects name="Platforms">
+          <objects name="Belts">
+            <object>objects\obj_modifier_belt_right</object>
+            <object>objects\obj_modifier_belt_right_fast</object>
+            <object>objects\obj_modifier_belt_left</object>
+            <object>objects\obj_modifier_belt_left_fast</object>
+          </objects>
+        </objects>
+        <objects name="Interactive">
+          <object>objects\obj_modifier_pswitch</object>
+          <object>objects\obj_modifier_trampoline</object>
+          <object>objects\obj_modifier_detonator</object>
+        </objects>
+        <object>objects\obj_modifier_coin_star</object>
+        <object>objects\obj_modifier_coin_multi</object>
+      </objects>
+      <object>objects\obj_up</object>
+      <object>objects\obj_down</object>
+      <object>objects\obj_left</object>
+      <object>objects\obj_right</object>
+      <object>objects\obj_endmarker</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -629,37 +704,6 @@
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
       </objects>
-      <objects name="Modifiers">
-        <objects name="Blocks">
-          <object>objects\obj_modifier_brick</object>
-          <object>objects\obj_modifier_brick_flip</object>
-        </objects>
-        <objects name="Items">
-          <objects name="Powerups">
-            <object>objects\obj_modifier_shroom</object>
-            <object>objects\obj_modifier_fireflower</object>
-            <object>objects\obj_modifier_fireflower_alt</object>
-            <object>objects\obj_modifier_feather</object>
-            <object>objects\obj_modifier_feather_alt</object>
-            <object>objects\obj_modifier_star</object>
-            <object>objects\obj_modifier_1up</object>
-            <object>objects\obj_modifier_poison</object>
-          </objects>
-          <objects name="Platforms">
-            <objects name="Belts">
-              <object>objects\obj_modifier_belt_right</object>
-              <object>objects\obj_modifier_belt_right_fast</object>
-              <object>objects\obj_modifier_belt_left</object>
-              <object>objects\obj_modifier_belt_left_fast</object>
-            </objects>
-          </objects>
-          <objects name="Interactive">
-            <object>objects\obj_modifier_trampoline</object>
-          </objects>
-          <object>objects\obj_modifier_coin_star</object>
-          <object>objects\obj_modifier_coin_multi</object>
-        </objects>
-      </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
           <objects name="Cape">
@@ -679,8 +723,8 @@
         </objects>
         <objects name="Blocks">
           <objects name="Bricks">
-            <object>objects\obj_shard</object>
-            <object>objects\obj_brick_flip_flipping</object>
+            <object>objects\obj_brick_flip_b</object>
+            <object>objects\obj_brick_throw_th</object>
           </objects>
           <object>objects\obj_emptyblock</object>
           <object>objects\obj_blockcoin</object>
@@ -704,6 +748,7 @@
               <object>objects\obj_engine_rope</object>
               <object>objects\obj_engine_blade</object>
               <object>objects\obj_engine_platform</object>
+              <object>objects\obj_engine_grinder</object>
             </objects>
             <object>objects\obj_donut_ticker</object>
             <object>objects\obj_blocktrain_front</object>
@@ -711,48 +756,51 @@
             <object>objects\obj_blocktrain_middle</object>
             <object>objects\obj_blocktrain_killer</object>
           </objects>
+          <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
+          <object>objects\obj_blockbumper</object>
         </objects>
         <objects name="Eyecandy">
-          <objects name="Score">
-            <object>objects\obj_score</object>
-          </objects>
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
             <object>objects\obj_sparkle</object>
             <object>objects\obj_spinthump</object>
           </objects>
+          <objects name="Score">
+            <object>objects\obj_score</object>
+          </objects>
+          <objects name="Shards">
+            <object>objects\obj_shard</object>
+          </objects>
           <object>objects\obj_bubble</object>
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>
+          <object>objects\obj_shellthump</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
+          <object>objects\obj_snow</object>
           <object>objects\obj_spinstar</object>
         </objects>
         <object>objects\obj_hud</object>
         <object>objects\obj_dialog</object>
         <object>objects\obj_message</object>
+        <object>objects\obj_lightningsheet</object>
       </objects>
-      <object>objects\obj_debug</object>
       <object>objects\obj_controller</object>
     </objects>
-    <object>objects\obj_up</object>
-    <object>objects\obj_down</object>
-    <object>objects\obj_left</object>
-    <object>objects\obj_right</object>
-    <object>objects\obj_endmarker</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_engine</room>
   </rooms>
-  <constants number="33">
-    <constant name="cs_seesaw">-104</constant>
+  <constants number="34">
+    <constant name="cs_grinder">-105</constant>
+    <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>
-    <constant name="cs_saw">-102</constant>
+    <constant name="cs_seesaw">-102</constant>
     <constant name="cs_platform">-101</constant>
     <constant name="cs_pow_small">0</constant>
     <constant name="cs_pow_super">1</constant>

@@ -35,7 +35,7 @@ image_index = choose(0,1,2,3);
 image_alpha = random_range(0.5, 1);
 
 //Speed
-spd = random_range(4, 8);
+spd = round(random_range(3, 6));
 
 //Set the motion
 hspeed = -spd;
@@ -64,6 +64,27 @@ vspeed = spd;
             <kind>1</kind>
             <string>///Rain logic
 
+//Destroy when colliding with any collision object
+if (collision_rectangle(bbox_left, bbox_bottom, bbox_left, bbox_bottom+1, obj_semisolid, 0, 0))
+|| (collision_rectangle(bbox_left, bbox_bottom, bbox_left, bbox_bottom+1, obj_slopeparent, 1, 0))
+|| (collision_rectangle(bbox_left, bbox_bottom, bbox_left, bbox_bottom+1, obj_swim, 0, 0)) {
+
+    //Halt
+    hspeed = 0;
+    vspeed = 0;
+
+    //Create a drop object
+    with (instance_create(x, y+5, obj_smoke)) {
+    
+        sprite_index = spr_rain_sp;
+        image_speed = 0.3;
+    }
+    
+    //Destroy
+    instance_destroy();
+}
+
+//Destroy when outside the view
 if (y &gt; view_yview[view_current]+view_wview[view_current])  
     instance_destroy();
 </string>

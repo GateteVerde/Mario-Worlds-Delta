@@ -51,7 +51,6 @@ port_y = 0;
 //Game message
 message = "";
 
-
 //Display FPS
 showfps = false;
 
@@ -60,7 +59,7 @@ global.gw = 384;
 global.gh = 216;
 
 //Freeze the screen?
-global.screenfreeze = false;
+global.screenfreeze = true;
 
 //In-Game Font
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);

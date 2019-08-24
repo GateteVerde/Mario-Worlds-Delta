@@ -159,6 +159,44 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_blockbumper">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bump the block
+
+//If the block can be hit
+if (ready == 0) {
+
+    //Begin bump sequence
+    vspeed = -2.25;
+    alarm[0] = 4;
+    
+    //Block is hit
+    ready = 1;
+    
+    //Perform block events
+    event_user(0);
+    event_user(2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_spinner">
       <action>
         <libid>1</libid>

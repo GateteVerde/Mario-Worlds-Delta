@@ -207,6 +207,10 @@ ID.speeds = spd;
 if (type == cs_saw) 
     mount = instance_create(x, y, obj_engine_blade);
     
+//Create a grinder, if told
+else if (type == cs_grinder) 
+    mount = instance_create(x, y, obj_engine_grinder);
+    
 //Create a platform, if told
 else if (type == cs_platform) {
 
@@ -288,6 +292,14 @@ if (instance_exists(ID)) {
         //Stay on the path guider, otherwise it would just not stay on the engine all sloppy
         mount.x = ID.x;
         mount.y = ID.y-18;
+    }
+    
+    //Otherwise, if this is a grinder
+    else if (type == cs_grinder) {
+    
+        //Stay on the path guider, otherwise it would just not stay on the engine all sloppy
+        mount.x = ID.x;
+        mount.y = ID.y;        
     }
     
     //Otherwise, if this is a platform

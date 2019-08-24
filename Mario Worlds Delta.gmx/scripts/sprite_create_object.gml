@@ -30,6 +30,12 @@ switch (argument[2]) {
     //Poison
     case (spr_poison): return instance_create(argument[0], argument[1], obj_poison);
     
+    //P-Switch
+    case (spr_pswitch): return instance_create(argument[0], argument[1], obj_pswitch);
+    
     //Trampoline
     case (spr_trampoline): return instance_create(argument[0], argument[1], obj_trampoline);
+    
+    //Detonator
+    case (spr_detonator): return instance_create(argument[0], argument[1], obj_detonator);
 }

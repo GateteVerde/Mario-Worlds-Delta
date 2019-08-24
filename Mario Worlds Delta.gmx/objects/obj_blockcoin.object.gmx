@@ -71,7 +71,9 @@ if ((vspeed &gt; 0) &amp;&amp; (y &gt; ystart-16)) {
     //Create a sparkle
     repeat (4) {
     
-        instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
+        ID = instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
+        if (sprite_index == spr_coin_p)
+            ID.sprite_index = spr_sparkle_blue;
     }
     
     //Destroy

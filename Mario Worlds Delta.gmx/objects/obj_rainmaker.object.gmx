@@ -30,11 +30,46 @@
 /*
 //  This object uses creation code
 //
-//      freq = With what strength you want the rain to generate?
+//      lightning   = Create lightning effect?
 */
 
-//Default value
-freq = 3;
+//Default values
+lightning = 1;
+
+//Create lightning
+alarm[0] = 100;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lightning strike
+
+//Generate
+alarm[0] = 100+random(round(200));
+
+//If this object can generate lightning
+if (lightning == 1) {
+
+    instance_create(0, 0, obj_lightningsheet);
+}
 </string>
           </argument>
         </arguments>
@@ -59,9 +94,9 @@ freq = 3;
             <kind>1</kind>
             <string>///Generate rain drops
 
-repeat (freq) {
+repeat (3) {
     
-    with (instance_create(view_xview[view_current]+round(random_range(0,512)), view_yview[0]-5, obj_rain))
+    with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), -5, obj_rain))
         depth = round(random_range(-6,9));
 }
 </string>

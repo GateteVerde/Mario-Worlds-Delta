@@ -98,8 +98,14 @@ else
             <string>///Item check
 
 //Feather
-if (sprite_index == spr_feather)
+if (sprite_index == spr_feather) {
+
+    //Play 'Sprout' sound
+    audio_play_sound(snd_sprout, 0, false);
+
+    //Turn into a real feather
     instance_create(x, y, obj_feather_sprout);
+}
     
 //Otherwise
 else {
@@ -111,7 +117,9 @@ else {
     if (vspeed &lt; 0) {
     
         //...and the sprite is one of the following, make it bounce.
-        if (sprite_index == spr_trampoline) {
+        if (sprite_index == spr_pswitch)
+        || (sprite_index == spr_trampoline) 
+        || (sprite_index == spr_detonator) {
 
             vspeed = -2.5;
             bouncy = 1;

@@ -56,6 +56,9 @@ image_single = 2;
 //Fake img index
 img_index = 0;
 
+//Wall check
+walltouch = false;
+
 //Leave trail
 alarm[0] = 4;
 </string>
@@ -122,10 +125,43 @@ if (instance_exists(obj_playerparent)) {
             <string>///Leave a smoke trail when in ground
 
 alarm[0] = 4;
-if (state != statetype.jump) {
+if (gravity == 0)
+    instance_create(x, bbox_bottom, obj_smoke);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Keep the player in position if it exists
 
-    if (instance_number(obj_smoke) &lt; 3)
-        instance_create(x, bbox_bottom, obj_smoke);
+if (instance_exists(obj_playerparent)) {
+
+    //Hereby state
+    state = obj_playerparent.state;
+
+    //Stay in the same position
+    obj_playerparent.x = x;
+    obj_playerparent.y = y;  
+    
+    //Hereby scale
+    obj_playerparent.xscale = image_xscale;
 }
 </string>
           </argument>
@@ -151,20 +187,15 @@ if (state != statetype.jump) {
             <kind>1</kind>
             <string>///Cape flight logic
 
-//Keep the player in position if it exists
-if (instance_exists(obj_playerparent)) {
+//Check if touching a wall
+if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1+hspeed, bbox_top+4, bbox_left-1, bbox_bottom-4, obj_solid, 1, 0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right+1, bbox_top+4, bbox_right+1+hspeed, bbox_bottom-4, obj_solid, 1, 0))) {
 
-    //Hereby state
-    state = obj_playerparent.state;
-
-    //Stay in the same position
-    obj_playerparent.x = self.x;
-    obj_playerparent.y = self.y;
-    
-    //Hereby hspeed + vspeed
-    obj_playerparent.hspeed = self.hspeed;
-    obj_playerparent.vspeed = self.vspeed;
+    walltouch = true;
+    hspeed = 0;
 }
+else
+    walltouch = false;
 
 //If moving down
 if (vspeed &gt;= 0) {
@@ -240,32 +271,6 @@ if (candive == 1) {
         smash = 1;
 }
 
-//If moving right and the player bumps a wall to the right
-if (hspeed &gt; 0) 
-&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed+1, bbox_bottom-4, obj_solid, 1, 0)) {
-
-    //Stop horizontal movement
-    hspeed = 0;
-
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-        x--;
-}
-
-//Otherwise, if moving left and the player bumps a wall to the left
-else if (hspeed &lt; 0)
-&amp;&amp; (collision_rectangle(bbox_left+hspeed-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0)) {
-
-    //Stop horizontal movement
-    hspeed = 0;
-
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-        x++;
-}
-
 //Stop flying
 if ((!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom+vspeed, obj_slopeparent, 1, 0)
 &amp;&amp; (state != statetype.jump)
@@ -339,21 +344,20 @@ else {
 }
 
 //Increment speed when diving
-if (smash == 1) 
+if (smash == 1)
+&amp;&amp; (walltouch == false)
 &amp;&amp; (state = statetype.jump) {
 
     //If 'Left' is pressed
     if (keyboard_check(global.key_l))
     &amp;&amp; (hspeed &gt; -3)
     &amp;&amp; (xscale == -1)
-    &amp;&amp; (!collision_rectangle(bbox_left+hspeed-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
         hspeed -= 0.1;
         
     //Otherwise, if 'Right' is pressed
     else if (keyboard_check(global.key_r))
     &amp;&amp; (hspeed &lt; 3)
     &amp;&amp; (xscale == 1)
-    &amp;&amp; (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed+1, bbox_bottom-4, obj_solid, 1, 0))
         hspeed += 0.1;
 }
 
@@ -416,7 +420,7 @@ if (smash == 0) {
             image_single = 2;
             
         //About to move up
-        else
+        else if (vspeed &gt; -1)
             image_single = 1;
     }
 }

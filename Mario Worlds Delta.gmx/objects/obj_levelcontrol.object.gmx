@@ -78,6 +78,83 @@ instance_create(0, 0, obj_hud);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Warn the player that the P-Switch is running out of time
+
+audio_play_sound(snd_switchtimer, 0, false);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End P-Switch sequence
+
+//If the switch effect is on
+if (switchon == true) {
+
+    //Turn off the P-Switch
+    switchon = false;
+    
+    //Replace items
+    pswitch_off();
+    
+    //Stop switch song
+    audio_stop_sound(bgm_pswitch);
+    
+    //Set invincibility theme
+    if (instance_exists(obj_invincibility)) {
+    
+        //If the invincibility timer is greater than 0
+        if (obj_invincibility.alarm[0] &gt; -1)
+            with (obj_invincibility) alarm[2] = 2;
+        
+        //Otherwise, play default music
+        else
+            alarm[0] = 2;
+    }
+    
+    //Otherwise, restart
+    else
+        alarm[0] = 2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="5">
       <action>
         <libid>1</libid>
@@ -98,6 +175,29 @@ instance_create(0, 0, obj_hud);
             <string>///Enable barrier
 
 barrier = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Kill the player at 000 seconds left
 </string>
           </argument>
         </arguments>
@@ -252,6 +352,10 @@ if (audio_is_playing(snd_hurry)) {
     //Pause 'bgm_starman'
     else if (audio_is_playing(bgm_star))
         audio_pause_sound(bgm_star);
+        
+    //Pause 'bgm_pswitch
+    else if (audio_is_playing(bgm_pswitch))
+        audio_pause_sound(bgm_pswitch);
 }
 
 else {
@@ -261,7 +365,8 @@ else {
     &amp;&amp; (global.time &lt; 101) {
         
         audio_sound_pitch(levelmusic, 1.13);
-        audio_sound_pitch(bgm_star, 1.13); 
+        audio_sound_pitch(bgm_star, 1.13);
+        audio_sound_pitch(bgm_pswitch, 1.13);
     }
     
     //Otherwise, set pitch to 1.0
@@ -269,6 +374,7 @@ else {
     
         audio_sound_pitch(levelmusic, 1);
         audio_sound_pitch(bgm_star, 1);
+        audio_sound_pitch(bgm_pswitch, 1);
     }
 
     //Resume 'levelmusic' if paused
@@ -278,6 +384,10 @@ else {
     //Resume 'bgm_starman' if paused
     else if (audio_is_paused(bgm_star))
         audio_resume_sound(bgm_star);
+        
+    //Resume 'bgm_starman' if paused
+    else if (audio_is_paused(bgm_pswitch))
+        audio_resume_sound(bgm_pswitch);
 }
 </string>
           </argument>
@@ -490,6 +600,49 @@ musicdisable = 1;
 
 //Stop starman theme
 audio_stop_sound(bgm_star);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Begin P-Switch events
+
+//If the switch effect is off
+if (switchon == false) {
+
+    //Turn on the switch
+    switchon = true;
+    
+    //Replace items
+    pswitch_on();
+}
+
+//Stop music
+alarm[1] = 1;
+
+//Stop invincibility music
+audio_stop_sound(bgm_star);
+
+//Play 'P-Switch' music
+if (!audio_is_playing(bgm_pswitch))
+    audio_play_sound(bgm_pswitch, 0, true);
 </string>
           </argument>
         </arguments>
