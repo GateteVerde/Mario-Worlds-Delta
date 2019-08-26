@@ -61,6 +61,9 @@ switch (argument[0]) {
     //Trampoline
     case (itemtype.trampoline): return spr_trampoline; break;
     
+    //Pow Block
+    case (itemtype.powblock): return spr_powblock_blue; break;
+    
     //Detonator
     case (itemtype.detonator): return spr_detonator; break;
 }

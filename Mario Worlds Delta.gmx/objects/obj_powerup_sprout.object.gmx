@@ -118,7 +118,8 @@ else {
     
         //...and the sprite is one of the following, make it bounce.
         if (sprite_index == spr_pswitch)
-        || (sprite_index == spr_trampoline) 
+        || (sprite_index == spr_trampoline)
+        || (sprite_index == spr_powblock_blue)
         || (sprite_index == spr_detonator) {
 
             vspeed = -2.5;

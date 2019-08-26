@@ -194,6 +194,8 @@
       <sprite>sprites\spr_msgblock</sprite>
       <sprite>sprites\spr_noteblock</sprite>
       <sprite>sprites\spr_noteblock_hidden</sprite>
+      <sprite>sprites\spr_powblock</sprite>
+      <sprite>sprites\spr_powblock_th</sprite>
       <sprite>sprites\spr_bombblock</sprite>
     </sprites>
     <sprites name="Items">
@@ -244,6 +246,17 @@
         <sprite>sprites\spr_donut_appear</sprite>
         <sprite>sprites\spr_blocktrain</sprite>
       </sprites>
+      <sprites name="Interactive">
+        <sprite>sprites\spr_pswitch</sprite>
+        <sprite>sprites\spr_pswitch_press</sprite>
+        <sprite>sprites\spr_trampoline</sprite>
+        <sprite>sprites\spr_trampoline_end</sprite>
+        <sprite>sprites\spr_trampoline_hyper</sprite>
+        <sprite>sprites\spr_trampoline_hyper_end</sprite>
+        <sprite>sprites\spr_powblock_blue</sprite>
+        <sprite>sprites\spr_powblock_blue_th</sprite>
+        <sprite>sprites\spr_detonator</sprite>
+      </sprites>
       <sprites name="Decor">
         <sprites name="Liquids">
           <sprites name="Lava">
@@ -260,13 +273,6 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
-      <sprite>sprites\spr_pswitch</sprite>
-      <sprite>sprites\spr_pswitch_press</sprite>
-      <sprite>sprites\spr_trampoline</sprite>
-      <sprite>sprites\spr_trampoline_end</sprite>
-      <sprite>sprites\spr_trampoline_hyper</sprite>
-      <sprite>sprites\spr_trampoline_hyper_end</sprite>
-      <sprite>sprites\spr_detonator</sprite>
       <sprite>sprites\spr_spikeblock</sprite>
       <sprite>sprites\spr_spikeblock_b</sprite>
       <sprite>sprites\spr_beepblock_red</sprite>
@@ -301,10 +307,11 @@
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
       </sprites>
+      <sprite>sprites\spr_24mask</sprite>
       <sprite>sprites\spr_blowmask</sprite>
       <sprite>sprites\spr_blowmask_big</sprite>
       <sprite>sprites\spr_path</sprite>
-      <sprite>sprites\spr_24mask</sprite>
+      <sprite>sprites\spr_powkiller</sprite>
       <sprite>sprites\spr_spinnermask</sprite>
     </sprites>
     <sprites name="Modifiers">
@@ -334,6 +341,7 @@
         <sprites name="Interactive">
           <sprite>sprites\spr_modifier_pswitch</sprite>
           <sprite>sprites\spr_modifier_trampoline</sprite>
+          <sprite>sprites\spr_modifier_powblock</sprite>
           <sprite>sprites\spr_modifier_detonator</sprite>
         </sprites>
         <sprite>sprites\spr_modifier_coin_star</sprite>
@@ -350,6 +358,7 @@
       <sprites name="Eyecandy">
         <sprites name="Blend">
           <sprite>sprites\spr_ring</sprite>
+          <sprite>sprites\spr_ring_b</sprite>
           <sprite>sprites\spr_sparkle</sprite>
           <sprite>sprites\spr_sparkle_blue</sprite>
           <sprite>sprites\spr_spinthump</sprite>
@@ -488,6 +497,8 @@
       </scripts>
       <scripts name="Shaders">
         <script>scripts\init_pixel.gml</script>
+        <script>scripts\init_shockwave.gml</script>
+        <script>scripts\update_shockwave.gml</script>
         <script>scripts\pal_swap_init_system.gml</script>
         <script>scripts\pal_swap_set.gml</script>
         <script>scripts\pal_swap_reset.gml</script>
@@ -514,8 +525,9 @@
     <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shd_pixel.shader</shader>
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
+    <shader type="GLSLES">shaders\shd_pixel.shader</shader>
+    <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player_start</object>
@@ -575,6 +587,7 @@
       <object>objects\obj_msgblock</object>
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
+      <object>objects\obj_powblock</object>
       <object>objects\obj_bombblock</object>
     </objects>
     <objects name="Items">
@@ -616,6 +629,7 @@
         <object>objects\obj_pswitch</object>
         <object>objects\obj_trampoline</object>
         <object>objects\obj_trampoline_hyper</object>
+        <object>objects\obj_powblock_blue</object>
         <object>objects\obj_detonator</object>
       </objects>
       <objects name="Decor">
@@ -667,6 +681,7 @@
         <objects name="Interactive">
           <object>objects\obj_modifier_pswitch</object>
           <object>objects\obj_modifier_trampoline</object>
+          <object>objects\obj_modifier_powblock</object>
           <object>objects\obj_modifier_detonator</object>
         </objects>
         <object>objects\obj_modifier_coin_star</object>
@@ -756,6 +771,10 @@
             <object>objects\obj_blocktrain_middle</object>
             <object>objects\obj_blocktrain_killer</object>
           </objects>
+          <objects name="Interactive">
+            <object>objects\obj_powblock_active</object>
+            <object>objects\obj_powblock_killer</object>
+          </objects>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
@@ -765,6 +784,7 @@
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
+            <object>objects\obj_ring_pow</object>
             <object>objects\obj_sparkle</object>
             <object>objects\obj_spinthump</object>
           </objects>

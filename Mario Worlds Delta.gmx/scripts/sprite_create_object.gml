@@ -36,6 +36,9 @@ switch (argument[2]) {
     //Trampoline
     case (spr_trampoline): return instance_create(argument[0], argument[1], obj_trampoline);
     
+    //Pow Block
+    case (spr_powblock_blue): return instance_create(argument[0], argument[1], obj_powblock_blue);
+    
     //Detonator
     case (spr_detonator): return instance_create(argument[0], argument[1], obj_detonator);
 }

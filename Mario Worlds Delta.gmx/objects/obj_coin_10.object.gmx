@@ -8,6 +8,47 @@
   <parentName>obj_coin</parentName>
   <maskName>spr_square</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///!0-Coins
+
+//Inherit event from parent
+event_inherited();
+
+//Do not animate
+image_speed = 0.2;
+
+//Apply physics if ready
+ready = 0;
+
+//Make it bounce
+bouncy = 1;
+
+//Previous y position
+yprev = 0;
+
+//Move 2 pixels down
+y += 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,10 +66,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy
+            <string>///10-Coin logic
 
+//Inherit event from coin
+event_inherited();
+
+//Destroy if collected
 if (vspeed &gt; 0) 
-&amp;&amp; (y &gt; ystart-16)
+&amp;&amp; (y &gt; yprev-16)
 &amp;&amp; (image_speed == 1) {
     
     //Create a sparkle
@@ -39,6 +84,66 @@ if (vspeed &gt; 0)
     
     //Destroy
     instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_blockparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collect the coin
+
+//If not collected
+if (image_speed != 1) {
+
+    //Play 'Big Coin' sound
+    audio_stop_play_sound(snd_coin_big, 0, false);
+    
+    //Increment coins
+    global.coins += 10;
+    
+    //Set yprev and make visible
+    yprev = y;
+    visible = 1;
+    alarm[0] = -1;
+    alarm[1] = -1;
+    
+    //Set vertical speed
+    vspeed = -4;
+    gravity = 0.2;
+    
+    //Animate faster
+    image_speed = 1;
+    
+    //Create sparkles
+    var a;
+    a = 0;
+    repeat (6) {
+    
+        with (instance_create(x+8, y+8, obj_sparkle)) motion_set(a, 1);
+        with (instance_create(x+8, y+8, obj_sparkle)) motion_set(a + 30, 2);
+        a += 60;
+    }
+    
+    //Get 100 points
+    with (instance_create(x, y, obj_score)) 
+        event_user(1);
 }
 </string>
           </argument>
@@ -65,13 +170,19 @@ if (vspeed &gt; 0)
             <string>///Collect the coin
 
 //If not collected
-if (image_speed = 0.2) {
+if (image_speed != 1) {
 
     //Play 'Big Coin' sound
     audio_stop_play_sound(snd_coin_big, 0, false);
     
     //Increment coins
     global.coins += 10;
+    
+    //Set yprev and make visible
+    yprev = y;
+    visible = 1;
+    alarm[0] = -1;
+    alarm[1] = -1;
     
     //Set vertical speed
     vspeed = -4;

@@ -201,7 +201,7 @@ if (held == true) {
         }
         
         //Make visible always
-        visible = true;
+        visible = 1;
     }
     
     //Otherwise, check who is holding this item
@@ -277,8 +277,6 @@ if (held == false) {
         
             //Slowdown if in ground
             if (gravity == 0) {
-            
-                //If not kicked
             
                 //If the item is not underwater
                 if (swimming == false) {

@@ -28,6 +28,7 @@ enum itemtype {
     poison,
     pswitch,
     trampoline,
+    powblock,
     detonator
 }
 
