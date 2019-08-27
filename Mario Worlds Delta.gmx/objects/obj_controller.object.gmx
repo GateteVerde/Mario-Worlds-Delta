@@ -906,7 +906,7 @@ draw_enable_alphablend(0);
 if (shock_enabled) {
 
     shader_set(shd_shockwave);
-    var_time_var += 0.015;
+    var_time_var += 0.03;
 }
 
 //Set the shader uniforms

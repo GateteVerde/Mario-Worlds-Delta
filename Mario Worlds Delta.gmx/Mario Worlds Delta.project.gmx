@@ -196,6 +196,11 @@
       <sprite>sprites\spr_noteblock_hidden</sprite>
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
+      <sprite>sprites\spr_spikeblock</sprite>
+      <sprite>sprites\spr_spikeblock_b</sprite>
+      <sprite>sprites\spr_beepblock_red</sprite>
+      <sprite>sprites\spr_beepblock_blue</sprite>
+      <sprite>sprites\spr_beepblock_empty</sprite>
       <sprite>sprites\spr_bombblock</sprite>
     </sprites>
     <sprites name="Items">
@@ -273,11 +278,7 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
-      <sprite>sprites\spr_spikeblock</sprite>
-      <sprite>sprites\spr_spikeblock_b</sprite>
-      <sprite>sprites\spr_beepblock_red</sprite>
-      <sprite>sprites\spr_beepblock_blue</sprite>
-      <sprite>sprites\spr_beepblock_empty</sprite>
+      <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Masks">
       <sprites name="Collision">
@@ -449,6 +450,7 @@
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_bubble</path>
+    <path>paths\pth_bubble_h</path>
     <path>paths\pth_snow</path>
   </paths>
   <scripts name="scripts">
@@ -588,6 +590,10 @@
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_powblock</object>
+      <object>objects\obj_spikeblock</object>
+      <object>objects\obj_spikeblock_g</object>
+      <object>objects\obj_beepblock_red</object>
+      <object>objects\obj_beepblock_blue</object>
       <object>objects\obj_bombblock</object>
     </objects>
     <objects name="Items">
@@ -649,10 +655,7 @@
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
-      <object>objects\obj_spikeblock</object>
-      <object>objects\obj_spikeblock_g</object>
-      <object>objects\obj_beepblock_red</object>
-      <object>objects\obj_beepblock_blue</object>
+      <object>objects\obj_key</object>
     </objects>
     <objects name="Modifiers">
       <objects name="Blocks">
@@ -795,6 +798,7 @@
             <object>objects\obj_shard</object>
           </objects>
           <object>objects\obj_bubble</object>
+          <object>objects\obj_bubble_h</object>
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>

@@ -82,7 +82,7 @@ with (water) {
 
 alarm[1] = 7;
 if (push)
-    instance_create(view_xview[0]+view_wview[0], random_range(y+16, room_height), obj_bubble_v);
+    instance_create(view_xview[0]+view_wview[0], random_range(y+16, room_height), obj_bubble_h);
 </string>
           </argument>
         </arguments>
@@ -171,7 +171,7 @@ if (player)
 
     //If this object can push
     if (push == true)
-        while (!collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
+        if (!collision_rectangle(player.bbox_left-1, player.bbox_top+4, player.bbox_left, player.bbox_bottom-1, obj_solid, 1, 1))
             player.x -= 0.3;
 }
 </string>

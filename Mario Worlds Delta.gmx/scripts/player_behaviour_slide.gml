@@ -83,12 +83,8 @@ if (control_enable == true) {
 slope_below = collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0);
 
 //If there's a slope below the player
-if (slope_below) {
-
-    //If the player's horizontal speed is not at the limit, allow slide
-    if (abs(hspeed) != hspeedmax)
-        hspeed += slope_below.add;
-}
+if (slope_below)
+    hspeed += slope_below.add;
 
 //Otherwise, if there's not a slope below
 else if (vspeed == 0) {

@@ -34,7 +34,7 @@ event_inherited();
 ready = 0;
 
 //Make it solid on top
-mytop = instance_create(x-8, y+1, obj_semisolid);
+mytop = instance_create(x-8, y+1, obj_platformparent);
 </string>
           </argument>
         </arguments>
@@ -101,9 +101,29 @@ if (!held) {
     if (ready == 1) {
     
         //If the direction changes or the object makes contact with the ground
-        if (hspeed != prevhspeed)
-        || (gravity == 0)    
+        if (hspeed != prevhspeed) 
             event_user(0);
+            
+        //Check for ground
+        if (vspeed == 0)
+        &amp;&amp; (gravity == 0)
+            event_user(0);
+    }
+    
+    //Grab it if the player is above    
+    if (keyboard_check_pressed(global.key_action[1]))
+    &amp;&amp; (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top-1, obj_playerparent, 0, 0))
+    &amp;&amp; (can_hold() == true) {
+    
+        //Make the player hold it
+        obj_playerparent.holding = 1;
+        
+        //Hold
+        held = 1;
+        
+        //Stop movement
+        speed = 0;
+        gravity = 0;
     }
     
     //Keep semisolid in position
@@ -117,9 +137,22 @@ if (!held) {
 //Otherwise, keep semisolid away
 else {
 
-    mytop.x = -1000;
-    mytop.y = -1000;
+    //Cancel kick
+    ready = false;
+
+    //Make semisolid go away
+    if (instance_exists(mytop)) {
+    
+        mytop.x = -1000;
+        mytop.y = -1000;
+    }
 }
+
+//Cancel bounce if kicked
+if (ready == true)
+    bouncy = false;
+else
+    bouncy = true;
 </string>
           </argument>
         </arguments>
