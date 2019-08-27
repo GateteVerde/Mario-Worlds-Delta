@@ -34,7 +34,7 @@ event_inherited();
 ready = 0;
 
 //Make it solid on top
-mytop = instance_create(x-8, y+1, obj_platformparent);
+mytop = instance_create(x-8, y+1, obj_semisolid);
 </string>
           </argument>
         </arguments>

@@ -221,19 +221,27 @@
           <sprites name="Path">
             <sprite>sprites\spr_path_limit</sprite>
           </sprites>
+          <sprites name="Parts">
+            <sprites name="Engine">
+              <sprite>sprites\spr_engine_saw</sprite>
+              <sprite>sprites\spr_engine_rope</sprite>
+              <sprite>sprites\spr_engine_platform_48</sprite>
+              <sprite>sprites\spr_engine_platform_64</sprite>
+              <sprite>sprites\spr_engine_platform_80</sprite>
+              <sprite>sprites\spr_engine_grinder</sprite>
+            </sprites>
+            <sprite>sprites\spr_pulley_rope</sprite>
+          </sprites>
           <sprite>sprites\spr_platform_48</sprite>
           <sprite>sprites\spr_platform_64</sprite>
           <sprite>sprites\spr_platform_80</sprite>
           <sprite>sprites\spr_platform_falling_48</sprite>
           <sprite>sprites\spr_platform_falling_64</sprite>
           <sprite>sprites\spr_platform_falling_80</sprite>
+          <sprite>sprites\spr_platform_pulley_48</sprite>
+          <sprite>sprites\spr_platform_pulley_64</sprite>
+          <sprite>sprites\spr_platform_pulley_80</sprite>
           <sprite>sprites\spr_engine</sprite>
-          <sprite>sprites\spr_engine_saw</sprite>
-          <sprite>sprites\spr_engine_rope</sprite>
-          <sprite>sprites\spr_engine_platform_48</sprite>
-          <sprite>sprites\spr_engine_platform_64</sprite>
-          <sprite>sprites\spr_engine_platform_80</sprite>
-          <sprite>sprites\spr_engine_grinder</sprite>
         </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor_r</sprite>
@@ -615,6 +623,7 @@
           </objects>
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
+          <object>objects\obj_platform_pulley</object>
           <object>objects\obj_engine</object>
         </objects>
         <objects name="Belts">
@@ -763,10 +772,14 @@
               <objects name="Path">
                 <object>objects\obj_path_mask</object>
               </objects>
-              <object>objects\obj_engine_rope</object>
-              <object>objects\obj_engine_blade</object>
-              <object>objects\obj_engine_platform</object>
-              <object>objects\obj_engine_grinder</object>
+              <objects name="Engine">
+                <object>objects\obj_engine_rope</object>
+                <object>objects\obj_engine_blade</object>
+                <object>objects\obj_engine_platform</object>
+                <object>objects\obj_engine_grinder</object>
+              </objects>
+              <object>objects\obj_platform_pulley_right</object>
+              <object>objects\obj_platform_pulley_rope</object>
             </objects>
             <object>objects\obj_donut_ticker</object>
             <object>objects\obj_blocktrain_front</object>
