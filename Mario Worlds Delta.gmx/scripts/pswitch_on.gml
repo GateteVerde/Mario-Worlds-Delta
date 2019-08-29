@@ -18,8 +18,12 @@ with (obj_brick) {
 //Turn coins into bricks
 with (obj_coin) {
 
-    instance_create(x, y, obj_brick);
-    instance_destroy();
+    //If the coin is affected by gravity, do not replace
+    if (ready == 0) {
+    
+        instance_create(x, y, obj_brick);
+        instance_destroy();
+    }
 }
 
 //Turn fake coins into coins.

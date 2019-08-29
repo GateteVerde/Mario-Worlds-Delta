@@ -49,10 +49,7 @@ musicdisable = false;
 //Is the P-Switch active?
 switchon = 0;
 
-//Orientation
-orientation = 1;
-
-//Camera Y
+//Camera variables
 camera_y = 0;
 camera_timer = 30;
 
@@ -451,46 +448,8 @@ else if (ready == 1) {
             <kind>1</kind>
             <string>///Deals with various game logic parameters
 
-///Manage position of the camera
-
 //If the player object exists, follow it
 if (instance_exists(obj_playerparent)) {
-
-    //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left.
-    if ((obj_playerparent.hspeed &lt; 0) || (obj_playerparent.x &lt; xprevious)) &amp;&amp; (obj_playerparent.x &lt; x-56)
-        orientation = -1;
-        
-    //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
-    else if ((obj_playerparent.hspeed &gt; 0) || (obj_playerparent.x &gt; xprevious)) &amp;&amp; (obj_playerparent.x &gt; x+56)
-        orientation = 1;
-        
-    //If the camera is at the right
-    if (orientation == 1)
-    &amp;&amp; (obj_playerparent.x &gt; x-33) {
-    
-        //Scroll at a certain speed until the camera catches up
-        if (obj_playerparent.x &gt; x-29)
-            x += 3+obj_playerparent.hspeed;
-        else
-            x = obj_playerparent.x+33;
-    }
-    
-    //Otherwise, if the camera is at the left
-    else if (orientation == -1) 
-    &amp;&amp; (obj_playerparent.x &lt; x+33) {
-    
-        //Scroll at a certain speed until the camera catches up
-        if (obj_playerparent.x &lt; x+29)
-            x -= 3-obj_playerparent.hspeed;
-        else
-            x = obj_playerparent.x-33;
-    }
-    
-    //Set camera vertical position
-    event_user(0);
-    
-    //Stay relative to player's y position
-    y = obj_playerparent.y+camera_y;
     
     //If the barrier is not enabled
     if (barrier == true) {
@@ -529,6 +488,15 @@ if (instance_exists(obj_playerparent)) {
                 obj_playerparent.hspeed = 0;    
         }
     }
+    
+    //Manage camera position
+    event_user(0);
+    
+    //Stay at the player x position
+    x = obj_playerparent.x;
+    
+    //Stay at the player y position
+    y = obj_playerparent.y + camera_y;
 }
 
 //Otherwise, cancel camera y scroll
@@ -544,9 +512,9 @@ else {
         camera_y += 4;
 }
 
-//Round position
+//Make the camera smooth
 x = round(x);
-y = round(y);
+y = round(lerp(yprevious, y, 0.2));
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {

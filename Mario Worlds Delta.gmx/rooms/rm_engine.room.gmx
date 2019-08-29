@@ -260,7 +260,11 @@
     <instance objName="obj_qblock_hidden" x="1552" y="256" name="inst_81F1FCD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock_hidden" x="1568" y="320" name="inst_CA94D192" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_key" x="184" y="368" name="inst_3B12985E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_pulley" x="1264" y="224" name="inst_70AE372B" locked="0" code="distance = 128;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_ferris" x="1696" y="256" name="inst_B9B63F9D" locked="0" code="amount = 4;&#xA;distance = 48;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_ferris" x="1352" y="152" name="inst_7B0622EE" locked="0" code="platspr = spr_platform_ferris_32;&#xA;amount = 12;&#xA;spd = 0.5;&#xA;distance = 96;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_ferris" x="1000" y="168" name="inst_F3C7F348" locked="0" code="platspr = spr_platform_ferris_32;&#xA;spd = 1;&#xA;amount = 4;&#xA;distance = 32;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_fireflower" x="304" y="320" name="inst_FDF29414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_feather" x="352" y="320" name="inst_289A9D0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="144" y="288" w="16" h="16" xo="272" yo="74" id="10004880" name="inst_140D89EC" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -440,15 +444,6 @@
     <tile bgName="tls_main" x="1472" y="320" w="16" h="16" xo="236" yo="2" id="10005246" name="inst_E0887262" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_main" x="1488" y="320" w="16" h="16" xo="254" yo="2" id="10005247" name="inst_CBC8D97B" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_main" x="1088" y="368" w="16" h="16" xo="218" yo="2" id="10005248" name="inst_227653AC" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1256" y="144" w="16" h="16" xo="182" yo="182" id="10005249" name="inst_22ABC409" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1384" y="144" w="16" h="16" xo="218" yo="182" id="10005250" name="inst_6C2EAE3E" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1272" y="144" w="16" h="16" xo="200" yo="182" id="10005251" name="inst_DB4FCE8D" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1288" y="144" w="16" h="16" xo="200" yo="182" id="10005252" name="inst_C6BDFD92" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1304" y="144" w="16" h="16" xo="200" yo="182" id="10005253" name="inst_0C46848E" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1320" y="144" w="16" h="16" xo="200" yo="182" id="10005254" name="inst_455AD4D8" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1336" y="144" w="16" h="16" xo="200" yo="182" id="10005255" name="inst_C043B868" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1352" y="144" w="16" h="16" xo="200" yo="182" id="10005256" name="inst_8852E27C" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_main" x="1368" y="144" w="16" h="16" xo="200" yo="182" id="10005257" name="inst_6951A87A" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_main" x="1840" y="384" w="16" h="16" xo="20" yo="2" id="10004485" name="inst_DF54ADE6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_main" x="1824" y="384" w="16" h="16" xo="20" yo="2" id="10004486" name="inst_0E32FAE2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_main" x="1808" y="384" w="16" h="16" xo="20" yo="2" id="10004487" name="inst_4BE9B05E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

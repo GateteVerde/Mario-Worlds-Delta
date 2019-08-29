@@ -231,6 +231,8 @@
               <sprite>sprites\spr_engine_grinder</sprite>
             </sprites>
             <sprite>sprites\spr_pulley_rope</sprite>
+            <sprite>sprites\spr_ferris</sprite>
+            <sprite>sprites\spr_ferris_chain</sprite>
           </sprites>
           <sprite>sprites\spr_platform_48</sprite>
           <sprite>sprites\spr_platform_64</sprite>
@@ -241,6 +243,10 @@
           <sprite>sprites\spr_platform_pulley_48</sprite>
           <sprite>sprites\spr_platform_pulley_64</sprite>
           <sprite>sprites\spr_platform_pulley_80</sprite>
+          <sprite>sprites\spr_platform_ferris_32</sprite>
+          <sprite>sprites\spr_platform_ferris_48</sprite>
+          <sprite>sprites\spr_platform_ferris_64</sprite>
+          <sprite>sprites\spr_platform_ferris_80</sprite>
           <sprite>sprites\spr_engine</sprite>
         </sprites>
         <sprites name="Belts">
@@ -624,6 +630,7 @@
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
           <object>objects\obj_platform_pulley</object>
+          <object>objects\obj_platform_ferris</object>
           <object>objects\obj_engine</object>
         </objects>
         <objects name="Belts">
@@ -780,6 +787,8 @@
               </objects>
               <object>objects\obj_platform_pulley_right</object>
               <object>objects\obj_platform_pulley_rope</object>
+              <object>objects\obj_platform_ferris_chain</object>
+              <object>objects\obj_platform_ferris_platform</object>
             </objects>
             <object>objects\obj_donut_ticker</object>
             <object>objects\obj_blocktrain_front</object>
