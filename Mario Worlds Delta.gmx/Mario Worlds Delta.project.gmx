@@ -405,6 +405,7 @@
           <sprite>sprites\spr_rain_sp</sprite>
           <sprite>sprites\spr_snow</sprite>
         </sprites>
+        <sprite>sprites\spr_blob</sprite>
         <sprite>sprites\spr_bubble</sprite>
         <sprite>sprites\spr_cinder</sprite>
         <sprite>sprites\spr_note</sprite>
@@ -465,6 +466,7 @@
   <paths name="paths">
     <path>paths\pth_bubble</path>
     <path>paths\pth_bubble_h</path>
+    <path>paths\pth_lava</path>
     <path>paths\pth_snow</path>
   </paths>
   <scripts name="scripts">
@@ -819,6 +821,7 @@
           <objects name="Shards">
             <object>objects\obj_shard</object>
           </objects>
+          <object>objects\obj_blob</object>
           <object>objects\obj_bubble</object>
           <object>objects\obj_bubble_h</object>
           <object>objects\obj_cinder</object>
@@ -840,6 +843,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
   </rooms>
   <constants number="34">

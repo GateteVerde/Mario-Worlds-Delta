@@ -190,7 +190,7 @@ event_user(1);
             <kind>1</kind>
             <string>///Return to title
 
-room_goto_next();
+room_goto(rm_engine);
 </string>
           </argument>
         </arguments>

@@ -178,7 +178,6 @@
     <instance objName="obj_slope_steep_l" x="832" y="336" name="inst_2A212EF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_l" x="848" y="352" name="inst_6BDA7EB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_l" x="864" y="368" name="inst_3A93ACF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_water_tides" x="0" y="408" name="inst_3305DCA3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_flip" x="592" y="224" name="inst_9885A86F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_flip" x="624" y="224" name="inst_807AC441" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="608" y="224" name="inst_1739628D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -260,11 +259,30 @@
     <instance objName="obj_qblock_hidden" x="1552" y="256" name="inst_81F1FCD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock_hidden" x="1568" y="320" name="inst_CA94D192" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_key" x="184" y="368" name="inst_3B12985E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_ferris" x="1696" y="256" name="inst_B9B63F9D" locked="0" code="amount = 4;&#xA;distance = 48;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_ferris" x="1696" y="256" name="inst_B9B63F9D" locked="0" code="amount = 3;&#xA;distance = 48;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform_ferris" x="1352" y="152" name="inst_7B0622EE" locked="0" code="platspr = spr_platform_ferris_32;&#xA;amount = 12;&#xA;spd = 0.5;&#xA;distance = 96;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform_ferris" x="1000" y="168" name="inst_F3C7F348" locked="0" code="platspr = spr_platform_ferris_32;&#xA;spd = 1;&#xA;amount = 4;&#xA;distance = 32;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower" x="304" y="320" name="inst_FDF29414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_feather" x="352" y="320" name="inst_289A9D0D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lava_tides" x="0" y="408" name="inst_0193CCC9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lava" x="32" y="144" name="inst_3B2A47C5" locked="0" code="" scaleX="4" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="16" y="128" name="inst_2B14684B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="16" y="144" name="inst_5FF46942" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="16" y="160" name="inst_9644E034" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="16" y="176" name="inst_18547D51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="16" y="192" name="inst_A77B2482" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="128" name="inst_D13189A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="144" name="inst_FD553715" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="160" name="inst_95ACE7D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="176" name="inst_1DCA7FDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="192" name="inst_EC380DAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="80" y="192" name="inst_E4A28D98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="64" y="192" name="inst_61C0D14C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="48" y="192" name="inst_7803D430" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="32" y="192" name="inst_FF4B403C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="144" y="160" name="inst_51214C48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="208" y="192" name="inst_693CEAC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="176" y="240" name="inst_27C9703E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="144" y="288" w="16" h="16" xo="272" yo="74" id="10004880" name="inst_140D89EC" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -948,6 +966,23 @@
     <tile bgName="tls_pipes" x="1520" y="320" w="16" h="16" xo="2" yo="20" id="10005242" name="inst_17166D33" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_pipes" x="1488" y="304" w="16" h="16" xo="2" yo="20" id="10005243" name="inst_DDE199C7" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_pipes" x="1488" y="320" w="16" h="16" xo="2" yo="20" id="10005244" name="inst_A5D105E3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="16" y="128" w="16" h="16" xo="56" yo="2" id="10005250" name="inst_CE5E3D6D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="96" y="128" w="16" h="16" xo="56" yo="2" id="10005251" name="inst_85B88EA8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="16" y="144" w="16" h="16" xo="56" yo="20" id="10005252" name="inst_830DAAA5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="16" y="160" w="16" h="16" xo="56" yo="20" id="10005253" name="inst_31EBAF4A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="16" y="176" w="16" h="16" xo="56" yo="20" id="10005254" name="inst_B4E3C800" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="96" y="144" w="16" h="16" xo="56" yo="20" id="10005255" name="inst_98B4AF38" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="96" y="160" w="16" h="16" xo="56" yo="20" id="10005256" name="inst_161E9E83" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="96" y="176" w="16" h="16" xo="56" yo="20" id="10005257" name="inst_59C023DA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="80" y="192" w="16" h="16" xo="92" yo="2" id="10005258" name="inst_CF108F5E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="64" y="192" w="16" h="16" xo="92" yo="2" id="10005259" name="inst_E1AC00BA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="48" y="192" w="16" h="16" xo="92" yo="2" id="10005260" name="inst_8DBFEC01" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="32" y="192" w="16" h="16" xo="92" yo="2" id="10005261" name="inst_1B6C677D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="16" y="192" w="16" h="16" xo="74" yo="38" id="10005262" name="inst_732A89D0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="96" y="192" w="16" h="16" xo="92" yo="38" id="10005264" name="inst_77081DD0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="176" y="240" w="16" h="16" xo="110" yo="38" id="10005265" name="inst_73D77EF7" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="208" y="192" w="16" h="16" xo="110" yo="38" id="10005266" name="inst_47B41838" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="144" y="160" w="16" h="16" xo="110" yo="38" id="10005267" name="inst_ED185DCB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
