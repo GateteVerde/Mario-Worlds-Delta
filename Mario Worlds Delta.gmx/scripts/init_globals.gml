@@ -50,22 +50,28 @@ global.world = 1;
 global.coins = 0;
 
 //Lives
-lives = 5;
+lives = 99;
 
 //Score
-score = 0;
+score = 99999990;
 
 //Powerup
-global.powerup = cs_pow_small;
+global.powerup = cs_pow_firecape;
 
 //Whether a level is cleared.
 global.clear = 0;
+
+//Target Room
+global.targetroom = noone;
 
 //Checkpoint
 global.checkpoint = noone;
 
 //Checkpoint Room
 global.checkpointroom = noone;
+
+//Displays Mario Start! text
+global.mariostart = 0;
 
 //Position change object type
 global.postchange = -1;

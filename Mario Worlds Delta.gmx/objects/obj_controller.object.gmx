@@ -190,7 +190,8 @@ event_user(1);
             <kind>1</kind>
             <string>///Return to title
 
-room_goto(rm_engine);
+global.targetroom = rm_engine;
+room_goto(rm_levelstart);
 </string>
           </argument>
         </arguments>
@@ -293,10 +294,10 @@ instance_deactivate_all(1);
 //Set mode to fade from black
 mode = 0;
 
-//Stop fade
+//Begin fading
 fade = 0;
 
-//Activate all
+//Activate everything
 instance_activate_all();
 
 //Delete the screenshot
@@ -334,8 +335,8 @@ if (lives &gt; 99)
     lives = 99;
 
 //Prevent score from going over 999.999.990
-if (score &gt; 999999990)
-    score = 999999990;
+if (score &gt; 99999990)
+    score = 99999990;
 
 //Make the screen shake when the 'Thwomp' sound plays
 if (!audio_is_playing(snd_thud))
@@ -557,9 +558,6 @@ if (mode == 0) {
 
     //Take a screenshot
     back = background_create_from_surface(application_surface, 0, 0, view_wview[0], view_hview[0], 0, 0);
-
-    //Pause particles
-    part_system_automatic_update(1,0);
     
     //Pixel size
     size = 64;

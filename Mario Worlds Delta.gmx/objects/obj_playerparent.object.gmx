@@ -947,8 +947,12 @@ if (y &lt; -96)
 else {
 
     //If the player falls into a pit, restart the room
-    if (bbox_bottom &gt; room_height+32)
-        room_restart();
+    if (bbox_bottom &gt; room_height+32) {
+    
+        instance_create(x, y, obj_player_dead);
+        instance_destroy();
+        exit;
+    }
 }
 </string>
           </argument>
@@ -1168,6 +1172,14 @@ if (invulnerable == false) {
             _transform = instance_create(0, 0, obj_player_transform);
                 _transform.oldpowerup = global.powerup;
                 _transform.newpowerup = cs_pow_small;    
+        }
+        
+        //Otherwise, if the player is small
+        else if (global.powerup == cs_pow_small) {
+        
+            instance_create(x, y, obj_player_dead);
+            instance_destroy();
+            exit;
         }
     }
     

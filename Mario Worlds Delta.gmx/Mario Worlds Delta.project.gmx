@@ -448,6 +448,7 @@
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
+      <sprite>sprites\spr_mariostart</sprite>
       <sprite>sprites\spr_lightningsheet</sprite>
     </sprites>
   </sprites>
@@ -748,6 +749,7 @@
           </objects>
           <objects name="Events">
             <object>objects\obj_player_transform</object>
+            <object>objects\obj_player_dead</object>
           </objects>
           <objects name="Special">
             <object>objects\obj_mario</object>
@@ -838,6 +840,7 @@
         <object>objects\obj_message</object>
         <object>objects\obj_lightningsheet</object>
       </objects>
+      <object>objects\obj_levelstart</object>
       <object>objects\obj_controller</object>
     </objects>
   </objects>
@@ -845,6 +848,9 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
+    <rooms name="Special Screens">
+      <room>rooms\rm_levelstart</room>
+    </rooms>
   </rooms>
   <constants number="34">
     <constant name="cs_grinder">-105</constant>

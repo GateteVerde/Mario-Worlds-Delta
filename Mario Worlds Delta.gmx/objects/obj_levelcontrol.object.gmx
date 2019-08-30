@@ -195,6 +195,10 @@ barrier = 1;
           <argument>
             <kind>1</kind>
             <string>///Kill the player at 000 seconds left
+
+instance_create(obj_playerparent.x, obj_playerparent.y, obj_player_dead);
+with (obj_playerparent) instance_destroy();
+exit;
 </string>
           </argument>
         </arguments>
@@ -490,7 +494,7 @@ if (instance_exists(obj_playerparent)) {
     }
     
     //Manage camera position
-    event_user(0);
+    event_user(3);
     
     //Stay at the player x position
     x = obj_playerparent.x;
@@ -568,6 +572,81 @@ musicdisable = 1;
 
 //Stop starman theme
 audio_stop_sound(bgm_star);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Adjust camera y position
+
+//Make sure the player is not doing anything
+if (obj_playerparent.state == statetype.idle) {
+    
+    //If the 'Up' key is pressed
+    if (keyboard_check(global.key_u)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y -= 4;
+            if (camera_y &lt; -64)
+                camera_y = -64;
+        }
+    }
+    
+    //Otherwise, if the 'Down' key is pressed
+    else if (keyboard_check(global.key_d)) {
+    
+        camera_timer--;
+        if (camera_timer &lt; 0) {
+        
+            camera_y += 4;
+            if (camera_y &gt; 64)
+                camera_y = 64;
+        }
+    }
+    
+    //Otherwise, reset it
+    else {
+    
+        //Reset timer
+        camera_timer = 30;
+        
+        //Return camera position
+        if (camera_y &gt; 0)
+            camera_y -= 4;
+        else if (camera_y &lt; 0)
+            camera_y += 4;            
+    }
+}
+else {
+
+    //Reset timer
+    camera_timer = 30;
+    
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
+}
 </string>
           </argument>
         </arguments>
@@ -656,60 +735,7 @@ if (!audio_is_playing(bgm_pswitch))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Adjust camera y position
-
-//Make sure the player is not doing anything
-if (obj_playerparent.state == statetype.idle) {
-    
-    //If the 'Up' key is pressed
-    if (keyboard_check(global.key_u)) {
-    
-        camera_timer--;
-        if (camera_timer &lt; 0) {
-        
-            camera_y -= 4;
-            if (camera_y &lt; -64)
-                camera_y = -64;
-        }
-    }
-    
-    //Otherwise, if the 'Down' key is pressed
-    else if (keyboard_check(global.key_d)) {
-    
-        camera_timer--;
-        if (camera_timer &lt; 0) {
-        
-            camera_y += 4;
-            if (camera_y &gt; 64)
-                camera_y = 64;
-        }
-    }
-    
-    //Otherwise, reset it
-    else {
-    
-        //Reset timer
-        camera_timer = 30;
-        
-        //Return camera position
-        if (camera_y &gt; 0)
-            camera_y -= 4;
-        else if (camera_y &lt; 0)
-            camera_y += 4;            
-    }
-}
-else {
-
-    //Reset timer
-    camera_timer = 30;
-    
-    //Return camera position
-    if (camera_y &gt; 0)
-        camera_y -= 4;
-    else if (camera_y &lt; 0)
-        camera_y += 4;
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -761,7 +787,7 @@ if (leveltime &gt; 0) &amp;&amp; (global.time = 0)
 
 //If the timer was set, begin ticking
 if (global.time &gt; 0)
-    alarm[2] = 60
+    alarm[2] = 60;
 </string>
           </argument>
         </arguments>
