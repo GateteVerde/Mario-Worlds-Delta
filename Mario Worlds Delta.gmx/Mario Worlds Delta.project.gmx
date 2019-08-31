@@ -205,6 +205,29 @@
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
+        <sprites name="Mounts">
+          <sprites name="Yoshi">
+            <sprites name="Main">
+              <sprites name="Normal">
+                <sprite>sprites\spr_yoshi</sprite>
+                <sprite>sprites\spr_yoshi_jump</sprite>
+                <sprite>sprites\spr_yoshi_scared</sprite>
+                <sprite>sprites\spr_yoshi_turning</sprite>
+              </sprites>
+              <sprites name="Full Mouth">
+                <sprite>sprites\spr_yoshi_fullmouth</sprite>
+                <sprite>sprites\spr_yoshi_fullmouth_jump</sprite>
+                <sprite>sprites\spr_yoshi_fullmouth_scared</sprite>
+                <sprite>sprites\spr_yoshi_fullmouth_turning</sprite>
+              </sprites>
+              <sprite>sprites\spr_yoshi_idle</sprite>
+              <sprite>sprites\spr_yoshi_lick</sprite>
+              <sprite>sprites\spr_yoshi_lick_alt</sprite>
+              <sprite>sprites\spr_yoshi_hatch</sprite>
+            </sprites>
+            <sprite>sprites\spr_tongue</sprite>
+          </sprites>
+        </sprites>
         <sprites name="Projectiles">
           <sprite>sprites\spr_fireball</sprite>
           <sprite>sprites\spr_fireball_l</sprite>

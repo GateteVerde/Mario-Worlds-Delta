@@ -33,7 +33,7 @@ enum itemtype {
 }
 
 //Remember music from rooms
-global.levelmusic = 'Game Over';
+global.levelmusic = bgm_death;
 
 //Current Player
 //0: Mario
@@ -50,13 +50,13 @@ global.world = 1;
 global.coins = 0;
 
 //Lives
-lives = 99;
+lives = 5;
 
 //Score
-score = 99999990;
+score = 0;
 
 //Powerup
-global.powerup = cs_pow_firecape;
+global.powerup = cs_pow_small;
 
 //Whether a level is cleared.
 global.clear = 0;
