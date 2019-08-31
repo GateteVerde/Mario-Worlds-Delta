@@ -266,7 +266,7 @@ else if (sprite_index == spr_cape_down) {
 if (global.powerup &gt; cs_pow_fire)
 &amp;&amp; (instance_number(obj_spinner) == 0)
 &amp;&amp; (instance_number(obj_cape_fly) == 0)
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

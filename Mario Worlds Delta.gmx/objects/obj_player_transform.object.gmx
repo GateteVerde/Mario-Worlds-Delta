@@ -125,8 +125,8 @@ if (loop == 0) {
         //Activate instances
         instance_activate_all();
         
-        //Activate particles
-        with (obj_rainmaker) event_user(1);
+        //Make cape visible
+        with (obj_cape) image_alpha = 1;
         
         //With the player
         with (obj_playerparent) {
@@ -239,6 +239,10 @@ back = background_create_from_surface(application_surface, 0, 0, global.gw, glob
 
 //Deactivate all instances
 instance_deactivate_all(1);
+
+//Activate cape
+instance_activate_object(obj_cape);
+with (obj_cape) image_alpha = 0;
 
 //Activate water
 instance_activate_object(obj_water);
