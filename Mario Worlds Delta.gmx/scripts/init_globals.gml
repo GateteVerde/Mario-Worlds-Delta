@@ -60,7 +60,7 @@ lives = 5;
 score = 0;
 
 //Powerup
-global.powerup = cs_pow_small;
+global.powerup = cs_pow_cape;
 
 //Whether a level is cleared.
 global.clear = 0;

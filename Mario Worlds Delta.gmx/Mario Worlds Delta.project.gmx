@@ -157,7 +157,6 @@
           <sprite>sprites\spr_cape_spin</sprite>
           <sprite>sprites\spr_cape_spin_fall</sprite>
           <sprite>sprites\spr_cape_climb</sprite>
-          <sprite>sprites\spr_cape_turn</sprite>
         </sprites>
         <sprites name="Masks">
           <sprite>sprites\spr_mask_a</sprite>
@@ -217,13 +216,13 @@
                 <sprite>sprites\spr_yoshi</sprite>
                 <sprite>sprites\spr_yoshi_jump</sprite>
                 <sprite>sprites\spr_yoshi_scared</sprite>
-                <sprite>sprites\spr_yoshi_turning</sprite>
+                <sprite>sprites\spr_yoshi_warp</sprite>
               </sprites>
               <sprites name="Full Mouth">
                 <sprite>sprites\spr_yoshi_fullmouth</sprite>
                 <sprite>sprites\spr_yoshi_fullmouth_jump</sprite>
                 <sprite>sprites\spr_yoshi_fullmouth_scared</sprite>
-                <sprite>sprites\spr_yoshi_fullmouth_turning</sprite>
+                <sprite>sprites\spr_yoshi_fullmouth_warp</sprite>
               </sprites>
               <sprite>sprites\spr_yoshi_idle</sprite>
               <sprite>sprites\spr_yoshi_lick</sprite>

@@ -64,6 +64,7 @@ powerup = noone;
 
 //Animation
 anim = 0;
+m_anim = 0;
 
 //Is Yoshi jumping?
 jumping = 0;
@@ -82,11 +83,13 @@ turning = 0;
 
 //Scale
 xscale = 1;
-prevxscale = 1;
 
 //Set the animation
 alarm[5] = 60;
 alarm[6] = 76;
+
+//Player position
+m_ypos = 0;
 
 //If an item was carried from the previous room.
 if (global.carrieditem != noone) {
@@ -271,6 +274,7 @@ if (powerup != noone)
 if (state == yoshistate.ridden) {
 
     anim = 0;
+    m_anim = 0;
     alarm[2] = 5;
 }
 </string>
@@ -305,6 +309,7 @@ if (state != yoshistate.ridden)
 else if (state == yoshistate.ridden) {
 
     anim = 1;
+    m_anim = 4;
     instance_create(x, y, obj_tongue);
 }
 </string>
@@ -343,7 +348,7 @@ else {
     
         //Snap into the player
         x = obj_playerparent.x;
-        y = obj_playerparent.y;
+        y = obj_playerparent.y+1;
         
         //Force player invisibility
         obj_playerparent.visible = 0;
@@ -368,6 +373,7 @@ else {
                 
                 //Animation
                 anim = 0;
+                m_anim = 3;
                 
                 //Lock tongue in position
                 if ((keyboard_check(global.key_u)) || (jumping &gt; 0)) {
@@ -471,6 +477,8 @@ else {
                     else if (obj_playerparent.vspeed &gt; 0)
                         image_index = 2;
                 }
+                else
+                    image_index = 0;
             }
             
             //Otherwise
@@ -559,35 +567,12 @@ else {
                     
                     //Otherwise, if Yoshi is not holding anything on his mouth
                     else if (mouthholder == noone) {
+                                    
+                        //Set the sprite
+                        sprite_index = spr_yoshi;
                     
-                        //If the player changed his direction
-                        if ((prevxscale == 1) &amp;&amp; (obj_playerparent.xscale == -1))
-                        || ((prevxscale == -1) &amp;&amp; (obj_playerparent.xscale == 1)) {
-                        
-                            //If yoshi is not turning and the mouth is not full
-                            if (sprite_index != spr_yoshi_turning) {
-                            
-                                //Set new scale
-                                prevxscale = obj_playerparent.xscale;
-                            
-                                //Begin turning animation
-                                sprite_index = spr_yoshi_turning;
-                                
-                                //Animate
-                                image_speed = 0.15;
-                                image_index = 0;                            
-                            }
-                        }
-                        
-                        //Otherwise
-                        else {
-                        
-                            //Set the sprite
-                            sprite_index = spr_yoshi;
-                            
-                            //Set the animation speed
-                            image_speed = (0.065*(obj_playerparent.inice*4))+abs(obj_playerparent.hspeed)/7.5;
-                        }
+                        //Set the animation speed
+                        image_speed = (0.065*(obj_playerparent.inice*4))+abs(obj_playerparent.hspeed)/7.5;
                     }
                 }
                 
@@ -629,6 +614,18 @@ else {
             }
         }
     }
+    
+    //Set up the y position for Mario
+    if (sprite_index == spr_yoshi)
+    || (sprite_index == spr_yoshi_fullmouth) {
+    
+        if (image_index &gt; 0.99)
+            m_ypos = 1;
+        else
+            m_ypos = 0;
+    }
+    else
+        m_ypos = 0;
 }
 </string>
           </argument>
@@ -652,7 +649,7 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Yoshi physics
+            <string>///Yoshi Physics
 
 //Bounce if idle
 if (state == yoshistate.idle) {
@@ -770,7 +767,7 @@ if (licking == true) {
 
     //If the 'Up' key is being held or Yoshi is jumping
     if (sprite_index == spr_yoshi_lick)
-        f = 0;
+        f = m_anim;
     else
         f = 1;
 }
@@ -793,7 +790,7 @@ if (obj_playerparent.isflashing &gt; 0) {
 }
 
 //Draw the player
-draw_sprite_ext(m, f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-8, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+draw_sprite_ext(m, f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
 
 //Reset shader
 pal_swap_reset();
@@ -1020,12 +1017,8 @@ if (state == yoshistate.ridden) {
 
 //If the player does exist
 if (instance_exists(obj_playerparent)) {
-
     //Set the shader
-    if (colour &gt; 0) {
-    
-        pal_swap_set(pal_sprite, colour);
-    }
+    pal_swap_set(pal_sprite, colour);
     
     //Draw Yoshi
     if (state == yoshistate.ridden)
@@ -1036,7 +1029,7 @@ if (instance_exists(obj_playerparent)) {
     //Reset shader
     pal_swap_reset();
     
-    //Draw the player if ridden
+    //Draw the player at the front if not turning
     if (state == yoshistate.ridden)
         event_user(10);
 }

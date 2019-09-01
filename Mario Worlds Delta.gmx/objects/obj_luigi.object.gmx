@@ -167,7 +167,8 @@ if (crouch == true) {
 else if (crouch == false) {
 
     //If Luigi is not holding anything
-    if (holding == 0) {
+    if (holding == 0) 
+    || (holding == 99) {
     
         //If Luigi is not sliding down a slope
         if (sliding == false) {
@@ -546,7 +547,7 @@ else if (crouch == false) {
     }
     
     //Otherwise, if the player is holding something
-    else if (holding == true) {
+    else if (holding == 1) {
     
         //If Luigi is turning around
         if (turnnow == true) {

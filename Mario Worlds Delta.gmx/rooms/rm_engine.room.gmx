@@ -102,7 +102,13 @@
     <instance objName="obj_hurtblock" x="112" y="304" name="inst_82D9694D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hurtblock" x="112" y="320" name="inst_A0EA11B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hurtblock" x="96" y="320" name="inst_B7C84438" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_yoshi" x="176" y="368" name="inst_1FBD95BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_yoshi" x="184" y="368" name="inst_1FBD95BA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="336" y="320" name="inst_CE081AD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="352" y="320" name="inst_559CD26D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="368" y="320" name="inst_5CDF6C75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="400" y="320" name="inst_67E53822" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="384" y="320" name="inst_63E8069A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="416" y="320" name="inst_B839AC9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="256" y="400" w="16" h="16" xo="146" yo="2" id="10005407" name="inst_A0E7DEBE" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -209,6 +215,12 @@
     <tile bgName="tls_spikes" x="112" y="304" w="16" h="16" xo="74" yo="38" id="10005416" name="inst_EEF24EB5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_spikes" x="112" y="320" w="16" h="16" xo="74" yo="74" id="10005417" name="inst_954EB468" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_spikes" x="96" y="320" w="16" h="16" xo="38" yo="74" id="10005418" name="inst_55A821CC" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="336" y="320" w="16" h="16" xo="74" yo="2" id="10005430" name="inst_59DBD614" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="416" y="320" w="16" h="16" xo="110" yo="2" id="10005431" name="inst_2D1E2327" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="400" y="320" w="16" h="16" xo="92" yo="2" id="10005432" name="inst_A868471A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="384" y="320" w="16" h="16" xo="92" yo="2" id="10005433" name="inst_972A501E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="368" y="320" w="16" h="16" xo="92" yo="2" id="10005434" name="inst_79CEFD93" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_main" x="352" y="320" w="16" h="16" xo="92" yo="2" id="10005435" name="inst_BC3CDB85" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
