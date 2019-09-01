@@ -1138,6 +1138,37 @@ if (invulnerable == false) {
     //If the player is riding a yoshi
     if (global.mount == 1) {
     
+        //Play 'Hurt' sound
+        audio_play_sound(snd_hurt, 0, false);
+    
+        //With Yoshi
+        with (obj_yoshi) {
+        
+            //Set 'Runaway' state
+            state = yoshistate.runaway;
+            
+            //Set xscale
+            xscale = obj_playerparent.xscale;
+            
+            //Set horizontal speed
+            hspeed = xscale*2;
+            
+            //Disallow ride
+            rideme = 0;
+            
+            //Allow it
+            alarm[0] = 16;
+        }
+        
+        //Make the player bounce
+        vspeed = -4;
+        visible = true;
+        
+        //Stop holding
+        holding = 0;
+        
+        //Stop dismounting yoshi
+        global.mount = 0;
     }
     
     //Otherwise, if the player is not riding a yoshi

@@ -90,9 +90,8 @@ if (inwall == false)
         
             //If the player is riding a yoshi
             if (global.mount == 1) {
-            
-                /*            
-                //Perform 'User Defined 1' event on obj_yoshi
+                     
+                //Perform 'User Defined 2' event on obj_yoshi
                 with (obj_yoshi) event_user(1);
                 
                 //If the player is on the ground
@@ -115,7 +114,6 @@ if (inwall == false)
                     //Play 'Jump' sound
                     audio_play_sound(snd_jump, 0, false);
                 }
-                */
             }
             
             //Otherwise, perform spin jump

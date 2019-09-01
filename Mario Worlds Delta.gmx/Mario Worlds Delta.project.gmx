@@ -23,14 +23,17 @@
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
+    <sound>sound\snd_eat</sound>
     <sound>sound\snd_engine</sound>
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
     <sound>sound\snd_hurry</sound>
+    <sound>sound\snd_hurt</sound>
     <sound>sound\snd_intro</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_kick</sound>
+    <sound>sound\snd_lick</sound>
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_powerdown</sound>
@@ -39,6 +42,7 @@
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
+    <sound>sound\snd_spit</sound>
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_stomp</sound>
     <sound>sound\snd_swim</sound>
@@ -47,6 +51,7 @@
     <sound>sound\snd_thud</sound>
     <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
+    <sound>sound\snd_yoshi</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -449,6 +454,7 @@
       <sprites name="Palettes">
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
+        <sprite>sprites\spr_palette_yoshi</sprite>
       </sprites>
       <sprites name="GUI">
         <sprites name="Dialogues">
@@ -793,6 +799,12 @@
         </objects>
         <objects name="Items">
           <objects name="Powerups">
+            <objects name="Mounts">
+              <objects name="Yoshi">
+                <object>objects\obj_yoshi</object>
+                <object>objects\obj_tongue</object>
+              </objects>
+            </objects>
             <objects name="Pickups">
               <object>objects\obj_feather_sprout</object>
             </objects>

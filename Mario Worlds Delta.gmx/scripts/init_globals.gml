@@ -29,7 +29,11 @@ enum itemtype {
     pswitch,
     trampoline,
     powblock,
-    detonator
+    detonator,
+    yoshi_g,
+    yoshi_r,
+    yoshi_y,
+    yoshi_b
 }
 
 //Remember music from rooms
