@@ -3,7 +3,7 @@
   <spriteName>spr_yoshi_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-4</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>obj_physicsparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -64,7 +64,6 @@ powerup = noone;
 
 //Animation
 anim = 0;
-m_anim = 0;
 
 //Is Yoshi jumping?
 jumping = 0;
@@ -88,7 +87,10 @@ xscale = 1;
 alarm[5] = 60;
 alarm[6] = 76;
 
-//Player position
+//Player variables
+f = 0;
+m = player_ride();
+m_vis = 1;
 m_ypos = 0;
 
 //If an item was carried from the previous room.
@@ -274,7 +276,6 @@ if (powerup != noone)
 if (state == yoshistate.ridden) {
 
     anim = 0;
-    m_anim = 0;
     alarm[2] = 5;
 }
 </string>
@@ -309,7 +310,6 @@ if (state != yoshistate.ridden)
 else if (state == yoshistate.ridden) {
 
     anim = 1;
-    m_anim = 4;
     instance_create(x, y, obj_tongue);
 }
 </string>
@@ -337,11 +337,16 @@ else if (state == yoshistate.ridden) {
             <string>///Yoshi Logic
 
 //If Yoshi is not being ridden, perform event from parent.
-if (state != yoshistate.ridden)
+if (state == yoshistate.idle)
+|| (state == yoshistate.runaway) {
+
     event_inherited();
+    if (depth != -2)
+        depth = -2;
+}
 
 //Otherwise
-else {
+else if (state == yoshistate.ridden) {
 
     //If the player does exist
     if (instance_exists(obj_playerparent)) {
@@ -393,8 +398,8 @@ else {
                 event_user(0);
         }
         
-        //Set depth
-        depth = -4;
+        //Set the depth
+        depth = -5;
         
         //Set mask to big
         obj_playerparent.mask_index = spr_mask_player_big;
@@ -684,6 +689,31 @@ if (state != yoshistate.ridden) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_spinner">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Ignore collision with this object
+
+exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
@@ -759,15 +789,15 @@ if (state == yoshistate.idle)
             <string>///Player Animation (Normal)
 
 //Temporary player variables
-var f = 0;
-var m = player_ride();
+f = 0;
+m = player_ride();
 
 //If Yoshi is licking something
 if (licking == true) {
 
     //If the 'Up' key is being held or Yoshi is jumping
     if (sprite_index == spr_yoshi_lick)
-        f = m_anim;
+        f = 0;
     else
         f = 1;
 }
@@ -784,13 +814,13 @@ else {
 }
 
 //Set up the shader
-if (obj_playerparent.isflashing &gt; 0) {
-
-    pal_swap_set(obj_playerparent.pal, obj_playerparent.numb);
-}
+player_set_palette(obj_playerparent);
 
 //Draw the player
-draw_sprite_ext(m, f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+if (m_vis == 1) {
+
+    draw_sprite_ext(m, f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+}
 
 //Reset shader
 pal_swap_reset();
@@ -820,6 +850,10 @@ pal_swap_reset();
 
 //Set up the state
 state = yoshistate.idle;
+
+//Stop licking
+licking = 0;
+anim = 0;
 
 //With the player
 if (instance_exists(obj_playerparent)) {
@@ -874,7 +908,7 @@ if (obj_playerparent.crouch == true)
 || (obj_playerparent.sliding == true) {
 
     //Create up an item
-    with (instance_create(x-8+(10*obj_playerparent.xscale), y-12, mouthholder)) {
+    with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
     
         //Use the correct sprite
         sprite_index = other.mouthsprite;
@@ -886,7 +920,7 @@ if (obj_playerparent.crouch == true)
 else {
 
     //Create up an item
-    with (instance_create(x-8+(10*obj_playerparent.xscale), y-16, mouthholder)) {
+    with (instance_create(x+(10*obj_playerparent.xscale), y-16, mouthholder)) {
     
         //Use the correct sprite
         sprite_index = other.mouthsprite;
@@ -898,7 +932,7 @@ else {
             hspeed = 3*obj_playerparent.xscale;
             
             //Set the animation speed
-            image_speed = 1;
+            image_speed = 0.5;
             
             //Get thrown
             ready = 1;
@@ -1015,24 +1049,21 @@ if (state == yoshistate.ridden) {
             <kind>1</kind>
             <string>///Draw Yoshi
 
-//If the player does exist
-if (instance_exists(obj_playerparent)) {
-    //Set the shader
-    pal_swap_set(pal_sprite, colour);
+//Set the shader
+pal_swap_set(pal_sprite, colour);
+
+//Draw Yoshi
+if (state == yoshistate.ridden)
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, obj_playerparent.xscale, 1, 0, c_white, 1);
+else
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
     
-    //Draw Yoshi
-    if (state == yoshistate.ridden)
-        draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, obj_playerparent.xscale, 1, 0, c_white, 1);
-    else
-        draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
-        
-    //Reset shader
-    pal_swap_reset();
-    
-    //Draw the player at the front if not turning
-    if (state == yoshistate.ridden)
-        event_user(10);
-}
+//Reset shader
+pal_swap_reset();
+
+//Draw the player at the front if not turning
+if (state == yoshistate.ridden)
+    event_user(10);
 </string>
           </argument>
         </arguments>

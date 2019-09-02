@@ -62,6 +62,15 @@ if (global.screenfreeze == true) {
             //Obtain sprite from cape
             capesprite = obj_cape.sprite_index;
             capeframe = obj_cape.image_index;
+            obj_cape.image_alpha = 0;
+        }
+        
+        //Obtain rider sprite and frame
+        if (global.mount == 1) {
+
+            riderframe = obj_yoshi.f;
+            m_ypos = obj_yoshi.m_ypos;
+            obj_yoshi.m_vis = 0;
         }
         
         //Stay in position
@@ -127,6 +136,9 @@ if (loop == 0) {
         
         //Make cape visible
         with (obj_cape) image_alpha = 1;
+        
+        //Make player on yoshi visible
+        with (obj_yoshi) m_vis = 1;
         
         //With the player
         with (obj_playerparent) {
@@ -322,15 +334,26 @@ if (background_exists(back)) {
 if (global.powerup == cs_pow_cape)
 || (global.powerup == cs_pow_firecape) {
 
-    draw_sprite_ext(capesprite, capeframe, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+    if (global.mount == 0)
+        draw_sprite_ext(capesprite, capeframe, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+    else {
+
+        if (riderframe == 0)
+            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), round(y)-8, image_xscale, 1, 0, c_white, image_alpha);
+        else
+            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), round(y)-6, image_xscale, 1, 0, c_white, image_alpha);    
+    }        
 }
 
 //Set the palette
 pal_swap_set(spr_palette_master, global.powerup);
 
 //Draw the player
-draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
-
+if (global.mount == 1)
+    draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+else
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+    
 //Reset palette shader
 pal_swap_reset();
 </string>

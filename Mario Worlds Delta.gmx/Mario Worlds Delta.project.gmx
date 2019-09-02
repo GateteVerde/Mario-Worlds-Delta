@@ -28,6 +28,7 @@
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
+    <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_hurt</sound>
     <sound>sound\snd_intro</sound>
@@ -51,6 +52,7 @@
     <sound>sound\snd_thud</sound>
     <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
+    <sound>sound\snd_vinesprout</sound>
     <sound>sound\snd_yoshi</sound>
   </sounds>
   <sprites name="sprites">
@@ -205,6 +207,7 @@
       <sprite>sprites\spr_beepblock_red</sprite>
       <sprite>sprites\spr_beepblock_blue</sprite>
       <sprite>sprites\spr_beepblock_empty</sprite>
+      <sprite>sprites\spr_deathblock</sprite>
       <sprite>sprites\spr_bombblock</sprite>
     </sprites>
     <sprites name="Items">
@@ -229,6 +232,11 @@
               <sprite>sprites\spr_yoshi_lick_alt</sprite>
               <sprite>sprites\spr_yoshi_hatch</sprite>
             </sprites>
+            <sprite>sprites\spr_egg</sprite>
+            <sprite>sprites\spr_egg_r</sprite>
+            <sprite>sprites\spr_egg_y</sprite>
+            <sprite>sprites\spr_egg_b</sprite>
+            <sprite>sprites\spr_egg_shard</sprite>
             <sprite>sprites\spr_tongue</sprite>
           </sprites>
         </sprites>
@@ -319,6 +327,8 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
+      <sprite>sprites\spr_beanstalk</sprite>
+      <sprite>sprites\spr_beanstalk_vine</sprite>
       <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Masks">
@@ -363,6 +373,12 @@
       </sprites>
       <sprites name="Items">
         <sprites name="Powerups">
+          <sprites name="Mounts">
+            <sprite>sprites\spr_modifier_egg</sprite>
+            <sprite>sprites\spr_modifier_egg_r</sprite>
+            <sprite>sprites\spr_modifier_egg_y</sprite>
+            <sprite>sprites\spr_modifier_egg_b</sprite>
+          </sprites>
           <sprite>sprites\spr_modifier_shroom</sprite>
           <sprite>sprites\spr_modifier_fireflower</sprite>
           <sprite>sprites\spr_modifier_fireflower_alt</sprite>
@@ -388,6 +404,8 @@
         </sprites>
         <sprite>sprites\spr_modifier_coin_star</sprite>
         <sprite>sprites\spr_modifier_coin_multi</sprite>
+        <sprite>sprites\spr_modifier_beanstalk</sprite>
+        <sprite>sprites\spr_modifier_key</sprite>
       </sprites>
       <sprite>sprites\spr_up</sprite>
       <sprite>sprites\spr_down</sprite>
@@ -640,6 +658,7 @@
       <object>objects\obj_spikeblock_g</object>
       <object>objects\obj_beepblock_red</object>
       <object>objects\obj_beepblock_blue</object>
+      <object>objects\obj_deathblock</object>
       <object>objects\obj_bombblock</object>
     </objects>
     <objects name="Items">
@@ -703,6 +722,8 @@
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
+      <object>objects\obj_beanstalk</object>
+      <object>objects\obj_beanstalk_vine</object>
       <object>objects\obj_key</object>
     </objects>
     <objects name="Modifiers">
@@ -712,6 +733,12 @@
       </objects>
       <objects name="Items">
         <objects name="Powerups">
+          <objects name="Mounts">
+            <object>objects\obj_modifier_egg</object>
+            <object>objects\obj_modifier_egg_r</object>
+            <object>objects\obj_modifier_egg_y</object>
+            <object>objects\obj_modifier_egg_b</object>
+          </objects>
           <object>objects\obj_modifier_shroom</object>
           <object>objects\obj_modifier_fireflower</object>
           <object>objects\obj_modifier_fireflower_alt</object>
@@ -737,6 +764,8 @@
         </objects>
         <object>objects\obj_modifier_coin_star</object>
         <object>objects\obj_modifier_coin_multi</object>
+        <object>objects\obj_modifier_beanstalk</object>
+        <object>objects\obj_modifier_key</object>
       </objects>
       <object>objects\obj_up</object>
       <object>objects\obj_down</object>
@@ -800,6 +829,10 @@
           <objects name="Powerups">
             <objects name="Mounts">
               <objects name="Yoshi">
+                <objects name="Misc">
+                  <object>objects\obj_egg</object>
+                  <object>objects\obj_egg_hatch</object>
+                </objects>
                 <object>objects\obj_yoshi</object>
                 <object>objects\obj_tongue</object>
               </objects>

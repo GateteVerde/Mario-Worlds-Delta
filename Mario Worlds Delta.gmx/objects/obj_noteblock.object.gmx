@@ -222,7 +222,18 @@ if (sprout != itemtype.coin)
 
     //If the item to sprout is a cape feather
     if (sprout == itemtype.feather)
-        with (instance_create(x+8, y+8, obj_feather_sprout)) alarm[1] = 1;
+        with (instance_create(xstart+8, ystart, obj_feather_sprout)) alarm[1] = 1;
+        
+    //If the item to sprout is a beanstalk
+    else if (sprout == itemtype.beanstalk) {
+    
+        //Play 'Vine Sprout' sound
+        audio_play_sound(snd_vinesprout, 0, false);
+        
+        //Create beanstalk
+        with (instance_create(xstart+8, ystart, obj_beanstalk)) 
+            vspeed = 1;
+    }
         
     //Otherwise, if the item to sprout is a mushroom/feather
     else if (sprout == itemtype.feather_plus) {
@@ -230,13 +241,13 @@ if (sprout != itemtype.coin)
         //If the player is small, sprout a mushroom
         if (global.powerup == cs_pow_small) {
         
-            with (sprite_create_object(x+8, y+8, spr_mushroom))
+            with (sprite_create_object(xstart+8, ystart, spr_mushroom))
                 permission = 0;
         }
         
         //Otherwise, sprout a feather
         else
-            with (instance_create(x+8, y+8, obj_feather_sprout)) alarm[1] = 1;
+            with (instance_create(xstart+8, ystart, obj_feather_sprout)) alarm[1] = 1;
     }
     else {
     
@@ -244,7 +255,7 @@ if (sprout != itemtype.coin)
         var myenum = enum_get_sprite(sprout);
 
         //Create the item
-        with (sprite_create_object(x+8, y+8, myenum))
+        with (sprite_create_object(xstart+8, ystart, myenum))
             permission = 0;
     }
 

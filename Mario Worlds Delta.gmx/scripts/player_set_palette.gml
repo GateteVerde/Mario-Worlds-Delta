@@ -11,9 +11,6 @@
 **      Sets up the palette to be used on the player
 */
 
-//Create temporary variables
-var pal, numb;
-
 //If the player is invincible
 if (instance_exists(obj_invincibility)) {
 

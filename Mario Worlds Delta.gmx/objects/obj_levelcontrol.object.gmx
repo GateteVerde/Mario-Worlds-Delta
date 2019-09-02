@@ -65,8 +65,8 @@ background_alpha[0] = 1;
 background_alpha[1] = 0;
 
 //Background blend values
-background_blend[0] = c_red;
-background_blend[1] = c_red;
+background_blend[0] = c_orange;
+background_blend[1] = c_orange;
 
 //Create HUD
 instance_create(0, 0, obj_hud);
@@ -572,6 +572,9 @@ musicdisable = 1;
 
 //Stop starman theme
 audio_stop_sound(bgm_star);
+
+//Stop P-Switch music
+audio_stop_sound(bgm_pswitch);
 </string>
           </argument>
         </arguments>

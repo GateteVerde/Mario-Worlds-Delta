@@ -34,7 +34,7 @@ bouncy = 0;
 image_speed = 0;
 
 //Item check
-alarm[0] = 1;
+alarm[0] = 2;
 
 //If there is a solid on top of the block
 if (position_meeting(x,y-8,obj_solid)) {
@@ -104,7 +104,20 @@ if (sprite_index == spr_feather) {
     audio_play_sound(snd_sprout, 0, false);
 
     //Turn into a real feather
-    instance_create(x, y, obj_feather_sprout);
+    instance_create(x, ystart, obj_feather_sprout);
+}
+
+//Beanstalk
+else if (sprite_index == spr_beanstalk) {
+
+    //Play 'Vine Sprout' sound
+    audio_play_sound(snd_vinesprout, 0, false);
+    
+    //Turn into a real beanstalk
+    if (!place_meeting(x, ystart-16, obj_solid))
+        instance_create(x, ystart, obj_beanstalk);
+    else
+        with (instance_create(x+1, ystart, obj_beanstalk)) vspeed = 1;
 }
     
 //Otherwise
@@ -120,8 +133,13 @@ else {
         if (sprite_index == spr_pswitch)
         || (sprite_index == spr_trampoline)
         || (sprite_index == spr_powblock_blue)
-        || (sprite_index == spr_detonator) {
-
+        || (sprite_index == spr_detonator)
+        || (sprite_index == spr_key)
+        || (sprite_index == spr_egg)
+        || (sprite_index == spr_egg_r)
+        || (sprite_index == spr_egg_y)
+        || (sprite_index == spr_egg_b) {
+        
             vspeed = -2.5;
             bouncy = 1;
         }

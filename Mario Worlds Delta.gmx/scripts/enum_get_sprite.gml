@@ -66,4 +66,22 @@ switch (argument[0]) {
     
     //Detonator
     case (itemtype.detonator): return spr_detonator; break;
+    
+    //Beanstalk
+    case (itemtype.beanstalk): return spr_beanstalk; break;
+    
+    //Key
+    case (itemtype.key): return spr_key; break;
+    
+    //Green Yoshi Egg
+    case (itemtype.yoshi_g): return spr_egg; break;
+    
+    //Red Yoshi Egg
+    case (itemtype.yoshi_r): return spr_egg_r; break;
+    
+    //Yellow Yoshi Egg
+    case (itemtype.yoshi_y): return spr_egg_y; break;
+    
+    //Blue Yoshi Egg
+    case (itemtype.yoshi_b): return spr_egg_b; break;
 }

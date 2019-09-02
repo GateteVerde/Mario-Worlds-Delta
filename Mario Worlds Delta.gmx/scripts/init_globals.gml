@@ -30,10 +30,12 @@ enum itemtype {
     trampoline,
     powblock,
     detonator,
+    key,
     yoshi_g,
     yoshi_r,
     yoshi_y,
-    yoshi_b
+    yoshi_b,
+    beanstalk
 }
 
 //Remember music from rooms
@@ -60,7 +62,7 @@ lives = 5;
 score = 0;
 
 //Powerup
-global.powerup = cs_pow_cape;
+global.powerup = cs_pow_small;
 
 //Whether a level is cleared.
 global.clear = 0;

@@ -134,6 +134,10 @@ alarm[3] = 1;
 alarm[8] = 1;
 alarm[11] = 1;
 
+//Palette variables
+pal = noone;
+numb = 0;
+
 //Call cape draw object
 mycape = instance_create(x, y, obj_cape);
 </string>
@@ -666,32 +670,28 @@ if (escalator)
 
 //If moving right and the player bumps a wall to the right
 if (hspeed &gt; 0) 
-&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+hspeed, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+    
+    //Stop horizontal speed
+    hspeed = 0;    
     
     //Prevent the player from getting embed in the wall
     while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0)) {
-
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x--;
-    }
-    
-    //Stop horizontal speed
-    hspeed = 0;
 }
 
 //Otherwise, if moving left and the player bumps a wall to the left
 else if (hspeed &lt; 0)
-&amp;&amp; (collision_rectangle(bbox_left-hspeed, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+    
+    //Stop horizontal speed
+    hspeed = 0;    
     
     //Prevent the player from getting embed in the wall
     while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0)) {
-    
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
         x++;
-    }
-    
-    //Stop horizontal speed
-    hspeed = 0;
 }
 
 //If moving up...
@@ -891,7 +891,8 @@ if (vspeed == 0)
     
     //If the player gets stuck
     if (inwall == false)
-    &amp;&amp; (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4,obj_solid,1,0)) {
+    &amp;&amp; (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_line(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
     
         //If the direction was not set, set it up
         if (direct2 == 0) then direct2 = xscale;
@@ -928,11 +929,33 @@ if (vspeed == 0)
     }
 }
 
+//Otherwise, stop pushing
+else {
+
+    inwall = false;
+}
+
 //Unstuck in case of overlapping a solid completely
 if (inwall == false)
 &amp;&amp; (state != statetype.jump)
-    while (collision_rectangle(x-1, bbox_top, x+1, bbox_bottom, obj_solid, 1, 0))
-        y--;
+&amp;&amp; (state != statetype.climb) {
+
+    //If facing right
+    if (xscale == 1) {
+    
+        while (collision_point(bbox_right, bbox_top, obj_solid, 1, 0))
+        &amp;&amp; (collision_point(bbox_right, bbox_bottom, obj_solid, 1, 0))
+            x--;
+    }
+    
+    //Otherwise, if facing left
+    else if (xscale == -1) {
+    
+        while (collision_point(bbox_left, bbox_top, obj_solid, 1, 0))
+        &amp;&amp; (collision_point(bbox_left, bbox_bottom, obj_solid, 1, 0))
+            x++;
+    }
+}
         
 //If the player is not in contact with water.
 if (!collision_rectangle(bbox_left, y, bbox_right, bbox_bottom, obj_swim, 0, 0))

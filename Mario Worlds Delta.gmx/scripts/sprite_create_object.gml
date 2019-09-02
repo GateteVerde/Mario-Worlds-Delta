@@ -41,4 +41,37 @@ switch (argument[2]) {
     
     //Detonator
     case (spr_detonator): return instance_create(argument[0], argument[1], obj_detonator);
+    
+    //Key
+    case (spr_key): return instance_create(argument[0], argument[1], obj_key);
+    
+    //Green Yoshi Egg
+    case (spr_egg): return instance_create(argument[0], argument[1], obj_egg);
+    
+    //Red Yoshi Egg
+    case (spr_egg_r): {
+    
+        var i;
+        i = instance_create(argument[0], argument[1], obj_egg);
+            i.sprite_index = spr_egg_r;
+    }
+    return i;
+    
+    //Yellow Yoshi Egg
+    case (spr_egg_y): {
+    
+        var i;
+        i = instance_create(argument[0], argument[1], obj_egg);
+            i.sprite_index = spr_egg_y;
+    }
+    return i;
+    
+    //Blue Yoshi Egg
+    case (spr_egg_b): {
+    
+        var i;
+        i = instance_create(argument[0], argument[1], obj_egg);
+            i.sprite_index = spr_egg_b;
+    }
+    return i;
 }

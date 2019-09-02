@@ -44,6 +44,13 @@ with (obj_levelcontrol) {
     alarm[4] = -1;
 }
 
+//Destroy Yoshi
+with (obj_yoshi) {
+
+    if (state == yoshistate.ridden)
+        instance_destroy();
+}
+
 //Subtract a life
 lives--;
 
@@ -56,6 +63,9 @@ alarm[1] = 200;
 //Do not animate
 image_speed = 0;
 image_index = 0;
+
+//Reset mount
+global.mount = 0;
 
 //Reset powerup
 global.powerup = cs_pow_small;
@@ -88,8 +98,17 @@ if (global.player == 1)
             <string>///Go to the level start screen
 
 //If there's lives left
-if (lives &gt; 0)
+if (lives &gt; 0) {
+
+    //Set target room
+    if (global.targetroom == noone) {
+    
+        global.targetroom = rm_engine;
+    }
+    
+    //Go to the destination room
     room_goto(rm_levelstart);
+}
 
 //Otherwise, restart game
 else

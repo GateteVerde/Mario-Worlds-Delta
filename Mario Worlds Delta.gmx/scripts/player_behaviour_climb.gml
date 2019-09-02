@@ -90,7 +90,7 @@ if (control_enable == true) {
                 vspeed = 1;
                 
             //If there's a semisolid below, abort climbing
-            var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_semisolid, 0, 0);
+            var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0);
             if (semisolid)
                 state = statetype.jump;
         }

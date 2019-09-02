@@ -270,10 +270,20 @@ else if (crouch == false) {
                             with (mycape) {
                             
                                 //If moving up
-                                if (other.vspeed &lt; 0)
-                                    state = capestate.cape_spin_up;
-                                else
-                                    state = capestate.cape_spin_down;
+                                if (other.vspeed &lt; 0) {
+                                
+                                    if (global.mount == 1)
+                                        state = capestate.cape_jump_up;
+                                    else
+                                        state = capestate.cape_spin_up;
+                                }
+                                else {
+                                
+                                    if (global.mount == 1)
+                                        state = capestate.cape_jump_down;
+                                    else
+                                        state = capestate.cape_spin_down;
+                                }
                             
                                 //Set the depth first
                                 if (image_index &gt; 2.99)
