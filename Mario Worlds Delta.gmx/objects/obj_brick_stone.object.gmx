@@ -6,7 +6,7 @@
   <depth>8</depth>
   <persistent>0</persistent>
   <parentName>obj_solid</parentName>
-  <maskName>spr_square</maskName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="4" ename="obj_explosion">
       <action>
@@ -28,20 +28,43 @@
             <string>///Shatter it
 
 //If the explosion is visible
-if (other.visible == 1) {
+if (other.visible == 1)
+    event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Shatter it
+
+//Play 'Break' sound
+audio_play_sound(snd_break, 0, false);
+
+//Create shards    
+shard_create(x+8, y+8, spr_shard_stone, 3, 6, 45);
+shard_create(x+8, y+8, spr_shard_stone, 1, 6, 60);
+shard_create(x+8, y+8, spr_shard_stone, 0, 6, 120);
+shard_create(x+8, y+8, spr_shard_stone, 2, 6, 135);
     
-    //Play 'Break' sound
-    audio_stop_play_sound(snd_break, 0, false);
-    
-    //Create shards    
-    shard_create(x+8, y+8, spr_shard_stone, 3, 6, 45);
-    shard_create(x+8, y+8, spr_shard_stone, 1, 6, 60);
-    shard_create(x+8, y+8, spr_shard_stone, 0, 6, 120);
-    shard_create(x+8, y+8, spr_shard_stone, 2, 6, 135);
-        
-    //Destroy
-    instance_destroy();
-}
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>

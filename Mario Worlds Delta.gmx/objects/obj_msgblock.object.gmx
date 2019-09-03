@@ -37,6 +37,31 @@ event_inherited();
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Allow block hit
+
+ready = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -56,14 +81,19 @@ event_inherited();
             <kind>1</kind>
             <string>///Display message and delay block hit
 
-//Play 'Message' sound
-audio_play_sound(snd_message, 0, false);
-
-//Show message
-with (instance_create(0, 0, obj_message)) varmsg = other.varmsg;
+//If this block is inside the view
+if (!outside_view(16)) {
+    
+    //Play 'Message' sound
+    audio_play_sound(snd_message, 0, false);
+    
+    //Show message
+    with (instance_create(0, 0, obj_message)) 
+        varmsg = other.varmsg;
+}
 
 //Allow block hit
-ready = 0;
+alarm[2] = 24;
 </string>
           </argument>
         </arguments>

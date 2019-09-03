@@ -5,8 +5,8 @@
   <visible>-1</visible>
   <depth>9</depth>
   <persistent>0</persistent>
-  <parentName>obj_solid</parentName>
-  <maskName>spr_square</maskName>
+  <parentName>obj_brick_stone</parentName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -51,7 +51,7 @@ myslip = instance_create(x, y-16, obj_slippery);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy slippery surface
+            <string>///Destroy masks
 
 with (myslip) instance_destroy();
 </string>
@@ -59,7 +59,7 @@ with (myslip) instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_explosion">
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -78,21 +78,17 @@ with (myslip) instance_destroy();
             <kind>1</kind>
             <string>///Shatter it
 
-//If the explosion is visible
-if (other.visible == 1) {
+//Play 'Break' sound
+audio_play_sound(snd_break, 0, false);
+
+//Create shards    
+shard_create(x+8, y+8, spr_shard_ice, 3, 6, 45);
+shard_create(x+8, y+8, spr_shard_ice, 1, 6, 60);
+shard_create(x+8, y+8, spr_shard_ice, 0, 6, 120);
+shard_create(x+8, y+8, spr_shard_ice, 2, 6, 135);
     
-    //Play 'Break' sound
-    audio_stop_play_sound(snd_break, 0, false);
-    
-    //Create shards    
-    shard_create(x+8, y+8, spr_shard_ice, 3, 6, 45);
-    shard_create(x+8, y+8, spr_shard_ice, 1, 6, 60);
-    shard_create(x+8, y+8, spr_shard_ice, 0, 6, 120);
-    shard_create(x+8, y+8, spr_shard_ice, 2, 6, 135);
-        
-    //Destroy
-    instance_destroy();
-}
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>

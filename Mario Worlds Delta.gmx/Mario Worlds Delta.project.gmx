@@ -40,6 +40,7 @@
     <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
+    <sound>sound\snd_reservedrop</sound>
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
@@ -202,13 +203,8 @@
       <sprite>sprites\spr_noteblock_hidden</sprite>
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
-      <sprite>sprites\spr_spikeblock</sprite>
-      <sprite>sprites\spr_spikeblock_b</sprite>
-      <sprite>sprites\spr_beepblock_red</sprite>
-      <sprite>sprites\spr_beepblock_blue</sprite>
-      <sprite>sprites\spr_beepblock_empty</sprite>
-      <sprite>sprites\spr_deathblock</sprite>
       <sprite>sprites\spr_bombblock</sprite>
+      <sprite>sprites\spr_deathblock</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Powerups">
@@ -282,11 +278,14 @@
           <sprite>sprites\spr_platform_ferris_48</sprite>
           <sprite>sprites\spr_platform_ferris_64</sprite>
           <sprite>sprites\spr_platform_ferris_80</sprite>
+          <sprite>sprites\spr_platform_yoshi</sprite>
           <sprite>sprites\spr_engine</sprite>
         </sprites>
         <sprites name="Belts">
-          <sprite>sprites\spr_conveyor_r</sprite>
-          <sprite>sprites\spr_conveyor_l</sprite>
+          <sprite>sprites\spr_conveyor</sprite>
+          <sprite>sprites\spr_conveyor_sign_l</sprite>
+          <sprite>sprites\spr_conveyor_sign_r</sprite>
+          <sprite>sprites\spr_conveyor_sign_stop</sprite>
           <sprite>sprites\spr_conveyor_ledge_left</sprite>
           <sprite>sprites\spr_conveyor_ledge_right</sprite>
           <sprite>sprites\spr_escalator_r</sprite>
@@ -301,6 +300,16 @@
         <sprite>sprites\spr_blocktrain</sprite>
       </sprites>
       <sprites name="Interactive">
+        <sprites name="Skewers">
+          <sprites name="Bases">
+            <sprite>sprites\spr_skewerbase</sprite>
+            <sprite>sprites\spr_skewerbase_side</sprite>
+          </sprites>
+          <sprite>sprites\spr_skewer</sprite>
+          <sprite>sprites\spr_skewer_down</sprite>
+          <sprite>sprites\spr_skewer_left</sprite>
+          <sprite>sprites\spr_skewer_right</sprite>
+        </sprites>
         <sprite>sprites\spr_pswitch</sprite>
         <sprite>sprites\spr_pswitch_press</sprite>
         <sprite>sprites\spr_trampoline</sprite>
@@ -329,6 +338,11 @@
       <sprite>sprites\spr_coin_ace</sprite>
       <sprite>sprites\spr_beanstalk</sprite>
       <sprite>sprites\spr_beanstalk_vine</sprite>
+      <sprite>sprites\spr_spikeblock</sprite>
+      <sprite>sprites\spr_spikeblock_b</sprite>
+      <sprite>sprites\spr_beepblock_red</sprite>
+      <sprite>sprites\spr_beepblock_blue</sprite>
+      <sprite>sprites\spr_beepblock_empty</sprite>
       <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Masks">
@@ -365,6 +379,8 @@
       <sprite>sprites\spr_path</sprite>
       <sprite>sprites\spr_powkiller</sprite>
       <sprite>sprites\spr_spinnermask</sprite>
+      <sprite>sprites\spr_skewerbumper</sprite>
+      <sprite>sprites\spr_skewerbumper_h</sprite>
     </sprites>
     <sprites name="Modifiers">
       <sprites name="Blocks">
@@ -378,6 +394,7 @@
             <sprite>sprites\spr_modifier_egg_r</sprite>
             <sprite>sprites\spr_modifier_egg_y</sprite>
             <sprite>sprites\spr_modifier_egg_b</sprite>
+            <sprite>sprites\spr_modifier_egg_rainbow</sprite>
           </sprites>
           <sprite>sprites\spr_modifier_shroom</sprite>
           <sprite>sprites\spr_modifier_fireflower</sprite>
@@ -472,6 +489,7 @@
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
         <sprite>sprites\spr_palette_yoshi</sprite>
+        <sprite>sprites\spr_palette_platform_yoshi</sprite>
       </sprites>
       <sprites name="GUI">
         <sprites name="Dialogues">
@@ -654,12 +672,8 @@
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_powblock</object>
-      <object>objects\obj_spikeblock</object>
-      <object>objects\obj_spikeblock_g</object>
-      <object>objects\obj_beepblock_red</object>
-      <object>objects\obj_beepblock_blue</object>
-      <object>objects\obj_deathblock</object>
       <object>objects\obj_bombblock</object>
+      <object>objects\obj_deathblock</object>
     </objects>
     <objects name="Items">
       <objects name="Powerups">
@@ -682,6 +696,7 @@
           <object>objects\obj_platform_falling</object>
           <object>objects\obj_platform_pulley</object>
           <object>objects\obj_platform_ferris</object>
+          <object>objects\obj_platform_yoshi</object>
           <object>objects\obj_engine</object>
         </objects>
         <objects name="Belts">
@@ -699,6 +714,12 @@
         <object>objects\obj_blocktrain</object>
       </objects>
       <objects name="Interactive">
+        <objects name="Skewers">
+          <object>objects\obj_skewer</object>
+          <object>objects\obj_skewer_down</object>
+          <object>objects\obj_skewer_left</object>
+          <object>objects\obj_skewer_right</object>
+        </objects>
         <object>objects\obj_pswitch</object>
         <object>objects\obj_trampoline</object>
         <object>objects\obj_trampoline_hyper</object>
@@ -722,8 +743,10 @@
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
-      <object>objects\obj_beanstalk</object>
-      <object>objects\obj_beanstalk_vine</object>
+      <object>objects\obj_spikeblock</object>
+      <object>objects\obj_spikeblock_g</object>
+      <object>objects\obj_beepblock_red</object>
+      <object>objects\obj_beepblock_blue</object>
       <object>objects\obj_key</object>
     </objects>
     <objects name="Modifiers">
@@ -738,6 +761,7 @@
             <object>objects\obj_modifier_egg_r</object>
             <object>objects\obj_modifier_egg_y</object>
             <object>objects\obj_modifier_egg_b</object>
+            <object>objects\obj_modifier_egg_rainbow</object>
           </objects>
           <object>objects\obj_modifier_shroom</object>
           <object>objects\obj_modifier_fireflower</object>
@@ -840,10 +864,9 @@
             <objects name="Pickups">
               <object>objects\obj_feather_sprout</object>
             </objects>
-            <objects name="Projectiles">
-              <object>objects\obj_fireball</object>
-            </objects>
             <object>objects\obj_powerup_sprout</object>
+            <object>objects\obj_reserveitem</object>
+            <object>objects\obj_fireball</object>
             <object>objects\obj_invincibility</object>
           </objects>
           <objects name="Platforms">
@@ -869,13 +892,20 @@
             <object>objects\obj_blocktrain_killer</object>
           </objects>
           <objects name="Interactive">
+            <objects name="Skewers">
+              <object>objects\obj_skewertrunk</object>
+              <object>objects\obj_skewertrunk_down</object>
+              <object>objects\obj_skewertrunk_left</object>
+              <object>objects\obj_skewertrunk_right</object>
+            </objects>
             <object>objects\obj_powblock_active</object>
             <object>objects\obj_powblock_killer</object>
           </objects>
           <object>objects\obj_coinchange</object>
+          <object>objects\obj_beanstalk</object>
+          <object>objects\obj_beanstalk_vine</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
-          <object>objects\obj_blockbumper</object>
         </objects>
         <objects name="Eyecandy">
           <objects name="Blend">
@@ -907,6 +937,7 @@
         <object>objects\obj_dialog</object>
         <object>objects\obj_message</object>
         <object>objects\obj_lightningsheet</object>
+        <object>objects\obj_blockbumper</object>
       </objects>
       <object>objects\obj_levelstart</object>
       <object>objects\obj_controller</object>

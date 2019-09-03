@@ -39,6 +39,9 @@ action = "sprout";
 
 //Powerup
 powerup = 3;
+
+//Give points?
+nopoints = false;
 </string>
           </argument>
         </arguments>
@@ -242,7 +245,11 @@ else if (action = "left") {
             <string>///Turn into 'Cape' or 'Fire Cape'
 
 //Get 1000 points
-with (instance_create(x-8, y, obj_score)) event_user(5);
+if (nopoints == false) {
+
+    with (instance_create(x-8, y, obj_score))
+        event_user(5);
+}
 
 //Create ring
 instance_create(x, y+8, obj_ring);

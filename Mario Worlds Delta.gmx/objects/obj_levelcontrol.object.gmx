@@ -41,7 +41,7 @@ leveltime = 0;
 //Play music
 if (global.pswitch == 0)
 &amp;&amp; (global.starman == 0)
-    alarm[0] = 2;
+    alarm[0] = 30;
 
 //Is music disabled?
 musicdisable = false;
@@ -716,6 +716,29 @@ if (!audio_is_playing(bgm_pswitch))
           <argument>
             <kind>1</kind>
             <string>///Release reserve item
+
+//If there's an item in the reserve item box
+if (global.reserveitem != cs_pow_small) {
+
+    //Create the reserve item
+    with (instance_create(view_xview[0] + view_wview[0]/2, view_yview[0]+12, obj_reserveitem)) {
+    
+        //Mushroom
+        if (global.reserveitem == cs_pow_super)
+            sprite_index = spr_mushroom;
+            
+        //Fire Flower
+        else if (global.reserveitem == cs_pow_fire)
+            sprite_index = spr_fireflower;
+            
+        //Cape Feather
+        else if (global.reserveitem == cs_pow_cape)
+            sprite_index = spr_feather;
+    }
+    
+    //Empty the box
+    global.reserveitem = cs_pow_small;
+}
 </string>
           </argument>
         </arguments>
@@ -738,7 +761,11 @@ if (!audio_is_playing(bgm_pswitch))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///Destroy all player objects
+
+with (obj_mario) instance_destroy();
+with (obj_luigi) instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>
@@ -785,8 +812,13 @@ if (!audio_is_playing(bgm_pswitch))
             <string>///Handles Mario Start, checkpoints, and other stuff
 
 //If the time is set to something, and was not set in a previous room, set it
-if (leveltime &gt; 0) &amp;&amp; (global.time = 0)
+if (leveltime &gt; 0) 
+&amp;&amp; (global.time == 0) {
+
     global.time = leveltime;
+    if (global.time &lt; 101)
+        alarm[3] = 30;
+}
 
 //If the timer was set, begin ticking
 if (global.time &gt; 0)
