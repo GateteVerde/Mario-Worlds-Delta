@@ -378,9 +378,6 @@ else if (keyboard_check_pressed(ord('R'))) {
     //Initialize globals
     init_globals();
     
-    //Stop FMOD streams
-    event_user(3);
-    
     //Go to the title screen
     room_goto(rm_engine);
 }

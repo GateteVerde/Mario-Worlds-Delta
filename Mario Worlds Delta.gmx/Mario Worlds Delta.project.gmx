@@ -11,6 +11,7 @@
         <sound>sound\bgm_land</sound>
       </sounds>
       <sound>sound\bgm_death</sound>
+      <sound>sound\bgm_gameover</sound>
       <sound>sound\bgm_pswitch</sound>
       <sound>sound\bgm_star</sound>
     </sounds>
@@ -379,8 +380,6 @@
       <sprite>sprites\spr_path</sprite>
       <sprite>sprites\spr_powkiller</sprite>
       <sprite>sprites\spr_spinnermask</sprite>
-      <sprite>sprites\spr_skewerbumper</sprite>
-      <sprite>sprites\spr_skewerbumper_h</sprite>
     </sprites>
     <sprites name="Modifiers">
       <sprites name="Blocks">
@@ -512,6 +511,7 @@
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
+      <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_mariostart</sprite>
       <sprite>sprites\spr_lightningsheet</sprite>
     </sprites>
@@ -822,6 +822,7 @@
         <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
+        <object>objects\obj_deactivateparent</object>
       </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
@@ -893,6 +894,7 @@
           </objects>
           <objects name="Interactive">
             <objects name="Skewers">
+              <object>objects\obj_skewerparent</object>
               <object>objects\obj_skewertrunk</object>
               <object>objects\obj_skewertrunk_down</object>
               <object>objects\obj_skewertrunk_left</object>
@@ -939,8 +941,9 @@
         <object>objects\obj_lightningsheet</object>
         <object>objects\obj_blockbumper</object>
       </objects>
-      <object>objects\obj_levelstart</object>
       <object>objects\obj_controller</object>
+      <object>objects\obj_levelstart</object>
+      <object>objects\obj_gameover</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -948,6 +951,9 @@
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
     <rooms name="Special Screens">
+      <rooms name="Events">
+        <room>rooms\rm_gameover</room>
+      </rooms>
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>

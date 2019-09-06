@@ -3,11 +3,43 @@
   <spriteName>spr_skewer_right</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>10</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_skewertrunk</parentName>
+  <parentName>obj_skewerparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Rightward skewer trunk
+
+//Parent, if it exists
+parent = -1;
+
+//Whether the skewer is on the ground
+ready = 0;
+
+//Go left a bit
+alarm[0] = 120;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -29,6 +61,9 @@
 
 //Set the horizontal speed
 hspeed = -1;
+
+//Reset count
+count = 0;
 </string>
           </argument>
         </arguments>
@@ -111,6 +146,13 @@ alarm[2] = 60;
             <kind>1</kind>
             <string>///Go left
 
+//If the object is not inside the view, deny event
+if (outside_view(64)) {
+
+    alarm[0] = 1;
+    exit;
+}
+
 //Set the horizontal speed
 hspeed = -1;
 
@@ -141,13 +183,13 @@ alarm[1] = 32;
             <string>///Rightward skewer logic
 
 //Check for a wall at the right
-var wall = collision_rectangle(bbox_right, bbox_top, bbox_right+hspeed, bbox_bottom,obj_solid,0,0);
+var wall = collision_rectangle(bbox_right+1, bbox_top, bbox_right+1, bbox_bottom, obj_solid, 0, 0);
 
 //If the skewer is not on the wall.
 if (ready == 0) {
 
     //When moving right
-    if (hspeed &gt;= 0) {
+    if (hspeed &gt; 0) {
         
         //Handle wall collisions
         if (wall)

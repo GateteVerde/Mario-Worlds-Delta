@@ -195,7 +195,7 @@ if (sprite_index == spr_mushroom) {
         //Get it
         _transform = instance_create(0, 0, obj_player_transform);
             _transform.oldpowerup = global.powerup;
-            _transform.newpowerup = powerup;
+            _transform.newpowerup = cs_pow_super;
     }
     
     //Otherwise, reserve the item
@@ -238,7 +238,7 @@ else if (sprite_index == spr_fireflower) {
         //Perform animation sequence
         _transform = instance_create(0, 0, obj_player_transform);
             _transform.oldpowerup = global.powerup;
-            _transform.newpowerup = powerup;    
+            _transform.newpowerup = cs_pow_fire;    
     }
     
     //Otherwise, perform various actions
@@ -253,7 +253,7 @@ else if (sprite_index == spr_fireflower) {
             //Perform animation sequence
             _transform = instance_create(0, 0, obj_player_transform);
                 _transform.oldpowerup = global.powerup;
-                _transform.newpowerup = 4;           
+                _transform.newpowerup = cs_pow_firecape;           
         }
         
         //Otherwise, if the player has already fire or fire cape...

@@ -540,6 +540,11 @@ if (instance_exists(obj_playerparent))
 &amp;&amp; (keyboard_check_pressed(global.key_action[2]))
     event_user(1);
 
+//Deactivate objects under the following parents
+instance_deactivate_object(obj_deactivateparent);
+
+//Activate things that are on screen
+instance_activate_region(view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, 1);
 </string>
           </argument>
         </arguments>
@@ -809,7 +814,17 @@ with (obj_luigi) instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Handles Mario Start, checkpoints, and other stuff
+            <string>///Handles checkpoints, and other stuff
+
+//If the music is not the same as the music used in the last room
+if (global.levelmusic != levelmusic) {
+
+    //Stop the old music
+    audio_stop_sound(global.levelmusic);
+
+    //Set the new music
+    global.levelmusic = levelmusic;
+}
 
 //If the time is set to something, and was not set in a previous room, set it
 if (leveltime &gt; 0) 

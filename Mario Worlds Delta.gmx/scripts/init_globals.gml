@@ -39,7 +39,7 @@ enum itemtype {
 }
 
 //Remember music from rooms
-global.levelmusic = bgm_death;
+global.levelmusic = bgm_gameover;
 
 //Current Player
 //0: Mario
@@ -107,7 +107,7 @@ global.mount = 0;
 global.mountcolour = 0;
 
 //Item in reserve
-global.reserveitem = 0;
+global.reserveitem = cs_pow_fire;
 
 //Whether the PSwitch effect was set in a room
 global.pswitch = 0;
