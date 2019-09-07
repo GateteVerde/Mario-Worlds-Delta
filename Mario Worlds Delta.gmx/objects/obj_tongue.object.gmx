@@ -96,7 +96,8 @@ ready = 2;
             <string>///Tongue logic
 
 //If Yoshi does exist and it is being ridden
-if (instance_exists(obj_yoshi)) 
+if (instance_exists(obj_yoshi))
+&amp;&amp; (instance_exists(obj_playerparent))
 &amp;&amp; (obj_yoshi.state == yoshistate.ridden) {
 
     //Where the tongue should be drawn

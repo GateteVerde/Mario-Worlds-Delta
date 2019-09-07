@@ -44,13 +44,10 @@ global.levelmusic = bgm_gameover;
 //Current Player
 //0: Mario
 //1: Luigi
-global.player = 1;
+global.player = 0;
 
 //Time Limit
 global.time = 0;
-
-//World number
-global.world = 1;
 
 //Coin amount
 global.coins = 0;
@@ -76,38 +73,21 @@ global.checkpoint = noone;
 //Checkpoint Room
 global.checkpointroom = noone;
 
-//Displays Mario Start! text
-global.mariostart = 0;
-
 //Position change object type
 global.postchange = -1;
 
-//Position change coordinates
-global.postx = 0;
-global.posty = 0;
+//Exit direction for warp
+global.exit_dir = 0;
 
-//Whether Mario died
-global.died = 0;
-
-//Map pipe area spawn
-global.pipetype = 0;
-
-//Handle foregrounds
-for (var i=0; i<8; i++;) {
-
-    //Foregrounds
-    global.bgfg[i] = false;
-}
-
-//Give points if there's enemies on the goal
-global.bonus = -1;
+//ID of the exit warp
+global.exit_id = -1;
 
 //Is Mario riding a yoshi?
 global.mount = 0;
 global.mountcolour = 0;
 
 //Item in reserve
-global.reserveitem = cs_pow_fire;
+global.reserveitem = 0;
 
 //Whether the PSwitch effect was set in a room
 global.pswitch = 0;

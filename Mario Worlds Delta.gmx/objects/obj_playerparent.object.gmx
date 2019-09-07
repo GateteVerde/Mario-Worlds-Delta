@@ -1197,43 +1197,60 @@ if (invulnerable == false) {
     //Otherwise, if the player is not riding a yoshi
     else {
     
-        //If the player powerup is greater than mushroom
-        if (global.powerup &gt; cs_pow_super) {
+        //If the player is flying
+        if (instance_exists(obj_cape_fly)) {
         
-            //Play 'Powerdown' sound
-            audio_play_sound(snd_powerdown, 0, false);
+            //Play 'Cape Cancel' sound
+            audio_play_sound(snd_capecancel, 0, false);
             
-            //Perform animation sequence
-            _transform = instance_create(0, 0, obj_player_transform);
-                _transform.oldpowerup = global.powerup;
-                _transform.newpowerup = cs_pow_super;    
+            //Destroy cape object
+            with (obj_cape_fly) instance_destroy();
+            
+            //Start spin
+            jumpstyle = 1;
         }
         
-        //Otherwise, if the player is big
-        else if (global.powerup == cs_pow_super) {
-        
-            //Play 'Powerdown' sound
-            audio_play_sound(snd_powerdown, 0, false);
+        //Otherwise
+        else {
+    
+            //If the player powerup is greater than mushroom
+            if (global.powerup &gt; cs_pow_super) {
             
-            //Drop reserve item
-            with (obj_levelcontrol) {
-            
-                if (global.reserveitem &gt; cs_pow_small)
-                    event_user(1);
+                //Play 'Powerdown' sound
+                audio_play_sound(snd_powerdown, 0, false);
+                
+                //Perform animation sequence
+                _transform = instance_create(0, 0, obj_player_transform);
+                    _transform.oldpowerup = global.powerup;
+                    _transform.newpowerup = cs_pow_super;    
             }
             
-            //Perform animation sequence
-            _transform = instance_create(0, 0, obj_player_transform);
-                _transform.oldpowerup = global.powerup;
-                _transform.newpowerup = cs_pow_small;    
-        }
-        
-        //Otherwise, if the player is small
-        else if (global.powerup == cs_pow_small) {
-        
-            instance_create(x, y, obj_player_dead);
-            instance_destroy();
-            exit;
+            //Otherwise, if the player is big
+            else if (global.powerup == cs_pow_super) {
+            
+                //Play 'Powerdown' sound
+                audio_play_sound(snd_powerdown, 0, false);
+                
+                //Drop reserve item
+                with (obj_levelcontrol) {
+                
+                    if (global.reserveitem &gt; cs_pow_small)
+                        event_user(1);
+                }
+                
+                //Perform animation sequence
+                _transform = instance_create(0, 0, obj_player_transform);
+                    _transform.oldpowerup = global.powerup;
+                    _transform.newpowerup = cs_pow_small;    
+            }
+            
+            //Otherwise, if the player is small
+            else if (global.powerup == cs_pow_small) {
+            
+                instance_create(x, y, obj_player_dead);
+                instance_destroy();
+                exit;
+            }
         }
     }
     

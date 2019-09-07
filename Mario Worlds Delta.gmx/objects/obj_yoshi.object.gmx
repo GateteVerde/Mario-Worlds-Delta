@@ -413,7 +413,23 @@ else if (state == yoshistate.ridden) {
         else
             jumping = 0;
     }
+    
+    //Otherwise, if the player is warping through a pipe.
+    else if (instance_exists(obj_player_warp)) {
+    
+        //Snap into the player
+        x = obj_player_warp.x;
+        y = obj_player_warp.y;
+        
+        //Force the player to be invisible
+        obj_player_warp.visible = false;
+        
+        //Depth
+        depth = 10;
+    }
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -623,6 +639,61 @@ else {
         }
     }
     
+    //Otherwise, if the player is warping through a pipe
+    else if (instance_exists(obj_player_warp)) {
+    
+        //If the player is not moving vertically
+        if (obj_player_warp.vspeed == 0) {
+    
+            //If Yoshi is holding something on his mouth.
+            if (mouthholder != noone) {
+            
+                //Set the sprite
+                sprite_index = spr_yoshi_fullmouth;
+                
+                //Animate
+                image_speed = 0.2;
+            }
+            
+            //Otherwise, if Yoshi is not holding anything on his mouth.
+            else if (mouthholder == noone) {
+            
+                //Set the sprite
+                sprite_index = spr_yoshi;
+                
+                //Animate
+                image_speed = 0.2;               
+            }
+            
+            //Set the depth
+            depth = 10;
+        }
+        else {
+        
+            //If Yoshi is holding something on his mouth.
+            if (mouthholder != noone) {
+            
+                //Set the sprite
+                sprite_index = spr_yoshi_fullmouth_warp;
+                
+                //Do not animate
+                image_speed = 0;
+                image_index = 0;
+            }
+            
+            //Otherwise, if Yoshi is not holding anything on his mouth.
+            else if (mouthholder == noone) {
+            
+                //Set the sprite
+                sprite_index = spr_yoshi_warp;
+                
+                //Do not animate
+                image_speed = 0;
+                image_index = 0;
+            }
+        }
+    }
+    
     //Set up the y position for Mario
     if (sprite_index == spr_yoshi)
     || (sprite_index == spr_yoshi_fullmouth) {
@@ -767,6 +838,78 @@ if (state == yoshistate.idle)
         other.holding = 99;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="21">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player Animation (Warp)
+
+//Temporary player variables
+f = 0;
+m = player_ride();
+
+//If the player is moving vertically
+if (obj_player_warp.vspeed != 0) {
+
+    f = 2;
+}
+else {
+
+    f = 1;
+}
+
+//Set up the shader
+player_set_palette(obj_player_warp);
+
+//Draw the player
+if (m_vis == 1) {
+
+    //Draw the cape behind
+    if (global.powerup &gt;= cs_pow_cape) {
+        
+        if (obj_player_warp.vspeed != 0) {
+        
+            draw_sprite_ext(spr_cape_climb, 1, round(x), round(y)-8, 1, 1, 0, c_white, 1);
+        }
+    }
+
+    //Draw the player
+    if (obj_player_warp.vspeed == 0)
+        draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
+    else
+        draw_sprite_ext(m, f, round(x), round(y)-8, image_xscale, 1, 0, c_white, 1);
+    
+    //Draw the cape at the frong
+    if (global.powerup &gt;= cs_pow_cape) {
+        
+        //Draw the cape
+        if (obj_player_warp.vspeed == 0) {
+        
+            draw_sprite_ext(spr_cape_walk, -1, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
+        }
+    }
+}
+
+//Reset shader
+pal_swap_reset();
 </string>
           </argument>
         </arguments>
@@ -1060,21 +1203,77 @@ if (state == yoshistate.ridden) {
             <kind>1</kind>
             <string>///Draw Yoshi
 
-//Set the shader
-pal_swap_set(pal_sprite, colour);
+//If yoshi is not being ridden
+if (state != yoshistate.ridden) {
 
-//Draw Yoshi
-if (state == yoshistate.ridden)
-    draw_sprite_ext(sprite_index, image_index, round(x), round(y), obj_playerparent.xscale, 1, 0, c_white, 1);
-else
+    //Set the shader
+    pal_swap_set(pal_sprite, colour);
+    
+    //Draw it normally
     draw_sprite_ext(sprite_index, image_index, round(x), round(y), xscale, 1, 0, c_white, 1);
     
-//Reset shader
-pal_swap_reset();
+    //Reset shader
+    pal_swap_reset();
+}
 
-//Draw the player at the front if not turning
-if (state == yoshistate.ridden)
-    event_user(10);
+else if (state == yoshistate.ridden) {
+
+    //If the player does exist
+    if (instance_exists(obj_playerparent)) {
+    
+        //Set the shader
+        pal_swap_set(pal_sprite, colour);
+        
+        //Draw Yoshi
+        draw_sprite_ext(sprite_index, image_index, round(x), round(y), obj_playerparent.xscale, 1, 0, c_white, 1);
+            
+        //Reset shader
+        pal_swap_reset();
+        
+        //Draw the player at the front if not turning
+        if (state == yoshistate.ridden)
+            event_user(10);
+    }
+    
+    //Otherwise, if the player exists and it is warping through a pipe
+    else if (instance_exists(obj_player_warp)) {
+    
+        //If the player is not moving vertically
+        if (obj_player_warp.vspeed == 0) {
+        
+            //Set the shader
+            if (colour &gt; 0) {
+            
+                pal_swap_set(pal_sprite, colour);
+            }
+            
+            //Draw yoshi
+            draw_sprite_ext(sprite_index, image_index, round(x), round(y), obj_player_warp.image_xscale, 1, 0, c_white, 1);
+            
+            //Reset shader
+            shader_reset();    
+        }
+        
+        //Draw the player
+        event_user(11);
+        
+        //If the player is moving vertically.
+        if (obj_player_warp.vspeed != 0) {
+        
+            //Set the shader
+            if (colour &gt; 0) {
+            
+                pal_swap_set(pal_sprite, colour);
+            }
+            
+            //Draw yoshi
+            draw_sprite_ext(sprite_index, image_index, round(x), round(y), obj_player_warp.image_xscale, 1, 0, c_white, 1);
+            
+            //Reset shader
+            shader_reset();        
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

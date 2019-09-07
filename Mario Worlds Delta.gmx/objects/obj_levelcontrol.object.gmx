@@ -503,6 +503,16 @@ if (instance_exists(obj_playerparent)) {
     y = obj_playerparent.y + camera_y;
 }
 
+//Otherwise, follow up the player when warping
+else if (instance_exists(obj_player_warp)) {
+
+    //Stay at the player x position
+    x = obj_player_warp.x;
+    
+    //Stay at the player y position
+    y = obj_player_warp.y;
+    
+}
 //Otherwise, cancel camera y scroll
 else {
 
@@ -768,8 +778,8 @@ if (global.reserveitem != cs_pow_small) {
             <kind>1</kind>
             <string>///Destroy all player objects
 
-with (obj_mario) instance_destroy();
-with (obj_luigi) instance_destroy();
+with (obj_player) instance_destroy();
+with (obj_player_warp) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -838,6 +848,65 @@ if (leveltime &gt; 0)
 //If the timer was set, begin ticking
 if (global.time &gt; 0)
     alarm[2] = 60;
+    
+//If the player came from another room
+if (global.postchange != -1) {
+
+    //Destroy player objects
+    event_user(0);
+    
+    //Create the appropiate object at the given position
+    with (obj_warpnode) {
+    
+        if (global.exit_id == myid)
+            event_user(0);
+    }
+    
+    //Allow warp
+    global.postchange = -1;
+}
+
+//If the player was riding a yoshi on the previous room
+if (global.mount == 1) {
+
+    //Create a ridden yoshi
+    with (instance_create(x, y, obj_yoshi)) {
+    
+        state = yoshistate.ridden;
+    }
+}
+
+//Otherwise, if the player carried an item from the previous room
+else if (global.carrieditem != noone) {
+
+    //If the item is a carryable item
+    if (object_get_parent(global.carrieditem) == obj_parhold) {
+    
+        //Create it
+        with (instance_create(x, y, global.carrieditem)) {
+        
+            //Hold the item
+            held = 1;
+            
+            //Set up the sprite
+            if (global.carriedsprite != noone) {
+            
+                //Change the sprite
+                sprite_index = global.carriedsprite;
+                
+                //Reset sprite
+                global.carriedsprite = noone;    
+            }
+        }
+        
+        //If the player does exist on the room, force him to hold the item
+        if (instance_exists(obj_playerparent))
+            obj_playerparent.holding = 1;
+    }
+    
+    //Reset the variable
+    global.carrieditem = noone;
+}
 </string>
           </argument>
         </arguments>

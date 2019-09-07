@@ -20,6 +20,7 @@
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_burn</sound>
+    <sound>sound\snd_capecancel</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
@@ -167,6 +168,7 @@
           <sprite>sprites\spr_mask_b</sprite>
           <sprite>sprites\spr_mask_player</sprite>
           <sprite>sprites\spr_mask_player_big</sprite>
+          <sprite>sprites\spr_mask_player_warp</sprite>
         </sprites>
         <sprite>sprites\spr_helmet</sprite>
         <sprite>sprites\spr_helmet_b</sprite>
@@ -373,6 +375,11 @@
         </sprites>
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
+      </sprites>
+      <sprites name="Warps">
+        <sprite>sprites\spr_warp</sprite>
+        <sprite>sprites\spr_warpside</sprite>
+        <sprite>sprites\spr_warpnode</sprite>
       </sprites>
       <sprite>sprites\spr_24mask</sprite>
       <sprite>sprites\spr_blowmask</sprite>
@@ -614,10 +621,24 @@
     <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
   <objects name="objects">
-    <object>objects\obj_player_start</object>
-    <object>objects\obj_levelcontrol</object>
-    <object>objects\obj_rainmaker</object>
-    <object>objects\obj_snowmaker</object>
+    <object>objects\obj_player</object>
+    <object>objects\obj_player_warp</object>
+    <objects name="Controllers">
+      <objects name="Weather">
+        <object>objects\obj_rainmaker</object>
+        <object>objects\obj_snowmaker</object>
+      </objects>
+      <objects name="Pipes">
+        <objects name="Entrances">
+          <object>objects\obj_warptop</object>
+          <object>objects\obj_warpbottom</object>
+          <object>objects\obj_warpleft</object>
+          <object>objects\obj_warpright</object>
+        </objects>
+        <object>objects\obj_warpnode</object>
+      </objects>
+      <object>objects\obj_levelcontrol</object>
+    </objects>
     <objects name="Collision">
       <object>objects\obj_solid</object>
       <object>objects\obj_semisolid</object>
@@ -950,6 +971,7 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
+    <room>rooms\rm_engine_b</room>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>

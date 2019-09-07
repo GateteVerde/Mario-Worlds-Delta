@@ -51,7 +51,6 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_player" x="192" y="160" name="inst_08A8B44B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="240" y="176" name="inst_0EB7740C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="224" y="176" name="inst_82E36F40" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="208" y="176" name="inst_2A075206" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -101,8 +100,6 @@
     <instance objName="obj_brick" x="160" y="112" name="inst_47A0E4AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="176" y="112" name="inst_FEB1A880" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="192" y="112" name="inst_F0EFD91F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_fireflower" x="176" y="112" name="inst_432F8E41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_feather" x="192" y="112" name="inst_F0A440F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="176" y="176" name="inst_99DFC42E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="192" y="176" name="inst_031564A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="192" y="192" name="inst_37600368" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -110,7 +107,9 @@
     <instance objName="obj_solid" x="176" y="192" name="inst_2DE5ADCE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="176" y="208" name="inst_E83661EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="192" y="192" name="inst_BCEF16A6" locked="0" code="myid = 4;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warptop" x="176" y="176" name="inst_C98FD745" locked="0" code="destination = rm_engine_b;&#xA;exit_type = 1;&#xA;exit_dir = 90;&#xA;exit_id = 4;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warptop" x="176" y="176" name="inst_C98FD745" locked="0" code="destination = rm_engine;&#xA;exit_type = 1;&#xA;exit_dir = 90;&#xA;exit_id = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_egg_r" x="176" y="112" name="inst_C62ECA4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_powblock" x="192" y="112" name="inst_E3AA1741" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="336" y="176" w="16" h="16" xo="20" yo="2" id="10006714" name="inst_1F858E0A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

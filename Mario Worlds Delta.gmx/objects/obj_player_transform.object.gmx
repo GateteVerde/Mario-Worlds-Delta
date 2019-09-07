@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>///The player is evolving, ok no :)
 
+//Destroy some objects first
+with (obj_cape_fly) instance_destroy();
+with (obj_spinner) instance_destroy();
+
 //Old / New powerup
 oldpowerup = 0;
 newpowerup = 0;
