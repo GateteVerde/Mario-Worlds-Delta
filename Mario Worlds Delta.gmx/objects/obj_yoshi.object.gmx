@@ -425,7 +425,21 @@ else if (state == yoshistate.ridden) {
         obj_player_warp.visible = false;
         
         //Depth
-        depth = 10;
+        depth = 11;
+    }
+    
+    //Otherwise, if the player is warping through a door.
+    else if (instance_exists(obj_player_door)) {
+    
+        //Snap into the player
+        x = obj_player_door.x;
+        y = obj_player_door.y;
+        
+        //Force the player to be invisible
+        obj_player_door.visible = false;
+        
+        //Depth
+        depth = -5;
     }
 }
 
@@ -843,6 +857,52 @@ if (state == yoshistate.idle)
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player Animation (Door)
+
+//Temporary player variables
+f = 0;
+m = player_ride();
+
+//Set up the shader
+player_set_palette(obj_player_door);
+
+//Draw the player
+if (m_vis == 1) {
+
+    //Draw the cape at the frong
+    if (global.powerup &gt;= cs_pow_cape) {
+    
+        draw_sprite_ext(spr_cape, 0, round(x)-(6*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
+    }    
+        
+    //Draw the player
+    draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
+}
+
+//Reset shader
+pal_swap_reset();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="21">
       <action>
         <libid>1</libid>
@@ -1094,10 +1154,9 @@ else {
         else {
         
             //If the eaten item is a POW block.
-            if (sprite_index = spr_powblock) {
-            
-                kicked = true;
-            }
+            if (sprite_index = spr_powblock_blue) 
+            &amp;&amp; (!keyboard_check(global.key_d))      
+                ready = 1;
 
             //If the eaten item is not overlapping a solid.
             if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
@@ -1272,6 +1331,25 @@ else if (state == yoshistate.ridden) {
             //Reset shader
             shader_reset();        
         }
+    }
+    
+    //Otherwise, if the player exists and it is warping through a door
+    else if (instance_exists(obj_player_door)) {
+    
+        //Set the shader
+        if (colour &gt; 0) {
+        
+            pal_swap_set(pal_sprite, colour);
+        }
+        
+        //Draw yoshi
+        draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, obj_player_door.image_xscale, 1, 0, c_white, 1);
+        
+        //Reset shader
+        shader_reset();    
+    
+        //Draw the player
+        event_user(12);
     }
 }
 </string>

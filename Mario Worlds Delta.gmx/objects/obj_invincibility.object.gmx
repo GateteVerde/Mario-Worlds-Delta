@@ -41,6 +41,9 @@ hitcombo = 0;
 
 //Warn the player
 warning = 0;
+
+//Object to follow
+follow = noone;
 </string>
           </argument>
         </arguments>
@@ -75,6 +78,27 @@ if (instance_exists(obj_playerparent)) {
     //Otherwise 
     else if (mask_index == spr_mask_player_big)
         instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle);
+}
+
+//Otherwise
+else {
+
+    //Set object to check
+    event_user(15);
+    
+    //If the player is small
+    if (global.powerup == cs_pow_small) {
+    
+        spark = instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle);
+        spark.depth = follow.depth-1;
+    }
+    
+    //Otherwise 
+    else if (mask_index == spr_mask_player_big) {
+    
+        spark = instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle);
+        spark.depth = follow.depth-1;
+    }
 }
 
 //Repeat
@@ -215,6 +239,16 @@ if (instance_exists(obj_playerparent)) {
     mask_index = obj_playerparent.mask_index;
 }
 
+else {
+
+    //Set object to follow
+    event_user(15);
+    
+    //Snap into the following object position.
+    x = follow.x;
+    y = follow.y;    
+}
+
 //Warn the player that the starman effect is running out
 if ((warning == 0) &amp;&amp; (alarm[0] &lt;= 120)) {
 
@@ -226,6 +260,72 @@ if ((warning == 0) &amp;&amp; (alarm[0] &lt;= 120)) {
 }
 else if ((warning == 1) &amp;&amp; (alarm[0] &gt; 120)) 
     warning = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check what item is present
+
+//Check 'Warp'
+if (instance_exists(obj_player_warp))
+    follow = obj_player_warp;
+    
+//Check 'Door'
+else if (instance_exists(obj_player_door))
+    follow = obj_player_door;
+    
+//Reset to default
+else
+    follow = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Remember the star for the next room
+
+//If the effect is still present
+if alarm[0] &gt; 5
+    global.starman = alarm[0];
+
+//Stop the star if there is not enough time left
+else
+    audio_stop_sound(bgm_star);
 </string>
           </argument>
         </arguments>

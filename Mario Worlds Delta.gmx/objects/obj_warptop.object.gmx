@@ -31,14 +31,12 @@
 **  This item uses creation code!
 **
 **  destination = Destination room (Leave as is to not change room.)
-**  exit_type   = Exit warp type (0: Normal, 1: Pipe)
 **  exit_dir    = Exit pipe direction
 **  exit_id     = Warp ID
 */
 
 //Default variables
 destination = noone;
-exit_type = -1;
 exit_dir = 0;
 exit_id = -1;
 </string>
@@ -85,6 +83,9 @@ if (keyboard_check(global.key_d)) {
             
             //Facing direction
             warpme.image_xscale = player.xscale;
+                        
+            //Colour
+            warpme.isflashing = player.isflashing;
             
             //Set up direction
             warpme.direction = 270;
@@ -99,7 +100,7 @@ if (keyboard_check(global.key_d)) {
             warpme.alarm[0] = 32;
             
             //Set up warp parameters
-            warpme.exit_type = exit_type;
+            warpme.exit_type = 1;
             warpme.exit_dir = exit_dir;
             warpme.exit_id = exit_id;
             

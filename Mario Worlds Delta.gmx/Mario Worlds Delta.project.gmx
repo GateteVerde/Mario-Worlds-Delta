@@ -25,6 +25,7 @@
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
+    <sound>sound\snd_door</sound>
     <sound>sound\snd_eat</sound>
     <sound>sound\snd_engine</sound>
     <sound>sound\snd_explosion</sound>
@@ -346,6 +347,10 @@
       <sprite>sprites\spr_beepblock_red</sprite>
       <sprite>sprites\spr_beepblock_blue</sprite>
       <sprite>sprites\spr_beepblock_empty</sprite>
+      <sprite>sprites\spr_door</sprite>
+      <sprite>sprites\spr_door_p</sprite>
+      <sprite>sprites\spr_door_p_outline</sprite>
+      <sprite>sprites\spr_door_inside</sprite>
       <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Masks">
@@ -628,12 +633,17 @@
         <object>objects\obj_rainmaker</object>
         <object>objects\obj_snowmaker</object>
       </objects>
-      <objects name="Pipes">
-        <objects name="Entrances">
-          <object>objects\obj_warptop</object>
-          <object>objects\obj_warpbottom</object>
-          <object>objects\obj_warpleft</object>
-          <object>objects\obj_warpright</object>
+      <objects name="Warps">
+        <objects name="Doors">
+          <object>objects\obj_door</object>
+        </objects>
+        <objects name="Pipes">
+          <objects name="Entrances">
+            <object>objects\obj_warptop</object>
+            <object>objects\obj_warpbottom</object>
+            <object>objects\obj_warpleft</object>
+            <object>objects\obj_warpright</object>
+          </objects>
         </objects>
         <object>objects\obj_warpnode</object>
       </objects>
@@ -854,6 +864,7 @@
           <objects name="Events">
             <object>objects\obj_player_transform</object>
             <object>objects\obj_player_dead</object>
+            <object>objects\obj_player_door</object>
           </objects>
           <objects name="Special">
             <object>objects\obj_mario</object>

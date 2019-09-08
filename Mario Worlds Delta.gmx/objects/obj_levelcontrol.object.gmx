@@ -907,6 +907,34 @@ else if (global.carrieditem != noone) {
     //Reset the variable
     global.carrieditem = noone;
 }
+
+//If the P-Switch needs to carry over from the previous room
+if (global.pswitch &gt; 0) {
+
+    //Turn on the P-Switch
+    event_user(2);
+
+    //Set the timer, and make sure it is not too short
+    alarm[6] = max(global.pswitch, 30);
+
+    //Reset the variable
+    global.pswitch = 0;
+
+}
+
+//If a star needs to carry over from the previous room
+if (global.starman &gt; 0) {
+
+    //With the newly created invincibility object, set its time limit, and make sure it is not too short
+    with (instance_create(x, y, obj_invincibility)) {
+    
+        alarm[0] = max(global.starman, 30);
+        alarm[3] = 1;
+    }
+
+    //Reset the variable
+    global.starman = 0;
+}
 </string>
           </argument>
         </arguments>
