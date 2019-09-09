@@ -636,6 +636,7 @@
       <objects name="Warps">
         <objects name="Doors">
           <object>objects\obj_door</object>
+          <object>objects\obj_door_p</object>
         </objects>
         <objects name="Pipes">
           <objects name="Entrances">
@@ -982,7 +983,6 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
-    <room>rooms\rm_engine_b</room>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>

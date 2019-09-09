@@ -720,10 +720,10 @@ else {
 pal_swap_set(pal, numb);
 
 //Draw the player
-if (global.mount == 0)
+if (global.mount == 0) {
+
     draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
-else
-    
+}
 
 //Reset shader
 pal_swap_reset();

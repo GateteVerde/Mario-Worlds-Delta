@@ -55,31 +55,43 @@ if (gravity != 0)
 
 if (gravity != 0) {
 
-    //If this skewer shattered less than 4 stone blocks, shatter block
-    if (count &lt; 4) {
-    
-        count++;
+    //If this object is not a stone one
+    if (other.object_index == obj_iceblock)
+    || (other.object_index == obj_emptyblock)
         with (other) event_user(0);
-    }
     
-    //Otherwise, stop it
-    else if (count == 4) {
+    //Otherwise, count them
+    else {
     
-        //Play 'Thud' sound
-        audio_play_sound(snd_thud, 0, false);
+        //If this skewer shattered less than 4 stone blocks, shatter block
+        if (count &lt; 3) {
         
-        //Snap in grid
-        move_snap(16, 16);
-    
-        //No gravity
-        gravity = 0;
-        speed = 0;
+            count++;
+            with (other) event_user(0);
+        }
         
-        //Is ready
-        ready = 1;
+        //Otherwise, stop it
+        else if (count == 3) {
         
-        //Return to position
-        alarm[3] = 60;
+            //Play 'Thud' sound
+            audio_play_sound(snd_thud, 0, false);
+                
+            //Destroy one more block and stop
+            with (other) event_user(0);
+            
+            //Snap in grid
+            move_snap(16, 16);
+        
+            //No gravity
+            gravity = 0;
+            speed = 0;
+            
+            //Is ready
+            ready = 1;
+            
+            //Return to position
+            alarm[3] = 60;
+        }
     }
 }
 </string>

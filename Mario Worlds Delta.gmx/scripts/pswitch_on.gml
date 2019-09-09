@@ -35,3 +35,11 @@ with (obj_coinchange) {
 
 //Make invisible coins visible
 with (obj_coin_p) visible = true;
+
+//Make P-Doors usable
+with (obj_door_p) {
+
+    sprite_index = spr_door_p;
+    image_speed = 0;
+    image_index = 0;
+}

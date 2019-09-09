@@ -203,6 +203,10 @@ if (ready == 0) {
     
         //Play 'Thud' sound
         audio_play_sound(snd_thud, 0, false);
+        
+        //Create smoke effects
+        with (instance_create(bbox_left, bbox_top, obj_smoke)) { sprite_index = spr_smoke_big; motion_set(90, 1); }
+        with (instance_create(bbox_left, bbox_bottom, obj_smoke)) { sprite_index = spr_smoke_big; motion_set(270, 1); }
     
         //No gravity
         gravity = 0;
@@ -222,10 +226,10 @@ if (ready == 0) {
     }
         
     //Otherwise, check if it's long enough to stop it.
-    else if (x &lt; parent.x-240) {
+    else if (x &lt; parent.x-208) {
     
         //Snap into position
-        x = parent.x-240;
+        x = parent.x-208;
         
         //No gravity
         gravity = 0;

@@ -945,10 +945,10 @@ if (m_vis == 1) {
     //Draw the cape behind
     if (global.powerup &gt;= cs_pow_cape) {
         
-        if (obj_player_warp.vspeed != 0) {
-        
+        if (obj_player_warp.vspeed != 0)        
             draw_sprite_ext(spr_cape_climb, 1, round(x), round(y)-8, 1, 1, 0, c_white, 1);
-        }
+        else
+            draw_sprite_ext(spr_cape_walk, -1, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
     }
 
     //Draw the player
@@ -956,16 +956,6 @@ if (m_vis == 1) {
         draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
     else
         draw_sprite_ext(m, f, round(x), round(y)-8, image_xscale, 1, 0, c_white, 1);
-    
-    //Draw the cape at the frong
-    if (global.powerup &gt;= cs_pow_cape) {
-        
-        //Draw the cape
-        if (obj_player_warp.vspeed == 0) {
-        
-            draw_sprite_ext(spr_cape_walk, -1, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
-        }
-    }
 }
 
 //Reset shader
@@ -1289,9 +1279,8 @@ else if (state == yoshistate.ridden) {
         //Reset shader
         pal_swap_reset();
         
-        //Draw the player at the front if not turning
-        if (state == yoshistate.ridden)
-            event_user(10);
+        //Draw the player
+        event_user(10);
     }
     
     //Otherwise, if the player exists and it is warping through a pipe
@@ -1343,7 +1332,7 @@ else if (state == yoshistate.ridden) {
         }
         
         //Draw yoshi
-        draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, obj_player_door.image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(sprite_index, 0, round(x), round(y)+1, obj_player_door.image_xscale, 1, 0, c_white, 1);
         
         //Reset shader
         shader_reset();    

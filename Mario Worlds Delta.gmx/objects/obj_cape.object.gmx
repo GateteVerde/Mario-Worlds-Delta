@@ -277,14 +277,14 @@ if (global.powerup &gt; cs_pow_fire)
             if (obj_yoshi.f == 1)
                 draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
             else
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-9+yy, image_xscale, 1, 0, c_white, image_alpha);
+                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);
         }
         else {
         
             if (obj_player_transform.riderframe == 1)
                 draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
             else
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-9+yy, image_xscale, 1, 0, c_white, image_alpha);            
+                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);            
         }
     }
 }
