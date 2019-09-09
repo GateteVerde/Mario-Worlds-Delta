@@ -33,15 +33,47 @@
 **  destination = Destination room (Leave as is to not change room.)
 **  exit_dir    = Exit pipe direction
 **  exit_id     = Warp ID
+**  lock        = If true, locks the door (Once unlocked, it will remain open during the rest of the level)
 */
 
 //Default variables
 destination = noone;
 exit_dir = 0;
 exit_id = -1;
+lock = 0;
 
 //Do not animate
 image_speed = 0;
+
+//Check if the door was opened before
+alarm[0] = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Unlock if this door was opened before
+
+if (lock == 1) 
+&amp;&amp; (ds_map_exists(global.doors, id))
+    lock = 0;
 </string>
           </argument>
         </arguments>
@@ -69,7 +101,8 @@ image_speed = 0;
 //If the 'Up' key is pressed
 if (keyboard_check_pressed(global.key_u)) 
 &amp;&amp; (image_speed == 0)
-&amp;&amp; (image_index == 0) {
+&amp;&amp; (image_index == 0) 
+&amp;&amp; (lock == 0) {
 
     //If the player does exist
     if (instance_exists(obj_playerparent)) {
@@ -114,6 +147,56 @@ if (keyboard_check_pressed(global.key_u))
             with (obj_playerparent) instance_destroy();
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_key">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If a key makes contact with this door...
+
+//If the door is locked
+if (lock == 1)
+&amp;&amp; (other.held == true) {
+
+    //Unlock the door
+    lock = 0;
+    
+    //With the key
+    with (other) {
+    
+        //Play 'Bump' sound
+        audio_play_sound(snd_bump, 0, false);
+        
+        //Create a puff of smoke
+        with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_big;
+        
+        //Destroy
+        instance_destroy();
+    }
+    
+    //Create a puff of smoke
+    with (instance_create(x+8, y, obj_smoke)) sprite_index = spr_smoke_big;
+    
+    //Remember it
+    ds_map_add(global.doors, id, 1);
 }
 </string>
           </argument>
@@ -177,6 +260,10 @@ if (image_index &gt; 0) {
 
 //Draw door
 draw_sprite(sprite_index, -1, x, y);
+
+//Draw lock
+if (lock == 1)
+    draw_sprite(spr_door_lock, -1, x, y);
 </string>
           </argument>
         </arguments>
