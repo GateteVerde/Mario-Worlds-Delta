@@ -93,20 +93,27 @@ if (ready == 1) {
     scale += 0.05;
     if (scale &gt; 1) {
     
-        //Create donut replacement.
-        switch (image_index) {
+        //Check sprite
+        if (sprite_index == spr_icicle_appear)        
+            instance_create(xstart-8, ystart, obj_icicle);
         
-            //1x1 Donut
-            case (0): instance_create(xstart-8, ystart-8, obj_donut); break;
-
-            //3x1 Donut
-            case (1): instance_create(xstart-24, ystart-8, obj_donut_triple); break;
-                    
-            //1x1 Red Donut
-            case (2): instance_create(xstart-8, ystart-8, obj_donut_red); break;
-
-            //3x1 Red Donut
-            case (3): instance_create(xstart-24, ystart-8, obj_donut_red_triple); break;
+        else {
+        
+            //Create donut replacement.
+            switch (image_index) {
+            
+                //1x1 Donut
+                case (0): instance_create(xstart-8, ystart-8, obj_donut); break;
+    
+                //3x1 Donut
+                case (1): instance_create(xstart-24, ystart-8, obj_donut_triple); break;
+                        
+                //1x1 Red Donut
+                case (2): instance_create(xstart-8, ystart-8, obj_donut_red); break;
+    
+                //3x1 Red Donut
+                case (3): instance_create(xstart-24, ystart-8, obj_donut_red_triple); break;
+            }
         }
         
         //Destroy

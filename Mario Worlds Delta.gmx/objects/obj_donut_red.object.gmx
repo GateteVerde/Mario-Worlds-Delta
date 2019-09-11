@@ -27,44 +27,55 @@
             <kind>1</kind>
             <string>///Red donut logic
 
-//If not falling
-if (vspeed == 0) {
+//If the player does exist
+if (instance_exists(obj_playerparent)) {
 
-    //If the player is above and it's not overlapping a semisolid, resume timer
-    if (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_playerparent, 0, 0))
-    &amp;&amp; (obj_playerparent.y &lt; y-11)
-    &amp;&amp; (obj_playerparent.vspeed &gt;= 0)
-    &amp;&amp; (obj_playerparent.state != statetype.jump)    
-        shake = 1;
-
-    //Otherwise, wait to shake.
+    //If not falling
+    if (vspeed == 0) {
+    
+        //If the player is above and it's not overlapping a semisolid, resume timer
+        if (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_playerparent, 0, 0))
+        &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
+        &amp;&amp; (obj_playerparent.state != statetype.jump)    
+            shake = 1;
+    
+        //Otherwise, wait to shake.
+        else {
+        
+            shake = 0;
+            alarm[0] = 7;
+        }
+    }
+    
+    //Otherwise
     else {
     
-        shake = 0;
-        alarm[0] = 7;
+        //Do not shake
+        shake = 2;    
+        
+        //If the player is on this donut
+        if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
+        &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
+        &amp;&amp; (obj_playerparent.state != statetype.jump) {
+    
+            //Check if falling through a semisolid
+            var check = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
+            
+            //If not falling through, or falling througn a lower donut, snap the player vertically
+            if (!check)
+            || (((check.object_index == obj_donut) or (check.object_index == obj_donut_red)) &amp;&amp; ((check.y &gt; y) || ((check.y = y) &amp;&amp; (check &gt; id))))
+                obj_playerparent.y = ceil(bbox_top-16);
+        }
     }
 }
 
-//Otherwise
+//Otherwise, do not shake
 else {
 
-    //Do not shake
-    shake = 2;    
-    
-    //If the player is on this donut
-    if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
-    &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
-    &amp;&amp; (obj_playerparent.state != statetype.jump) {
-
-        //Check if falling through a semisolid
-        var check = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
-        
-        //If not falling through, or falling througn a lower donut, snap the player vertically
-        if (!check)
-        || (((check.object_index == obj_donut) or (check.object_index == obj_donut_red)) &amp;&amp; ((check.y &gt; y) || ((check.y = y) &amp;&amp; (check &gt; id))))
-            obj_playerparent.y = ceil(bbox_top-16);
-    }
+    shake = 0;
+    alarm[0] = 7;
 }
+
 
 //Destroy
 if (shake == 2)

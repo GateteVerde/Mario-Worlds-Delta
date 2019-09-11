@@ -44,6 +44,7 @@
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
     <sound>sound\snd_reservedrop</sound>
+    <sound>sound\snd_shatter</sound>
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
@@ -347,6 +348,9 @@
       <sprite>sprites\spr_beepblock_red</sprite>
       <sprite>sprites\spr_beepblock_blue</sprite>
       <sprite>sprites\spr_beepblock_empty</sprite>
+      <sprite>sprites\spr_icicle</sprite>
+      <sprite>sprites\spr_icicle_dark</sprite>
+      <sprite>sprites\spr_icicle_appear</sprite>
       <sprite>sprites\spr_door</sprite>
       <sprite>sprites\spr_door_p</sprite>
       <sprite>sprites\spr_door_p_outline</sprite>
@@ -780,6 +784,7 @@
       <object>objects\obj_spikeblock_g</object>
       <object>objects\obj_beepblock_red</object>
       <object>objects\obj_beepblock_blue</object>
+      <object>objects\obj_icicle</object>
       <object>objects\obj_key</object>
     </objects>
     <objects name="Modifiers">
