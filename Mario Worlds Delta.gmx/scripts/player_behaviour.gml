@@ -75,7 +75,8 @@ if (inwall == false)
     
     //...and the player can jump.
     && (((state != statetype.jump)
-    && (jumping == 0))
+    && (jumping == 0)
+    && (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top+4, obj_slopeparent_ceiling, 1, 0)))
     
     //Allow the player to jump off of Yoshi or a shoe while in midair
     || ((keyboard_check(global.key_u))

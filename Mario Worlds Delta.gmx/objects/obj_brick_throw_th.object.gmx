@@ -251,7 +251,8 @@ else {
     if (vspeed &gt; -0.5) {
     
         //If the item can be held and the player can hold it
-        if (can_hold()) 
+        if (can_hold())
+        &amp;&amp; (ready == 0)
         &amp;&amp; (other.bbox_bottom &gt; bbox_top) {
         
             //Make the player hold it

@@ -176,6 +176,9 @@ if (keyboard_check_pressed(global.key_u))
 if (lock == 1)
 &amp;&amp; (other.held == true) {
 
+    //Play 'Key' sound
+    audio_play_sound(snd_key, 0, false);
+
     //Unlock the door
     lock = 0;
     

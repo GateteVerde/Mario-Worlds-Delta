@@ -668,30 +668,48 @@ if (escalator)
     }
 }
 
-//If moving right and the player bumps a wall to the right
-if (hspeed &gt; 0) 
-&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+//If moving right
+if (hspeed &gt; 0) {
+
+    //If there's a wall in position
+    if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+            x--;
+    }
     
-    //Stop horizontal speed
-    hspeed = 0;    
-    
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
-        x--;
+    //Otherwise, if there's a ceiling slope collision
+    else if (collision_line(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4-(slope*4), obj_slopeparent_ceiling, 1, 0))
+    &amp;&amp; (state != statetype.jump)
+    &amp;&amp; (state != statetype.climb)
+        hspeed = 0;
 }
 
-//Otherwise, if moving left and the player bumps a wall to the left
-else if (hspeed &lt; 0)
-&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+//Otherwise, if moving left
+else if (hspeed &lt; 0) {
+
+    //If there's a wall in position
+    if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
+            x++;
+    }
     
-    //Stop horizontal speed
-    hspeed = 0;    
-    
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
-        x++;
+    //Otherwise, if there's a ceiling slope collision
+    else if (collision_line(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_slopeparent_ceiling, 1, 0))
+    &amp;&amp; (state != statetype.jump)
+    &amp;&amp; (state != statetype.climb)
+        hspeed = 0;
 }
 
 //If moving up...

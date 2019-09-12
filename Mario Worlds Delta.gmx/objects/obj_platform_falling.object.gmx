@@ -95,7 +95,7 @@ else
             <kind>1</kind>
             <string>///Apply gravity
 
-gravity = 0.1;
+vspeed = 2;
 </string>
           </argument>
         </arguments>
@@ -127,7 +127,7 @@ if (ready == 0)
 &amp;&amp; (obj_playerparent.state != statetype.jump) {
 
     //Set the vertical speed
-    vspeed = 0.25;
+    vspeed = 0.5;
     
     //Platform is falling
     ready = 1;
@@ -153,7 +153,7 @@ else if (ready == 1) {
 
 //If the player is on this falling platform, snap it vertically.
 if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
-&amp;&amp; (!collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+4, obj_semisolid, 0, 1))
+&amp;&amp; (!collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1))
 &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
 &amp;&amp; (obj_playerparent.state != statetype.jump)
     obj_playerparent.y = ceil(bbox_top-16);

@@ -36,6 +36,7 @@
     <sound>sound\snd_hurt</sound>
     <sound>sound\snd_intro</sound>
     <sound>sound\snd_jump</sound>
+    <sound>sound\snd_key</sound>
     <sound>sound\snd_kick</sound>
     <sound>sound\snd_lick</sound>
     <sound>sound\snd_lightning</sound>
@@ -178,6 +179,7 @@
         <sprite>sprites\spr_palette_invincibility</sprite>
       </sprites>
       <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_start</sprite>
     </sprites>
     <sprites name="Blocks">
       <sprites name="Item Blocks">
@@ -349,8 +351,9 @@
       <sprite>sprites\spr_beepblock_blue</sprite>
       <sprite>sprites\spr_beepblock_empty</sprite>
       <sprite>sprites\spr_icicle</sprite>
-      <sprite>sprites\spr_icicle_dark</sprite>
+      <sprite>sprites\spr_icicle_static</sprite>
       <sprite>sprites\spr_icicle_appear</sprite>
+      <sprite>sprites\spr_icicle_shard</sprite>
       <sprite>sprites\spr_door</sprite>
       <sprite>sprites\spr_door_p</sprite>
       <sprite>sprites\spr_door_p_outline</sprite>
@@ -385,11 +388,6 @@
         </sprites>
         <sprite>sprites\spr_square_hurt</sprite>
         <sprite>sprites\spr_square_hurt_lethal</sprite>
-      </sprites>
-      <sprites name="Warps">
-        <sprite>sprites\spr_warp</sprite>
-        <sprite>sprites\spr_warpside</sprite>
-        <sprite>sprites\spr_warpnode</sprite>
       </sprites>
       <sprite>sprites\spr_24mask</sprite>
       <sprite>sprites\spr_blowmask</sprite>
@@ -439,6 +437,15 @@
         <sprite>sprites\spr_modifier_coin_multi</sprite>
         <sprite>sprites\spr_modifier_beanstalk</sprite>
         <sprite>sprites\spr_modifier_key</sprite>
+      </sprites>
+      <sprites name="Warp">
+        <sprites name="Pipes">
+          <sprite>sprites\spr_warp</sprite>
+          <sprite>sprites\spr_warp_up</sprite>
+          <sprite>sprites\spr_warp_left</sprite>
+          <sprite>sprites\spr_warp_right</sprite>
+        </sprites>
+        <sprite>sprites\spr_warpnode</sprite>
       </sprites>
       <sprite>sprites\spr_up</sprite>
       <sprite>sprites\spr_down</sprite>
@@ -785,6 +792,7 @@
       <object>objects\obj_beepblock_red</object>
       <object>objects\obj_beepblock_blue</object>
       <object>objects\obj_icicle</object>
+      <object>objects\obj_icicle_static</object>
       <object>objects\obj_key</object>
     </objects>
     <objects name="Modifiers">
@@ -941,6 +949,7 @@
             </objects>
             <object>objects\obj_powblock_active</object>
             <object>objects\obj_powblock_killer</object>
+            <object>objects\obj_icicle_shard</object>
           </objects>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_beanstalk</object>
