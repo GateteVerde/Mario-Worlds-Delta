@@ -250,8 +250,8 @@ alarm[2] = 6;
             <kind>1</kind>
             <string>///Freeze all object and begin animation
 
-//Take a screenshot
-back = background_create_from_surface(application_surface, 0, 0, global.gw, global.gh, 0, 0);
+//Create a screenshot
+back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);
 
 //Deactivate all instances
 instance_deactivate_all(1);

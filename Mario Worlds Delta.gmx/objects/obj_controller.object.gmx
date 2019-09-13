@@ -602,7 +602,7 @@ mode = 1;
 size = 0;
 
 //Take a screenshot
-back = background_create_from_surface(application_surface, 0, 0, view_wview[0], view_hview[0], 0, 0);
+back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);
 
 //Set alarm to execute when the next room starts
 alarm[1] = 1;
