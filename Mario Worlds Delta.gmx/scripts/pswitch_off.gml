@@ -8,7 +8,6 @@
 **      Replaces items affected by the P-Switch to normal
 */
 
-
 //Turn bricks into coins
 with (obj_brick) {
 

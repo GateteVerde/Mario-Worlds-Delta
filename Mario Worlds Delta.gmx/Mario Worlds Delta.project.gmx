@@ -286,6 +286,9 @@
           <sprite>sprites\spr_platform_ferris_64</sprite>
           <sprite>sprites\spr_platform_ferris_80</sprite>
           <sprite>sprites\spr_platform_yoshi</sprite>
+          <sprite>sprites\spr_platform_track</sprite>
+          <sprite>sprites\spr_platform_track_blue</sprite>
+          <sprite>sprites\spr_platform_track_blue_b</sprite>
           <sprite>sprites\spr_engine</sprite>
         </sprites>
         <sprites name="Belts">
@@ -548,9 +551,6 @@
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
       <background>background\tls_main_filler</background>
-      <background>background\tls_pipes</background>
-      <background>background\tls_paths</background>
-      <background>background\tls_spikes</background>
     </backgrounds>
     <background>background\bgr_presents</background>
   </backgrounds>
@@ -603,6 +603,7 @@
       <scripts name="Events">
         <script>scripts\pswitch_on.gml</script>
         <script>scripts\pswitch_off.gml</script>
+        <script>scripts\variable_global_reset.gml</script>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\init_pixel.gml</script>
@@ -742,6 +743,8 @@
           <object>objects\obj_platform_pulley</object>
           <object>objects\obj_platform_ferris</object>
           <object>objects\obj_platform_yoshi</object>
+          <object>objects\obj_platform_track</object>
+          <object>objects\obj_platform_track_blue</object>
           <object>objects\obj_engine</object>
         </objects>
         <objects name="Belts">

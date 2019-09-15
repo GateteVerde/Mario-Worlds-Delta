@@ -60,13 +60,16 @@ alarm[5] = 3;
 //Fade in / fade out
 ready = 0;
 
+//Object to follow
+follow = noone;
+
 //Background alpha values
 background_alpha[0] = 1;
 background_alpha[1] = 0;
 
 //Background blend values
-background_blend[0] = c_orange;
-background_blend[1] = c_orange;
+background_blend[0] = c_yellow;
+background_blend[1] = c_yellow;
 
 //Create HUD
 instance_create(0, 0, obj_hud);
@@ -454,40 +457,43 @@ else if (ready == 1) {
 
 //If the player object exists, follow it
 if (instance_exists(obj_playerparent)) {
+
+    //Object to follow
+    follow = obj_playerparent;
     
     //If the barrier is not enabled
     if (barrier == true) {
         
         //If the player is at the leftmost part of the view
-        if (obj_playerparent.x &lt; view_xview[0]+8) {
+        if (obj_playerparent.x &lt; view_xview[view_current]+8) {
         
             //If the cape object exists
             if (instance_exists(obj_cape_fly)) {
             
-                obj_cape_fly.x = view_xview[0]+8;
+                obj_cape_fly.x = view_xview[view_current]+8;
                 if (obj_cape_fly.hspeed &lt; 0)
                     obj_cape_fly.hspeed = 0;
             }
             
             //Prevent the player from getting outside the view
-            obj_playerparent.x = view_xview[0]+8;
+            obj_playerparent.x = view_xview[view_current]+8;
             if (obj_playerparent.hspeed &lt; 0)
                 obj_playerparent.hspeed = 0;
         }
         
         //Otherwise, if the player is at the rightmost part of the view
-        else if (obj_playerparent.x &gt; view_xview[0] + view_wview[0]-8) {
+        else if (obj_playerparent.x &gt; view_xview[view_current] + view_wview[view_current]-8) {
         
             //If the cape object exists
             if (instance_exists(obj_cape_fly)) {
             
-                obj_cape_fly.x = view_xview[0] + view_wview[0]-8;
+                obj_cape_fly.x = view_xview[view_current] + view_wview[view_current]-8;
                 if (obj_cape_fly.hspeed &gt; 0)
                     obj_cape_fly.hspeed = 0;                    
             }
             
             //Prevent the player from getting outside the view
-            obj_playerparent.x = view_xview[0] + view_wview[0]-8;
+            obj_playerparent.x = view_xview[view_current] + view_wview[view_current]-8;
             if (obj_playerparent.hspeed &gt; 0)
                 obj_playerparent.hspeed = 0;    
         }
@@ -495,27 +501,30 @@ if (instance_exists(obj_playerparent)) {
     
     //Manage camera position
     event_user(3);
-    
-    //Stay at the player x position
-    x = obj_playerparent.x;
-    
-    //Stay at the player y position
-    y = obj_playerparent.y + camera_y;
 }
 
 //Otherwise, follow up the player when warping
 else if (instance_exists(obj_player_warp)) {
 
-    //Stay at the player x position
-    x = obj_player_warp.x;
+    //Follow obj_player_warp
+    follow = obj_player_warp;
     
-    //Stay at the player y position
-    y = obj_player_warp.y;
+    //Reset timer
+    camera_timer = 60;
     
+    //Return camera position
+    if (camera_y &gt; 0)
+        camera_y -= 4;
+    else if (camera_y &lt; 0)
+        camera_y += 4;
 }
-//Otherwise, cancel camera y scroll
-else {
 
+//Otherwise, follow up the player when falling to his death
+else if (instance_exists(obj_player_dead)) {
+
+    //Follow obj_player_dead
+    follow = obj_player_dead;
+    
     //Reset timer
     camera_timer = 60;
     
@@ -527,8 +536,16 @@ else {
 }
 
 //Make the camera smooth
-x = round(x);
-y = round(lerp(yprevious, y, 0.2));
+view_xview[view_current] += ((follow.x-(view_wview[view_current]/2)) - view_xview[view_current]) * 1;
+view_yview[view_current] += ((follow.y-(view_hview[view_current]/2)) - view_yview[view_current]) + camera_y * 1;
+
+//Prevent view from moving outside horizontally
+if (view_xview[view_current] &lt; 0) then view_xview[view_current] = 0;
+else if (view_xview[view_current] &gt; room_width-global.gw) then view_xview[view_current] = room_width-global.gw;
+
+//Prevent view from moving outside vertically
+if (view_yview[view_current] &lt; 0) then view_yview[view_current] = 0;
+else if (view_yview[view_current] &gt; room_height-global.gh) then view_yview[view_current] = room_height-global.gh;
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {
@@ -554,7 +571,35 @@ if (instance_exists(obj_playerparent))
 instance_deactivate_object(obj_deactivateparent);
 
 //Activate things that are on screen
-instance_activate_region(view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, 1);
+instance_activate_region(view_xview[view_current]-32, view_yview[view_current]-32, view_wview[view_current]+64, view_hview[view_current]+64, 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up object to follow
+
+if (instance_exists(obj_playerparent))
+    follow = obj_playerparent;
+    
+
 </string>
           </argument>
         </arguments>

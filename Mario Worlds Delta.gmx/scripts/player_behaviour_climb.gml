@@ -54,6 +54,7 @@ if (control_enable == true) {
     
         //If there's a ceiling on the way, prevent the player from moving up
         if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))
             vspeed = 0;
             
         //Otherwise

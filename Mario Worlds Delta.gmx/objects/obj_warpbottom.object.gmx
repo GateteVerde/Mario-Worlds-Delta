@@ -80,7 +80,7 @@ if (keyboard_check(global.key_u)) {
             audio_play_sound(snd_powerdown, 0, false);
         
             //Create a new warp player object
-            warpme = instance_create(x+16, y+16, obj_player_warp);
+            warpme = instance_create(obj_playerparent.x, y+16, obj_player_warp);
             
             //Facing direction
             warpme.image_xscale = player.xscale;
