@@ -59,7 +59,6 @@ myid = -1;
             <kind>1</kind>
             <string>///Destroy all player objects
 
-with (obj_player) instance_destroy();
 with (obj_player_warp) instance_destroy();
 with (obj_player_door) instance_destroy();
 </string>

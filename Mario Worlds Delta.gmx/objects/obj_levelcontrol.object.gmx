@@ -459,46 +459,49 @@ else if (ready == 1) {
 event_user(15);
 
 //If the barrier is not enabled
-if (barrier == true) 
-&amp;&amp; (follow == obj_playerparent) {
-    
-    //If the player is at the leftmost part of the view
-    if (obj_playerparent.x &lt; view_xview[view_current]+8) {
-    
-        //If the cape object exists
-        if (instance_exists(obj_cape_fly)) {
+if (barrier == true) {
+
+    //If the player exists
+    if (instance_exists(obj_playerparent)) {
         
-            obj_cape_fly.x = view_xview[view_current]+8;
-            if (obj_cape_fly.hspeed &lt; 0)
-                obj_cape_fly.hspeed = 0;
+        //If the player is at the leftmost part of the view
+        if (obj_playerparent.x &lt; view_xview[view_current]+8) {
+        
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[view_current]+8;
+                if (obj_cape_fly.hspeed &lt; 0)
+                    obj_cape_fly.hspeed = 0;
+            }
+            
+            //Prevent the player from getting outside the view
+            obj_playerparent.x = view_xview[view_current]+8;
+            if (obj_playerparent.hspeed &lt; 0)
+                obj_playerparent.hspeed = 0;
         }
         
-        //Prevent the player from getting outside the view
-        obj_playerparent.x = view_xview[view_current]+8;
-        if (obj_playerparent.hspeed &lt; 0)
-            obj_playerparent.hspeed = 0;
-    }
-    
-    //Otherwise, if the player is at the rightmost part of the view
-    else if (obj_playerparent.x &gt; view_xview[view_current] + view_wview[view_current]-8) {
-    
-        //If the cape object exists
-        if (instance_exists(obj_cape_fly)) {
+        //Otherwise, if the player is at the rightmost part of the view
+        else if (obj_playerparent.x &gt; view_xview[view_current] + view_wview[view_current]-8) {
         
-            obj_cape_fly.x = view_xview[view_current] + view_wview[view_current]-8;
-            if (obj_cape_fly.hspeed &gt; 0)
-                obj_cape_fly.hspeed = 0;                    
+            //If the cape object exists
+            if (instance_exists(obj_cape_fly)) {
+            
+                obj_cape_fly.x = view_xview[view_current] + view_wview[view_current]-8;
+                if (obj_cape_fly.hspeed &gt; 0)
+                    obj_cape_fly.hspeed = 0;                    
+            }
+            
+            //Prevent the player from getting outside the view
+            obj_playerparent.x = view_xview[view_current] + view_wview[view_current]-8;
+            if (obj_playerparent.hspeed &gt; 0)
+                obj_playerparent.hspeed = 0;    
         }
-        
-        //Prevent the player from getting outside the view
-        obj_playerparent.x = view_xview[view_current] + view_wview[view_current]-8;
-        if (obj_playerparent.hspeed &gt; 0)
-            obj_playerparent.hspeed = 0;    
     }
 }
 
 //Manage camera y position if the main player object exists
-if (follow == obj_playerparent)
+if (instance_exists(obj_playerparent))
     event_user(3);
     
 //Otherwise, reset camera position
@@ -568,16 +571,12 @@ instance_activate_region(view_xview[view_current]-32, view_yview[view_current]-3
             <string>///Set up object to follow
 
 //If the player does exist
-if (instance_exists(obj_playerparent))
-    follow = obj_playerparent;
-    
-//Otherwise, if the player exists and it is warping through a pipe
-else if (instance_exists(obj_player_warp))
-    follow = obj_player_warp;
+if (instance_exists(obj_followme))
+    follow = obj_followme;
     
 //Otherwise, if the player exists and he just died
-else if (instance_exists(obj_player_dead))
-    follow = obj_player_dead;
+else 
+    follow = noone;
 </string>
           </argument>
         </arguments>
@@ -801,8 +800,8 @@ if (global.reserveitem != cs_pow_small) {
             <kind>1</kind>
             <string>///Destroy all player objects
 
-with (obj_player) instance_destroy();
 with (obj_player_warp) instance_destroy();
+with (obj_player_door) instance_destroy();
 </string>
           </argument>
         </arguments>

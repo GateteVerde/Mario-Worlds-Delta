@@ -247,41 +247,21 @@
     </sprites>
     <sprites name="Gizmos">
       <sprites name="Platforms">
-        <sprites name="Common">
-          <sprites name="Path">
-            <sprite>sprites\spr_path_limit</sprite>
+        <sprites name="Platform Parts">
+          <sprites name="Engine">
+            <sprite>sprites\spr_engine_saw</sprite>
+            <sprite>sprites\spr_engine_rope</sprite>
+            <sprite>sprites\spr_engine_platform_48</sprite>
+            <sprite>sprites\spr_engine_platform_64</sprite>
+            <sprite>sprites\spr_engine_platform_80</sprite>
+            <sprite>sprites\spr_engine_grinder</sprite>
           </sprites>
-          <sprites name="Parts">
-            <sprites name="Engine">
-              <sprite>sprites\spr_engine_saw</sprite>
-              <sprite>sprites\spr_engine_rope</sprite>
-              <sprite>sprites\spr_engine_platform_48</sprite>
-              <sprite>sprites\spr_engine_platform_64</sprite>
-              <sprite>sprites\spr_engine_platform_80</sprite>
-              <sprite>sprites\spr_engine_grinder</sprite>
-            </sprites>
-            <sprite>sprites\spr_pulley_rope</sprite>
-            <sprite>sprites\spr_ferris</sprite>
-            <sprite>sprites\spr_ferris_chain</sprite>
-          </sprites>
-          <sprite>sprites\spr_platform_48</sprite>
-          <sprite>sprites\spr_platform_64</sprite>
-          <sprite>sprites\spr_platform_80</sprite>
-          <sprite>sprites\spr_platform_falling_48</sprite>
-          <sprite>sprites\spr_platform_falling_64</sprite>
-          <sprite>sprites\spr_platform_falling_80</sprite>
-          <sprite>sprites\spr_platform_pulley_48</sprite>
-          <sprite>sprites\spr_platform_pulley_64</sprite>
-          <sprite>sprites\spr_platform_pulley_80</sprite>
-          <sprite>sprites\spr_platform_ferris_32</sprite>
-          <sprite>sprites\spr_platform_ferris_48</sprite>
-          <sprite>sprites\spr_platform_ferris_64</sprite>
-          <sprite>sprites\spr_platform_ferris_80</sprite>
-          <sprite>sprites\spr_platform_yoshi</sprite>
-          <sprite>sprites\spr_platform_track</sprite>
-          <sprite>sprites\spr_platform_track_blue</sprite>
-          <sprite>sprites\spr_platform_track_blue_b</sprite>
-          <sprite>sprites\spr_engine</sprite>
+          <sprite>sprites\spr_pulley_rope</sprite>
+          <sprite>sprites\spr_ferris</sprite>
+          <sprite>sprites\spr_ferris_chain</sprite>
+        </sprites>
+        <sprites name="Platform Path">
+          <sprite>sprites\spr_path_limit</sprite>
         </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor</sprite>
@@ -294,6 +274,25 @@
           <sprite>sprites\spr_escalator_l</sprite>
           <sprite>sprites\spr_escalator_joint</sprite>
         </sprites>
+        <sprite>sprites\spr_platform_48</sprite>
+        <sprite>sprites\spr_platform_64</sprite>
+        <sprite>sprites\spr_platform_80</sprite>
+        <sprite>sprites\spr_platform_falling_48</sprite>
+        <sprite>sprites\spr_platform_falling_64</sprite>
+        <sprite>sprites\spr_platform_falling_80</sprite>
+        <sprite>sprites\spr_platform_pulley_48</sprite>
+        <sprite>sprites\spr_platform_pulley_64</sprite>
+        <sprite>sprites\spr_platform_pulley_80</sprite>
+        <sprite>sprites\spr_platform_ferris_32</sprite>
+        <sprite>sprites\spr_platform_ferris_48</sprite>
+        <sprite>sprites\spr_platform_ferris_64</sprite>
+        <sprite>sprites\spr_platform_ferris_80</sprite>
+        <sprite>sprites\spr_platform_yoshi</sprite>
+        <sprite>sprites\spr_platform_track</sprite>
+        <sprite>sprites\spr_platform_track_blue</sprite>
+        <sprite>sprites\spr_platform_track_blue_b</sprite>
+        <sprite>sprites\spr_platform_accordion</sprite>
+        <sprite>sprites\spr_engine</sprite>
         <sprite>sprites\spr_donut</sprite>
         <sprite>sprites\spr_donut_triple</sprite>
         <sprite>sprites\spr_donut_red</sprite>
@@ -718,20 +717,6 @@
     </objects>
     <objects name="Gizmos">
       <objects name="Platforms">
-        <objects name="Common">
-          <objects name="Path">
-            <object>objects\obj_path_limit</object>
-            <object>objects\obj_path_changer</object>
-          </objects>
-          <object>objects\obj_platform</object>
-          <object>objects\obj_platform_falling</object>
-          <object>objects\obj_platform_pulley</object>
-          <object>objects\obj_platform_ferris</object>
-          <object>objects\obj_platform_yoshi</object>
-          <object>objects\obj_platform_track</object>
-          <object>objects\obj_platform_track_blue</object>
-          <object>objects\obj_engine</object>
-        </objects>
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
           <object>objects\obj_escalator_r</object>
@@ -740,6 +725,21 @@
           <object>objects\obj_escalator_down_l</object>
           <object>objects\obj_escalator_joint</object>
         </objects>
+        <objects name="Paths">
+          <object>objects\obj_path_limit</object>
+          <object>objects\obj_path_changer</object>
+        </objects>
+        <object>objects\obj_platform</object>
+        <object>objects\obj_platform_falling</object>
+        <object>objects\obj_platform_pulley</object>
+        <object>objects\obj_platform_ferris</object>
+        <object>objects\obj_platform_yoshi</object>
+        <object>objects\obj_platform_track</object>
+        <object>objects\obj_platform_track_blue</object>
+        <object>objects\obj_platform_accordion_h</object>
+        <object>objects\obj_platform_accordion_v</object>
+        <object>objects\obj_platform_accordion_hv</object>
+        <object>objects\obj_engine</object>
         <object>objects\obj_donut</object>
         <object>objects\obj_donut_triple</object>
         <object>objects\obj_donut_red</object>
@@ -833,6 +833,7 @@
       <objects name="Parents">
         <objects name="Player / NPC Parents">
           <objects name="Player">
+            <object>objects\obj_followme</object>
             <object>objects\obj_playerparent</object>
           </objects>
           <objects name="NPCs">
@@ -911,21 +912,20 @@
         </objects>
         <objects name="Gizmos">
           <objects name="Platforms">
-            <objects name="Common">
-              <objects name="Path">
-                <object>objects\obj_path_mask</object>
-              </objects>
-              <objects name="Engine">
-                <object>objects\obj_engine_rope</object>
-                <object>objects\obj_engine_blade</object>
-                <object>objects\obj_engine_platform</object>
-                <object>objects\obj_engine_grinder</object>
-              </objects>
-              <object>objects\obj_platform_pulley_right</object>
-              <object>objects\obj_platform_pulley_rope</object>
-              <object>objects\obj_platform_ferris_chain</object>
-              <object>objects\obj_platform_ferris_platform</object>
+            <objects name="Platform Paths">
+              <object>objects\obj_path_mask</object>
             </objects>
+            <objects name="Engine">
+              <object>objects\obj_engine_rope</object>
+              <object>objects\obj_engine_blade</object>
+              <object>objects\obj_engine_platform</object>
+              <object>objects\obj_engine_grinder</object>
+            </objects>
+            <object>objects\obj_platform_pulley_right</object>
+            <object>objects\obj_platform_pulley_rope</object>
+            <object>objects\obj_platform_ferris_chain</object>
+            <object>objects\obj_platform_ferris_platform</object>
+            <object>objects\obj_accordion_block</object>
             <object>objects\obj_donut_ticker</object>
             <object>objects\obj_blocktrain_front</object>
             <object>objects\obj_blocktrain_back</object>
