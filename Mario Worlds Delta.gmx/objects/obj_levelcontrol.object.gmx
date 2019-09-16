@@ -455,59 +455,54 @@ else if (ready == 1) {
             <kind>1</kind>
             <string>///Deals with various game logic parameters
 
-//If the player object exists, follow it
-if (instance_exists(obj_playerparent)) {
+//Set up object to follow
+event_user(15);
 
-    //Object to follow
-    follow = obj_playerparent;
+//If the barrier is not enabled
+if (barrier == true) 
+&amp;&amp; (follow == obj_playerparent) {
     
-    //If the barrier is not enabled
-    if (barrier == true) {
+    //If the player is at the leftmost part of the view
+    if (obj_playerparent.x &lt; view_xview[view_current]+8) {
+    
+        //If the cape object exists
+        if (instance_exists(obj_cape_fly)) {
         
-        //If the player is at the leftmost part of the view
-        if (obj_playerparent.x &lt; view_xview[view_current]+8) {
-        
-            //If the cape object exists
-            if (instance_exists(obj_cape_fly)) {
-            
-                obj_cape_fly.x = view_xview[view_current]+8;
-                if (obj_cape_fly.hspeed &lt; 0)
-                    obj_cape_fly.hspeed = 0;
-            }
-            
-            //Prevent the player from getting outside the view
-            obj_playerparent.x = view_xview[view_current]+8;
-            if (obj_playerparent.hspeed &lt; 0)
-                obj_playerparent.hspeed = 0;
+            obj_cape_fly.x = view_xview[view_current]+8;
+            if (obj_cape_fly.hspeed &lt; 0)
+                obj_cape_fly.hspeed = 0;
         }
         
-        //Otherwise, if the player is at the rightmost part of the view
-        else if (obj_playerparent.x &gt; view_xview[view_current] + view_wview[view_current]-8) {
-        
-            //If the cape object exists
-            if (instance_exists(obj_cape_fly)) {
-            
-                obj_cape_fly.x = view_xview[view_current] + view_wview[view_current]-8;
-                if (obj_cape_fly.hspeed &gt; 0)
-                    obj_cape_fly.hspeed = 0;                    
-            }
-            
-            //Prevent the player from getting outside the view
-            obj_playerparent.x = view_xview[view_current] + view_wview[view_current]-8;
-            if (obj_playerparent.hspeed &gt; 0)
-                obj_playerparent.hspeed = 0;    
-        }
+        //Prevent the player from getting outside the view
+        obj_playerparent.x = view_xview[view_current]+8;
+        if (obj_playerparent.hspeed &lt; 0)
+            obj_playerparent.hspeed = 0;
     }
     
-    //Manage camera position
+    //Otherwise, if the player is at the rightmost part of the view
+    else if (obj_playerparent.x &gt; view_xview[view_current] + view_wview[view_current]-8) {
+    
+        //If the cape object exists
+        if (instance_exists(obj_cape_fly)) {
+        
+            obj_cape_fly.x = view_xview[view_current] + view_wview[view_current]-8;
+            if (obj_cape_fly.hspeed &gt; 0)
+                obj_cape_fly.hspeed = 0;                    
+        }
+        
+        //Prevent the player from getting outside the view
+        obj_playerparent.x = view_xview[view_current] + view_wview[view_current]-8;
+        if (obj_playerparent.hspeed &gt; 0)
+            obj_playerparent.hspeed = 0;    
+    }
+}
+
+//Manage camera y position if the main player object exists
+if (follow == obj_playerparent)
     event_user(3);
-}
-
-//Otherwise, follow up the player when warping
-else if (instance_exists(obj_player_warp)) {
-
-    //Follow obj_player_warp
-    follow = obj_player_warp;
+    
+//Otherwise, reset camera position
+else {
     
     //Reset timer
     camera_timer = 60;
@@ -516,36 +511,12 @@ else if (instance_exists(obj_player_warp)) {
     if (camera_y &gt; 0)
         camera_y -= 4;
     else if (camera_y &lt; 0)
-        camera_y += 4;
+        camera_y += 4;            
 }
 
-//Otherwise, follow up the player when falling to his death
-else if (instance_exists(obj_player_dead)) {
-
-    //Follow obj_player_dead
-    follow = obj_player_dead;
-    
-    //Reset timer
-    camera_timer = 60;
-    
-    //Return camera position
-    if (camera_y &gt; 0)
-        camera_y -= 4;
-    else if (camera_y &lt; 0)
-        camera_y += 4;
-}
-
-//Make the camera smooth
-view_xview[view_current] += ((follow.x-(view_wview[view_current]/2)) - view_xview[view_current]) * 1;
-view_yview[view_current] += ((follow.y-(view_hview[view_current]/2)) - view_yview[view_current]) + camera_y * 1;
-
-//Prevent view from moving outside horizontally
-if (view_xview[view_current] &lt; 0) then view_xview[view_current] = 0;
-else if (view_xview[view_current] &gt; room_width-global.gw) then view_xview[view_current] = room_width-global.gw;
-
-//Prevent view from moving outside vertically
-if (view_yview[view_current] &lt; 0) then view_yview[view_current] = 0;
-else if (view_yview[view_current] &gt; room_height-global.gh) then view_yview[view_current] = room_height-global.gh;
+//Follow
+x = round(follow.x);
+y = round(follow.y);
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {
@@ -596,10 +567,17 @@ instance_activate_region(view_xview[view_current]-32, view_yview[view_current]-3
             <kind>1</kind>
             <string>///Set up object to follow
 
+//If the player does exist
 if (instance_exists(obj_playerparent))
     follow = obj_playerparent;
     
-
+//Otherwise, if the player exists and it is warping through a pipe
+else if (instance_exists(obj_player_warp))
+    follow = obj_player_warp;
+    
+//Otherwise, if the player exists and he just died
+else if (instance_exists(obj_player_dead))
+    follow = obj_player_dead;
 </string>
           </argument>
         </arguments>

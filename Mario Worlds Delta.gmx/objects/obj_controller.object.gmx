@@ -72,7 +72,7 @@ global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);
 application_surface_draw_enable(0)
 
 //Set the epsilon value for floating point numbers
-math_set_epsilon(0.00001);
+math_set_epsilon(0.000001);
 </string>
           </argument>
         </arguments>

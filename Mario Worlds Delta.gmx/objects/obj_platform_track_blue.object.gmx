@@ -35,7 +35,7 @@ image_index = 0;
 ready = 0;
 
 //Number of loops this platform will do before restart
-loops = 2;
+loops = 3;
 </string>
           </argument>
         </arguments>
@@ -60,11 +60,112 @@ loops = 2;
             <kind>1</kind>
             <string>///Start animating before dissappearing
 
-//Play 'Beep' sound
-audio_play_sound(snd_beep, 0, false);
+if (loops == 0) {
 
-//Animate
-image_speed = 0.15;
+    //Create a new platform at the start position
+    with (instance_create(xstart, ystart, obj_platform_track_blue)) {
+    
+        //Play 'Clack' sound
+        audio_play_sound(snd_clack, 0, false);
+        
+        //Create a big smoke effect
+        with (instance_create(x+16, y+16, obj_smoke)) sprite_index = spr_smoke_huge;
+    }
+    
+    //Create a big smoke effect
+    with (instance_create(x+16, y+16, obj_smoke)) sprite_index = spr_smoke_huge;
+    
+    //Destroy
+    instance_destroy();
+}
+
+else {
+    
+    //Play 'Beep' sound
+    audio_play_sound(snd_beep, 0, false);
+    
+    //Animate
+    image_speed = 0.15;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Track block logic
+
+if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
+&amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5) 
+&amp;&amp; (obj_playerparent.state != statetype.jump) {
+
+    //If not moving
+    if (ready == 0) {
+
+        //Animate
+        image_speed = 0.2;
+        
+        //Start moving
+        ready = 1;
+        
+        //Set movement speed
+        speed = 1;
+    }
+    
+    //Snap the player vertically
+    obj_playerparent.y = ceil(bbox_top-16);
+    
+    //Snap the player horizontally
+    obj_playerparent.x += x-xprevious;
+    if (collision_rectangle(obj_playerparent.bbox_right, obj_playerparent.bbox_top+4, obj_playerparent.bbox_right+1, obj_playerparent.bbox_bottom-1, obj_solid, 1, 0))
+        obj_playerparent.x--;
+    else if (collision_rectangle(obj_playerparent.bbox_left-1, obj_playerparent.bbox_top+4, obj_playerparent.bbox_left, obj_playerparent.bbox_bottom-1, obj_solid, 1, 0))
+        obj_playerparent.x++;     
+}
+
+//Push the player when not riding the block
+if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+1, bbox_left, bbox_bottom, obj_playerparent, 1, 0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+1, bbox_right+hspeed, bbox_bottom, obj_playerparent, 1, 0)))
+    obj_playerparent.x += hspeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Unused on this object
 </string>
           </argument>
         </arguments>
@@ -133,34 +234,15 @@ if (ready == 1) {
 //If the sprite is the dissappear one
 if (sprite_index == spr_platform_track_blue_b) {
     
-    //If the platform can still loop
-    if (loops == 0) {
+    //Decrement loops
+    loops--;
     
-        //Create a new platform at the start position
-        with (instance_create(xstart, ystart, obj_platform_track_blue)) {
-        
-            //Play 'Clack' sound
-            audio_play_sound(snd_clack, 0, false);
-            
-            //Create a big smoke effect
-            with (instance_create(x+16, y+16, obj_smoke)) sprite_index = spr_smoke_huge;
-        }
-        
-        //Create a big smoke effect
-        with (instance_create(x+16, y+16, obj_smoke)) sprite_index = spr_smoke_huge;
-        
-        //Destroy
-        instance_destroy();
-    }
+    //Animate
+    alarm[0] = 30;
     
-    else {
-    
-        //Otherwise, play 'Beep' sound
-        audio_play_sound(snd_beep, 0, false);
-        
-        //Decrement loops
-        loops--;
-    }
+    //Do not animate
+    image_speed = 0;
+    image_index = 0;
 }
 </string>
           </argument>

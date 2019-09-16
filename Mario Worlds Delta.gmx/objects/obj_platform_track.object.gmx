@@ -30,9 +30,6 @@
 //Do not animate
 image_speed = 0;
 image_index = 0;
-
-//Whether this platform is moving
-ready = 0;
 </string>
           </argument>
         </arguments>
@@ -60,22 +57,9 @@ ready = 0;
 if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0))
 &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5) 
 &amp;&amp; (obj_playerparent.state != statetype.jump) {
-
-    //If not moving
-    if (ready == 0) {
-
-        //Animate
-        image_speed = 0.15;
-        
-        //Start moving
-        ready = 1;
-        
-        //Set movement speed
-        speed = 0.5;
-    }
     
     //Snap the player vertically
-    obj_playerparent.y = ceil(bbox_top-15);
+    obj_playerparent.y = ceil(bbox_top-16);
     
     //Snap the player horizontally
     obj_playerparent.x += x-xprevious;
@@ -89,6 +73,47 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playe
 if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+1, bbox_left, bbox_bottom, obj_playerparent, 1, 0)))
 || ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+1, bbox_right+hspeed, bbox_bottom, obj_playerparent, 1, 0)))
     obj_playerparent.x += hspeed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Start it / Stop it depending how the switch is set.
+
+if (global.onoff_block = 0) {
+
+    //Animate
+    image_speed = 0.2;
+    
+    //Set motion
+    speed = 1;
+}
+else {
+
+    //Do not animate
+    image_speed = 0;
+    image_index = 0;
+    
+    //Do not move
+    speed = 0;    
+}
 </string>
           </argument>
         </arguments>
@@ -114,7 +139,7 @@ if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+1
             <string>///Move right
 
 //If the object is moving
-if (ready == 1) {
+if (speed != 0) {
 
     //If not moving right, make it move to the right.
     if (direction != 0) {
@@ -148,7 +173,7 @@ if (ready == 1) {
             <string>///Move left
 
 //If the object is moving
-if (ready == 1) {
+if (speed != 0) {
 
     //If not moving left, make it move to the left.
     if (direction != 180) {
@@ -182,7 +207,7 @@ if (ready == 1) {
             <string>///Move down
 
 //If the object is moving
-if (ready == 1) {
+if (speed != 0) {
 
     //If not moving down, make it move down.
     if (direction != 270) {
@@ -216,7 +241,7 @@ if (ready == 1) {
             <string>///Move up
 
 //If the object is moving
-if (ready == 1) {
+if (speed != 0) {
 
     //If not moving up, make it move up.
     if (direction != 90) {
