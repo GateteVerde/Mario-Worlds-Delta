@@ -91,6 +91,7 @@ crouch = false;
 
 //Allows the player to fly if there's enough speed
 pmeter = 0;
+boostme = 0;
 
 //Displays a kicking animation if you just kicked a item or a NPC.
 kicking = false;
@@ -131,6 +132,7 @@ dir = 1;
 
 //Begin alarms
 alarm[3] = 1;
+alarm[4] = 1;
 alarm[8] = 1;
 alarm[11] = 1;
 
@@ -338,6 +340,44 @@ if (swimming == true)
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Leave a trail when being boosted
+
+//Repeat
+alarm[4] = 2;
+
+//If the player is being boosted
+if (boostme &gt; 0) {
+    
+    //If the player is small or is crouched down.
+    if (mask_index == spr_mask_player)
+        instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle);
+    
+    //Otherwise 
+    else if (mask_index == spr_mask_player_big)
+        instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -489,6 +529,17 @@ invulnerable = false;
 
 //Check if above a slope
 slope = player_inslope();
+
+//Decrement boost
+if (boostme &gt; 0) {
+
+    //Decrement
+    boostme--;
+    
+    //Force decrement it when stopped
+    if (abs(hspeed) &lt; hspeed_run_full)
+        boostme = 0;
+}
 
 //Update palette
 if (instance_exists(obj_invincibility)) {

@@ -51,8 +51,13 @@ if (keyboard_check(global.key_action[1])) { //If the control key is being held.
     if (flying == 0) {
         
         //If the P-Meter is filled up.
-        if (run)
-            hspeedmax = hspeed_run_full;
+        if (run) {
+        
+            if (boostme == 0)
+                hspeedmax = hspeed_run_full;
+            else
+                hspeedmax = hspeed_run_full+1.5;
+        }
         
         //Otherwise, if the P-Meter is not filled up.
         else    

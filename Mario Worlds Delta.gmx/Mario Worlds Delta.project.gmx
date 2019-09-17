@@ -17,6 +17,7 @@
     </sounds>
     <sound>sound\snd_1up</sound>
     <sound>sound\snd_beep</sound>
+    <sound>sound\snd_boost</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_burn</sound>
@@ -186,6 +187,7 @@
         <sprite>sprites\spr_qblock</sprite>
         <sprite>sprites\spr_qblock_empty</sprite>
         <sprite>sprites\spr_qblock_hidden</sprite>
+        <sprite>sprites\spr_qblock_winged</sprite>
       </sprites>
       <sprites name="Bricks">
         <sprite>sprites\spr_brick</sprite>
@@ -329,6 +331,7 @@
       <sprite>sprites\spr_beepblock_red</sprite>
       <sprite>sprites\spr_beepblock_blue</sprite>
       <sprite>sprites\spr_beepblock_empty</sprite>
+      <sprite>sprites\spr_boostpanel</sprite>
       <sprite>sprites\spr_bombblock</sprite>
       <sprite>sprites\spr_deathblock</sprite>
       <sprite>sprites\spr_icicle</sprite>
@@ -690,6 +693,7 @@
           <object>objects\obj_qblock_hidden</object>
         </objects>
         <object>objects\obj_qblock</object>
+        <object>objects\obj_qblock_winged</object>
       </objects>
       <objects name="Bricks">
         <object>objects\obj_brick</object>
@@ -765,6 +769,7 @@
       <object>objects\obj_spikeblock_blue</object>
       <object>objects\obj_beepblock_red</object>
       <object>objects\obj_beepblock_blue</object>
+      <object>objects\obj_boostpanel</object>
       <object>objects\obj_bombblock</object>
       <object>objects\obj_deathblock</object>
       <object>objects\obj_icicle</object>
