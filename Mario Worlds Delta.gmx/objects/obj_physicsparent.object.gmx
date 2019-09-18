@@ -463,7 +463,7 @@ if (vspeed &lt; 0) {
         
         //If there's a block on the way.
         if (block) 
-        &amp;&amp; (object_get_parent(object_index) == obj_parhold) {
+        &amp;&amp; (object_get_parent(object_index) == obj_holdparent) {
             
             //If the block has NOT been hit.
             if (block.ready == 0) {

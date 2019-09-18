@@ -28,10 +28,10 @@
             <string>///You got points
 
 //Set the vertical speed
-vspeed = -1;
+vspeed = -2.25;
 
 //Friction
-friction = 0.0175;
+gravity = 0.1;
 </string>
           </argument>
         </arguments>
@@ -56,10 +56,10 @@ friction = 0.0175;
             <kind>1</kind>
             <string>///Destroy if there's no vertical speed
 
-if (vspeed == 0) {
+if (vspeed &gt; 0) {
 
-    image_alpha -= 0.05;
-    if (image_alpha &lt; 0.05)
+    image_alpha -= 0.1;
+    if (image_alpha &lt; 0.1)
         instance_destroy();
 }
 </string>
@@ -378,6 +378,31 @@ sprite_index = spr_10pts;
 
 //Give score
 score += 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw it
+
+draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

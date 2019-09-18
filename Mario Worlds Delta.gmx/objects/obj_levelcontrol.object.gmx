@@ -542,6 +542,7 @@ if (instance_exists(obj_playerparent))
     event_user(1);
 
 //Deactivate objects under the following parents
+instance_deactivate_object(obj_deactenemyparent);
 instance_deactivate_object(obj_deactivateparent);
 
 //Activate things that are on screen

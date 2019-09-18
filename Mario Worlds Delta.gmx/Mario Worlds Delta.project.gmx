@@ -39,6 +39,13 @@
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_key</sound>
     <sound>sound\snd_kick</sound>
+    <sound>sound\snd_kick2</sound>
+    <sound>sound\snd_kick3</sound>
+    <sound>sound\snd_kick4</sound>
+    <sound>sound\snd_kick5</sound>
+    <sound>sound\snd_kick6</sound>
+    <sound>sound\snd_kick7</sound>
+    <sound>sound\snd_kick8</sound>
     <sound>sound\snd_lick</sound>
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
@@ -50,6 +57,7 @@
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spin</sound>
+    <sound>sound\snd_spinstomp</sound>
     <sound>sound\snd_spit</sound>
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_stomp</sound>
@@ -466,6 +474,7 @@
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_spinstar</sprite>
+        <sprite>sprites\spr_spinstar2</sprite>
         <sprite>sprites\spr_splash</sprite>
         <sprite>sprites\spr_splash_choco</sprite>
         <sprite>sprites\spr_splash_lava</sprite>
@@ -783,6 +792,9 @@
       <object>objects\obj_beanstalk_vine</object>
       <object>objects\obj_key</object>
     </objects>
+    <objects name="Enemies">
+      <object>objects\obj_goomba</object>
+    </objects>
     <objects name="Decoration">
       <objects name="Liquids">
         <objects name="Lava">
@@ -977,6 +989,7 @@
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>
+          <object>objects\obj_spinsmoke</object>
           <object>objects\obj_shellthump</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
