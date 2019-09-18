@@ -206,6 +206,20 @@ if (crouch == true)
         alarm[11] = 1;
 }
 
+//Otherwise, if the player is running at full speed
+else if (boostme &gt; 0)
+&amp;&amp; (abs(hspeed) &gt;= hspeed_run_full) {
+
+    //Make sure that the player is moving
+    if (state == statetype.walk) {
+    
+        instance_create(x, bbox_bottom, obj_smoke);
+        alarm[11] = 4;
+    }
+    else
+        alarm[11] = 1;
+}
+
 //Otherwise
 else
     alarm[11] = 1;
@@ -253,8 +267,14 @@ if (control_enable == true)
                 firing = 9;
                 with (instance_create(x, y, obj_fireball)) {
                 
-                    vspeed = 3;
+                    //Set the horizontal speed
                     hspeed = 3*other.xscale;
+                    
+                    //Set the vertical speed
+                    if (keyboard_check(global.key_u))
+                        vspeed = -3;
+                    else
+                        vspeed = 3;                    
                 }
             }
         }
@@ -335,44 +355,6 @@ kicking = false;
 alarm[8] = 60+random_range(-30, 30)
 if (swimming == true)
     instance_create(x, bbox_top, obj_bubble)
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leave a trail when being boosted
-
-//Repeat
-alarm[4] = 2;
-
-//If the player is being boosted
-if (boostme &gt; 0) {
-    
-    //If the player is small or is crouched down.
-    if (mask_index == spr_mask_player)
-        instance_create(x-8+random(round(16)), y+random_range(0,16), obj_sparkle);
-    
-    //Otherwise 
-    else if (mask_index == spr_mask_player_big)
-        instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_sparkle);
-}
 </string>
           </argument>
         </arguments>
@@ -1077,7 +1059,8 @@ jumping = 0;
 jumpstyle = 0;
 
 //Reset combos when not sliding down a slope
-if ((sliding == true) &amp;&amp; (hitcombo &gt; 0))
+if (sliding == false) 
+&amp;&amp; (hitcombo &gt; 0)
     hitcombo = 0;
 </string>
           </argument>

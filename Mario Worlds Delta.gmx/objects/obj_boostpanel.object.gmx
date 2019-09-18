@@ -79,7 +79,7 @@ image_speed = 0.2;
             <string>///Boost panel logic
 
 //Check for the player
-var player = collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top+1, obj_playerparent, 1, 0);
+var player = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top+1, obj_playerparent, 1, 0);
 
 //If the player is in position
 if (player)
@@ -112,7 +112,7 @@ if (player)
         }
         
         //Animate faster
-        image_speed = 0.5;
+        image_speed = 0.6;
         
         //Set default animation speed
         alarm[0] = 60;

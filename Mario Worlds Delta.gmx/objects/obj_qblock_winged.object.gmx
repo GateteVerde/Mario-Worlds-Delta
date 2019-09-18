@@ -30,13 +30,13 @@
 /*
 **  This item uses creation code!
 **
-**  type = Whether if the block moves back and forth
+**  backnforth = Whether if the block moves back and forth
 **      true = Enable
 **      false = Disable
 */
 
 //Default variables
-type = false;
+backnforth = false;
 
 //Item held on block
 sprout = itemtype.coin;
@@ -181,18 +181,27 @@ if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+1
 //Check for the player
 var player = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_playerparent, 1, 0);
 
-//If the player is in position
-if (player)
+//Check for a block bumper
+var bumper = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_blockbumper, 0, 0);
+
+//Check for a 
+var thrown = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_parhold, 1, 0);
+
+//If the player is in position, or this object is colliding with a bumper or a thrown item
+if ((player)
 &amp;&amp; (player.vspeed &lt;= 0)
 &amp;&amp; (player.state = statetype.jump) 
-&amp;&amp; (player.bbox_top &gt; bbox_bottom+player.vspeed-1) {
+&amp;&amp; (player.bbox_top &gt; bbox_bottom+player.vspeed-1)) 
+|| ((thrown)
+&amp;&amp; (thrown.vspeed &lt;= 0)) 
+|| (bumper) {
 
     //Create a new block, give it the same item and bump it.
     with (instance_create(x, y, obj_qblock)) {
     
         //Set the sprite
         sprite_index = spr_qblock;
-        image_speed = 0;
+        image_speed = 0.15;
         image_index = 0;
     
         //Bump it

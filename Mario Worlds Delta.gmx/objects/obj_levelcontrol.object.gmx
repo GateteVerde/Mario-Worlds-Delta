@@ -508,7 +508,7 @@ if (instance_exists(obj_playerparent))
 else {
     
     //Reset timer
-    camera_timer = 60;
+    camera_timer = 30;
     
     //Return camera position
     if (camera_y &gt; 0)
@@ -519,7 +519,7 @@ else {
 
 //Follow
 x = round(follow.x);
-y = round(follow.y);
+y = round(follow.y + camera_y);
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {
@@ -637,7 +637,7 @@ audio_stop_sound(bgm_pswitch);
             <string>///Adjust camera y position
 
 //Make sure the player is not doing anything
-if (obj_playerparent.state == statetype.idle) {
+if (obj_playerparent.state == statetype.idle) &amp;&amp; (!keyboard_check(global.key_action[1])) {
     
     //If the 'Up' key is pressed
     if (keyboard_check(global.key_u)) {
@@ -902,7 +902,7 @@ if (global.mount == 1) {
 else if (global.carrieditem != noone) {
 
     //If the item is a carryable item
-    if (object_get_parent(global.carrieditem) == obj_parhold) {
+    if (object_get_parent(global.carrieditem) == obj_holdparent) {
     
         //Create it
         with (instance_create(x, y, global.carrieditem)) {

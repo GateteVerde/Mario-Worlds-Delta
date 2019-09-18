@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-2</depth>
   <persistent>0</persistent>
-  <parentName>obj_parhold</parentName>
+  <parentName>obj_holdparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -285,11 +285,11 @@ else {
             
             //If the player is at the left of the block
             if (other.x &lt; x)
-                hspeed = 2.7;
+                hspeed = (2.7+(abs(obj_playerparent.hspeed)/4));
                 
             //Otherwise, if the player is at the right of the block
             else if (other.x &gt; x)
-                hspeed = -2.7;                             
+                hspeed = -(2.7+(abs(obj_playerparent.hspeed)/4));                             
         }
     }
 }
@@ -419,11 +419,15 @@ else {
             
             //If the player is at the left of the block
             if (obj_playerparent.x &lt; x)
-                hspeed = 2.7;
+                hspeed = (2.7+(abs(obj_playerparent.hspeed)/4));
                 
             //Otherwise, if the player is at the right of the block
             else if (obj_playerparent.x &gt; x)
-                hspeed = -2.7;                            
+                hspeed = -(2.7+(abs(obj_playerparent.hspeed)/4));
+                
+            //Otherwise, if the player is turning
+            else if (obj_playerparent.turnnow == 1)            
+                hspeed = 2.7*sign(obj_playerparent.xscale);                        
         }
         
         //Otherwise, leave it on the ground
