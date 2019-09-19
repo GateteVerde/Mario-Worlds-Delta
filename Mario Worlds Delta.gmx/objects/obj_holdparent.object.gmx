@@ -369,6 +369,38 @@ exit;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_blockparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bump with block but only when not held
+
+//If not held
+if (held == false) {
+    
+    if (other.vspeed &lt; 0)
+    &amp;&amp; (vspeed &gt;= 0)
+    &amp;&amp; (bbox_bottom &lt; yprevious+5)
+        vspeed = -2.5;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>

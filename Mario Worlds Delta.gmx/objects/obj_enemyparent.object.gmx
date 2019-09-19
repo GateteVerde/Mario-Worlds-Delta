@@ -87,11 +87,15 @@ event_inherited();
             <kind>1</kind>
             <string>///Detect the player and move towards it
 
-if (!instance_exists(obj_playerparent))
-|| (obj_playerparent.x &lt; x)
-    hspeed = -0.5;
-else
-    hspeed = 0.5;
+//If not moving
+if (hspeed == 0) {
+    
+    if (!instance_exists(obj_playerparent))
+    || (obj_playerparent.x &lt; x)
+        hspeed = -0.5;
+    else
+        hspeed = 0.5;
+}
 </string>
           </argument>
         </arguments>
@@ -150,139 +154,6 @@ event_user(2);
 //Update facing direction
 if (hspeed != 0)
     xscale = 1*sign(hspeed);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_killparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Collision with explosion
-
-//If the enemy is vulnerable
-if (vulnerable &lt; 99) {
-
-    //Kill the enemy
-    event_user(0);
-    
-    //Get points based on combo
-    if (other.hitcombo == 0) { //200 points
-    
-        audio_play_sound(snd_kick2, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(2);
-    }
-    else if (other.hitcombo == 1) { //400 points
-    
-        audio_play_sound(snd_kick3, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(3);
-    }
-    else if (other.hitcombo == 2) { //800 points
-    
-        audio_play_sound(snd_kick4, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(4);
-    }
-    else if (other.hitcombo == 3) { //1000 points
-    
-        audio_play_sound(snd_kick5, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(5);
-    }
-    else if (other.hitcombo == 4) { //2000 points
-    
-        audio_play_sound(snd_kick6, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(6);
-    }
-    else if (other.hitcombo == 5) { //4000 points
-    
-        audio_play_sound(snd_kick7, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(7);
-    }
-    else if (other.hitcombo == 6) { //8000 points
-    
-        audio_play_sound(snd_kick8, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(8);
-    }
-    else if (other.hitcombo &gt; 6) { //1-UP
-
-        audio_play_sound(snd_1up, 0, false);
-        audio_play_sound(snd_kick8, 0, false);
-        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-            event_user(9);
-    }
-    
-    //Create 'Spinthump' effect
-    instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
-    
-    //Increment hitcombo
-    other.hitcombo++;    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_projectileparent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Collision with projectiles
-
-//If the enemy is vulnerable to fireballs
-if (vulnerable == 0) 
-&amp;&amp; (vulnerable != 1) 
-&amp;&amp; (vulnerable != 3) {
-
-    //Play 'Kick' sound
-    audio_play_sound(snd_kick, 0, false);        
-    
-    //Kill the enemy
-    event_user(0);
-    
-    //Destroy projectile
-    with (other) event_user(0);
-            
-    //Get 200 points
-    with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-        event_user(2);
-}
-
-//Destroy fireball
-if (vulnerable &lt; 100)
-    with (other) event_user(0);
 </string>
           </argument>
         </arguments>
@@ -421,10 +292,7 @@ if (vulnerable &lt; 99) {
 if (vulnerable == 0) 
 &amp;&amp; (vulnerable != 2) 
 &amp;&amp; (vulnerable != 3) {
-
-    //Play 'Kick' sound
-    audio_play_sound(snd_kick, 0, false);        
-    
+            
     //Kill the enemy
     event_user(7);
     
@@ -432,8 +300,12 @@ if (vulnerable == 0)
     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
     
     //Get points based on combo
-    if (other.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
-        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(2+obj_playerparent.hitcombo);
+    if (other.hitcombo &lt;= 6) { //If the player did 6 or less consecutive stomps
+    
+        audio_play_sound(snd_kick, 0, false);
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+            event_user(2+obj_playerparent.hitcombo);
+    }
     else {
     
         audio_play_sound(snd_1up, 0, false);
@@ -489,6 +361,139 @@ if (vulnerable &lt; 99) {
 //Otherwise
 else
     event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_projectileparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with projectiles
+
+//If the enemy is vulnerable to fireballs
+if (vulnerable == 0) 
+&amp;&amp; (vulnerable != 1) 
+&amp;&amp; (vulnerable != 3) {
+
+    //Play 'Kick' sound
+    audio_play_sound(snd_kick, 0, false);        
+    
+    //Kill the enemy
+    event_user(0);
+    
+    //Destroy projectile
+    with (other) event_user(0);
+            
+    //Get 200 points
+    with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+        event_user(2);
+}
+
+//Destroy fireball
+if (vulnerable &lt; 100)
+    with (other) event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_killparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with objects under obj_killparent
+
+//If the enemy is vulnerable
+if (vulnerable &lt; 99) {
+
+    //Kill the enemy
+    event_user(0);
+    
+    //Get points based on combo
+    if (other.hitcombo == 0) { //200 points
+    
+        audio_play_sound(snd_kick2, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(2);
+    }
+    else if (other.hitcombo == 1) { //400 points
+    
+        audio_play_sound(snd_kick3, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(3);
+    }
+    else if (other.hitcombo == 2) { //800 points
+    
+        audio_play_sound(snd_kick4, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(4);
+    }
+    else if (other.hitcombo == 3) { //1000 points
+    
+        audio_play_sound(snd_kick5, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(5);
+    }
+    else if (other.hitcombo == 4) { //2000 points
+    
+        audio_play_sound(snd_kick6, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(6);
+    }
+    else if (other.hitcombo == 5) { //4000 points
+    
+        audio_play_sound(snd_kick7, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(7);
+    }
+    else if (other.hitcombo == 6) { //8000 points
+    
+        audio_play_sound(snd_kick8, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(8);
+    }
+    else if (other.hitcombo &gt; 6) { //1-UP
+
+        audio_play_sound(snd_1up, 0, false);
+        audio_play_sound(snd_kick8, 0, false);
+        with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
+            event_user(9);
+    }
+    
+    //Create 'Spinthump' effect
+    instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
+    
+    //Increment hitcombo
+    other.hitcombo++;    
+}
 </string>
           </argument>
         </arguments>
@@ -873,11 +878,8 @@ alarm[0] = 20;
             <kind>1</kind>
             <string>///Default enemy death script
 
-//Get offsets
-var yy = sprite_get_yoffset(sprite_index) + 8;
-
 //Create dead enemy object
-imdead = instance_create(x, y+yy, obj_enemy_dead);
+imdead = instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_enemy_dead);
 
 //Set up the sprite
 imdead.sprite_index = deathsprite;
@@ -927,12 +929,17 @@ else {
     
         //If the player is sliding
         if (other.sliding == true)
-            imdead.hspeed = other.hspeed;
+            imdead.hspeed = obj_playerparent.hspeed;
     }
     
     //Otherwise, move normally
-    else    
-        imdead.hspeed = 1*sign(other.hspeed);
+    else {
+    
+        if (other.hspeed &gt; 0)
+            imdead.hspeed = 1;
+        else
+            imdead.hspeed = -1;
+    }
 }
 
 //Destroy

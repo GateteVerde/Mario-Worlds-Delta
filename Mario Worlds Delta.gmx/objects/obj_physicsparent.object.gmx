@@ -268,8 +268,8 @@ if (vspeed &gt;= 0)
             <string>///Bump with block
 
 if (other.vspeed &lt; 0)
-&amp;&amp; (vspeed &gt;= 0)
-&amp;&amp; (y &lt; bbox_bottom-11)
+&amp;&amp; (vspeed &gt;= 0) 
+&amp;&amp; (bbox_bottom &lt; yprevious+5)
     vspeed = -2.5;
 </string>
           </argument>
@@ -370,6 +370,7 @@ if (vspeed &gt;= 0) {
     //If there's a semisolid below
     if (semisolid)
     &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
         y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
 }
 

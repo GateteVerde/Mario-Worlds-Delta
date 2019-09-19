@@ -59,6 +59,7 @@
     <sound>sound\snd_spin</sound>
     <sound>sound\snd_spinstomp</sound>
     <sound>sound\snd_spit</sound>
+    <sound>sound\snd_split</sound>
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_stomp</sound>
     <sound>sound\snd_swim</sound>
@@ -359,6 +360,8 @@
       <sprite>sprites\spr_goomba</sprite>
       <sprite>sprites\spr_goomba_sq</sprite>
       <sprite>sprites\spr_goomba_dead</sprite>
+      <sprite>sprites\spr_goomba_big</sprite>
+      <sprite>sprites\spr_goomba_big_dead</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -794,6 +797,7 @@
     </objects>
     <objects name="Enemies">
       <object>objects\obj_goomba</object>
+      <object>objects\obj_goomba_big</object>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
