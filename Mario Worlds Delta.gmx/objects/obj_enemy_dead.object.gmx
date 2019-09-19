@@ -68,16 +68,86 @@ if (place_meeting(x, y, obj_swim)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set up angle
+            <string>///Dead enemy logic
 
 //Update angle
 angle += 10*sign(hspeed)*-1;
 
-//Cap vertical speed
-if (vspeed &gt; 4) {
+//Water check
+event_user(0);
 
-    vspeed = 4;
-    gravity = 0;
+//Cap vertical speed
+if (swimming == 1) {
+
+    gravity = 0.1;
+    if (vspeed &gt; 1)
+        vspeed = 1;
+}
+else {
+
+    gravity = 0.2;
+    if (vspeed &gt; 4)
+        vspeed = 4;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Water check
+
+//Check for water
+var water = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0);
+
+//If there's water
+if (water)
+&amp;&amp; (swimming == false) {
+
+    //Make the object swim
+    swimming = true;
+    
+    //Stop vertical movement
+    if (vspeed &gt; 0)    
+        vspeed = 0;
+    
+    //Create a splash effect
+    with (instance_create(round(bbox_left+bbox_right)/2, water.y-16, obj_smoke)) {
+     
+        sprite_index = spr_splash;
+        image_speed = 0.3;
+    }
+}
+
+//Otherwise
+else if (!water)
+&amp;&amp; (swimming == true) {
+
+    //Stop swimming
+    swimming = false;
+    
+    //Create a splash effect
+    with (instance_create(round(bbox_left+bbox_right)/2, y-16, obj_smoke)) {
+     
+        sprite_index = spr_splash;
+        image_speed = 0.3;
+    }
 }
 </string>
           </argument>

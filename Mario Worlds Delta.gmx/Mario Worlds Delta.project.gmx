@@ -431,7 +431,6 @@
           <sprite>sprites\spr_ring_b</sprite>
           <sprite>sprites\spr_sparkle</sprite>
           <sprite>sprites\spr_sparkle_blue</sprite>
-          <sprite>sprites\spr_spinthump</sprite>
         </sprites>
         <sprites name="Scores">
           <sprite>sprites\spr_10pts</sprite>
@@ -475,6 +474,7 @@
         <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_spinstar2</sprite>
+        <sprite>sprites\spr_spinthump</sprite>
         <sprite>sprites\spr_splash</sprite>
         <sprite>sprites\spr_splash_choco</sprite>
         <sprite>sprites\spr_splash_lava</sprite>
@@ -861,8 +861,10 @@
             <object>objects\obj_enemyparent</object>
             <object>objects\obj_deactenemyparent</object>
           </objects>
+          <object>objects\obj_killparent</object>
           <object>objects\obj_physicsparent</object>
           <object>objects\obj_powerupparent</object>
+          <object>objects\obj_projectileparent</object>
         </objects>
         <objects name="In-Level Parents">
           <objects name="Collision">
@@ -975,7 +977,6 @@
             <object>objects\obj_ring_1up</object>
             <object>objects\obj_ring_pow</object>
             <object>objects\obj_sparkle</object>
-            <object>objects\obj_spinthump</object>
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>
@@ -990,6 +991,7 @@
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>
           <object>objects\obj_spinsmoke</object>
+          <object>objects\obj_spinthump</object>
           <object>objects\obj_shellthump</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>

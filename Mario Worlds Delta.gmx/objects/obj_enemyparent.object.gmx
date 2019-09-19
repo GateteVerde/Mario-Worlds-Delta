@@ -155,7 +155,7 @@ if (hspeed != 0)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_invincibility">
+    <event eventtype="4" ename="obj_killparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -172,9 +172,9 @@ if (hspeed != 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with invincibility
+            <string>///Collision with explosion
 
-//If the enemy is vulnerable to invincibility
+//If the enemy is vulnerable
 if (vulnerable &lt; 99) {
 
     //Kill the enemy
@@ -235,14 +235,14 @@ if (vulnerable &lt; 99) {
     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
     
     //Increment hitcombo
-    other.hitcombo++;
+    other.hitcombo++;    
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_fireball">
+    <event eventtype="4" ename="obj_projectileparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -415,9 +415,9 @@ if (vulnerable &lt; 99) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with spinning cape
+            <string>///Collision with cape
 
-//If the enemy is vulnerable to fireballs
+//If the enemy is vulnerable to cape
 if (vulnerable == 0) 
 &amp;&amp; (vulnerable != 2) 
 &amp;&amp; (vulnerable != 3) {
@@ -426,19 +426,21 @@ if (vulnerable == 0)
     audio_play_sound(snd_kick, 0, false);        
     
     //Kill the enemy
-    event_user(0);
+    event_user(7);
     
-    //Create spin thump
+    //Create 'Spinthump' effect
     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
-            
-    //Get 200 points
-    with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score))
-        event_user(2);
+    
+    //Get points based on combo
+    if (other.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(2+obj_playerparent.hitcombo);
+    else {
+    
+        audio_play_sound(snd_1up, 0, false);
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+            event_user(9);
+    }
 }
-
-//Destroy fireball
-if (vulnerable &lt; 100)
-    with (other) event_user(0);
 </string>
           </argument>
         </arguments>

@@ -33,6 +33,9 @@ image_speed = 0.2;
 //Whether this block is hit
 ready = 0;
 
+//Combo
+hitcombo = 0;
+
 //Shard sprite
 shardsprite = noone;
 
@@ -190,7 +193,6 @@ if (ready == 0) {
     
     //Perform block events
     event_user(0);
-    event_user(2);
 }
 </string>
           </argument>
