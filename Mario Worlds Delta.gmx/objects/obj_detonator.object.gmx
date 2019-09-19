@@ -31,7 +31,7 @@
 event_inherited();
 
 //Whether the player has pressed this detonator
-ready = 0;
+active = 0;
 </string>
           </argument>
         </arguments>
@@ -109,7 +109,7 @@ image_speed = 0.3;
             <string>///Activate it
 
 //If the detonator is not activated
-if (ready == 0) {
+if (active == 0) {
 
     //Play 'Switch' sound
     audio_play_sound(snd_switch, 0, false);
@@ -118,7 +118,7 @@ if (ready == 0) {
     image_index = 1;
 
     //Activate it
-    ready = 1;
+    active = 1;
     
     //Begin detonation
     alarm[0] = 120;

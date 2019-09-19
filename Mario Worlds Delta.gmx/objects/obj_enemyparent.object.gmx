@@ -151,6 +151,9 @@ event_inherited();
 //Turn at enemies script
 event_user(2);
 
+//Turn at ledges script
+event_user(6);
+
 //Update facing direction
 if (hspeed != 0)
     xscale = 1*sign(hspeed);
@@ -752,27 +755,29 @@ event_user(0);
             <kind>1</kind>
             <string>///Turn at ledges script
 
-///Turn at ledges script
+//Check for ledges
+var semi = place_meeting(x-(2*sign(xscale)), bbox_bottom+1, obj_semisolid);
+var slope = place_meeting(x-(2*sign(xscale)), bbox_bottom+2, obj_slopeparent);
 
-//If the object is affected by gravity
+//If there's no gravity
 if (gravity == 0) {
 
-    //If moving left
-    if (hspeed &lt; 0) {
-    
-        //If there's no ground on the way, turn around
-        if (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+4, obj_semisolid, 0, 0))
-        &amp;&amp; (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+5, obj_slopeparent, 1, 0))
-            hspeed = -hspeed;
+    //If moving right...
+    if (hspeed &gt; 0) {
+        
+        ///...and there's no instance from the above mentioned in position
+        if (!semi) 
+        &amp;&amp; (!slope)
+            hspeed = -hspeed; //Reverse horizontal speed
     }
     
-    //Otherwise, if moving right
-    else if (hspeed &gt; 0) {
-    
-        //If there's no ground on the way, turn around
-        if (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+4, obj_semisolid, 0, 0))
-        &amp;&amp; (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+5, obj_slopeparent, 1, 0))
-            hspeed = -hspeed;            
+    //Otherwise, if moving left...
+    else if (hspeed &lt; 0) {
+        
+        ///...and there's no instance from the above mentioned in position
+        if (!semi) 
+        &amp;&amp; (!slope)
+            hspeed = -hspeed; //Reverse horizontal speed            
     }
 }
 </string>

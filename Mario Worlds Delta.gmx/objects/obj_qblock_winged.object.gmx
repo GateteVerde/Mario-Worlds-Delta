@@ -185,7 +185,7 @@ var player = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bott
 var bumper = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_blockbumper, 0, 0);
 
 //Check for a 
-var thrown = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_parhold, 1, 0);
+var thrown = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_holdparent, 1, 0);
 
 //If the player is in position, or this object is colliding with a bumper or a thrown item
 if ((player)

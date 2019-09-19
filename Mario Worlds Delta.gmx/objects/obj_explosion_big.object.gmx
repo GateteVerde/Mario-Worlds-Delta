@@ -33,6 +33,9 @@ audio_stop_play_sound(snd_thud_big, 0, false);
 //Make invisible
 alarm[0] = 4;
 
+//Combo
+hitcombo = 0;
+
 //Create smoke
 with (instance_create(x+16+lengthdir_x(32, 45), y+16+lengthdir_y(32, 45), obj_smoke)) sprite_index = spr_smoke_huge;
 with (instance_create(x+16+lengthdir_x(32, 135), y+16+lengthdir_y(32, 135), obj_smoke)) sprite_index = spr_smoke_huge;
