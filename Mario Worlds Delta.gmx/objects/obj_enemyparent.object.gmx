@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///The parent object for all enemies
 
-//How vulnerable is this enemy to the player
+//How vulnerable is this enemy to items
 //0: Normal
 //1: Immune to fireball
 //2: Immune to cape
@@ -150,9 +150,6 @@ event_inherited();
 
 //Turn at enemies script
 event_user(2);
-
-//Turn at ledges script
-event_user(6);
 
 //Update facing direction
 if (hspeed != 0)
@@ -684,8 +681,12 @@ if (stomp != -1)
                     //Get points based on combo
                     if (other.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
                         with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(2+obj_playerparent.hitcombo);
-                    else
-                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(9);
+                    else {
+                    
+                        audio_play_sound(snd_1up, 0, false);
+                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                            event_user(9);
+                    }
                     
                     //Increment combo
                     other.hitcombo++;
@@ -755,29 +756,25 @@ event_user(0);
             <kind>1</kind>
             <string>///Turn at ledges script
 
-//Check for ledges
-var semi = place_meeting(x-(2*sign(xscale)), bbox_bottom+1, obj_semisolid);
-var slope = place_meeting(x-(2*sign(xscale)), bbox_bottom+2, obj_slopeparent);
-
 //If there's no gravity
 if (gravity == 0) {
 
-    //If moving right...
-    if (hspeed &gt; 0) {
-        
-        ///...and there's no instance from the above mentioned in position
-        if (!semi) 
-        &amp;&amp; (!slope)
-            hspeed = -hspeed; //Reverse horizontal speed
+    //If there's no slope below
+    if (!collision_rectangle(bbox_left+6, bbox_bottom, bbox_right-6, bbox_bottom+5, obj_slopeparent, 1, 0)) {
+    
+        //If moving and there's no floor in position
+        if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left+6, bbox_bottom-1, bbox_left+6, bbox_bottom+15, obj_semisolid, 0, 0)))
+        || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right-6, bbox_bottom-1, bbox_right-6, bbox_bottom+15, obj_semisolid, 0, 0)))
+            hspeed = -hspeed;
     }
     
-    //Otherwise, if moving left...
-    else if (hspeed &lt; 0) {
-        
-        ///...and there's no instance from the above mentioned in position
-        if (!semi) 
-        &amp;&amp; (!slope)
-            hspeed = -hspeed; //Reverse horizontal speed            
+    //If there's no semisolid below
+    if (!collision_rectangle(bbox_left+6, bbox_bottom, bbox_right-6, bbox_bottom+5, obj_semisolid, 1, 0)) {
+    
+        //If moving and there's no floor in position
+        if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left+6, bbox_bottom-1, bbox_left+6, bbox_bottom+15, obj_slopeparent, 1, 0)))
+        || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right-6, bbox_bottom-1, bbox_right-6, bbox_bottom+15, obj_slopeparent, 1, 0)))
+            hspeed = -hspeed;            
     }
 }
 </string>

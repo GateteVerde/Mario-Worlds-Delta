@@ -255,6 +255,7 @@
       <sprite>sprites\spr_star</sprite>
       <sprite>sprites\spr_1up</sprite>
       <sprite>sprites\spr_poison</sprite>
+      <sprite>sprites\spr_twister</sprite>
     </sprites>
     <sprites name="Gizmos">
       <sprites name="Platforms">
@@ -572,6 +573,7 @@
     <path>paths\pth_bubble_h</path>
     <path>paths\pth_lava</path>
     <path>paths\pth_snow</path>
+    <path>paths\pth_twister</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Player">
@@ -735,6 +737,7 @@
       <object>objects\obj_star</object>
       <object>objects\obj_1up</object>
       <object>objects\obj_poison</object>
+      <object>objects\obj_twister</object>
     </objects>
     <objects name="Gizmos">
       <objects name="Platforms">
@@ -937,6 +940,7 @@
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
+          <object>objects\obj_twister_bubble</object>
         </objects>
         <objects name="Gizmos">
           <objects name="Platforms">
