@@ -34,8 +34,15 @@ image_index = 1;
 //Parent
 parent = noone;
 
-//Start path
-path = path_start(pth_twister, round(random_range(2,6)), path_action_stop, 0);
+//Angle
+ang = 0;
+
+//Speed
+inc = 0;
+
+//Fly
+rise = 0;
+a = choose(1,1.5);
 </string>
           </argument>
         </arguments>
@@ -66,31 +73,29 @@ if (!instance_exists(parent)) {
     instance_destroy();
     exit;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="8">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Destroy
 
-instance_destroy();
+//Increment angle(speed)
+ang += 0.5;
+
+//Increment length
+inc += 0.25;
+
+//Increment y position
+rise -= a;
+
+//Limit incerement
+inc = clamp(inc, 0, 24);
+
+//Set Y position
+y = parent.y + rise;
+
+//Set circle x movement
+if (instance_exists(parent))
+    x = (parent.x + cos(ang) * inc); //Angle times the length
+    
+//Destroy
+if (y &lt; parent.y-96)
+    instance_destroy();
 </string>
           </argument>
         </arguments>

@@ -756,25 +756,30 @@ event_user(0);
             <kind>1</kind>
             <string>///Turn at ledges script
 
-//If there's no gravity
 if (gravity == 0) {
 
-    //If there's no slope below
-    if (!collision_rectangle(bbox_left+6, bbox_bottom, bbox_right-6, bbox_bottom+5, obj_slopeparent, 1, 0)) {
+    //If moving left
+    if (hspeed &lt; 0) {
     
-        //If moving and there's no floor in position
-        if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left+6, bbox_bottom-1, bbox_left+6, bbox_bottom+15, obj_semisolid, 0, 0)))
-        || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right-6, bbox_bottom-1, bbox_right-6, bbox_bottom+15, obj_semisolid, 0, 0)))
+        //If there's no ground on the way, turn around
+        if (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+8, obj_semisolid, 0, 0))
+        &amp;&amp; (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+8, obj_slopeparent, 0, 0)) {
+        
             hspeed = -hspeed;
+            x = xprevious;
+        }
     }
     
-    //If there's no semisolid below
-    if (!collision_rectangle(bbox_left+6, bbox_bottom, bbox_right-6, bbox_bottom+5, obj_semisolid, 1, 0)) {
+    //Otherwise, if moving right
+    else if (hspeed &gt; 0) {
     
-        //If moving and there's no floor in position
-        if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left+6, bbox_bottom-1, bbox_left+6, bbox_bottom+15, obj_slopeparent, 1, 0)))
-        || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right-6, bbox_bottom-1, bbox_right-6, bbox_bottom+15, obj_slopeparent, 1, 0)))
+        //If there's no ground on the way, turn around
+        if (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+8, obj_semisolid, 0, 0))
+        &amp;&amp; (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+8, obj_slopeparent, 0, 0)) {
+        
             hspeed = -hspeed;            
+            x = xprevious;
+        }
     }
 }
 </string>

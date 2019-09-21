@@ -98,7 +98,7 @@ alarm[1] = 4+round(random(8));
             <string>///Generate bubble
 
 //Repeat the process
-alarm[1] = 4+round(random(8));
+alarm[1] = 1+round(random(7));
 
 //Create effect
 with (instance_create(x, bbox_top, obj_twister_bubble)) {
@@ -135,6 +135,24 @@ event_inherited();
 
 //Turn on ledges script
 event_user(6);
+
+//Push the player upwards
+if (instance_exists(obj_playerparent)) {
+
+    //If the player is above this twister
+    if (collision_rectangle(x-16, bbox_top-80, x+16, bbox_top, obj_playerparent, 0, 0)) {
+    
+        //Force set 'Jump' state
+        obj_playerparent.state = statetype.jump;
+        
+        //Do not allow variable jump
+        obj_playerparent.jumping = 2;
+        
+        //Make the player ascend
+        if (obj_playerparent.vspeed &gt; -4)
+            obj_playerparent.vspeed -= 0.5;
+    }
+}
 </string>
           </argument>
         </arguments>
