@@ -1096,105 +1096,109 @@ global.mount = 0;
             <kind>1</kind>
             <string>///Spit out an item
 
-//Play 'Spit' sound
-audio_play_sound(snd_spit, 0, false);
-
-//Spit out the item
-if (obj_playerparent.crouch == true) 
-|| (obj_playerparent.sliding == true) {
-
-    //Create up an item
-    with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
+//If Yoshi is holding anything on his mouth
+if (mouthholder != noone) {
     
-        //Use the correct sprite
-        sprite_index = other.mouthsprite;
-        
-        //Set the horizontal speed
-        hspeed = 0.5*obj_playerparent.xscale;
-        
-        //Set swimming state
-        if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
-            swimming = 1;
-    }
-}
-else {
-
-    //Create up an item
-    with (instance_create(x+(10*obj_playerparent.xscale), y-16, mouthholder)) {
+    //Play 'Spit' sound
+    audio_play_sound(snd_spit, 0, false);
     
-        //Use the correct sprite
-        sprite_index = other.mouthsprite;
+    //Spit out the item
+    if (obj_playerparent.crouch == true) 
+    || (obj_playerparent.sliding == true) {
+    
+        //Create up an item
+        with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
         
-        //If the eaten item is a throwable brick.
-        if (sprite_index == spr_brick_throw_th) {
+            //Use the correct sprite
+            sprite_index = other.mouthsprite;
             
-            //Set the horizontal speed.
-            hspeed = 3*obj_playerparent.xscale;
+            //Set the horizontal speed
+            hspeed = 0.5*obj_playerparent.xscale;
             
-            //Set the animation speed
-            image_speed = 0.5;
-            
-            //Get thrown
-            ready = 1;
-            
-            //If the object is in contact with a solid.
-            if (place_meeting(x,y,obj_solid))
-                event_user(0);
+            //Set swimming state
+            if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+                swimming = 1;
         }
-        else {
+    }
+    else {
+    
+        //Create up an item
+        with (instance_create(x+(10*obj_playerparent.xscale), y-16, mouthholder)) {
         
-            //If the eaten item is a POW block.
-            if (sprite_index = spr_powblock_blue) 
-            &amp;&amp; (!keyboard_check(global.key_d))      
-                ready = 1;
-
-            //If the eaten item is not overlapping a solid.
-            if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
+            //Use the correct sprite
+            sprite_index = other.mouthsprite;
             
-                //Set the motion when swimming.
-                if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_swim,0,0)) {
+            //If the eaten item is a throwable brick.
+            if (sprite_index == spr_brick_throw_th) {
                 
-                    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
-                        hspeed = obj_playerparent.hspeed+0.75*obj_playerparent.xscale;
-                    else
-                        hspeed = 1*obj_playerparent.xscale;                
+                //Set the horizontal speed.
+                hspeed = 3*obj_playerparent.xscale;
+                
+                //Set the animation speed
+                image_speed = 0.5;
+                
+                //Get thrown
+                ready = 1;
+                
+                //If the object is in contact with a solid.
+                if (place_meeting(x,y,obj_solid))
+                    event_user(0);
+            }
+            else {
+            
+                //If the eaten item is a POW block.
+                if (sprite_index = spr_powblock_blue) 
+                &amp;&amp; (!keyboard_check(global.key_d))      
+                    ready = 1;
+    
+                //If the eaten item is not overlapping a solid.
+                if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
+                
+                    //Set the motion when swimming.
+                    if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_swim,0,0)) {
+                    
+                        if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
+                            hspeed = obj_playerparent.hspeed+0.75*obj_playerparent.xscale;
+                        else
+                            hspeed = 1*obj_playerparent.xscale;                
+                    }
+                    
+                    //Otherwise, set the motion when NOT swimming.
+                    else {
+                    
+                        if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
+                            hspeed = obj_playerparent.hspeed+1.5*obj_playerparent.xscale;
+                        else
+                            hspeed = 2*obj_playerparent.xscale;                
+                    }
                 }
                 
-                //Otherwise, set the motion when NOT swimming.
-                else {
-                
-                    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
-                        hspeed = obj_playerparent.hspeed+1.5*obj_playerparent.xscale;
-                    else
-                        hspeed = 2*obj_playerparent.xscale;                
-                }
+                //Make the item get not stuck on a solid.
+                else
+                    inwall = true;
             }
             
-            //Make the item get not stuck on a solid.
-            else
-                inwall = true;
+            //Set swimming state
+            if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+                swimming = 1;
         }
-        
-        //Set swimming state
-        if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
-            swimming = 1;
     }
+    
+    //Reset mouth item
+    mouthholder = noone;
+    
+    //Reset item sprite
+    mouthsprite = noone;
+    
+    //Licking
+    licking = 1;
+    
+    //Stop licking
+    alarm[2] = 5;
+    
+    //Lick animation
+    anim = 0;
 }
-
-//Reset mouth item
-mouthholder = noone;
-
-//Reset item sprite
-mouthsprite = noone;
-
-//Licking
-licking = 1;
-
-//Stop licking
-alarm[2] = 5;
-
-//Lick animation
-anim = 0;
 </string>
           </argument>
         </arguments>

@@ -131,9 +131,22 @@ if (crouch == true) {
     
         with (mycape) {
         
+            //Set cape position and state
             state = capestate.cape_idle;
-            depth = -4;
-            yy = 1;
+            
+            //If Mario is not riding a Yoshi
+            if (global.mount == 0) {
+            
+                yy = 1;
+                depth = -4;
+            }
+                
+            //Otherwise, if Mario is riding a yoshi
+            else {
+            
+                yy = 3;
+                depth = -6;
+            }
         }
     }
     else if (state == statetype.walk) {
@@ -150,15 +163,26 @@ if (crouch == true) {
         //With the cape
         with (mycape) {
         
-            //Set depth
-            depth = -4;
+            //Set position
             yy = 1;
         
             //If moving up
-            if (other.vspeed &lt; 0)
+            if (other.vspeed &lt; 0) {
+            
+                //Set state
                 state = capestate.cape_jump_up;
-            else
+                
+                //Set depth
+                if (global.mount == 1)
+                    depth = -6;
+                else
+                    depth = -4;
+            }
+            else {
+            
                 state = capestate.cape_jump_down;
+                depth = -4;
+            }
         }
     }
 }
@@ -182,9 +206,17 @@ else if (crouch == false) {
                     //Set cape state
                     with (mycape) {
                     
+                        //Set cape position and state
                         state = capestate.cape_idle;
-                        depth = -4;
                         yy = 0;
+                        
+                        //If Mario is not riding a Yoshi
+                        if (global.mount == 0)
+                            depth = -4;
+                            
+                        //Otherwise, if Mario is riding a yoshi
+                        else
+                            depth = -6;
                     }
                 
                     //If Mario is firing up a projectile
@@ -305,20 +337,29 @@ else if (crouch == false) {
                             //With the cape
                             with (mycape) {
                             
-                                //Set depth
-                                depth = -4;
+                                //Set position
                                 yy = 0;
                             
                                 //If moving up
                                 if (other.vspeed &lt; 0) {
                                 
+                                    //Set depth
+                                    if (global.mount == 1)
+                                        depth = -6;
+                                    else
+                                        depth = -4;
+                                    
+                                    //Set state
                                     if (other.flying &gt; 0)
                                         state = capestate.cape_walk;
                                     else
                                         state = capestate.cape_jump_up;
                                 }
-                                else
-                                    state = capestate.cape_jump_down;                                    
+                                else {
+                                
+                                    state = capestate.cape_jump_down;
+                                    depth = -4;
+                                }                                    
                             }
                             
                             //If Mario is firing a projectile
