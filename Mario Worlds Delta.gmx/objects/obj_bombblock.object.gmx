@@ -62,7 +62,7 @@ exit;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_explosion">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -79,22 +79,33 @@ exit;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Animate and detonate
+            <string>///Bomb block logic
 
-if (image_speed == 0) {
+//Check for a fireball
+fire = collision_rectangle(bbox_left-1, bbox_top-1, bbox_right+1, bbox_bottom+1, obj_fireball, 0, 0);
 
-    //Animate
-    image_speed = 0.3;
+//If there's a fireball in position
+if (fire) {
+
+    //If the block is not animating
+    if (image_speed = 0) {
     
-    //Blow up
-    alarm[0] = 15;
+        //Animate it...
+        image_speed = 0.3;
+        
+        //...and blow it up
+        alarm[0] = 16;
+    }
+    
+    //Destroy fireball
+    with (fire) event_user(0);
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_fireball">
+    <event eventtype="4" ename="obj_explosion">
       <action>
         <libid>1</libid>
         <id>603</id>

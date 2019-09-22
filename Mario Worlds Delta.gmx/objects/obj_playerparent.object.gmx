@@ -207,8 +207,7 @@ if (crouch == true)
 }
 
 //Otherwise, if the player is running at full speed
-else if (boostme &gt; 0)
-&amp;&amp; (abs(hspeed) &gt;= hspeed_run_full) {
+else if (abs(hspeed) &gt;= hspeed_run_full) {
 
     //Make sure that the player is moving
     if (state == statetype.walk) {
@@ -1173,7 +1172,7 @@ alarm[9] = 10;
             <string>///Hop when stomping a enemy
 
 //Set the vertical speed
-vspeed = -4;
+vspeed = -jumpstrength;
 
 //Boost jump
 y--;

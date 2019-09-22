@@ -124,6 +124,7 @@
           <sprite>sprites\spr_luigi_small</sprite>
           <sprite>sprites\spr_luigi_small_walk</sprite>
           <sprite>sprites\spr_luigi_small_jump</sprite>
+          <sprite>sprites\spr_luigi_small_fall</sprite>
           <sprite>sprites\spr_luigi_small_run</sprite>
           <sprite>sprites\spr_luigi_small_runjump</sprite>
           <sprite>sprites\spr_luigi_small_skid</sprite>
@@ -132,6 +133,7 @@
           <sprite>sprites\spr_luigi_small_swim2</sprite>
           <sprite>sprites\spr_luigi_small_hold</sprite>
           <sprite>sprites\spr_luigi_small_hold2</sprite>
+          <sprite>sprites\spr_luigi_small_hold3</sprite>
           <sprite>sprites\spr_luigi_small_crouch</sprite>
           <sprite>sprites\spr_luigi_small_spin</sprite>
           <sprite>sprites\spr_luigi_small_slide</sprite>
@@ -143,6 +145,7 @@
           <sprite>sprites\spr_luigi_big</sprite>
           <sprite>sprites\spr_luigi_big_walk</sprite>
           <sprite>sprites\spr_luigi_big_jump</sprite>
+          <sprite>sprites\spr_luigi_big_fall</sprite>
           <sprite>sprites\spr_luigi_big_run</sprite>
           <sprite>sprites\spr_luigi_big_runjump</sprite>
           <sprite>sprites\spr_luigi_big_skid</sprite>
@@ -151,6 +154,7 @@
           <sprite>sprites\spr_luigi_big_swim2</sprite>
           <sprite>sprites\spr_luigi_big_hold</sprite>
           <sprite>sprites\spr_luigi_big_hold2</sprite>
+          <sprite>sprites\spr_luigi_big_hold3</sprite>
           <sprite>sprites\spr_luigi_big_crouch</sprite>
           <sprite>sprites\spr_luigi_big_spin</sprite>
           <sprite>sprites\spr_luigi_big_slide</sprite>
@@ -580,6 +584,7 @@
         <script>scripts\player_idle.gml</script>
         <script>scripts\player_walk.gml</script>
         <script>scripts\player_jump.gml</script>
+        <script>scripts\player_fall.gml</script>
         <script>scripts\player_run.gml</script>
         <script>scripts\player_runjump.gml</script>
         <script>scripts\player_skid.gml</script>
@@ -588,6 +593,7 @@
         <script>scripts\player_swim2.gml</script>
         <script>scripts\player_hold.gml</script>
         <script>scripts\player_hold2.gml</script>
+        <script>scripts\player_hold3.gml</script>
         <script>scripts\player_crouch.gml</script>
         <script>scripts\player_spin.gml</script>
         <script>scripts\player_slide.gml</script>

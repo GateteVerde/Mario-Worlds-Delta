@@ -41,8 +41,8 @@ else {
 }
 
 //Cap player falling speed
-if (vspeed > 4)
-    vspeed = 4;
+if (vspeed > vspeedmax)
+    vspeed = vspeedmax;
     
 //Set up the player's maximum horizontal speed.
 if (keyboard_check(global.key_action[1])) { //If the control key is being held.

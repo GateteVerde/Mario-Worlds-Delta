@@ -123,7 +123,8 @@ if (sprout == itemtype.coin) {
 if (sprout == itemtype.coin_multi) {
 
     //If the timer is still going on, allow the block to be hit again.
-    if (timer &lt; 2)
+    if (global.player == 0)
+    &amp;&amp; (timer &lt; 2)
         ready = 0;
         
     //Otherwise, perform end of bump event from parent
@@ -186,20 +187,51 @@ else {
 //If the block holds more than 1 coin
 if (sprout == itemtype.coin_multi) {
 
-    //Engage timer
-    if (timer == 0) {
+    //If Mario is being controlled
+    if (global.player == 0) {
     
-        //Activate timer
-        timer = 1;
+        //Engage timer
+        if (timer == 0) {
         
-        //End timer
-        alarm[2] = 240;
+            //Activate timer
+            timer = 1;
+            
+            //End timer
+            alarm[2] = 240;
+        }
+    }
+    
+    //Otherwise
+    else {
+    
+        //Play 'Coin Big' sound
+        audio_play_sound(snd_coin_big, 0, false);
+    
+        //Repeat 10 times
+        repeat (10) {
+        
+            with (instance_create(x, ystart-16, obj_coin)) {
+            
+                //Allow gravity
+                ready = 1;
+                
+                //Disappear after a while
+                alarm[0] = 240;
+                alarm[1] = 360;
+                
+                //Set vertical speed
+                vspeed = random_range(-2, -4);                
+                
+                //Set horizontal speed
+                hspeed = random_range(-1.5, 1.5);                
+            }
+        }
     }
 }
 
 //Create the coin
 if (sprout == itemtype.coin)
-|| (sprout == itemtype.coin_multi)
+|| ((sprout == itemtype.coin_multi) &amp;&amp; (global.player == 0))
 || ((sprout == itemtype.coin_star) &amp;&amp; (instance_number(obj_invincibility) == 0))
     instance_create(x, ystart-16, obj_blockcoin);
 </string>

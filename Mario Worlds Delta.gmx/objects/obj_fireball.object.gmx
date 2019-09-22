@@ -134,8 +134,15 @@ if (hspeed != prevhspeed) then event_user(0);
 //Bounce when in ground
 if (gravity == 0) {
 
-    vspeed = -2.5;
     y--;
+    
+    //If Mario is being controlled
+    if (global.player == 0)
+        vspeed = -2.5;
+        
+    //Otherwise, if Luigi is being controlled
+    else
+        vspeed = -3.5;    
 }
 else {
 

@@ -326,10 +326,10 @@ if (state == statetype.jump) {
 }
 
 //Cap horizontal speed
-if (hspeed &gt; 3)
-    hspeed = 3;
-else if (hspeed &lt; -3)
-    hspeed = -3;
+if (hspeed &gt; obj_playerparent.hspeed_run_full)
+    hspeed = obj_playerparent.hspeed_run_full;
+else if (hspeed &lt; -obj_playerparent.hspeed_run_full)
+    hspeed = -obj_playerparent.hspeed_run_full;
 
 //Cap vertical speed
 if (smash == 0) {
@@ -350,13 +350,13 @@ if (smash == 1)
 
     //If 'Left' is pressed
     if (keyboard_check(global.key_l))
-    &amp;&amp; (hspeed &gt; -3)
+    &amp;&amp; (hspeed &gt; -obj_playerparent.hspeed_run_full)
     &amp;&amp; (xscale == -1)
         hspeed -= 0.1;
         
     //Otherwise, if 'Right' is pressed
     else if (keyboard_check(global.key_r))
-    &amp;&amp; (hspeed &lt; 3)
+    &amp;&amp; (hspeed &lt; obj_playerparent.hspeed_run_full)
     &amp;&amp; (xscale == 1)
         hspeed += 0.1;
 }

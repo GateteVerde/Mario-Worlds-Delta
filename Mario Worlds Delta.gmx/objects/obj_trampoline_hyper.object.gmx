@@ -181,8 +181,10 @@ if (sprite_index == spr_trampoline_hyper) {
             //With the player
             with (obj_playerparent) {
             
-                //Set vertical speed and boost jump
+                //Set vertical speed
                 vspeed = -6;
+                
+                //Boost jump
                 y -= 8;
                 
                 //Allow variable jumping if 'Shift' is pressed
