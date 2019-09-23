@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_killparent</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,9 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Bumps blocks
-
-//Combo
-hitcombo = 0;
 
 //Destroy
 alarm[0] = 2;
