@@ -81,7 +81,8 @@ event_inherited();
 event_user(6);
 
 //If the direction changed
-if (hspeed != prevhspeed) {
+if (hspeed != prevhspeed) 
+&amp;&amp; (sprite_index != spr_koopa_red_turn) {
 
     //Set turning sprite
     sprite_index = spr_koopa_red_turn;

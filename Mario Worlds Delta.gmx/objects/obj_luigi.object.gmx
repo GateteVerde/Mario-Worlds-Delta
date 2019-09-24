@@ -402,15 +402,18 @@ else if (crouch == false) {
                                 
                                 //Otherwise, if Luigi is not running
                                 else if (run == false) {
-
+                                
+                                    //Set the sprite
+                                    sprite_index = player_jump();
+                                    
                                     //Do not animate
-                                    image_speed = 0.25;
+                                    image_speed = 0;
                                     
                                     //But set the appropiate frame
                                     if (vspeed &lt; 0)
-                                        sprite_index = player_jump();
+                                        image_index = 0;
                                     else
-                                        sprite_index = player_fall();
+                                        image_index = 1;
                                 }
                             }
                         }
@@ -709,10 +712,11 @@ else if (crouch == false) {
                         }
                     
                         //Set the sprite
-                        sprite_index = player_hold3();
+                        sprite_index = player_hold2();
                         
-                        //Animate
-                        image_speed = 0.25;
+                        //Do not animate
+                        image_speed = 0;
+                        image_index = 0;
                     }
                 }
                 

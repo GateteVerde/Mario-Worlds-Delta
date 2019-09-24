@@ -931,8 +931,8 @@ if (gravity == 0) {
         if (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+12, obj_semisolid, 0, 0))
         &amp;&amp; (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+12, obj_slopeparent, 0, 0)) {
         
-            hspeed = -hspeed;            
-            x = xprevious;
+            hspeed = -hspeed;
+            x = xprevious;          
         }
     }
 }

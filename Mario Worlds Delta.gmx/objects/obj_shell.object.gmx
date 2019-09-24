@@ -85,6 +85,10 @@ alarm[2] = 2;
 //Red Koopa
 if (sprite_index == spr_shell_red)
     deathsprite = spr_koopa_red_dead;
+    
+//Gargantua Green Koopa
+else if (sprite_index == spr_shell_big)
+    deathsprite = spr_koopa_big_dead;
 </string>
           </argument>
         </arguments>
@@ -116,6 +120,9 @@ switch (sprite_index) {
     
     //Red Koopa Troopa
     case (spr_shell_red): instance_create(x, y, obj_koopa_red); break;
+    
+    //Gargantua Green Koopa Troopa
+    case (spr_shell_big): instance_create(x, y, obj_koopa_big); break;
 }
 
 //Destroy
@@ -279,7 +286,8 @@ if (vspeed &gt; -0.5) {
         else if (other.bbox_bottom &gt; yprevious+5) {
     
             //If the item can be held and the player can hold it
-            if (can_hold()) {
+            if (can_hold()) 
+            &amp;&amp; (sprite_height &lt; 17) {
             
                 //Make the player hold it
                 other.holding = 1;
@@ -632,8 +640,13 @@ instance_destroy();
 
 if (flip == 0)
     draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+1, image_xscale, 1, 0, c_white, 1);
-else
-    draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+17, image_xscale, -1, 0, c_white, 1);
+else {
+
+    if (sprite_height &lt; 17)
+        draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+17, image_xscale, -1, 0, c_white, 1);
+    else
+        draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+1, image_xscale, -1, 0, c_white, 1);
+}
 </string>
           </argument>
         </arguments>
