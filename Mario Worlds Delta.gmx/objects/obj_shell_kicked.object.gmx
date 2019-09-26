@@ -61,48 +61,7 @@ bouncy = true;
 image_speed = 0.3;
 
 //Check sprite and set vulnerabilities
-alarm[1] = 2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check sprite and set vulnerabilities
-
-//Red Koopa
-if (sprite_index == spr_shell_red)
-    deathsprite = spr_koopa_red_dead;
-    
-//Gargantua Green Koopa
-else if (sprite_index == spr_shell_big) {
-
-    deathsprite = spr_bigkoopa_dead;
-    edible = 2;
-}
-
-//Gargantua Red Koopa
-else if (sprite_index == spr_shell_big_red) {
-
-    deathsprite = spr_bigkoopa_red_dead;
-    edible = 2;
-}
+event_user(15);
 </string>
           </argument>
         </arguments>
@@ -189,6 +148,47 @@ exit;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check sprite and set vulnerabilities
+
+//Red Koopa
+if (sprite_index == spr_shell_red)
+    deathsprite = spr_koopa_red_dead;
+    
+//Gargantua Green Koopa
+else if (sprite_index == spr_shell_big) {
+
+    deathsprite = spr_bigkoopa_dead;
+    edible = 2;
+}
+
+//Gargantua Red Koopa
+else if (sprite_index == spr_shell_big_red) {
+
+    deathsprite = spr_bigkoopa_red_dead;
+    edible = 2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="18">
       <action>
         <libid>1</libid>
@@ -212,8 +212,8 @@ exit;
 if (gravity == 0) 
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+5, obj_slopeparent, 0, 0)) {
 
-    if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom+8, bbox_left, bbox_bottom, obj_semisolid, 1, 0)))
-    || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right, bbox_bottom+8, bbox_right, bbox_bottom, obj_semisolid, 1, 0)))
+    if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom+8, x, bbox_bottom, obj_semisolid, 1, 0)))
+    || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom+8, x, bbox_bottom, obj_semisolid, 1, 0)))
         y += 2;
 }
 
@@ -319,6 +319,35 @@ with (instance_create(x, y, obj_shell)) {
 
 //Destroy
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Special enemy death script
+
+//Set up death sprite if we didnt yet
+event_user(15);
+
+//Inherit event
+event_inherited();
 </string>
           </argument>
         </arguments>
