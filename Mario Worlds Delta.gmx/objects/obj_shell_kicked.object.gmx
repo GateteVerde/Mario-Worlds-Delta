@@ -48,6 +48,9 @@ hitcombo = 0;
 //Whether this shell is flipped
 flip = 0;
 
+//Whether there's a koopa inside this shell
+koopainside = 0;
+
 //Whether this shell can harm the player
 harmplayer = 0;
 
@@ -88,8 +91,18 @@ if (sprite_index == spr_shell_red)
     deathsprite = spr_koopa_red_dead;
     
 //Gargantua Green Koopa
-else if (sprite_index == spr_shell_big)
-    deathsprite = spr_koopa_big_dead;
+else if (sprite_index == spr_shell_big) {
+
+    deathsprite = spr_bigkoopa_dead;
+    edible = 2;
+}
+
+//Gargantua Red Koopa
+else if (sprite_index == spr_shell_big_red) {
+
+    deathsprite = spr_bigkoopa_red_dead;
+    edible = 2;
+}
 </string>
           </argument>
         </arguments>
@@ -119,6 +132,9 @@ prevhspeed = hspeed;
 
 //Inherit event
 event_inherited();
+
+//Check for 1 block gaps and blocks in the way
+event_user(8);
 
 //If the direction changes...
 if (hspeed != prevhspeed) {
@@ -173,6 +189,50 @@ exit;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="18">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for 1 block gaps and destroy blocks on the way
+
+//If there's no gravity
+if (gravity == 0) 
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+5, obj_slopeparent, 0, 0)) {
+
+    if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom+8, bbox_left, bbox_bottom, obj_semisolid, 1, 0)))
+    || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(bbox_right, bbox_bottom+8, bbox_right, bbox_bottom, obj_semisolid, 1, 0)))
+        y += 2;
+}
+
+//Check for blocks to the left
+var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
+if (block_l)
+&amp;&amp; (sprite_height &gt; 16)
+    with (block_l) event_user(15);
+
+//Check for blocks to the right    
+var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_blockparent, 0, 0);
+if (block_r)
+&amp;&amp; (sprite_height &gt; 16)
+    with (block_r) event_user(15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="17">
       <action>
         <libid>1</libid>
@@ -206,6 +266,9 @@ imdead.vspeed = -5;
 
 //Flip it
 imdead.flip = 1;
+
+//Hold or not hold a koopa inside
+imdead.koopainside = koopainside;
 
 //If the killer object is at the left of this object, move to the right
 if ((other.bbox_left+other.bbox_right/2) &lt; bbox_left+bbox_right/2) 
@@ -247,6 +310,9 @@ with (instance_create(x, y, obj_shell)) {
     //Hereby sprite
     sprite_index = other.sprite_index;
     
+    //Hereby koopainside state
+    koopainside = other.koopainside;
+    
     //Hereby flip state
     flip = other.flip;
 }
@@ -277,14 +343,50 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw the shell
 
-if (flip == 0)
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
-else {
-
-    if (sprite_height &lt; 17)
+//If the shell is small
+if (sprite_height &lt; 17) {
+    
+    if (flip == 0) {
+    
+        //Draw shell
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+        
+        //If there's a koopa inside
+        if (koopainside == 1)
+            draw_sprite_ext(spr_koopa_inside, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+    }
+    else {
+    
+        //Draw shell
         draw_sprite_ext(sprite_index, -1, round(x), round(y)+17, image_xscale, -1, 0, c_white, 1);
-    else
+        
+        //If there's a koopa inside
+        if (koopainside == 1)
+            draw_sprite_ext(spr_koopa_inside, -1, round(x), round(y)+17, image_xscale, -1, 0, c_white, 1);
+    }
+}
+
+//Otherwise
+else {
+    
+    if (flip == 0) {
+    
+        //Draw shell
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+        
+        //If there's a koopa inside
+        if (koopainside == 1)
+            draw_sprite_ext(spr_koopa_inside_big, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+    }
+    else {
+    
+        //Draw shell
         draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, -1, 0, c_white, 1);
+        
+        //If there's a koopa inside
+        if (koopainside == 1)
+            draw_sprite_ext(spr_koopa_inside_big, -1, round(x), round(y)+1, image_xscale, -1, 0, c_white, 1);
+    }    
 }
 </string>
           </argument>

@@ -365,30 +365,48 @@
       <sprite>sprites\spr_goomba_big</sprite>
       <sprite>sprites\spr_goomba_big_dead</sprite>
       <sprites name="Koopas">
-        <sprites name="Big">
-          <sprites name="Dead">
-            <sprite>sprites\spr_koopa_big_dead</sprite>
-          </sprites>
-          <sprites name="Shells">
-            <sprite>sprites\spr_shell_big</sprite>
-          </sprites>
-          <sprite>sprites\spr_koopa_big</sprite>
-          <sprite>sprites\spr_koopa_big_turn</sprite>
-        </sprites>
-        <sprites name="Normal">
-          <sprites name="Dead">
-            <sprite>sprites\spr_koopa_dead</sprite>
-            <sprite>sprites\spr_koopa_red_dead</sprite>
-          </sprites>
-          <sprites name="Shells">
-            <sprite>sprites\spr_shell</sprite>
-            <sprite>sprites\spr_shell_red</sprite>
+        <sprites name="Green">
+          <sprites name="Gargantua">
+            <sprite>sprites\spr_bigkoopa</sprite>
+            <sprite>sprites\spr_bigkoopa_turn</sprite>
+            <sprite>sprites\spr_bigkoopa_dead</sprite>
+            <sprite>sprites\spr_bigbeachkoopa</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_walk</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_sq</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_dead</sprite>
           </sprites>
           <sprite>sprites\spr_koopa</sprite>
           <sprite>sprites\spr_koopa_turn</sprite>
+          <sprite>sprites\spr_koopa_dead</sprite>
+          <sprite>sprites\spr_beachkoopa</sprite>
+          <sprite>sprites\spr_beachkoopa_walk</sprite>
+          <sprite>sprites\spr_beachkoopa_sq</sprite>
+          <sprite>sprites\spr_beachkoopa_dead</sprite>
+        </sprites>
+        <sprites name="Red">
+          <sprites name="Gargantua">
+            <sprite>sprites\spr_bigkoopa_red</sprite>
+            <sprite>sprites\spr_bigkoopa_red_turn</sprite>
+            <sprite>sprites\spr_bigkoopa_red_dead</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_red</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_red_walk</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_red_sq</sprite>
+            <sprite>sprites\spr_bigbeachkoopa_red_dead</sprite>
+          </sprites>
           <sprite>sprites\spr_koopa_red</sprite>
           <sprite>sprites\spr_koopa_red_turn</sprite>
+          <sprite>sprites\spr_koopa_red_dead</sprite>
+          <sprite>sprites\spr_beachkoopa_red</sprite>
+          <sprite>sprites\spr_beachkoopa_red_walk</sprite>
+          <sprite>sprites\spr_beachkoopa_red_sq</sprite>
+          <sprite>sprites\spr_beachkoopa_red_dead</sprite>
         </sprites>
+        <sprite>sprites\spr_shell</sprite>
+        <sprite>sprites\spr_shell_big</sprite>
+        <sprite>sprites\spr_shell_red</sprite>
+        <sprite>sprites\spr_shell_big_red</sprite>
+        <sprite>sprites\spr_koopa_inside</sprite>
+        <sprite>sprites\spr_koopa_inside_big</sprite>
       </sprites>
     </sprites>
     <sprites name="Decoration">
@@ -828,9 +846,24 @@
       <object>objects\obj_goomba</object>
       <object>objects\obj_goomba_big</object>
       <object>objects\obj_paragoomba</object>
-      <object>objects\obj_koopa</object>
-      <object>objects\obj_koopa_red</object>
-      <object>objects\obj_koopa_big</object>
+      <objects name="Koopas">
+        <objects name="Green">
+          <objects name="Gargantua">
+            <object>objects\obj_bigkoopa</object>
+            <object>objects\obj_bigbeachkoopa</object>
+          </objects>
+          <object>objects\obj_koopa</object>
+          <object>objects\obj_beachkoopa</object>
+        </objects>
+        <objects name="Red">
+          <objects name="Gargantua">
+            <object>objects\obj_bigkoopa_red</object>
+            <object>objects\obj_bigbeachkoopa_red</object>
+          </objects>
+          <object>objects\obj_koopa_red</object>
+          <object>objects\obj_beachkoopa_red</object>
+        </objects>
+      </objects>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
@@ -1011,8 +1044,10 @@
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
-          <object>objects\obj_shell</object>
-          <object>objects\obj_shell_kicked</object>
+          <objects name="Koopas">
+            <object>objects\obj_shell</object>
+            <object>objects\obj_shell_kicked</object>
+          </objects>
         </objects>
         <objects name="Eyecandy">
           <objects name="Blend">

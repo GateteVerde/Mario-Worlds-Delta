@@ -37,7 +37,7 @@ vulnerable = 0;
 stomp = 0;
 
 //How vulnerable is this enemy to Yoshi
-edible = 0;
+edible = 1;
 
 //Death Sprite
 deathsprite = spr_koopa_dead;
@@ -127,6 +127,9 @@ imdead.vspeed = -5;
 //Flip it
 imdead.flip = 1;
 
+//Hold a koopa inside
+imdead.koopainside = 1;
+
 //If the killer object is at the left of this object, move to the right
 if ((other.bbox_left+other.bbox_right/2) &lt;= bbox_left+bbox_right/2) 
     imdead.hspeed = 0.5;
@@ -161,9 +164,24 @@ instance_destroy();
             <kind>1</kind>
             <string>///Turn into a shell
 
+//Create shell
 instance_create(x, y, obj_shell);
+
+//Create a naked koopa
+with (instance_create(x+8*sign(obj_playerparent.xscale), y, obj_beachkoopa)) {
+
+    //Set the sprite
+    sprite_index = spr_beachkoopa;
+    
+    //Set the horizontal speed
+    hspeed = 3*sign(obj_playerparent.xscale);
+    
+    //Do not allow movement
+    ready = 0;
+}
+
+//Destroy
 instance_destroy();
-exit;
 </string>
           </argument>
         </arguments>
