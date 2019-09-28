@@ -32,6 +32,7 @@
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
+    <sound>sound\snd_flames</sound>
     <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_hurt</sound>
@@ -239,6 +240,7 @@
           <sprite>sprites\spr_egg_b</sprite>
           <sprite>sprites\spr_egg_shard</sprite>
           <sprite>sprites\spr_tongue</sprite>
+          <sprite>sprites\spr_fire</sprite>
         </sprites>
       </sprites>
       <sprites name="Projectiles">
@@ -855,6 +857,9 @@
         <objects name="Green">
           <objects name="Gargantua">
             <object>objects\obj_bigkoopa</object>
+            <object>objects\obj_bigparakoopa</object>
+            <object>objects\obj_bigparakoopa_super</object>
+            <object>objects\obj_bigparakoopa_fly</object>
             <object>objects\obj_bigbeachkoopa</object>
           </objects>
           <object>objects\obj_koopa</object>
@@ -999,6 +1004,7 @@
                   <object>objects\obj_egg_hatch</object>
                 </objects>
                 <object>objects\obj_yoshi</object>
+                <object>objects\obj_yoshi_fire</object>
                 <object>objects\obj_tongue</object>
               </objects>
             </objects>

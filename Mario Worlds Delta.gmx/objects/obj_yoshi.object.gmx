@@ -190,10 +190,10 @@ if (state == yoshistate.idle)
 if (flying) {
 
     //Play 'Lick' sound
-    audio_play_sound(snd_lick, 0, false)
+    audio_stop_play_sound(snd_lick, 0, false)
     
     //Repeat the process.
-    alarm[4] = 15;
+    alarm[4] = 8;
 }
 </string>
           </argument>
@@ -403,6 +403,9 @@ else if (state == yoshistate.ridden) {
         
         //Set the depth
         depth = -5;
+        
+        //Manage yoshi state
+        if (mouthholder != noone) then event_user(2);
         
         //Set mask to big
         obj_playerparent.mask_index = spr_mask_player_big;
@@ -1025,6 +1028,95 @@ pal_swap_reset();
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check what shell does have yoshi on his mouth and give abilities
+
+if (mouthholder == obj_shell) 
+&amp;&amp; (instance_number(obj_tongue) == 0) {
+    
+    //If yoshi is yellow or has a yellow shell in mouth
+    if (colour == 2) {
+                    
+        //If the player lands after a jump, stomp
+        if (stateprev == statetype.jump)
+        &amp;&amp; (obj_playerparent.state != statetype.jump)        
+            instance_create(x, y, obj_stomp);
+    }
+    
+    //If yoshi is blue or has a blue shell in mouth
+    if (colour == 3) {
+    
+        //If 'Shift' is being held outside water
+        if (keyboard_check(global.key_action[0])) 
+        &amp;&amp; (obj_playerparent.swimming == false) {
+        
+            //If not flying and moving down, start flying.
+            if (!flying)
+            &amp;&amp; (obj_playerparent.vspeed &gt; 0) 
+            &amp;&amp; (obj_playerparent.flying = 0) {
+            
+                flying = 1;
+                alarm[4] = 1;
+            }
+            
+            //When flying
+            if (flying) {
+            
+                //With the player
+                with (obj_playerparent) {
+                
+                    //If there's not a ceiling above the player, move up
+                    if (!collision_rectangle(bbox_left, bbox_top-3, bbox_right, bbox_top, obj_solid, 0, 0))
+                    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top-3, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
+                    
+                        vspeed += -1;
+                        if (vspeed &lt; -2)
+                            vspeed = -2;                                                     
+                    }
+                }
+                
+                //Animate wing
+                flyanim += 0.25;
+            }
+            
+            //Otherwise, reset fly animation
+            else
+                flyanim = 0;
+        }
+        
+        //Otherwise, reset flight
+        else {
+        
+            audio_stop_sound(snd_lick);
+            flying = 0;
+            flyanim = 0;
+        }    
+    }    
+}
+
+//Remember last state
+stateprev = obj_playerparent.state;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -1106,81 +1198,159 @@ if (mouthholder != noone) {
     if (obj_playerparent.crouch == true) 
     || (obj_playerparent.sliding == true) {
     
-        //Create up an item
-        with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
+        //If the item held on yoshi's mouth is a shell
+        if (mouthholder == obj_shell) {
         
-            //Use the correct sprite
-            sprite_index = other.mouthsprite;
+            //If this is a red yoshi
+            if (colour == 1)
+            || (mouthsprite == spr_shell_red)
+                mouthholder = obj_yoshi_fire;
+        }
+        
+        //Lock it
+        locked = 2;
+        
+        //If yoshi is holding fire
+        if (mouthholder == obj_yoshi_fire) {
+    
+            //Play 'Flames' sound
+            audio_play_sound(snd_flames, 0, false);
             
-            //Set the horizontal speed
-            hspeed = 0.5*obj_playerparent.xscale;
+            //Make yoshi fire
+            instance_create(x+(10*obj_playerparent.xscale),y-12,obj_yoshi_fire);
+            with (instance_create(x+(10*obj_playerparent.xscale),y-12,obj_yoshi_fire)) 
+                vspeed = 1;
+            with (instance_create(x+(10*obj_playerparent.xscale),y-12,obj_yoshi_fire)) 
+                vspeed = -1;           
+        }
+        
+        //Otherwise
+        else {
+        
+            //Create up an item
+            with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
             
-            //Set swimming state
-            if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
-                swimming = 1;
+                //Use the correct sprite
+                sprite_index = other.mouthsprite;
+                
+                //Set the horizontal speed
+                hspeed = 0.5*obj_playerparent.xscale;
+                
+                //Set swimming state
+                if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+                    swimming = 1;
+            }
         }
     }
     else {
     
-        //Create up an item
-        with (instance_create(x+(10*obj_playerparent.xscale), y-16, mouthholder)) {
+        //If the item held on yoshi's mouth is a shell
+        if (mouthholder == obj_shell) {
         
-            //Use the correct sprite
-            sprite_index = other.mouthsprite;
-            
-            //If the eaten item is a throwable brick.
-            if (sprite_index == spr_brick_throw_th) {
-                
-                //Set the horizontal speed.
-                hspeed = 3*obj_playerparent.xscale;
-                
-                //Set the animation speed
-                image_speed = 0.5;
-                
-                //Get thrown
-                ready = 1;
-                
-                //If the object is in contact with a solid.
-                if (place_meeting(x,y,obj_solid))
-                    event_user(0);
-            }
-            else {
-            
-                //If the eaten item is a POW block.
-                if (sprite_index = spr_powblock_blue) 
-                &amp;&amp; (!keyboard_check(global.key_d))      
-                    ready = 1;
+            //If this is a red yoshi
+            if (colour == 1)
+            || (mouthsprite == spr_shell_red)
+                mouthholder = obj_yoshi_fire;
+            else
+                mouthholder = obj_shell_kicked;
+        }
+        
+        //Lock it
+        locked = 1;
+        
+        //If yoshi is holding fire
+        if (mouthholder == obj_yoshi_fire) {
     
-                //If the eaten item is not overlapping a solid.
-                if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
+            //Play 'Flames' sound
+            audio_play_sound(snd_flames, 0, false);
+            
+            //Make yoshi fire
+            instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire);
+            with (instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire)) 
+                vspeed = 1;
+            with (instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire)) 
+                vspeed = -1;           
+        }
+        
+        else {
+        
+            //Create up an item
+            with (instance_create(x+(10*obj_playerparent.xscale), y-16, mouthholder)) {
+            
+                //Use the correct sprite
+                sprite_index = other.mouthsprite;
                 
-                    //Set the motion when swimming.
-                    if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_swim,0,0)) {
+                //If the eaten item is a throwable brick.
+                if (sprite_index == spr_brick_throw_th) {
                     
-                        if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
-                            hspeed = obj_playerparent.hspeed+0.75*obj_playerparent.xscale;
-                        else
-                            hspeed = 1*obj_playerparent.xscale;                
-                    }
+                    //Set the horizontal speed.
+                    hspeed = 3*obj_playerparent.xscale;
                     
-                    //Otherwise, set the motion when NOT swimming.
-                    else {
+                    //Set the animation speed
+                    image_speed = 0.5;
                     
-                        if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
-                            hspeed = obj_playerparent.hspeed+1.5*obj_playerparent.xscale;
-                        else
-                            hspeed = 2*obj_playerparent.xscale;                
-                    }
+                    //Get thrown
+                    ready = 1;
+                    
+                    //If the object is in contact with a solid.
+                    if (place_meeting(x,y,obj_solid))
+                        event_user(0);
                 }
                 
-                //Make the item get not stuck on a solid.
-                else
-                    inwall = true;
+                //If the eaten item is a shell
+                else if (sprite_index == spr_shell) {
+                
+                    //Set the horizontal speed
+                    prevhspeed = (2.7+abs(obj_playerparent.hspeed/4))*obj_playerparent.xscale;
+                    hspeed = (2.7+abs(obj_playerparent.hspeed/4))*obj_playerparent.xscale;
+                    
+                    //Get thrown
+                    ready = 1;
+                    
+                    //If the object is in contact with a solid
+                    if (place_meeting(x, y, obj_solid))
+                        event_user(0);
+                }
+                
+                //Otherwise
+                else {
+                
+                    //If the eaten item is a POW block.
+                    if (sprite_index = spr_powblock_blue) 
+                    &amp;&amp; (!keyboard_check(global.key_d))      
+                        ready = 1;
+        
+                    //If the eaten item is not overlapping a solid.
+                    if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
+                    
+                        //Set the motion when swimming.
+                        if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_swim,0,0)) {
+                        
+                            if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
+                                hspeed = obj_playerparent.hspeed+0.75*obj_playerparent.xscale;
+                            else
+                                hspeed = 1*obj_playerparent.xscale;                
+                        }
+                        
+                        //Otherwise, set the motion when NOT swimming.
+                        else {
+                        
+                            if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_slopeparent,1,0))
+                                hspeed = obj_playerparent.hspeed+1.5*obj_playerparent.xscale;
+                            else
+                                hspeed = 2*obj_playerparent.xscale;                
+                        }
+                    }
+                    
+                    //Make the item get not stuck on a solid.
+                    else
+                        inwall = true;
+                }
+                
+                //Set swimming state
+                if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+                    swimming = 1;
             }
-            
-            //Set swimming state
-            if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
-                swimming = 1;
         }
     }
     
@@ -1285,6 +1455,14 @@ else if (state == yoshistate.ridden) {
         
         //Draw the player
         event_user(10);
+        
+        //Draw yoshi's wing
+        if (mouthholder == obj_shell) 
+        &amp;&amp; (instance_number(obj_tongue) == 0) {
+        
+            if (colour == 3)
+                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+1+(3*obj_playerparent.crouch), obj_playerparent.xscale, 1, 0, c_white, 1);
+        }
     }
     
     //Otherwise, if the player exists and it is warping through a pipe
