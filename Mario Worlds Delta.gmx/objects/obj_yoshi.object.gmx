@@ -472,11 +472,14 @@ else if (state == yoshistate.ridden) {
 //If Yoshi is idle
 if (state == yoshistate.idle) {
 
-    //Set up the sprite
-    sprite_index = spr_yoshi_idle;
-    
     //Do not animate
-    image_speed = 0;
+    image_speed = 0;    
+    
+    //Set up the sprite
+    if (mouthholder != noone)
+        sprite_index = spr_yoshi_fullmouth
+    else
+        sprite_index = spr_yoshi_idle;
 }
 
 //Otherwise, if Yoshi is running away
@@ -753,13 +756,17 @@ if (state == yoshistate.idle) {
     //If there's no gravity
     if (gravity == 0) {
     
+        //Stop horizontal speed
+        if (hspeed != 0)
+            hspeed = 0;
+    
         //If Yoshi is not underwater
         if (swimming == false)
-            vspeed = -1;
+            vspeed = -1.5;
             
         //Otherwise, make a little bounce
         else
-            vspeed = -0.5;
+            vspeed = -0.75;
     }
 }
 
@@ -1055,8 +1062,14 @@ if (mouthholder == obj_shell)
                     
         //If the player lands after a jump, stomp
         if (stateprev == statetype.jump)
-        &amp;&amp; (obj_playerparent.state != statetype.jump)        
-            instance_create(x, y, obj_stomp);
+        &amp;&amp; (obj_playerparent.state != statetype.jump) {
+          
+            //Play 'Yoshi Stomp' sound
+            audio_play_sound(snd_stomp_yoshi, 0, false);
+            
+            //Create 'Stomp' object
+            instance_create(x, bbox_bottom, obj_stomp);
+        }
     }
     
     //If yoshi is blue or has a blue shell in mouth
@@ -1136,34 +1149,39 @@ stateprev = obj_playerparent.state;
             <kind>1</kind>
             <string>///Dismount from Yoshi
 
-//Set up the state
-state = yoshistate.idle;
-
-//Stop licking
-licking = 0;
-anim = 0;
-
-//With the player
-if (instance_exists(obj_playerparent)) {
-
-    xscale = obj_playerparent.xscale;
-    with (obj_playerparent) {
+//If Yoshi is being ridden
+if (state == yoshistate.ridden) {
     
-        visible = true;
-        holding = 0;
+    //Set up the state
+    state = yoshistate.idle;
+    
+    //Stop licking
+    licking = 0;
+    anim = 0;
+    
+    //With the player
+    if (instance_exists(obj_playerparent)) {
+    
+        xscale = obj_playerparent.xscale;
+        hspeed = obj_playerparent.hspeed;
+        with (obj_playerparent) {
+        
+            visible = true;
+            holding = 0;
+        }
     }
+    
+    //Set animation
+    image_index = 1;
+    alarm[6] = 16;
+    
+    //Allow ride
+    rideme = 0;
+    alarm[0] = 16;
+    
+    //Stop mounting
+    global.mount = 0;
 }
-
-//Set animation
-image_index = 1;
-alarm[6] = 16;
-
-//Allow ride
-rideme = 0;
-alarm[0] = 16;
-
-//Stop mounting
-global.mount = 0;
 </string>
           </argument>
         </arguments>
@@ -1477,6 +1495,16 @@ else if (state == yoshistate.ridden) {
                 pal_swap_set(pal_sprite, colour);
             }
             
+            //Draw wings
+            if (mouthholder == obj_shell) {
+            
+                if (colour == 3) {
+                
+                    draw_sprite_ext(spr_koopa_wing, 0, round(x)+12, round(y), 1, 1, 0, c_white, 1);
+                    draw_sprite_ext(spr_koopa_wing, 0, round(x)-12, round(y), -1, 1, 0, c_white, 1);
+                }
+            }
+            
             //Draw yoshi
             draw_sprite_ext(sprite_index, image_index, round(x), round(y), obj_player_warp.image_xscale, 1, 0, c_white, 1);
             
@@ -1521,6 +1549,13 @@ else if (state == yoshistate.ridden) {
     
         //Draw the player
         event_user(12);
+        
+        //Draw yoshi's wing
+        if (mouthholder == obj_shell) {
+        
+            if (colour == 3)
+                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1+(3*obj_playerparent.crouch), obj_playerparent.xscale, 1, 0, c_white, 1);
+        }
     }
 }
 </string>

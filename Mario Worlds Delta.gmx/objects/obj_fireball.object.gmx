@@ -42,6 +42,10 @@ alarm[0] = 2;
 //Turn into a green fireball if Luigi is controlled
 if (global.player == 1)
     sprite_index = spr_fireball_l;
+    
+//Otherwise, turn into a blue fireball if Toad is controlled
+else if (global.player == 2)
+    sprite_index = spr_fireball_t;
 </string>
           </argument>
         </arguments>
@@ -141,8 +145,12 @@ if (gravity == 0) {
         vspeed = -2.5;
         
     //Otherwise, if Luigi is being controlled
-    else
-        vspeed = -3.5;    
+    else if (global.player == 1)
+        vspeed = -3.5;
+        
+    //Otherwise, if Toad is being controlled
+    else if (global.player == 2)
+        vspeed = -1.5;    
 }
 else {
 

@@ -21,6 +21,10 @@ switch (global.powerup) {
         //Luigi
         else if (global.player == 1)
             return spr_luigi_small_climb;
+            
+        //Toad
+        else if (global.player == 2)
+            return spr_toad_small_climb;
     } break;
     
     //Default
@@ -33,5 +37,9 @@ switch (global.powerup) {
         //Luigi
         else if (global.player == 1)
             return spr_luigi_big_climb;
+            
+        //Toad
+        else if (global.player == 2)
+            return spr_toad_big_climb;
     } break;
 }

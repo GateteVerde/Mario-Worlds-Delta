@@ -568,23 +568,12 @@ if (smash == 1) {
 
     //If the player's head is right at the bottom
     if (dive_index == 2) {
-
+    
         //Play 'Thud' sound
         audio_play_sound(snd_thud, 0, false);
-        
-        //Create a moving smoke effect to the left
-        with (instance_create(bbox_left, bbox_bottom, obj_smoke)) {
-        
-            sprite_index = spr_smoke_big;
-            hspeed = -1;
-        }
-        
-        //Create a moving smoke effect to the right
-        with (instance_create(bbox_right, bbox_bottom, obj_smoke)) {
-        
-            sprite_index = spr_smoke_big;
-            hspeed = 1;
-        }
+
+        //Create 'Yoshi Stomp'
+        with (instance_create(x, bbox_bottom, obj_stomp)) sprite_index = spr_stompmask_cape;
     
         //Destroy
         instance_destroy();

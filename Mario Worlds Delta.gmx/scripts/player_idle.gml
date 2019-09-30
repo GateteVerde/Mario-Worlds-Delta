@@ -21,6 +21,10 @@ switch (global.powerup) {
         //Luigi
         else if (global.player == 1)
             return spr_luigi_small;
+            
+        //Toad
+        else if (global.player == 2)
+            return spr_toad_small;
     } break;
     
     //Default
@@ -33,5 +37,9 @@ switch (global.powerup) {
         //Luigi
         else if (global.player == 1)
             return spr_luigi_big;
+            
+        //Toad
+        else if (global.player == 2)
+            return spr_toad_big;
     } break;
 }

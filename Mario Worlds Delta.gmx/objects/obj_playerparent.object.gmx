@@ -1227,6 +1227,10 @@ if (invulnerable == false) {
             //Set horizontal speed
             hspeed = xscale*2;
             
+            //Stop licking
+            licking = 0;
+            anim = 0;
+            
             //Disallow ride
             rideme = 0;
             

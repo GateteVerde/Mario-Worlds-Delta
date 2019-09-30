@@ -267,6 +267,54 @@ if (vulnerable &lt; 99) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_stomp">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with yoshi range
+
+//If the enemy is vulnerable to cape
+if (gravity == 0)
+&amp;&amp; (vulnerable &lt; 99) {
+            
+    //Kill the enemy
+    event_user(7);
+    
+    //Create 'Spinthump' effect
+    instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
+    
+    //Get points based on combo
+    if (other.hitcombo &lt;= 6) { //If the player did 6 or less consecutive stomps
+    
+        audio_play_sound(snd_kick, 0, false);
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+            event_user(2+obj_playerparent.hitcombo);
+    }
+    else {
+    
+        audio_play_sound(snd_1up, 0, false);
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+            event_user(9);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_brick_throw_th">
       <action>
         <libid>1</libid>

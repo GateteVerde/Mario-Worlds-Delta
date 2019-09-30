@@ -19,4 +19,7 @@ switch (global.player) {
     
     //Luigi
     case (1): return instance_create(argument[0], argument[1], obj_luigi);
+    
+    //Toad
+    case (2): return instance_create(argument[0], argument[1], obj_toad);
 }

@@ -63,6 +63,7 @@
     <sound>sound\snd_split</sound>
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_stomp</sound>
+    <sound>sound\snd_stomp_yoshi</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
@@ -166,6 +167,52 @@
         </sprites>
         <sprite>sprites\spr_luigi_dead</sprite>
       </sprites>
+      <sprites name="Toad">
+        <sprites name="Small">
+          <sprite>sprites\spr_toad_small</sprite>
+          <sprite>sprites\spr_toad_small_walk</sprite>
+          <sprite>sprites\spr_toad_small_jump</sprite>
+          <sprite>sprites\spr_toad_small_run</sprite>
+          <sprite>sprites\spr_toad_small_runjump</sprite>
+          <sprite>sprites\spr_toad_small_skid</sprite>
+          <sprite>sprites\spr_toad_small_climb</sprite>
+          <sprite>sprites\spr_toad_small_swim</sprite>
+          <sprite>sprites\spr_toad_small_swim2</sprite>
+          <sprite>sprites\spr_toad_small_hold</sprite>
+          <sprite>sprites\spr_toad_small_hold2</sprite>
+          <sprite>sprites\spr_toad_small_crouch</sprite>
+          <sprite>sprites\spr_toad_small_spin</sprite>
+          <sprite>sprites\spr_toad_small_slide</sprite>
+          <sprite>sprites\spr_toad_small_kick</sprite>
+          <sprite>sprites\spr_toad_small_clear</sprite>
+          <sprite>sprites\spr_toad_small_ride</sprite>
+        </sprites>
+        <sprites name="Big">
+          <sprite>sprites\spr_toad_big</sprite>
+          <sprite>sprites\spr_toad_big_walk</sprite>
+          <sprite>sprites\spr_toad_big_jump</sprite>
+          <sprite>sprites\spr_toad_big_run</sprite>
+          <sprite>sprites\spr_toad_big_runjump</sprite>
+          <sprite>sprites\spr_toad_big_skid</sprite>
+          <sprite>sprites\spr_toad_big_climb</sprite>
+          <sprite>sprites\spr_toad_big_swim</sprite>
+          <sprite>sprites\spr_toad_big_swim2</sprite>
+          <sprite>sprites\spr_toad_big_hold</sprite>
+          <sprite>sprites\spr_toad_big_hold2</sprite>
+          <sprite>sprites\spr_toad_big_crouch</sprite>
+          <sprite>sprites\spr_toad_big_spin</sprite>
+          <sprite>sprites\spr_toad_big_slide</sprite>
+          <sprite>sprites\spr_toad_big_kick</sprite>
+          <sprite>sprites\spr_toad_big_clear</sprite>
+          <sprite>sprites\spr_toad_big_ride</sprite>
+          <sprite>sprites\spr_toad_big_shoot</sprite>
+        </sprites>
+        <sprites name="Cape">
+          <sprite>sprites\spr_toad_cape_dive</sprite>
+          <sprite>sprites\spr_toad_cape_smash</sprite>
+        </sprites>
+        <sprite>sprites\spr_toad_dead</sprite>
+      </sprites>
       <sprites name="Miscellaneous">
         <sprites name="Cape Parts">
           <sprite>sprites\spr_cape</sprite>
@@ -246,6 +293,7 @@
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
         <sprite>sprites\spr_fireball_l</sprite>
+        <sprite>sprites\spr_fireball_t</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_p</sprite>
@@ -597,6 +645,8 @@
         <sprite>sprites\spr_path</sprite>
         <sprite>sprites\spr_powkiller</sprite>
         <sprite>sprites\spr_spinnermask</sprite>
+        <sprite>sprites\spr_stompmask</sprite>
+        <sprite>sprites\spr_stompmask_cape</sprite>
       </sprites>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_mariostart</sprite>
@@ -982,6 +1032,7 @@
           <objects name="Special">
             <object>objects\obj_mario</object>
             <object>objects\obj_luigi</object>
+            <object>objects\obj_toad</object>
           </objects>
           <object>objects\obj_bound_bottom</object>
           <object>objects\obj_bound_top</object>
@@ -1005,6 +1056,7 @@
                 </objects>
                 <object>objects\obj_yoshi</object>
                 <object>objects\obj_yoshi_fire</object>
+                <object>objects\obj_stomp</object>
                 <object>objects\obj_tongue</object>
               </objects>
             </objects>

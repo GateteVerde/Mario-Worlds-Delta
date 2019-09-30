@@ -29,5 +29,9 @@ switch (global.powerup) {
         //Luigi
         else if (global.player == 1)
             return spr_luigi_big_shoot;
+            
+        //Toad
+        else if (global.player == 2)
+            return spr_toad_big_shoot;
     } break;
 }
