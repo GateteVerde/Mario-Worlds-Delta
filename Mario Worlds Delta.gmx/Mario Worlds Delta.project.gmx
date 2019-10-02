@@ -394,6 +394,8 @@
       <sprite>sprites\spr_boostpanel</sprite>
       <sprite>sprites\spr_bombblock</sprite>
       <sprite>sprites\spr_deathblock</sprite>
+      <sprite>sprites\spr_floodblock</sprite>
+      <sprite>sprites\spr_floodblock_reset</sprite>
       <sprite>sprites\spr_icicle</sprite>
       <sprite>sprites\spr_icicle_static</sprite>
       <sprite>sprites\spr_icicle_appear</sprite>
@@ -648,8 +650,8 @@
         <sprite>sprites\spr_stompmask</sprite>
         <sprite>sprites\spr_stompmask_cape</sprite>
       </sprites>
-      <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_mariostart</sprite>
+      <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_lightningsheet</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
@@ -893,6 +895,8 @@
       <object>objects\obj_boostpanel</object>
       <object>objects\obj_bombblock</object>
       <object>objects\obj_deathblock</object>
+      <object>objects\obj_floodblock</object>
+      <object>objects\obj_floodblock_reset</object>
       <object>objects\obj_icicle</object>
       <object>objects\obj_icicle_static</object>
       <object>objects\obj_detonator</object>
@@ -938,6 +942,7 @@
           <object>objects\obj_poison_tides</object>
         </objects>
         <object>objects\obj_water</object>
+        <object>objects\obj_water_sf</object>
         <object>objects\obj_water_tides</object>
         <object>objects\obj_waterfall</object>
       </objects>

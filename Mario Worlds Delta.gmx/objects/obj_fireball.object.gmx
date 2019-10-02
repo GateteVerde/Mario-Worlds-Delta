@@ -150,7 +150,7 @@ if (gravity == 0) {
         
     //Otherwise, if Toad is being controlled
     else if (global.player == 2)
-        vspeed = -1.5;    
+        vspeed = -2;    
 }
 else {
 

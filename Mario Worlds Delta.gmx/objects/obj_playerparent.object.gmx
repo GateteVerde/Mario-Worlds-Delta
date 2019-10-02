@@ -267,7 +267,10 @@ if (control_enable == true)
                 with (instance_create(x, y, obj_fireball)) {
                 
                     //Set the horizontal speed
-                    hspeed = 3*other.xscale;
+                    if (global.player == 2) //If Toad is under control
+                        hspeed = 4*other.xscale;
+                    else
+                        hspeed = 3*other.xscale;
                     
                     //Set the vertical speed
                     if (keyboard_check(global.key_u))
@@ -386,8 +389,14 @@ if (jumpstyle == 1)
     if (global.powerup == cs_pow_fire) 
     || (global.powerup == cs_pow_firecape) {
     
-        with (instance_create(x, y, obj_fireball)) 
-            hspeed = 3*sign(other.dir);
+        with (instance_create(x, y, obj_fireball)) {
+        
+            //If Toad is under control
+            if (global.player == 2)
+                hspeed = 4*sign(other.dir);
+            else
+                hspeed = 3*sign(other.dir);
+        }
     }         
     
     //Change the facing direction
@@ -878,13 +887,11 @@ if (water)
     if (vspeed &gt; 0) {
     
         vspeed = 0;
-    }
-        
-    //Create a splash effect
-    with (instance_create(x, water.y-16, obj_smoke)) {
-     
-        sprite_index = spr_splash;
-        image_speed = 0.3;
+        with (instance_create(x, water.y-16, obj_smoke)) {
+         
+            sprite_index = spr_splash;
+            image_speed = 0.3;
+        }
     }
 }
 

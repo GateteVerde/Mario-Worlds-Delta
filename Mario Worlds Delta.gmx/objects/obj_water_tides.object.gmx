@@ -36,6 +36,9 @@
 //Whether this can push Mario.
 push = false;
 
+//Whether this object has a target position
+targety = ystart;
+
 //Animate
 image_speed = 0.1;
 image_index = 1;
@@ -48,6 +51,9 @@ alarm[0] = 360;
 
 //Create bubble effects
 alarm[1] = 7;
+
+//Create surface
+surf = instance_create(x, y, obj_water_sf);
 
 //Create a water surface
 water = instance_create(x, y, obj_swim);
@@ -161,6 +167,12 @@ if (vspeed != 0) {
 //Update water position.
 water.x = x;
 water.y = y;
+
+//Update surface position
+surf.y = y;
+
+//Update position based on target
+y = lerp(yprevious, targety, 0.025);
 
 //Check for player
 player = collision_rectangle(water.bbox_left, water.bbox_top, water.bbox_right, water.bbox_bottom,obj_playerparent,0,1);
