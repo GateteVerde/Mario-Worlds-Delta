@@ -3,10 +3,10 @@
   <spriteName>spr_square_hurt</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>-1</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_solid</parentName>
-  <maskName>spr_square</maskName>
+  <parentName>obj_tilesolid</parentName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="3" enumb="0">
       <action>
@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for the player and hurt him
+            <string>///Fake solid logic
+
+//Inherit event
+event_inherited();
 
 //If the player is riding yoshi
 if (global.mount == 0) {
@@ -38,7 +41,7 @@ if (global.mount == 0) {
         with (player) event_user(0);
 }
 
-//Otherwise
+//Otherwise, hurt the player
 else {
 
     //Check for the player
