@@ -1027,8 +1027,20 @@ if (y &lt; -96)
 else {
 
     //If the player falls into a pit, restart the room
-    if (bbox_bottom &gt; room_height+32) 
-    || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_bottom-1, obj_solid, 0, 0)) {
+    if (bbox_bottom &gt; room_height+32) {
+    
+        instance_create(x, y, obj_player_dead);
+        instance_destroy();
+        exit;
+    }
+}
+
+//If the player gets stuck with solids, kill it
+if (inwall == false) {
+
+    //If the player is covered with solid masks
+    if (position_meeting(x, y, obj_solid))
+    &amp;&amp; (position_meeting(x, bbox_bottom+1, obj_semisolid)) {
     
         instance_create(x, y, obj_player_dead);
         instance_destroy();

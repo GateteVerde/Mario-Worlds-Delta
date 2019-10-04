@@ -152,10 +152,17 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playe
         obj_playerparent.y = ceil(bbox_top-16);
 }
 
-//Push the player when not riding the block
-if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+1, bbox_left, bbox_bottom, obj_playerparent, 1, 0)))
-|| ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+1, bbox_right+hspeed, bbox_bottom, obj_playerparent, 1, 0)))
-    obj_playerparent.x += hspeed;
+//Check for the player
+var player_l = collision_rectangle(bbox_left, bbox_top, bbox_left, bbox_bottom-4, obj_playerparent, 1, 0);
+var player_r = collision_rectangle(bbox_right, bbox_top, bbox_right, bbox_bottom-4, obj_playerparent, 1, 0);
+
+//If moving left and the player is in position
+if ((hspeed &lt; 0) &amp;&amp; (player_l))
+    with (player_l) x--;
+    
+//Otherwise if moving right and the player is in position
+else if ((hspeed &gt; 0) &amp;&amp; (player_r))
+    with (player_r) x++; 
 </string>
           </argument>
         </arguments>

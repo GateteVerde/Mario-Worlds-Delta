@@ -3,7 +3,7 @@
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>-4</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -86,7 +86,7 @@ if (global.screenfreeze == true) {
     }
     
     //Make following objects invisible
-    with (obj_water) visible = 0;
+    with (obj_water_tides) visible = 0;
     with (obj_effectsparent) visible = 0;
     
     //Start animation
@@ -261,8 +261,8 @@ instance_activate_object(obj_cape);
 with (obj_cape) image_alpha = 0;
 
 //Activate water
-instance_activate_object(obj_water);
-with (obj_water) visible = 1;
+instance_activate_object(obj_water_tides);
+with (obj_water_tides) visible = 1;
 
 //Activate effects
 instance_activate_object(obj_effectsparent);

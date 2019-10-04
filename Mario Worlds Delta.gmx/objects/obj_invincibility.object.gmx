@@ -225,6 +225,13 @@ alarm[1] = 60;
             <kind>1</kind>
             <string>///Invincibility logic.
 
+//If the player dies, destroy
+if (instance_exists(obj_player_dead)) {
+
+    instance_destroy();
+    exit;
+}
+
 //If the player does exist.
 if (instance_exists(obj_playerparent)) {
 

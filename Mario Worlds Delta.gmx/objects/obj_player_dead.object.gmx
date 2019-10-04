@@ -27,6 +27,16 @@
             <kind>1</kind>
             <string>///An heroic death
 
+//Set up sprite based on player
+switch (global.player) {
+
+    //Luigi
+    case (1): sprite_index = spr_luigi_dead; break;
+    
+    //Toad
+    case (2): sprite_index = spr_toad_dead; break;
+}
+
 //Play 'Player Down' sound
 audio_play_sound(bgm_death, 0, false);
 
@@ -47,36 +57,24 @@ with (obj_levelcontrol) {
 //Destroy Yoshi
 with (obj_yoshi) {
 
+    global.mount = 0;
     if (state == yoshistate.ridden)
         instance_destroy();
 }
-
-//Subtract a life
-lives--;
-
-//Jump
-alarm[0] = 60;
-
-//Go back
-alarm[1] = 200;
 
 //Do not animate
 image_speed = 0;
 image_index = 0;
 
-//Reset mount
-global.mount = 0;
+//Subtract a life
+lives--;
+
+//Perform events
+alarm[0] = 60;
+alarm[1] = 200;
 
 //Reset powerup
 global.powerup = cs_pow_small;
-
-//Change to luigi if required
-if (global.player == 1)
-    sprite_index = spr_luigi_dead;
-    
-//Otherwise, change to toad
-else if (global.player == 2)
-    sprite_index = spr_toad_dead;
 </string>
           </argument>
         </arguments>

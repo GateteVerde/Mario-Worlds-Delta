@@ -107,7 +107,7 @@ if (moving) {
                 other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
             }
             
-            //Move the player horizontally if there is no solid in his way
+            //Move the player horizontally if there is no solid in his way            
             if (x &lt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_left-1, other.id.bbox_top+4, other.id.bbox_left, other.id.bbox_bottom-5,obj_solid,0,0))
             || (x &gt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_right, other.id.bbox_top+4, other.id.bbox_right+1, other.id.bbox_bottom-5,obj_solid,0,0))
                 other.id.x += x-xprevious;
