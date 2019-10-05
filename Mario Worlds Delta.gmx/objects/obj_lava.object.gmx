@@ -92,6 +92,7 @@ if (visible == 1)
             <kind>1</kind>
             <string>///Calculate height and reset vertical scale
 
+//Set height
 hh = sprite_height-1;
 if (image_yscale &gt; 1)
     image_yscale = 1;

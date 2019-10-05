@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>///Physics Parent
 
-//Does this item bounce in the ground?
-bouncy = false;
-
 //Is the object in a slope?
 slope = false;
 
@@ -69,7 +66,7 @@ swimming = false;
 */
 
 //Check for a moving platform
-var moving = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_bottom+4+vspeed, obj_platformparent, 0, 0);
+var moving = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_bottom+4+vspeed, obj_semisolid, 0, 0);
 
 //If there's a moving platform
 if (moving) {
@@ -392,39 +389,14 @@ if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1
 }
 
 //Check for floor objects
-if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
+if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolid, 0, 0))
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
 || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1, obj_slopeparent,1,0)) {
 
     //Stop vertical movement
     gravity = 0;
-    if (vspeed &gt; 0) {
-    
-        //If the object cannot bounce
-        if (bouncy == 0)
-            vspeed = 0;
-        
-        //Otherwise
-        else {
-        
-            //Check for a moving platform
-            var check = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_platformparent, 0, 0);
-        
-            //If this object is on a moving platform
-            if (check)
-            &amp;&amp; (check.vspeed != 0)
-                vspeed = 0;
-            
-            //Otheriwse, bounce
-            else {
-            
-                if (vspeed &gt; 0.5)
-                    vspeed = -vspeed/2;
-                else
-                    vspeed = 0;
-            }
-        }
-    }
+    if (vspeed &gt; 0)
+        vspeed = 0;
 }
 else {
 

@@ -416,6 +416,9 @@
       <sprite>sprites\spr_goomba_wings</sprite>
       <sprite>sprites\spr_goomba_big</sprite>
       <sprite>sprites\spr_goomba_big_dead</sprite>
+      <sprite>sprites\spr_galoomba</sprite>
+      <sprite>sprites\spr_galoomba_down</sprite>
+      <sprite>sprites\spr_galoomba_dead</sprite>
       <sprites name="Koopas">
         <sprites name="Green">
           <sprites name="Gargantua">
@@ -534,6 +537,10 @@
     <sprites name="Special">
       <sprites name="Eyecandy">
         <sprites name="Blend">
+          <sprites name="Lighting">
+            <sprite>sprites\spr_light</sprite>
+            <sprite>sprites\spr_light_static</sprite>
+          </sprites>
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_ring_b</sprite>
           <sprite>sprites\spr_sparkle</sprite>
@@ -758,12 +765,22 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
+    <shader type="GLSLES">shaders\shd_multiply.shader</shader>
     <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_player_warp</object>
     <objects name="Controllers">
+      <objects name="Lighting">
+        <objects name="Lights">
+          <object>objects\obj_light</object>
+          <object>objects\obj_light_npc</object>
+          <object>objects\obj_light_static</object>
+        </objects>
+        <object>objects\obj_lightparent</object>
+        <object>objects\obj_lightcontrol</object>
+      </objects>
       <objects name="Weather">
         <object>objects\obj_rainmaker</object>
         <object>objects\obj_snowmaker</object>
@@ -910,6 +927,7 @@
       <object>objects\obj_goomba</object>
       <object>objects\obj_goomba_big</object>
       <object>objects\obj_paragoomba</object>
+      <object>objects\obj_galoomba</object>
       <objects name="Koopas">
         <objects name="Green">
           <objects name="Gargantua">
@@ -1016,7 +1034,6 @@
         </objects>
         <objects name="In-Level Parents">
           <objects name="Collision">
-            <object>objects\obj_platformparent</object>
             <object>objects\obj_conveyorparent</object>
             <object>objects\obj_escalatorparent</object>
           </objects>
@@ -1122,6 +1139,7 @@
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
+          <object>objects\obj_galoomba_held</object>
           <objects name="Koopas">
             <object>objects\obj_shell</object>
             <object>objects\obj_shell_kicked</object>

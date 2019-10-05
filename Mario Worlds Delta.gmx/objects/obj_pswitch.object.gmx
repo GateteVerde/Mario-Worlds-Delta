@@ -32,6 +32,13 @@ event_inherited();
 
 //Animate
 image_speed = 0.1;
+
+//Create light if required
+if (instance_exists(obj_lightcontrol)) {
+
+    with (instance_create(0, 0, obj_light_npc))    
+        target = other.id;
+}
 </string>
           </argument>
         </arguments>
@@ -69,6 +76,33 @@ instance_destroy();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Hold only when not pressed
+
+if (sprite_index == spr_pswitch_press)
+exit;
+    event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -95,8 +129,7 @@ if (sprite_index == spr_pswitch) {
     
     //Set the sprite
     sprite_index = spr_pswitch_press;
-    image_speed = 0.3;
-    image_index = 0;
+    alarm[0] = 60;
     
     //Activate P-Switch events
     with (obj_levelcontrol) {
@@ -108,36 +141,6 @@ if (sprite_index == spr_pswitch) {
     
     //Stop vertical movement
     with (obj_playerparent) vspeed = 0;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///End animation
-
-if (sprite_index == spr_pswitch_press) {
-
-    image_speed = 0;
-    image_index = 3;
-    alarm[0] = 60;
 }
 </string>
           </argument>
