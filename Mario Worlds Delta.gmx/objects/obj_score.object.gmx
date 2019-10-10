@@ -32,6 +32,9 @@ vspeed = -2.25;
 
 //Friction
 gravity = 0.1;
+
+//Scale
+scale = 1;
 </string>
           </argument>
         </arguments>
@@ -56,11 +59,28 @@ gravity = 0.1;
             <kind>1</kind>
             <string>///Destroy if there's no vertical speed
 
-if (vspeed &gt; 0) {
+//If there's no friction
+if (friction == 0) {
+    
+    //If moving down, fade out
+    if (vspeed &gt; 0) {
+    
+        image_alpha -= 0.1;
+        if (image_alpha &lt; 0.1)
+            instance_destroy();
+    }
+}
 
-    image_alpha -= 0.1;
-    if (image_alpha &lt; 0.1)
-        instance_destroy();
+//Otherwise, if there's friction
+else if (friction != 0) {
+
+    //If there's no vertical speed
+    if (vspeed == 0) {
+    
+        image_alpha -= 0.05;
+        if (image_alpha &lt; 0.05)
+            instance_destroy();
+    }
 }
 </string>
           </argument>
@@ -93,6 +113,43 @@ sprite_index = spr_poisonpts;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="20">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///·UP
+
+//Set the sprite
+sprite_index = spr_3uppts;
+
+//Quad alpha
+image_alpha = 4;
+
+//Give score
+lives += 3;
+
+//Stop vertical movement
+vspeed = -3;
+gravity = 0;
+friction = 0.1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="19">
       <action>
         <libid>1</libid>
@@ -115,8 +172,16 @@ sprite_index = spr_poisonpts;
 //Set the sprite
 sprite_index = spr_1uppts;
 
+//Quad alpha
+image_alpha = 4;
+
 //Give score
 lives++;
+
+//Stop vertical movement
+vspeed = -3;
+gravity = 0;
+friction = 0.1;
 </string>
           </argument>
         </arguments>
@@ -402,7 +467,7 @@ score += 10;
             <kind>1</kind>
             <string>///Draw it
 
-draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, -1, round(x), y, scale, scale, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

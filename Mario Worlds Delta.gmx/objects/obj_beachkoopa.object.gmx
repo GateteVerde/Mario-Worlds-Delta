@@ -214,37 +214,45 @@ else if (hspeed &lt; 0)
             <kind>1</kind>
             <string>///Climb inside the shell
 
-//If the koopa is jumping inside
-if (jumping == 1)
-&amp;&amp; (gravity == 0) 
-&amp;&amp; (ready == 2) {
-
-    //If the shell is a green one, become a green koopa
-    if (other.sprite_index == spr_shell) {
+//If the shell is being held, inherit default event
+if (other.held == 1)
+    event_inherited();
     
-        //With the shell
-        with (other) {
+//Otherwise
+else {
+    
+    //If the koopa is jumping inside
+    if (jumping == 1)
+    &amp;&amp; (gravity == 0) 
+    &amp;&amp; (ready == 2) {
+    
+        //If the shell is a green one, become a green koopa
+        if (other.sprite_index == spr_shell) {
         
-            instance_create(x,y,obj_koopa);
+            //With the shell
+            with (other) {
+            
+                instance_create(x,y,obj_koopa);
+                instance_destroy();
+            }
+            
+            //Destroy this object
             instance_destroy();
         }
         
-        //Destroy this object
-        instance_destroy();
-    }
-    
-    //Otherwise if the shell is a red one, become a red koopa
-    else if (other.sprite_index == spr_shell_red) {
-    
-        //With the shell
-        with (other) {
+        //Otherwise if the shell is a red one, become a red koopa
+        else if (other.sprite_index == spr_shell_red) {
         
-            instance_create(x,y,obj_koopa_red);
-            instance_destroy();
+            //With the shell
+            with (other) {
+            
+                instance_create(x,y,obj_koopa_red);
+                instance_destroy();
+            }
+            
+            //Destroy this object
+            instance_destroy();    
         }
-        
-        //Destroy this object
-        instance_destroy();    
     }
 }
 </string>

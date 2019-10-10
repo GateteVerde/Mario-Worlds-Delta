@@ -410,15 +410,26 @@
       <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Enemies">
-      <sprite>sprites\spr_goomba</sprite>
-      <sprite>sprites\spr_goomba_sq</sprite>
-      <sprite>sprites\spr_goomba_dead</sprite>
-      <sprite>sprites\spr_goomba_wings</sprite>
-      <sprite>sprites\spr_goomba_big</sprite>
-      <sprite>sprites\spr_goomba_big_dead</sprite>
-      <sprite>sprites\spr_galoomba</sprite>
-      <sprite>sprites\spr_galoomba_down</sprite>
-      <sprite>sprites\spr_galoomba_dead</sprite>
+      <sprites name="Goombas">
+        <sprites name="Normal">
+          <sprites name="Gargantua">
+            <sprite>sprites\spr_goomba_big</sprite>
+            <sprite>sprites\spr_goomba_big_dead</sprite>
+          </sprites>
+          <sprite>sprites\spr_goomba</sprite>
+          <sprite>sprites\spr_goomba_sq</sprite>
+          <sprite>sprites\spr_goomba_dead</sprite>
+          <sprite>sprites\spr_goomba_wings</sprite>
+        </sprites>
+        <sprite>sprites\spr_galoomba</sprite>
+        <sprite>sprites\spr_galoomba_down</sprite>
+        <sprite>sprites\spr_galoomba_dead</sprite>
+        <sprite>sprites\spr_galoomba_wing_front</sprite>
+        <sprite>sprites\spr_galoomba_wing_back</sprite>
+        <sprite>sprites\spr_goombud</sprite>
+        <sprite>sprites\spr_goombud_down</sprite>
+        <sprite>sprites\spr_goombud_dead</sprite>
+      </sprites>
       <sprites name="Koopas">
         <sprites name="Green">
           <sprites name="Gargantua">
@@ -480,6 +491,8 @@
         <sprite>sprites\spr_waterfall</sprite>
         <sprite>sprites\spr_waterfall_bottom</sprite>
       </sprites>
+      <sprite>sprites\spr_muncher</sprite>
+      <sprite>sprites\spr_muncher_ee</sprite>
     </sprites>
     <sprites name="Modifiers">
       <sprites name="Blocks">
@@ -558,6 +571,7 @@
           <sprite>sprites\spr_8000pts</sprite>
           <sprite>sprites\spr_poisonpts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
+          <sprite>sprites\spr_3uppts</sprite>
         </sprites>
         <sprites name="Shards">
           <sprites name="Bricks">
@@ -924,10 +938,18 @@
       <object>objects\obj_key</object>
     </objects>
     <objects name="Enemies">
-      <object>objects\obj_goomba</object>
-      <object>objects\obj_goomba_big</object>
-      <object>objects\obj_paragoomba</object>
-      <object>objects\obj_galoomba</object>
+      <objects name="Goombas">
+        <objects name="Normal">
+          <objects name="Gargantua">
+            <object>objects\obj_goomba_big</object>
+          </objects>
+          <object>objects\obj_goomba</object>
+          <object>objects\obj_paragoomba</object>
+        </objects>
+        <object>objects\obj_galoomba</object>
+        <object>objects\obj_paragaloomba</object>
+        <object>objects\obj_goombud</object>
+      </objects>
       <objects name="Koopas">
         <objects name="Green">
           <objects name="Gargantua">
@@ -967,6 +989,7 @@
         <object>objects\obj_water_tides</object>
         <object>objects\obj_waterfall</object>
       </objects>
+      <object>objects\obj_muncher</object>
     </objects>
     <objects name="Modifiers">
       <objects name="Blocks">
@@ -1062,8 +1085,6 @@
             <object>objects\obj_luigi</object>
             <object>objects\obj_toad</object>
           </objects>
-          <object>objects\obj_bound_bottom</object>
-          <object>objects\obj_bound_top</object>
           <object>objects\obj_spinner</object>
         </objects>
         <objects name="Blocks">
@@ -1139,7 +1160,9 @@
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
-          <object>objects\obj_galoomba_held</object>
+          <objects name="Goombas">
+            <object>objects\obj_galoomba_held</object>
+          </objects>
           <objects name="Koopas">
             <object>objects\obj_shell</object>
             <object>objects\obj_shell_kicked</object>

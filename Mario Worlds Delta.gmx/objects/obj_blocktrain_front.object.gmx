@@ -152,17 +152,10 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playe
         obj_playerparent.y = ceil(bbox_top-16);
 }
 
-//Check for the player
-var player_l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom-4, obj_playerparent, 1, 0);
-var player_r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom-4, obj_playerparent, 1, 0);
-
-//If moving left and the player is in position
-if ((hspeed &lt; 0) &amp;&amp; (player_l))
-    with (player_l) x--;
-    
-//Otherwise if moving right and the player is in position
-else if ((hspeed &gt; 0) &amp;&amp; (player_r))
-    with (player_r) x++; 
+//This object should push the player
+if ((hspeed &lt; 0) &amp;&amp; (collision_line(bbox_left+hspeed, bbox_top, bbox_left, bbox_bottom, obj_playerparent, 0, 0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_line(bbox_right, bbox_top, bbox_right+hspeed, bbox_bottom, obj_playerparent, 0, 0)))
+    obj_playerparent.x += hspeed;
 </string>
           </argument>
         </arguments>

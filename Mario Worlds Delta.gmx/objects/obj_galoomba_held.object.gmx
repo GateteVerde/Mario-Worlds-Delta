@@ -51,6 +51,9 @@ alarm[0] = 312;
 
 //Wake up
 alarm[1] = 432;
+
+//Check the sprite and set vulnerabilities
+event_user(15);
 </string>
           </argument>
         </arguments>
@@ -75,9 +78,18 @@ alarm[1] = 432;
             <kind>1</kind>
             <string>///Turn into a galoomba
 
-instance_create(x, y, obj_galoomba);
+//Switch sprite
+switch (sprite_index) {
+
+    //Galoomba
+    case (spr_galoomba_down): instance_create(x, y, obj_galoomba); break;
+    
+    //Goombud
+    case (spr_goombud_down): instance_create(x, y, obj_goombud); break;
+}
+
+//Destroy
 instance_destroy();
-exit;
 </string>
           </argument>
         </arguments>
@@ -100,17 +112,40 @@ exit;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Change offset
+            <string>///Animate faster
 
-//Animate faster
 image_speed = 0.3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Galoomba logic
 
-//Shake
-alarm[0] = 1;
-if (offset != 1)
-    offset = 1;
-else
-    offset = -1;
+//Inherit event from parent
+event_inherited();
+
+//Reset combo
+if (speed == 0)
+&amp;&amp; (hitcombo != 0)
+    hitcombo = 0;
 </string>
           </argument>
         </arguments>
@@ -299,6 +334,37 @@ else {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check sprite and set vulnerabilities
+
+//Galoomba
+if (sprite_index == spr_galoomba_down)
+    deathsprite = spr_galoomba_dead;
+    
+//Goombud
+else if (sprite_index == spr_goombud_down)
+    deathsprite = spr_goombud_dead;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="17">
       <action>
         <libid>1</libid>
@@ -319,7 +385,10 @@ else {
             <string>///Turn into a stunned galoomba
 
 //Create dead enemy object
-imdead = instance_create(round(bbox_left+bbox_right)/2, y-2, obj_shell);
+imdead = instance_create(round(bbox_left+bbox_right)/2, y-2, obj_galoomba_held);
+
+//Set up the sprite
+imdead.sprite_index = sprite_index;
 
 //Set up the xscale
 imdead.image_xscale = xscale;
@@ -460,6 +529,99 @@ else {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Default enemy death script
+
+//Set up death sprite if we didnt yet
+event_user(15);
+
+//Create dead enemy object
+imdead = instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_enemy_dead);
+
+//Set up the sprite
+imdead.sprite_index = deathsprite;
+
+//Set up the xscale
+imdead.image_xscale = image_xscale;
+
+//Set up vertical speed
+imdead.vspeed = -3;
+
+//If the killer object is not moving
+if (other.hspeed == 0) {
+
+    //If the killer object is a cape spin
+    if (other.object_index == obj_spinner) {
+
+        //Set up vertical speed
+        imdead.vspeed = -5;
+
+        //If the killer object is at the left of this object, move to the right
+        if ((other.bbox_left+other.bbox_right/2) &lt; bbox_left+bbox_right/2)
+            imdead.hspeed = 0.5;
+            
+        //Otherwise, move to the left
+        else if ((other.bbox_left+other.bbox_right/2) &gt; bbox_left+bbox_right/2)
+            imdead.hspeed = -0.5;        
+    }
+    
+    //Otherwise
+    else {
+    
+        //If the killer object is at the left of this object, move to the right
+        if ((other.bbox_left+other.bbox_right/2) &lt; bbox_left+bbox_right/2)
+            imdead.hspeed = 1;
+            
+        //Otherwise, move to the left
+        else if ((other.bbox_left+other.bbox_right/2) &gt; bbox_left+bbox_right/2)
+            imdead.hspeed = -1;
+    }
+}
+
+//Otherwise, if the killer object is moving
+else {
+
+    //If the kill object is the player, hereby player's hspeed
+    if (other.object_index == obj_playerparent) {
+    
+        //If the player is sliding
+        if (other.sliding == true)
+            imdead.hspeed = obj_playerparent.hspeed;
+    }
+    
+    //Otherwise, move normally
+    else {
+    
+        if (other.hspeed &gt; 0)
+            imdead.hspeed = 1;
+        else
+            imdead.hspeed = -1;
+    }
+}
+
+//Destroy
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -479,7 +641,7 @@ else {
             <kind>1</kind>
             <string>//Draw galoomba
 
-draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+1, image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

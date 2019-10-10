@@ -517,6 +517,10 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Player Logic
 
+//Check for walls
+var wallleft = collision_line(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0);
+var wallright = collision_line(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0);
+
 //Check if above a slope
 slope = player_inslope();
 
@@ -720,7 +724,7 @@ if (hspeed &gt; 0) {
         
         //Prevent the player from getting embed in the wall
         while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 1, 0))
             x--;
     }
     
@@ -742,7 +746,7 @@ else if (hspeed &lt; 0) {
         
         //Prevent the player from getting embed in the wall
         while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 1, 0))    
             x++;
     }
     
@@ -759,7 +763,7 @@ if (vspeed &lt; 0) {
     //...and the player bumps a ceiling
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
-    
+        
         //If the player is jumping or climbing
         if (state == statetype.jump) 
         || (state == statetype.climb) {
@@ -845,7 +849,7 @@ if (state != statetype.climb) {
             crouch = true;
         
         //Otherwise, make the player get up
-        else if (!keyboard_check(global.key_d))
+        else if (!keyboard_check(global.key_d))        
             crouch = false;
     }
     
@@ -994,6 +998,8 @@ else {
 
 //Unstuck in case of overlapping a solid completely
 if (inwall == false)
+&amp;&amp; (wallleft == false)
+&amp;&amp; (wallright == false)
 &amp;&amp; (state != statetype.jump)
 &amp;&amp; (state != statetype.climb) {
 
@@ -1026,25 +1032,26 @@ if (y &lt; -96)
 //Otherwise, if he is falling.
 else {
 
-    //If the player falls into a pit, restart the room
+    //If the player falls into a pit...
     if (bbox_bottom &gt; room_height+32) {
     
+        //Kill it
         instance_create(x, y, obj_player_dead);
         instance_destroy();
         exit;
     }
-}
-
-//If the player gets stuck with solids, kill it
-if (inwall == false) {
-
-    //If the player is covered with solid masks
-    if (position_meeting(x, y, obj_solid))
-    &amp;&amp; (position_meeting(x, bbox_bottom+1, obj_semisolid)) {
     
-        instance_create(x, y, obj_player_dead);
-        instance_destroy();
-        exit;
+    //Otherwise, let's do a special check if the player is not stuck in a solid
+    else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
+            
+        //If the player gets crushed...
+        if ((wallleft) &amp;&amp; (wallright)) {
+        
+            //Kill it
+            instance_create(x, y, obj_player_dead);
+            instance_destroy();
+            exit;       
+        }
     }
 }
 </string>

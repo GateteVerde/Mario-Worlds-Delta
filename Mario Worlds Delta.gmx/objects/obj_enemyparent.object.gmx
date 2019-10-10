@@ -672,7 +672,7 @@ if (vulnerable &lt; 99) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with held/thrown bricks
+            <string>///Collision with held/thrown enemies
 
 //If the enemy is vulnerable
 if (vulnerable &lt; 99) {
@@ -696,12 +696,12 @@ if (vulnerable &lt; 99) {
         with (other) event_user(0);
     }
     
-    //Otherwise, if not held but moving
+    //Otherwise
     else if (other.speed != 0) {
-        
-        //Kill the enemy
+    
+        //Kill enemy
         event_user(0);
-        
+    
         //Get points based on combo
         if (other.hitcombo == 0) { //200 points
         

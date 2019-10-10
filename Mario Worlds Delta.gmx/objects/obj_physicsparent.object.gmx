@@ -99,9 +99,13 @@ if (moving) {
             
             //Otherwise
             else {
+            
+                //If moving
+                if (vspeed != 0) {
                     
-                //Snap the instance vertically
-                other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
+                    //Snap the instance vertically
+                    other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
+                }
             }
             
             //Move the player horizontally if there is no solid in his way            
@@ -111,9 +115,6 @@ if (moving) {
         }
     }
 }
-
-
-
 </string>
           </argument>
         </arguments>
