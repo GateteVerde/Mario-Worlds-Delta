@@ -127,7 +127,7 @@ if (held == true) {
             else {
             
                 //Set depth
-                depth = -4;
+                depth = obj_playerparent.depth+1;
                 
                 //Snap into player's x position
                 x = obj_playerparent.x+(10*sign(obj_playerparent.xscale));

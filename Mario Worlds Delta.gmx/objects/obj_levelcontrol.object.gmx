@@ -518,8 +518,11 @@ else {
 }
 
 //Follow
-x = round(follow.x);
-y = round(follow.y + camera_y);
+if (follow != noone) {
+    
+    x = round(follow.x);
+    y = round(follow.y + camera_y);
+}
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {

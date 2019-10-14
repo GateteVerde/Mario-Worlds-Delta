@@ -94,7 +94,7 @@ if (lightning == 1) {
             <kind>1</kind>
             <string>///Generate rain drops
 
-repeat (3) {
+repeat (1) {
     
     with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), -5, obj_rain))
         depth = round(random_range(-6,9));

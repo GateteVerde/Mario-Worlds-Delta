@@ -60,7 +60,7 @@ alarm[0] = 192;
 alarm[1] = 312;
 
 //Check the sprite and set vulnerabilities
-event_user(15);
+event_user(14);
 </string>
           </argument>
         </arguments>
@@ -331,7 +331,7 @@ else {
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="25">
+    <event eventtype="7" enumb="24">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -577,7 +577,7 @@ else {
             <string>///Default enemy death script
 
 //Set up death sprite if we didnt yet
-event_user(15);
+event_user(14);
 
 //Create dead enemy object
 imdead = instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_enemy_dead);

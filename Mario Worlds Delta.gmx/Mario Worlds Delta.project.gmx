@@ -257,6 +257,7 @@
       <sprite>sprites\spr_msgblock</sprite>
       <sprite>sprites\spr_noteblock</sprite>
       <sprite>sprites\spr_noteblock_hidden</sprite>
+      <sprite>sprites\spr_viewblock</sprite>
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
     </sprites>
@@ -415,6 +416,8 @@
           <sprites name="Gargantua">
             <sprite>sprites\spr_goomba_big</sprite>
             <sprite>sprites\spr_goomba_big_dead</sprite>
+            <sprite>sprites\spr_goomba_mega</sprite>
+            <sprite>sprites\spr_goomba_mega_dead</sprite>
           </sprites>
           <sprite>sprites\spr_goomba</sprite>
           <sprite>sprites\spr_goomba_sq</sprite>
@@ -479,6 +482,11 @@
         <sprite>sprites\spr_koopa_inside</sprite>
         <sprite>sprites\spr_koopa_inside_big</sprite>
       </sprites>
+      <sprite>sprites\spr_rex</sprite>
+      <sprite>sprites\spr_rex_dead</sprite>
+      <sprite>sprites\spr_rex2</sprite>
+      <sprite>sprites\spr_rex2_sq</sprite>
+      <sprite>sprites\spr_rex2_dead</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -597,6 +605,7 @@
         <sprite>sprites\spr_smoke</sprite>
         <sprite>sprites\spr_smoke_big</sprite>
         <sprite>sprites\spr_smoke_huge</sprite>
+        <sprite>sprites\spr_smoke_huge2</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
@@ -861,6 +870,7 @@
       <object>objects\obj_msgblock</object>
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
+      <object>objects\obj_viewblock</object>
       <object>objects\obj_powblock</object>
     </objects>
     <objects name="Items">
@@ -942,6 +952,7 @@
         <objects name="Normal">
           <objects name="Gargantua">
             <object>objects\obj_goomba_big</object>
+            <object>objects\obj_goomba_mega</object>
           </objects>
           <object>objects\obj_goomba</object>
           <object>objects\obj_paragoomba</object>
@@ -975,6 +986,7 @@
           <object>objects\obj_beachkoopa_red</object>
         </objects>
       </objects>
+      <object>objects\obj_rex</object>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
@@ -1117,6 +1129,7 @@
               <object>objects\obj_invincibility</object>
             </objects>
             <object>objects\obj_powerup_sprout</object>
+            <object>objects\obj_powerup_swap</object>
             <object>objects\obj_reserveitem</object>
           </objects>
           <object>objects\obj_coinchange</object>
