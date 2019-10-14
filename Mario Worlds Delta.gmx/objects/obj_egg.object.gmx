@@ -141,7 +141,7 @@ alarm[2] = 16;
 
 //Create some smoke
 with (instance_create(x, y+8, obj_smoke)) 
-    sprite_index = spr_smoke_big;
+    sprite_index = spr_smoke_16;
 </string>
           </argument>
         </arguments>

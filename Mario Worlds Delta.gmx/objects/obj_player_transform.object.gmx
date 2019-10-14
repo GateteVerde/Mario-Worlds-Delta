@@ -184,10 +184,8 @@ else {
     
         with (instance_create(x, y, obj_smoke)) {
         
-            sprite_index = spr_smoke_big;
+            sprite_index = spr_smoke_32;
             depth = -8;
-            image_xscale = 1.5;
-            image_yscale = 1.5;
         }
     }
 }

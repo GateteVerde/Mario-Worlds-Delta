@@ -141,14 +141,17 @@ if (crouch == true) {
             if (global.mount == 0) {
             
                 yy = 1;
-                depth = -4;
+                depth = other.depth+1;
             }
                 
             //Otherwise, if Luigi is riding a yoshi
             else {
             
                 yy = 3;
-                depth = -6;
+                if (other.depth == 10)
+                    depth = 10;
+                else
+                    depth = -6;
             }
         }
     }
@@ -157,7 +160,7 @@ if (crouch == true) {
         with (mycape) {
         
             state = capestate.cape_walk;
-            depth = -4;
+            depth = other.depth+1;
             yy = 1
         }
     }
@@ -176,15 +179,20 @@ if (crouch == true) {
                 state = capestate.cape_jump_up;
                 
                 //Set depth
-                if (global.mount == 1)
-                    depth = -6;
+                if (global.mount == 1) {
+                
+                    if (other.depth == 10)
+                        depth = 10;
+                    else
+                        depth = -6;
+                }
                 else
-                    depth = -4;
+                    depth = other.depth+1;
             }
             else {
             
                 state = capestate.cape_jump_down;
-                depth = -4;
+                depth = other.depth+1;
             }
         }
     }
@@ -215,11 +223,17 @@ else if (crouch == false) {
                         
                         //If Luigi is not riding a Yoshi
                         if (global.mount == 0)
-                            depth = -4;
+                            depth = other.depth+1;
                             
                         //Otherwise, if Luigi is riding a yoshi
-                        else
-                            depth = -6;
+                        else {
+                        
+                            //Set up depth
+                            if (other.depth == 10)
+                                depth = 10;
+                            else
+                                depth = -6;
+                        }
                     }
                 
                     //If Luigi is firing up a projectile
@@ -261,7 +275,7 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         state = capestate.cape_walk;
-                        depth = -4;
+                        depth = other.depth+1;
                         yy = 0;
                     }
                 
@@ -321,10 +335,15 @@ else if (crouch == false) {
                                 }
                             
                                 //Set the depth first
-                                if (image_index &gt; 2.99)
-                                    depth = -6;
+                                if (image_index &gt; 2.99) {
+                                
+                                    if (other.depth == 10)
+                                        depth = 10;
+                                    else
+                                        depth = -6;
+                                }
                                 else
-                                    depth = -4;                                
+                                    depth = other.depth+1;                                
                             }
                         
                             //Set the sprite
@@ -347,10 +366,15 @@ else if (crouch == false) {
                                 if (other.vspeed &lt; 0) {
                                 
                                     //Set depth
-                                    if (global.mount == 1)
-                                        depth = -6;
+                                    if (global.mount == 1) {
+                                    
+                                        if (other.depth == 10)
+                                            depth = 10;
+                                        else
+                                            depth = -6;
+                                    }
                                     else
-                                        depth = -4;
+                                        depth = other.depth+1;
                                     
                                     //Set state
                                     if (other.flying &gt; 0)
@@ -361,7 +385,7 @@ else if (crouch == false) {
                                 else {
                                 
                                     state = capestate.cape_jump_down;
-                                    depth = -4;
+                                    depth = other.depth+1;
                                 }                                    
                             }
                             
@@ -426,7 +450,7 @@ else if (crouch == false) {
                         with (mycape) {
                         
                             //Set depth
-                            depth = -4;
+                            depth = other.depth+1;
                             yy = 0;
                         
                             //If moving up
@@ -520,7 +544,7 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         state = capestate.cape_idle;
-                        depth = -4;
+                        depth = other.depth+1;
                         yy = 0;
                     }
                 }
@@ -529,7 +553,7 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         state = capestate.cape_walk;
-                        depth = -4;
+                        depth = other.depth+1;
                         yy = 0;
                     }
                 }
@@ -539,7 +563,7 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         //Set depth
-                        depth = -4;
+                        depth = other.depth+1;
                         yy = 0;
                     
                         //If moving up
@@ -568,7 +592,7 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     state = capestate.cape_idle;
-                    depth = -4;
+                    depth = other.depth+1;
                     yy = 2;
                 }
             }
@@ -577,7 +601,7 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     state = capestate.cape_walk;
-                    depth = -4;
+                    depth = other.depth+1;
                     yy = 2;
                 }
             }
@@ -587,7 +611,7 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     //Set depth
-                    depth = -4;
+                    depth = other.depth+1;
                     yy = 2;
                 
                     //If moving up
@@ -624,7 +648,7 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     state = capestate.cape_idle;
-                    depth = -4;
+                    depth = other.depth+1;
                     yy = 0;
                 }
             
@@ -648,7 +672,7 @@ else if (crouch == false) {
                 with (mycape) {
                 
                     state = capestate.cape_walk;
-                    depth = -4;
+                    depth = other.depth+1;
                     yy = 0;
                 }
             
@@ -681,10 +705,15 @@ else if (crouch == false) {
                                 state = capestate.cape_spin_down;
                         
                             //Set the depth first
-                            if (image_index &gt; 2.99)
-                                depth = -6;
+                            if (image_index &gt; 2.99) {
+                            
+                                if (other.depth == 10)
+                                    depth = 10;
+                                else
+                                    depth = -6;
+                            }
                             else
-                                depth = -4;                                
+                                depth = other.depth+1;                                
                         }
                     
                         //Set the sprite
@@ -701,7 +730,7 @@ else if (crouch == false) {
                         with (mycape) {
                         
                             //Set depth
-                            depth = -4;
+                            depth = other.depth+1;
                             yy = 0;
                         
                             //Set state
@@ -727,7 +756,7 @@ else if (crouch == false) {
                     with (mycape) {
                     
                         //Set depth
-                        depth = -4;
+                        depth = other.depth+1;
                         yy = 0;
                     
                         //If moving up

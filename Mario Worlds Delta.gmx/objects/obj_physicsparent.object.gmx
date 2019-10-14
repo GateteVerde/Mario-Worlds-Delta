@@ -158,7 +158,7 @@ if (lava) {
     audio_play_sound(snd_burn, 0, false);
 
     //Create smoke
-    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_big;
+    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_16;
     
     //Create splash effect
     with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2-8, obj_smoke)) {

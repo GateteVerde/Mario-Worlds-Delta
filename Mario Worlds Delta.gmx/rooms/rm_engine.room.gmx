@@ -70,7 +70,6 @@
     <instance objName="obj_qblock" x="656" y="272" name="inst_B4EE45FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="688" y="224" name="inst_55C5AF03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="704" y="224" name="inst_7DEF7810" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_fireflower_alt" x="704" y="224" name="inst_A50E99C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hurtblock" x="432" y="368" name="inst_04B2B061" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="560" y="336" name="inst_E54D8B97" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="816" y="288" name="inst_C169AB02" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
@@ -93,7 +92,7 @@
     <instance objName="obj_goomba" x="968" y="352" name="inst_745A046F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="936" y="352" name="inst_67BD75BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="712" y="320" name="inst_CDF56280" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goomba_big" x="752" y="320" name="inst_71F40ECA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba_hefty" x="752" y="320" name="inst_71F40ECA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa" x="792" y="320" name="inst_ACDE2B2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_red" x="1112" y="320" name="inst_10B4DBDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="896" y="272" name="inst_32402288" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -105,8 +104,8 @@
     <instance objName="obj_coin_ace" x="944" y="256" name="inst_38CD1587" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="0" name="inst_55773F04" locked="0" code="levelmusic = bgm_land;&#xA;leveltime = 500;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rainmaker" x="16" y="0" name="inst_B4EDDEC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goomba_mega" x="1056" y="352" name="inst_990C19CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goomba_mega" x="496" y="352" name="inst_D6F85B30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba_big" x="1056" y="352" name="inst_990C19CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba_big" x="496" y="352" name="inst_D6F85B30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1216" y="352" name="inst_E8537A5D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1376" y="320" name="inst_58090D17" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="1328" y="288" name="inst_63E3A0B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -122,6 +121,7 @@
     <instance objName="obj_warptop" x="1200" y="304" name="inst_3A31DCF6" locked="0" code="exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock_hidden" x="384" y="256" name="inst_FADC3305" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_egg" x="384" y="256" name="inst_5E0F884B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_feather" x="704" y="224" name="inst_1CC1A7D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="192" y="288" w="16" h="16" xo="254" yo="92" id="10000174" name="inst_1619912E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

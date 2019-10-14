@@ -205,8 +205,8 @@ if (ready == 0) {
         audio_play_sound(snd_thud, 0, false);
         
         //Create smoke effects
-        with (instance_create(bbox_left, bbox_top, obj_smoke)) { sprite_index = spr_smoke_big; motion_set(90, 1); }
-        with (instance_create(bbox_left, bbox_bottom, obj_smoke)) { sprite_index = spr_smoke_big; motion_set(270, 1); }
+        with (instance_create(bbox_left, bbox_top, obj_smoke)) { sprite_index = spr_smoke_16; motion_set(90, 1); }
+        with (instance_create(bbox_left, bbox_bottom, obj_smoke)) { sprite_index = spr_smoke_16; motion_set(270, 1); }
     
         //No gravity
         gravity = 0;

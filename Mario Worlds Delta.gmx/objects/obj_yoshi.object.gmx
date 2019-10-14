@@ -367,6 +367,7 @@ else if (state == yoshistate.ridden) {
         //If Yoshi does not have anything on the mount and 'Action 2' is pressed
         if (keyboard_check_pressed(global.key_action[1]))
         &amp;&amp; (licking == 0)
+        &amp;&amp; (obj_playerparent.gravity_enable == true)
         &amp;&amp; (obj_playerparent.control_enable == true) {
         
             //If the mouth is empty
@@ -402,7 +403,7 @@ else if (state == yoshistate.ridden) {
         }
         
         //Set the depth
-        depth = -5;
+        depth = obj_playerparent.depth;
         
         //Manage yoshi state
         if (mouthholder != noone) then event_user(2);

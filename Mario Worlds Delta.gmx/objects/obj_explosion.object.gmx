@@ -37,10 +37,10 @@ alarm[0] = 4;
 hitcombo = 0;
 
 //Create smoke
-with (instance_create(x+8+lengthdir_x(20, 45), y+8+lengthdir_y(20, 45), obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x+8+lengthdir_x(20, 135), y+8+lengthdir_y(20, 135), obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x+8+lengthdir_x(20, 225), y+8+lengthdir_y(20, 225), obj_smoke)) sprite_index = spr_smoke_big;
-with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_smoke)) sprite_index = spr_smoke_big;
+with (instance_create(x+8+lengthdir_x(20, 45), y+8+lengthdir_y(20, 45), obj_smoke)) sprite_index = spr_smoke_16;
+with (instance_create(x+8+lengthdir_x(20, 135), y+8+lengthdir_y(20, 135), obj_smoke)) sprite_index = spr_smoke_16;
+with (instance_create(x+8+lengthdir_x(20, 225), y+8+lengthdir_y(20, 225), obj_smoke)) sprite_index = spr_smoke_16;
+with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_smoke)) sprite_index = spr_smoke_16;
 </string>
           </argument>
         </arguments>
