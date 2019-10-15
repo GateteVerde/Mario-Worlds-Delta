@@ -871,6 +871,23 @@ if (leveltime &gt; 0)
         alarm[3] = 30;
 }
 
+//If the player just started the level
+if (global.cpstart == 0) {
+
+    //The level has started
+    global.cpstart = 1;
+    
+    //If the checkpoint exists
+    if (instance_exists(global.checkpoint)) {
+    
+        //Destroy player object
+        event_user(0);
+        
+        //Create new player object
+        player_create(global.checkpoint.x, global.checkpoint.y);
+    }
+}
+
 //If the timer was set, begin ticking
 if (global.time &gt; 0)
     alarm[2] = 60;

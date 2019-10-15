@@ -8,6 +8,9 @@
 **      Resets the given global variables to their default values
 */
 
+//Reset checkpoint
+global.cpstart = 0;
+
 //Restart time
 global.time = 0;
 

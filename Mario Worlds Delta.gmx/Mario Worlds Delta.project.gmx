@@ -71,6 +71,7 @@
     <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
     <sound>sound\snd_vinesprout</sound>
+    <sound>sound\snd_whistle</sound>
     <sound>sound\snd_yoshi</sound>
   </sounds>
   <sprites name="sprites">
@@ -290,6 +291,15 @@
           <sprite>sprites\spr_tongue</sprite>
           <sprite>sprites\spr_fire</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Progress">
+        <sprite>sprites\spr_checkpoint</sprite>
+        <sprite>sprites\spr_checkpoint_mario</sprite>
+        <sprite>sprites\spr_checkpoint_mario_loop</sprite>
+        <sprite>sprites\spr_checkpoint_luigi</sprite>
+        <sprite>sprites\spr_checkpoint_luigi_loop</sprite>
+        <sprite>sprites\spr_checkpoint_toad</sprite>
+        <sprite>sprites\spr_checkpoint_toad_loop</sprite>
       </sprites>
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
@@ -714,6 +724,10 @@
   <scripts name="scripts">
     <scripts name="Player">
       <scripts name="Animation">
+        <scripts name="Progress">
+          <script>scripts\checkpoint_flag.gml</script>
+          <script>scripts\checkpoint_flag_loop.gml</script>
+        </scripts>
         <script>scripts\player_idle.gml</script>
         <script>scripts\player_walk.gml</script>
         <script>scripts\player_jump.gml</script>
@@ -874,6 +888,9 @@
       <object>objects\obj_powblock</object>
     </objects>
     <objects name="Items">
+      <objects name="Progress">
+        <object>objects\obj_checkpoint</object>
+      </objects>
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>

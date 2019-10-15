@@ -67,25 +67,53 @@ cannon = 0;
 //Play 'Explosion' sound
 audio_play_sound(snd_explosion, 0, false);
 
-//With the newly created object
-with (player) {
+//Create smoke particles based on cannon direcion
+switch (cannon) {
 
-    //Set the state
-    state = statetype.jump;
+    //Right
+    case (1): {
     
-    //Enable gravity
-    alarm[7] = 32;
-
-    //Set parameters
-    pmeter = 112;
-    run = 1;
-
-    //Set vertical speed
-    vspeed = -4;
+        repeat (16) {
+        
+            with (instance_create(x, y, obj_smoke)) {
+            
+                sprite_index = spr_smoke_16;
+                depth = 11;
+                motion_set(random_range(60, 30), random(6));
+            }
+        }
+    } break;
     
-    //Set horizontal speed
-    hspeed = 4*sign(other.cannon);
+    //Left
+    case (-1): {
+    
+        repeat (16) {
+        
+            with (instance_create(x, y, obj_smoke)) {
+            
+                sprite_index = spr_smoke_16;
+                depth = 11;
+                motion_set(random_range(150, 120), random(6));
+            }
+        }
+    } break;
 }
+
+//Set up the player state
+player.state = statetype.jump;
+
+//Enable player gravity
+player.alarm[7] = 32;
+
+//Make the player run
+player.pmeter = 112;
+player.run = 1;
+
+//Set player vertical speed
+player.vspeed = -4;
+
+//Set player horizontal speed
+player.hspeed = 4*sign(cannon);
 </string>
           </argument>
         </arguments>
@@ -162,6 +190,7 @@ if (global.exit_id == myid) {
                     with (player) {
                     
                         gravity_enable = false;
+                        xscale = other.cannon;
                         depth = 10;
                     }
                 

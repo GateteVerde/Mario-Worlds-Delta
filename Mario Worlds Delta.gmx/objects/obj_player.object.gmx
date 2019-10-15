@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>///The player initial position
 
+//If a checkpoint has been hit before, exit
+if (global.checkpoint != noone)
+exit;
+
 //If the player did not came from another room
 if (global.postchange == -1) {
 

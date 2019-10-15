@@ -61,7 +61,7 @@ with (obj_playerparent) {
     &amp;&amp; (state != statetype.climb) {
     
         //If the horizontal speed is greater than 0.5
-        if (hspeed &lt; -0.5)        
+        if (hspeed &lt; -1)        
             hspeed += 0.1;
     }
 }

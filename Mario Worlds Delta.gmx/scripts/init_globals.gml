@@ -68,6 +68,9 @@ global.clear = 0;
 //Target Room
 global.targetroom = noone;
 
+//Start
+global.cpstart = 0;
+
 //Checkpoint
 global.checkpoint = noone;
 
