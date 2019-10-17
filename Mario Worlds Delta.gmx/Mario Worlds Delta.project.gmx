@@ -497,6 +497,14 @@
       <sprite>sprites\spr_rex2</sprite>
       <sprite>sprites\spr_rex2_sq</sprite>
       <sprite>sprites\spr_rex2_dead</sprite>
+      <sprites name="Piranha Plants">
+        <sprite>sprites\spr_piranhaplant</sprite>
+        <sprite>sprites\spr_piranhaplant_long</sprite>
+        <sprite>sprites\spr_piranhaplant_long_glitch</sprite>
+        <sprite>sprites\spr_piranhaplant_jump</sprite>
+        <sprite>sprites\spr_fireplant</sprite>
+        <sprite>sprites\spr_fireplant_long</sprite>
+      </sprites>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -1004,6 +1012,14 @@
         </objects>
       </objects>
       <object>objects\obj_rex</object>
+      <objects name="Piranha Plants">
+        <object>objects\obj_piranhaplant</object>
+        <object>objects\obj_piranhaplant_long</object>
+        <object>objects\obj_piranhaplant_long_down</object>
+        <object>objects\obj_fireplant</object>
+        <object>objects\obj_fireplant_long</object>
+        <object>objects\obj_fireplant_long_down</object>
+      </objects>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
@@ -1197,6 +1213,9 @@
             <object>objects\obj_shell</object>
             <object>objects\obj_shell_kicked</object>
           </objects>
+          <objects name="Piranha Plants">
+            <object>objects\obj_plantfire</object>
+          </objects>
         </objects>
         <objects name="Eyecandy">
           <objects name="Blend">
@@ -1245,6 +1264,7 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
+    <room>rooms\rm_engine_b</room>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>

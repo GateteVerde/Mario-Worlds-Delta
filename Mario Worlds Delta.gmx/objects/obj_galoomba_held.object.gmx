@@ -78,18 +78,41 @@ event_user(14);
             <kind>1</kind>
             <string>///Turn into a galoomba
 
-//Switch sprite
-switch (sprite_index) {
+//If there's gravity
+if (gravity &gt; 0) {
 
-    //Galoomba
-    case (spr_galoomba_down): instance_create(x, y, obj_galoomba); break;
-    
-    //Goombud
-    case (spr_goombud_down): instance_create(x, y, obj_goombud); break;
+    alarm[1] = 1;
+    exit;
 }
 
-//Destroy
-instance_destroy();
+//Otherwise, return to normal
+else {
+    
+    //Switch sprite
+    switch (sprite_index) {
+    
+        //Galoomba
+        case (spr_galoomba_down): {
+        
+            with (instance_create(x, y, obj_galoomba)) {
+            
+                vspeed = -3;
+            } 
+        } break;
+        
+        //Goombud
+        case (spr_goombud_down): {
+        
+            with (instance_create(x, y, obj_goombud)) {
+            
+                vspeed = -3;
+            }
+        } break;
+    }
+    
+    //Destroy
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
