@@ -444,10 +444,13 @@ if (vulnerable &lt; 99) {
             <kind>1</kind>
             <string>///Collision with cape
 
+//Exit if not vulnerable to cape
+if (vulnerable == 2)
+|| (vulnerable == 3)
+    exit;
+
 //If the enemy is vulnerable to cape
-if (vulnerable == 0) 
-&amp;&amp; (vulnerable != 2) 
-&amp;&amp; (vulnerable != 3) {
+if (vulnerable &lt; 2) {
             
     //Kill the enemy
     event_user(7);
@@ -542,9 +545,7 @@ else
             <string>///Collision with projectiles
 
 //If the enemy is vulnerable to fireballs
-if (vulnerable == 0) 
-&amp;&amp; (vulnerable != 1) 
-&amp;&amp; (vulnerable != 3) {
+if (vulnerable == 0) {
 
     //Play 'Kick' sound
     audio_play_sound(snd_kick, 0, false);        

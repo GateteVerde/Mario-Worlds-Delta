@@ -106,6 +106,20 @@ if (koopainside == 1) {
     //Get outta here
     koopainside = 0;
 }
+
+//Otherwise, if this is not a koopa shell
+else if (koopainside == -1) {
+
+    switch (sprite_index) {
+    
+        //Buzzy Beetle
+        case (spr_shell_buzzy): {
+        
+            instance_create(x, y, obj_buzzybeetle);
+            instance_destroy();
+        } break;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -131,7 +145,7 @@ if (koopainside == 1) {
             <string>///Change offset
 
 //If there's a koopa inside
-if (koopainside == 1) {
+if (koopainside != 0) {
     
     alarm[0] = 1;
     if (offset != 1)
@@ -139,6 +153,35 @@ if (koopainside == 1) {
     else
         offset = -1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Shell logic
+
+//Inherit event
+event_inherited();
+
+//Set vulnerabilities
+event_user(14);
 </string>
           </argument>
         </arguments>
@@ -366,6 +409,21 @@ else if (sprite_index == spr_shell_big_red) {
 
     deathsprite = spr_bigkoopa_red_dead;
     edible = 2;
+}
+
+//Buzzy Beetle
+else if (sprite_index == spr_shell_buzzy) {
+
+    deathsprite = spr_buzzybeetle_dead;
+    vulnerable = 1;
+    edible = 0;
+}
+
+//Spiny
+else if (sprite_index == spr_shell_spiny) {
+
+    deathsprite = spr_spiny_dead;
+    edible = 0;
 }
 </string>
           </argument>

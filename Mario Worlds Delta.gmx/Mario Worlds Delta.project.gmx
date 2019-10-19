@@ -502,9 +502,16 @@
         <sprite>sprites\spr_piranhaplant_long</sprite>
         <sprite>sprites\spr_piranhaplant_long_glitch</sprite>
         <sprite>sprites\spr_piranhaplant_jump</sprite>
+        <sprite>sprites\spr_piranhaplant_jump_stem</sprite>
         <sprite>sprites\spr_fireplant</sprite>
         <sprite>sprites\spr_fireplant_long</sprite>
       </sprites>
+      <sprite>sprites\spr_buzzybeetle</sprite>
+      <sprite>sprites\spr_buzzybeetle_dead</sprite>
+      <sprite>sprites\spr_shell_buzzy</sprite>
+      <sprite>sprites\spr_spiny</sprite>
+      <sprite>sprites\spr_spiny_dead</sprite>
+      <sprite>sprites\spr_shell_spiny</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -1019,7 +1026,12 @@
         <object>objects\obj_fireplant</object>
         <object>objects\obj_fireplant_long</object>
         <object>objects\obj_fireplant_long_down</object>
+        <object>objects\obj_jumpplant</object>
       </objects>
+      <object>objects\obj_buzzybeetle</object>
+      <object>objects\obj_buzzybeetle_ceiling</object>
+      <object>objects\obj_spiny</object>
+      <object>objects\obj_spiny_ceiling</object>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
@@ -1215,6 +1227,7 @@
           </objects>
           <objects name="Piranha Plants">
             <object>objects\obj_plantfire</object>
+            <object>objects\obj_plantfire2</object>
           </objects>
         </objects>
         <objects name="Eyecandy">
@@ -1264,7 +1277,6 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_engine</room>
-    <room>rooms\rm_engine_b</room>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>

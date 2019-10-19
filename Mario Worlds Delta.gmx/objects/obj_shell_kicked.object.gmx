@@ -92,6 +92,9 @@ event_inherited();
 //Check for 1 block gaps and blocks in the way
 event_user(8);
 
+//Set vulnerabilities
+event_user(14);
+
 //If the direction changes...
 if (hspeed != prevhspeed) {
 
@@ -164,23 +167,7 @@ exit;
             <kind>1</kind>
             <string>///Check sprite and set vulnerabilities
 
-//Red Koopa
-if (sprite_index == spr_shell_red)
-    deathsprite = spr_koopa_red_dead;
-    
-//Gargantua Green Koopa
-else if (sprite_index == spr_shell_big) {
-
-    deathsprite = spr_bigkoopa_dead;
-    edible = 2;
-}
-
-//Gargantua Red Koopa
-else if (sprite_index == spr_shell_big_red) {
-
-    deathsprite = spr_bigkoopa_red_dead;
-    edible = 2;
-}
+event_perform_object(obj_shell, ev_other, ev_user14);
 </string>
           </argument>
         </arguments>
