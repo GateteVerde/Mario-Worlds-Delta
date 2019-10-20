@@ -274,6 +274,33 @@ if (ready == 0) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make the player bounce if it is above
+
+if (vspeed &lt; 0)
+&amp;&amp; (other.bbox_bottom &lt; yprevious+5)
+    other.vspeed = -3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="25">
       <action>
         <libid>1</libid>

@@ -118,6 +118,13 @@ else if (koopainside == -1) {
             instance_create(x, y, obj_buzzybeetle);
             instance_destroy();
         } break;
+        
+        //Spiny
+        case (spr_shell_spiny): {
+        
+            instance_create(x, y, obj_spiny);
+            instance_destroy();
+        } break;
     }
 }
 </string>

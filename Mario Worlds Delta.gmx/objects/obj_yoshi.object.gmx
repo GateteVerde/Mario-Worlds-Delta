@@ -1246,6 +1246,9 @@ if (mouthholder != noone) {
         //Otherwise
         else {
         
+            //If the held item is a kicked shell, turn into a holdable shell
+            if (mouthholder == obj_shell_kicked) then mouthholder = obj_shell;
+        
             //Create up an item
             with (instance_create(x+(10*obj_playerparent.xscale), y-12, mouthholder)) {
             
