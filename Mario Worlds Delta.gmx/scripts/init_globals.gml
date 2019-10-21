@@ -45,7 +45,7 @@ global.levelmusic = bgm_gameover;
 //0: Mario
 //1: Luigi
 //2: Toad
-global.player = 0;
+global.player = 2;
 
 //Time Limit
 global.time = 0;

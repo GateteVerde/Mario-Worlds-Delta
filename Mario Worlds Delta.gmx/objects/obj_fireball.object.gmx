@@ -40,12 +40,55 @@ image_speed = 0.15;
 alarm[0] = 2;
 
 //Turn into a green fireball if Luigi is controlled
-if (global.player == 1)
+if (global.player == 1) {
+
+    //Set green fireball sprite
     sprite_index = spr_fireball_l;
     
+    //Set up green light
+    if (instance_exists(obj_lightcontrol)) {
+        
+        with (instance_create(0, 0, obj_light_npc)) {
+        
+            sprite_index = spr_light_fireball;
+            target = other.id;
+            image_blend = make_colour_rgb(165, 235, 33);
+        }
+    }
+}
+    
 //Otherwise, turn into a blue fireball if Toad is controlled
-else if (global.player == 2)
+else if (global.player == 2) {
+
+    //Set blue fireball sprite
     sprite_index = spr_fireball_t;
+    
+    //Set up green light
+    if (instance_exists(obj_lightcontrol)) {
+        
+        with (instance_create(0, 0, obj_light_npc)) {
+        
+            sprite_index = spr_light_fireball;
+            target = other.id;
+            image_blend = make_colour_rgb(136, 136, 248);
+        }
+    }
+}
+
+//Otherwise
+else {
+    
+    //Set up orange light
+    if (instance_exists(obj_lightcontrol)) {
+        
+        with (instance_create(0, 0, obj_light_npc)) {
+        
+            sprite_index = spr_light_fireball;
+            target = other.id;
+            image_blend = make_colour_rgb(248, 144, 32);
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -115,7 +158,7 @@ if (lava) {
     audio_play_sound(snd_burn, 0, false);
 
     //Create smoke
-    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_big;
+    with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_16;
     
     //Create splash effect
     with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2-8, obj_smoke)) {

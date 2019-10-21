@@ -68,8 +68,8 @@ background_alpha[0] = 1;
 background_alpha[1] = 0;
 
 //Background blend values
-background_blend[0] = c_blue;
-background_blend[1] = c_blue;
+background_blend[0] = make_colour_rgb(128, 0, 255);
+background_blend[1] = make_colour_rgb(128, 0, 255);
 
 //Create HUD
 instance_create(0, 0, obj_hud);
