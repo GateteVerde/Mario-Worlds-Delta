@@ -587,6 +587,8 @@
             <sprite>sprites\spr_light</sprite>
             <sprite>sprites\spr_light_static</sprite>
             <sprite>sprites\spr_light_fireball</sprite>
+            <sprite>sprites\spr_light_lava_top</sprite>
+            <sprite>sprites\spr_light_lava_bottom</sprite>
           </sprites>
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_ring_b</sprite>
@@ -1231,6 +1233,10 @@
             <object>objects\obj_plantfire</object>
             <object>objects\obj_plantfire2</object>
           </objects>
+        </objects>
+        <objects name="Decoration">
+          <object>objects\obj_light_lava_top</object>
+          <object>objects\obj_light_lava_bottom</object>
         </objects>
         <objects name="Eyecandy">
           <objects name="Blend">

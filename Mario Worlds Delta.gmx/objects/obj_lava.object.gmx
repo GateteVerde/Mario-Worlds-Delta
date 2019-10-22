@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-6</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -171,6 +171,9 @@ image_index = 1;
           <argument>
             <kind>1</kind>
             <string>///Draw the lava
+
+//Inherit event
+event_inherited();
 
 //Draw water
 draw_sprite_tiled_area_ext(sprite_index, -1, x, y, x, y, x+sprite_width-1, y+15, c_white, 1);

@@ -113,14 +113,15 @@ if (push)
             <kind>1</kind>
             <string>///Move
 
+//If not moving
 if (vspeed == 0) {
 
-    //Collision with a 'Up' arrow modifier.
-    if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_up,0,1))   
+    //If there's an up arrow in position
+    if (collision_rectangle(bbox_left, y, bbox_right, y+15, obj_up, 0, 0))
         vspeed = -0.25;
-    
-    //Collision with a 'Down' arrow modifier.
-    else if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_down,0,1))
+        
+    //Otherwise, if there's an down arrow
+    else if (collision_rectangle(bbox_left, y, bbox_right, y+15, obj_down, 0, 0))
         vspeed = 0.25;
 }
 </string>

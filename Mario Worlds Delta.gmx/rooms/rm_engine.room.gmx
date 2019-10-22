@@ -51,7 +51,6 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_poison_tides" x="0" y="400" name="inst_501CCE3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="0" name="inst_9295B76A" locked="0" code="levelmusic = bgm_land;&#xA;leveltime = 999;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="32" y="368" name="inst_1DA80343" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="0" y="384" name="inst_4A1F087C" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
@@ -69,10 +68,6 @@
     <instance objName="obj_slope_l" x="400" y="336" name="inst_1EB0FA63" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="640" y="352" name="inst_2AF5383E" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_piranhaplant_long" x="320" y="272" name="inst_8F78D735" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_up" x="0" y="400" name="inst_B23C9C73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_down" x="0" y="336" name="inst_36B797B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_endmarker" x="0" y="416" name="inst_3296CD44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_endmarker" x="0" y="320" name="inst_53534A21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_light_static" x="248" y="336" name="inst_7721391E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_light_static" x="344" y="336" name="inst_338ED937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_lightcontrol" x="16" y="0" name="inst_460D79BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -86,6 +81,9 @@
     <instance objName="obj_modifier_fireflower" x="496" y="288" name="inst_7D61BB62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fireplant_long" x="352" y="288" name="inst_9A07E658" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fireplant_long" x="624" y="320" name="inst_FB8D18C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_powblock" x="512" y="224" name="inst_F4F85BB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_pswitch" x="528" y="288" name="inst_6E385148" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_poison_tides" x="0" y="400" name="inst_8AC126CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="0" y="368" w="16" h="16" xo="254" yo="2" id="10001231" name="inst_CEA1BC35" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

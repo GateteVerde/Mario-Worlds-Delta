@@ -45,6 +45,26 @@ with (lava) {
     image_xscale = room_width/16;
     sprite_index = spr_lava_poison;
 }
+
+//Create lighting
+if (instance_exists(obj_lightcontrol)) {
+    
+    //Top light    
+    lt = instance_create(x, y, obj_light_lava_top); 
+    with (lt) {
+    
+        image_blend = make_colour_rgb(223, 125, 255);
+        target = other.id;
+    }
+    
+    //Bottom light
+    lb = instance_create(x, y, obj_light_lava_bottom);
+    with (lb) {
+    
+        image_blend = make_colour_rgb(223, 125, 255);
+        target = other.id;
+    }
+}
 </string>
           </argument>
         </arguments>

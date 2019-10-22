@@ -31,7 +31,7 @@
 global.surf_light = surface_create(room_width,room_height);
 
 //Ambient light global variable
-global.ambient_light = 3618615;
+global.ambient_light = 0; //2039583
 </string>
           </argument>
         </arguments>
@@ -83,7 +83,11 @@ for (var i=0; i&lt;instance_count; i++;) {
         with (instance_id[i]) {
         
             //Draw each light, alpha does not work in subtractive mode
-            draw_sprite_ext(sprite_index, image_index, round(x-view_xview[view_current]), round(y-view_yview[view_current]), scale, scale, image_angle, image_blend, 1);
+            if (image_xscale != 1)
+            || (image_yscale != 1)
+                draw_sprite_ext(sprite_index, image_index, round(x-view_xview[view_current]), round(y-view_yview[view_current]), image_xscale, image_yscale, image_angle, image_blend, 1);
+            else
+                draw_sprite_ext(sprite_index, image_index, round(x-view_xview[view_current]), round(y-view_yview[view_current]), scale, scale, image_angle, image_blend, 1); 
         }
     }
 }
