@@ -40,8 +40,8 @@ alarm[0] = 360;
 //Generate cinder
 alarm[2] = 30;
 
-//Create a water surface
-lava = instance_create(x,y,obj_lava);
+//Create a lava surface
+lava = instance_create(x, y, obj_lava);
 with (lava) {
 
     visible = false;
@@ -52,16 +52,14 @@ with (lava) {
 if (instance_exists(obj_lightcontrol)) {
     
     //Top light    
-    lt = instance_create(x, y, obj_light_lava_top); 
-    with (lt) {
+    with (instance_create(x, y, obj_light_lava_top)) {
     
         image_blend = c_orange;
         target = other.id;
     }
     
     //Bottom light
-    lb = instance_create(x, y, obj_light_lava_bottom);
-    with (lb) {
+    with (instance_create(x, y, obj_light_lava_bottom)) {
     
         image_blend = c_orange;
         target = other.id;
@@ -95,10 +93,8 @@ if (instance_exists(obj_lightcontrol)) {
 alarm[2] = 15+round(random_range(0, 15));
 
 //Generate
-if (sprite_index == spr_lava) {
-
+if (sprite_index == spr_lava)
     instance_create(random_range(view_xview[0]+4, view_xview[0] + view_wview[0] - 4), y, obj_blob);
-}
 </string>
           </argument>
         </arguments>

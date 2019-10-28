@@ -50,16 +50,14 @@ with (lava) {
 if (instance_exists(obj_lightcontrol)) {
     
     //Top light    
-    lt = instance_create(x, y, obj_light_lava_top); 
-    with (lt) {
+    with (instance_create(x, y, obj_light_lava_top)) {
     
         image_blend = make_colour_rgb(223, 125, 255);
         target = other.id;
     }
     
     //Bottom light
-    lb = instance_create(x, y, obj_light_lava_bottom);
-    with (lb) {
+    with (instance_create(x, y, obj_light_lava_bottom)) {
     
         image_blend = make_colour_rgb(223, 125, 255);
         target = other.id;

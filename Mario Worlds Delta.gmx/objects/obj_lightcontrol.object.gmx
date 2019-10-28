@@ -31,7 +31,41 @@
 global.surf_light = surface_create(room_width,room_height);
 
 //Ambient light global variable
-global.ambient_light = 0; //2039583
+global.ambient_light = c_black;
+
+//If there's a lighting block in place, halve the ambient light
+if (instance_exists(obj_lightblock)) {
+
+    global.ambient_light = 8421504;
+    alarm[0] = 8;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Decrement ambient light
+
+alarm[0] = 8;
+if (global.ambient_light &gt; c_black)    
+    global.ambient_light -= 65793;
 </string>
           </argument>
         </arguments>
@@ -81,13 +115,9 @@ for (var i=0; i&lt;instance_count; i++;) {
     &amp;&amp; (object_is_ancestor(instance_id[i].object_index, obj_lightparent))) {
         
         with (instance_id[i]) {
-        
+
             //Draw each light, alpha does not work in subtractive mode
-            if (image_xscale != 1)
-            || (image_yscale != 1)
-                draw_sprite_ext(sprite_index, image_index, round(x-view_xview[view_current]), round(y-view_yview[view_current]), image_xscale, image_yscale, image_angle, image_blend, 1);
-            else
-                draw_sprite_ext(sprite_index, image_index, round(x-view_xview[view_current]), round(y-view_yview[view_current]), scale, scale, image_angle, image_blend, 1); 
+            draw_sprite_ext(sprite_index, image_index, x-view_xview[view_current], y-view_yview[view_current], image_xscale, image_yscale, image_angle, image_blend, 1);
         }
     }
 }
@@ -124,13 +154,13 @@ surface_reset_target();
             <kind>1</kind>
             <string>///Draw the surface
 
-//Set the blending mode
+//Set blend mode
 draw_set_blend_mode(bm_subtract);
 
-//Draw the surface
+//Draw surface
 draw_surface(global.surf_light, view_xview[0], view_yview[0]);
 
-//Set the blending mode to normal
+//Set blend mode to normal
 draw_set_blend_mode(bm_normal);
 </string>
           </argument>

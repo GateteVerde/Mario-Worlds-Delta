@@ -8,7 +8,7 @@
   <parentName>obj_lightparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -26,9 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Follow the player
-
-//Inherit event from parent
-event_inherited();
 
 //Move towards the player
 if (instance_exists(obj_followme)) {

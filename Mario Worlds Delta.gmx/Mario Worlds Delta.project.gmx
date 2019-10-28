@@ -261,6 +261,7 @@
       <sprite>sprites\spr_viewblock</sprite>
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
+      <sprite>sprites\spr_lightblock</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Mounts">
@@ -497,6 +498,12 @@
       <sprite>sprites\spr_rex2</sprite>
       <sprite>sprites\spr_rex2_sq</sprite>
       <sprite>sprites\spr_rex2_dead</sprite>
+      <sprite>sprites\spr_buzzybeetle</sprite>
+      <sprite>sprites\spr_buzzybeetle_dead</sprite>
+      <sprite>sprites\spr_shell_buzzy</sprite>
+      <sprite>sprites\spr_spiny</sprite>
+      <sprite>sprites\spr_spiny_dead</sprite>
+      <sprite>sprites\spr_shell_spiny</sprite>
       <sprites name="Piranha Plants">
         <sprite>sprites\spr_piranhaplant</sprite>
         <sprite>sprites\spr_piranhaplant_long</sprite>
@@ -506,12 +513,28 @@
         <sprite>sprites\spr_fireplant</sprite>
         <sprite>sprites\spr_fireplant_long</sprite>
       </sprites>
-      <sprite>sprites\spr_buzzybeetle</sprite>
-      <sprite>sprites\spr_buzzybeetle_dead</sprite>
-      <sprite>sprites\spr_shell_buzzy</sprite>
-      <sprite>sprites\spr_spiny</sprite>
-      <sprite>sprites\spr_spiny_dead</sprite>
-      <sprite>sprites\spr_shell_spiny</sprite>
+      <sprite>sprites\spr_spiketop</sprite>
+      <sprite>sprites\spr_spiketop_turn</sprite>
+      <sprite>sprites\spr_spiketop_blue</sprite>
+      <sprite>sprites\spr_spiketop_blue_turn</sprite>
+      <sprites name="Wiggler">
+        <sprite>sprites\spr_wiggler</sprite>
+        <sprite>sprites\spr_wiggler_body</sprite>
+        <sprite>sprites\spr_wiggler_mad</sprite>
+        <sprite>sprites\spr_wiggler_mad_body</sprite>
+        <sprite>sprites\spr_wiggler_flower</sprite>
+      </sprites>
+      <sprite>sprites\spr_hammerbro</sprite>
+      <sprite>sprites\spr_hammerbro_throw</sprite>
+      <sprite>sprites\spr_hammerbro_jump</sprite>
+      <sprite>sprites\spr_hammerbro_hammer</sprite>
+      <sprite>sprites\spr_hammerbro_dead</sprite>
+      <sprite>sprites\spr_walrus</sprite>
+      <sprite>sprites\spr_walrus_turn</sprite>
+      <sprite>sprites\spr_walrus_dead</sprite>
+      <sprite>sprites\spr_grayrus</sprite>
+      <sprite>sprites\spr_grayrus_turn</sprite>
+      <sprite>sprites\spr_grayrus_dead</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -647,9 +670,14 @@
         <sprite>sprites\spr_splash_poison</sprite>
       </sprites>
       <sprites name="Palettes">
+        <sprites name="NPCs">
+          <sprites name="Enemies">
+            <sprite>sprites\spr_palette_wiggler</sprite>
+          </sprites>
+          <sprite>sprites\spr_palette_yoshi</sprite>
+        </sprites>
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
-        <sprite>sprites\spr_palette_yoshi</sprite>
         <sprite>sprites\spr_palette_platform_yoshi</sprite>
       </sprites>
       <sprites name="GUI">
@@ -816,12 +844,12 @@
     </scripts>
     <script>scripts\pivot_set.gml</script>
     <script>scripts\grab_pivots.gml</script>
+    <script>scripts\move_contact_object.gml</script>
     <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
-    <shader type="GLSLES">shaders\shd_multiply.shader</shader>
     <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
   <objects name="objects">
@@ -905,6 +933,7 @@
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_viewblock</object>
       <object>objects\obj_powblock</object>
+      <object>objects\obj_lightblock</object>
     </objects>
     <objects name="Items">
       <objects name="Progress">
@@ -1023,6 +1052,10 @@
         </objects>
       </objects>
       <object>objects\obj_rex</object>
+      <object>objects\obj_buzzybeetle</object>
+      <object>objects\obj_buzzybeetle_ceiling</object>
+      <object>objects\obj_spiny</object>
+      <object>objects\obj_spiny_ceiling</object>
       <objects name="Piranha Plants">
         <object>objects\obj_piranhaplant</object>
         <object>objects\obj_piranhaplant_long</object>
@@ -1032,10 +1065,12 @@
         <object>objects\obj_fireplant_long_down</object>
         <object>objects\obj_jumpplant</object>
       </objects>
-      <object>objects\obj_buzzybeetle</object>
-      <object>objects\obj_buzzybeetle_ceiling</object>
-      <object>objects\obj_spiny</object>
-      <object>objects\obj_spiny_ceiling</object>
+      <object>objects\obj_spiketop</object>
+      <object>objects\obj_spiketop_blue</object>
+      <object>objects\obj_wiggler</object>
+      <object>objects\obj_hammerbro</object>
+      <object>objects\obj_walrus</object>
+      <object>objects\obj_grayrus</object>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">
@@ -1222,6 +1257,8 @@
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
+          <object>objects\obj_enemy_multidead</object>
+          <object>objects\obj_enemy_stomped</object>
           <objects name="Goombas">
             <object>objects\obj_galoomba_held</object>
           </objects>
@@ -1233,6 +1270,8 @@
             <object>objects\obj_plantfire</object>
             <object>objects\obj_plantfire2</object>
           </objects>
+          <object>objects\obj_wiggler_body</object>
+          <object>objects\obj_hammerbro_hammer</object>
         </objects>
         <objects name="Decoration">
           <object>objects\obj_light_lava_top</object>
@@ -1289,6 +1328,7 @@
       <rooms name="Events">
         <room>rooms\rm_gameover</room>
       </rooms>
+      <room>rooms\rm_retry</room>
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>

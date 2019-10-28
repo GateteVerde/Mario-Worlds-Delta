@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-6</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -31,7 +31,7 @@
 image_speed = 0.1;
 image_index = 1;
 
-//Height
+//Width / Height
 hh = 0;
 alarm[0] = 2;
 
@@ -90,10 +90,50 @@ if (visible == 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Calculate height and reset vertical scale
+            <string>///Create lights if needed and set default height
 
 //Set height
 hh = sprite_height-1;
+
+//If the light exists
+if (instance_exists(obj_levelcontrol)) {
+
+    //Create top light
+    with (instance_create(x, y, obj_light_static)) {
+    
+        //Set light sprite
+        sprite_index = spr_light_lava_top;
+        
+        //Set light scale
+        image_xscale = other.image_xscale;
+        image_yscale = 1;
+        
+        //Set blend mode
+        if (other.sprite_index == spr_lava)
+            image_blend = c_orange;
+        else
+            image_blend = make_colour_rgb(223, 125, 255);
+    }
+    
+    //Create bottom light
+    with (instance_create(x, y+16, obj_light_static)) {
+    
+        //Set light sprite
+        sprite_index = spr_light_lava_bottom;
+        
+        //Set light scale
+        image_xscale = other.image_xscale;
+        image_yscale = (other.hh)-16;
+        
+        //Set blend mode
+        if (other.sprite_index == spr_lava)
+            image_blend = c_orange;
+        else
+            image_blend = make_colour_rgb(223, 125, 255);
+    }
+}
+
+//Set y scale
 if (image_yscale &gt; 1)
     image_yscale = 1;
 </string>
