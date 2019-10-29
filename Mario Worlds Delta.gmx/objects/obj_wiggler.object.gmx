@@ -614,7 +614,7 @@ if (ready == 1) {
 }
 
 //Draw wiggler
-draw_sprite_ext(sprite_index, -1, round(x), y-1, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), y-2, xscale, 1, 0, c_white, 1);
 
 //If transforming, end palette
 if (ready == 1)
