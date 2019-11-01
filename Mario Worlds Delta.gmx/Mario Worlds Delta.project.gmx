@@ -517,6 +517,11 @@
       <sprite>sprites\spr_spiketop_turn</sprite>
       <sprite>sprites\spr_spiketop_blue</sprite>
       <sprite>sprites\spr_spiketop_blue_turn</sprite>
+      <sprite>sprites\spr_dig</sprite>
+      <sprite>sprites\spr_dig2</sprite>
+      <sprite>sprites\spr_montymole</sprite>
+      <sprite>sprites\spr_montymole_jump</sprite>
+      <sprite>sprites\spr_montymole_dead</sprite>
       <sprites name="Wiggler">
         <sprite>sprites\spr_wiggler</sprite>
         <sprite>sprites\spr_wiggler_body</sprite>
@@ -697,8 +702,13 @@
           <sprite>sprites\spr_hud_coins</sprite>
           <sprite>sprites\spr_hud_time</sprite>
           <sprite>sprites\spr_hud_reserve</sprite>
+          <sprite>sprites\spr_hud_acecoins</sprite>
+          <sprite>sprites\spr_hud_acecoins_coin</sprite>
+          <sprite>sprites\spr_hud_separator</sprite>
         </sprites>
         <sprite>sprites\spr_font</sprite>
+        <sprite>sprites\spr_font_numb</sprite>
+        <sprite>sprites\spr_font_numb_gold</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
       <sprites name="Masks">
@@ -1067,6 +1077,8 @@
       </objects>
       <object>objects\obj_spiketop</object>
       <object>objects\obj_spiketop_blue</object>
+      <object>objects\obj_monty</object>
+      <object>objects\obj_monty_chase</object>
       <object>objects\obj_wiggler</object>
       <object>objects\obj_hammerbro</object>
       <object>objects\obj_walrus</object>

@@ -60,8 +60,11 @@ with (obj_playerparent) {
     &amp;&amp; (state != statetype.jump)
     &amp;&amp; (state != statetype.climb) {
     
-        //If the horizontal speed is greater than 1
-        if (hspeed &gt; 1)        
+        //If action 2 is held
+        if (keyboard_check(global.key_action[1])) &amp;&amp; (hspeed &gt; 1)        
+            
+        //Otherwise, if not held
+        || (!keyboard_check(global.key_action[1])) &amp;&amp; (hspeed &gt; 0.5)
             hspeed -= 0.1;
     }
 }

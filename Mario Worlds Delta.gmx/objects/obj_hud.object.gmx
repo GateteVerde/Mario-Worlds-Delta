@@ -28,45 +28,50 @@
             <string>///Draw the HUD
 
 //Set font
-draw_set_font(global.font);
+draw_set_font(global.fontnumb);
 
 //Set colour
 draw_set_colour(c_white);
 
 //Lives
 draw_sprite_ext(spr_hud_mario, global.player, view_xview[0]+8, view_yview[0]+8, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+64, view_yview[0]+8, string_format(lives, 2, 0));
+draw_text(view_xview[0]+64, view_yview[0]+8, string_add_zeros(lives, 3));
+
+//Separator
+draw_sprite_ext(spr_hud_separator, 0, view_xview[0]+8, view_yview[0]+20, 1, 1, 0, c_white, 1);
+
+//Set font
+draw_set_font(global.fontnumbgold);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+104, view_yview[0]+8, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+120, view_yview[0]+8, string_format(global.coins, 2, 0));
+draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8, view_yview[0]+26, 1, 1, 0, c_white, 1);
+draw_text(view_xview[0]+26, view_yview[0]+26, string_add_zeros(global.coins, 2));
 
-//If there's less than 5 coins collected
+//Ace Coins
+draw_sprite_ext(spr_hud_acecoins, 0, view_xview[0]+56, view_yview[0]+26, 1, 1, 0, c_white, 1);
+var a;
+a = 0;
 if (ds_map_size(global.dcoins) &lt; 5) {
     
-    var a;
-    a = 0;
     repeat (ds_map_size(global.dcoins)) {
     
-        draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
-        a += 8;
+        draw_sprite_ext(spr_hud_acecoins_coin, -1, view_xview[0]+56+a, view_yview[0]+26, 1, 1, 0, c_white, 1);    
+            a += 10;
     }
 }
-
-//Otherwise, if there's 5 or more collected
 else {
-
-    var a;
-    a = 0;
-    repeat (5) {
     
-        draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+8+a, view_yview[0]+24, 1, 1, 0, c_white, 1);
-        a += 8;
-    }    
+    repeat (5) {
+     
+        draw_sprite_ext(spr_hud_acecoins_coin, -1, view_xview[0]+56+a, view_yview[0]+26, 1, 1, 0, c_white, 1);
+            a += 10;
+    }        
 }
 
+//Set font
+draw_set_font(global.fontnumb);
+
 //Reserve Box
-draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+8, 1, 1, 0, c_white, 1);
 switch (global.reserveitem) {
 
     //Mushroom
@@ -78,13 +83,17 @@ switch (global.reserveitem) {
     //Mushroom
     case (cs_pow_cape): draw_sprite_ext(spr_feather, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+14, 1, 1, 0, c_white, 1); break;
 }
-
-//Score
-draw_text(view_xview[0]+view_wview[0]-128, view_yview[0]+8, string_add_zeros(score, 8));
+draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+8, 1, 1, 0, c_white, 1);
 
 //Timer
-draw_sprite_ext(spr_hud_time, -1, view_xview[0]+view_wview[0]-48, view_yview[0]+8, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+view_wview[0]-32, view_yview[0]+8, string_add_zeros(global.time, 3));
+draw_sprite_ext(spr_hud_time, -1, view_xview[0]+view_wview[0]-51, view_yview[0]+8, 1, 1, 0, c_white, 1);
+draw_text(view_xview[0]+view_wview[0]-33, view_yview[0]+8, string_add_zeros(global.time, 3));
+
+//Separator
+draw_sprite_ext(spr_hud_separator, 0, view_xview[0]+view_wview[0]-105, view_yview[0]+20, 1, 1, 0, c_white, 1);
+
+//Score
+draw_text(view_xview[0]+view_wview[0]-81, view_yview[0]+26, string_add_zeros(score, 9));
 </string>
           </argument>
         </arguments>
