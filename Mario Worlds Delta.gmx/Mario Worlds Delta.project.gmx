@@ -517,11 +517,12 @@
       <sprite>sprites\spr_spiketop_turn</sprite>
       <sprite>sprites\spr_spiketop_blue</sprite>
       <sprite>sprites\spr_spiketop_blue_turn</sprite>
-      <sprite>sprites\spr_dig</sprite>
-      <sprite>sprites\spr_dig2</sprite>
       <sprite>sprites\spr_montymole</sprite>
       <sprite>sprites\spr_montymole_jump</sprite>
       <sprite>sprites\spr_montymole_dead</sprite>
+      <sprite>sprites\spr_montymole_dig</sprite>
+      <sprite>sprites\spr_montymole_dig2</sprite>
+      <sprite>sprites\spr_megamole</sprite>
       <sprites name="Wiggler">
         <sprite>sprites\spr_wiggler</sprite>
         <sprite>sprites\spr_wiggler_body</sprite>
@@ -689,6 +690,7 @@
         <sprites name="Dialogues">
           <sprites name="Mugshots">
             <sprite>sprites\spr_mugshot</sprite>
+            <sprite>sprites\spr_mugshot_glitchypsix</sprite>
           </sprites>
           <sprites name="Cursors">
             <sprite>sprites\spr_cursor</sprite>
@@ -750,6 +752,10 @@
         <sprite>sprites\spr_stompmask</sprite>
         <sprite>sprites\spr_stompmask_cape</sprite>
       </sprites>
+      <sprites name="Cameos">
+        <sprite>sprites\spr_talk</sprite>
+        <sprite>sprites\spr_glitchypsix</sprite>
+      </sprites>
       <sprite>sprites\spr_mariostart</sprite>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_lightningsheet</sprite>
@@ -768,6 +774,7 @@
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
+      <background>background\tls_main_bush</background>
       <background>background\tls_main_filler</background>
     </backgrounds>
     <background>background\bgr_presents</background>
@@ -1079,6 +1086,8 @@
       <object>objects\obj_spiketop_blue</object>
       <object>objects\obj_monty</object>
       <object>objects\obj_monty_chase</object>
+      <object>objects\obj_monty_dig</object>
+      <object>objects\obj_megamole</object>
       <object>objects\obj_wiggler</object>
       <object>objects\obj_hammerbro</object>
       <object>objects\obj_walrus</object>
@@ -1157,6 +1166,7 @@
             </objects>
             <object>objects\obj_enemyparent</object>
             <object>objects\obj_deactenemyparent</object>
+            <object>objects\obj_solidenemyparent</object>
           </objects>
           <object>objects\obj_killparent</object>
           <object>objects\obj_physicsparent</object>
@@ -1187,6 +1197,7 @@
             <object>objects\obj_player_transform</object>
             <object>objects\obj_player_dead</object>
             <object>objects\obj_player_door</object>
+            <object>objects\obj_player_trail</object>
           </objects>
           <objects name="Special">
             <object>objects\obj_mario</object>
@@ -1282,6 +1293,7 @@
             <object>objects\obj_plantfire</object>
             <object>objects\obj_plantfire2</object>
           </objects>
+          <object>objects\obj_monty_jump</object>
           <object>objects\obj_wiggler_body</object>
           <object>objects\obj_hammerbro_hammer</object>
         </objects>
@@ -1322,6 +1334,7 @@
         <object>objects\obj_lightningsheet</object>
         <object>objects\obj_blockbumper</object>
       </objects>
+      <object>objects\obj_npc</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_levelstart</object>
       <object>objects\obj_gameover</object>

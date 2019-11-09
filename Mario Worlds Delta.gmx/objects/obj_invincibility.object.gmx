@@ -240,7 +240,22 @@ if (instance_exists(obj_playerparent)) {
     y = obj_playerparent.y;
     
     //Make the player invulnerable.
-    obj_playerparent.invulnerable = true;
+    with (obj_playerparent) {
+    
+        //Keep invulnerability
+        invulnerable = true
+        alarm[0] = -1;
+        alarm[1] = -1;
+        
+        //Leave a trail behind the player
+        with (instance_create(x, y, obj_player_trail)) {
+        
+            sprite_index = obj_playerparent.sprite_index;
+            image_single = obj_playerparent.image_index;
+            image_xscale = obj_playerparent.xscale;
+            pal = obj_playerparent.isflashing;
+        }        
+    }
     
     //Get the mask from the player
     mask_index = obj_playerparent.mask_index;
