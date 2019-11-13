@@ -172,6 +172,14 @@ if (instance_exists(obj_yoshi))
                     obj_yoshi.powerup = powerup;
                     powerup = noone;
                 }
+                
+                //Otherwise if yoshi ate a fire watermelon, give ammo
+                else if (obj_yoshi.mouthholder == obj_watermelon_fire)
+                    obj_yoshi.ammo = 3;
+                    
+                //Otherwise if yoshi ate a bomb watermelon, give ammo
+                else if (obj_yoshi.mouthholder == obj_watermelon_bomb)               
+                    obj_yoshi.ammo = 3;
 
                 //If Yoshi's mouth is not full, swallow
                 else if (obj_yoshi.mouthholder == noone)                

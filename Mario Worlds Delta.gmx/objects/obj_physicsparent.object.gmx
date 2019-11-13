@@ -378,7 +378,7 @@ if (vspeed &gt;= 0) {
 //Embed into the slope to ensure correct slope mechanics
 if (collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
-&amp;&amp; (gravity == 0)
+&amp;&amp; (vspeed == 0)
     y += 4;
 
 ///Handle slope collisions

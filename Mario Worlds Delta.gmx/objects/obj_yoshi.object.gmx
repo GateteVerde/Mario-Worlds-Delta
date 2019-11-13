@@ -62,6 +62,9 @@ mouthsprite = noone;
 //Whether Yoshi has ate a powerup
 powerup = noone;
 
+//Ammo
+ammo = 0;
+
 //Animation
 anim = 0;
 
@@ -1243,6 +1246,42 @@ if (mouthholder != noone) {
                 vspeed = -1;           
         }
         
+        //If yoshi is holding a fire melon
+        else if (mouthholder == obj_watermelon_fire) {
+        
+            //Play 'Flames' sound
+            audio_play_sound(snd_flames, 0, false);
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi fire
+                instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_fire);
+                with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_fire)) 
+                    vspeed = 1;
+                with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_fire)) 
+                    vspeed = -1;
+            }              
+        }
+        
+        //If yoshi is holding a bomb melon
+        else if (mouthholder == obj_watermelon_bomb) {
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi spit a bomb
+                with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_bomb))
+                    hspeed = 3*obj_playerparent.xscale;
+            }              
+        }
+        
         //Otherwise
         else {
         
@@ -1282,7 +1321,7 @@ if (mouthholder != noone) {
         
         //If yoshi is holding fire
         if (mouthholder == obj_yoshi_fire) {
-    
+        
             //Play 'Flames' sound
             audio_play_sound(snd_flames, 0, false);
             
@@ -1291,9 +1330,47 @@ if (mouthholder != noone) {
             with (instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire)) 
                 vspeed = 1;
             with (instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire)) 
-                vspeed = -1;           
+                vspeed = -1;         
+        
         }
         
+        //If yoshi is holding a fire melon
+        else if (mouthholder == obj_watermelon_fire) {
+        
+            //Play 'Flames' sound
+            audio_play_sound(snd_flames, 0, false);
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi fire
+                instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_fire);
+                with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_fire)) 
+                    vspeed = 1;
+                with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_fire)) 
+                    vspeed = -1;
+            }              
+        }
+        
+        //If yoshi is holding a bomb melon
+        else if (mouthholder == obj_watermelon_bomb) {
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi spit a bomb
+                with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_bomb))
+                    hspeed = 3*obj_playerparent.xscale;
+            }              
+        }
+        
+        //Otherwise
         else {
         
             //Create up an item
@@ -1376,11 +1453,15 @@ if (mouthholder != noone) {
         }
     }
     
-    //Reset mouth item
-    mouthholder = noone;
-    
-    //Reset item sprite
-    mouthsprite = noone;
+    //If there's not ammo left
+    if (ammo == 0) {
+            
+        //Reset mouth item
+        mouthholder = noone;
+        
+        //Reset item sprite
+        mouthsprite = noone;
+    }
     
     //Licking
     licking = 1;

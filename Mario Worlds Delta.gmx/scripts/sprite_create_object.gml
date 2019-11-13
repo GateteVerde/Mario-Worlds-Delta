@@ -30,6 +30,12 @@ switch (argument[2]) {
     //Poison
     case (spr_poison): return instance_create(argument[0], argument[1], obj_poison);
     
+    //Fire Watermelon
+    case (spr_watermelon_fire): return instance_create(argument[0], argument[1], obj_watermelon_fire);
+    
+    //Bomb Watermelon
+    case (spr_watermelon_bomb): return instance_create(argument[0], argument[1], obj_watermelon_bomb);
+    
     //P-Switch
     case (spr_pswitch): return instance_create(argument[0], argument[1], obj_pswitch);
     

@@ -291,6 +291,8 @@
           <sprite>sprites\spr_egg_shard</sprite>
           <sprite>sprites\spr_tongue</sprite>
           <sprite>sprites\spr_fire</sprite>
+          <sprite>sprites\spr_eggbomb</sprite>
+          <sprite>sprites\spr_eggbomb_angle</sprite>
         </sprites>
       </sprites>
       <sprites name="Progress">
@@ -317,6 +319,8 @@
       <sprite>sprites\spr_star</sprite>
       <sprite>sprites\spr_1up</sprite>
       <sprite>sprites\spr_poison</sprite>
+      <sprite>sprites\spr_watermelon_fire</sprite>
+      <sprite>sprites\spr_watermelon_bomb</sprite>
       <sprite>sprites\spr_twister</sprite>
     </sprites>
     <sprites name="Gizmos">
@@ -578,6 +582,8 @@
           <sprite>sprites\spr_modifier_star</sprite>
           <sprite>sprites\spr_modifier_1up</sprite>
           <sprite>sprites\spr_modifier_poison</sprite>
+          <sprite>sprites\spr_modifier_watermelon_fire</sprite>
+          <sprite>sprites\spr_modifier_watermelon_bomb</sprite>
         </sprites>
         <sprites name="Platforms">
           <sprites name="Belts">
@@ -869,6 +875,9 @@
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
     <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
+  <fonts name="fonts">
+    <font>fonts\fnt_gui</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_player_warp</object>
@@ -966,6 +975,8 @@
       <object>objects\obj_star</object>
       <object>objects\obj_1up</object>
       <object>objects\obj_poison</object>
+      <object>objects\obj_watermelon_fire</object>
+      <object>objects\obj_watermelon_bomb</object>
       <object>objects\obj_twister</object>
     </objects>
     <objects name="Gizmos">
@@ -1130,6 +1141,8 @@
           <object>objects\obj_modifier_star</object>
           <object>objects\obj_modifier_1up</object>
           <object>objects\obj_modifier_poison</object>
+          <object>objects\obj_modifier_watermelon_fire</object>
+          <object>objects\obj_modifier_watermelon_bomb</object>
         </objects>
         <object>objects\obj_modifier_coin_star</object>
         <object>objects\obj_modifier_coin_multi</object>
@@ -1224,6 +1237,7 @@
                 </objects>
                 <object>objects\obj_yoshi</object>
                 <object>objects\obj_yoshi_fire</object>
+                <object>objects\obj_yoshi_bomb</object>
                 <object>objects\obj_stomp</object>
                 <object>objects\obj_tongue</object>
               </objects>

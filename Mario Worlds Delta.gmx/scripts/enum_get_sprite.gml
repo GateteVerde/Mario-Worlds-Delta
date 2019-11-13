@@ -55,6 +55,12 @@ switch (argument[0]) {
     //Poison
     case (itemtype.poison): return spr_poison; break;
     
+    //Fire Watermelon
+    case (itemtype.watermelon_fire): return spr_watermelon_fire; break;
+    
+    //Bomb Watermelon
+    case (itemtype.watermelon_bomb): return spr_watermelon_bomb; break;
+    
     //P-Switch
     case (itemtype.pswitch): return spr_pswitch; break;
     

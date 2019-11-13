@@ -39,7 +39,7 @@ varmsg = "No message was set";
 mugshot = noone;
 
 //Font
-font = global.fontmsg;
+font = fnt_gui; //global.fontmsg;
 
 //Can the text be seen?
 showing = false;

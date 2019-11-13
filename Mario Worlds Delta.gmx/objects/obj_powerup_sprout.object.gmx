@@ -138,7 +138,9 @@ else {
         || (sprite_index == spr_egg)
         || (sprite_index == spr_egg_r)
         || (sprite_index == spr_egg_y)
-        || (sprite_index == spr_egg_b) {
+        || (sprite_index == spr_egg_b)  
+        || (sprite_index == spr_watermelon_fire) 
+        || (sprite_index == spr_watermelon_bomb) {
         
             vspeed = -2.5;
             bouncy = 1;

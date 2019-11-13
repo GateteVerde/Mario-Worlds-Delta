@@ -26,6 +26,8 @@ enum itemtype {
     star,
     lifeup,
     poison,
+    watermelon_fire,
+    watermelon_bomb,
     pswitch,
     trampoline,
     powblock,
