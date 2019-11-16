@@ -500,6 +500,7 @@ if (vulnerable &lt; 2) {
 if (vulnerable &lt; 99) {
     
     if (other.vspeed &lt; 0)
+    &amp;&amp; (vspeed == 0)
     &amp;&amp; (bbox_bottom &lt; other.yprevious+5) {
     
         //Play 'Kick sound

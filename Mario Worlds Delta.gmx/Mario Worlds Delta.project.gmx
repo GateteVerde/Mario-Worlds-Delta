@@ -26,6 +26,7 @@
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
+    <sound>sound\snd_correct</sound>
     <sound>sound\snd_door</sound>
     <sound>sound\snd_eat</sound>
     <sound>sound\snd_engine</sound>
@@ -714,6 +715,12 @@
           <sprite>sprites\spr_hud_acecoins_coin</sprite>
           <sprite>sprites\spr_hud_separator</sprite>
         </sprites>
+        <sprites name="Title">
+          <sprite>sprites\spr_title_top</sprite>
+          <sprite>sprites\spr_title_middle</sprite>
+          <sprite>sprites\spr_title_bottom</sprite>
+          <sprite>sprites\spr_title_cog</sprite>
+        </sprites>
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
@@ -783,7 +790,9 @@
       <background>background\tls_main_bush</background>
       <background>background\tls_main_filler</background>
     </backgrounds>
-    <background>background\bgr_presents</background>
+    <background>background\bgr_title</background>
+    <background>background\bgr_titlebgr</background>
+    <background>background\bgr_marioworlds</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_bubble</path>
@@ -1342,6 +1351,9 @@
           <object>objects\obj_snow</object>
           <object>objects\obj_spinstar</object>
         </objects>
+        <objects name="Title">
+          <object>objects\obj_title</object>
+        </objects>
         <object>objects\obj_hud</object>
         <object>objects\obj_dialog</object>
         <object>objects\obj_message</object>
@@ -1361,7 +1373,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_map</room>
+    <room>rooms\rm_title</room>
     <room>rooms\rm_engine</room>
     <rooms name="Special Screens">
       <rooms name="Events">
@@ -1371,7 +1383,9 @@
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>
-  <constants number="38">
+  <constants number="40">
+    <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES #ALL RESOURCES ARE (C) OF NINTENDO"</constant>
+    <constant name="cs_version">"v3.0.0"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>
