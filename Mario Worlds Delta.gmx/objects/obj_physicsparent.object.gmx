@@ -441,9 +441,9 @@ if (vspeed &lt; 0) {
         //Check if there's a block on the way.
         var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top-1, obj_blockparent, 0, 0);
         
-        //If there's a block on the way.
+        //If there's a block on the way and this object has obj_holdparent as the parent
         if (block) 
-        &amp;&amp; (object_get_parent(object_index) == obj_holdparent) {
+        &amp;&amp; ((object_get_parent(object_index) == obj_holdparent) || (object_get_parent(object_index) == obj_holdparent_enemy)) {
             
             //If the block has NOT been hit.
             if (block.ready == 0) {

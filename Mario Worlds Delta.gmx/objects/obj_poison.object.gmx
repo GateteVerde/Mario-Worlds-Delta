@@ -50,16 +50,20 @@ repeat (6) {
         
             sprite_index = spr_smoke_16;
             image_blend = make_colour_rgb(223, 125, 255);
-            motion_set(a, 0.75);
+            motion_set(a, 1);
             a += 60
         }
     }
     else {
     
+        //Play 'Kick' sound
+        audio_play_sound(snd_kick, 0, false);
+    
+        //Create smoke effect
         with (instance_create(x, y+8, obj_smoke)) {
         
             sprite_index = spr_smoke_16;
-            motion_set(a, 0.75);
+            motion_set(a, 1);
             a += 60
         }        
     }
