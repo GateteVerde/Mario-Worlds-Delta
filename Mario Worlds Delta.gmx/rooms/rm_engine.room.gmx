@@ -125,7 +125,7 @@
     <instance objName="obj_semisolid" x="800" y="384" name="inst_D2EA37FB" locked="0" code="" scaleX="26" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1056" y="336" name="inst_50513780" locked="0" code="" scaleX="9" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1104" y="288" name="inst_5357444A" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="0" name="inst_0B9F9666" locked="0" code="levelmusic = bgm_land;&#xA;leveltime = 525;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="0" name="inst_0B9F9666" locked="0" code="levelmusic = bgm_testlevel;&#xA;leveltime = 525;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water_tides" x="0" y="400" name="inst_17CF4385" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="128" y="288" name="inst_13B6C5F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="112" y="304" name="inst_B1FC0969" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -351,6 +351,11 @@
     <instance objName="obj_brick_throw" x="400" y="352" name="inst_BB65F896" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_throw" x="400" y="368" name="inst_35AE2282" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_throw" x="416" y="368" name="inst_D92952C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trampoline" x="480" y="304" name="inst_F4D15E56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock_hidden" x="352" y="176" name="inst_D8F1DC7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_egg_y" x="352" y="176" name="inst_6DF49DEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_galoomba" x="688" y="272" name="inst_B44BB730" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_paragaloomba" x="720" y="240" name="inst_1AAC7046" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="112" y="304" w="16" h="16" xo="272" yo="74" id="10000443" name="inst_1DDD664E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -354,8 +354,8 @@ if (audio_is_playing(snd_hurry)) {
         audio_pause_sound(levelmusic);
     
     //Pause 'bgm_starman'
-    else if (audio_is_playing(bgm_star))
-        audio_pause_sound(bgm_star);
+    else if (audio_is_playing(bgm_starman))
+        audio_pause_sound(bgm_starman);
         
     //Pause 'bgm_pswitch
     else if (audio_is_playing(bgm_pswitch))
@@ -369,7 +369,7 @@ else {
     &amp;&amp; (global.time &lt; 101) {
         
         audio_sound_pitch(levelmusic, 1.13);
-        audio_sound_pitch(bgm_star, 1.13);
+        audio_sound_pitch(bgm_starman, 1.13);
         audio_sound_pitch(bgm_pswitch, 1.13);
     }
     
@@ -377,7 +377,7 @@ else {
     else {
     
         audio_sound_pitch(levelmusic, 1);
-        audio_sound_pitch(bgm_star, 1);
+        audio_sound_pitch(bgm_starman, 1);
         audio_sound_pitch(bgm_pswitch, 1);
     }
 
@@ -386,8 +386,8 @@ else {
         audio_resume_sound(levelmusic);
     
     //Resume 'bgm_starman' if paused
-    else if (audio_is_paused(bgm_star))
-        audio_resume_sound(bgm_star);
+    else if (audio_is_paused(bgm_starman))
+        audio_resume_sound(bgm_starman);
         
     //Resume 'bgm_starman' if paused
     else if (audio_is_paused(bgm_pswitch))
@@ -729,7 +729,7 @@ if (switchon == false) {
 alarm[1] = 1;
 
 //Stop invincibility music
-audio_stop_sound(bgm_star);
+audio_stop_sound(bgm_starman);
 
 //Play 'P-Switch' music
 if (!audio_is_playing(bgm_pswitch))

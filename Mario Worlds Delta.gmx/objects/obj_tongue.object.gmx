@@ -169,21 +169,29 @@ if (instance_exists(obj_yoshi))
                 //If a powerup was eaten, place it in Yoshi
                 if (powerup != noone) {
                 
+                    //Play 'Eat' sound
+                    audio_play_sound(snd_eat, 0, false);
+                    
+                    //Obtain powerup
                     obj_yoshi.powerup = powerup;
                     powerup = noone;
                 }
                 
-                //Otherwise if yoshi ate a fire watermelon, give ammo
-                else if (obj_yoshi.mouthholder == obj_watermelon_fire)
-                    obj_yoshi.ammo = 3;
+                //Otherwise
+                else {
                     
-                //Otherwise if yoshi ate a bomb watermelon, give ammo
-                else if (obj_yoshi.mouthholder == obj_watermelon_bomb)               
-                    obj_yoshi.ammo = 3;
-
-                //If Yoshi's mouth is not full, swallow
-                else if (obj_yoshi.mouthholder == noone)                
-                    audio_play_sound(snd_eat, 0, false);
+                    //Otherwise if yoshi ate a fire watermelon, give ammo
+                    if (obj_yoshi.mouthholder == obj_watermelon_fire)
+                        obj_yoshi.ammo = 3;
+                        
+                    //Otherwise if yoshi ate a bomb watermelon, give ammo
+                    else if (obj_yoshi.mouthholder == obj_watermelon_bomb)               
+                        obj_yoshi.ammo = 3;
+    
+                    //If Yoshi's mouth is not full, swallow
+                    else if (obj_yoshi.mouthholder == noone)                
+                        audio_play_sound(snd_eat, 0, false);
+                }
             }
 
             //Destroy
@@ -410,11 +418,7 @@ if (hunger == 0) &amp;&amp; (ready == 0) {
             alarm[0] = 8;
         }
     }
-    
-    //Otherwise, create item
-    else if (other.edible == 1)
-        with (other) event_user(7);
-        
+             
     //Otherwise, eat it
     else {
     
@@ -446,7 +450,17 @@ if (hunger == 0) &amp;&amp; (ready == 0) {
                     obj_yoshi.mouthsprite = other.sprite_index;
                 }
             }
-        } 
+        }
+        
+        //Otherwise, if this is a galoomba or a goombud
+        else if (other.object_index == obj_galoomba_held) {
+        
+            //Put a shell inside Yoshi's mouth
+            obj_yoshi.mouthholder = obj_galoomba_held;
+            
+            //Set the shell sprite
+            obj_yoshi.mouthsprite = other.sprite_index;                    
+        }
         
         //Food sprite
         foodsprite = other.sprite_index;

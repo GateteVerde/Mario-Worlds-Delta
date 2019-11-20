@@ -41,7 +41,7 @@ switch (global.player) {
 audio_play_sound(bgm_death, 0, false);
 
 //Stop rest of music
-audio_stop_sound(bgm_star);
+audio_stop_sound(bgm_starman);
 audio_stop_sound(bgm_pswitch);
 
 //Stop both music and timer

@@ -135,8 +135,8 @@ obj_levelcontrol.alarm[1] = 1;
 
 //Play 'Starman' theme
 if (!audio_is_playing(bgm_pswitch))
-&amp;&amp; (!audio_is_playing(bgm_star))
-    audio_play_sound(bgm_star, 0, true);
+&amp;&amp; (!audio_is_playing(bgm_starman))
+    audio_play_sound(bgm_starman, 0, true);
 </string>
           </argument>
         </arguments>
@@ -194,7 +194,7 @@ instance_destroy();
             <string>///End invincibility
 
 //Stop starman music
-audio_stop_sound(bgm_star);
+audio_stop_sound(bgm_starman);
 
 //Play level music
 obj_levelcontrol.alarm[0] = 2;

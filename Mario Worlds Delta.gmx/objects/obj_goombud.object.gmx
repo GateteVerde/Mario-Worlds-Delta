@@ -69,7 +69,7 @@ alarm[10] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Goombud logic (Basically the same as a goombud, but these turn on ledges.)
+            <string>///Goombud logic (Basically the same as a galoomba, but these turn on ledges.)
 
 //Inherit event
 event_inherited();
@@ -98,7 +98,7 @@ event_user(6);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Turn into a stunned galoomba
+            <string>///Turn into a stunned goombud
 
 //Create dead enemy object
 imdead = instance_create(round(bbox_left+bbox_right)/2, y-2, obj_galoomba_held);
@@ -144,7 +144,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Turn into a stunned galoomba
+            <string>///Turn into a stunned goombud
 
 //Create stunned galoomba
 with (instance_create(x, y, obj_galoomba_held)) {
