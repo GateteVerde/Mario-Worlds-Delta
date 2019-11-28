@@ -641,7 +641,7 @@ audio_stop_sound(bgm_pswitch);
             <string>///Adjust camera y position
 
 //Make sure the player is not doing anything
-if (obj_playerparent.state == statetype.idle) &amp;&amp; (!keyboard_check(global.key_action[1])) {
+if (obj_playerparent.state == statetype.idle) {
     
     //If the 'Up' key is pressed
     if (keyboard_check(global.key_u)) {
@@ -828,7 +828,12 @@ with (obj_player_door) instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///Remember p-switch if enabled
+
+//Remember P-Switch time limit if enabled
+if (switchon)
+    global.pswitch = alarm[6];
+</string>
           </argument>
         </arguments>
       </action>

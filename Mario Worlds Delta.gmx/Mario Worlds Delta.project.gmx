@@ -123,6 +123,7 @@
           <sprite>sprites\spr_mario_cape_smash</sprite>
         </sprites>
         <sprite>sprites\spr_mario_dead</sprite>
+        <sprite>sprites\spr_mario_block</sprite>
       </sprites>
       <sprites name="Luigi">
         <sprites name="Small">
@@ -169,6 +170,7 @@
           <sprite>sprites\spr_luigi_cape_smash</sprite>
         </sprites>
         <sprite>sprites\spr_luigi_dead</sprite>
+        <sprite>sprites\spr_luigi_block</sprite>
       </sprites>
       <sprites name="Toad">
         <sprites name="Small">
@@ -215,6 +217,7 @@
           <sprite>sprites\spr_toad_cape_smash</sprite>
         </sprites>
         <sprite>sprites\spr_toad_dead</sprite>
+        <sprite>sprites\spr_toad_block</sprite>
       </sprites>
       <sprites name="Miscellaneous">
         <sprites name="Cape Parts">
@@ -326,6 +329,19 @@
       <sprite>sprites\spr_twister</sprite>
     </sprites>
     <sprites name="Gizmos">
+      <sprites name="Obstacles">
+        <sprites name="Skewers">
+          <sprites name="Bases">
+            <sprite>sprites\spr_skewerbase</sprite>
+            <sprite>sprites\spr_skewerbase_side</sprite>
+          </sprites>
+          <sprite>sprites\spr_skewer</sprite>
+          <sprite>sprites\spr_skewer_down</sprite>
+          <sprite>sprites\spr_skewer_left</sprite>
+          <sprite>sprites\spr_skewer_right</sprite>
+        </sprites>
+        <sprite>sprites\spr_firebar</sprite>
+      </sprites>
       <sprites name="Platforms">
         <sprites name="Platform Parts">
           <sprites name="Engine">
@@ -380,16 +396,6 @@
         <sprite>sprites\spr_donut_appear</sprite>
         <sprite>sprites\spr_blocktrain</sprite>
       </sprites>
-      <sprites name="Skewers">
-        <sprites name="Bases">
-          <sprite>sprites\spr_skewerbase</sprite>
-          <sprite>sprites\spr_skewerbase_side</sprite>
-        </sprites>
-        <sprite>sprites\spr_skewer</sprite>
-        <sprite>sprites\spr_skewer_down</sprite>
-        <sprite>sprites\spr_skewer_left</sprite>
-        <sprite>sprites\spr_skewer_right</sprite>
-      </sprites>
       <sprite>sprites\spr_pswitch</sprite>
       <sprite>sprites\spr_pswitch_press</sprite>
       <sprite>sprites\spr_trampoline</sprite>
@@ -414,6 +420,7 @@
       <sprite>sprites\spr_deathblock</sprite>
       <sprite>sprites\spr_floodblock</sprite>
       <sprite>sprites\spr_floodblock_reset</sprite>
+      <sprite>sprites\spr_playerblock</sprite>
       <sprite>sprites\spr_icicle</sprite>
       <sprite>sprites\spr_icicle_static</sprite>
       <sprite>sprites\spr_icicle_appear</sprite>
@@ -535,6 +542,20 @@
         <sprite>sprites\spr_wiggler_mad</sprite>
         <sprite>sprites\spr_wiggler_mad_body</sprite>
         <sprite>sprites\spr_wiggler_flower</sprite>
+      </sprites>
+      <sprite>sprites\spr_thwomp</sprite>
+      <sprite>sprites\spr_thwomp_side</sprite>
+      <sprites name="Weaponry">
+        <sprites name="Bullet Bill">
+          <sprite>sprites\spr_blaster</sprite>
+          <sprite>sprites\spr_bulletbill</sprite>
+          <sprite>sprites\spr_blaster_missile</sprite>
+          <sprite>sprites\spr_missilebill</sprite>
+        </sprites>
+        <sprites name="Banzai Bill">
+          <sprite>sprites\spr_banzaibill</sprite>
+          <sprite>sprites\spr_bullseyebanzai</sprite>
+        </sprites>
       </sprites>
       <sprite>sprites\spr_hammerbro</sprite>
       <sprite>sprites\spr_hammerbro_throw</sprite>
@@ -874,6 +895,7 @@
       <script>scripts\sprite_create_object.gml</script>
       <script>scripts\draw_sprite_tiled_area_ext.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
+      <script>scripts\turn_towards_direction.gml</script>
     </scripts>
     <script>scripts\pivot_set.gml</script>
     <script>scripts\grab_pivots.gml</script>
@@ -950,6 +972,12 @@
       <object>objects\obj_hurtblock_lethal</object>
     </objects>
     <objects name="Blocks">
+      <objects name="Player Blocks">
+        <object>objects\obj_block_pl</object>
+        <object>objects\obj_block_mario</object>
+        <object>objects\obj_block_luigi</object>
+        <object>objects\obj_block_toad</object>
+      </objects>
       <objects name="Item Blocks">
         <objects name="Hidden">
           <object>objects\obj_qblock_hidden</object>
@@ -990,6 +1018,15 @@
       <object>objects\obj_twister</object>
     </objects>
     <objects name="Gizmos">
+      <objects name="Obstacles">
+        <objects name="Skewers">
+          <object>objects\obj_skewer</object>
+          <object>objects\obj_skewer_down</object>
+          <object>objects\obj_skewer_left</object>
+          <object>objects\obj_skewer_right</object>
+        </objects>
+        <object>objects\obj_firebar</object>
+      </objects>
       <objects name="Platforms">
         <objects name="Belts">
           <object>objects\obj_conveyor</object>
@@ -1019,12 +1056,6 @@
         <object>objects\obj_donut_red</object>
         <object>objects\obj_donut_red_triple</object>
         <object>objects\obj_blocktrain</object>
-      </objects>
-      <objects name="Skewers">
-        <object>objects\obj_skewer</object>
-        <object>objects\obj_skewer_down</object>
-        <object>objects\obj_skewer_left</object>
-        <object>objects\obj_skewer_right</object>
       </objects>
       <object>objects\obj_pswitch</object>
       <object>objects\obj_trampoline</object>
@@ -1110,6 +1141,19 @@
       <object>objects\obj_monty_dig</object>
       <object>objects\obj_megamole</object>
       <object>objects\obj_wiggler</object>
+      <object>objects\obj_thwomp</object>
+      <object>objects\obj_thwomp_left</object>
+      <object>objects\obj_thwomp_right</object>
+      <objects name="Weaponry">
+        <objects name="Bullet Bill">
+          <object>objects\obj_blaster</object>
+          <object>objects\obj_blaster_missile</object>
+        </objects>
+        <objects name="Banzai Bill">
+          <object>objects\obj_banzaibill</object>
+          <object>objects\obj_bullseyebanzai</object>
+        </objects>
+      </objects>
       <object>objects\obj_hammerbro</object>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
@@ -1290,12 +1334,15 @@
             <object>objects\obj_blocktrain_middle</object>
             <object>objects\obj_blocktrain_killer</object>
           </objects>
-          <objects name="Skewers">
-            <object>objects\obj_skewerparent</object>
-            <object>objects\obj_skewertrunk</object>
-            <object>objects\obj_skewertrunk_down</object>
-            <object>objects\obj_skewertrunk_left</object>
-            <object>objects\obj_skewertrunk_right</object>
+          <objects name="Obstacles">
+            <objects name="Skewers">
+              <object>objects\obj_skewerparent</object>
+              <object>objects\obj_skewertrunk</object>
+              <object>objects\obj_skewertrunk_down</object>
+              <object>objects\obj_skewertrunk_left</object>
+              <object>objects\obj_skewertrunk_right</object>
+            </objects>
+            <object>objects\obj_firebar_ball</object>
           </objects>
           <object>objects\obj_powblock_active</object>
           <object>objects\obj_powblock_killer</object>
@@ -1319,6 +1366,12 @@
           </objects>
           <object>objects\obj_monty_jump</object>
           <object>objects\obj_wiggler_body</object>
+          <objects name="Weaponry">
+            <objects name="Bullet Bill">
+              <object>objects\obj_bulletbill</object>
+              <object>objects\obj_missilebill</object>
+            </objects>
+          </objects>
           <object>objects\obj_hammerbro_hammer</object>
         </objects>
         <objects name="Decoration">
@@ -1375,7 +1428,13 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_title</room>
-    <room>rooms\rm_engine</room>
+    <rooms name="Levels">
+      <rooms name="01">
+        <room>rooms\rm_engine</room>
+        <room>rooms\rm_engine_b</room>
+        <room>rooms\rm_engine_c</room>
+      </rooms>
+    </rooms>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>

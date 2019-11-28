@@ -1392,7 +1392,7 @@ if (mouthholder != noone) {
                     ready = 1;
                     
                     //If the object is in contact with a solid.
-                    if (place_meeting(x,y,obj_solid))
+                    if (place_meeting(x, y, obj_solid))
                         event_user(0);
                 }
                 
@@ -1418,6 +1418,11 @@ if (mouthholder != noone) {
                     if (sprite_index = spr_powblock_blue) 
                     &amp;&amp; (!keyboard_check(global.key_d))      
                         ready = 1;
+                        
+                    //Otherwise if the item is a galoomba
+                    if (sprite_index = spr_galoomba_down) || (sprite_index = spr_goombud_down)
+                    &amp;&amp; (place_meeting(x, y, obj_solid))
+                        event_user(0);
         
                     //If the eaten item is not overlapping a solid.
                     if (!collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_solid,0,0)) {
