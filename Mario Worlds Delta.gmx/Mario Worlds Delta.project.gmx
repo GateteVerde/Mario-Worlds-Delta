@@ -420,7 +420,6 @@
       <sprite>sprites\spr_deathblock</sprite>
       <sprite>sprites\spr_floodblock</sprite>
       <sprite>sprites\spr_floodblock_reset</sprite>
-      <sprite>sprites\spr_playerblock</sprite>
       <sprite>sprites\spr_icicle</sprite>
       <sprite>sprites\spr_icicle_static</sprite>
       <sprite>sprites\spr_icicle_appear</sprite>
@@ -428,6 +427,7 @@
       <sprite>sprites\spr_door</sprite>
       <sprite>sprites\spr_door_p</sprite>
       <sprite>sprites\spr_door_p_outline</sprite>
+      <sprite>sprites\spr_door_player</sprite>
       <sprite>sprites\spr_door_inside</sprite>
       <sprite>sprites\spr_door_lock</sprite>
       <sprite>sprites\spr_beanstalk</sprite>
@@ -713,6 +713,7 @@
         </sprites>
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
+        <sprite>sprites\spr_palette_door</sprite>
         <sprite>sprites\spr_palette_platform_yoshi</sprite>
       </sprites>
       <sprites name="GUI">
@@ -931,6 +932,7 @@
         <objects name="Doors">
           <object>objects\obj_door</object>
           <object>objects\obj_door_p</object>
+          <object>objects\obj_door_player</object>
         </objects>
         <objects name="Pipes">
           <objects name="Entrances">
@@ -973,7 +975,6 @@
     </objects>
     <objects name="Blocks">
       <objects name="Player Blocks">
-        <object>objects\obj_block_pl</object>
         <object>objects\obj_block_mario</object>
         <object>objects\obj_block_luigi</object>
         <object>objects\obj_block_toad</object>

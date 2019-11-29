@@ -122,7 +122,7 @@
     <instance objName="obj_semisolid" x="800" y="384" name="inst_D2EA37FB" locked="0" code="" scaleX="26" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1056" y="336" name="inst_50513780" locked="0" code="" scaleX="9" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1104" y="288" name="inst_5357444A" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="0" name="inst_0B9F9666" locked="0" code="levelmusic = bgm_testlevel;&#xA;leveltime = 525;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="0" name="inst_0B9F9666" locked="0" code="levelmusic = bgm_testlevel;&#xA;leveltime = 999;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water_tides" x="0" y="400" name="inst_17CF4385" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="128" y="288" name="inst_13B6C5F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="112" y="304" name="inst_B1FC0969" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -380,10 +380,10 @@
     <instance objName="obj_modifier_coin_multi" x="576" y="368" name="inst_A61F4DC1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warptop" x="2720" y="304" name="inst_6146C44E" locked="0" code="destination = rm_engine_c;&#xA;exit_dir = cs_warp_right;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="3232" y="288" name="inst_1B01ECFD" locked="0" code="myid = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_pl" x="624" y="288" name="inst_318FD4B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_mario" x="624" y="368" name="inst_A3937647" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_luigi" x="640" y="368" name="inst_88699898" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_toad" x="656" y="368" name="inst_B2AE0887" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_player" x="624" y="320" name="inst_68EE27B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_main" x="112" y="304" w="16" h="16" xo="272" yo="74" id="10000443" name="inst_1DDD664E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
