@@ -906,7 +906,10 @@ if (stomp != -1)
                     }
                     else {
                     
-                        other.vspeed = 0;
+                        if (enemy_check() == false)
+                            other.vspeed = 0;
+                        else
+                            with (other) event_user(1);
                     }
                         
                     //Destroy

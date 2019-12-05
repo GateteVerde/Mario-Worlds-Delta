@@ -40,7 +40,7 @@ if (player)
 &amp;&amp; (player.bbox_bottom &lt; yprevious+5) {
     
     //Snap the player vertically
-    player.y = ceil(bbox_top-16);
+    player.y = ceil(bbox_top-15);
 
     //Snap the player horizontally
     player.x += x-xprevious;
