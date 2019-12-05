@@ -168,7 +168,7 @@ instance_destroy();
 instance_create(x, y, obj_shell);
 
 //Create a naked koopa
-with (instance_create(x+8*sign(obj_playerparent.xscale), y, obj_beachkoopa)) {
+with (instance_create(x, y, obj_beachkoopa)) {
 
     //Set the sprite
     sprite_index = spr_beachkoopa;

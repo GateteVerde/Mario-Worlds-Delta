@@ -259,10 +259,12 @@
         <sprite>sprites\spr_brick_throw_th</sprite>
         <sprite>sprites\spr_brick_stone</sprite>
       </sprites>
-      <sprite>sprites\spr_iceblock</sprite>
       <sprite>sprites\spr_msgblock</sprite>
       <sprite>sprites\spr_noteblock</sprite>
       <sprite>sprites\spr_noteblock_hidden</sprite>
+      <sprite>sprites\spr_iceblock</sprite>
+      <sprite>sprites\spr_iceblock_coin</sprite>
+      <sprite>sprites\spr_iceblock_muncher</sprite>
       <sprite>sprites\spr_viewblock</sprite>
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
@@ -408,6 +410,8 @@
       <sprite>sprites\spr_onoffblock_off</sprite>
       <sprite>sprites\spr_onoffplatform_red</sprite>
       <sprite>sprites\spr_onoffplatform_blue</sprite>
+      <sprite>sprites\spr_pblock</sprite>
+      <sprite>sprites\spr_pblock_off</sprite>
       <sprite>sprites\spr_spikeblock</sprite>
       <sprite>sprites\spr_spikeblock_b</sprite>
       <sprite>sprites\spr_spikeblock_red</sprite>
@@ -511,6 +515,12 @@
       <sprite>sprites\spr_rex2</sprite>
       <sprite>sprites\spr_rex2_sq</sprite>
       <sprite>sprites\spr_rex2_dead</sprite>
+      <sprite>sprites\spr_spike</sprite>
+      <sprite>sprites\spr_spike_throw</sprite>
+      <sprite>sprites\spr_spike_throw2</sprite>
+      <sprite>sprites\spr_spike_dead</sprite>
+      <sprite>sprites\spr_spike_ball</sprite>
+      <sprite>sprites\spr_spike_ball_ang</sprite>
       <sprite>sprites\spr_buzzybeetle</sprite>
       <sprite>sprites\spr_buzzybeetle_dead</sprite>
       <sprite>sprites\spr_shell_buzzy</sprite>
@@ -992,10 +1002,12 @@
         <object>objects\obj_brick_throw</object>
         <object>objects\obj_brick_stone</object>
       </objects>
-      <object>objects\obj_iceblock</object>
       <object>objects\obj_msgblock</object>
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
+      <object>objects\obj_iceblock</object>
+      <object>objects\obj_iceblock_coin</object>
+      <object>objects\obj_iceblock_muncher</object>
       <object>objects\obj_viewblock</object>
       <object>objects\obj_powblock</object>
       <object>objects\obj_lightblock</object>
@@ -1062,6 +1074,8 @@
       <object>objects\obj_trampoline</object>
       <object>objects\obj_trampoline_hyper</object>
       <object>objects\obj_powblock_blue</object>
+      <object>objects\obj_pblock_on</object>
+      <object>objects\obj_pblock_off</object>
       <object>objects\obj_onoffblock</object>
       <object>objects\obj_onoffplatform_red</object>
       <object>objects\obj_onoffplatform_blue</object>
@@ -1122,6 +1136,8 @@
         </objects>
       </objects>
       <object>objects\obj_rex</object>
+      <object>objects\obj_spike</object>
+      <object>objects\obj_spike_ball</object>
       <object>objects\obj_buzzybeetle</object>
       <object>objects\obj_buzzybeetle_ceiling</object>
       <object>objects\obj_spiny</object>
@@ -1430,10 +1446,8 @@
     <room>rooms\rm_init</room>
     <room>rooms\rm_title</room>
     <rooms name="Levels">
-      <rooms name="01">
-        <room>rooms\rm_engine</room>
-        <room>rooms\rm_engine_b</room>
-        <room>rooms\rm_engine_c</room>
+      <rooms name="Level 1">
+        <room>rooms\rm_level_1a</room>
       </rooms>
     </rooms>
     <rooms name="Special Screens">

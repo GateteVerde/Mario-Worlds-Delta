@@ -547,10 +547,6 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Player Logic
 
-//Check for walls
-var wallleft = collision_line(bbox_left, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0);
-var wallright = collision_line(bbox_right, bbox_top+4, bbox_right, bbox_bottom-4, obj_solid, 1, 0);
-
 //Check if above a slope
 slope = player_inslope();
 
@@ -827,7 +823,7 @@ if (vspeed &lt; 0) {
                 }
             }
         }
-        
+            
         //Stop vertical movement
         vspeed = 0;
         
@@ -854,7 +850,7 @@ if (state == statetype.jump)
         y++;
         
         //If moving up
-        if (vspeed &lt; 0) {
+        if ((vspeed &lt; 0) &amp;&amp; (fly == 0)) {
         
             //Stop vertical movement
             vspeed = 0;
@@ -1028,8 +1024,6 @@ else {
 
 //Unstuck in case of overlapping a solid completely
 if (inwall == false)
-&amp;&amp; (wallleft == false)
-&amp;&amp; (wallright == false)
 &amp;&amp; (state != statetype.jump)
 &amp;&amp; (state != statetype.climb) {
 
@@ -1075,7 +1069,10 @@ else {
     else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
             
         //If the player gets crushed...
-        if ((wallleft) &amp;&amp; (wallright)) {
+        if (collision_point(x-6, bbox_top, obj_solid, 0, 0))
+        &amp;&amp; (collision_point(x+5, bbox_top, obj_solid, 0, 0))
+        &amp;&amp; (collision_point(x-6, bbox_bottom, obj_solid, 0, 0))
+        &amp;&amp; (collision_point(x+5, bbox_bottom, obj_solid, 0, 0)) {
         
             //Kill it
             instance_create(x, y, obj_player_dead);

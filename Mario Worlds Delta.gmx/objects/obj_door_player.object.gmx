@@ -99,7 +99,8 @@ with (player_create(x+8, y)) {
             <string>///Door logic
 
 //If the 'Up' key is pressed
-if (keyboard_check_pressed(global.key_u)) 
+if (keyboard_check_pressed(global.key_u))
+&amp;&amp; (obj_controller.done == 0) 
 &amp;&amp; (image_speed == 0)
 &amp;&amp; (image_index == 0) {
 

@@ -19,7 +19,8 @@ with (obj_brick) {
 with (obj_coin) {
 
     //If the coin is affected by gravity, do not replace
-    if (ready == 0) 
+    if (ready == 0)
+    && (object_index != obj_coin_10) 
     && (object_index != obj_coin_ace) {
     
         instance_create(x, y, obj_brick);
