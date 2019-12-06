@@ -27,6 +27,15 @@
             <kind>1</kind>
             <string>///Spike
 
+/*
+**  This item uses creation code!
+**
+**      static = To remain in position and look towards the player.
+*/
+
+//Default variables
+static = 0;
+
 //Inherit event from parent
 event_inherited();
 
@@ -77,15 +86,19 @@ alarm[10] = 2;
             <kind>1</kind>
             <string>///Follow the player
 
-//If there's no gravity
-if (hspeed != 0) {
-
-    //Start moving
-    if (!instance_exists(obj_playerparent))
-    || (obj_playerparent.x &lt; x)
-        hspeed = -0.5;
-    else
-        hspeed = 0.5;
+//If not falling
+if (gravity == 0) {
+    
+    //If moving horizontally
+    if (hspeed != 0) {
+    
+        //Start moving
+        if (!instance_exists(obj_playerparent))
+        || (obj_playerparent.x &lt; x)
+            hspeed = -0.5;
+        else
+            hspeed = 0.5;
+    }
 }
 
 //Change direction
@@ -114,14 +127,18 @@ alarm[11] = 60+round(random_range(60,120));
             <kind>1</kind>
             <string>///Move towards the player
 
-//Inherit event
-event_inherited();
+//If the spike can move
+if (static == 0) {
+
+    //Inherit event
+    event_inherited();
+    
+    //Move towards the player
+    alarm[11] = 60;
+}
 
 //Pick a spike ball
-alarm[0] = 60+round(random(60));
-
-//Move towards the player
-alarm[11] = 60;
+alarm[0] = 60+round(random(120));
 </string>
           </argument>
         </arguments>
@@ -194,6 +211,7 @@ alarm[10] = 15;
 //If the player does not exist or is nearby
 if (!instance_exists(obj_playerparent))
 || (gravity &gt; 0)
+|| (myball != noone)
 || ((obj_playerparent.x &gt; x-32) &amp;&amp; (obj_playerparent.x &lt; x+32)) {
 
     alarm[0] = 1;
@@ -209,6 +227,43 @@ image_index = 0;
 
 //Stop
 hspeed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spike logic
+
+//Inherit event from parent
+event_inherited();
+
+//If the spike does not move
+if (static == 1) {
+
+    //If the player does not exist or is at the left
+    if (!instance_exists(obj_playerparent))
+    || (obj_playerparent.x &lt; x)
+        xscale = -1;
+    else
+        xscale = 1;
+}
 </string>
           </argument>
         </arguments>
