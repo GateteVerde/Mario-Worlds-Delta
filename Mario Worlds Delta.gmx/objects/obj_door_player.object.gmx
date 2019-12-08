@@ -100,7 +100,7 @@ with (player_create(x+8, y)) {
 
 //If the 'Up' key is pressed
 if (keyboard_check_pressed(global.key_u))
-&amp;&amp; (obj_controller.done == 0) 
+&amp;&amp; (obj_controller.mode == 0) 
 &amp;&amp; (image_speed == 0)
 &amp;&amp; (image_index == 0) {
 

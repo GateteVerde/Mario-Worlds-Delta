@@ -28,8 +28,7 @@
             <string>///Fire from a firebar
 
 //Do not animate.
-image_speed = 0;
-image_index = 0;
+angle = 0;
 
 //Does mom exist?
 mom = -1;
@@ -75,7 +74,11 @@ if (instance_exists(obj_lightcontrol)) {
             <string>///Leave a trail
 
 alarm[0] = 2;
-instance_create(x, y, obj_cinder);
+with (instance_create(x, y, obj_cinder)) {
+
+    sprite_index = spr_cinder_alt;
+    depth = other.depth+1;
+}
 </string>
           </argument>
         </arguments>
@@ -101,7 +104,7 @@ instance_create(x, y, obj_cinder);
             <string>///Firebar fireball logic
 
 //Set the same frame of the mom object.
-image_index = mom.frame;
+angle = mom.ang;
 
 //Set the position of the fire.
 x = mom.x+8+lengthdir_x(length, mom.angle);
@@ -131,6 +134,31 @@ y = mom.y+8+lengthdir_y(length, mom.angle);
             <string>///Hurt the player
 
 with (other) event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the sprite
+
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, angle, c_white, 1);
 </string>
           </argument>
         </arguments>

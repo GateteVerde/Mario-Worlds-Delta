@@ -8,31 +8,6 @@
   <parentName>obj_blockparent</parentName>
   <maskName>spr_square</maskName>
   <events>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Allow block hit
-
-ready = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="11">
       <action>
         <libid>1</libid>
@@ -56,7 +31,7 @@ ready = 0;
 audio_play_sound(snd_switch, 0, false);
 
 //Allow block hit
-alarm[2] = 24;
+ready = 0;
 
 //Reset light
 if (instance_exists(obj_lightcontrol))

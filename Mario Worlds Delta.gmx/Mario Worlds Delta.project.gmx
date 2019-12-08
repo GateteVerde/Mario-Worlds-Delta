@@ -363,9 +363,7 @@
         </sprites>
         <sprites name="Belts">
           <sprite>sprites\spr_conveyor</sprite>
-          <sprite>sprites\spr_conveyor_sign_l</sprite>
-          <sprite>sprites\spr_conveyor_sign_r</sprite>
-          <sprite>sprites\spr_conveyor_sign_stop</sprite>
+          <sprite>sprites\spr_conveyor_light</sprite>
           <sprite>sprites\spr_conveyor_ledge_left</sprite>
           <sprite>sprites\spr_conveyor_ledge_right</sprite>
           <sprite>sprites\spr_escalator_r</sprite>
@@ -402,8 +400,6 @@
       <sprite>sprites\spr_pswitch_press</sprite>
       <sprite>sprites\spr_trampoline</sprite>
       <sprite>sprites\spr_trampoline_end</sprite>
-      <sprite>sprites\spr_trampoline_hyper</sprite>
-      <sprite>sprites\spr_trampoline_hyper_end</sprite>
       <sprite>sprites\spr_powblock_blue</sprite>
       <sprite>sprites\spr_powblock_blue_th</sprite>
       <sprite>sprites\spr_onoffblock_on</sprite>
@@ -1073,7 +1069,6 @@
       </objects>
       <object>objects\obj_pswitch</object>
       <object>objects\obj_trampoline</object>
-      <object>objects\obj_trampoline_hyper</object>
       <object>objects\obj_powblock_blue</object>
       <object>objects\obj_pblock_on</object>
       <object>objects\obj_pblock_off</object>

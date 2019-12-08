@@ -72,6 +72,12 @@ if (permission == 0) {
             hspeed = 1;
     }
 }
+
+//Set frame
+if (hspeed &lt; 0)
+    image_index = 1;
+else
+    image_index = 0;
 </string>
           </argument>
         </arguments>

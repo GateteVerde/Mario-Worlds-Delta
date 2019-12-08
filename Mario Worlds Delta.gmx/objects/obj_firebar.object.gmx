@@ -49,11 +49,10 @@ dist = 8;
 angle = 0;
 
 //Frame
-frame = 0;
-alarm[0] = 4;
+ang = 0;
 
 //Create firebars
-alarm[1] = 2;
+alarm[0] = 2;
 
 //Make it solid
 mysolid = instance_create(x, y, obj_solid);
@@ -62,7 +61,7 @@ mysolid = instance_create(x, y, obj_solid);
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -95,32 +94,6 @@ for (var i=0; i&lt;length; i++) {
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Animate the fireball
-
-frame++
-alarm[0] = 4;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -141,6 +114,7 @@ alarm[0] = 4;
             <string>///Set the angle of the firebar
 
 angle += myspeed*(clockwise*-1);
+ang += 10*(clockwise*-1);
 if (angle &gt; 360)
     angle -= 360;
 </string>
@@ -168,7 +142,7 @@ if (angle &gt; 360)
             <string>///Draw base and fireball
 
 draw_sprite(sprite_index, -1, round(x), round(y));
-draw_sprite(spr_fireball, frame, round(x)+8, round(y)+8);
+draw_sprite_ext(spr_fireball, -1, round(x)+8, round(y)+8, 1, 1, ang, c_white, 1);
 </string>
           </argument>
         </arguments>
