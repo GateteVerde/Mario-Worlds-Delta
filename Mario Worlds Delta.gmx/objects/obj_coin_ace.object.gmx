@@ -38,7 +38,7 @@ if (ds_map_exists(global.dcoins, id)) {
 event_inherited();
 
 //Do not animate
-image_speed = 0;
+image_speed = 0.15;
 
 //Apply physics if ready
 ready = 0;

@@ -155,7 +155,7 @@ if (sprite_index != spr_door_p_outline) {
 
     //Stop animation
     image_speed = 0;
-    image_index = 4;
+    image_index = 2;
     
     //Perform warp event
     with (obj_player_door) alarm[0] = 32;
@@ -183,17 +183,7 @@ if (sprite_index != spr_door_p_outline) {
           <argument>
             <kind>1</kind>
             <string>///Draw door
-    
-//Draw inside part of the door if the current sprite is a door
-if (sprite_index == spr_door_p) {
-    
-    if (image_index &gt; 0) {
-    
-        draw_sprite(spr_door_inside, 0, x, y);
-    }
-}
 
-//Draw door
 draw_sprite(sprite_index, -1, x, y);
 </string>
           </argument>

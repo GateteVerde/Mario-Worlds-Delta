@@ -227,7 +227,7 @@ if (lock == 1)
 
 //Stop animation
 image_speed = 0;
-image_index = 4;
+image_index = 2;
 
 //Perform warp event
 with (obj_player_door) alarm[0] = 32;
@@ -254,12 +254,6 @@ with (obj_player_door) alarm[0] = 32;
           <argument>
             <kind>1</kind>
             <string>///Draw door
-
-//Draw inside part of the door
-if (image_index &gt; 0) {
-
-    draw_sprite(spr_door_inside, 0, x, y);
-}
 
 //Draw door
 draw_sprite(sprite_index, -1, x, y);

@@ -82,7 +82,7 @@ exit;
             <string>///Bomb block logic
 
 //Check for a fireball
-fire = collision_rectangle(bbox_left-1, bbox_top-1, bbox_right+1, bbox_bottom+1, obj_fireball, 0, 0);
+fire = collision_rectangle(bbox_left-1, bbox_top-4, bbox_right+1, bbox_bottom+1, obj_fireball, 0, 0);
 
 //If there's a fireball in position
 if (fire) {

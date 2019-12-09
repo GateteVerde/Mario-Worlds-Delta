@@ -64,8 +64,17 @@ with (obj_player_door) alarm[1] = 2;
 image_index = 0;
 
 //Set new player
-global.player++;
-if (global.player &gt; 2) then global.player = 0;
+switch (global.player) {
+
+    //Mario -&gt; Luigi
+    case (0): global.player = 1; break;
+    
+    //Luigi -&gt; Toad
+    case (1): global.player = 2; break;
+    
+    //Toad -&gt; Mario
+    case (2): global.player = 0; break;
+}
 
 //Create a new player with the new parameters
 with (player_create(x+8, y)) {
@@ -161,7 +170,7 @@ if (keyboard_check_pressed(global.key_u))
 
 //Stop animation
 image_speed = 0;
-image_index = 4;
+image_index = 2;
 
 //Change door
 alarm[0] = 32;
@@ -191,12 +200,6 @@ with (obj_player_door) alarm[0] = 32;
           <argument>
             <kind>1</kind>
             <string>///Draw door
-
-//Draw inside part of the door
-if (image_index &gt; 0) {
-
-    draw_sprite(spr_door_inside, 0, x, y);
-}
 
 //Set palette
 pal_swap_set(spr_palette_door, global.player+1);
