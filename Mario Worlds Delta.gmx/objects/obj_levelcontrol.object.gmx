@@ -30,13 +30,15 @@
 /*
 **  This item uses creation code!
 **
-**  levelmusic = The level music. (Any sound resource you load in, check up obj_persistent Game Start event for a list of songs that you can use.)
-**  leveltime = The time limit in seconds. (Optional)
+**  levelmusic  = The level music. (Any sound resource you load in, check up obj_persistent Game Start event for a list of songs that you can use.)
+**  leveltime   = The time limit in seconds. (Optional)
+**  palette     = The level floor palette
 */
 
 //Default values
 levelmusic = 0;
 leveltime = 0;
+palette = 0;
 
 //Play music
 if (global.pswitch == 0)
@@ -413,7 +415,7 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Deals with the background
+            <string>///Deals with the palette + background
 
 if (ready == 0) {
 
@@ -433,6 +435,14 @@ else if (ready == 1) {
         ready = 0;
     }
 }
+
+//Deal with palette
+pal_swap_set_tiles(spr_palette_tileset, palette, 15, 8);
+palette = clamp(palette, 0, pal_swap_get_pal_count(spr_palette_tileset)-1);
+if (keyboard_check_pressed(vk_pageup))
+    palette--;
+else if (keyboard_check_pressed(vk_pagedown))
+    palette++;
 </string>
           </argument>
         </arguments>

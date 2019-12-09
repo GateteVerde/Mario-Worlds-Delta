@@ -716,6 +716,9 @@
           </sprites>
           <sprite>sprites\spr_palette_yoshi</sprite>
         </sprites>
+        <sprites name="Tilesets">
+          <sprite>sprites\spr_palette_tileset</sprite>
+        </sprites>
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
         <sprite>sprites\spr_palette_door</sprite>
@@ -816,7 +819,6 @@
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
       <background>background\tls_main_bush</background>
-      <background>background\tls_main_filler</background>
     </backgrounds>
     <background>background\bgr_title</background>
     <background>background\bgr_titlebgr</background>
@@ -878,13 +880,16 @@
         <script>scripts\variable_global_reset.gml</script>
       </scripts>
       <scripts name="Shaders">
+        <scripts name="Palette">
+          <script>scripts\pal_swap_init_system.gml</script>
+          <script>scripts\pal_swap_set.gml</script>
+          <script>scripts\pal_swap_set_tiles.gml</script>
+          <script>scripts\pal_swap_reset.gml</script>
+          <script>scripts\pal_swap_get_pal_count.gml</script>
+        </scripts>
         <script>scripts\init_pixel.gml</script>
         <script>scripts\init_shockwave.gml</script>
         <script>scripts\update_shockwave.gml</script>
-        <script>scripts\pal_swap_init_system.gml</script>
-        <script>scripts\pal_swap_set.gml</script>
-        <script>scripts\pal_swap_reset.gml</script>
-        <script>scripts\pal_swap_get_pal_count.gml</script>
       </scripts>
       <scripts name="Sound">
         <script>scripts\audio_stop_play_sound.gml</script>
@@ -1430,6 +1435,8 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_levelstart</object>
       <object>objects\obj_gameover</object>
+      <object>objects\obj_tile_swapper_start</object>
+      <object>objects\obj_tile_swapper_end</object>
     </objects>
     <object>objects\obj_up</object>
     <object>objects\obj_down</object>
