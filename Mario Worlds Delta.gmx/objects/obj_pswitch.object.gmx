@@ -63,9 +63,6 @@ if (instance_exists(obj_lightcontrol)) {
             <kind>1</kind>
             <string>///Destroy
 
-//Play 'Bump' sound
-audio_play_sound(snd_bump, 0, false);
-
 //Create smoke
 with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_16;
 
@@ -134,8 +131,8 @@ if (sprite_index == spr_pswitch) {
     //Activate P-Switch events
     with (obj_levelcontrol) {
     
-        alarm[6] = 720;
-        alarm[7] = 600;
+        alarm[6] = 700;
+        alarm[7] = 580;
         event_user(2);
     }
     
