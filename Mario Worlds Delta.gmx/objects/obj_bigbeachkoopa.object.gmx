@@ -151,7 +151,7 @@ else if (ready &gt; 0) {
     else if (ready == 2) {
     
         //Check for a shell
-        var shell = collision_rectangle(x+(10*sign(xscale)), bbox_top, x+(15*sign(xscale)), bbox_bottom-4, obj_shell, 0, 0);
+        var shell = collision_rectangle(x+(10*sign(xscale)), bbox_top, x+(16*sign(xscale)), bbox_bottom-4, obj_shell, 0, 0);
         
         //If there's a shell in position and said shell does not have a koopa inside.
         if (shell) 
@@ -162,8 +162,11 @@ else if (ready &gt; 0) {
             if (shell.koopainside == 0) 
             &amp;&amp; (jumping == 0) {
             
+                //Set the horizontal speed
+                hspeed = 0.6*sign(xscale);
+            
                 //Set the vertical speed
-                vspeed = -4.5;
+                vspeed = -4;
                 
                 //Boost jump
                 y--;
@@ -180,8 +183,12 @@ else if (ready &gt; 0) {
         //Reset jump
         if (jumping == 1)
         &amp;&amp; (gravity == 0)
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_shell, 0, 0))
-            jumping = 0;           
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_shell, 0, 0)) {
+        
+            jumping = 0;
+            if (abs(hspeed) &gt; 0.5)
+                hspeed = 0.5*sign(xscale);
+        }                 
     }
 }
 
@@ -232,7 +239,7 @@ else {
             //With the shell
             with (other) {
             
-                instance_create(x,y,obj_bigkoopa);
+                instance_create(x, y, obj_bigkoopa);
                 instance_destroy();
             }
             
@@ -246,7 +253,7 @@ else {
             //With the shell
             with (other) {
             
-                instance_create(x,y,obj_bigkoopa_red);
+                instance_create(x, y, obj_bigkoopa_red);
                 instance_destroy();
             }
             

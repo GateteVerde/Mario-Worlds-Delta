@@ -122,6 +122,9 @@ if (!ready) {
 
         //Make the player bounce
         with (obj_playerparent) {
+        
+            //Play 'Trampoline' sound
+            audio_play_sound(snd_trampoline, 0, false);
 
             //Set the vertical speed
             vspeed = -4.125;
@@ -132,23 +135,11 @@ if (!ready) {
             //Switch to jump state
             state = statetype.jump;
             
-            //Check if the 'Jump' key is pressed.
-            if (keyboard_check(global.key_action[0])) {
-            
-                //Allow variable jump
+            //Check if the 'Jump' key is pressed and allow variable jumping
+            if (keyboard_check(global.key_action[0]))
                 jumping = 1;
-                
-                //Play 'Trampoline' sound
-                audio_play_sound(snd_trampoline, 0, false);
-            }
-            else {
-            
-                //Do not allow variable jumping
+            else
                 jumping = 2;
-                
-                //Play 'Bump' sound
-                audio_play_sound(snd_bump, 0, false);
-            }
         }
         
         //Create notes

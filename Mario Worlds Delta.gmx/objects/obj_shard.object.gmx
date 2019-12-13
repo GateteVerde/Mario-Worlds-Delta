@@ -63,7 +63,7 @@ alarm[0] = 4;
 if (sprite_index == spr_shard_blue) {
 
     isflashing++;
-    if (isflashing &gt; 2)
+    if (isflashing &gt; (pal_swap_get_pal_count(spr_palette_brick_blue)-1))
         isflashing = 0;
 }
 </string>
@@ -89,6 +89,9 @@ if (sprite_index == spr_shard_blue) {
           <argument>
             <kind>1</kind>
             <string>///Shard logic
+
+//Set up the angle
+image_angle += 6*sign(hspeed)*-1;
 
 //Cap horizontal speed
 hspeed = 1*sign(hspeed);
@@ -131,7 +134,7 @@ if (isflashing &gt; 0) {
 }
 
 //Draw it
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, image_angle, c_white, 1);
 
 //Reset shader
 pal_swap_reset();

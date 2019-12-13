@@ -30,6 +30,56 @@
 //Do not animate
 image_speed = 0;
 image_index = 0;
+
+//Values
+prevspd = 0;
+prevmotion = 0;
+
+//Start moving if allowed
+if (global.onoff_block == 0)
+    alarm[10] = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move if activated
+
+//If the ON/OFF block is ON, allow movement
+if (global.onoff_block == 0) {
+
+    //Set motion
+    speed = 0.5;
+    
+    //Check arrow in position
+    if (collision_rectangle(x, y, x+15, y+15, obj_up, false, false))
+        direction = 90;
+    else if (collision_rectangle(x, y, x+15, y+15, obj_down, false, false))
+        direction = 270;
+    else if (collision_rectangle(x, y, x+15, y+15, obj_left, false, false))
+        direction = 180;
+    else if (collision_rectangle(x, y, x+15, y+15, obj_right, false, false))
+        direction = 0;
+}
+else
+    alarm[10] = 1;
 </string>
           </argument>
         </arguments>
@@ -52,56 +102,50 @@ image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Track Platform Logic (Player)
+            <string>///Track platform logic
 
-event_perform_object(obj_semisolid, ev_step, ev_step_end);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Start it / Stop it depending how the switch is set.
+//Inherit event
+event_inherited();
 
-if (global.onoff_block = 0) {
+//If active
+if (global.onoff_block == 0) {
 
-    //Animate
-    image_speed = 0.2;
+    //Resume movement
+    if (prevspd != 0) then { speed = prevspd; prevspd = 0; }
+
+    //If not moving
+    if (speed == 0) {
     
-    //Set motion
-    speed = 0.5;
+        image_speed = 0;
+        image_index = 0;
+    }
+    
+    //Otherwise, animate
+    else    
+        image_speed = 0.2;
 }
+
+//Otherwise, if not active
 else {
 
+    //Remember previous speed
+    if (prevspd == 0) then { prevspd = speed; speed = 0; }    
+    
     //Do not animate
     image_speed = 0;
     image_index = 0;
-    
-    //Do not move
-    speed = 0;    
 }
+
+//This object should push the player
+if ((hspeed &lt; 0) &amp;&amp; (collision_line(bbox_left+hspeed, bbox_top, bbox_left, bbox_bottom, obj_playerparent, 0, 0)))
+|| ((hspeed &gt; 0) &amp;&amp; (collision_line(bbox_right, bbox_top, bbox_right+hspeed, bbox_bottom, obj_playerparent, 0, 0)))
+    obj_playerparent.x += hspeed;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_right">
+    <event eventtype="4" ename="obj_endmarker">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -118,119 +162,18 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Move right
+            <string>///Stop if moving
 
-//If the object is moving
-if (speed != 0) {
+if (speed &gt; 0) {
 
-    //If not moving right, make it move to the right.
-    if (direction != 0) {
+    //Snap into grid
+    move_snap(16, 16);
     
-        direction = 0;
-        move_snap(16, 16);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_left">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Move left
-
-//If the object is moving
-if (speed != 0) {
-
-    //If not moving left, make it move to the left.
-    if (direction != 180) {
+    //Stop
+    speed = 0;
     
-        direction = 180;
-        move_snap(16, 16);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_down">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Move down
-
-//If the object is moving
-if (speed != 0) {
-
-    //If not moving down, make it move down.
-    if (direction != 270) {
-    
-        direction = 270;
-        move_snap(16, 16);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_up">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Move up
-
-//If the object is moving
-if (speed != 0) {
-
-    //If not moving up, make it move up.
-    if (direction != 90) {
-    
-        direction = 90;
-        move_snap(16, 16);
-    }
+    //Resume movement
+    alarm[10] = 60;
 }
 </string>
           </argument>
