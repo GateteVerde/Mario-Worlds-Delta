@@ -120,7 +120,6 @@ vspeed = 2;
             <kind>1</kind>
             <string>///Moving platform logic
 
-
 //If the player is on this platform
 if (ready == 0)
 &amp;&amp; (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_playerparent, 0, 0)) 
