@@ -599,6 +599,11 @@
         <sprite>sprites\spr_wiggler_mad_body</sprite>
         <sprite>sprites\spr_wiggler_flower</sprite>
       </sprites>
+      <sprites name="Sushi">
+        <sprite>sprites\spr_cheepcheep</sprite>
+        <sprite>sprites\spr_cheepcheep_flop</sprite>
+        <sprite>sprites\spr_cheepcheep_dead</sprite>
+      </sprites>
       <sprite>sprites\spr_thwomp</sprite>
       <sprite>sprites\spr_thwomp_side</sprite>
       <sprites name="Weaponry">
@@ -1209,6 +1214,10 @@
       <object>objects\obj_monty_dig</object>
       <object>objects\obj_megamole</object>
       <object>objects\obj_wiggler</object>
+      <objects name="Sushi">
+        <object>objects\obj_cheepcheep</object>
+        <object>objects\obj_cheepcheep_v</object>
+      </objects>
       <object>objects\obj_thwomp</object>
       <object>objects\obj_thwomp_left</object>
       <object>objects\obj_thwomp_right</object>
