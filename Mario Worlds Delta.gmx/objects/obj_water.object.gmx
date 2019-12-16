@@ -3,9 +3,9 @@
   <spriteName>spr_water</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>15</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_swim</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,14 +28,24 @@
             <string>///Water
 
 //Animate
-image_speed = 0.1;
-image_index = 1;
+anim = 0;
+
+//Set depth
+depth = -7;
+
+//Create a water surface
+water = instance_create(x, y+4, obj_swim);
+with (water) {
+
+    image_xscale = other.image_xscale;
+    image_yscale = other.image_yscale;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="7">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,9 +62,9 @@ image_index = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Reset animation
+            <string>///Update water animation
 
-image_index = 1;
+anim += 0.15;
 </string>
           </argument>
         </arguments>
@@ -80,7 +90,7 @@ image_index = 1;
             <string>///Draw the water
 
 //Draw water
-draw_sprite_tiled_area_ext(sprite_index, -1, x, y, x, y, x+sprite_width-1, y+15, c_white, 1);
+draw_sprite_tiled_area_ext(spr_tides, anim, x, y, x, y, x+sprite_width-1, y+15, c_white, 1);
 if (sprite_height &gt; 16) {
 
     draw_sprite_tiled_area_ext(sprite_index, 0, x, y+16, x, y+16, x+sprite_width-1, y+sprite_height, c_white, 1);

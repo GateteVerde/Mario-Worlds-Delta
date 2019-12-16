@@ -581,6 +581,8 @@
         <sprite>sprites\spr_piranhaplant_jump_stem</sprite>
         <sprite>sprites\spr_fireplant</sprite>
         <sprite>sprites\spr_fireplant_long</sprite>
+        <sprite>sprites\spr_ptooie</sprite>
+        <sprite>sprites\spr_ptooie_blow</sprite>
       </sprites>
       <sprite>sprites\spr_spiketop</sprite>
       <sprite>sprites\spr_spiketop_turn</sprite>
@@ -876,6 +878,7 @@
       <background>background\tls_main</background>
       <background>background\tls_main_bush</background>
     </backgrounds>
+    <background>background\bgr_pit</background>
     <background>background\bgr_title</background>
     <background>background\bgr_titlebgr</background>
     <background>background\bgr_marioworlds</background>
@@ -1206,6 +1209,8 @@
         <object>objects\obj_fireplant_long</object>
         <object>objects\obj_fireplant_long_down</object>
         <object>objects\obj_jumpplant</object>
+        <object>objects\obj_ptooie</object>
+        <object>objects\obj_ptooie_pipe</object>
       </objects>
       <object>objects\obj_spiketop</object>
       <object>objects\obj_spiketop_blue</object>
@@ -1440,6 +1445,7 @@
           <objects name="Piranha Plants">
             <object>objects\obj_plantfire</object>
             <object>objects\obj_plantfire2</object>
+            <object>objects\obj_ptooie_ball</object>
           </objects>
           <object>objects\obj_monty_jump</object>
           <object>objects\obj_wiggler_body</object>
