@@ -90,7 +90,10 @@ if (alpha &lt; 0.025)
 pal_swap_set(spr_palette_invincibility, pal);
 
 //Draw the sprite
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, image_angle, c_white, alpha);
+if (global.mount == 1)
+    draw_sprite_ext(obj_yoshi.m, obj_yoshi.f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-7+obj_yoshi.m_ypos, image_xscale, 1, image_angle, c_white, alpha);
+else
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, image_angle, c_white, alpha);
 
 //Reset shader
 pal_swap_reset();
