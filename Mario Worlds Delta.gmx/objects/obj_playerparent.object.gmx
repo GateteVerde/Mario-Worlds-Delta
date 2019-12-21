@@ -142,6 +142,12 @@ numb = 0;
 
 //Call cape draw object
 mycape = instance_create(x, y, obj_cape);
+
+//Call collision boundaries
+t = instance_create(x, y, obj_boundary_top);
+b = instance_create(x, y, obj_boundary_bottom);
+l = instance_create(x, y, obj_boundary_left);
+r = instance_create(x, y, obj_boundary_right);
 </string>
           </argument>
         </arguments>
@@ -790,14 +796,16 @@ if (vspeed &lt; 0) {
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
         
+        
         //If the player is jumping or climbing
         if (state == statetype.jump) 
         || (state == statetype.climb) {
         
-            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
-            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
+            while ((collision_rectangle(x, bbox_top+1, x, bbox_top+1, obj_solid, 1, 0))
+            || (collision_rectangle(x, bbox_top+1, x, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
                 y++;
         }
+        
         
         //Check if there's a block on the way.
         var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top, obj_blockparent, 0, 0);
@@ -1067,14 +1075,13 @@ else {
     
     //Otherwise, let's do a special check if the player is not stuck in a solid
     else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
-            
-        //If the player gets crushed...
-        if (collision_point(x-6, bbox_top, obj_solid, 0, 0))
-        &amp;&amp; (collision_point(x+5, bbox_top, obj_solid, 0, 0))
-        &amp;&amp; (collision_point(x-6, bbox_bottom, obj_solid, 0, 0))
-        &amp;&amp; (collision_point(x+5, bbox_bottom, obj_solid, 0, 0)) {
-        
-            //Kill it
+    
+        //If the boundary checks are overlapping ground, kill the player
+        if (t.check == true)
+        &amp;&amp; (b.check == true)
+        &amp;&amp; (l.check == true)
+        &amp;&amp; (r.check == true) {
+
             instance_create(x, y, obj_player_dead);
             instance_destroy();
             exit;       

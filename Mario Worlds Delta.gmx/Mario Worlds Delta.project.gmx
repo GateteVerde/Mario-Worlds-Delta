@@ -688,6 +688,7 @@
         </sprites>
         <sprite>sprites\spr_modifier_coin_star</sprite>
         <sprite>sprites\spr_modifier_coin_multi</sprite>
+        <sprite>sprites\spr_modifier_coin_multi_shroom</sprite>
         <sprite>sprites\spr_modifier_beanstalk</sprite>
         <sprite>sprites\spr_modifier_key</sprite>
       </sprites>
@@ -817,6 +818,12 @@
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
       <sprites name="Masks">
+        <sprites name="Player">
+          <sprite>sprites\spr_boundary_top</sprite>
+          <sprite>sprites\spr_boundary_bottom</sprite>
+          <sprite>sprites\spr_boundary_left</sprite>
+          <sprite>sprites\spr_boundary_right</sprite>
+        </sprites>
         <sprites name="Collision">
           <sprite>sprites\spr_square</sprite>
           <sprite>sprites\spr_square_a2</sprite>
@@ -872,8 +879,7 @@
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Level Backgrounds">
-      <background>background\bgr_hills</background>
-      <background>background\bgr_castle_b</background>
+      <background>background\bgr_hills_thin</background>
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
@@ -1282,6 +1288,7 @@
         </objects>
         <object>objects\obj_modifier_coin_star</object>
         <object>objects\obj_modifier_coin_multi</object>
+        <object>objects\obj_modifier_coin_multi_shroom</object>
       </objects>
       <objects name="Gizmos">
         <objects name="Belts">
@@ -1354,6 +1361,10 @@
             <object>objects\obj_toad</object>
           </objects>
           <object>objects\obj_spinner</object>
+          <object>objects\obj_boundary_top</object>
+          <object>objects\obj_boundary_bottom</object>
+          <object>objects\obj_boundary_left</object>
+          <object>objects\obj_boundary_right</object>
         </objects>
         <objects name="Blocks">
           <objects name="Bricks">

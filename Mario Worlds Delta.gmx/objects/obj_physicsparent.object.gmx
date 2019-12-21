@@ -218,6 +218,19 @@ else if (!water)
         }
     }
 }
+
+//Push when in contact with a solid
+var col = collision_rectangle(bbox_left+hspeed, bbox_top, bbox_right+hspeed, bbox_bottom, obj_solid, 0, 0);
+if (col) {
+
+    //If the collision is moving to the left
+    if (col.hspeed &lt; 0)
+        x = col.bbox_left-5;
+        
+    //Otherwise if the collision is moving to the right
+    else if (col.hspeed &gt; 0)
+        x = col.bbox_right+5
+}
 </string>
           </argument>
         </arguments>
