@@ -167,13 +167,36 @@ if (y &lt; view_yview[0] + global.gh) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Cap vertical speed
+            <string>///Freeze every entity on screen
 
-if (vspeed &gt; 4) {
+//Check how many objects are in screen
+for (i=0; i&lt;instance_count; i++) {
 
-    vspeed = 4;
-    gravity = 0;
+    //With each instance
+    with (instance_id[i]) {
+    
+        //If the object is ancestor
+        if (object_is_ancestor(object_index, obj_semisolid))
+        || (object_is_ancestor(object_index, obj_physicsparent)) {
+            
+            //Stop moving
+            image_speed = 0;
+            
+            //Stop motion
+            gravity = 0;
+            vspeed = 0;
+            hspeed = 0;
+            
+            //Stop all alarms
+            for (i=0; i&lt;12; i++)
+                alarm[i] = -1;
+        }
+    }
 }
+
+//Cap vertical speed
+if (vspeed &gt; 4)
+    vspeed = 4;
 </string>
           </argument>
         </arguments>

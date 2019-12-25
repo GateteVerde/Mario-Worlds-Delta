@@ -841,6 +841,8 @@
             <sprite>sprites\spr_slope_l</sprite>
             <sprite>sprites\spr_slope_steep_r</sprite>
             <sprite>sprites\spr_slope_steep_l</sprite>
+            <sprite>sprites\spr_slope_steeper_r</sprite>
+            <sprite>sprites\spr_slope_steeper_l</sprite>
           </sprites>
           <sprites name="Slippery">
             <sprite>sprites\spr_slippery</sprite>
@@ -941,6 +943,9 @@
     </scripts>
     <scripts name="Utility">
       <scripts name="Events">
+        <scripts name="NPCs">
+          <script>scripts\npc_destroy.gml</script>
+        </scripts>
         <script>scripts\pswitch_on.gml</script>
         <script>scripts\pswitch_off.gml</script>
         <script>scripts\variable_global_reset.gml</script>
@@ -1040,6 +1045,8 @@
         <object>objects\obj_slope_l</object>
         <object>objects\obj_slope_steep_r</object>
         <object>objects\obj_slope_steep_l</object>
+        <object>objects\obj_slope_steeper_r</object>
+        <object>objects\obj_slope_steeper_l</object>
       </objects>
       <objects name="Slippery">
         <object>objects\obj_slippery</object>

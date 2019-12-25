@@ -614,6 +614,9 @@ if (gravity_enable == true) {
         }
     }
     
+    //Check the slope
+    var myslope = collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0);
+    
     //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
     if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0)) {
@@ -625,24 +628,52 @@ if (gravity_enable == true) {
     }
     
     //Handle collision with slopes
-    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
     
-        //If moving down
-        if (vspeed &gt;= 0) {
-        
-            //Stop vertical movement
-            vspeed = 0;
-            gravity = 0;
+        //Steeper slope check
+        steeper_l = collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_l, 1, 0);
+        steeper_r = collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_r, 1, 0);
             
-            //Reset values
-            event_user(15);
+        //If the slope is a steeper one, do not allow jump through
+        if ((steeper_l) &amp;&amp; (x &gt; steeper_l.bbox_left))
+        || ((steeper_r) &amp;&amp; (x &lt; steeper_r.bbox_right)) {
+        
+            //If moving down
+            if (vspeed &gt;= -1) {
+            
+                //Stop vertical movement
+                vspeed = 0;
+                gravity = 0;
+                
+                //Reset values
+                event_user(15);
+            }          
+            
+            //Prevent the player from getting embed inside a slope  
+            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-1, obj_slopeparent, 1, 0))
+                y--;              
         }
         
-        //Prevent the player from getting embed inside a slope
-        if (vspeed &gt; -1)    
-            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-1, obj_slopeparent, 1, 0))
-                y--;
+        //Otherwise
+        else {
+                    
+            //If moving down
+            if (vspeed &gt;= -1.5) {
+            
+                //Stop vertical movement
+                vspeed = 0;
+                gravity = 0;
+                
+                //Reset values
+                event_user(15);
+            }
+            
+            //Prevent the player from getting embed inside a slope
+            if (vspeed &gt; -1)    
+                while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-1, obj_slopeparent, 1, 0))
+                    y--;
+        }
     }
     
     //If the player is not swimming
@@ -1077,14 +1108,13 @@ else {
     else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
     
         //If the boundary checks are overlapping ground, kill the player
-        if (t.check == true)
-        &amp;&amp; (b.check == true)
-        &amp;&amp; (l.check == true)
-        &amp;&amp; (r.check == true) {
-
+        if ((t.check == 1) &amp;&amp; (b.check == 1) &amp;&amp; (l.check == 0) &amp;&amp; (r.check == 0))
+        || ((t.check == 0) &amp;&amp; (b.check == 0) &amp;&amp; (l.check == 1) &amp;&amp; (r.check == 1))
+        || ((t.check == 1) &amp;&amp; (b.check == 1) &amp;&amp; (l.check == 1) &amp;&amp; (r.check == 1)) {
+         
             instance_create(x, y, obj_player_dead);
             instance_destroy();
-            exit;       
+            exit;
         }
     }
 }

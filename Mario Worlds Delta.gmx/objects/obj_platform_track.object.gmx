@@ -136,7 +136,10 @@ else {
     image_index = 0;
 }
 
-//This object should push the player
+//Push NPCs
+npc_destroy();
+    
+//This object should also push the player
 if ((hspeed &lt; 0) &amp;&amp; (collision_line(bbox_left+hspeed, bbox_top, bbox_left, bbox_bottom, obj_playerparent, 0, 0)))
 || ((hspeed &gt; 0) &amp;&amp; (collision_line(bbox_right, bbox_top, bbox_right+hspeed, bbox_bottom, obj_playerparent, 0, 0)))
     obj_playerparent.x += hspeed;

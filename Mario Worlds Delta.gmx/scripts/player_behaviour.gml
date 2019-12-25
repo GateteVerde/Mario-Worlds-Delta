@@ -184,7 +184,10 @@ if (inwall == false)
         jumping = 2;
         
     //If 'Right' is pressed and the player can move
-    if ((keyboard_check(global.key_r)) && (allow_move()) && (!keyboard_check(global.key_l))) {
+    if ((keyboard_check(global.key_r)) 
+    && (allow_move()) 
+    && (!keyboard_check(global.key_l))
+    && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_r, 1, 0))) {
     
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != 1)) {
@@ -227,7 +230,10 @@ if (inwall == false)
     }
     
     //Otherwise, if 'Left' is pressed and t
-    else if ((keyboard_check(global.key_l)) && (allow_move()) && (!keyboard_check(global.key_r))) {
+    else if ((keyboard_check(global.key_l)) 
+    && (allow_move()) 
+    && (!keyboard_check(global.key_r))
+    && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_l, 1, 0))) {
     
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != -1)) {

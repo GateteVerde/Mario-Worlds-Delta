@@ -139,6 +139,12 @@ if (moving) {
             <kind>1</kind>
             <string>///Physics logic
 
+//Item trap checks
+t = collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0);
+b = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0);
+l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_solid, 1, 0);
+r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_solid, 1, 0);
+
 //Default wall collision
 event_user(3);
 
@@ -217,19 +223,6 @@ else if (!water)
             image_speed = 0.3;
         }
     }
-}
-
-//Push when in contact with a solid
-var col = collision_rectangle(bbox_left+hspeed, bbox_top, bbox_right+hspeed, bbox_bottom, obj_solid, 0, 0);
-if (col) {
-
-    //If the collision is moving to the left
-    if (col.hspeed &lt; 0)
-        x = col.bbox_left-5;
-        
-    //Otherwise if the collision is moving to the right
-    else if (col.hspeed &gt; 0)
-        x = col.bbox_right+5
 }
 </string>
           </argument>
@@ -389,10 +382,10 @@ if (vspeed &gt;= 0) {
 }
 
 //If moving down and there's no gravity
-if ((gravity == 0) &amp;&amp; (vspeed &gt;= 0)) {
+if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
 
     //Embed into the slope to ensure correct slope mechanics
-    if (collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
         y += 4;
     
@@ -412,7 +405,7 @@ if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_s
 
     //Stop vertical movement
     gravity = 0;
-    if (vspeed &gt; 0)
+    if (vspeed &gt;= -1)
         vspeed = 0;
 }
 else {
