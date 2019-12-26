@@ -120,6 +120,9 @@ if (image_speed != 1)
     //Play 'Coin' sound
     audio_stop_play_sound(snd_coin_big, 0, false);
     
+    //Set the sprite
+    sprite_index = spr_coin_ace_get;
+    
     //Increment coins
     global.coins++;
     
@@ -196,6 +199,9 @@ if (image_speed != 1) {
 
     //Play 'Coin' sound
     audio_stop_play_sound(snd_coin_big, 0, false);
+    
+    //Set the sprite
+    sprite_index = spr_coin_ace_get;
     
     //Increment coins
     global.coins++;

@@ -411,9 +411,9 @@ else if (keyboard_check_pressed(ord('V'))) {
     
     //Display message
     if (vsync)
-        message = "VSYNC ON";
+        message = "V-SYNC ON";
     else
-        message = "VSYNC OFF";
+        message = "V-SYNC OFF";
         
     //Apply settings
     event_user(1);
@@ -448,7 +448,8 @@ else if (keyboard_check_pressed(ord('3'))) {
 }
     
 //Reset the message
-alarm[3] = 60;
+if (message == "")
+    alarm[3] = 60;
 </string>
           </argument>
         </arguments>
@@ -512,11 +513,11 @@ var s;
 if (filter = 0)
     s = 1;
 
-//HQ2X
+//2X
 else if (filter = 1)
     s = 2;
-
-//HQ4X
+    
+//3X
 else if (filter = 2)
     s = 3;
 

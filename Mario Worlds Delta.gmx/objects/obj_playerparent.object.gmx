@@ -614,12 +614,9 @@ if (gravity_enable == true) {
         }
     }
     
-    //Check the slope
-    var myslope = collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0);
-    
     //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
     if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0)) {
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent, 1, 0)) {
     
         //If the player is moving or the player is not moving and it is being pushed
         if (state == statetype.walk)
@@ -628,7 +625,7 @@ if (gravity_enable == true) {
     }
     
     //Handle collision with slopes
-    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
     
         //Steeper slope check

@@ -313,6 +313,8 @@
       <sprite>sprites\spr_msgblock</sprite>
       <sprite>sprites\spr_noteblock</sprite>
       <sprite>sprites\spr_noteblock_hidden</sprite>
+      <sprite>sprites\spr_noteblock_diagonal_r</sprite>
+      <sprite>sprites\spr_noteblock_diagonal_l</sprite>
       <sprite>sprites\spr_iceblock</sprite>
       <sprite>sprites\spr_iceblock_coin</sprite>
       <sprite>sprites\spr_iceblock_muncher</sprite>
@@ -371,6 +373,7 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
+      <sprite>sprites\spr_coin_ace_get</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
       <sprite>sprites\spr_feather</sprite>
@@ -457,6 +460,8 @@
       <sprite>sprites\spr_onoffblock_off</sprite>
       <sprite>sprites\spr_onoffplatform_red</sprite>
       <sprite>sprites\spr_onoffplatform_blue</sprite>
+      <sprite>sprites\spr_walltrampoline</sprite>
+      <sprite>sprites\spr_walltrampoline_end</sprite>
       <sprite>sprites\spr_pblock</sprite>
       <sprite>sprites\spr_pblock_off</sprite>
       <sprite>sprites\spr_spikeblock</sprite>
@@ -839,6 +844,8 @@
             </sprites>
             <sprite>sprites\spr_slope_r</sprite>
             <sprite>sprites\spr_slope_l</sprite>
+            <sprite>sprites\spr_slope_wide_r</sprite>
+            <sprite>sprites\spr_slope_wide_l</sprite>
             <sprite>sprites\spr_slope_steep_r</sprite>
             <sprite>sprites\spr_slope_steep_l</sprite>
             <sprite>sprites\spr_slope_steeper_r</sprite>
@@ -882,6 +889,9 @@
   <backgrounds name="background">
     <backgrounds name="Level Backgrounds">
       <background>background\bgr_hills_thin</background>
+      <background>background\bgr_nightsky</background>
+      <background>background\bgr_nightsky_b</background>
+      <background>background\bgr_nightsky_c</background>
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_main</background>
@@ -1027,6 +1037,7 @@
         </objects>
         <object>objects\obj_warpnode</object>
       </objects>
+      <object>objects\obj_bganimator</object>
       <object>objects\obj_levelcontrol</object>
     </objects>
     <objects name="Collision">
@@ -1043,6 +1054,8 @@
         </objects>
         <object>objects\obj_slope_r</object>
         <object>objects\obj_slope_l</object>
+        <object>objects\obj_slope_wide_r</object>
+        <object>objects\obj_slope_wide_l</object>
         <object>objects\obj_slope_steep_r</object>
         <object>objects\obj_slope_steep_l</object>
         <object>objects\obj_slope_steeper_r</object>
@@ -1080,6 +1093,8 @@
       <object>objects\obj_msgblock</object>
       <object>objects\obj_noteblock</object>
       <object>objects\obj_noteblock_hidden</object>
+      <object>objects\obj_noteblock_diagonal_r</object>
+      <object>objects\obj_noteblock_diagonal_l</object>
       <object>objects\obj_iceblock</object>
       <object>objects\obj_iceblock_coin</object>
       <object>objects\obj_iceblock_muncher</object>
@@ -1153,6 +1168,7 @@
       <object>objects\obj_onoffblock</object>
       <object>objects\obj_onoffplatform_red</object>
       <object>objects\obj_onoffplatform_blue</object>
+      <object>objects\obj_walltrampoline</object>
       <object>objects\obj_spikeblock</object>
       <object>objects\obj_spikeblock_g</object>
       <object>objects\obj_spikeblock_red</object>
