@@ -351,10 +351,17 @@ else {
                 
                     with (instance_create(x, y, obj_shell_kicked)) {
                     
-                        hspeed = (2.7+(abs(obj_playerparent.hspeed)/4));
+                        //Set the horizontal speed
+                        hspeed = 2.7;
+                        
+                        //Hereby old shell variables
                         sprite_index = other.sprite_index;
                         koopainside = other.koopainside;
                         flip = other.flip;
+                        
+                        //Move up if overlapping a slope
+                        if (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                            y -= 4;
                     }
                 }
                     
@@ -363,10 +370,17 @@ else {
                 
                     with (instance_create(x, y, obj_shell_kicked)) {
                     
-                        hspeed = -(2.7+(abs(obj_playerparent.hspeed)/4));
+                        //Set the horizontal speed
+                        hspeed = -2.7;
+                        
+                        //Hereby old shell variables
                         sprite_index = other.sprite_index;
                         koopainside = other.koopainside;
                         flip = other.flip;
+                        
+                        //Move up if overlapping a slope
+                        if (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                            y -= 4;
                     }
                 }
                 
@@ -574,10 +588,17 @@ else {
         
             with (instance_create(x, y, obj_shell_kicked)) {
             
-                hspeed = (2.7+(abs(obj_playerparent.hspeed)/4));
+                //Set the horizontal speed
+                hspeed = 2.7;
+                
+                //Hereby old shell variables
                 sprite_index = other.sprite_index;
                 koopainside = other.koopainside;
                 flip = other.flip;
+                
+                //Move up if overlapping a slope
+                if (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                    y -= 4;
             }
         }
             
@@ -586,10 +607,17 @@ else {
         
             with (instance_create(x, y, obj_shell_kicked)) {
             
-                hspeed = -(2.7+(abs(obj_playerparent.hspeed)/4));
+                //Set the horizontal speed
+                hspeed = -2.7;
+                
+                //Hereby old shell variables
                 sprite_index = other.sprite_index;
                 koopainside = other.koopainside;
                 flip = other.flip;
+                
+                //Move up if overlapping a slope
+                if (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                    y -= 4;
             }
         }
             
@@ -598,10 +626,17 @@ else {
                    
             with (instance_create(x, y, obj_shell_kicked)) {
             
-                hspeed = 2.7*sign(obj_playerparent.xscale);
+                //Set the horizontal speed
+                hspeed = 2.7;
+                
+                //Hereby old shell variables
                 sprite_index = other.sprite_index;
                 koopainside = other.koopainside;
                 flip = other.flip;
+                
+                //Move up if overlapping a slope
+                if (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                    y -= 4;
             }
         }
         

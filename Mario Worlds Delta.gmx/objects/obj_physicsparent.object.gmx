@@ -391,20 +391,35 @@ if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
     
     ///Handle slope collisions
     if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0))    
-        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-            y--;
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+    
+        if (vspeed &gt; -0.85)   
+            while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+                y--;
+    }
 }
 
 //Check for floor objects
 if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent,1,0)) {
+|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //Stop vertical movement
     gravity = 0;
-    if (vspeed &gt;= -1)
-        vspeed = 0;
+    if (vspeed &gt; 0) {
+    
+        //If this object is not ancestor of obj_holdparent
+        if (!object_is_ancestor(object_index, obj_holdparent))
+        || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
+            vspeed = 0;
+        else {
+        
+            if (vspeed &gt; 0.5)
+                vspeed = -vspeed/2;
+            else
+                vspeed = 0;
+        }
+    }
 }
 else {
 

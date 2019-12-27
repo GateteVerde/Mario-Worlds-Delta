@@ -592,7 +592,7 @@ else {
 if (gravity_enable == true) {
 
     //If moving down
-    if (vspeed &gt;= 0) {
+    if (vspeed &gt; 0) {
     
         //Check for a semisolid ground
         var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
@@ -637,7 +637,7 @@ if (gravity_enable == true) {
         || ((steeper_r) &amp;&amp; (x &lt; steeper_r.bbox_right)) {
         
             //If moving down
-            if (vspeed &gt;= -1) {
+            if (vspeed &gt; 0) {
             
                 //Stop vertical movement
                 vspeed = 0;
@@ -656,7 +656,7 @@ if (gravity_enable == true) {
         else {
                     
             //If moving down
-            if (vspeed &gt;= -1.5) {
+            if (vspeed &gt; 0) {
             
                 //Stop vertical movement
                 vspeed = 0;
@@ -667,7 +667,7 @@ if (gravity_enable == true) {
             }
             
             //Prevent the player from getting embed inside a slope
-            if (vspeed &gt; -1)    
+            if (vspeed &gt; -0.85)    
                 while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
                     y--;
         }

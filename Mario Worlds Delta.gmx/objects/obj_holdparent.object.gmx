@@ -307,7 +307,7 @@ if (held == false) {
                 }
                 
                 //Prevent passing through slopes
-                while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
+                while (collision_rectangle(x-2, bbox_top, x+2, bbox_bottom, obj_slopeparent, 1, 0))
                     y--;
             }
                     
