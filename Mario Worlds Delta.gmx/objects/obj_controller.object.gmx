@@ -920,7 +920,7 @@ shader_set_uniform_f(uni_shock_width, var_shock_width);
 
 //Set the pixelate shader
 if (fade &lt; 1) {
-
+    
     shader_set(shd_pixel);
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);
 }

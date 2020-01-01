@@ -68,7 +68,41 @@ yy = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update cape sprite and position
+            <string>///Update the position
+
+//If the player does exist
+if (instance_exists(obj_playerparent)) {
+
+    //Move towards the player
+    x = obj_playerparent.x;
+    y = obj_playerparent.y;
+    
+    //Hereby facing direction
+    image_xscale = obj_playerparent.xscale;
+}
+else
+    exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Update the animation and sprite of the cape
 
 //Cape - Idle
 if (state == capestate.cape_idle) {
@@ -173,14 +207,7 @@ else if (state == capestate.cape_climb) {
     image_speed = 0;
     image_index = 0;
 }
-
-//Move towards the player
-x = obj_playerparent.x;
-y = obj_playerparent.y;
-
-//Hereby facing direction
-image_xscale = obj_playerparent.xscale;
-
+    
 //Set up idle frame
 if (sprite_index == spr_cape)
     image_index = global.mount;
@@ -266,31 +293,35 @@ else if (sprite_index == spr_cape_down) {
             <kind>1</kind>
             <string>///Draw the cape
 
-//Only draw if the player has a cape
-if (global.powerup &gt; cs_pow_fire)
-&amp;&amp; (instance_number(obj_spinner) == 0)
-&amp;&amp; (instance_number(obj_cape_fly) == 0) {
-
-    //If the player is not riding a yoshi
-    if (global.mount == 0)
-        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
-        
-    //Otherwise, if the player is riding a yoshi
-    else {
+//If the player does exist
+if (instance_exists(obj_playerparent)) {
     
-        if (instance_exists(obj_yoshi)) {
+    //Only draw if the player has a cape
+    if (global.powerup &gt; cs_pow_fire)
+    &amp;&amp; (instance_number(obj_spinner) == 0)
+    &amp;&amp; (instance_number(obj_cape_fly) == 0) {
+    
+        //If the player is not riding a yoshi
+        if (global.mount == 0)
+            draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
             
-            if (obj_yoshi.f == 1)
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
-            else
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);
-        }
+        //Otherwise, if the player is riding a yoshi
         else {
         
-            if (obj_player_transform.riderframe == 1)
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
-            else
-                draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);            
+            if (instance_exists(obj_yoshi)) {
+                
+                if (obj_yoshi.f == 1)
+                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
+                else
+                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);
+            }
+            else {
+            
+                if (obj_player_transform.riderframe == 1)
+                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
+                else
+                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);            
+            }
         }
     }
 }

@@ -44,6 +44,9 @@ enum itemtype {
 //Remember music from rooms
 global.levelmusic = bgm_gameover;
 
+//Stream being played in room
+global.stream = noone;
+
 //Current Player
 //0: Mario
 //1: Luigi

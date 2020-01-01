@@ -38,7 +38,6 @@
 //Default values
 inisection = "Overworld";
 leveltime = 0;
-palette = 0;
 
 //Play music
 if (global.pswitch == 0)
@@ -47,7 +46,6 @@ if (global.pswitch == 0)
     
 //The music of the level
 levelmusic = noone;
-stream = noone;
 
 //Is music disabled?
 musicdisable = false;
@@ -290,9 +288,16 @@ if (global.time &gt; 0) {
             <kind>1</kind>
             <string>///Stop the music
 
-audio_stop_sound(stream);
-audio_destroy_stream(stream);
-stream = noone;
+//If the stream is playing
+if (audio_is_playing(global.stream)) {
+    
+    //Stop the stream...
+    audio_stop_sound(global.stream);
+    
+    //...and free it from memory
+    audio_destroy_stream(global.stream);
+    global.stream = noone;
+}
 </string>
           </argument>
         </arguments>
@@ -317,10 +322,10 @@ stream = noone;
             <kind>1</kind>
             <string>///Loop the music
 
-//If not audio is playing and the music is not disabled and the pswitch theme is not playing
-if (!audio_is_playing(levelmusic)) 
-if (musicdisable == 0)
-&amp;&amp; (switchon == 0) {
+//If the music is not disabled or the p-switch is active
+if (!audio_is_playing(global.stream))
+&amp;&amp; (switchon == 0)
+&amp;&amp; (musicdisable == 0) {
 
     //Open INI
     ini_open("MWDMusic.ini");
@@ -335,10 +340,10 @@ if (musicdisable == 0)
     ini_close();
     
     //Add the sound
-    stream = audio_create_stream(levelmusic);
+    global.stream = audio_create_stream(levelmusic);
     
     //Play it
-    audio_loop_sound(stream, loop_s, loop_e, sample_rate, 1);
+    audio_loop_sound(global.stream, loop_s, loop_e, sample_rate, 1);
 }
 </string>
           </argument>
@@ -368,8 +373,8 @@ if (musicdisable == 0)
 if (audio_is_playing(snd_hurry)) {
 
     //Pause 'levelmusic'
-    if (audio_is_playing(stream)) 
-        audio_pause_sound(stream);
+    if (audio_is_playing(global.stream)) 
+        audio_pause_sound(global.stream);
     
     //Pause 'bgm_starman'
     else if (audio_is_playing(bgm_starman))
@@ -386,7 +391,7 @@ else {
     if (global.time &gt; 0) 
     &amp;&amp; (global.time &lt; 101) {
         
-        audio_sound_pitch(stream, 1.13);
+        audio_sound_pitch(global.stream, 1.13);
         audio_sound_pitch(bgm_starman, 1.13);
         audio_sound_pitch(bgm_pswitch, 1.13);
     }
@@ -394,14 +399,14 @@ else {
     //Otherwise, set pitch to 1.0
     else {
     
-        audio_sound_pitch(stream, 1);
+        audio_sound_pitch(global.stream, 1);
         audio_sound_pitch(bgm_starman, 1);
         audio_sound_pitch(bgm_pswitch, 1);
     }
 
     //Resume 'levelmusic' if paused
-    if (audio_is_paused(stream)) 
-        audio_resume_sound(stream);
+    if (audio_is_paused(global.stream)) 
+        audio_resume_sound(global.stream);
     
     //Resume 'bgm_starman' if paused
     else if (audio_is_paused(bgm_starman))
@@ -411,35 +416,6 @@ else {
     else if (audio_is_paused(bgm_pswitch))
         audio_resume_sound(bgm_pswitch);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Deals with the palette + background
-
-//Deal with palette
-pal_swap_set_tiles(spr_palette_tileset, palette, 15, 8);
-palette = clamp(palette, 0, pal_swap_get_pal_count(spr_palette_tileset)-1);
-if (keyboard_check_pressed(vk_pageup))
-    palette--;
-else if (keyboard_check_pressed(vk_pagedown))
-    palette++;
 </string>
           </argument>
         </arguments>
@@ -593,6 +569,38 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="15">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If the music is not the same as the music used in the last room
+
+if (global.levelmusic != inisection) {
+
+    //Stop old stream
+    alarm[1] = 1;
+    
+    //Play new stream
+    global.levelmusic = inisection;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="14">
       <action>
         <libid>1</libid>
@@ -619,7 +627,7 @@ audio_stop_sound(levelmusic);
 musicdisable = 1;
 
 //Stop starman theme
-audio_stop_sound(bgm_star);
+audio_stop_sound(bgm_starman);
 
 //Stop P-Switch music
 audio_stop_sound(bgm_pswitch);
@@ -739,13 +747,10 @@ alarm[1] = 1;
 audio_stop_sound(bgm_starman);
 
 //Stop P-Switch music if it is playing...
-if (audio_is_playing(bgm_pswitch)) {
-
-    audio_stop_sound(bgm_pswitch);
-}
-
-//...and play it
-audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
+if (audio_is_playing(bgm_pswitch))
+    exit;
+else
+    audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
 </string>
           </argument>
         </arguments>
@@ -840,11 +845,11 @@ with (obj_player_door) instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Remember p-switch if enabled
+            <string>///Remember p-switch if enabled or remember last music played
 
 //Remember P-Switch time limit if enabled
 if (switchon)
-    global.pswitch = alarm[6];
+    global.pswitch = alarm[6]; 
 </string>
           </argument>
         </arguments>
@@ -869,15 +874,8 @@ if (switchon)
             <kind>1</kind>
             <string>///Handles checkpoints, and other stuff
 
-//If the music is not the same as the music used in the last room
-if (global.levelmusic != stream) {
-
-    //Stop the old music
-    audio_stop_sound(global.levelmusic);
-
-    //Set the new music
-    global.levelmusic = stream;
-}
+//Manage music
+event_user(5);
 
 //If the time is set to something, and was not set in a previous room, set it
 if (leveltime &gt; 0) 
@@ -976,10 +974,14 @@ if (global.pswitch &gt; 0) {
 
     //Set the timer, and make sure it is not too short
     alarm[6] = max(global.pswitch, 30);
+    
+    //Play warning sound if there's 0.5 and 2 seconds left of effect
+    if (global.pswitch &gt; 29) 
+    &amp;&amp; (global.pswitch &lt; 121)
+        audio_play_sound(snd_switchtimer, 0, false);
 
     //Reset the variable
     global.pswitch = 0;
-
 }
 
 //If a star needs to carry over from the previous room

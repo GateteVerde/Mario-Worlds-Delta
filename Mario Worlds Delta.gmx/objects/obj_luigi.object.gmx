@@ -132,7 +132,7 @@ if (crouch == true) {
     //Set up the cape state
     if (state == statetype.idle) {
     
-        with (mycape) {
+        with (obj_cape) {
         
             //Set cape position and state
             state = capestate.cape_idle;
@@ -157,7 +157,7 @@ if (crouch == true) {
     }
     else if (state == statetype.walk) {
     
-        with (mycape) {
+        with (obj_cape) {
         
             state = capestate.cape_walk;
             depth = other.depth+1;
@@ -167,7 +167,7 @@ if (crouch == true) {
     else if (state == statetype.jump) {
     
         //With the cape
-        with (mycape) {
+        with (obj_cape) {
         
             //Set position
             yy = 1;
@@ -215,7 +215,7 @@ else if (crouch == false) {
                 if (state == statetype.idle) {
                 
                     //Set cape state
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         //Set cape position and state
                         state = capestate.cape_idle;
@@ -272,7 +272,7 @@ else if (crouch == false) {
                 else if (state == statetype.walk) {
                 
                     //Set cape state
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         state = capestate.cape_walk;
                         depth = other.depth+1;
@@ -316,7 +316,7 @@ else if (crouch == false) {
                         if (jumpstyle == true) {
                         
                             //Set cape state
-                            with (mycape) {
+                            with (obj_cape) {
                             
                                 //If moving up
                                 if (other.vspeed &lt; 0) {
@@ -357,7 +357,7 @@ else if (crouch == false) {
                         else if (jumpstyle == false) {
                         
                             //With the cape
-                            with (mycape) {
+                            with (obj_cape) {
                             
                                 //Set position
                                 yy = 0;
@@ -447,7 +447,7 @@ else if (crouch == false) {
                     else if (swimming == true) {
                     
                         //With the cape
-                        with (mycape) {
+                        with (obj_cape) {
                         
                             //Set depth
                             depth = other.depth+1;
@@ -502,7 +502,7 @@ else if (crouch == false) {
                 else if (state == statetype.climb) {
                 
                     //Set the cape sprite
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         //Set depth
                         depth = -6;
@@ -541,7 +541,7 @@ else if (crouch == false) {
                 //Set up the cape state
                 if (state == statetype.idle) {
                 
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         state = capestate.cape_idle;
                         depth = other.depth+1;
@@ -550,7 +550,7 @@ else if (crouch == false) {
                 }
                 else if (state == statetype.walk) {
                 
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         state = capestate.cape_walk;
                         depth = other.depth+1;
@@ -560,7 +560,7 @@ else if (crouch == false) {
                 else if (state == statetype.jump) {
                 
                     //With the cape
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         //Set depth
                         depth = other.depth+1;
@@ -589,7 +589,7 @@ else if (crouch == false) {
             //Set up the cape state
             if (state == statetype.idle) {
             
-                with (mycape) {
+                with (obj_cape) {
                 
                     state = capestate.cape_idle;
                     depth = other.depth+1;
@@ -598,7 +598,7 @@ else if (crouch == false) {
             }
             else if (state == statetype.walk) {
             
-                with (mycape) {
+                with (obj_cape) {
                 
                     state = capestate.cape_walk;
                     depth = other.depth+1;
@@ -608,7 +608,7 @@ else if (crouch == false) {
             else if (state == statetype.jump) {
             
                 //With the cape
-                with (mycape) {
+                with (obj_cape) {
                 
                     //Set depth
                     depth = other.depth+1;
@@ -645,7 +645,7 @@ else if (crouch == false) {
             if (state == statetype.idle) {
             
                 //Set cape state
-                with (mycape) {
+                with (obj_cape) {
                 
                     state = capestate.cape_idle;
                     depth = other.depth+1;
@@ -669,7 +669,7 @@ else if (crouch == false) {
             else if (state == statetype.walk) {
             
                 //Set cape state
-                with (mycape) {
+                with (obj_cape) {
                 
                     state = capestate.cape_walk;
                     depth = other.depth+1;
@@ -693,7 +693,7 @@ else if (crouch == false) {
                     if (jumpstyle == true) {
                                                                 
                         //Set cape state
-                        with (mycape) {
+                        with (obj_cape) {
                         
                             //Set y position
                             yy = 0;
@@ -727,7 +727,7 @@ else if (crouch == false) {
                     else if (jumpstyle == false) {
                     
                         //With the cape
-                        with (mycape) {
+                        with (obj_cape) {
                         
                             //Set depth
                             depth = other.depth+1;
@@ -753,7 +753,7 @@ else if (crouch == false) {
                 else if (swimming == true) {
                 
                     //With the cape
-                    with (mycape) {
+                    with (obj_cape) {
                     
                         //Set depth
                         depth = other.depth+1;

@@ -170,9 +170,10 @@ r = instance_create(x, y, obj_boundary_right);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy the cape
+            <string>///Destroy cape object
 
-with (mycape) instance_destroy();
+if (mycape != noone)
+    with (mycape) instance_destroy();
 </string>
           </argument>
         </arguments>
