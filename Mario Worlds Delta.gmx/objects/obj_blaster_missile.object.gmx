@@ -102,7 +102,7 @@ else {
                     mybullet = instance_create(x+8, y+8, obj_missilebill);                    
                     with (mybullet) {
                     
-                        hspeed = -1.5;
+                        hspeed = -2;
                         with (instance_create(x, y, obj_smoke))
                             sprite_index = spr_smoke_16;
                     }
@@ -132,7 +132,7 @@ else {
                     mybullet = instance_create(x+8, y+8, obj_missilebill);
                     with (mybullet) {
 
-                        hspeed = 1.5;
+                        hspeed = 2;
                         with (instance_create(x, y, obj_smoke))
                             sprite_index = spr_smoke_16;
                     }

@@ -96,6 +96,9 @@ else {
             <kind>1</kind>
             <string>///Set up special effect for the timer text
 
+//Stay activated
+instance_activate_object(id);
+
 //Fade timer to red if less than 100 seconds
 if (global.time &gt; -1)
 &amp;&amp; (obj_levelcontrol.leveltime != 0) {

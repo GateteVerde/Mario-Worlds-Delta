@@ -102,6 +102,13 @@ else {
         exit;
     }
     
+    //Otherwise, if there's less than 6 bullets on screen
+    else if (instance_number(obj_bulletbill) &gt;= 6) {
+    
+        alarm[0] = 1;
+        exit;
+    }
+    
     //Otherwise
     else {
     
@@ -118,7 +125,7 @@ else {
                 with (instance_create(x+8, y+8, obj_bulletbill)) {
                 
                     xscale = -1;
-                    hspeed = -1.5;
+                    hspeed = -2;
                     with (instance_create(x, y, obj_smoke))
                         sprite_index = spr_smoke_16;
                 }
@@ -148,7 +155,7 @@ else {
                 with (instance_create(x+8, y+8, obj_bulletbill)) {
                 
                     xscale = 1;
-                    hspeed = 1.5;
+                    hspeed = 2;
                     with (instance_create(x, y, obj_smoke))
                         sprite_index = spr_smoke_16;
                 }

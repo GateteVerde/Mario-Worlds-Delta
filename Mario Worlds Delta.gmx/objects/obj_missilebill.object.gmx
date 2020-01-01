@@ -51,39 +51,6 @@ image_speed = 0;
 //Follow the player
 homing = false;
 alarm[0] = 60;
-
-//Leave a trail
-alarm[1] = 15;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leave trail
-
-alarm[1] = 15;
-with (instance_create(x, y, obj_smoke)) {
-
-    sprite_index = spr_smoke_16;
-    depth = other.depth+1;
-}
 </string>
           </argument>
         </arguments>
@@ -138,9 +105,9 @@ if (homing) {
 
     //If the player does exist.
     if (instance_exists(obj_playerparent))
-        turn_towards_direction(point_direction(x, y, obj_playerparent.x, obj_playerparent.y), 1.5)
+        turn_towards_direction(point_direction(x, y, obj_playerparent.x, obj_playerparent.y), 2)
     else
-        turn_towards_direction(point_direction(x, y, obj_levelcontrol.x, obj_levelcontrol.y), 1.5)
+        turn_towards_direction(point_direction(x, y, obj_levelcontrol.x, obj_levelcontrol.y), 2)
 }
 
 //Set the scale.
