@@ -417,6 +417,7 @@ if (depth != -5)
             <kind>1</kind>
             <string>///Throw projectiles when spinning
 
+
 //If the player is doing a spinjump and it's not riding anything
 if (jumpstyle == 1) 
 &amp;&amp; (global.mount == 0) {
@@ -433,9 +434,10 @@ if (jumpstyle == 1)
             else
                 hspeed = 3*sign(other.dir);
         }
-    }         
+    }
     
     //Change the facing direction
+    xscale = -xscale;
     dir = -dir;
     
     //Set alarm based on direction
@@ -592,7 +594,7 @@ else {
 if (gravity_enable == true) {
 
     //If moving down
-    if (vspeed &gt; 0) {
+    if (vspeed &gt;= 0) {
     
         //Check for a semisolid ground
         var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);

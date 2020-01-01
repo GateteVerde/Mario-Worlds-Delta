@@ -774,7 +774,7 @@ audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
 if (global.reserveitem != cs_pow_small) {
 
     //Create the reserve item
-    with (instance_create(view_xview[0] + view_wview[0]/2, view_yview[0]+12, obj_reserveitem)) {
+    with (instance_create(view_xview[0] + view_wview[0]/2, view_yview[0]+14, obj_reserveitem)) {
     
         //Mushroom
         if (global.reserveitem == cs_pow_super)

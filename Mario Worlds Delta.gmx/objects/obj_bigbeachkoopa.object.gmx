@@ -86,9 +86,13 @@ if (ready &gt; 0) {
     //Inherit event
     event_inherited();
 
-    //Set walking sprite
-    if (sprite_index == spr_bigbeachkoopa)
+    //Set walking sprite and jump
+    if (sprite_index == spr_bigbeachkoopa) {
+    
         sprite_index = spr_bigbeachkoopa_walk;
+        vspeed = -2.5;
+        y--;
+    }
 }
 </string>
           </argument>

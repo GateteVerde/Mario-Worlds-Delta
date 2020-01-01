@@ -120,7 +120,7 @@ else
             <string>///Vertical Cheep Cheep logic
 
 //Inherit default event
-event_inherited();
+event_perform_object(obj_physicsparent, ev_step, ev_step_normal);
 
 //If not flopping
 if (swimming == 1) {

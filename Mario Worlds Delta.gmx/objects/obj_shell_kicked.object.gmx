@@ -54,6 +54,9 @@ koopainside = 0;
 //Whether this shell can harm the player
 harmplayer = 0;
 
+//Whether this shell is falling through one tile gaps
+fall = 0;
+
 //Animate
 image_speed = 0.3;
 
@@ -96,7 +99,7 @@ event_user(8);
 event_user(14);
 
 //If the direction changes...
-if (hspeed != prevhspeed) {
+if (sign(hspeed) != sign(prevhspeed)) {
 
     //If the item is not outside
     if (!outside_view(8)) {
@@ -227,9 +230,21 @@ else if (sprite_index == spr_shell_spiny) {
 if (gravity == 0) 
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+5, obj_slopeparent, 0, 0)) {
 
-    if ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom+8, x, bbox_bottom, obj_semisolid, 1, 0)))
-    || ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom+8, x, bbox_bottom, obj_semisolid, 1, 0)))
-        y += 2;
+    //If there's no semisolid below, slowdown
+    if ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+8, obj_semisolid, 1, 0)))
+    || ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+8, obj_semisolid, 1, 0))) {
+    
+        if (fall == 0) {
+        
+            fall = 1;
+            hspeed = hspeed/2;
+        }
+    }
+    else if (fall == 1) {
+    
+        fall = 0;
+        hspeed = hspeed*2;
+    }
 }
 
 //Check for blocks to the left

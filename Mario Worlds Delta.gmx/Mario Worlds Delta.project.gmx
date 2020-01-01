@@ -282,14 +282,10 @@
           <sprite>sprites\spr_cape_climb</sprite>
         </sprites>
         <sprites name="Masks">
-          <sprite>sprites\spr_mask_a</sprite>
-          <sprite>sprites\spr_mask_b</sprite>
           <sprite>sprites\spr_mask_player</sprite>
           <sprite>sprites\spr_mask_player_big</sprite>
           <sprite>sprites\spr_mask_player_warp</sprite>
         </sprites>
-        <sprite>sprites\spr_helmet</sprite>
-        <sprite>sprites\spr_helmet_b</sprite>
         <sprite>sprites\spr_palette_master</sprite>
         <sprite>sprites\spr_palette_invincibility</sprite>
       </sprites>
@@ -487,6 +483,7 @@
       <sprite>sprites\spr_door_lock</sprite>
       <sprite>sprites\spr_beanstalk</sprite>
       <sprite>sprites\spr_beanstalk_vine</sprite>
+      <sprite>sprites\spr_bumper</sprite>
       <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Enemies">
@@ -1184,6 +1181,7 @@
       <object>objects\obj_icicle_static</object>
       <object>objects\obj_detonator</object>
       <object>objects\obj_beanstalk_vine</object>
+      <object>objects\obj_bumper</object>
       <object>objects\obj_key</object>
     </objects>
     <objects name="Enemies">
