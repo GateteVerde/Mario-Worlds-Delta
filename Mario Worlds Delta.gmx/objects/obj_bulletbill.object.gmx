@@ -69,7 +69,7 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Bullet bill logic
+            <string>///Banzai bill logic
 
 //Set default depth when not overlapping a solid
 if (!place_meeting(x, y, obj_solid)) {
@@ -81,6 +81,7 @@ if (!place_meeting(x, y, obj_solid)) {
 
 //Destroy when outside view
 if (outside_view(16))
+&amp;&amp; (depth != 10)
     instance_destroy();
 </string>
           </argument>

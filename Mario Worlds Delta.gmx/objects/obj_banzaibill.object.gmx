@@ -2,8 +2,8 @@
 <object>
   <spriteName>spr_banzaibill</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>-2</depth>
+  <visible>-1</visible>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>obj_enemyparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -47,97 +47,6 @@ stompsprite = sprite_index;
 
 //Animate
 image_speed = 0;
-
-//Leave trail
-alarm[0] = 15;
-
-//Check if inside the view
-moving = false;
-alarm[10] = 2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Start moving when inside the view
-
-//If not moving...
-if (moving == false) {
-
-    //...and if the enemy is inside the view
-    if (outside_view(32) == false) {
-    
-        //Play 'Explosion' sound
-        audio_play_sound(snd_explosion, 0, false);
-    
-        //Start moving
-        moving = true;
-        
-        //Make it visible
-        visible = true;
-    
-        //If the player is at the left
-        motion_set(image_angle, 1);
-    }
-    
-    //Otherwise, hold on
-    else {
-    
-        alarm[10] = 2;
-        exit;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leave trail
-
-alarm[0] = 15;
-if (moving == true) {
-    
-    with (instance_create(x, y, obj_smoke)) {
-    
-        motion_set(other.direction, -2);
-        depth = other.depth+1;
-        sprite_index = spr_smoke_32;
-    }
-}
 </string>
           </argument>
         </arguments>
@@ -160,23 +69,24 @@ if (moving == true) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Banzai bill logic
+            <string>///Bullet bill logic
 
-//If moving and outside the view
-if (moving == true) {
+//Set default depth when not overlapping a solid
+if (!place_meeting(x, y, obj_solid)) {
 
-    if (hspeed &lt; 0) &amp;&amp; (x &lt; view_xview[0]-32)
-    || (hspeed &gt; 0) &amp;&amp; (x &gt; view_xview[0]+view_wview[0]+32)
-    || (vspeed &lt; 0) &amp;&amp; (y &lt; view_yview[0]-32)
-    || (vspeed &gt; 0) &amp;&amp; (y &gt; view_yview[0]+view_hview[0]+32)
-        instance_destroy();
+    //If depth is set to 10, set it to -2
+    if (depth = 10)
+        depth = -2;
 }
 
-//Set the scale.
-if (hspeed &gt; 0) 
-    image_index = 0;
-else if (hspeed &lt; 0)
-    image_index = 1;
+//Set xscale
+if (hspeed &gt; 0) then xscale = 1;
+else if (hspeed &lt; 0) then xscale = -1;
+
+//Destroy when outside view
+if (outside_view(32))
+&amp;&amp; (depth != 10)
+    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -234,9 +144,9 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw banzai bill
+            <string>///Draw bullet bill
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, direction, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

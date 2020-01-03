@@ -249,6 +249,9 @@ if (image_speed != 1) {
         with (instance_create(x+8, y+8, obj_sparkle)) motion_set(a + 30, 2);
         a += 60;
     }
+    
+    //Create a ring effect
+    instance_create(x+8, y+8, obj_ring_coin);
 }
 </string>
           </argument>

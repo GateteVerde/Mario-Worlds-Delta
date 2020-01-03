@@ -201,6 +201,9 @@ if (image_speed != 1) {
         a += 60;
     }
     
+    //Create a ring effect
+    instance_create(x+8, y+8, obj_ring_coin);
+    
     //Get 100 points
     with (instance_create(x, y, obj_score)) 
         event_user(1);

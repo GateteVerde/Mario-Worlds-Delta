@@ -35,9 +35,6 @@ image_speed = 0.15;
 
 //Apply physics if ready
 ready = 0;
-
-//Make it bounce
-bouncy = 1;
 </string>
           </argument>
         </arguments>
@@ -273,6 +270,9 @@ repeat (4) {
 
     instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
 }
+
+//Create a ring effect
+instance_create(x+8, y+8, obj_ring_coin);
 
 //Destroy
 instance_destroy();

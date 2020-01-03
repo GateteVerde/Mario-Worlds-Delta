@@ -635,7 +635,9 @@
           <sprite>sprites\spr_missilebill</sprite>
         </sprites>
         <sprites name="Banzai Bill">
+          <sprite>sprites\spr_blaster_banzai</sprite>
           <sprite>sprites\spr_banzaibill</sprite>
+          <sprite>sprites\spr_blaster_bullseye</sprite>
           <sprite>sprites\spr_bullseyebanzai</sprite>
         </sprites>
       </sprites>
@@ -1279,8 +1281,8 @@
           <object>objects\obj_blaster_missile</object>
         </objects>
         <objects name="Banzai Bill">
-          <object>objects\obj_banzaibill</object>
-          <object>objects\obj_bullseyebanzai</object>
+          <object>objects\obj_blaster_banzai</object>
+          <object>objects\obj_blaster_bullseye</object>
         </objects>
       </objects>
       <object>objects\obj_hammerbro</object>
@@ -1506,6 +1508,10 @@
               <object>objects\obj_bulletbill</object>
               <object>objects\obj_missilebill</object>
             </objects>
+            <objects name="Banzai Bill">
+              <object>objects\obj_banzaibill</object>
+              <object>objects\obj_bullseyebanzai</object>
+            </objects>
           </objects>
           <object>objects\obj_hammerbro_hammer</object>
         </objects>
@@ -1518,6 +1524,7 @@
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
             <object>objects\obj_ring_pow</object>
+            <object>objects\obj_ring_coin</object>
             <object>objects\obj_sparkle</object>
           </objects>
           <objects name="Score">

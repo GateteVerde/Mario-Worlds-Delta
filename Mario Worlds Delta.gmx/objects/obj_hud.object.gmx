@@ -96,37 +96,38 @@ else {
             <kind>1</kind>
             <string>///Set up special effect for the timer text
 
-//Stay activated
-instance_activate_object(id);
-
-//Fade timer to red if less than 100 seconds
-if (global.time &gt; -1)
-&amp;&amp; (obj_levelcontrol.leveltime != 0) {
-
-    //If there's less than 100 seconds left
-    if (global.time &lt;= 100) {
+//Do this only is levelcontrol is active
+if (instance_exists(obj_levelcontrol)) {
     
-        //Fade out
-        if (fadetype == -1) {
+    //Fade timer to red if less than 100 seconds
+    if (global.time &gt; -1)
+    &amp;&amp; (obj_levelcontrol.leveltime != 0) {
+    
+        //If there's less than 100 seconds left
+        if (global.time &lt;= 100) {
         
-            fade -= 0.05;
-            if (fade &lt; 0.05) {
+            //Fade out
+            if (fadetype == -1) {
             
-                fade = 0;
-                fadetype = 1;
+                fade -= 0.05;
+                if (fade &lt; 0.05) {
+                
+                    fade = 0;
+                    fadetype = 1;
+                }
             }
-        }
-        
-        //Otherwise, fade in
-        else {
-        
-            fade += 0.05;
-            if (fade &gt; 1) {
             
-                fade = 1;
-                fadetype = -1;
-            }            
-        }        
+            //Otherwise, fade in
+            else {
+            
+                fade += 0.05;
+                if (fade &gt; 1) {
+                
+                    fade = 1;
+                    fadetype = -1;
+                }            
+            }        
+        }
     }
 }
 </string>
@@ -213,8 +214,7 @@ draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview
 
 //Timer
 draw_sprite_ext(spr_hud_time, -1, view_xview[0]+view_wview[0]-51+shakex, view_yview[0]+8+shakey, 1, 1, 0, c_white, 1);
-if (global.time &gt; -1)
-&amp;&amp; (obj_levelcontrol.leveltime != 0) {
+if (global.time &gt; -1) {
 
     //If the level has not been cleared and the timer is lower than 100
     if (global.clear == 0)
@@ -227,7 +227,7 @@ if (global.time &gt; -1)
         draw_text_colour(view_xview[0]+view_wview[0]-33, view_yview[0]+8, string_add_zeros(global.time, 3), c_white, c_white, c_white, c_white, 1);
 }
 else
-draw_text_colour(view_xview[0]+view_wview[0]-33, view_yview[0]+8, "000", c_white, c_white, c_white, c_white, 1);
+    draw_text_colour(view_xview[0]+view_wview[0]-33, view_yview[0]+8, "000", c_white, c_white, c_white, c_white, 1);
 
 //Separator
 draw_sprite_ext(spr_hud_separator, 0, view_xview[0]+view_wview[0]-105, view_yview[0]+20, 1, 1, 0, c_white, 1);

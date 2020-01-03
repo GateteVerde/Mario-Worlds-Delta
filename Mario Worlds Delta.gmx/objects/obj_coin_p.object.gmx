@@ -103,6 +103,9 @@ if (visible == 1) {
             sprite_index = spr_sparkle_blue;
     }
     
+    //Create a ring effect
+    with (instance_create(x+8, y+8, obj_ring_coin)) image_blend = make_colour_rgb(41, 206, 255);
+    
     //Destroy
     instance_destroy();
 }
