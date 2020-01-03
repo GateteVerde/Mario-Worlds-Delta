@@ -39,11 +39,6 @@ scale = 1;
 
 //Whether the cannon is scaling
 ready = 0;
-
-//Make the blaster solid
-mysolid = instance_create(bbox_left, bbox_top, obj_solid);
-    mysolid.image_xscale = 4;
-    mysolid.image_yscale = 5;
 </string>
           </argument>
         </arguments>
@@ -66,7 +61,7 @@ mysolid = instance_create(bbox_left, bbox_top, obj_solid);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Shoot a banzai bill
+            <string>///Shoot a bullet bill
 
 //If the player does not exist, deny event
 if (!instance_exists(obj_playerparent)) {
@@ -78,22 +73,28 @@ if (!instance_exists(obj_playerparent)) {
 //Otherwise
 else {
 
-    //If the player is nearby the cannon, deny event
-    if (obj_playerparent.x &gt; bbox_left-32)
-    &amp;&amp; (obj_playerparent.x &lt; bbox_right+32) {
+    //If there's less than 6 bullets on screen or the player is nearby
+    if ((obj_playerparent.x &gt; bbox_left-32) &amp;&amp; (obj_playerparent.x &lt; bbox_right+32)) {
     
         alarm[0] = 1;
         exit;
     }
     
-    //Otherwise
+    //Otherwise, if none of the conditions above match, let the shooting begin.
     else {
+    
+        //If there's 3 or less banzai bills on screen
+        if (instance_number(obj_banzaibill) &gt;= 3) {
+        
+            alarm[0] = 1;
+            exit;
+        }
     
         //If the player is at the left
         if (obj_playerparent.x &lt; x) {
             
             //If there's not a solid in position, shoot a bullet
-            if (!collision_line(bbox_left-1, y, bbox_left-1, y+15, obj_solid, 0, 0)) {
+            if (!collision_rectangle(bbox_left-1, y, bbox_left-1, y+15, obj_solid, 0, 0)) {
             
                 //Play 'Explosion' sound
                 audio_play_sound(snd_explosion, 0, false);
@@ -103,15 +104,15 @@ else {
                 
                     xscale = -1;
                     hspeed = -1.5;
-                    with (instance_create(xstart-32, y, obj_smoke))
-                        sprite_index = spr_smoke_48;
+                    with (instance_create(x, y, obj_smoke))
+                        sprite_index = spr_smoke_16;
                 }
                 
-                //Scale
-                ready = 1;
-                
                 //Repeat
-                alarm[0] = 300;
+                alarm[0] = 360;
+                
+                //Animate the cannon
+                ready = 1;
             }
             
             //If there's a solid at the left, deny event
@@ -126,7 +127,7 @@ else {
         else if (obj_playerparent.x &gt; x) {
                     
             //If there's not a solid in position, shoot a bullet
-            if (!collision_line(bbox_right+1, y, bbox_right+1, y+15, obj_solid, 0, 0)) {
+            if (!collision_rectangle(bbox_right+1, y, bbox_right+1, y+15, obj_solid, 0, 0)) {
             
                 //Play 'Explosion' sound
                 audio_play_sound(snd_explosion, 0, false);
@@ -136,15 +137,15 @@ else {
                 
                     xscale = 1;
                     hspeed = 1.5;
-                    with (instance_create(xstart+32, y, obj_smoke))
-                        sprite_index = spr_smoke_48;
+                    with (instance_create(x, y, obj_smoke))
+                        sprite_index = spr_smoke_16;
                 }
                 
-                //Scale
-                ready = 1;
-                
                 //Repeat
-                alarm[0] = 300;
+                alarm[0] = 360;
+                
+                //Animate the cannon
+                ready = 1;
             }
             
             //If there's a solid at the left, deny event
@@ -201,6 +202,33 @@ else if (ready == 2) {
         ready = 0;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make the blaster solid on room start
+
+mysolid = instance_create(bbox_left, bbox_top, obj_solid);
+    mysolid.image_xscale = 4;
+    mysolid.image_yscale = 5;
 </string>
           </argument>
         </arguments>

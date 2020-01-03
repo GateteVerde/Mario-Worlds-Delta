@@ -170,7 +170,7 @@ if (y &lt; view_yview[0] + global.gh) {
             <string>///Freeze every entity on screen
 
 //Check how many objects are in screen
-for (i=0; i&lt;instance_count; i++) {
+for (i=0; i&lt;=instance_count; i++) {
 
     //With each instance
     with (instance_id[i]) {
@@ -178,14 +178,20 @@ for (i=0; i&lt;instance_count; i++) {
         //If the object is ancestor
         if (object_is_ancestor(object_index, obj_semisolid))
         || (object_is_ancestor(object_index, obj_physicsparent)) {
+        
+            //If "anim" variable exists
+            if (variable_instance_exists(object_index, "anim")) {
+            
+                anim = 0;
+            }
             
             //Stop moving
             image_speed = 0;
             
             //Stop motion
-            gravity = 0;
-            vspeed = 0;
-            hspeed = 0;
+            speed = 0;
+            if (gravity &gt; 0)
+                gravity = 0;
             
             //Stop all alarms
             for (i=0; i&lt;12; i++)

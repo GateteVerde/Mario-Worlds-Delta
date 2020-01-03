@@ -227,7 +227,7 @@ if (held == true) {
         }
     }
     
-    //Release if the player dies
+    //Release if the player does not exist
     if (!instance_exists(obj_playerparent))
     &amp;&amp; (follow == noone)
         held = false;

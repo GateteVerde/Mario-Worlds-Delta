@@ -936,30 +936,36 @@ if (global.mount == 1) {
 
 //Otherwise, if the player carried an item from the previous room
 else if (global.carrieditem != noone) {
-
-    //If the item is a carryable item
-    if (object_get_parent(global.carrieditem) == obj_holdparent) {
     
-        //Create it
-        with (instance_create(x, y, global.carrieditem)) {
+    //Create it
+    with (instance_create(x, y, global.carrieditem)) {
+    
+        //Hold the item
+        held = 1;
         
-            //Hold the item
-            held = 1;
+        //Set up the sprite
+        if (global.carriedsprite != noone) {
+        
+            //Change the sprite
+            sprite_index = global.carriedsprite;
             
-            //Set up the sprite
-            if (global.carriedsprite != noone) {
-            
-                //Change the sprite
-                sprite_index = global.carriedsprite;
-                
-                //Reset sprite
-                global.carriedsprite = noone;    
-            }
+            //Reset sprite
+            global.carriedsprite = noone;    
         }
-        
-        //If the player does exist on the room, force him to hold the item
-        if (instance_exists(obj_playerparent))
-            obj_playerparent.holding = 1;
+    }
+    
+    //Check object to follow
+    event_user(15);
+    
+    //Check if the player exists and make it hold if so.
+    if (instance_exists(obj_playerparent))
+        obj_playerparent.holding = 1;
+    
+    //Otherwise
+    else {
+    
+        if (instance_exists(follow))
+            follow.holding = 1;
     }
     
     //Reset the variable

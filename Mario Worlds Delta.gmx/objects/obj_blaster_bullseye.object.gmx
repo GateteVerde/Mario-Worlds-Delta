@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>9</depth>
   <persistent>0</persistent>
-  <parentName>obj_deactivateparent</parentName>
+  <parentName>obj_blaster_banzai</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -40,11 +40,6 @@ scale = 1;
 
 //Whether the cannon is scaling
 ready = 0;
-
-//Make the blaster solid
-mysolid = instance_create(bbox_left, bbox_top, obj_solid);
-    mysolid.image_xscale = 4;
-    mysolid.image_yscale = 5;
 </string>
           </argument>
         </arguments>
@@ -217,32 +212,6 @@ else if (ready == 2) {
 //Reset bullet id
 if (!instance_exists(mybullet))
     mybullet = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw blaster
-
-draw_sprite_ext(sprite_index, 0, round(x), round(y), scale, scale, 0, c_white, 1);
-draw_sprite_ext(sprite_index, 1, round(x), round(y), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

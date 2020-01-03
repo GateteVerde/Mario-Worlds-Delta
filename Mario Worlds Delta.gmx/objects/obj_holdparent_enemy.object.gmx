@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///The parent object for all enemies
 
+//Inherit event from parent object
+event_inherited();
+
 //How vulnerable is this enemy to items
 //0: Normal
 //1: Immune to fireball
@@ -51,9 +54,6 @@ hitcombo = 0;
 
 //Death Sprite
 deathsprite = spr_koopa_dead;
-
-//Inherit event from parent
-event_inherited();
 </string>
           </argument>
         </arguments>
