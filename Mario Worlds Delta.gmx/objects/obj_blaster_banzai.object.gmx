@@ -100,12 +100,12 @@ else {
                 audio_play_sound(snd_explosion, 0, false);
                 
                 //Create bullet bill
-                with (instance_create(x, y-32, obj_banzaibill)) {
+                with (instance_create(x, y-64, obj_banzaibill)) {
                 
                     xscale = -1;
                     hspeed = -1.5;
-                    with (instance_create(x, y, obj_smoke))
-                        sprite_index = spr_smoke_16;
+                    with (instance_create(x, y+32, obj_smoke))
+                        sprite_index = spr_smoke_64;
                 }
                 
                 //Repeat
@@ -133,12 +133,12 @@ else {
                 audio_play_sound(snd_explosion, 0, false);
                 
                 //Create bullet bill
-                with (instance_create(x, y-32, obj_banzaibill)) {
+                with (instance_create(x, y-64, obj_banzaibill)) {
                 
                     xscale = 1;
                     hspeed = 1.5;
-                    with (instance_create(x, y, obj_smoke))
-                        sprite_index = spr_smoke_16;
+                    with (instance_create(x, y+32, obj_smoke))
+                        sprite_index = spr_smoke_64;
                 }
                 
                 //Repeat

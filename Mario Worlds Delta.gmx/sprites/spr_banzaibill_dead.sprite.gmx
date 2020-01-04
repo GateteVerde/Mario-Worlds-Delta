@@ -2,10 +2,10 @@
 <sprite>
   <type>0</type>
   <xorig>32</xorig>
-  <yorigin>0</yorigin>
-  <colkind>1</colkind>
+  <yorigin>32</yorigin>
+  <colkind>0</colkind>
   <coltolerance>0</coltolerance>
-  <sepmasks>0</sepmasks>
+  <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
   <bbox_right>63</bbox_right>
@@ -20,6 +20,6 @@
   <width>64</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\spr_banzaibill_0.png</frame>
+    <frame index="0">images\spr_banzaibill_dead_0.png</frame>
   </frames>
 </sprite>

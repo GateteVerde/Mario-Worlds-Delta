@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_mario_dead</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -44,6 +44,19 @@ audio_play_sound(bgm_death, 0, false);
 audio_stop_sound(bgm_starman);
 audio_stop_sound(bgm_pswitch);
 
+//Do not animate
+image_speed = 0;
+image_index = 0;
+
+//Subtract a life
+lives--;
+
+//Back
+back = -1;
+
+//Reset powerup
+global.powerup = cs_pow_small;
+
 //Stop both music and timer
 with (obj_levelcontrol) {
 
@@ -62,25 +75,25 @@ with (obj_yoshi) {
         instance_destroy();
 }
 
-//Do not animate
-image_speed = 0;
-image_index = 0;
+//Make following objects invisible
+with (obj_water) visible = 0;
+with (obj_water_tides) visible = 0;
+with (obj_effectsparent) visible = 0;
 
-//Subtract a life
-lives--;
+//Freeze everything on screen
+alarm[0] = 2;
 
-//Perform events
-alarm[0] = 60;
-alarm[1] = 200;
+//Move up if not outside the view
+alarm[1] = 62;
 
-//Reset powerup
-global.powerup = cs_pow_small;
+//Return to retry screen
+alarm[2] = 202;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -120,7 +133,7 @@ else
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -150,6 +163,63 @@ if (y &lt; view_yview[0] + global.gh) {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Freeze all object and begin animation
+
+//Create a screenshot
+back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);
+
+//Deactivate all instances
+instance_deactivate_all(1);
+
+//Activate HUD
+instance_activate_object(obj_hud);
+
+//Activate water tides
+instance_activate_object(obj_water);
+with (obj_water) visible = 1;
+
+//Activate water tides
+instance_activate_object(obj_water_tides);
+with (obj_water_tides) visible = 1;
+
+//Activate effects
+instance_activate_object(obj_effectsparent);
+with (obj_effectsparent) visible = 1;
+
+//Activate rain object
+instance_activate_object(obj_rainmaker);
+with (obj_rainmaker) event_user(0);
+
+//Activate controller object
+instance_activate_object(obj_controller);
+
+//Deactivate particles
+with (obj_rainmaker) event_user(0);
+
+//Make the object visible
+visible = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -167,42 +237,52 @@ if (y &lt; view_yview[0] + global.gh) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Freeze every entity on screen
+            <string>///Cap vertical speed
 
-//Check how many objects are in screen
-for (i=0; i&lt;=instance_count; i++) {
+if (vspeed &gt; 4) {
 
-    //With each instance
-    with (instance_id[i]) {
+    vspeed = 4;
+    gravity = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw the player
+
+//If the animation has been set.
+if (background_exists(back)) {
+
+    //Disable alpha blending.
+    draw_enable_alphablend(0);
     
-        //If the object is ancestor
-        if (object_is_ancestor(object_index, obj_semisolid))
-        || (object_is_ancestor(object_index, obj_physicsparent)) {
-        
-            //If "anim" variable exists
-            if (variable_instance_exists(object_index, "anim")) {
-            
-                anim = 0;
-            }
-            
-            //Stop moving
-            image_speed = 0;
-            
-            //Stop motion
-            speed = 0;
-            if (gravity &gt; 0)
-                gravity = 0;
-            
-            //Stop all alarms
-            for (i=0; i&lt;12; i++)
-                alarm[i] = -1;
-        }
-    }
+    //Draw the screenshot
+    draw_background(back, view_xview[0], view_yview[0]);
+    
+    //Enable alpha blending.
+    draw_enable_alphablend(1);
 }
 
-//Cap vertical speed
-if (vspeed &gt; 4)
-    vspeed = 4;
+//Draw the player
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

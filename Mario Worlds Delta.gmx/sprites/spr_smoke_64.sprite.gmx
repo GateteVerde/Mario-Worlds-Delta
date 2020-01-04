@@ -2,13 +2,13 @@
 <sprite>
   <type>0</type>
   <xorig>32</xorig>
-  <yorigin>0</yorigin>
-  <colkind>1</colkind>
+  <yorigin>32</yorigin>
+  <colkind>0</colkind>
   <coltolerance>0</coltolerance>
-  <sepmasks>0</sepmasks>
+  <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>63</bbox_right>
+  <bbox_left>4</bbox_left>
+  <bbox_right>59</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>63</bbox_bottom>
   <HTile>0</HTile>
@@ -20,6 +20,9 @@
   <width>64</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\spr_banzaibill_0.png</frame>
+    <frame index="0">images\spr_smoke_64_0.png</frame>
+    <frame index="1">images\spr_smoke_64_1.png</frame>
+    <frame index="2">images\spr_smoke_64_2.png</frame>
+    <frame index="3">images\spr_smoke_64_3.png</frame>
   </frames>
 </sprite>

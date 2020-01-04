@@ -40,10 +40,10 @@ stomp = 0;
 edible = 0;
 
 //Death Sprite
-deathsprite = sprite_index;
+deathsprite = spr_bulletbill_dead;
 
 //Stomp sprite
-stompsprite = sprite_index;
+stompsprite = spr_bulletbill_dead;
 
 //Animate
 image_speed = 0;

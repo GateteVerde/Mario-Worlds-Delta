@@ -343,7 +343,10 @@ else if (state == yoshistate.ridden) {
 if (state == yoshistate.idle)
 || (state == yoshistate.runaway) {
 
+    //Inherit event from parent
     event_inherited();
+    
+    //Set up the depth
     if (depth != -2)
         depth = -2;
 }
@@ -760,10 +763,6 @@ if (state == yoshistate.idle) {
     //If there's no gravity
     if (gravity == 0) {
     
-        //Stop horizontal speed
-        if (hspeed != 0)
-            hspeed = 0;
-    
         //If Yoshi is not underwater
         if (swimming == false)
             vspeed = -1.5;
@@ -779,6 +778,16 @@ if (state != yoshistate.ridden) {
 
     //Perform default event
     event_inherited();
+    
+    //Stop horizontal speed
+    if (state == yoshistate.idle) {
+        
+        if (gravity == 0) {
+        
+            if (hspeed != 0)
+                hspeed = 0;
+        }
+    }
     
     //Set facing direction
     if (hspeed &gt; 0)
@@ -1155,7 +1164,7 @@ stateprev = obj_playerparent.state;
 
 //If Yoshi is being ridden
 if (state == yoshistate.ridden) {
-    
+
     //Set up the state
     state = yoshistate.idle;
     
@@ -1166,8 +1175,13 @@ if (state == yoshistate.ridden) {
     //With the player
     if (instance_exists(obj_playerparent)) {
     
+        //Hereby horizontal speed from the player
+        hspeed = obj_playerparent.hspeed/2;
+        
+        //Hereby facing direction from the player
         xscale = obj_playerparent.xscale;
-        hspeed = obj_playerparent.hspeed;
+                
+        //Make the player visible and able to hold stuff
         with (obj_playerparent) {
         
             visible = true;

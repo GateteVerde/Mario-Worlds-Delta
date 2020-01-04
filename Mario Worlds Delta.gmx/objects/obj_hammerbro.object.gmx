@@ -52,7 +52,7 @@ deathsprite = spr_hammerbro_dead;
 stompsprite = spr_hammerbro_dead;
 
 //Animate
-image_speed = 0.1;
+image_speed = 0.2;
 
 //Reverse horizontal speed.
 alarm[1] = 32;
@@ -104,7 +104,7 @@ if (hspeed == 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="6">
+    <event eventtype="2" enumb="7">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -129,7 +129,7 @@ throughsolid = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="5">
+    <event eventtype="2" enumb="6">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -154,6 +154,31 @@ throughsolid = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set default pose
+
+throw = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -172,6 +197,9 @@ throughsolid = 1;
           <argument>
             <kind>1</kind>
             <string>///Throw a hammer
+
+//Play 'Hammer' sound
+audio_play_sound(snd_hammer, 0, false);
 
 //If the player does not exist or the player is at the left
 if (!instance_exists(obj_playerparent))
@@ -192,8 +220,11 @@ else {
     }    
 }
 
-//Set non throw sprite
-throw = false;
+//Set throw pose
+throw = 2;
+
+//Set default pose
+alarm[5] = 7;
 
 //Throw another hammer.
 alarm[3] = 7+random(round(28));
@@ -219,7 +250,7 @@ alarm[3] = 7+random(round(28));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Throw up a hammer
+            <string>///Prepare a hammer to throw
 
 //If there's hammers to throw
 if (hammers &gt; 0) {
@@ -275,14 +306,14 @@ if (collision_rectangle(bbox_left, bbox_top-40, bbox_right, bbox_top-40, obj_blo
     if (floor(random(50)) &lt; 25) {
     
         vspeed = -6;
-        alarm[5] = 2;
-        alarm[6] = 16;
+        alarm[6] = 2;
+        alarm[7] = 16;
     }
     else {
     
         vspeed = -2.5;
-        alarm[5] = 2;
-        alarm[6] = 35;
+        alarm[6] = 2;
+        alarm[7] = 35;
     }
 }
 
@@ -293,16 +324,16 @@ else {
     if (collision_rectangle(bbox_left, bbox_top-40, bbox_right, bbox_top-40, obj_blockparent, 0, 0)) {
     
         vspeed = -6;
-        alarm[5] = 2;
-        alarm[6] = 16;
+        alarm[6] = 2;
+        alarm[7] = 16;
     }
     
     //Otherwise, if they are below
     else if (collision_rectangle(bbox_left, bbox_bottom+8, bbox_right, bbox_bottom+8, obj_blockparent, 0, 0)) {
     
         vspeed = -2.5;
-        alarm[5] = 2;
-        alarm[6] = 35;
+        alarm[6] = 2;
+        alarm[7] = 35;
     }
     else
         vspeed = -6;
@@ -367,27 +398,24 @@ alarm[1] = 60;
             <string>///Hammer bro animation
 
 //If not jumping
-if (gravity == 0) {
+if (throw == 0) {
 
     //Animate
-    image_speed = 0.1;
+    image_speed = 0.2;
 
-    //If not throwing a hammer
-    if (throw == 0)
-        sprite_index = spr_hammerbro;
-    else
-        sprite_index = spr_hammerbro_throw;
+    //Set default sprite
+    sprite_index = spr_hammerbro;
 }
 
 //Otherwise, if jumping
-else if (gravity &gt; 0) {
+else if (throw) {
 
     //Set sprite
-    sprite_index = spr_hammerbro_jump;
+    sprite_index = spr_hammerbro_throw;
     
     //Do not animate
     image_speed = 0;
-    image_index = throw;
+    image_index = throw-1;
 }
 </string>
           </argument>

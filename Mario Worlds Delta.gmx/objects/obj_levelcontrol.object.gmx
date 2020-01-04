@@ -32,7 +32,6 @@
 **
 **  inisection      = The ini section to check up
 **  leveltime       = The time limit in seconds (Optional)
-**  palette         = The level floor palette
 */
 
 //Default values
@@ -254,15 +253,15 @@ if (global.time &gt; 0) {
     global.time--;
     
     //Decrement again after a second
-    alarm[2] = 50;
+    alarm[2] = 60;
     
     //If there's 101 seconds left, play 'Hurry' sound
     if (global.time == 101)
-        alarm[3] = 50;
+        alarm[3] = 60;
         
     //Otherwise, if there's 1 second left
     else if (global.time == 1)
-        alarm[4] = 51;
+        alarm[4] = 61;
 }
 </string>
           </argument>
@@ -883,7 +882,7 @@ if (leveltime &gt; 0)
 
     global.time = leveltime;
     if (global.time &lt; 101)
-        alarm[3] = 50;
+        alarm[3] = 60;
 }
 
 //If the player just started the level

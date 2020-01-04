@@ -149,8 +149,45 @@ alarm[11] = 60 + random(round(60));
 //Inherit event
 event_inherited();
 
+//Generate bubbles
+alarm[1] = 2;
+
 //Change direction
 alarm[11] = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate bubble
+
+//Repeat the process
+alarm[1] = 4;
+
+//If blowing
+if (sprite_index == spr_ptooie_blow) {
+    
+    //Create effect
+    with (instance_create(x, bbox_top-4, obj_ptooie_bubble))
+        parent = other.id;
+}
 </string>
           </argument>
         </arguments>
