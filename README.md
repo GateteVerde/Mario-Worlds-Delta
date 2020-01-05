@@ -7,3 +7,17 @@ Mario Worlds Delta is a open-source Mario engine for Game Maker: Studio 1.4 and 
 - Super Mario Maker 2
 
 This engine is licensed under the BSD 3-Clause.
+
+------------------------------------------------------------------------------------------
+
+They told me to credit the following people:
+
+AmazingAlien
+Mack
+Mors
+ShibaM
+
+
+------------------------------------------------------------------------------------------
+
+Play SMC kthxbai :3
