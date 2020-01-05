@@ -390,10 +390,8 @@ if (state == 0) {
     
         sprite_index = spr_wiggler_flower;
         image_xscale = other.xscale;
-        hspeed = 0.5;
         vspeed = -4;
         nospin = 1;
-        alarm[0] = 4;
     }
         
     //Stop movement

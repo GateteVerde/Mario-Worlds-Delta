@@ -648,6 +648,7 @@
           <sprite>sprites\spr_bulletbill_dead</sprite>
           <sprite>sprites\spr_blaster_missile</sprite>
           <sprite>sprites\spr_missilebill</sprite>
+          <sprite>sprites\spr_missilebill_mask</sprite>
           <sprite>sprites\spr_missilebill_dead</sprite>
         </sprites>
         <sprites name="Banzai Bill">
@@ -755,6 +756,7 @@
           <sprite>sprites\spr_ring_b</sprite>
           <sprite>sprites\spr_sparkle</sprite>
           <sprite>sprites\spr_sparkle_blue</sprite>
+          <sprite>sprites\spr_sparkle_colour</sprite>
         </sprites>
         <sprites name="Scores">
           <sprite>sprites\spr_10pts</sprite>
@@ -1549,6 +1551,7 @@
             <object>objects\obj_ring_pow</object>
             <object>objects\obj_ring_coin</object>
             <object>objects\obj_sparkle</object>
+            <object>objects\obj_sparkle_colour</object>
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>

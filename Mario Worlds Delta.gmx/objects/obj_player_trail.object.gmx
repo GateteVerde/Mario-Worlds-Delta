@@ -31,10 +31,15 @@
 image_speed = 0;
 
 //Alpha
-alpha = 0.5;
+alpha = 0.25;
 
 //Palette
 pal = 1;
+
+//Y fix
+yy = 0;
+if (global.mount == 1)
+    yy = obj_yoshi.m_ypos;
 </string>
           </argument>
         </arguments>
@@ -59,8 +64,8 @@ pal = 1;
             <kind>1</kind>
             <string>///Manage alpha
 
-alpha -= 0.025;
-if (alpha &lt; 0.025)
+alpha -= 0.0125;
+if (alpha &lt; 0.0125)
     instance_destroy();
 </string>
           </argument>
@@ -91,7 +96,7 @@ pal_swap_set(spr_palette_invincibility, pal);
 
 //Draw the sprite
 if (global.mount == 1)
-    draw_sprite_ext(obj_yoshi.m, obj_yoshi.f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-7+obj_yoshi.m_ypos, image_xscale, 1, image_angle, c_white, alpha);
+    draw_sprite_ext(obj_yoshi.m, obj_yoshi.f, round(x)-(6*sign(image_xscale)), round(y)-7+yy, image_xscale, 1, image_angle, c_white, alpha);
 else
     draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, image_angle, c_white, alpha);
 

@@ -480,14 +480,15 @@ else if (state == yoshistate.ridden) {
 //If Yoshi is idle
 if (state == yoshistate.idle) {
 
+    //Set the sprite
+    sprite_index = spr_yoshi_idle;
+
     //Do not animate
     image_speed = 0;    
     
     //Set up the sprite
     if (mouthholder != noone)
-        sprite_index = spr_yoshi_fullmouth
-    else
-        sprite_index = spr_yoshi_idle;
+        image_index = 2;
 }
 
 //Otherwise, if Yoshi is running away
@@ -1565,6 +1566,20 @@ if (state != yoshistate.ridden) {
     
     //Reset shader
     pal_swap_reset();
+    
+    //Draw yoshi's wing
+    if (mouthholder == obj_shell) 
+    &amp;&amp; (instance_number(obj_tongue) == 0) {
+    
+        if (colour == 3)
+        || (mouthsprite == spr_shell_blue) {
+        
+            if (state == yoshistate.idle)
+                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+4, xscale, 1, 0, c_white, 1);
+            else
+                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+        }
+    }
 }
 
 else if (state == yoshistate.ridden) {
