@@ -412,7 +412,8 @@ else if (state == yoshistate.ridden) {
         depth = obj_playerparent.depth;
         
         //Manage yoshi state
-        if (mouthholder != noone) then event_user(2);
+        if (mouthholder) 
+            event_user(2);
         
         //Set mask to big
         obj_playerparent.mask_index = spr_mask_player_big;
@@ -1067,7 +1068,7 @@ pal_swap_reset();
             <kind>1</kind>
             <string>///Check what shell does have yoshi on his mouth and give abilities
 
-if (mouthholder == obj_shell) 
+if (mouthholder == obj_shell)
 &amp;&amp; (instance_number(obj_tongue) == 0) {
     
     //If yoshi is yellow or has a yellow shell in mouth
@@ -1086,7 +1087,8 @@ if (mouthholder == obj_shell)
     }
     
     //If yoshi is blue or has a blue shell in mouth
-    if (colour == 3) {
+    else if (colour == 3) 
+    || (mouthsprite == spr_shell_blue) {
     
         //If 'Shift' is being held outside water
         if (keyboard_check(global.key_action[0])) 
@@ -1138,6 +1140,10 @@ if (mouthholder == obj_shell)
 
 //Remember last state
 stateprev = obj_playerparent.state;
+
+//Turn kicked shells into holdable shells
+if (mouthholder == obj_shell_kicked)
+    mouthholder = obj_shell;
 </string>
           </argument>
         </arguments>
@@ -1322,7 +1328,7 @@ if (mouthholder != noone) {
         //If the item held on yoshi's mouth is a shell
         if (mouthholder == obj_shell) {
         
-            //If this is a red yoshi
+            //If this is a red yoshi or the shell is a red one
             if (colour == 1)
             || (mouthsprite == spr_shell_red)
                 mouthholder = obj_yoshi_fire;
@@ -1411,7 +1417,7 @@ if (mouthholder != noone) {
                 }
                 
                 //If the eaten item is a shell
-                else if (sprite_index == spr_shell) {
+                else if (sprite_index == spr_shell) || (sprite_index == spr_shell_blue) {
                 
                     //Set the horizontal speed
                     prevhspeed = (2.7+abs(obj_playerparent.hspeed/4))*obj_playerparent.xscale;
@@ -1583,6 +1589,7 @@ else if (state == yoshistate.ridden) {
         &amp;&amp; (instance_number(obj_tongue) == 0) {
         
             if (colour == 3)
+            || (mouthsprite == spr_shell_blue)
                 draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+1+(3*obj_playerparent.crouch), obj_playerparent.xscale, 1, 0, c_white, 1);
         }
     }
@@ -1602,7 +1609,8 @@ else if (state == yoshistate.ridden) {
             //Draw wings
             if (mouthholder == obj_shell) {
             
-                if (colour == 3) {
+                if (colour == 3) 
+                || (mouthsprite == spr_shell_blue) {
                 
                     draw_sprite_ext(spr_koopa_wing, 0, round(x)+12, round(y), 1, 1, 0, c_white, 1);
                     draw_sprite_ext(spr_koopa_wing, 0, round(x)-12, round(y), -1, 1, 0, c_white, 1);
@@ -1658,6 +1666,7 @@ else if (state == yoshistate.ridden) {
         if (mouthholder == obj_shell) {
         
             if (colour == 3)
+            || (mouthsprite == spr_shell_blue)
                 draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1+(3*obj_playerparent.crouch), obj_playerparent.xscale, 1, 0, c_white, 1);
         }
     }

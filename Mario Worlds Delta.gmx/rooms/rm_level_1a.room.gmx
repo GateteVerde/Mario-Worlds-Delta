@@ -4,7 +4,7 @@
   <width>2320</width>
   <height>240</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -66,8 +66,6 @@
     <instance objName="obj_solid" x="2128" y="192" name="inst_F0CF5C77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="864" y="112" name="inst_10F58346" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="816" y="160" name="inst_4B65599E" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_koopa_red" x="952" y="96" name="inst_76D68B52" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_koopa_red" x="984" y="144" name="inst_BD8CCC26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1040" y="160" name="inst_978BBF60" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1072" y="112" name="inst_2C3286ED" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1104" y="144" name="inst_AF346E26" locked="0" code="" scaleX="2" scaleY="4" colour="4294967295" rotation="0"/>
@@ -137,6 +135,14 @@
     <instance objName="obj_qblock" x="352" y="144" name="inst_92A11B4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="336" y="80" name="inst_93B2E9DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower_alt" x="320" y="144" name="inst_605F9B39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_blue" x="360" y="128" name="inst_5CFBBBEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wiggler" x="904" y="192" name="inst_DEAB02DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wiggler" x="952" y="144" name="inst_26FB341D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_blue" x="264" y="192" name="inst_4EE1F990" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="128" y="144" name="inst_1D95E04F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa" x="328" y="128" name="inst_20163B88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_red" x="448" y="192" name="inst_6EA91A91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_egg_rainbow" x="128" y="144" name="inst_CD68F78D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="96" y="80" w="32" h="32" xo="208" yo="96" id="10011892" name="inst_8AF4F62D" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

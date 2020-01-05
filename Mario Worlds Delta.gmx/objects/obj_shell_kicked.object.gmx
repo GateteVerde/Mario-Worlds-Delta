@@ -57,6 +57,9 @@ harmplayer = 0;
 //Whether this shell is falling through one tile gaps
 fall = 0;
 
+//Unused
+held = 0;
+
 //Animate
 image_speed = 0.3;
 
@@ -173,6 +176,10 @@ exit;
 //Red Koopa
 if (sprite_index == spr_shell_red)
     deathsprite = spr_koopa_red_dead;
+    
+//Blue Koopa
+else if (sprite_index == spr_shell_blue)
+    deathsprite = spr_koopa_blue_dead;
     
 //Gargantua Green Koopa
 else if (sprite_index == spr_shell_big) {

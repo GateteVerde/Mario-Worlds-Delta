@@ -572,6 +572,19 @@
           <sprite>sprites\spr_beachkoopa_red_sq</sprite>
           <sprite>sprites\spr_beachkoopa_red_dead</sprite>
         </sprites>
+        <sprites name="Blue">
+          <sprites name="Shells">
+            <sprite>sprites\spr_shell_blue</sprite>
+          </sprites>
+          <sprite>sprites\spr_koopa_blue</sprite>
+          <sprite>sprites\spr_koopa_blue_turn</sprite>
+          <sprite>sprites\spr_koopa_blue_dead</sprite>
+          <sprite>sprites\spr_beachkoopa_blue</sprite>
+          <sprite>sprites\spr_beachkoopa_blue_walk</sprite>
+          <sprite>sprites\spr_beachkoopa_blue_kick</sprite>
+          <sprite>sprites\spr_beachkoopa_blue_sq</sprite>
+          <sprite>sprites\spr_beachkoopa_blue_dead</sprite>
+        </sprites>
         <sprite>sprites\spr_koopa_wing</sprite>
         <sprite>sprites\spr_koopa_inside</sprite>
         <sprite>sprites\spr_koopa_inside_big</sprite>
@@ -1247,6 +1260,10 @@
           <object>objects\obj_koopa_red</object>
           <object>objects\obj_parakoopa_red</object>
           <object>objects\obj_beachkoopa_red</object>
+        </objects>
+        <objects name="Blue">
+          <object>objects\obj_koopa_blue</object>
+          <object>objects\obj_beachkoopa_blue</object>
         </objects>
       </objects>
       <object>objects\obj_rex</object>
