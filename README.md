@@ -12,11 +12,10 @@ This engine is licensed under the BSD 3-Clause.
 
 They told me to credit the following people:
 
-AmazingAlien
-Mack
-Mors
-ShibaM
-
+- AmazingAlien
+- Mack
+- Mors
+- ShibaM
 
 ------------------------------------------------------------------------------------------
 
