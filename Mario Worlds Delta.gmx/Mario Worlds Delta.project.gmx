@@ -388,6 +388,7 @@
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
       <sprite>sprites\spr_coin_ace_get</sprite>
+      <sprite>sprites\spr_coin_alt</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
       <sprite>sprites\spr_feather</sprite>
@@ -754,9 +755,6 @@
           </sprites>
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_ring_b</sprite>
-          <sprite>sprites\spr_sparkle</sprite>
-          <sprite>sprites\spr_sparkle_blue</sprite>
-          <sprite>sprites\spr_sparkle_colour</sprite>
         </sprites>
         <sprites name="Scores">
           <sprite>sprites\spr_10pts</sprite>
@@ -799,6 +797,7 @@
         <sprite>sprites\spr_smoke_32</sprite>
         <sprite>sprites\spr_smoke_48</sprite>
         <sprite>sprites\spr_smoke_64</sprite>
+        <sprite>sprites\spr_sparkle</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
@@ -1419,7 +1418,6 @@
             <object>objects\obj_player_transform</object>
             <object>objects\obj_player_dead</object>
             <object>objects\obj_player_door</object>
-            <object>objects\obj_player_trail</object>
           </objects>
           <objects name="Special">
             <object>objects\obj_mario</object>
@@ -1549,9 +1547,6 @@
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_1up</object>
             <object>objects\obj_ring_pow</object>
-            <object>objects\obj_ring_coin</object>
-            <object>objects\obj_sparkle</object>
-            <object>objects\obj_sparkle_colour</object>
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>
@@ -1565,13 +1560,14 @@
           <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>
-          <object>objects\obj_spinsmoke</object>
-          <object>objects\obj_spinthump</object>
           <object>objects\obj_shellthump</object>
           <object>objects\obj_smoke</object>
           <object>objects\obj_smoke_water</object>
           <object>objects\obj_snow</object>
+          <object>objects\obj_sparkle</object>
+          <object>objects\obj_spinsmoke</object>
           <object>objects\obj_spinstar</object>
+          <object>objects\obj_spinthump</object>
         </objects>
         <objects name="System">
           <object>objects\obj_audio_loop_sound</object>

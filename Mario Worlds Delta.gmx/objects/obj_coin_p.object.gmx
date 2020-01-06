@@ -97,14 +97,7 @@ if (visible == 1) {
     score += 10;
     
     //Create a sparkle
-    repeat (4) {
-    
-        with (instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle))
-            sprite_index = spr_sparkle_blue;
-    }
-    
-    //Create a ring effect
-    with (instance_create(x+8, y+8, obj_ring_coin)) image_blend = make_colour_rgb(41, 206, 255);
+    instance_create(x+8, y+8, obj_sparkle);
     
     //Destroy
     instance_destroy();

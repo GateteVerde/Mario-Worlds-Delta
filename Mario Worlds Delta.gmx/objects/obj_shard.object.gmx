@@ -27,14 +27,12 @@
             <kind>1</kind>
             <string>///Brick block shard
 
-//Do not animate
+//Animate
 image_speed = 0;
 
 //Check shard sprite
 isflashing = 0;
 alarm[0] = 1;
-
-
 </string>
           </argument>
         </arguments>
@@ -66,6 +64,10 @@ if (sprite_index == spr_shard_blue) {
     if (isflashing &gt; (pal_swap_get_pal_count(spr_palette_brick_blue)-1))
         isflashing = 0;
 }
+else if (sprite_index == spr_egg_shard)
+    image_speed = 0;
+else
+    image_speed = 0.15;
 </string>
           </argument>
         </arguments>
@@ -89,9 +91,6 @@ if (sprite_index == spr_shard_blue) {
           <argument>
             <kind>1</kind>
             <string>///Shard logic
-
-//Set up the angle
-image_angle += 6*sign(hspeed)*-1;
 
 //Cap horizontal speed
 hspeed = 1*sign(hspeed);
@@ -134,7 +133,7 @@ if (isflashing &gt; 0) {
 }
 
 //Draw it
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, image_angle, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
 
 //Reset shader
 pal_swap_reset();

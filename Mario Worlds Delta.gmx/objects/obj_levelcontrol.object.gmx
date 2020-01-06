@@ -66,6 +66,9 @@ ready = 0;
 //Object to follow
 follow = noone;
 
+//P-SWitch warning
+warning = 0;
+
 //Create HUD
 instance_create(0, 0, obj_hud);
 </string>
@@ -518,6 +521,25 @@ if (global.coins &gt; 99) {
     //Get 1-UP
     lives++;
 }
+
+//Warn the player that the p-switch is running out
+if (switchon) {
+    
+    //If the p-switch effect will last less than 2 seconds, warn the player
+    if (warning == 0)
+    &amp;&amp; ((alarm[6] &gt;= 31) &amp;&amp; (alarm[6] &lt; 120)) {
+    
+        //Play 'Switch Timer' sound
+        audio_play_sound(snd_switchtimer, 0, false);
+        
+        //Warn
+        warning = 1;
+    }
+    else if ((warning == 1) &amp;&amp; (alarm[6] &gt; 120))
+        warning = 0;
+}
+else
+warning = 0;
 
 //Drop reserve item
 if (instance_exists(obj_playerparent))
@@ -979,11 +1001,6 @@ if (global.pswitch &gt; 0) {
 
     //Set the timer, and make sure it is not too short
     alarm[6] = max(global.pswitch, 30);
-    
-    //Play warning sound if there's 0.5 and 2 seconds left of effect
-    if (global.pswitch &gt; 29) 
-    &amp;&amp; (global.pswitch &lt; 121)
-        audio_play_sound(snd_switchtimer, 0, false);
 
     //Reset the variable
     global.pswitch = 0;

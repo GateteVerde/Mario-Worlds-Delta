@@ -35,6 +35,9 @@ image_speed = 0.15;
 
 //Apply physics if ready
 ready = 0;
+
+//Bounce in ground, there's no need to modify this variable
+bouncy = 0;
 </string>
           </argument>
         </arguments>
@@ -58,9 +61,6 @@ ready = 0;
           <argument>
             <kind>1</kind>
             <string>///Destroy
-
-//Play 'Bump' sound
-audio_play_sound(snd_bump, 0, false);
 
 //Create smoke effect
 with (instance_create(x+8, y+8, obj_smoke)) sprite_index = spr_smoke_16;
@@ -143,8 +143,14 @@ if (ready == 1)
             <kind>1</kind>
             <string>///Apply physics if ready
 
-if (ready == 1)
+if (ready == 1) {
+
+    //Inherit event from coin
     event_inherited();
+    
+    //Bounce if needed
+    
+}
 </string>
           </argument>
         </arguments>
@@ -172,10 +178,15 @@ if (ready == 1)
 //If not ready
 if (ready == 0) {
 
+    //Set horizontal speed
+    hspeed = random_range(1, -1);
+    
+    //Apply gravity
     ready = 1;
+    
+    //Blink and destroy
     alarm[0] = 240;
     alarm[1] = 360;
-    image_speed = 0.2;
 }
 </string>
           </argument>
@@ -266,13 +277,7 @@ global.coins++;
 score += 10;
 
 //Create a sparkle
-repeat (4) {
-
-    instance_create(x-4+random(round(20)), y-4+random(round(20)), obj_sparkle);
-}
-
-//Create a ring effect
-instance_create(x+8, y+8, obj_ring_coin);
+instance_create(x+8, y+8, obj_sparkle);
 
 //Destroy
 instance_destroy();

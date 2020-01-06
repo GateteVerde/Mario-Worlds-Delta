@@ -28,10 +28,7 @@
             <string>///Sparkle
 
 //Animate
-image_speed = 0.4;
-
-//Colour
-col = 0;
+image_speed = 0.15;
 </string>
           </argument>
         </arguments>
@@ -54,7 +51,7 @@ col = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set fricition
+            <string>///Apply friction
 
 friction = 0.05;
 </string>
@@ -82,38 +79,6 @@ friction = 0.05;
             <string>///Destroy
 
 instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw ring
-
-//Set blend mode
-draw_set_blend_mode(bm_add);
-
-//Draw ring
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, image_blend, 1);
-
-//Reset blend mode
-draw_set_blend_mode(bm_normal);
 </string>
           </argument>
         </arguments>

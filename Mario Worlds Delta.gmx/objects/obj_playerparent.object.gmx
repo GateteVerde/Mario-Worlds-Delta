@@ -133,6 +133,7 @@ dir = 1;
 //Begin alarms
 alarm[3] = 1;
 alarm[4] = 1;
+alarm[6] = 1;
 alarm[8] = 1;
 alarm[11] = 1;
 
@@ -399,6 +400,51 @@ if (depth != -5)
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Update palette
+
+if (instance_exists(obj_invincibility)) {
+    
+    //Increment isflashing and reset it if required
+    isflashing++;
+    if (isflashing &gt; 3) {
+    
+        isflashing = 0;
+    }
+    
+    //If the invincibility timer is greater than 2 seconds
+    if (obj_invincibility.alarm[0] &gt; 120)
+        alarm[6] = 1;
+    else
+        alarm[6] = 4;
+}
+else {
+
+    isflashing = 0;
+    alarm[6] = 1;
+    exit;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -568,27 +614,6 @@ if (boostme &gt; 0) {
     //Force decrement it when stopped
     if (abs(hspeed) &lt; hspeed_run_full)
         boostme = 0;
-}
-
-//Update palette
-if (instance_exists(obj_invincibility)) {
-
-    if (obj_invincibility.alarm[0] &gt; 120) {
-    
-        isflashing += 0.1;
-        if (isflashing &gt; 6)
-            isflashing = 1;
-    }
-    else {
-    
-        isflashing += 0.025;
-        if (isflashing &gt; 6)
-            isflashing = 1;
-    }
-}
-else {
-
-    isflashing = 0;
 }
 
 //If gravity is enabled

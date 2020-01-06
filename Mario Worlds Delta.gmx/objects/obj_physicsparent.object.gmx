@@ -409,7 +409,8 @@ if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_s
     if (vspeed &gt; 0) {
     
         //If this object is not ancestor of obj_holdparent
-        if (!object_is_ancestor(object_index, obj_holdparent))
+        if (!variable_instance_exists(object_index, "bouncy"))
+        &amp;&amp; (!object_is_ancestor(object_index, obj_holdparent))
         || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
             vspeed = 0;
         else {

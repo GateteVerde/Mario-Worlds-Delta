@@ -353,7 +353,7 @@ if (hunger == 0) &amp;&amp; (ready == 0) {
             &amp;&amp; (other.sprite_index != spr_shell_spiny) {
             
                 //If the yoshi is a red one, put fire inside
-                if (global.mountcolour = 1)
+                if (obj_yoshi.colour = 1)
                     obj_yoshi.mouthholder = obj_yoshi_fire;
                 
                 //Otherwise,
@@ -436,7 +436,7 @@ if (hunger == 0) &amp;&amp; (ready == 0) {
             &amp;&amp; (other.sprite_index != spr_shell_spiny) {
             
                 //If the yoshi is a red one, put fire inside
-                if (global.mountcolour = 1)
+                if (obj_yoshi.colour = 1)
                 || (other.sprite_index == spr_shell_red)
                     obj_yoshi.mouthholder = obj_yoshi_fire;
                 

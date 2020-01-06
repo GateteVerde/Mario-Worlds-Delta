@@ -95,11 +95,11 @@ else {
                     audio_play_sound(snd_explosion, 0, false);
                     
                     //Create missile bill
-                    mybullet = instance_create(x+8, y+8, obj_missilebill);                    
+                    mybullet = instance_create(x+8, y, obj_missilebill);                    
                     with (mybullet) {
                     
                         hspeed = -2;
-                        with (instance_create(x, y, obj_smoke))
+                        with (instance_create(x, y-8, obj_smoke))
                             sprite_index = spr_smoke_16;
                     }
                     
@@ -125,11 +125,11 @@ else {
                     audio_play_sound(snd_explosion, 0, false);
                     
                     //Create missile bill
-                    mybullet = instance_create(x+8, y+8, obj_missilebill);
+                    mybullet = instance_create(x+8, y, obj_missilebill);
                     with (mybullet) {
 
                         hspeed = 2;
-                        with (instance_create(x, y, obj_smoke))
+                        with (instance_create(x, y-8, obj_smoke))
                             sprite_index = spr_smoke_16;
                     }
                     

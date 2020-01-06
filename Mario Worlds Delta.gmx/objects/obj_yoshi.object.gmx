@@ -454,7 +454,11 @@ else if (state == yoshistate.ridden) {
     }
 }
 
-
+//Force end flying sound if not holding anything on the mouth
+if (audio_is_playing(snd_lick))
+&amp;&amp; (flying == 1)
+&amp;&amp; (mouthholder == noone)
+    audio_stop_sound(snd_lick);
 </string>
           </argument>
         </arguments>
@@ -1088,7 +1092,7 @@ if (mouthholder == obj_shell)
     }
     
     //If yoshi is blue or has a blue shell in mouth
-    else if (colour == 3) 
+    if (colour == 3) 
     || (mouthsprite == spr_shell_blue) {
     
         //If 'Shift' is being held outside water
@@ -1682,7 +1686,7 @@ else if (state == yoshistate.ridden) {
         
             if (colour == 3)
             || (mouthsprite == spr_shell_blue)
-                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1+(3*obj_playerparent.crouch), obj_playerparent.xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1, obj_player_door.image_xscale, 1, 0, c_white, 1);
         }
     }
 }
