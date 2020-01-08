@@ -121,6 +121,8 @@
     <sound>sound\snd_lick</sound>
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
+    <sound>sound\snd_move</sound>
+    <sound>sound\snd_openpath</sound>
     <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
@@ -477,6 +479,7 @@
       <sprite>sprites\spr_onoffplatform_blue</sprite>
       <sprite>sprites\spr_walltrampoline</sprite>
       <sprite>sprites\spr_walltrampoline_end</sprite>
+      <sprite>sprites\spr_crate</sprite>
       <sprite>sprites\spr_pblock</sprite>
       <sprite>sprites\spr_pblock_off</sprite>
       <sprite>sprites\spr_spikeblock</sprite>
@@ -584,6 +587,7 @@
           <sprite>sprites\spr_beachkoopa_blue_walk</sprite>
           <sprite>sprites\spr_beachkoopa_blue_kick</sprite>
           <sprite>sprites\spr_beachkoopa_blue_sq</sprite>
+          <sprite>sprites\spr_beachkoopa_blue_slide</sprite>
           <sprite>sprites\spr_beachkoopa_blue_dead</sprite>
         </sprites>
         <sprite>sprites\spr_koopa_wing</sprite>
@@ -671,6 +675,49 @@
       <sprite>sprites\spr_grayrus</sprite>
       <sprite>sprites\spr_grayrus_turn</sprite>
       <sprite>sprites\spr_grayrus_dead</sprite>
+    </sprites>
+    <sprites name="World Map">
+      <sprites name="Playable Characters">
+        <sprites name="Mario">
+          <sprites name="Yoshi">
+            <sprite>sprites\spr_mapmario_yoshi</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_up</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_side</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_water</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_water_up</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_water_side</sprite>
+          </sprites>
+          <sprite>sprites\spr_mapmario</sprite>
+          <sprite>sprites\spr_mapmario_up</sprite>
+          <sprite>sprites\spr_mapmario_side</sprite>
+          <sprite>sprites\spr_mapmario_water</sprite>
+          <sprite>sprites\spr_mapmario_water_up</sprite>
+          <sprite>sprites\spr_mapmario_water_side</sprite>
+          <sprite>sprites\spr_mapmario_climb</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Paths">
+        <sprite>sprites\spr_path_node</sprite>
+        <sprite>sprites\spr_path_h</sprite>
+        <sprite>sprites\spr_path_v</sprite>
+        <sprite>sprites\spr_path_dia_r</sprite>
+        <sprite>sprites\spr_path_dia_l</sprite>
+        <sprite>sprites\spr_path_dia2_r</sprite>
+        <sprite>sprites\spr_path_dia2_l</sprite>
+        <sprite>sprites\spr_path_dia3_r</sprite>
+        <sprite>sprites\spr_path_dia3_l</sprite>
+        <sprite>sprites\spr_path_point_l</sprite>
+        <sprite>sprites\spr_path_point_r</sprite>
+        <sprite>sprites\spr_path_point_u</sprite>
+        <sprite>sprites\spr_path_point_d</sprite>
+        <sprite>sprites\spr_path_corner_ul</sprite>
+        <sprite>sprites\spr_path_corner_ur</sprite>
+        <sprite>sprites\spr_path_corner_dr</sprite>
+        <sprite>sprites\spr_path_corner_dl</sprite>
+        <sprite>sprites\spr_path_ladder</sprite>
+      </sprites>
+      <sprite>sprites\spr_modifier</sprite>
+      <sprite>sprites\spr_opener</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -856,6 +903,7 @@
       </sprites>
       <sprites name="Masks">
         <sprites name="Player">
+          <sprite>sprites\spr_mapmask</sprite>
           <sprite>sprites\spr_boundary_top</sprite>
           <sprite>sprites\spr_boundary_bottom</sprite>
           <sprite>sprites\spr_boundary_left</sprite>
@@ -1206,6 +1254,7 @@
       <object>objects\obj_onoffplatform_red</object>
       <object>objects\obj_onoffplatform_blue</object>
       <object>objects\obj_walltrampoline</object>
+      <object>objects\obj_crate</object>
       <object>objects\obj_spikeblock</object>
       <object>objects\obj_spikeblock_g</object>
       <object>objects\obj_spikeblock_red</object>
@@ -1312,6 +1361,31 @@
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
     </objects>
+    <objects name="World Map">
+      <object>objects\obj_mapmanager</object>
+      <object>objects\obj_mapplayer</object>
+      <objects name="Paths">
+        <object>objects\obj_node</object>
+        <object>objects\obj_path_h</object>
+        <object>objects\obj_path_v</object>
+        <object>objects\obj_path_dia_r</object>
+        <object>objects\obj_path_dia_l</object>
+        <object>objects\obj_path_dia2_r</object>
+        <object>objects\obj_path_dia2_l</object>
+        <object>objects\obj_path_dia3_r</object>
+        <object>objects\obj_path_dia3_l</object>
+        <object>objects\obj_path_point_l</object>
+        <object>objects\obj_path_point_r</object>
+        <object>objects\obj_path_point_u</object>
+        <object>objects\obj_path_point_d</object>
+        <object>objects\obj_path_corner_ul</object>
+        <object>objects\obj_path_corner_ur</object>
+        <object>objects\obj_path_corner_dr</object>
+        <object>objects\obj_path_corner_dl</object>
+        <object>objects\obj_path_ladder</object>
+      </objects>
+      <object>objects\obj_modifier</object>
+    </objects>
     <objects name="Decoration">
       <objects name="Liquids">
         <objects name="Lava">
@@ -1401,6 +1475,9 @@
           </objects>
           <object>objects\obj_modparent</object>
           <object>objects\obj_blockparent</object>
+        </objects>
+        <objects name="In-Map Parents">
+          <object>objects\obj_pathparent</object>
         </objects>
         <object>objects\obj_effectsparent</object>
         <object>objects\obj_iceparent</object>
@@ -1538,6 +1615,9 @@
           </objects>
           <object>objects\obj_hammerbro_hammer</object>
         </objects>
+        <objects name="World Map">
+          <object>objects\obj_mapopener</object>
+        </objects>
         <objects name="Decoration">
           <object>objects\obj_light_lava_top</object>
           <object>objects\obj_light_lava_bottom</object>
@@ -1595,10 +1675,10 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_title</room>
+    <room>rooms\rm_worldmap</room>
     <rooms name="Levels">
       <rooms name="Level 1">
         <room>rooms\rm_level_1a</room>
-        <room>rooms\rm_level_1b</room>
       </rooms>
     </rooms>
     <rooms name="Special Screens">

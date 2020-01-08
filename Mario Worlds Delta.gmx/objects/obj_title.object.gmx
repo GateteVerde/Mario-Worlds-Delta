@@ -162,6 +162,7 @@ background_vspeed[0] = 0.25;
             <kind>1</kind>
             <string>///Go to the engine test
 
+//If 'Action 4' is pressed
 if (keyboard_check_pressed(global.key_action[3])) {
 
     //Stop 'Title' music
@@ -178,6 +179,19 @@ if (keyboard_check_pressed(global.key_action[3])) {
     
     //Go to the engine test
     room_goto(rm_levelstart);
+}
+
+//Otherwise, if 'M' is pressed, go to the world map test
+else if (keyboard_check_pressed(ord('M'))) {
+
+    //Stop 'Title' music
+    audio_stop_sound(bgm_title);
+    
+    //Play 'Correct' sound
+    audio_play_sound(snd_correct, 0, false);
+    
+    //Go to the map test
+    room_goto(rm_worldmap);    
 }
 </string>
           </argument>

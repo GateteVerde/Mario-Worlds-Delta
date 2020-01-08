@@ -258,6 +258,9 @@ instance_deactivate_all(1);
 //Activate HUD
 instance_activate_object(obj_hud);
 
+//Activate music player
+instance_activate_object(obj_audio_loop_sound);
+
 //Activate cape
 instance_activate_object(obj_cape);
 with (obj_cape) image_alpha = 0;
