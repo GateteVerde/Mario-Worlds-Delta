@@ -28,7 +28,7 @@
             <string>///It's the player... on the map!
 
 //Animate the object
-image_speed = 0.15;
+image_speed = 0.125;
 
 //Whether the object is moving
 status = 'IDLE';
@@ -51,6 +51,9 @@ is_climbing = 0;
 
 //Whether the player is swimming
 is_swimming = 0;
+
+//Scale
+xscale = 1;
 </string>
           </argument>
         </arguments>
@@ -78,8 +81,14 @@ is_swimming = 0;
 //If climbing
 if (is_climbing) {
 
-    sprite_index = spr_mapmario_climb;
+    //Set up the scale
     xscale = 1;
+    
+    //If the player is riding a yoshi
+    if (global.mount != 0)
+        sprite_index = player_map_up();
+    else
+        sprite_index = player_map_climb();    
 }
 
 //Otherwise, if not climbing
@@ -89,43 +98,36 @@ else {
     if (direct == 270)
     || (status == 'IDLE') {
     
+        //Set up the sprite
+        sprite_index = player_map();
+    
         //Reset scale
-        xscale = 1;
-        
-        //If not swimming
-        if (!is_swimming)
-            sprite_index = spr_mapmario;
-        else
-            sprite_index = spr_mapmario_water;
+        if (xscale != 1)
+            xscale = 1;
     }
     
     //Otherwise, if moving up
     else if (direct == 90) {
     
+        //Set up the sprite
+        sprite_index = player_map_up();
+    
         //Reset scale
-        xscale = 1;
-        
-        //If not swimming
-        if (!is_swimming)
-            sprite_index = spr_mapmario_up;
-        else
-            sprite_index = spr_mapmario_water_up;
+        if (xscale != 1)
+            xscale = 1;
     }
         
     //Otherwise, if moving to the side
     else {
+        
+        //Set up the sprite
+        sprite_index = player_map_side();
         
         //Set the scale
         if (direct == 0)
             xscale = 1;
         else
             xscale = -1;
-        
-        //If not swimming
-        if (!is_swimming)
-            sprite_index = spr_mapmario_side;
-        else
-            sprite_index = spr_mapmario_water_side;
     }
 }
 </string>
@@ -150,77 +152,89 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Engine logic
+            <string>///Map player logic
 
 //Update animation speed
-image_speed = 0.15;
+image_speed = 0.125;
 
 //If the player is not moving
 if (status == 'IDLE') {
 
-    //Moving upwards
-    if (keyboard_check(global.key_u)) {
-    
-        //Check for a path above
-        var pathU = collision_point(x+xorig, y+yorig-16, obj_pathparent, 0, 0);
-    
-        //If there's a path above and it is visible
-        if (pathU) 
-        &amp;&amp; (pathU.image_alpha == 1) {
+    //Do not allow movement if there's paths opening
+    if (instance_number(obj_mapopener) == 0) {
+
+        //Moving upwards
+        if (keyboard_check(global.key_u)) {
         
-            direct = 90;
-            status = 'WALK';
+            //Check for a path above
+            var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
+        
+            //If there's a path above and it is visible
+            if (pathU) 
+            &amp;&amp; (pathU.image_alpha == 1) {
+            
+                direct = 90;
+                status = 'WALK';
+            }
+        }
+        
+        //Moving downwards
+        else if (keyboard_check(global.key_d)) {
+        
+            //Check for a path above
+            var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
+        
+            //If there's a path above and it is visible
+            if (pathD) 
+            &amp;&amp; (pathD.image_alpha == 1) {
+            
+                direct = 270;
+                status = 'WALK';
+            }
+        }
+        
+        //Moving to the left
+        else if (keyboard_check(global.key_l)) {
+        
+            //Check for a path above
+            var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+        
+            //If there's a path above and it is visible
+            if (pathL) 
+            &amp;&amp; (pathL.image_alpha == 1) {
+            
+                direct = 180;
+                status = 'WALK';
+            }
+        }
+        
+        //Moving to the right
+        else if (keyboard_check(global.key_r)) {
+        
+            //Check for a path above
+            var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
+        
+            //If there's a path above and it is visible
+            if (pathR) 
+            &amp;&amp; (pathR.image_alpha == 1) {
+            
+                direct = 0;
+                status = 'WALK';
+            }
+        }
+        
+        //Allow unlock of adyacent paths
+        if (keyboard_check_pressed(ord('O')))
+            event_user(15);
+            
+        //Change player
+        if (keyboard_check_pressed(global.key_action[2])) {
+        
+            global.player++;
+            if (global.player &gt; 2)
+                global.player = 0;
         }
     }
-    
-    //Moving downwards
-    else if (keyboard_check(global.key_d)) {
-    
-        //Check for a path above
-        var pathD = collision_point(x+xorig, y+yorig+16, obj_pathparent, 0, 0);
-    
-        //If there's a path above and it is visible
-        if (pathD) 
-        &amp;&amp; (pathD.image_alpha == 1) {
-        
-            direct = 270;
-            status = 'WALK';
-        }
-    }
-    
-    //Moving to the left
-    else if (keyboard_check(global.key_l)) {
-    
-        //Check for a path above
-        var pathL = collision_point(x+xorig-16, y+yorig, obj_pathparent, 0, 0);
-    
-        //If there's a path above and it is visible
-        if (pathL) 
-        &amp;&amp; (pathL.image_alpha == 1) {
-        
-            direct = 180;
-            status = 'WALK';
-        }
-    }
-    
-    //Moving to the right
-    else if (keyboard_check(global.key_r)) {
-    
-        //Check for a path above
-        var pathR = collision_point(x+xorig+16, y+yorig, obj_pathparent, 0, 0);
-    
-        //If there's a path above and it is visible
-        if (pathR) 
-        &amp;&amp; (pathR.image_alpha == 1) {
-        
-            direct = 0;
-            status = 'WALK';
-        }
-    }
-    
-    //Allow unlock of adyacent paths if playing in debug mode
-    if (keyboard_check_pressed(ord('O')))
-        event_user(15);
 }
 
 //Otherwise, if the player is moving
@@ -336,25 +350,25 @@ else
             <string>///DEBUG FUNCTION: Open adyacent paths
 
 //Check for a path above and open it if it is not visible
-var pathU = collision_point(x+xorig, y+yorig-16, obj_pathparent, 0, 0);
+var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
 if (pathU) 
 &amp;&amp; (pathU.image_alpha == 0)
     with (instance_create(x, y, obj_mapopener)) direct = 90;
 
 //Check for a path below and open it if it is not visible
-var pathD = collision_point(x+xorig, y+yorig+16, obj_pathparent, 0, 0);
+var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
 if (pathD) 
 &amp;&amp; (pathD.image_alpha == 0) 
     with (instance_create(x, y, obj_mapopener)) direct = 270;
 
 //Check for a path at the left and open it if it is not visible
-var pathL = collision_point(x+xorig-16, y+yorig, obj_pathparent, 0, 0);
+var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
 if (pathL) 
 &amp;&amp; (pathL.image_alpha == 0)
     with (instance_create(x, y, obj_mapopener)) direct = 180;
 
 //Check for a path at the right and open it if it is not visible
-var pathR = collision_point(x+xorig+16, y+yorig, obj_pathparent, 0, 0);
+var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
 if (pathR) 
 &amp;&amp; (pathR.image_alpha == 0)
     with (instance_create(x, y, obj_mapopener)) direct = 0;
@@ -382,10 +396,20 @@ if (pathR)
             <kind>1</kind>
             <string>///Draw the player
 
+//If the player is riding a yoshi
+if (global.mount != 0) {
+
+    pal_swap_set(spr_palette_yoshi, global.mountcolour);
+}
+
+//Draw normally
 if (xscale == 1)
-    draw_sprite(sprite_index, -1, round(x), round(y)-4);
+    draw_sprite(sprite_index, -1, round(x), round(y)-4+(4*is_swimming));
 else
-    draw_sprite_ext(sprite_index, -1, round(x)+16, round(y)-4, -1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprite_index, -1, round(x)+16, round(y)-4+(4*is_swimming), -1, 1, 0, c_white, 1);
+    
+//Reset the shader
+pal_swap_reset();
 </string>
           </argument>
         </arguments>

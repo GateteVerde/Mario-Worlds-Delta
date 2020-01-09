@@ -695,6 +695,40 @@
           <sprite>sprites\spr_mapmario_water_side</sprite>
           <sprite>sprites\spr_mapmario_climb</sprite>
         </sprites>
+        <sprites name="Luigi">
+          <sprites name="Yoshi">
+            <sprite>sprites\spr_mapluigi_yoshi</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_up</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_side</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_water</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_water_up</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_water_side</sprite>
+          </sprites>
+          <sprite>sprites\spr_mapluigi</sprite>
+          <sprite>sprites\spr_mapluigi_up</sprite>
+          <sprite>sprites\spr_mapluigi_side</sprite>
+          <sprite>sprites\spr_mapluigi_water</sprite>
+          <sprite>sprites\spr_mapluigi_water_up</sprite>
+          <sprite>sprites\spr_mapluigi_water_side</sprite>
+          <sprite>sprites\spr_mapluigi_climb</sprite>
+        </sprites>
+        <sprites name="Toad">
+          <sprites name="Yoshi">
+            <sprite>sprites\spr_maptoad_yoshi</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_up</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_side</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_water</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_water_up</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_water_side</sprite>
+          </sprites>
+          <sprite>sprites\spr_maptoad</sprite>
+          <sprite>sprites\spr_maptoad_up</sprite>
+          <sprite>sprites\spr_maptoad_side</sprite>
+          <sprite>sprites\spr_maptoad_water</sprite>
+          <sprite>sprites\spr_maptoad_water_up</sprite>
+          <sprite>sprites\spr_maptoad_water_side</sprite>
+          <sprite>sprites\spr_maptoad_climb</sprite>
+        </sprites>
       </sprites>
       <sprites name="Paths">
         <sprite>sprites\spr_path_node</sprite>
@@ -706,6 +740,8 @@
         <sprite>sprites\spr_path_dia2_l</sprite>
         <sprite>sprites\spr_path_dia3_r</sprite>
         <sprite>sprites\spr_path_dia3_l</sprite>
+        <sprite>sprites\spr_path_dia4_r</sprite>
+        <sprite>sprites\spr_path_dia4_l</sprite>
         <sprite>sprites\spr_path_point_l</sprite>
         <sprite>sprites\spr_path_point_r</sprite>
         <sprite>sprites\spr_path_point_u</sprite>
@@ -714,10 +750,15 @@
         <sprite>sprites\spr_path_corner_ur</sprite>
         <sprite>sprites\spr_path_corner_dr</sprite>
         <sprite>sprites\spr_path_corner_dl</sprite>
+        <sprite>sprites\spr_path_bridge</sprite>
         <sprite>sprites\spr_path_ladder</sprite>
       </sprites>
-      <sprite>sprites\spr_modifier</sprite>
+      <sprites name="Decoration">
+        <sprite>sprites\spr_mapwater</sprite>
+      </sprites>
       <sprite>sprites\spr_opener</sprite>
+      <sprite>sprites\spr_modifier</sprite>
+      <sprite>sprites\spr_modifier_novisible</sprite>
     </sprites>
     <sprites name="Decoration">
       <sprites name="Liquids">
@@ -983,6 +1024,9 @@
       <background>background\tls_ground_forest</background>
       <background>background\tls_ground_pipes</background>
     </backgrounds>
+    <backgrounds name="Map Tilesets">
+      <background>background\tls_map</background>
+    </backgrounds>
     <background>background\bgr_pit</background>
     <background>background\bgr_title</background>
     <background>background\bgr_titlebgr</background>
@@ -997,30 +1041,38 @@
   <scripts name="scripts">
     <scripts name="Player">
       <scripts name="Animation">
-        <scripts name="Progress">
-          <script>scripts\checkpoint_flag.gml</script>
-          <script>scripts\checkpoint_flag_loop.gml</script>
+        <scripts name="In-Level">
+          <scripts name="Progress">
+            <script>scripts\checkpoint_flag.gml</script>
+            <script>scripts\checkpoint_flag_loop.gml</script>
+          </scripts>
+          <script>scripts\player_idle.gml</script>
+          <script>scripts\player_walk.gml</script>
+          <script>scripts\player_jump.gml</script>
+          <script>scripts\player_run.gml</script>
+          <script>scripts\player_runjump.gml</script>
+          <script>scripts\player_skid.gml</script>
+          <script>scripts\player_climb.gml</script>
+          <script>scripts\player_swim.gml</script>
+          <script>scripts\player_swim2.gml</script>
+          <script>scripts\player_hold.gml</script>
+          <script>scripts\player_hold2.gml</script>
+          <script>scripts\player_crouch.gml</script>
+          <script>scripts\player_spin.gml</script>
+          <script>scripts\player_slide.gml</script>
+          <script>scripts\player_kick.gml</script>
+          <script>scripts\player_clear.gml</script>
+          <script>scripts\player_ride.gml</script>
+          <script>scripts\player_shoot.gml</script>
+          <script>scripts\player_dive.gml</script>
+          <script>scripts\player_smash.gml</script>
         </scripts>
-        <script>scripts\player_idle.gml</script>
-        <script>scripts\player_walk.gml</script>
-        <script>scripts\player_jump.gml</script>
-        <script>scripts\player_run.gml</script>
-        <script>scripts\player_runjump.gml</script>
-        <script>scripts\player_skid.gml</script>
-        <script>scripts\player_climb.gml</script>
-        <script>scripts\player_swim.gml</script>
-        <script>scripts\player_swim2.gml</script>
-        <script>scripts\player_hold.gml</script>
-        <script>scripts\player_hold2.gml</script>
-        <script>scripts\player_crouch.gml</script>
-        <script>scripts\player_spin.gml</script>
-        <script>scripts\player_slide.gml</script>
-        <script>scripts\player_kick.gml</script>
-        <script>scripts\player_clear.gml</script>
-        <script>scripts\player_ride.gml</script>
-        <script>scripts\player_shoot.gml</script>
-        <script>scripts\player_dive.gml</script>
-        <script>scripts\player_smash.gml</script>
+        <scripts name="In-Map">
+          <script>scripts\player_map.gml</script>
+          <script>scripts\player_map_up.gml</script>
+          <script>scripts\player_map_climb.gml</script>
+          <script>scripts\player_map_side.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Behaviour">
         <script>scripts\player_behaviour.gml</script>
@@ -1374,6 +1426,8 @@
         <object>objects\obj_path_dia2_l</object>
         <object>objects\obj_path_dia3_r</object>
         <object>objects\obj_path_dia3_l</object>
+        <object>objects\obj_path_dia4_r</object>
+        <object>objects\obj_path_dia4_l</object>
         <object>objects\obj_path_point_l</object>
         <object>objects\obj_path_point_r</object>
         <object>objects\obj_path_point_u</object>
@@ -1382,9 +1436,11 @@
         <object>objects\obj_path_corner_ur</object>
         <object>objects\obj_path_corner_dr</object>
         <object>objects\obj_path_corner_dl</object>
+        <object>objects\obj_path_bridge</object>
         <object>objects\obj_path_ladder</object>
       </objects>
       <object>objects\obj_modifier</object>
+      <object>objects\obj_modifier_novisible</object>
     </objects>
     <objects name="Decoration">
       <objects name="Liquids">

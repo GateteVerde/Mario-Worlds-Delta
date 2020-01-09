@@ -51,7 +51,7 @@ global.stream = noone;
 //0: Mario
 //1: Luigi
 //2: Toad
-global.player = 2;
+global.player = 0;
 
 //Time Limit
 global.time = 0;
@@ -69,6 +69,8 @@ score = 0;
 global.powerup = cs_pow_small;
 
 //Whether a level is cleared.
+//1: Normal stage clear
+//2: Secret stage clear
 global.clear = 0;
 
 //Target Room
@@ -92,7 +94,7 @@ global.exit_dir = 0;
 //ID of the exit warp
 global.exit_id = -1;
 
-//Is Mario riding a yoshi?
+//Is the player riding a yoshi?
 global.mount = 0;
 global.mountcolour = 0;
 
