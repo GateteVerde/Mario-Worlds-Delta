@@ -43,7 +43,7 @@ font = fnt_gui; //global.fontmsg;
 showing = false;
 
 //Create a screenshot
-back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);
+back = background_create_from_surface(application_surface, 0, 0, global.gw, global.gh, 0, 0);
 
 //Deactivate everything except this object
 instance_deactivate_all(1);

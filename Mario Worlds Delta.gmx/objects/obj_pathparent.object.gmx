@@ -50,6 +50,43 @@ if (ds_map_exists(global.worldmap, id))
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy tiles in position
+
+if (image_alpha == 1) {
+
+    //Temporary variables
+    var tile_l, tile_r;
+    
+    //Find tile
+    tile_l = tile_layer_find(14, bbox_left, y);
+    tile_r = tile_layer_find(14, bbox_right, y);
+    
+    //Delete tile if found
+    if (tile_exists(tile_l)) then tile_delete(tile_l);
+    if (tile_exists(tile_r)) then tile_delete(tile_r);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_modifier_novisible">
       <action>
         <libid>1</libid>
@@ -120,8 +157,6 @@ in_water = 1;
             <string>///Draw if visible
 
 draw_sprite_ext(sprite_index, in_water, round(x), round(y), image_xscale, image_yscale, 0, c_white, image_alpha);
-if (keyboard_check(global.key_action[3]))
-    draw_sprite(sprite_index, 2, round(x), round(y));
 </string>
           </argument>
         </arguments>

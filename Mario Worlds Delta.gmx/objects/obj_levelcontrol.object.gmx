@@ -1087,13 +1087,6 @@ draw_background_ext(bgr_pit, 0, room_height-32, room_width/16, 1, 0, background_
 //Stop all music and fanfares
 event_user(4);
 
-//Restart critical global variables
-variable_global_reset();
-
-//Reset checkpoints
-global.checkpoint = noone;
-global.checkpointroom = noone;
-
 //Clear it
 global.clear = 1;
 

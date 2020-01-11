@@ -114,6 +114,7 @@
     <sound>sound\snd_intro</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_key</sound>
+    <sound>sound\snd_keyhole</sound>
     <sound>sound\snd_kick</sound>
     <sound>sound\snd_kick2</sound>
     <sound>sound\snd_kick3</sound>
@@ -384,6 +385,8 @@
         <sprite>sprites\spr_checkpoint_luigi_loop</sprite>
         <sprite>sprites\spr_checkpoint_toad</sprite>
         <sprite>sprites\spr_checkpoint_toad_loop</sprite>
+        <sprite>sprites\spr_keyhole</sprite>
+        <sprite>sprites\spr_keyhole_anim</sprite>
       </sprites>
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
@@ -1272,6 +1275,7 @@
     <objects name="Items">
       <objects name="Progress">
         <object>objects\obj_checkpoint</object>
+        <object>objects\obj_keyhole</object>
       </objects>
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_p</object>
@@ -1748,15 +1752,17 @@
           <object>objects\obj_spinthump</object>
         </objects>
         <objects name="System">
-          <object>objects\obj_audio_loop_sound</object>
-          <object>objects\obj_hud</object>
-          <object>objects\obj_hud_map</object>
+          <objects name="Dialogues">
+            <object>objects\obj_dialog</object>
+            <object>objects\obj_message</object>
+          </objects>
           <objects name="Title">
             <object>objects\obj_title</object>
           </objects>
+          <object>objects\obj_audio_loop_sound</object>
+          <object>objects\obj_hud</object>
+          <object>objects\obj_hud_map</object>
         </objects>
-        <object>objects\obj_dialog</object>
-        <object>objects\obj_message</object>
         <object>objects\obj_lightningsheet</object>
         <object>objects\obj_blockbumper</object>
       </objects>

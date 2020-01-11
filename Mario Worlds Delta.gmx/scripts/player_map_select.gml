@@ -24,7 +24,7 @@ switch (global.mount) {
             case (1): return spr_mapluigi_select;
             
             //Toad
-            case (2): return spr_maptoad;
+            case (2): return spr_maptoad_select;
         }
     } break;
     
@@ -41,7 +41,7 @@ switch (global.mount) {
             case (1): return spr_mapluigi_yoshi_select;
             
             //Toad
-            case (2): return spr_maptoad_yoshi;
+            case (2): return spr_maptoad_yoshi_select;
         }
     } break;
 }

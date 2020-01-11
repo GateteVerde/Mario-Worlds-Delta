@@ -146,6 +146,19 @@ while (step &gt;= 1) {
         
             //Play 'Path Reveal End' sound
             audio_play_sound(snd_pathreveal_end, 0, false);
+            
+            //Check for a panel
+            panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
+            
+            //If there's a panel
+            if (panel) {
+            
+                //Make it visible...
+                panel.image_alpha = 1;
+                
+                //...and remember it
+                ds_map_replace(global.worldmap, panel, 1);
+            }
         
             //Destroy
             instance_destroy();

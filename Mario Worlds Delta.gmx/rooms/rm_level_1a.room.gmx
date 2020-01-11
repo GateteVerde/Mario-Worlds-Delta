@@ -4,7 +4,7 @@
   <width>2320</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -87,6 +87,16 @@
     <instance objName="obj_brick_stone" x="144" y="336" name="inst_610356C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_blue" x="120" y="304" name="inst_77F2A155" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="600" y="384" name="inst_BBCE5887" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_key" x="592" y="256" name="inst_4F1E66AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick" x="576" y="256" name="inst_3136DBE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick" x="608" y="256" name="inst_B7389468" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_keyhole" x="384" y="288" name="inst_C6F6115C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_fireflower_alt" x="560" y="320" name="inst_9FC64002" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_shroom" x="592" y="320" name="inst_79423D3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_feather_alt" x="624" y="320" name="inst_1AA0D833" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="592" y="192" name="inst_064B6A91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_egg_rainbow" x="592" y="192" name="inst_E8C3DBDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_msgblock" x="384" y="240" name="inst_346DE0BB" locked="0" code="varmsg = &quot;Press W to win or just bring a key to this keyhole here to open the secret exit.&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="272" y="352" w="16" h="32" xo="32" yo="144" id="10012631" name="inst_F1FAA8C0" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -72,6 +72,9 @@ is_ready = 0;
 //Scale
 xscale = 1;
 
+//Reset global variables
+variable_global_reset();
+
 //If the level has been beaten
 if (global.clear &gt; 0) {
 
@@ -220,6 +223,12 @@ else if (global.clear == 2) {
 //Reset clear variable
 global.clear = 0;
 
+//Mark level as beaten
+with (check) ds_map_replace(global.worldmap_beaten, id, 1);
+
+//Do not remember checkpoint for this level
+with (check) checkpoint = noone;
+
 //Reset status
 status = 'IDLE'
 </string>
@@ -347,8 +356,12 @@ image_speed = 0.125;
 if (status == 'IDLE') 
 || (status == 'WAIT') {
 
+    //Check for a panel
+    panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
+
     //Do not allow movement if there's paths opening
     if (is_ready == 0)
+    &amp;&amp; (obj_controller.fade == 1)
     &amp;&amp; (instance_number(obj_mapopener) == 0) {
 
         //Moving upwards
@@ -410,10 +423,6 @@ if (status == 'IDLE')
                 status = 'WALK';
             }
         }
-
-        //Open adyancent paths on map
-        if (keyboard_check_pressed(ord('O')))
-            event_user(15);
             
         //Change player
         if (keyboard_check_pressed(global.key_action[2])) {
@@ -423,35 +432,36 @@ if (status == 'IDLE')
                 global.player = 0;
         }
         
-        //Check for a panel
-        panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
-        
         //If there's a panel
-        if (panel) {
+        if (panel)
+        &amp;&amp; (status == 'IDLE')
+        &amp;&amp; (keyboard_check_pressed(global.key_action[0])) {
         
-            //Print the level name on the hud
-            obj_hud_map.levelname = string(panel.levelname);
+            //Play 'Enter Stage' sound
+            audio_play_sound(snd_enterstage, 0, false);
+        
+            //The player is ready
+            is_ready = 1;
             
-            //If 'Action 1' is pressed
-            if (status == 'IDLE')
-            &amp;&amp; (keyboard_check_pressed(global.key_action[0])) {
+            //Stop music
+            obj_mapmanager.alarm[1] = 1;
             
-                //Play 'Enter Stage' sound
-                audio_play_sound(snd_enterstage, 0, false);
-            
-                //The player is ready
-                is_ready = 1;
-                
-                //Stop music
-                obj_mapmanager.alarm[1] = 1;
-                
-                //Go to the stage
-                panel.alarm[1] = 60;
-            }
+            //Go to the stage
+            panel.alarm[1] = 60;
         }
-        else if (!panel)
-            obj_hud_map.levelname = "";
+        
+        //Open adyancent paths on map if debug mode is enabled.
+        if (panel)
+        &amp;&amp; (debug_mode == true)
+        &amp;&amp; (keyboard_check_pressed(ord('O')))
+            event_user(15);
     }
+    
+    //If there's a panel, print the name on the HUD
+    if (panel)
+        obj_hud_map.levelname = string(panel.levelname);
+    else
+        obj_hud_map.levelname = "";
 }
 
 //Otherwise, if the player is moving
