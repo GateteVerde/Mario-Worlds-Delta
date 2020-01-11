@@ -78,6 +78,9 @@
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Music">
+      <sounds name="Map">
+        <sound>sound\bgm_map1</sound>
+      </sounds>
       <sound>sound\bgm_death</sound>
       <sound>sound\bgm_gameover</sound>
       <sound>sound\bgm_pswitch</sound>
@@ -99,6 +102,7 @@
     <sound>sound\snd_door</sound>
     <sound>sound\snd_eat</sound>
     <sound>sound\snd_engine</sound>
+    <sound>sound\snd_enterstage</sound>
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
@@ -122,7 +126,8 @@
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_move</sound>
-    <sound>sound\snd_openpath</sound>
+    <sound>sound\snd_pathreveal</sound>
+    <sound>sound\snd_pathreveal_end</sound>
     <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
@@ -686,6 +691,7 @@
             <sprite>sprites\spr_mapmario_yoshi_water</sprite>
             <sprite>sprites\spr_mapmario_yoshi_water_up</sprite>
             <sprite>sprites\spr_mapmario_yoshi_water_side</sprite>
+            <sprite>sprites\spr_mapmario_yoshi_select</sprite>
           </sprites>
           <sprite>sprites\spr_mapmario</sprite>
           <sprite>sprites\spr_mapmario_up</sprite>
@@ -693,6 +699,7 @@
           <sprite>sprites\spr_mapmario_water</sprite>
           <sprite>sprites\spr_mapmario_water_up</sprite>
           <sprite>sprites\spr_mapmario_water_side</sprite>
+          <sprite>sprites\spr_mapmario_select</sprite>
           <sprite>sprites\spr_mapmario_climb</sprite>
         </sprites>
         <sprites name="Luigi">
@@ -703,6 +710,7 @@
             <sprite>sprites\spr_mapluigi_yoshi_water</sprite>
             <sprite>sprites\spr_mapluigi_yoshi_water_up</sprite>
             <sprite>sprites\spr_mapluigi_yoshi_water_side</sprite>
+            <sprite>sprites\spr_mapluigi_yoshi_select</sprite>
           </sprites>
           <sprite>sprites\spr_mapluigi</sprite>
           <sprite>sprites\spr_mapluigi_up</sprite>
@@ -710,6 +718,7 @@
           <sprite>sprites\spr_mapluigi_water</sprite>
           <sprite>sprites\spr_mapluigi_water_up</sprite>
           <sprite>sprites\spr_mapluigi_water_side</sprite>
+          <sprite>sprites\spr_mapluigi_select</sprite>
           <sprite>sprites\spr_mapluigi_climb</sprite>
         </sprites>
         <sprites name="Toad">
@@ -720,6 +729,7 @@
             <sprite>sprites\spr_maptoad_yoshi_water</sprite>
             <sprite>sprites\spr_maptoad_yoshi_water_up</sprite>
             <sprite>sprites\spr_maptoad_yoshi_water_side</sprite>
+            <sprite>sprites\spr_maptoad_yoshi_select</sprite>
           </sprites>
           <sprite>sprites\spr_maptoad</sprite>
           <sprite>sprites\spr_maptoad_up</sprite>
@@ -727,6 +737,7 @@
           <sprite>sprites\spr_maptoad_water</sprite>
           <sprite>sprites\spr_maptoad_water_up</sprite>
           <sprite>sprites\spr_maptoad_water_side</sprite>
+          <sprite>sprites\spr_maptoad_select</sprite>
           <sprite>sprites\spr_maptoad_climb</sprite>
         </sprites>
       </sprites>
@@ -753,8 +764,22 @@
         <sprite>sprites\spr_path_bridge</sprite>
         <sprite>sprites\spr_path_ladder</sprite>
       </sprites>
+      <sprites name="Panels">
+        <sprite>sprites\spr_levelpanel</sprite>
+        <sprite>sprites\spr_levelpanel_secret</sprite>
+        <sprite>sprites\spr_levelpanel_big</sprite>
+        <sprite>sprites\spr_levelpanel_big_secret</sprite>
+        <sprite>sprites\spr_levelpanel_grotto</sprite>
+        <sprite>sprites\spr_levelpanel_grotto_secret</sprite>
+      </sprites>
       <sprites name="Decoration">
+        <sprites name="NPCs">
+          <sprite>sprites\spr_maplakitu</sprite>
+          <sprite>sprites\spr_maplakitu_shadow</sprite>
+          <sprite>sprites\spr_mappiranha</sprite>
+        </sprites>
         <sprite>sprites\spr_mapwater</sprite>
+        <sprite>sprites\spr_mapcloud</sprite>
       </sprites>
       <sprite>sprites\spr_opener</sprite>
       <sprite>sprites\spr_modifier</sprite>
@@ -931,6 +956,9 @@
           <sprite>sprites\spr_hud_acecoins_coin</sprite>
           <sprite>sprites\spr_hud_separator</sprite>
         </sprites>
+        <sprites name="Map">
+          <sprite>sprites\spr_hud_map</sprite>
+        </sprites>
         <sprites name="Title">
           <sprite>sprites\spr_title_top</sprite>
           <sprite>sprites\spr_title_middle</sprite>
@@ -1070,8 +1098,9 @@
         <scripts name="In-Map">
           <script>scripts\player_map.gml</script>
           <script>scripts\player_map_up.gml</script>
-          <script>scripts\player_map_climb.gml</script>
           <script>scripts\player_map_side.gml</script>
+          <script>scripts\player_map_select.gml</script>
+          <script>scripts\player_map_climb.gml</script>
         </scripts>
       </scripts>
       <scripts name="Behaviour">
@@ -1097,6 +1126,7 @@
         <script>scripts\pswitch_on.gml</script>
         <script>scripts\pswitch_off.gml</script>
         <script>scripts\variable_global_reset.gml</script>
+        <script>scripts\wmap_return.gml</script>
       </scripts>
       <scripts name="Shaders">
         <scripts name="Palette">
@@ -1439,6 +1469,15 @@
         <object>objects\obj_path_bridge</object>
         <object>objects\obj_path_ladder</object>
       </objects>
+      <objects name="Panels">
+        <object>objects\obj_levelpanel</object>
+      </objects>
+      <objects name="Decoration">
+        <objects name="NPCs">
+          <object>objects\obj_maplakitu</object>
+          <object>objects\obj_mappiranha</object>
+        </objects>
+      </objects>
       <object>objects\obj_modifier</object>
       <object>objects\obj_modifier_novisible</object>
     </objects>
@@ -1672,6 +1711,9 @@
           <object>objects\obj_hammerbro_hammer</object>
         </objects>
         <objects name="World Map">
+          <objects name="Decoration">
+            <object>objects\obj_mapcloud</object>
+          </objects>
           <object>objects\obj_mapopener</object>
         </objects>
         <objects name="Decoration">
@@ -1708,6 +1750,7 @@
         <objects name="System">
           <object>objects\obj_audio_loop_sound</object>
           <object>objects\obj_hud</object>
+          <object>objects\obj_hud_map</object>
           <objects name="Title">
             <object>objects\obj_title</object>
           </objects>
@@ -1741,7 +1784,6 @@
       <rooms name="Events">
         <room>rooms\rm_gameover</room>
       </rooms>
-      <room>rooms\rm_retry</room>
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>

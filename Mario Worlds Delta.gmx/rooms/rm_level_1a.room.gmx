@@ -4,7 +4,7 @@
   <width>2320</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -86,6 +86,7 @@
     <instance objName="obj_brick_stone" x="128" y="320" name="inst_CF4F4BC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="144" y="336" name="inst_610356C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_blue" x="120" y="304" name="inst_77F2A155" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="600" y="384" name="inst_BBCE5887" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="272" y="352" w="16" h="32" xo="32" yo="144" id="10012631" name="inst_F1FAA8C0" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -641,8 +641,16 @@ if (global.levelmusic != inisection) {
             <kind>1</kind>
             <string>///Stop all music and fanfares
 
-//Stop music instance
-audio_stop_sound(levelmusic);
+//If the stream is playing
+if (audio_is_playing(global.stream)) {
+    
+    //Stop the stream...
+    audio_stop_sound(global.stream);
+    
+    //...and free it from memory
+    audio_destroy_stream(global.stream);
+    global.stream = noone;
+}
 
 //Prevent it from playing
 musicdisable = 1;
@@ -1052,6 +1060,45 @@ else
 
 //Draw pit marker
 draw_background_ext(bgr_pit, 0, room_height-32, room_width/16, 1, 0, background_blend[0], 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Beat the stage
+
+//Stop all music and fanfares
+event_user(4);
+
+//Restart critical global variables
+variable_global_reset();
+
+//Reset checkpoints
+global.checkpoint = noone;
+global.checkpointroom = noone;
+
+//Clear it
+global.clear = 1;
+
+//Return to the map
+wmap_return();
 </string>
           </argument>
         </arguments>

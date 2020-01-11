@@ -39,12 +39,15 @@ step = 0;
 
 //Direction
 direct = 270;
+
+//Play 'Path Reveal' sound
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -61,9 +64,10 @@ direct = 270;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Play 'Coin' sound
+            <string>///Play a sound
 
-audio_play_sound(snd_coin, 0, false);
+audio_stop_play_sound(snd_pathreveal, 0, false);
+alarm[0] = 8;
 </string>
           </argument>
         </arguments>
@@ -135,8 +139,17 @@ while (step &gt;= 1) {
     
         //If the player is at the center of the node
         if (x+xorig == node.x+7)
-        &amp;&amp; (y+yorig == node.y+7)
+        &amp;&amp; (y+yorig == node.y+7) {
+        
+            //Stop 'Path Reveal' sound
+            audio_stop_sound(snd_pathreveal);
+        
+            //Play 'Path Reveal End' sound
+            audio_play_sound(snd_pathreveal_end, 0, false);
+        
+            //Destroy
             instance_destroy();
+        }
     }
     
     //Update step
@@ -166,14 +179,14 @@ while (step &gt;= 1) {
             <kind>1</kind>
             <string>///Make it visible
 
-//If not visible
-if (other.image_alpha == 0) {
+with (other) {
 
-    //Play 'Open path' sound
-    audio_stop_play_sound(snd_openpath, 0, false);
+    //Add it to the map
+    ds_map_replace(global.worldmap, id, 1)
     
-    //Make it visible
-    other.image_alpha = 1;
+    //If it is not visible, make it visible
+    if (image_alpha == 0)
+        image_alpha = 1;
 }
 </string>
           </argument>

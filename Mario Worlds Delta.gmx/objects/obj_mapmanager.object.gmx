@@ -27,8 +27,107 @@
             <kind>1</kind>
             <string>///World Map Manager
 
+///Level controller
+
+/*
+**  This item uses creation code!
+**
+**  mapmusic      = Music to play in the map
+*/
+
+//Default values
+mapmusic = bgm_map1;
+
+//Play music
+alarm[0] = 30;
+
 //Handles water animation
 anim = 0;
+
+//Generate a cloud every second
+alarm[11] = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate a cloud
+
+//Generate another cloud
+alarm[11] = round(random(120)) + 120;
+
+//Generate current cloud
+if (choose(0,1) == 1)
+    instance_create(view_xview[0]-16, view_yview[0]-16, obj_mapcloud);
+else
+    instance_create(view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], obj_mapcloud);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stop map music
+
+audio_stop_sound(mapmusic);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Play map music
+
+audio_play_sound(mapmusic, 0, true);
 </string>
           </argument>
         </arguments>

@@ -112,22 +112,7 @@ alarm[2] = 202;
             <kind>1</kind>
             <string>///Go to the level start screen
 
-//If there's lives left
-if (lives &gt; 0) {
-
-    //Set target room
-    if (global.targetroom == noone) {
-    
-        global.targetroom = rm_engine;
-    }
-    
-    //Go to the destination room
-    room_goto(rm_levelstart);
-}
-
-//Otherwise, restart game
-else
-    room_goto(rm_gameover);
+wmap_return();
 </string>
           </argument>
         </arguments>

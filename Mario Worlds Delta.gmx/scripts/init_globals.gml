@@ -124,3 +124,6 @@ global.moons = ds_map_create();
 
 //Handle the data structure of the ace coins.
 global.dcoins = ds_map_create();
+
+//Handle the data structure of the world map.
+global.worldmap = ds_map_create();

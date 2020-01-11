@@ -27,6 +27,20 @@
             <kind>1</kind>
             <string>///It's the player... on the map!
 
+//Check if the position was modified before
+if (ds_map_exists(global.worldmap, "playerx")) {
+
+    //Place the player where it belongs
+    x = ds_map_find_value(global.worldmap, "playerx");
+    y = ds_map_find_value(global.worldmap, "playery");
+}
+else {
+
+    //Set up the current position
+    ds_map_add(global.worldmap, "playerx", x);
+    ds_map_add(global.worldmap, "playery", y);
+}
+
 //Animate the object
 image_speed = 0.125;
 
@@ -52,8 +66,162 @@ is_climbing = 0;
 //Whether the player is swimming
 is_swimming = 0;
 
+//Whether the player has selected a stage
+is_ready = 0;
+
 //Scale
 xscale = 1;
+
+//If the level has been beaten
+if (global.clear &gt; 0) {
+
+    alarm[0] = 30;
+    status = 'WAIT';
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Open adyacent paths depending of what exit was found
+
+//Find nearest panel
+check = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
+
+//If the level has been cleared with the normal exit
+if (global.clear == 1) {
+
+    //Check what exit was set in the panel
+    switch (check.normalexit) {
+    
+        //Up
+        case (cs_up): {
+    
+            //Check for a path above and open it if it is not visible
+            var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathU) 
+            &amp;&amp; (pathU.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 90;
+        } break;
+        
+        //Down
+        case (cs_down): {
+            
+            //Check for a path below and open it if it is not visible
+            var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathD) 
+            &amp;&amp; (pathD.image_alpha == 0) 
+                with (instance_create(x, y, obj_mapopener)) direct = 270;
+        } break;
+        
+        //Left
+        case (cs_left): {
+            
+            //Check for a path at the left and open it if it is not visible
+            var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathL) 
+            &amp;&amp; (pathL.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 180;
+        } break;
+        
+        //Right
+        case (cs_right): {
+            
+            //Check for a path at the right and open it if it is not visible
+            var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathR) 
+            &amp;&amp; (pathR.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 0;
+        } break;    
+    }
+}
+
+//Otherwise, if the level has been cleared with the secret exit
+else if (global.clear == 2) {
+
+    //Check what exit was set in the panel
+    switch (check.secretexit) {
+    
+        //Up
+        case (cs_up): {
+    
+            //Check for a path above and open it if it is not visible
+            var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathU) 
+            &amp;&amp; (pathU.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 90;
+        } break;
+        
+        //Down
+        case (cs_down): {
+            
+            //Check for a path below and open it if it is not visible
+            var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathD) 
+            &amp;&amp; (pathD.image_alpha == 0) 
+                with (instance_create(x, y, obj_mapopener)) direct = 270;
+        } break;
+        
+        //Left
+        case (cs_left): {
+            
+            //Check for a path at the left and open it if it is not visible
+            var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathL) 
+            &amp;&amp; (pathL.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 180;
+        } break;
+        
+        //Right
+        case (cs_right): {
+            
+            //Check for a path at the right and open it if it is not visible
+            var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
+            
+            //If the path exists
+            if (pathR) 
+            &amp;&amp; (pathR.image_alpha == 0)
+                with (instance_create(x, y, obj_mapopener)) direct = 0;
+        } break;    
+    }    
+}
+
+//Reset clear variable
+global.clear = 0;
+
+//Reset status
+status = 'IDLE'
 </string>
           </argument>
         </arguments>
@@ -78,56 +246,74 @@ xscale = 1;
             <kind>1</kind>
             <string>///Animate the object
 
-//If climbing
-if (is_climbing) {
+//If the player is ready
+if (is_ready) {
 
+    //Set the sprite
+    sprite_index = player_map_select();
+    
     //Set up the scale
     xscale = 1;
     
-    //If the player is riding a yoshi
-    if (global.mount != 0)
-        sprite_index = player_map_up();
-    else
-        sprite_index = player_map_climb();    
+    //Set up the frame
+    image_speed = 0;
+    image_index = is_swimming;
 }
 
-//Otherwise, if not climbing
+//Otherwise
 else {
-
-    //If moving down or stopped
-    if (direct == 270)
-    || (status == 'IDLE') {
     
-        //Set up the sprite
-        sprite_index = player_map();
+    //If climbing
+    if (is_climbing) {
     
-        //Reset scale
-        if (xscale != 1)
-            xscale = 1;
-    }
-    
-    //Otherwise, if moving up
-    else if (direct == 90) {
-    
-        //Set up the sprite
-        sprite_index = player_map_up();
-    
-        //Reset scale
-        if (xscale != 1)
-            xscale = 1;
-    }
+        //Set up the scale
+        xscale = 1;
         
-    //Otherwise, if moving to the side
-    else {
-        
-        //Set up the sprite
-        sprite_index = player_map_side();
-        
-        //Set the scale
-        if (direct == 0)
-            xscale = 1;
+        //If the player is riding a yoshi
+        if (global.mount != 0)
+            sprite_index = player_map_up();
         else
-            xscale = -1;
+            sprite_index = player_map_climb();    
+    }
+    
+    //Otherwise, if not climbing
+    else {
+    
+        //If moving down or stopped
+        if (direct == 270)
+        || (status == 'IDLE') {
+        
+            //Set up the sprite
+            sprite_index = player_map();
+        
+            //Reset scale
+            if (xscale != 1)
+                xscale = 1;
+        }
+        
+        //Otherwise, if moving up
+        else if (direct == 90) {
+        
+            //Set up the sprite
+            sprite_index = player_map_up();
+        
+            //Reset scale
+            if (xscale != 1)
+                xscale = 1;
+        }
+            
+        //Otherwise, if moving to the side
+        else {
+            
+            //Set up the sprite
+            sprite_index = player_map_side();
+            
+            //Set the scale
+            if (direct == 0)
+                xscale = 1;
+            else
+                xscale = -1;
+        }
     }
 }
 </string>
@@ -158,10 +344,12 @@ else {
 image_speed = 0.125;
 
 //If the player is not moving
-if (status == 'IDLE') {
+if (status == 'IDLE') 
+|| (status == 'WAIT') {
 
     //Do not allow movement if there's paths opening
-    if (instance_number(obj_mapopener) == 0) {
+    if (is_ready == 0)
+    &amp;&amp; (instance_number(obj_mapopener) == 0) {
 
         //Moving upwards
         if (keyboard_check(global.key_u)) {
@@ -222,8 +410,8 @@ if (status == 'IDLE') {
                 status = 'WALK';
             }
         }
-        
-        //Allow unlock of adyacent paths
+
+        //Open adyancent paths on map
         if (keyboard_check_pressed(ord('O')))
             event_user(15);
             
@@ -234,6 +422,35 @@ if (status == 'IDLE') {
             if (global.player &gt; 2)
                 global.player = 0;
         }
+        
+        //Check for a panel
+        panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
+        
+        //If there's a panel
+        if (panel) {
+        
+            //Print the level name on the hud
+            obj_hud_map.levelname = string(panel.levelname);
+            
+            //If 'Action 1' is pressed
+            if (status == 'IDLE')
+            &amp;&amp; (keyboard_check_pressed(global.key_action[0])) {
+            
+                //Play 'Enter Stage' sound
+                audio_play_sound(snd_enterstage, 0, false);
+            
+                //The player is ready
+                is_ready = 1;
+                
+                //Stop music
+                obj_mapmanager.alarm[1] = 1;
+                
+                //Go to the stage
+                panel.alarm[1] = 60;
+            }
+        }
+        else if (!panel)
+            obj_hud_map.levelname = "";
     }
 }
 
@@ -372,6 +589,32 @@ var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
 if (pathR) 
 &amp;&amp; (pathR.image_alpha == 0)
     with (instance_create(x, y, obj_mapopener)) direct = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Replace last map position
+
+ds_map_replace(global.worldmap, "playerx", x);
+ds_map_replace(global.worldmap, "playery", y);
 </string>
           </argument>
         </arguments>
