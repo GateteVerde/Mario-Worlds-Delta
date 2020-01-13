@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bgr_cave" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bgr_sewer" x="0" y="-80" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -84,7 +84,14 @@
     <instance objName="obj_goomba" x="520" y="336" name="inst_AC4F7ACD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="472" y="336" name="inst_523BAC21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="424" y="336" name="inst_3FBF43B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bganimator" x="16" y="0" name="inst_15A5E0DF" locked="0" code="bg_frame[0] = bgr_cave_b;&#xA;bg_frame[1] = bgr_cave_c;&#xA;bg_frame[2] = bgr_cave_b;&#xA;bg_frame[3] = bgr_cave;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bganimator" x="16" y="0" name="inst_15A5E0DF" locked="0" code="bg_frame[0] = bgr_sewer_b;&#xA;bg_frame[1] = bgr_sewer_c;&#xA;bg_frame[2] = bgr_sewer_d;&#xA;bg_frame[3] = bgr_sewer;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="416" y="192" name="inst_9E3B798B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="432" y="192" name="inst_F1AA9AE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="448" y="192" name="inst_49B15D20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_star" x="432" y="192" name="inst_2B905F44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform" x="112" y="240" name="inst_66ACA8EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_right" x="128" y="240" name="inst_8DFAD8B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_left" x="272" y="240" name="inst_6B557CBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_sewer" x="448" y="416" w="16" h="16" xo="16" yo="16" id="10014270" name="inst_C67DA273" depth="17" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
