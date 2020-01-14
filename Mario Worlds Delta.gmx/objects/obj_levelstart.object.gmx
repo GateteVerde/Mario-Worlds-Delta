@@ -125,6 +125,9 @@ draw_set_colour(c_white);
 //Update
 anim += 0.075;
 
+//Set up palette
+player_set_palette(id);
+
 //Draw the cape
 if (global.powerup == cs_pow_cape)
 || (global.powerup == cs_pow_firecape) {
@@ -134,6 +137,9 @@ if (global.powerup == cs_pow_cape)
 
 //Draw the player
 draw_sprite(player_walk(), anim, view_xview[view_current] + (view_wview[view_current] / 2) - 24, view_yview[view_current] + (view_hview[view_current] / 2) - 24);
+
+//Reset palette
+pal_swap_reset();
 
 //Align the font
 draw_set_halign(fa_center);

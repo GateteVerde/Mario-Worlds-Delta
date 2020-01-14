@@ -71,7 +71,7 @@ if (sprite_index == spr_mushroom)
 
 //Otherwise, if this is a fire flower
 else if (sprite_index == spr_fireflower)
-    image_speed = 0.2;
+    image_speed = 0.15;
 
 //Otherwise, if this is a feather
 else if (sprite_index == spr_feather) {

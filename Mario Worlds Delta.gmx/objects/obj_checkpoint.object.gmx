@@ -101,13 +101,15 @@ if (sprite_index == spr_checkpoint) {
             <kind>1</kind>
             <string>///Create sparkle effects
 
-var a;
-a = 0;
-repeat (6) {
+//Repeat 12 times
+repeat (12) {
 
-    with (instance_create(x, y-12, obj_sparkle)) motion_set(a, 1);
-    with (instance_create(x, y-12, obj_sparkle)) motion_set(a + 30, 2);
-    a += 60;
+    with (instance_create(x, y-12, obj_sparkle)) {
+    
+        sprite_index = spr_sparkle_small;
+        image_speed = 0.125;
+        motion_set(random(360), random_range(0.5, 2));
+    }
 }
 
 //Get 2000 points

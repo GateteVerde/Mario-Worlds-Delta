@@ -84,6 +84,9 @@ anim += 0.15;
 //Draw the border
 draw_sprite_ext(spr_hud_map, 0, view_xview[0], view_yview[0], 1, 1, 0, c_white, 1);
 
+//Set up palette
+player_set_palette(id);
+
 //If the player has a cape, draw it first...
 if (global.powerup &gt;= cs_pow_fire) {
 
@@ -92,6 +95,9 @@ if (global.powerup &gt;= cs_pow_fire) {
 
 //...then draw the player
 draw_sprite_ext(player_walk(), anim, view_xview[0]+38, view_yview[0]+22, -1, 1, 0, c_white, 1);
+
+//Reset shader
+pal_swap_reset();
 
 //Set up the font
 draw_set_font(global.font);

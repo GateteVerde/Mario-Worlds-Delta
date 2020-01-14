@@ -61,10 +61,10 @@ if (!instance_exists(obj_playerparent)) {
 
 //Stay relative to the player
 x = obj_playerparent.bbox_left;
-y = obj_playerparent.bbox_top;
+y = obj_playerparent.bbox_top+1;
 
 //Set yscale from player
-image_yscale = sprite_get_height(obj_playerparent.mask_index);
+image_yscale = sprite_get_height(obj_playerparent.mask_index)-1;
 
 //If the object is overlapping a solid
 if (collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_solid, 1, 0))
