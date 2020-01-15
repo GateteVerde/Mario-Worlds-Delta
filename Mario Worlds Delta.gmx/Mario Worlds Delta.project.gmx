@@ -768,6 +768,9 @@
         <sprite>sprites\spr_path_ladder</sprite>
       </sprites>
       <sprites name="Panels">
+        <sprites name="Special">
+          <sprite>sprites\spr_levelpipe</sprite>
+        </sprites>
         <sprite>sprites\spr_levelpanel</sprite>
         <sprite>sprites\spr_levelpanel_secret</sprite>
         <sprite>sprites\spr_levelpanel_big</sprite>
@@ -1479,6 +1482,9 @@
         <object>objects\obj_path_ladder</object>
       </objects>
       <objects name="Panels">
+        <objects name="Special">
+          <object>objects\obj_levelpipe</object>
+        </objects>
         <object>objects\obj_levelpanel</object>
       </objects>
       <objects name="Decoration">

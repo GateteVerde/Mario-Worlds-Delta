@@ -220,6 +220,12 @@ else if (global.clear == 2) {
     }    
 }
 
+//Otherwise, if the player warped through a pipe
+else if (global.clear == 3) {
+
+    event_user(15);
+}
+
 //Reset clear variable
 global.clear = 0;
 
@@ -227,7 +233,10 @@ global.clear = 0;
 with (check) ds_map_replace(global.worldmap_beaten, id, 1);
 
 //Do not remember checkpoint for this level
-with (check) checkpoint = noone;
+if (variable_instance_exists(check, "checkpoint")) {
+
+    with (check) checkpoint = noone;
+}
 
 //Reset status
 status = 'IDLE'
