@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Allow block to be hit again and make the tide move to this position
+            <string>///Allow block to be hit again and light up the room
 
 //Play 'Switch' sound
 audio_play_sound(snd_switch, 0, false);
@@ -35,7 +35,7 @@ ready = 0;
 
 //Reset light
 if (instance_exists(obj_lightcontrol))
-    global.ambient_light = 8421504;
+    with (obj_lightcontrol) intensity = 128;
 </string>
           </argument>
         </arguments>

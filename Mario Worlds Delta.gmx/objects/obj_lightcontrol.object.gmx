@@ -31,7 +31,10 @@
 global.surf_light = surface_create(room_width,room_height);
 
 //Ambient light global variable
-global.ambient_light = c_black;
+global.ambient_light = 0;
+
+//Intensity
+intensity = 128;
 
 //If there's a lighting block in place, halve the ambient light
 if (instance_exists(obj_lightblock)) {
@@ -64,8 +67,8 @@ if (instance_exists(obj_lightblock)) {
             <string>///Decrement ambient light
 
 alarm[0] = 8;
-if (global.ambient_light &gt; c_black)    
-    global.ambient_light -= 65793;
+if (intensity &gt; 0)    
+    intensity--;
 </string>
           </argument>
         </arguments>
@@ -100,7 +103,7 @@ if (!surface_exists(global.surf_light)) {
 surface_set_target(global.surf_light);
 
 //Clear the white colour from the lights
-draw_clear(c_white-global.ambient_light);
+draw_clear(c_white-(65793*intensity));
 
 //Set the blending mode
 draw_set_blend_mode(bm_subtract);

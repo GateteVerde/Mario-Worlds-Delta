@@ -127,7 +127,8 @@ with (parent) event_user(1);
             <kind>1</kind>
             <string>///Hurt parent wiggler
 
-if (outside_view(16) == false)
+if (outside_view(16))
+exit;
     with (parent) event_user(0);
 </string>
           </argument>

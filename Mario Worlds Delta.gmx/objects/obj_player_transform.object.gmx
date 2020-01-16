@@ -88,6 +88,8 @@ if (global.screenfreeze == true) {
     //Make following objects invisible
     with (obj_water) visible = 0;
     with (obj_water_tides) visible = 0;
+    with (obj_lightparent) visible = 0;
+    with (obj_lightcontrol) visible = 0;
     with (obj_effectsparent) visible = 0;
     
     //Start animation
@@ -260,6 +262,12 @@ instance_activate_object(obj_hud);
 
 //Activate music player
 instance_activate_object(obj_audio_loop_sound);
+
+//Activate lighting
+instance_activate_object(obj_lightcontrol);
+instance_activate_object(obj_lightparent);
+with (obj_lightcontrol) visible = 1;
+with (obj_lightparent) visible = 1;
 
 //Activate cape
 instance_activate_object(obj_cape);

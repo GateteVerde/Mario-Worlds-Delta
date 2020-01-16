@@ -28,13 +28,10 @@
             <string>///You got points
 
 //Set the vertical speed
-vspeed = -2.25;
+vspeed = -1;
 
 //Friction
-gravity = 0.1;
-
-//Scale
-scale = 1;
+friction = 0.0175;
 </string>
           </argument>
         </arguments>
@@ -59,35 +56,14 @@ scale = 1;
             <kind>1</kind>
             <string>///Destroy if there's no vertical speed
 
-//If there's no friction
-if (friction == 0) {
-    
-    //If moving down, fade out
-    if (vspeed &gt; 0) {
-    
-        image_alpha -= 0.1;
-        if (image_alpha &lt; 0.1)
-            instance_destroy();
-    }
-}
-
-//Otherwise, if there's friction
-else if (friction != 0) {
-
-    //If there's no vertical speed
-    if (vspeed == 0) {
-    
-        image_alpha -= 0.05;
-        if (image_alpha &lt; 0.05)
-            instance_destroy();
-    }
-}
+if (vspeed == 0)
+    instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="21">
+    <event eventtype="7" enumb="23">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -113,6 +89,64 @@ sprite_index = spr_poisonpts;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///5UP
+
+//Set the sprite
+sprite_index = spr_5uppts;
+
+//Give score
+lives += 5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="21">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///3UP
+
+//Set the sprite
+sprite_index = spr_3uppts;
+
+//Give score
+lives += 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="20">
       <action>
         <libid>1</libid>
@@ -130,21 +164,13 @@ sprite_index = spr_poisonpts;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///·UP
+            <string>///2UP
 
 //Set the sprite
-sprite_index = spr_3uppts;
-
-//Quad alpha
-image_alpha = 4;
+sprite_index = spr_2uppts;
 
 //Give score
-lives += 3;
-
-//Stop vertical movement
-vspeed = -3;
-gravity = 0;
-friction = 0.1;
+lives += 2;
 </string>
           </argument>
         </arguments>
@@ -172,16 +198,8 @@ friction = 0.1;
 //Set the sprite
 sprite_index = spr_1uppts;
 
-//Quad alpha
-image_alpha = 4;
-
 //Give score
 lives++;
-
-//Stop vertical movement
-vspeed = -3;
-gravity = 0;
-friction = 0.1;
 </string>
           </argument>
         </arguments>
@@ -467,7 +485,7 @@ score += 10;
             <kind>1</kind>
             <string>///Draw it
 
-draw_sprite_ext(sprite_index, -1, round(x), y, scale, scale, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

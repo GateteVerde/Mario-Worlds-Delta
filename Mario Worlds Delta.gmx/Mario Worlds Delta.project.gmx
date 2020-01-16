@@ -407,6 +407,7 @@
       <sprite>sprites\spr_poison</sprite>
       <sprite>sprites\spr_watermelon_fire</sprite>
       <sprite>sprites\spr_watermelon_bomb</sprite>
+      <sprite>sprites\spr_3upmoon</sprite>
       <sprite>sprites\spr_twister</sprite>
     </sprites>
     <sprites name="Gizmos">
@@ -885,9 +886,11 @@
           <sprite>sprites\spr_2000pts</sprite>
           <sprite>sprites\spr_4000pts</sprite>
           <sprite>sprites\spr_8000pts</sprite>
-          <sprite>sprites\spr_poisonpts</sprite>
           <sprite>sprites\spr_1uppts</sprite>
+          <sprite>sprites\spr_2uppts</sprite>
           <sprite>sprites\spr_3uppts</sprite>
+          <sprite>sprites\spr_5uppts</sprite>
+          <sprite>sprites\spr_poisonpts</sprite>
         </sprites>
         <sprites name="Shards">
           <sprites name="Bricks">
@@ -1297,6 +1300,7 @@
       <object>objects\obj_poison</object>
       <object>objects\obj_watermelon_fire</object>
       <object>objects\obj_watermelon_bomb</object>
+      <object>objects\obj_3upmoon</object>
       <object>objects\obj_twister</object>
     </objects>
     <objects name="Gizmos">
