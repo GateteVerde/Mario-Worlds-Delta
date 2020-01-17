@@ -111,8 +111,8 @@ sprite_index = spr_poisonpts;
 //Set the sprite
 sprite_index = spr_5uppts;
 
-//Give score
-lives += 5;
+//Give lives
+obj_controller.givelives += 5;
 </string>
           </argument>
         </arguments>
@@ -140,8 +140,8 @@ lives += 5;
 //Set the sprite
 sprite_index = spr_3uppts;
 
-//Give score
-lives += 3;
+//Give lives
+obj_controller.givelives += 3;
 </string>
           </argument>
         </arguments>
@@ -169,8 +169,8 @@ lives += 3;
 //Set the sprite
 sprite_index = spr_2uppts;
 
-//Give score
-lives += 2;
+//Give lives
+obj_controller.givelives += 2;
 </string>
           </argument>
         </arguments>
@@ -198,8 +198,8 @@ lives += 2;
 //Set the sprite
 sprite_index = spr_1uppts;
 
-//Give score
-lives++;
+//Give lives
+obj_controller.givelives++;
 </string>
           </argument>
         </arguments>

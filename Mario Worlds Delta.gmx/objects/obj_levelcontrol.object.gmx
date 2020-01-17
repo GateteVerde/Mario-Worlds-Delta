@@ -515,15 +515,12 @@ y = round(y);
 
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {
-
-    //Play '1UP' sound
-    audio_play_sound(snd_1up, 0, false);    
     
     //Reset counter
     global.coins -= 100;
     
     //Get 1-UP
-    lives++;
+    obj_controller.givelives++;
 }
 
 //Warn the player that the p-switch is running out

@@ -114,14 +114,8 @@ ds_map_add(global.dcoins, id, 1);
 with (instance_create(x, y, obj_score)) {
 
     //If 5 or more coins were collected, award an extra life
-    if (ds_map_size(global.dcoins) &gt;= 5) {
-    
-        //Play '1-UP' sound
-        audio_play_sound(snd_1up, 0, false);
-        
-        //Let the player know it
+    if (ds_map_size(global.dcoins) &gt;= 5)
         event_user(9);
-    }
     
     //Otherwise, give points based on how many coins you collected
     else        
@@ -176,14 +170,8 @@ ds_map_add(global.dcoins, id, 1);
 with (instance_create(x, y, obj_score)) {
 
     //If 5 or more coins were collected, award an extra life
-    if (ds_map_size(global.dcoins) &gt;= 5) {
-    
-        //Play '1-UP' sound
-        audio_play_sound(snd_1up, 0, false);
-        
-        //Let the player know it
+    if (ds_map_size(global.dcoins) &gt;= 5) 
         event_user(9);
-    }
     
     //Otherwise, give points based on how many coins you collected
     else        

@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>///Award an extra life
 
-//Play '1UP' sound
-audio_stop_play_sound(snd_1up, 0, false);
-
 //Get a life
 with (instance_create(x-8, y, obj_score)) event_user(9);
 

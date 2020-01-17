@@ -55,6 +55,10 @@ message = "";
 //Display FPS
 showfps = false;
 
+//Gives extra lives
+givelives = 0;
+alarm[7] = 1;
+
 //Game width / heigh
 global.gw = 432;
 global.gh = 240;
@@ -117,6 +121,47 @@ else {
     port_x = 0;
     port_y = 0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Add lives
+
+//If the player got extra lives
+if (givelives &gt; 0) {
+
+    //Play '1UP' sound
+    audio_play_sound(snd_1up, 0, false);
+    
+    //Get life
+    lives++;
+    
+    //Decrement spare
+    givelives--;
+    
+    //Give a life after a 1/2 second
+    alarm[7] = 30;
+}
+else
+    alarm[7] = 1;
 </string>
           </argument>
         </arguments>

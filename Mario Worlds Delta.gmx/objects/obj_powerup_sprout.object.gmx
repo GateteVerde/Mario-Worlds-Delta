@@ -42,37 +42,37 @@ if (position_meeting(x,y-8,obj_solid)) {
     //Go down if both sides are blocked
     if (position_meeting(x-16,y+8,obj_solid))
     &amp;&amp; (position_meeting(x+16,y+8,obj_solid))
-        vspeed = 0.35;
+        vspeed = 0.5;
 
     //Go right if the left side is blocked
     else if (position_meeting(x-16,y+8,obj_solid))
-        hspeed = 0.35;
+        hspeed = 0.5;
 
     //Go left if the right side is blocked
     else if (position_meeting(x+16,y+8,obj_solid))
-        hspeed = -0.35;
+        hspeed = -0.5;
 
     //Otherwise, go towards the player
     else {
     
-        //If Mario does exist.
-        if (instance_exists(obj_mario)) {
+        //If the player does exist
+        if (instance_exists(obj_playerparent)) {
         
-            if (obj_mario.x &gt; x)
-                hspeed = 0.35;
+            if (obj_playerparent.x &gt; x)
+                hspeed = 0.5;
             else
-                hspeed = -0.35;
+                hspeed = -0.5;
         }
         
         //Otherwise, if it does not exist.
         else
-            hspeed = -0.35;
+            hspeed = -0.5;
     }
 }
 
 //Otherwise, move up
 else
-    vspeed = -0.35;
+    vspeed = -0.5;
 </string>
           </argument>
         </arguments>
