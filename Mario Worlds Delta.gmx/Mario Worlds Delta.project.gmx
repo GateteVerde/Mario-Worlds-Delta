@@ -385,6 +385,8 @@
         <sprite>sprites\spr_checkpoint_luigi_loop</sprite>
         <sprite>sprites\spr_checkpoint_toad</sprite>
         <sprite>sprites\spr_checkpoint_toad_loop</sprite>
+        <sprite>sprites\spr_goal_gate</sprite>
+        <sprite>sprites\spr_goal_tape</sprite>
         <sprite>sprites\spr_keyhole</sprite>
         <sprite>sprites\spr_keyhole_anim</sprite>
       </sprites>
@@ -1286,6 +1288,7 @@
     <objects name="Items">
       <objects name="Progress">
         <object>objects\obj_checkpoint</object>
+        <object>objects\obj_goal_gate</object>
         <object>objects\obj_keyhole</object>
       </objects>
       <object>objects\obj_coin</object>
@@ -1654,6 +1657,10 @@
             <object>objects\obj_powerup_sprout</object>
             <object>objects\obj_powerup_swap</object>
             <object>objects\obj_reserveitem</object>
+          </objects>
+          <objects name="Progress">
+            <object>objects\obj_goal_tape</object>
+            <object>objects\obj_goal_gate_front</object>
           </objects>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>

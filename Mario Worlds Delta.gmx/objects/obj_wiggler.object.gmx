@@ -379,8 +379,23 @@ if (state == 0) {
     //Get points based on combo
     if (obj_playerparent.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
         with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(2+obj_playerparent.hitcombo);
-    else
-        with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(9);
+    else {
+    
+        switch (obj_playerparent.hitcombo) {
+        
+            //Seven
+            case (7): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(9); break;
+            
+            //Eight
+            case (8): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(10); break;
+            
+            //Nine
+            case (9): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(11); break;
+            
+            //Ten or more
+            default: with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(12); break;
+        }
+    }
     
     //Increment combo
     obj_playerparent.hitcombo++;
