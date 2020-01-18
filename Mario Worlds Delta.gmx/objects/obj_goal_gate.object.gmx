@@ -32,7 +32,7 @@ image_speed = 0;
 image_index = 0;
 
 //Create tape
-instance_create(x, y, obj_goal_tape);
+instance_create(x, y+128, obj_goal_tape);
 
 //Create right part of the gate
 instance_create(x+32, y, obj_goal_gate_front);

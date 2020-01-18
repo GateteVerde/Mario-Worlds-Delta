@@ -96,6 +96,9 @@
     <sound>sound\snd_capecancel</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_clack</sound>
+    <sound>sound\snd_goalgate</sound>
+    <sound>sound\snd_goalgate_2</sound>
+    <sound>sound\snd_goalgate_3</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
     <sound>sound\snd_correct</sound>
@@ -1611,6 +1614,7 @@
           <objects name="Events">
             <object>objects\obj_player_transform</object>
             <object>objects\obj_player_dead</object>
+            <object>objects\obj_player_clear</object>
             <object>objects\obj_player_door</object>
           </objects>
           <objects name="Special">
@@ -1659,6 +1663,10 @@
             <object>objects\obj_reserveitem</object>
           </objects>
           <objects name="Progress">
+            <objects name="Transitions">
+              <object>objects\obj_goal_fade</object>
+              <object>objects\obj_goal_curtain</object>
+            </objects>
             <object>objects\obj_goal_tape</object>
             <object>objects\obj_goal_gate_front</object>
           </objects>

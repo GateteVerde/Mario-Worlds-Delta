@@ -246,7 +246,8 @@ alarm[1] = 60;
             <string>///Invincibility logic
 
 //If the player dies, destroy
-if (instance_exists(obj_player_dead)) {
+if (instance_exists(obj_player_dead)) 
+|| (instance_exists(obj_player_clear)) {
 
     instance_destroy();
     exit;
@@ -324,6 +325,10 @@ if (instance_exists(obj_player_warp))
 //Check 'Door'
 else if (instance_exists(obj_player_door))
     follow = obj_player_door;
+    
+//Check 'Clear'
+else if (instance_exists(obj_player_clear))
+    follow = obj_player_clear;
     
 //Reset to default
 else

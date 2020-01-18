@@ -583,6 +583,10 @@ instance_activate_region(view_xview[view_current]-32, view_yview[view_current]-3
 if (instance_exists(obj_followme))
     follow = obj_followme;
     
+//Otherwise, if the player has cleared the level
+else if (instance_exists(obj_player_clear))
+    follow = obj_player_clear;
+    
 //Otherwise, if the player exists and he just died
 else 
     follow = noone;

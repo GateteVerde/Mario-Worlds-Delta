@@ -39,6 +39,9 @@ push = false;
 //X position
 xx = 0;
 
+//Alpha
+alpha = 0.2509803921568627;
+
 //Whether this object has a target position
 targety = y;
 
@@ -215,13 +218,13 @@ if (player)
             <string>///Draw the water
 
 //Draw water
-draw_sprite_tiled_area_ext(sprite_index, -1, x+xx, y, x, y, x+room_width-1, y+15, c_white, 1);
+draw_sprite_tiled_area_ext(sprite_index, -1, x+xx, y, x, y, x+room_width-1, y+15, c_white, image_alpha);
 
 //Set colour
 draw_set_colour(make_colour_rgb(0, 128, 255));
 
 //Set alpha
-draw_set_alpha(0.2509803921568627);
+draw_set_alpha(alpha);
 
 //Draw water body
 draw_rectangle(x, y+16, x+room_width-1, room_height, false);
