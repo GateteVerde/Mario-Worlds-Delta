@@ -6,7 +6,7 @@
   <depth>-6</depth>
   <persistent>0</persistent>
   <parentName>obj_physicsparent</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_mask_player</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -45,7 +45,7 @@ with (obj_levelcontrol) {
 }
 
 //Set clear state
-global.clear = 1;
+global.clear = 1+(obj_goal_gate.secret);
 
 //Anim
 anim = 0;
@@ -147,20 +147,20 @@ if (ready4 == 0) {
     if (global.time &gt; 0) {
     
         ready4 = 1;
-        //audio_play_sound(snd_count, 0, false);
-        //audio_play_sound(snd_count2, 0, true);
+        audio_play_sound(snd_count, 0, false);
+        audio_play_sound(snd_count2, 0, true);
     }
     else {
     
         ready4 = 2;
-        //audio_play_sound(snd_countend, 0, false);
+        audio_play_sound(snd_count3, 0, false);
     }
 }
 else if ((global.time &lt; 1) &amp;&amp; (ready4 == 1)) {
 
     ready4 = 2;
-    //audio_stop_sound(snd_count2);
-    //audio_play_sound(snd_countend, 0, false);
+    audio_stop_sound(snd_count2);
+    audio_play_sound(snd_count3, 0, false);
 }    
 </string>
           </argument>
@@ -341,6 +341,10 @@ else {
     else
         image_index = 1;
 }
+
+//Set the big mask if the player is not small
+if (global.powerup != cs_pow_small)
+    mask_index = spr_mask_player_big;
 </string>
           </argument>
         </arguments>

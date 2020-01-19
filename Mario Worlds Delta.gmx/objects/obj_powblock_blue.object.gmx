@@ -115,8 +115,7 @@ if (!held) {
             event_user(0);
             
         //Check for ground
-        if (vspeed == 0)
-        &amp;&amp; (gravity == 0)
+        if (gravity == 0)
             event_user(0);
     }
     

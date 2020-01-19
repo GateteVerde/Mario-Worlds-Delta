@@ -1059,44 +1059,12 @@ if (global.starman &gt; 0) {
 //Draw background
 if (background_height[0] &lt; room_height)
 &amp;&amp; (background_height[0] &gt; view_hview[0])
-    draw_background_tiled_horizontal_ext(background_index[0], view_xview[0]/2+(background_x[0]+background_hspeed[0]), background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
+    draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
 else
-    draw_background_tiled_horizontal_ext(background_index[0], view_xview[0]/2+(background_x[0]+background_hspeed[0]), background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
+    draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
 
 //Draw pit marker
 draw_background_ext(bgr_pit, 0, room_height-32, room_width/16, 1, 0, background_blend[0], 1);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Beat the stage
-
-//Stop all music and fanfares
-event_user(4);
-
-//Clear it
-global.clear = 1;
-
-//Return to the map
-wmap_return();
 </string>
           </argument>
         </arguments>

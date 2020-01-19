@@ -27,6 +27,15 @@
             <kind>1</kind>
             <string>///Goal Gate (Left)
 
+/*
+**  This item uses creation code!
+**
+**  secret      = To open up the secret path in the map
+*/
+
+//Default values
+secret = 0;
+
 //Do not animate
 image_speed = 0;
 image_index = 0;

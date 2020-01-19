@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>///Blue Beach Koopa
 
+
+
 //Inherit event from parent
 event_inherited();
 
@@ -57,10 +59,6 @@ kicky = 0;
 //Animate
 image_speed = 0.15;
 
-//Sliding
-slide = false;
-alarm[11] = 1;
-
 //Move towards the player
 alarm[10] = 2;
     
@@ -73,48 +71,6 @@ boxb = -1;
 //If the item is overlapping the koopa
 initem = false;
 dir = -1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Begin sliding
-
-//Deny if slipped from its shell
-if (sprite_index == spr_beachkoopa_blue) then exit;
-
-//Check for a slope
-if (collision_rectangle(x,y+8,x,y+16,obj_slopeparent,1,0)) {
-
-    //Set state
-    slide = true;
-    
-    //Set sprite
-    sprite_index = spr_beachkoopa_blue_slide;
-
-    //Animate
-    image_speed = 0;
-    
-    //Stop movement
-    hspeed = 0;
-}
 </string>
           </argument>
         </arguments>
@@ -139,9 +95,8 @@ if (collision_rectangle(x,y+8,x,y+16,obj_slopeparent,1,0)) {
             <kind>1</kind>
             <string>///Move towards the player
 
-//Deny, if stomped or sliding
+//Deny, if stomped
 if (sprite_index == stompsprite) then exit;
-if (slide) then exit;
 
 //If the koopa can move
 if (ready &gt; 0) {
@@ -161,36 +116,9 @@ if (ready &gt; 0) {
     image_speed = 0.15;
 
     //Set walking sprite
-    if (sprite_index != spr_beachkoopa_blue_walk)
+    if (sprite_index == spr_beachkoopa_blue)
         sprite_index = spr_beachkoopa_blue_walk;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///No longer kick
-
-//Remove ID
-idd = noone;
-kicky = 0;
 </string>
           </argument>
         </arguments>
@@ -248,9 +176,6 @@ if (!initem) {
     
     //Go back to normal
     alarm[1] = 15;
-    
-    //Remove kick
-    alarm[5] = 2;
 }
 else alarm[2] = 5;
 </string>
@@ -333,7 +258,7 @@ if ((!collision_rectangle(bbox_left-21, bbox_top-8, bbox_right+21, bbox_bottom+1
 }
 
 //Otherwise
-else if (idd != noone) {
+if (idd != noone) {
 
     if (kicky == 2) {
         
@@ -358,7 +283,6 @@ else if (idd != noone) {
         //Dribble item
         if ((hspeed &gt;= 0 &amp;&amp; xscale == 1)
         || (hspeed &lt;= 0 &amp;&amp; xscale == -1)) &amp;&amp; (idd.gravity == 0)
-        &amp;&amp; (gravity == 0)
            idd.vspeed = -1;
         
         //Drag shell
@@ -389,7 +313,6 @@ else if (idd != noone) {
         //Dribble item
         if ((hspeed &gt;= 0 &amp;&amp; xscale == 1)
         || (hspeed &lt;= 0 &amp;&amp; xscale == -1)) &amp;&amp; (idd.gravity == 0)
-        &amp;&amp; (gravity == 0)
            idd.vspeed = -1;
         
         //Drag shell
@@ -437,7 +360,7 @@ event_perform_object(obj_physicsparent, ev_step, 0);
 event_user(2);
 
 //Turn on ledges
-if (ready == 2) &amp;&amp; (kicky == 0) &amp;&amp; (!slide)
+if (ready == 2) &amp;&amp; (kicky == 0)
     event_user(6);
 
 //TEMPORARY item contact box length
@@ -472,7 +395,7 @@ if (sprite_index == spr_beachkoopa_blue_walk)
     ready = 2;
 
 //Otherwise, check for holdable items to kick
-if (ready == 2) &amp;&amp; (!slide) {
+if (ready == 2) {
     
     //Check for an object
     var obj = collision_rectangle(x+(boxl*sign(xscale)), bbox_top+boxt, x+(boxr*sign(xscale)), bbox_bottom+boxb, obj_holdparent, 0, 0);
@@ -494,7 +417,7 @@ if (ready == 2) &amp;&amp; (!slide) {
             idd = obj.id;
             
             //Check for overlapping item
-            if (collision_rectangle(bbox_left-3, bbox_top-4, bbox_right+3, bbox_bottom+4, idd, 0, 0)) { 
+            if (collision_rectangle(bbox_left-2, bbox_top-4, bbox_right+2, bbox_bottom+4, idd, 0, 0)) { 
                 
                 if (collision_line(x, y, x+23*xscale, y, obj_solid, 0, 0)) {
                 
@@ -521,7 +444,7 @@ if (ready == 2) &amp;&amp; (!slide) {
             idd = obj.id;
             
             //Check for overlapping item
-            if (collision_rectangle(bbox_left-3, bbox_top-4, bbox_right+3, bbox_bottom+4, idd, 0, 0)) { 
+            if (collision_rectangle(bbox_left-2, bbox_top-4, bbox_right+2, bbox_bottom+4, idd, 0, 0)) { 
                 
                 if (collision_line(x, y, x+23*xscale, y, obj_solid, 0, 0)) {
                 
@@ -581,102 +504,20 @@ if (kicky == 0) {
     else if (hspeed &lt; 0)
         xscale = -1;   
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Sliding logic
 
-//...If sliding
-if (slide) {
+//Get rid of id and be able to kick as soon as koopa kicks the object
+if (idd != noone)
+&amp;&amp; (!collision_rectangle(bbox_left-3, bbox_top-4, bbox_right+3, bbox_bottom+4, idd, 0, 0))
+&amp;&amp; (kicky == 0 || kicky == 999) {
 
-    //Capfalling speed
-    if (vspeed &gt; 4)
-        vspeed = 4;
-        
-    //Check for a slope
-    slope_below = collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0);
+    //Remove ID
+    idd = noone;
     
-    //If there's a slope below the player
-    if (slope_below)
-        hspeed += (slope_below.add)/5;
+    //Free to kick anything else or the same object
+    kicky = 0;
     
-    //Otherwise, if there's not a slope below
-    else if (vspeed == 0) {
-    
-        //If the player is not overlapping a slippery surface
-        if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
-        
-            //Reduce player's horizontal speed
-            hspeed = max(0, abs(hspeed)-0.05)*sign(hspeed);
-            
-            //Set horizontal speed to 0 when the horizontal speed hits value in 'dec'.
-            if (hspeed &lt; 0.05)
-            &amp;&amp; (hspeed &gt; -0.05) {
-            
-                //Stop horizontal movement
-                hspeed = 0;
-                
-                //Stop slide
-                slide = false;
-                
-                //Animate 
-                image_speed = 0.15;
-                
-                //Walk
-                alarm[10] = 25;
-            }
-        }
-        
-        //Otherwise, if the player is overlapping a slippery surface
-        else {
-        
-            //Reduce player's horizontal speed yet slower
-            hspeed = max(0, abs(hspeed)-0.0125)*sign(hspeed);
-            
-            //Set horizontal speed to 0 when the horizontal speed hits value in 'dec/8'.
-            if (hspeed &lt; 0.0125)
-            &amp;&amp; (hspeed &gt; -0.0125) {
-            
-                //Stop horizontal movement
-                hspeed = 0;
-                            
-                //Stop slide
-                slide = false;
-                
-                //Animate 
-                image_speed = 0.15;
-                
-                //Walk
-                alarm[10] = 25;
-            }     
-        }
-    }
-    
-    //Cap horizontal speed
-    //If the horizontal speed is greater than the target speed, cap it
-    if (hspeed &gt; 2.4)
-        hspeed = 2.4;
-        
-    //Otherwise, if the horizontal speed is lower than the target speed, cap it
-    if (hspeed &lt; -2.4)
-        hspeed = -2.4;
+    //Animate, incase of a bug, remove if you feel like it
+    image_speed = 0.15;
 }
 </string>
           </argument>
