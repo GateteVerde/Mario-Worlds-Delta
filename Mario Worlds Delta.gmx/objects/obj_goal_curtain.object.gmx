@@ -87,6 +87,7 @@ else {
     draw_set_blend_mode(bm_subtract);
     
     //Draw the transition image.
+    draw_set_circle_precision(64);
     draw_circle_colour(x-view_xview[0], y-view_yview[0], scale, c_white, c_white, false);
     
     //Set the blending end mode

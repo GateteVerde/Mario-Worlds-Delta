@@ -70,10 +70,10 @@ global.screenfreeze = true;
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);
 
 //In-HUD Numbers
-global.fontnumb = font_add_sprite(spr_font_numb, ord('0'), 0, -1);
+global.fontnumb = font_add_sprite(spr_font_numb, ord('0'), 0, 0);
 
 //In-HUD Gold Numbers
-global.fontnumbgold = font_add_sprite(spr_font_numb_gold, ord('0'), 0, -1);
+global.fontnumbgold = font_add_sprite(spr_font_numb_gold, ord('0'), 0, 0);
 
 //In-Message Font
 global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);

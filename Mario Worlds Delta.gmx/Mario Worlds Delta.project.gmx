@@ -617,6 +617,13 @@
         <sprite>sprites\spr_rex2</sprite>
         <sprite>sprites\spr_rex2_sq</sprite>
         <sprite>sprites\spr_rex2_dead</sprite>
+        <sprite>sprites\spr_dinotorch</sprite>
+        <sprite>sprites\spr_dinotorch_blow</sprite>
+        <sprite>sprites\spr_dinotorch_dead</sprite>
+        <sprite>sprites\spr_dinotorch_sq</sprite>
+        <sprite>sprites\spr_dinotorch_flame</sprite>
+        <sprite>sprites\spr_dinotorch_flame_full</sprite>
+        <sprite>sprites\spr_dinorhino</sprite>
         <sprite>sprites\spr_spike</sprite>
         <sprite>sprites\spr_spike_throw</sprite>
         <sprite>sprites\spr_spike_throw2</sprite>
@@ -975,13 +982,15 @@
           <sprite>sprites\spr_message</sprite>
         </sprites>
         <sprites name="Level">
+          <sprites name="Completion">
+            <sprite>sprites\spr_hud_clear</sprite>
+          </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
           <sprite>sprites\spr_hud_time</sprite>
           <sprite>sprites\spr_hud_reserve</sprite>
           <sprite>sprites\spr_hud_acecoins</sprite>
           <sprite>sprites\spr_hud_acecoins_coin</sprite>
-          <sprite>sprites\spr_hud_separator</sprite>
         </sprites>
         <sprites name="Map">
           <sprite>sprites\spr_hud_map</sprite>
@@ -1435,6 +1444,8 @@
           </objects>
         </objects>
         <object>objects\obj_rex</object>
+        <object>objects\obj_dinotorch</object>
+        <object>objects\obj_dinorhino</object>
         <object>objects\obj_spike</object>
       </objects>
       <objects name="Underground">
@@ -1742,6 +1753,7 @@
             <objects name="Goombas">
               <object>objects\obj_galoomba_held</object>
             </objects>
+            <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>
           </objects>
           <objects name="Underground">
