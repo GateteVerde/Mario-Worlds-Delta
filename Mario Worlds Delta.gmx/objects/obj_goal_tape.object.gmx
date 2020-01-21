@@ -146,7 +146,7 @@ with (other) {
 instance_destroy();
 
 //Get points
-myscore = instance_create(x-8, y, obj_score);
+myscore = instance_create(x+8, y, obj_score);
 
 //3-UP
 if (y &lt; ystart-127)

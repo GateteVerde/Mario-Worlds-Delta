@@ -64,7 +64,7 @@ global.gw = 432;
 global.gh = 240;
 
 //Freeze the screen?
-global.screenfreeze = true;
+global.screenfreeze = false;
 
 //In-Game Font
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);
@@ -704,9 +704,6 @@ view_hborder[0] = global.gw/2;
 
 //Update vborder
 view_vborder[0] = global.gh/2;
-
-//Set up view horizontal speed
-view_hspeed[0] = 4;
 </string>
           </argument>
         </arguments>
