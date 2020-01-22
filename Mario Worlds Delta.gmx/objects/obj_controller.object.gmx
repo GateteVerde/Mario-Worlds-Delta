@@ -64,7 +64,7 @@ global.gw = 432;
 global.gh = 240;
 
 //Freeze the screen?
-global.screenfreeze = false;
+global.screenfreeze = true;
 
 //In-Game Font
 global.font = font_add_sprite(spr_font, ord('!'), 0, 0);

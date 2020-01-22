@@ -152,6 +152,7 @@
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
+    <sound>sound\snd_swoop</sound>
     <sound>sound\snd_thud</sound>
     <sound>sound\snd_thud_big</sound>
     <sound>sound\snd_trampoline</sound>
@@ -653,6 +654,12 @@
         <sprite>sprites\spr_spiketop_turn</sprite>
         <sprite>sprites\spr_spiketop_blue</sprite>
         <sprite>sprites\spr_spiketop_blue_turn</sprite>
+        <sprite>sprites\spr_swoop</sprite>
+        <sprite>sprites\spr_swoop_fly</sprite>
+        <sprite>sprites\spr_swoop_dead</sprite>
+        <sprite>sprites\spr_busterbeetle</sprite>
+        <sprite>sprites\spr_busterbeetle_hold</sprite>
+        <sprite>sprites\spr_busterbeetle_dead</sprite>
       </sprites>
       <sprites name="Underwater">
         <sprite>sprites\spr_cheepcheep</sprite>
@@ -1103,6 +1110,7 @@
     <background>background\bgr_marioworlds</background>
   </backgrounds>
   <paths name="paths">
+    <path>paths\pth_balloon</path>
     <path>paths\pth_bubble</path>
     <path>paths\pth_bubble_h</path>
     <path>paths\pth_lava</path>
@@ -1450,10 +1458,10 @@
         <object>objects\obj_spike</object>
       </objects>
       <objects name="Underground">
-        <object>objects\obj_spiny_ceiling</object>
         <object>objects\obj_buzzybeetle</object>
         <object>objects\obj_buzzybeetle_ceiling</object>
         <object>objects\obj_spiny</object>
+        <object>objects\obj_spiny_ceiling</object>
         <objects name="Piranha Plants">
           <object>objects\obj_piranhaplant</object>
           <object>objects\obj_piranhaplant_long</object>
@@ -1467,6 +1475,8 @@
         </objects>
         <object>objects\obj_spiketop</object>
         <object>objects\obj_spiketop_blue</object>
+        <object>objects\obj_swoop</object>
+        <object>objects\obj_busterbeetle</object>
       </objects>
       <objects name="Underwater">
         <object>objects\obj_cheepcheep</object>
@@ -1634,6 +1644,7 @@
         <objects name="In-Map Parents">
           <object>objects\obj_pathparent</object>
         </objects>
+        <object>objects\obj_collisionparent</object>
         <object>objects\obj_effectsparent</object>
         <object>objects\obj_iceparent</object>
         <object>objects\obj_slopeparent</object>
@@ -1765,6 +1776,7 @@
               <object>objects\obj_ptooie_ball</object>
               <object>objects\obj_ptooie_bubble</object>
             </objects>
+            <object>objects\obj_busterpickup</object>
           </objects>
           <objects name="Forest / Desert">
             <object>objects\obj_monty_jump</object>

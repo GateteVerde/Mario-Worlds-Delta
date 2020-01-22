@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_collisionparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="3" enumb="2">
@@ -28,7 +28,7 @@
             <string>///Semisolid logic (Player)
 
 //If this platform is not moving, exit this event.
-if (speed == 0) 
+if (speed == 0)
 exit;
 
 //Check for the player

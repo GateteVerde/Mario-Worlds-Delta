@@ -187,6 +187,13 @@ if (instance_exists(obj_playerparent)) {
             <kind>1</kind>
             <string>///Cape flight logic
 
+//If the player does not exist
+if (!instance_exists(obj_playerparent)) {
+
+     instance_destroy();
+     exit;
+}
+
 //Check if touching a wall
 if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1+hspeed, bbox_top+4, bbox_left-1, bbox_bottom-4, obj_solid, 1, 0)))
 || ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right+1, bbox_top+4, bbox_right+1+hspeed, bbox_bottom-4, obj_solid, 1, 0))) {

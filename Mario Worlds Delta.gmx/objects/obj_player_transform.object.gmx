@@ -263,6 +263,9 @@ instance_activate_object(obj_hud);
 //Activate music player
 instance_activate_object(obj_audio_loop_sound);
 
+//Activate collisions
+instance_activate_object(obj_collisionparent);
+
 //Activate lighting
 instance_activate_object(obj_lightcontrol);
 instance_activate_object(obj_lightparent);

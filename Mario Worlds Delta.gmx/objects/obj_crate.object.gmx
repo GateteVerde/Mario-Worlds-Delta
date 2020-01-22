@@ -89,9 +89,9 @@ with (mytop) instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Held blue brick logic
+            <string>///Crate logic
 
-//If the brick is not held
+//If the crate is not held
 if (!held) {
 
     //Inherit event
@@ -117,7 +117,7 @@ if (!held) {
     if (instance_exists(mytop)) {
 
         mytop.x = x-8;
-        mytop.y = bbox_top+1;
+        mytop.y = y+1;
     }
 }
 
