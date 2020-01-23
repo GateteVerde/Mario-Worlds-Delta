@@ -1084,6 +1084,9 @@
       <background>background\bgr_cave</background>
       <background>background\bgr_cave_b</background>
       <background>background\bgr_cave_c</background>
+      <background>background\bgr_cave_ice</background>
+      <background>background\bgr_cave_ice_b</background>
+      <background>background\bgr_cave_ice_c</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
       <background>background\bgr_hills_thin</background>
@@ -1866,6 +1869,7 @@
     <rooms name="Levels">
       <rooms name="Level 1">
         <room>rooms\rm_level_1a</room>
+        <room>rooms\rm_level_1b</room>
       </rooms>
     </rooms>
     <rooms name="Special Screens">

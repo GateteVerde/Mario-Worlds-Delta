@@ -704,6 +704,12 @@ view_hborder[0] = global.gw/2;
 
 //Update vborder
 view_vborder[0] = global.gh/2;
+
+//Set up view hor. speed
+view_hspeed[0] = -1;
+
+//Set up view ver. speed
+view_vspeed[0] = -1;
 </string>
           </argument>
         </arguments>

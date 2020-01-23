@@ -90,12 +90,11 @@
     <instance objName="obj_slope_r" x="256" y="368" name="inst_99A86EAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_r" x="224" y="384" name="inst_47A22942" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_water_cave" x="0" y="352" name="inst_709CC0F1" locked="0" code="" scaleX="20" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="obj_water_cave" x="576" y="272" name="inst_ED2096C8" locked="0" code="" scaleX="25" scaleY="10" colour="4294967295" rotation="0"/>
     <instance objName="obj_cheepcheep" x="968" y="320" name="inst_61F1A639" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cheepcheep_v" x="712" y="336" name="inst_979B3795" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_buzzybeetle" x="552" y="240" name="inst_58237928" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_085FA9A0" locked="0" code="inisection = &quot;Underground&quot;;&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bganimator" x="16" y="-16" name="inst_3F9978B9" locked="0" code="bg_frame[0] = bgr_cave_b;&#xA;bg_frame[1] = bgr_cave_c;&#xA;bg_frame[2] = bgr_cave_b;&#xA;bg_frame[3] = bgr_cave;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_085FA9A0" locked="0" code="inisection = &quot;Underground&quot;;&#xA;leveltime = 400;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bganimator" x="16" y="-16" name="inst_3F9978B9" locked="0" code="bg_frame[0] = bgr_cave_b;&#xA;bg_frame[1] = bgr_cave_c;&#xA;bg_frame[2] = bgr_cave_b;&#xA;bg_frame[3] = bgr_cave;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_beanstalk" x="944" y="256" name="inst_18026C24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="928" y="16" name="inst_48D1670B" locked="0" code="" scaleX="134" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_key" x="1192" y="256" name="inst_233DB84B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -262,7 +261,7 @@
     <instance objName="obj_pswitch" x="1928" y="96" name="inst_FFD9125B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower_alt" x="1840" y="64" name="inst_7233EA99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_1up" x="1824" y="256" name="inst_99CF2085" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_water_cave" x="1088" y="272" name="inst_90F2C510" locked="0" code="" scaleX="93" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_water_cave" x="576" y="272" name="inst_90F2C510" locked="0" code="" scaleX="125" scaleY="10" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1776" y="320" name="inst_9024FC46" locked="0" code="" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1792" y="320" name="inst_8929AC76" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1824" y="352" name="inst_9174E290" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
@@ -524,6 +523,8 @@
     <instance objName="obj_busterbeetle" x="2824" y="80" name="inst_1E1D65FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_busterbeetle" x="2712" y="240" name="inst_8AF6E17B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cheepcheep" x="392" y="320" name="inst_6BA1CEB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="4240" y="352" name="inst_79E06F4E" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warptop" x="3520" y="336" name="inst_1C254630" locked="0" code="destination = rm_level_1b;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="1232" y="80" w="16" h="16" xo="144" yo="208" id="10017583" name="inst_2DB35E20" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
