@@ -45,6 +45,9 @@ inwall = 0;
 //Follower
 follow = noone;
 
+//Restarts the position if this item has not been carried
+carried = 0;
+
 //Do not slowdown when kicked (Applies only to blue bricks)
 ready = 0;
 </string>
@@ -106,6 +109,9 @@ if (held == true) {
 
     //Do not allow swim
     swimming = false;
+    
+    //Do not reset position
+    carried = true;
     
     //If the player does exist
     if (instance_exists(obj_playerparent)) {
@@ -265,7 +271,7 @@ if (held == false) {
 
     //If the item is not embed in a wall
     if (inwall == false) {
-    
+
         //Inherit step event
         event_inherited();
         

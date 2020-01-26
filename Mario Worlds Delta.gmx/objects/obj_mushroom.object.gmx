@@ -190,9 +190,6 @@ if (other.vspeed &lt; 0)
 //Get 1000 points
 with (instance_create(x-8, y, obj_score)) event_user(5);
 
-//Create ring
-instance_create(x, y+8, obj_ring);
-
 //Get the powerup if small
 if (global.powerup == cs_pow_small) {
 

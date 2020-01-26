@@ -17,11 +17,5 @@ if (crouch == true) {
     else
         return false;
 }
-else {
-
-    //If the player is flying
-    if (flying == 1)
-        return false;
-    else
-        return true;
-}
+else
+    return true;

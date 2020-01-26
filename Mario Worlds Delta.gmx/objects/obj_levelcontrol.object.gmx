@@ -413,7 +413,9 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Set up object to follow
+            <string>///Deals with the camera position
+
+//Set up object to follow
 event_user(15);
 
 //If the barrier is not enabled
@@ -485,10 +487,6 @@ if (follow != noone) {
 //Bigger number on division gives slower camera response
 x = round(xTo);
 y = round(yTo);
-
-//Move the view according to the calculations           
-view_xview[view_current] = -(view_wview[view_current] * 0.5) + x;
-view_yview[view_current] = -(view_hview[view_current] * 0.5) + y;
 </string>
           </argument>
         </arguments>

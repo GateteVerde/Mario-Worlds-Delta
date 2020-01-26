@@ -203,8 +203,7 @@
           <sprite>sprites\spr_mario_big_shoot</sprite>
         </sprites>
         <sprites name="Cape">
-          <sprite>sprites\spr_mario_cape_dive</sprite>
-          <sprite>sprites\spr_mario_cape_smash</sprite>
+          <sprite>sprites\spr_mario_cape</sprite>
         </sprites>
         <sprite>sprites\spr_mario_dead</sprite>
         <sprite>sprites\spr_mario_block</sprite>
@@ -250,8 +249,7 @@
           <sprite>sprites\spr_luigi_big_shoot</sprite>
         </sprites>
         <sprites name="Cape">
-          <sprite>sprites\spr_luigi_cape_dive</sprite>
-          <sprite>sprites\spr_luigi_cape_smash</sprite>
+          <sprite>sprites\spr_luigi_cape</sprite>
         </sprites>
         <sprite>sprites\spr_luigi_dead</sprite>
         <sprite>sprites\spr_luigi_block</sprite>
@@ -297,8 +295,7 @@
           <sprite>sprites\spr_toad_big_shoot</sprite>
         </sprites>
         <sprites name="Cape">
-          <sprite>sprites\spr_toad_cape_dive</sprite>
-          <sprite>sprites\spr_toad_cape_smash</sprite>
+          <sprite>sprites\spr_toad_cape</sprite>
         </sprites>
         <sprite>sprites\spr_toad_dead</sprite>
         <sprite>sprites\spr_toad_block</sprite>
@@ -1145,7 +1142,7 @@
           <script>scripts\player_clear.gml</script>
           <script>scripts\player_ride.gml</script>
           <script>scripts\player_shoot.gml</script>
-          <script>scripts\player_dive.gml</script>
+          <script>scripts\player_cape.gml</script>
           <script>scripts\player_smash.gml</script>
         </scripts>
         <scripts name="In-Map">
@@ -1812,7 +1809,6 @@
         <objects name="Eyecandy">
           <objects name="Blend">
             <object>objects\obj_ring</object>
-            <object>objects\obj_ring_1up</object>
             <object>objects\obj_ring_pow</object>
           </objects>
           <objects name="Score">
@@ -1870,6 +1866,9 @@
       <rooms name="Level 1">
         <room>rooms\rm_level_1a</room>
         <room>rooms\rm_level_1b</room>
+      </rooms>
+      <rooms name="Level 2">
+        <room>rooms\rm_level_2</room>
       </rooms>
     </rooms>
     <rooms name="Special Screens">

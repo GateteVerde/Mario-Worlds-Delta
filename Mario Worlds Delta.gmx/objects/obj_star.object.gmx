@@ -139,9 +139,6 @@ else {
 //Get 1000 points
 with (instance_create(x-8, y, obj_score)) event_user(5);
 
-//Create ring
-instance_create(x, y+8, obj_ring);
-
 //Destroy
 instance_destroy();
 </string>

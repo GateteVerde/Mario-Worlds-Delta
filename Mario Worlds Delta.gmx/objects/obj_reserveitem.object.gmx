@@ -190,9 +190,6 @@ if (bbox_top &gt; room_height)
 
 //If this is a mushroom
 if (sprite_index == spr_mushroom) {
-
-    //Create ring
-    instance_create(x, y+8, obj_ring);
     
     //Get the powerup if small
     if (global.powerup == cs_pow_small) {
@@ -223,9 +220,6 @@ if (sprite_index == spr_mushroom) {
 
 //Otherwise, if this is a fire flower
 else if (sprite_index == spr_fireflower) {
-
-    //Create ring
-    instance_create(x, y+8, obj_ring);
     
     //Turn into fire
     if (global.powerup != cs_pow_fire) 
