@@ -302,7 +302,8 @@ if (smash == 1)
 }
    
 //If 'Left' or 'Right' is pressed while diving
-if (vspeed &gt; 1.5) {
+if (hspeed != 0)
+&amp;&amp; (vspeed &gt; 1.5) {
     
     if ((keyboard_check_pressed(global.key_l)) &amp;&amp; (xscale == 1))
     || ((keyboard_check_pressed(global.key_r)) &amp;&amp; (xscale == -1))
@@ -352,7 +353,7 @@ if (vspeed &lt; 0) {
     if (dive_index &lt; 0)
         dive_index = 0;
 }
-else if (vspeed &gt; 0) {
+else if (vspeed &gt;= 0) {
 
     //Set the frame
     dive_index += 0.2;

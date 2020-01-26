@@ -175,11 +175,15 @@ else if (!water)
     //Stop swimming
     swimming = false;
     
-    //Create a splash effect
-    with (instance_create(round(bbox_left+bbox_right)/2, y-16, obj_smoke)) {
-     
-        sprite_index = spr_splash;
-        image_speed = 0.3;
+    //If moving up
+    if (vspeed &lt; 0) {
+        
+        //Create a splash effect
+        with (instance_create(round(bbox_left+bbox_right)/2, y-16, obj_smoke)) {
+         
+            sprite_index = spr_splash;
+            image_speed = 0.3;
+        }
     }
 }
 </string>

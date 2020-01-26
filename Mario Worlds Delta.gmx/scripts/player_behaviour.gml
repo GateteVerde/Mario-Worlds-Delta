@@ -160,7 +160,6 @@ if (inwall == false)
             if (flying == 0)
             && (crouch == 0)
             && (holding == 0)
-            && (jumpstyle == 0)
             && (global.mount == 0)
                 flying = 1;
             else
@@ -408,19 +407,15 @@ if (keyboard_check(global.key_d))
 //Cape float
 if ((global.powerup == cs_pow_cape)
 || (global.powerup == cs_pow_firecape)) {
-
-    //Slowly fall down
-    if (flying == 0)
-    && (vspeed > 0)
-    && (keyboard_check(global.key_action[0]))
-        vspeed = 0.5;
         
     //Otherwise, if flying
-    else if (flying == 1) {
+    if (flying == 1) {
     
         //Increment fly timer
         fly++;
-        if (fly > 25) && (vspeed > 0) {
+        if (fly > 25) 
+        && (vspeed > 0) 
+        && (jumpstyle == 0) {
         
             //Create flying object
             if (instance_number(obj_cape_fly) == 0) {
@@ -432,4 +427,9 @@ if ((global.powerup == cs_pow_cape)
             }
         }
     }
+    
+    //Slowly fall down
+    if (vspeed > 0)
+    && (keyboard_check(global.key_action[0]))
+        vspeed = 0.5;
 }
