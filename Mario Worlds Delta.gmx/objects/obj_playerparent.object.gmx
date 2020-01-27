@@ -821,7 +821,7 @@ if (hspeed &gt; 0) {
         
         //Prevent the player from getting embed in the wall
         while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+1, obj_solid, 1, 0))
             x--;
     }
     
@@ -843,7 +843,7 @@ else if (hspeed &lt; 0) {
         
         //Prevent the player from getting embed in the wall
         while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 1, 0))    
+        &amp;&amp; (!collision_point(x, bbox_top+1, obj_solid, 1, 0))    
             x++;
     }
     
@@ -855,22 +855,26 @@ else if (hspeed &lt; 0) {
 }
 
 //If moving up...
-if (vspeed &lt;= 0) {
+if (vspeed &lt; 0) {
 
     //...and the player bumps a ceiling
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
-        //Prevent the player from overlapping ceiling slopes
-        if (state == statetype.jump) 
+        //If the player is jumping or climbing
+        if ((fly &gt; 0)
+        &amp;&amp; (state == statetype.jump)) 
         || (state == statetype.climb) {
         
-            //Check for a ceiling
-            if (state == statetype.jump)
-            || (state == statetype.climb)
-                while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_bottom, obj_solid, 1, 0))
-                    y += abs(vspeed);
+            //Prevent the player's head from getting stuck on a ceiling.
+            while ((collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
+            || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)))
+                y += abs(vspeed);
         }
+        
+        //Stop vertical speed
+        if (flying == 0)
+            vspeed = 0;
 
         //Check if there's a block on the way.
         var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top-1, obj_blockparent, 0, 0);
@@ -897,30 +901,30 @@ if (vspeed &lt;= 0) {
             }
         }
         
-        //If not flying
-        if (fly == 0) {
-                
-            //Stop vertical movement
-            vspeed = 0;
-            
-            //If the player is not climbing
-            if (state != statetype.climb) {
-            
+        //If the player is not climbing
+        if (state != statetype.climb) {
+        
+            //If not flying
+            if (flying == 0) {
+        
                 //Play 'Bump' sound
                 audio_play_sound(snd_bump, 0, false);
-                
-                //Stop variable jumping
-                jumping = 2;
             }
+            
+            //Stop variable jumping
+            jumping = 2;
         }
     }
 }
 
 //Check for a ceiling slope
-if (state == statetype.jump)
-|| (state == statetype.climb)
-    while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_bottom, obj_slopeparent_ceiling, 1, 0))
+if ((fly &gt; 0)
+&amp;&amp; (state == statetype.jump))
+|| (state == statetype.climb) {
+
+    while (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))
         y += abs(vspeed);
+}
 
 //If the player is not climbing
 if (state != statetype.climb) {

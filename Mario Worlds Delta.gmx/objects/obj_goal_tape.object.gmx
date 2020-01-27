@@ -132,6 +132,9 @@ if (instance_exists(obj_playerparent)) {
 //Play 'Goal' sound
 audio_play_sound(snd_goalgate, 0, false);
 
+//Play 'Explosion' sound
+audio_play_sound(snd_explosion, 0, false);
+
 //Turn the player onto the goal object
 with (other) {
 

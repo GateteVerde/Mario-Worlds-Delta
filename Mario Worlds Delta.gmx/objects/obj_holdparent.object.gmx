@@ -679,9 +679,12 @@ if (held) {
             <kind>1</kind>
             <string>///Destroy if outside the view
 
-if (y &gt; room_height+sprite_yoffset)
-&amp;&amp; (held == 0)
+if (held == 0)
+if (y &gt; room_height+sprite_yoffset) {
+
+    instance_create(xstart, ystart, object_index);
     instance_destroy();
+}
 </string>
           </argument>
         </arguments>
