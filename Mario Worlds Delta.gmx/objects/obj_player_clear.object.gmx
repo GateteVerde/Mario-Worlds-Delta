@@ -87,14 +87,31 @@ slope = false;
 //Create goal fade
 instance_create(0, 0, obj_goal_fade);
 
-//Kill every enemy on screen
-with (obj_enemyparent) {
+//Remove every NPC on screen
+with (obj_physicsparent) {
 
-    with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_smoke)) {
+    //Do this only if inside the view
+    if (outside_view(sprite_get_width(sprite_index)) == false) {
     
-        sprite_index = spr_smoke_16;
+        //If the object is ancestor of either holdparent, enemyparent or powerup parent
+        if (object_is_ancestor(object_index, obj_coin))
+        || (object_is_ancestor(object_index, obj_holdparent))
+        || (object_is_ancestor(object_index, obj_enemyparent))
+        || (object_is_ancestor(object_index, obj_powerupparent)) {
+        
+            //Give points
+            instance_create(round(bbox_left+bbox_right)/2-8, y, obj_enemy_score);
+        
+            //Create poof of smoke
+            with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_smoke)) {
+            
+                sprite_index = spr_smoke_16;
+            }
+            
+            //Destroy
+            instance_destroy();
+        }
     }
-    instance_destroy();
 }
 </string>
           </argument>
@@ -367,6 +384,9 @@ else {
     //Set the jump sprite
     sprite_index = player_jump();
     
+    //Animate yoshi
+    anim += 0.065+abs(hspeed)/7.5;
+    
     //Do not animate
     image_speed = 0;
     
@@ -508,7 +528,7 @@ if (global.powerup &gt;= cs_pow_cape) {
     
         //If moving up
         if (vspeed &lt; 0)
-            draw_sprite_ext(spr_cape, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape, anim, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
         else
             draw_sprite_ext(spr_cape_fall, anim, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);            
     }   

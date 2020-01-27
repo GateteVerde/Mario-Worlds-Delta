@@ -31,14 +31,12 @@
 **  This item uses creation code!
 **
 **  destination = Destination room (Leave as is to not change room.)
-**  exit_dir    = Exit pipe direction
 **  exit_id     = Warp ID
 **  lock        = If true, locks the door (Once unlocked, it will remain open during the rest of the level)
 */
 
 //Default variables
 destination = noone;
-exit_dir = 0;
 exit_id = -1;
 lock = 0;
 

@@ -118,6 +118,10 @@ if (sign(hspeed) != sign(prevhspeed)) {
     instance_create(x+(5*sign(prevhspeed)), y+8, obj_shellthump);
 }
 
+//Destroy when outside the view
+if (outside_view(sprite_get_width(sprite_index)))
+    instance_destroy();
+
 //Permit the shell to harm the player
 if (harmplayer == 0)
 &amp;&amp; (!place_meeting(x, y, obj_playerparent))

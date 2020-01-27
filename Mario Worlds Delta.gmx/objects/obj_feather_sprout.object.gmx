@@ -152,10 +152,7 @@ if ((action = "sprout") &amp;&amp; (y &lt; ystart-72)) {
     //Set the new action.
     action = "nright";
     alarm[0] = 5;
-    
-    //Set the depth
-    depth = -2;
-        
+
     //Set the vertical speed.
     vspeed = 0;
     gravity = 0;
@@ -220,6 +217,11 @@ else if (action = "left") {
         hspeed = 0;
     }
 }
+
+//Change depth
+if (depth == 10)
+&amp;&amp; (!place_meeting(x, y, obj_solid))
+    depth = -2;
 </string>
           </argument>
         </arguments>

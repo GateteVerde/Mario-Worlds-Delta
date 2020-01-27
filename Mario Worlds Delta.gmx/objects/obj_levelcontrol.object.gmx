@@ -777,10 +777,13 @@ alarm[1] = 1;
 audio_stop_sound(bgm_starman);
 
 //Stop P-Switch music if it is playing...
-if (audio_is_playing(bgm_pswitch))
-    exit;
-else
-    audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
+if (audio_is_playing(bgm_pswitch)) {
+
+    audio_stop_sound(bgm_pswitch);
+}
+
+//...and play it again
+audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
 </string>
           </argument>
         </arguments>
