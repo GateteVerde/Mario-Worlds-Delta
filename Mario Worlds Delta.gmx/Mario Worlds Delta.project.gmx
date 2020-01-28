@@ -547,6 +547,8 @@
           <sprite>sprites\spr_galoomba_dead</sprite>
           <sprite>sprites\spr_galoomba_wing_front</sprite>
           <sprite>sprites\spr_galoomba_wing_back</sprite>
+          <sprite>sprites\spr_galoomba_parachute</sprite>
+          <sprite>sprites\spr_galoomba_parachute_land</sprite>
           <sprite>sprites\spr_goombud</sprite>
           <sprite>sprites\spr_goombud_down</sprite>
           <sprite>sprites\spr_goombud_dead</sprite>
@@ -1428,6 +1430,7 @@
             <object>objects\obj_paragoomba</object>
           </objects>
           <object>objects\obj_galoomba</object>
+          <object>objects\obj_galoomba_parachute</object>
           <object>objects\obj_paragaloomba</object>
           <object>objects\obj_goombud</object>
         </objects>

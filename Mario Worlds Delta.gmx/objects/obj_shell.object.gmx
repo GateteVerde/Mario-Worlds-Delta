@@ -54,10 +54,10 @@ deathsprite = spr_koopa_dead;
 
 //Shake
 offset = 0;
-alarm[0] = 192;
+alarm[0] = 312;
 
 //Get out of shell
-alarm[1] = 312;
+alarm[1] = 432;
 
 //Check the sprite and set vulnerabilities
 event_user(14);
@@ -348,6 +348,9 @@ else {
                 
                 //Create thump
                 instance_create(x, y+8, obj_spinthump);
+                
+                //Visually kick the item
+                with (other) event_user(2);
                 
                 //If the player is at the left of the block
                 if (other.x &lt; x) {
@@ -650,6 +653,11 @@ else {
         //Destroy
         instance_destroy();                        
     }
+    
+    //Reset alarms
+    offset = 0;
+    alarm[0] = 312;
+    alarm[1] = 432;
     
     //If the object is underwater, begin swim
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))

@@ -329,6 +329,14 @@ else {
                 //Set the vertical speed
                 vspeed = -2;
                 
+                //Reset alarms
+                alarm[0] = 312;
+                alarm[1] = 432;
+                image_speed = 0.15;
+                
+                //Visually kick the item
+                with (other) event_user(2);
+                
                 //If the player is at the left of the block
                 if (other.x &lt; x) {
                 
@@ -538,6 +546,11 @@ else {
             image_xscale = obj_playerparent.xscale;
         }                     
     }
+    
+    //Reset alarms
+    alarm[0] = 312;
+    alarm[1] = 432;
+    image_speed = 0.15;
     
     //If the object is underwater, begin swim
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))

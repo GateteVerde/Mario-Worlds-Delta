@@ -680,10 +680,15 @@ if (held) {
             <string>///Destroy if outside the view
 
 if (held == 0)
-if (y &gt; room_height+sprite_yoffset) {
+&amp;&amp; (y &gt; room_height+sprite_yoffset) {
 
-    instance_create(xstart, ystart, object_index);
-    instance_destroy();
+    //If the xstart position is outside the view
+    if (xstart &lt; view_xview[0]-16)
+    &amp;&amp; (xstart &gt; view_xview[0]+view_wview[0]) {
+    
+        instance_create(xstart, ystart, object_index);
+        instance_destroy();
+    }
 }
 </string>
           </argument>

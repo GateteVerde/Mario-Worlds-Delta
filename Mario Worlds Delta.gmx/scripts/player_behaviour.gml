@@ -158,12 +158,7 @@ if (inwall == false)
             
             //Initialize fly
             if (flying == 0)
-            && (crouch == 0)
-            && (holding == 0)
-            && (global.mount == 0)
                 flying = 1;
-            else
-                flying = 0;
         }
         else {
                 
