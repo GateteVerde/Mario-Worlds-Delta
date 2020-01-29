@@ -654,8 +654,10 @@
           <sprite>sprites\spr_ptooie_blow</sprite>
         </sprites>
         <sprite>sprites\spr_spiketop</sprite>
+        <sprite>sprites\spr_spiketop_fix</sprite>
         <sprite>sprites\spr_spiketop_turn</sprite>
         <sprite>sprites\spr_spiketop_blue</sprite>
+        <sprite>sprites\spr_spiketop_blue_fix</sprite>
         <sprite>sprites\spr_spiketop_blue_turn</sprite>
         <sprite>sprites\spr_swoop</sprite>
         <sprite>sprites\spr_swoop_fly</sprite>
@@ -898,6 +900,7 @@
         <sprite>sprites\spr_warpnode</sprite>
       </sprites>
       <sprite>sprites\spr_tilemanager</sprite>
+      <sprite>sprites\spr_generatormarker</sprite>
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
@@ -1515,6 +1518,9 @@
           <object>objects\obj_blaster_banzai</object>
           <object>objects\obj_blaster_bullseye</object>
         </objects>
+      </objects>
+      <objects name="Generators">
+        <object>objects\obj_generator_galoomba</object>
       </objects>
       <object>objects\obj_hammerbro</object>
       <object>objects\obj_walrus</object>
