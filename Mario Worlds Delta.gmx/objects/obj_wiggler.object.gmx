@@ -314,6 +314,66 @@ else if (hspeed &lt; 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="16">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn at ledges script
+
+if (gravity == 0) {
+
+    //If moving left
+    if (hspeed &lt; 0) {
+    
+        //If there's no ground on the way, turn around
+        if (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+12, obj_semisolid, 0, 0))
+        &amp;&amp; (!collision_rectangle(bbox_left+3, bbox_bottom-1, bbox_left+3, bbox_bottom+12, obj_slopeparent, 0, 0)) {
+        
+            //Reverse horizontal direction
+            hspeed = -hspeed;
+            x = xprevious;
+            
+            //If angry, delay turn
+            if (state == 1)
+                alarm[1] = 40;
+        }
+    }
+    
+    //Otherwise, if moving right
+    else if (hspeed &gt; 0) {
+    
+        //If there's no ground on the way, turn around
+        if (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+12, obj_semisolid, 0, 0))
+        &amp;&amp; (!collision_rectangle(bbox_right-3, bbox_bottom-1, bbox_right-3, bbox_bottom+12, obj_slopeparent, 0, 0)) {
+        
+            //Reverse horizontal direction
+            hspeed = -hspeed;
+            x = xprevious;
+            
+            //If angry, delay turn
+            if (state == 1)
+                alarm[1] = 40;        
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>

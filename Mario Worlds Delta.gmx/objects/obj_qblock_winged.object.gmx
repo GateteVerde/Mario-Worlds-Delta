@@ -231,13 +231,13 @@ event_user(0);
 if (hspeed &lt; 0) &amp;&amp; (dir == 1)
 || (hspeed &gt; 0) &amp;&amp; (dir == -1) {
 
-    image_speed += 0.02;
-    if (image_speed &gt; 0.3)
-        image_speed = 0.3;
+    image_speed += 0.01;
+    if (image_speed &gt; 0.2)
+        image_speed = 0.2;
 }
 else {
 
-    image_speed -= 0.02;
+    image_speed -= 0.01;
     if (image_speed &lt; 0.15)
         image_speed = 0.15;
 }
