@@ -1001,10 +1001,11 @@
           </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
+          <sprite>sprites\spr_hud_stars</sprite>
           <sprite>sprites\spr_hud_time</sprite>
           <sprite>sprites\spr_hud_reserve</sprite>
+          <sprite>sprites\spr_hud_reserve_item</sprite>
           <sprite>sprites\spr_hud_acecoins</sprite>
-          <sprite>sprites\spr_hud_acecoins_coin</sprite>
         </sprites>
         <sprites name="Map">
           <sprite>sprites\spr_hud_map</sprite>
@@ -1018,6 +1019,7 @@
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
+        <sprite>sprites\spr_font_numb_large</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
       <sprites name="Masks">
@@ -1897,7 +1899,7 @@
     </rooms>
   </rooms>
   <constants number="40">
-    <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES #ALL RESOURCES ARE (C) OF NINTENDO"</constant>
+    <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
     <constant name="cs_version">"v3.0.0"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>

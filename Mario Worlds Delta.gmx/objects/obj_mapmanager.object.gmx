@@ -154,6 +154,17 @@ audio_play_sound(mapmusic, 0, true);
 
 //Update water animation
 anim += 0.125;
+
+//Move towards the player
+if (instance_exists(obj_mapplayer)) {
+
+    x = obj_mapplayer.x+8;
+    y = obj_mapplayer.y+8;
+}
+
+//Round position variables
+x = round(x);
+y = round(y);
 </string>
           </argument>
         </arguments>

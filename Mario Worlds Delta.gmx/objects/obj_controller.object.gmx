@@ -75,6 +75,9 @@ global.fontnumb = font_add_sprite(spr_font_numb, ord('0'), 0, 0);
 //In-HUD Gold Numbers
 global.fontnumbgold = font_add_sprite(spr_font_numb_gold, ord('0'), 0, 0);
 
+//In-HUD Large Numbers
+global.fontnumblarge = font_add_sprite(spr_font_numb_large, ord('0'), 0, 0);
+
 //In-Message Font
 global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);
 
@@ -381,12 +384,12 @@ if (background_exists(back))
 update_shockwave();
 
 //Prevent lives from going over 999
-if (lives &gt; 999)
-    lives = 999;
+if (lives &gt; 99)
+    lives = 99;
 
 //Prevent score from going over 999.999.990
-if (score &gt; 999999990)
-    score = 999999990;
+if (score &gt; 9999990)
+    score = 9999990;
 
 //Make the screen shake when the 'Thwomp' sound plays
 if (!audio_is_playing(snd_thud))

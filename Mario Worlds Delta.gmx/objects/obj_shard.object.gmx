@@ -60,6 +60,10 @@ alarm[0] = 1;
 alarm[0] = 4;
 if (sprite_index == spr_shard_blue) {
 
+    //Animate
+    image_speed = 0.15;
+
+    //Replace colour
     isflashing++;
     if (isflashing &gt; (pal_swap_get_pal_count(spr_palette_brick_blue)-1))
         isflashing = 0;

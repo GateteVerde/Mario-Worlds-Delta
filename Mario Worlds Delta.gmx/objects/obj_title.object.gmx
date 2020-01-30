@@ -199,8 +199,8 @@ if (keyboard_check_pressed(global.key_action[3])) {
             <string>///Title Decoration
 
 //Draw a cog
-draw_sprite_ext(spr_title_cog, frame, view_xview[0]+80, view_yview[0]+80, 1, 1, 180, c_white, 1);
-draw_sprite_ext(spr_title_cog, frame, view_xview[0]+view_wview[0]-80, view_yview[0]+view_hview[0]-80, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_title_cog, frame, view_xview[0]+48, view_yview[0]+80, 1, 1, 180, c_white, 1);
+draw_sprite_ext(spr_title_cog, frame, view_xview[0]+view_wview[0]-48, view_yview[0]+view_hview[0]-80, 1, 1, 0, c_white, 1);
 
 //Draw title middle
 draw_sprite_tiled_area_ext(spr_title_middle, 0, 0, 0, view_xview[0], view_yview[0], view_wview[0], view_hview[0], c_white, 1);
@@ -209,7 +209,7 @@ draw_sprite_tiled_area_ext(spr_title_middle, 0, 0, 0, view_xview[0], view_yview[
 draw_sprite_tiled_area_ext(spr_title_top, 0, 0+barx, 0, view_xview[0], view_yview[0], view_wview[0], view_yview[0]+31, c_white, 1);
 
 //Draw title bottom bar
-draw_sprite_tiled_area_ext(spr_title_bottom, 0, 0+barx*-1, 208, view_xview[0], view_hview[0]-32, view_wview[0], view_hview[0], c_white, 1);
+draw_sprite_tiled_area_ext(spr_title_bottom, 0, 0+barx*-1, 192, view_xview[0], view_hview[0]-32, view_wview[0], view_hview[0], c_white, 1);
 
 //Draw title
 draw_background_ext(bgr_title, x+4, y+4, 1, 1, 0, c_black, 0.25);

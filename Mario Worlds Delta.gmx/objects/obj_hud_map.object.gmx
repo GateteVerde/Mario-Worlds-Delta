@@ -90,11 +90,11 @@ player_set_palette(id);
 //If the player has a cape, draw it first...
 if (global.powerup &gt;= cs_pow_cape) {
 
-    draw_sprite_ext(spr_cape_walk, anim, view_xview[0]+38, view_yview[0]+22, -1, 1, 0, c_white, 1); 
+    draw_sprite_ext(spr_cape_walk, anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 0, c_white, 1); 
 }
 
 //...then draw the player
-draw_sprite_ext(player_walk(), anim, view_xview[0]+38, view_yview[0]+22, -1, 1, 0, c_white, 1);
+draw_sprite_ext(player_walk(), anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 0, c_white, 1);
 
 //Reset shader
 pal_swap_reset();
@@ -103,7 +103,7 @@ pal_swap_reset();
 draw_set_font(global.font);
 
 //Draw lives
-draw_text(view_xview[0]+55, view_yview[0]+30, string("*") + string_format(lives, 3, 0))
+draw_text(view_xview[0]+56, view_yview[0]+31, string("*") + string(lives));
 
 //Set up the map font
 draw_set_font(global.fontmsg);
@@ -114,7 +114,7 @@ draw_set_colour(c_black);
 //Draw the level name 
 if (levelname != "") {
 
-    draw_text(view_xview[0]+105, view_yview[0]+31, string_upper(levelname));
+    draw_text(view_xview[0]+89, view_yview[0]+32, string_upper(levelname));
 }
 
 //Reset the text colour

@@ -79,8 +79,9 @@ if (fade == 0) {
     
         with (obj_water_tides) {
         
-            alpha -= (0.2509803921568627/100)
             image_alpha -= 0.00625;
+            if (variable_instance_exists(id, "alpha"))
+                alpha -= (alphaval/100)
         }
     }
 }
@@ -101,10 +102,19 @@ else if (fade == 2) {
     
         with (obj_water_tides) {
         
-            alpha += (0.2509803921568627/50);
             image_alpha += 0.0125;
+            if (variable_instance_exists(id, "alpha"))
+                alpha += (alphaval/50);
         }
     }
+}
+
+//Fade tiles on depth -6
+var tiles = tile_get_ids_at_depth(-6);
+for (var i = 0; i &lt; array_length_1d(tiles); i++) {
+
+    if (tile_exists(tiles[i]))
+        tile_set_blend(tiles[i], merge_colour(c_white, c_black, image_alpha));
 }
 </string>
           </argument>

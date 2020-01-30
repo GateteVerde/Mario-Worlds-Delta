@@ -59,6 +59,10 @@ global.time = 0;
 //Coin amount
 global.coins = 0;
 
+//Star amount
+global.bonus = 0;
+global.bonusgame = 0;
+
 //Lives
 lives = 5;
 
