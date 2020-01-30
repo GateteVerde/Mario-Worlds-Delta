@@ -69,7 +69,7 @@ if (inwall == false)
 
     //If 'Action 1' is pressed and the player is not holding anything
     if (holding != 1)
-    && (keyboard_check_pressed(global.key_action[0])) {
+    && (input_check_pressed(input.action0)) {
     
         //Play 'Swim' sound
         audio_play_sound(snd_swim, 0, false);
@@ -81,7 +81,7 @@ if (inwall == false)
         vspeed = -1.5;
         
         //If 'Up' is pressed
-        if (keyboard_check(global.key_u)) {
+        if (input_check(input.up)) {
         
             //Set the vertical speed
             vspeed -= 1;
@@ -94,7 +94,7 @@ if (inwall == false)
         }
         
         //Otherwise, if 'Down' is pressed
-        else if (keyboard_check(global.key_d))
+        else if (input_check(input.down))
             vspeed += 1;
     }
     
@@ -102,7 +102,7 @@ if (inwall == false)
     if (holding == 1) {
     
         //If the 'Down' key is not pressed
-        if (!keyboard_check(global.key_d)) {
+        if (!input_check(input.down)) {
         
             //Cancel dive
             dive = 0;
@@ -142,7 +142,7 @@ if (inwall == false)
     }
 
     //If the player presses the 'Right' key and the 'Left' key is not held.
-    if ((keyboard_check(global.key_r)) && (!crouch) && (!keyboard_check(global.key_l))) {
+    if ((input_check(input.right)) && (!crouch) && (!input_check(input.left))) {
         
         //Set the facing direction
         if ((holding == 1) && (xscale != 1)) {
@@ -166,7 +166,7 @@ if (inwall == false)
     }
     
     //If the player presses the 'Left' key and the 'Right' key is not held.
-    else if ((keyboard_check(global.key_l)) && (!crouch) && (!keyboard_check(global.key_r))) {
+    else if ((input_check(input.left)) && (!crouch) && (!input_check(input.right))) {
         
         //Set the facing direction
         if ((holding == 1) && (xscale != -1)) {

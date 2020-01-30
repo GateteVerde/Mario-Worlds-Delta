@@ -18,7 +18,7 @@ sliding = false;
 if (control_enable == true) {
 
     //If the 'Right' key is pressed and the 'Left' key is not pressed
-    if (keyboard_check(global.key_r)) && (!keyboard_check(global.key_l)) {
+    if (input_check(input.right)) && (!input_check(input.left)) {
     
         //Set facing direction
         xscale = 1;
@@ -32,7 +32,7 @@ if (control_enable == true) {
     }
     
     //Otherwise, if 'Left' key is pressed and the 'Right' is not pressed
-    else if (keyboard_check(global.key_l)) && (!keyboard_check(global.key_r)) {
+    else if (input_check(input.left)) && (!input_check(input.right)) {
     
         //Set facing direction
         xscale = -1;
@@ -50,7 +50,7 @@ if (control_enable == true) {
         hspeed = 0;
     
     //If the 'Up' key is pressed and the 'Down' key is not pressed
-    if (keyboard_check(global.key_u)) && (!keyboard_check(global.key_d)) {
+    if (input_check(input.up)) && (!input_check(input.down)) {
     
         //If there's a ceiling on the way, prevent the player from moving up
         if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
@@ -78,7 +78,7 @@ if (control_enable == true) {
     }
     
     //Otherwise, if the 'Down' key is pressed and the 'Up' key is not pressed
-    else if (keyboard_check(global.key_d)) && (!keyboard_check(global.key_u)) {
+    else if (input_check(input.down)) && (!input_check(input.up)) {
     
         //Increment speed
         vspeed += 0.15;
@@ -102,7 +102,7 @@ if (control_enable == true) {
         vspeed = 0;
         
     //If 'Action 1' is pressed, make the player jump
-    if (keyboard_check_pressed(global.key_action[0])) {
+    if (input_check_pressed(input.action0)) {
     
         //Set the vertical speed
         vspeed = -jumpstrength;

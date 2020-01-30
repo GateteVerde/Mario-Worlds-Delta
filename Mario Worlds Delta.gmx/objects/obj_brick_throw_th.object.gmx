@@ -362,7 +362,7 @@ if (place_meeting(x, y, obj_solid)) {
 else {
 
     //If 'Up' is pressed, throw it upwards
-    if (keyboard_check(global.key_u)) {
+    if (input_check(input.up)) {
     
         //Play 'Kick' sound
         audio_play_sound(snd_kick, 0, false);
@@ -388,7 +388,7 @@ else {
     }
     
     //Otherwise if 'Down' is pressed, leave it on the ground
-    else if (keyboard_check(global.key_d)) {
+    else if (input_check(input.down)) {
         
         //Set the horizontal speed
         hspeed = 0.5*sign(obj_playerparent.xscale);

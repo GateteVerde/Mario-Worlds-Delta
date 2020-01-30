@@ -85,7 +85,7 @@ var player = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top+1, 
 if (player)
 &amp;&amp; (player.state != statetype.jump)
 &amp;&amp; (player.state != statetype.climb) 
-&amp;&amp; (keyboard_check(global.key_action[1])) {
+&amp;&amp; (input_check(input.action1)) {
 
     //If the panel is not animating faster
     if (image_speed = 0.2) 

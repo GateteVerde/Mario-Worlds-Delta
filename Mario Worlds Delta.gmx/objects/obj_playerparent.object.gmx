@@ -281,7 +281,7 @@ if (control_enable == true)
                         hspeed = 3*other.xscale;
                     
                     //Set the vertical speed
-                    if (keyboard_check(global.key_u))
+                    if (input_check(input.up))
                         vspeed = -3;
                     else
                         vspeed = 3;                    
@@ -928,16 +928,16 @@ if (state != statetype.climb) {
     &amp;&amp; (state != statetype.jump) {
     
         //Makes the player crouch down if 'Down' is held
-        if (keyboard_check(global.key_d)) 
+        if (input_check(input.down)) 
             crouch = true;
         
         //Otherwise, make the player get up
-        else if (!keyboard_check(global.key_d))        
+        else if (!input_check(input.down))        
             crouch = false;
     }
     
     //Manage player projectiles if 'Action 2' is pressed and the barrier is deactivated.
-    if (keyboard_check_pressed(global.key_action[1]))
+    if (input_check_pressed(input.action1))
     &amp;&amp; (instance_number(obj_levelcontrol) &gt; 0)
     &amp;&amp; (obj_levelcontrol.barrier == true)
         alarm[10] = 1;
@@ -995,7 +995,7 @@ else if (!water)
         &amp;&amp; (state == statetype.jump) {
         
             //If 'Action 0' is being held
-            if (keyboard_check(global.key_action[0])) {
+            if (input_check(input.action0)) {
             
                 //Play 'Jump' sound
                 audio_play_sound(snd_jump, 0, false);
@@ -1287,7 +1287,7 @@ vspeed = -jumpstrength;
 y--;
 
 //If 'Action 1' is held
-if (keyboard_check(global.key_action[0]))
+if (input_check(input.action0))
     jumping = 1;
 else
     jumping = 2;

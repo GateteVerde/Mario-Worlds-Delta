@@ -8,7 +8,7 @@
 **      Whether or not the player is able to hold an item.
 */
 
-if (keyboard_check(global.key_action[1]))
+if (input_check(input.action1))
 && (instance_exists(obj_playerparent))
 && (!instance_exists(obj_cape_fly))
 && (global.mount == 0)

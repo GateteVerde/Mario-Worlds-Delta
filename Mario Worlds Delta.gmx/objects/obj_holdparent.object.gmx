@@ -140,7 +140,7 @@ if (held == true) {
             }
             
             //Make the player hold the item
-            if (keyboard_check(global.key_action[1]))
+            if (input_check(input.action1))
                 obj_playerparent.holding = 1;
                 
             //Otherwise, release the item
@@ -159,7 +159,7 @@ if (held == true) {
                 event_user(2);
                 
                 //Make the player 'Kick' the item if there's input
-                if (keyboard_check(global.key_u)) 
+                if (input_check(input.up)) 
                 || (obj_playerparent.hspeed != 0)
                     with (obj_playerparent) event_user(2);
             }
@@ -198,7 +198,7 @@ if (held == true) {
             event_user(2);
             
             //Make the player 'Kick' the item if there's input
-            if (keyboard_check(global.key_u)) 
+            if (input_check(input.up)) 
             || (obj_playerparent.hspeed != 0)
                 with (obj_playerparent) event_user(2);                 
         }
@@ -507,7 +507,7 @@ else
             <string>///Default throw / kick event
 
 //If 'Up' is pressed, throw it upwards
-if (keyboard_check(global.key_u)) {
+if (input_check(input.up)) {
 
     //Play 'Kick' sound
     audio_play_sound(snd_kick, 0, false);
@@ -537,7 +537,7 @@ if (keyboard_check(global.key_u)) {
 }
 
 //Otherwise if 'Down' is pressed, leave it on the ground
-else if (keyboard_check(global.key_d)) {
+else if (input_check(input.down)) {
     
     //Check if the object is stuck on a solid and move it
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 1, 0)) {

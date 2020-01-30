@@ -490,6 +490,21 @@ else if (keyboard_check_pressed(ord('3'))) {
     message = "3X WINDOW SIZE";
     event_user(1);
 }
+
+//Set 4x window size
+else if (keyboard_check_pressed(ord('4'))) {
+
+    filter = 3
+    message = "4X WINDOW SIZE";
+    event_user(1);
+}
+
+//Reset the settings, in case it becomes necessary.
+else if (keyboard_check_pressed(ord('S'))) &amp;&amp; (file_exists("settings.dat")) {
+
+    file_delete("settings.dat")
+    message = "SETTINGS ARE NOW RESET, RESTART THE GAME";
+}
     
 //Reset the message
 if (message == "")
@@ -551,7 +566,7 @@ alarm[6] = 60;
             <string>///Set up the screen to be displayed
 
 //Temporary variable
-var s;
+/*var s;
 
 //Normal
 if (filter = 0)
@@ -564,6 +579,9 @@ else if (filter = 1)
 //3X
 else if (filter = 2)
     s = 3;
+*/
+
+var s = filter+1;
 
 //Reset display
 display_reset(0, vsync);
@@ -773,35 +791,67 @@ file_text_write_string(file, string(vsync));
 file_text_writeln(file);
 
 //Save up key
-file_text_write_string(file, string(global.key_u));
+file_text_write_string(file, string(global.key[input.up]));
 file_text_writeln(file);
 
 //Save down key
-file_text_write_string(file, string(global.key_d));
+file_text_write_string(file, string(global.key[input.down]));
 file_text_writeln(file);
 
 //Save left key
-file_text_write_string(file, string(global.key_l));
+file_text_write_string(file, string(global.key[input.left]));
 file_text_writeln(file);
 
 //Save right key
-file_text_write_string(file, string(global.key_r));
+file_text_write_string(file, string(global.key[input.right]));
 file_text_writeln(file);
 
 //Save action 1 key
-file_text_write_string(file, string(global.key_action[0]));
+file_text_write_string(file, string(global.key[input.action0]));
 file_text_writeln(file);
 
 //Save action 2 key
-file_text_write_string(file, string(global.key_action[1]));
+file_text_write_string(file, string(global.key[input.action1]));
 file_text_writeln(file);
 
 //Save action 3 key
-file_text_write_string(file, string(global.key_action[2]));
+file_text_write_string(file, string(global.key[input.action2]));
 file_text_writeln(file);
 
 //Save action 4 key
-file_text_write_string(file, string(global.key_action[3]));
+file_text_write_string(file, string(global.key[input.start]));
+file_text_writeln(file);
+
+//Save up button
+file_text_write_string(file, string(global.button[input.up]));
+file_text_writeln(file);
+
+//Save down button
+file_text_write_string(file, string(global.button[input.down]));
+file_text_writeln(file);
+
+//Save left button
+file_text_write_string(file, string(global.button[input.left]));
+file_text_writeln(file);
+
+//Save right button
+file_text_write_string(file, string(global.button[input.right]));
+file_text_writeln(file);
+
+//Save action 1 button
+file_text_write_string(file, string(global.button[input.action0]));
+file_text_writeln(file);
+
+//Save action 2 button
+file_text_write_string(file, string(global.button[input.action1]));
+file_text_writeln(file);
+
+//Save action 3 button
+file_text_write_string(file, string(global.button[input.action2]));
+file_text_writeln(file);
+
+//Save action 4 button
+file_text_write_string(file, string(global.button[input.start]));
 file_text_writeln(file);
 
 //Close the file
@@ -848,36 +898,68 @@ if (file_exists("settings.dat")) {
     vsync = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved up Key
-    global.key_u = real(file_text_read_string(file));
+    //Set saved 'Up' Key
+    global.key[input.up] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved down key
-    global.key_d = real(file_text_read_string(file));
+    //Set saved 'Down' key
+    global.key[input.down] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved ' key
-    global.key_l = real(file_text_read_string(file));
+    //Set saved 'Left' key
+    global.key[input.left] = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Right' key
-    global.key_r = real(file_text_read_string(file));
+    global.key[input.right] = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Action 1' Key (Default: Shift)
-    global.key_action[0] = real(file_text_read_string(file));
+    global.key[input.action0] = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Action 2' Key (Default: Control)
-    global.key_action[1] = real(file_text_read_string(file));
+    global.key[input.action1] = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Action 3' Key (Default: Space)
-    global.key_action[2] = real(file_text_read_string(file));
+    global.key[input.action2] = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Action 4' Key (Default: Enter)
-    global.key_action[3] = real(file_text_read_string(file));
+    global.key[input.start] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Up' Button
+    global.button[input.up] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Down' Button
+    global.button[input.down] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Left' Button
+    global.button[input.left] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Right' Button
+    global.button[input.right] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 1' Button (Default: A)
+    global.button[input.action0] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 2' Button (Default: X)
+    global.button[input.action1] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 3' Button (Default: B)
+    global.button[input.action2] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Action 4' Button (Default: Start)
+    global.button[input.start] = real(file_text_read_string(file));
 
     //Close the file
     file_text_close(file);
@@ -893,29 +975,57 @@ else {
     //VSync is off by default
     vsync = 0;
     
+    //Default ketboard configs
+    
     //Up key
-    global.key_u = vk_up;
+    global.key[input.up] = vk_up;
     
     //Down key
-    global.key_d = vk_down;
+    global.key[input.down] = vk_down;
     
     //Left key
-    global.key_l = vk_left;
+    global.key[input.left] = vk_left;
     
     //Right key
-    global.key_r = vk_right;
+    global.key[input.right] = vk_right;
     
     //Action 1 (Shift)
-    global.key_action[0] = vk_shift;
+    global.key[input.action0] = vk_shift;
     
     //Action 2 (Control)
-    global.key_action[1] = vk_control;
+    global.key[input.action1] = vk_control;
     
     //Action 3 (Space)
-    global.key_action[2] = vk_space;
+    global.key[input.action2] = vk_space;
     
     //Action 4 (Enter)
-    global.key_action[3] = vk_enter;
+    global.key[input.start] = vk_enter;
+    
+    //Default controller configs
+    
+    //D-Pad Up
+    global.button[input.up] = gp_padu;
+    
+    //D-Pad Down
+    global.button[input.down] = gp_padd;
+    
+    //D-Pad Left
+    global.button[input.left] = gp_padl;
+    
+    //D-Pad Right
+    global.button[input.right] = gp_padr;
+    
+    //Action 1 (A)
+    global.button[input.action0] = gp_face1;
+    
+    //Action 2 (X)
+    global.button[input.action1] = gp_face3;
+    
+    //Action 3 (B)
+    global.button[input.action2] = gp_face2;
+    
+    //Action 4 (Start)
+    global.button[input.start] = gp_start;
 }
 
 //Apply loaded settings

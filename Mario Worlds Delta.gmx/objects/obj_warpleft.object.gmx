@@ -64,7 +64,7 @@ exit_id = -1;
             <string>///Check if 'Right' is pressed and the player is next to the pipe
 
 //If the 'Right' key is held
-if (keyboard_check(global.key_r)) {
+if (input_check(input.right)) {
 
     //If the player does exist
     if (instance_exists(obj_playerparent)) {

@@ -1223,6 +1223,11 @@
     <script>scripts\grab_pivots.gml</script>
     <script>scripts\move_contact_object.gml</script>
     <script>scripts\shard_create.gml</script>
+    <scripts name="Input">
+      <script>scripts\input_check.gml</script>
+      <script>scripts\input_check_pressed.gml</script>
+      <script>scripts\input_check_released.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>

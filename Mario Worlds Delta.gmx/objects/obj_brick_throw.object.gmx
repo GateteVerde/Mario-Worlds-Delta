@@ -53,7 +53,7 @@ image_speed = 0.2;
             <kind>1</kind>
             <string>///If the player can hold up this block
 
-if (keyboard_check_pressed(global.key_action[1]))
+if (input_check_pressed(input.action1))
 &amp;&amp; (collision_rectangle(bbox_left-2, bbox_top-1, bbox_right+2, bbox_bottom-2, obj_playerparent, 0, 0))
 &amp;&amp; (can_hold() == true) {
 

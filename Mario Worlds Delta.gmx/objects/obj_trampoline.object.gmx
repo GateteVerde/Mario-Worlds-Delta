@@ -226,7 +226,7 @@ if (sprite_index == spr_trampoline) {
                 y -= 8;
                 
                 //Allow variable jumping if 'Shift' is pressed
-                if (keyboard_check(global.key_action[0]))
+                if (input_check(input.action0))
                     jumping = 1;
                 else
                     jumping = 2;

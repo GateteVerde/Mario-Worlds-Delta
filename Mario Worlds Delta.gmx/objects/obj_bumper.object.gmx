@@ -155,7 +155,7 @@ other.hspeed = lengthdir_x(3, point_direction(x, y, other.x, other.y));
 if (other.y &lt; y-12) {
 
     other.vspeed = -3.4675;
-    if (keyboard_check(global.key_action[0]))
+    if (input_check(input.action0))
         other.jumping = 1;
     else
         other.jumping = 2;

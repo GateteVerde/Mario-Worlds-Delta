@@ -45,7 +45,7 @@ if (vspeed > vspeedmax)
     vspeed = vspeedmax;
     
 //Set up the player's maximum horizontal speed.
-if (keyboard_check(global.key_action[1])) { //If the control key is being held.
+if (input_check(input.action1)) { //If the control key is being held.
 
     //If the player is not flying
     if (flying == 0) {
@@ -76,7 +76,7 @@ if (inwall == false)
 && (control_enable == true) {
 
     //If 'Action 1' is pressed...
-    if (keyboard_check_pressed(global.key_action[0]))
+    if (input_check_pressed(input.action0))
     
     //...and the player can jump.
     && (((state != statetype.jump)
@@ -84,13 +84,13 @@ if (inwall == false)
     && (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top+4, obj_slopeparent_ceiling, 1, 0)))
     
     //Allow the player to jump off of Yoshi or a shoe while in midair
-    || ((keyboard_check(global.key_u))
+    || ((input_check(input.up))
     && (crouch == false)
     && (holding == 99)
     && (global.mount != 0))) {
     
         //If the 'Up' key is pressed
-        if ((keyboard_check(global.key_u)) 
+        if ((input_check(input.up)) 
         && (crouch == false)
         && ((holding == 0) || (holding == 99))) {
         
@@ -173,14 +173,14 @@ if (inwall == false)
     }
     
     //Check if the player should still be variable jumping
-    if (keyboard_check_released(global.key_action[0]))
+    if (input_check_released(input.action0))
     && (jumping == 1)
         jumping = 2;
         
     //If 'Right' is pressed and the player can move
-    if ((keyboard_check(global.key_r)) 
+    if ((input_check(input.right)) 
     && (allow_move()) 
-    && (!keyboard_check(global.key_l))
+    && (!input_check(input.left))
     && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_r, 1, 0))) {
     
         //If the player is holding something, do a special turn
@@ -224,9 +224,9 @@ if (inwall == false)
     }
     
     //Otherwise, if 'Left' is pressed and t
-    else if ((keyboard_check(global.key_l)) 
+    else if ((input_check(input.left)) 
     && (allow_move()) 
-    && (!keyboard_check(global.key_r))
+    && (!input_check(input.right))
     && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_l, 1, 0))) {
     
         //If the player is holding something, do a special turn
@@ -362,7 +362,7 @@ if ((state == statetype.jump) || (delay != 0)) {
 if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 1, 0)) 
 && (holding == 0)
 && (control_enable == true)
-&& (keyboard_check(global.key_u)) {
+&& (input_check(input.up)) {
 
     //Change to climbing state
     state = statetype.climb;
@@ -373,7 +373,7 @@ if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_climb, 1,
 }
 
 //If 'Down' is pressed and there's a slope below the player
-if (keyboard_check(global.key_d)) 
+if (input_check(input.down)) 
 && (control_enable == true)
 && (sliding == false)
 && (state != statetype.jump)
@@ -425,6 +425,6 @@ if ((global.powerup == cs_pow_cape)
     
     //Slowly fall down
     if (vspeed > 0)
-    && (keyboard_check(global.key_action[0]))
+    && (input_check(input.action0))
         vspeed = 0.5;
 }

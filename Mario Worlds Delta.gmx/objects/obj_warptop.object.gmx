@@ -64,7 +64,7 @@ exit_id = -1;
             <string>///Check if 'Down' is pressed and the player is above the pipe
 
 //If the 'Down' key is held
-if (keyboard_check(global.key_d)) {
+if (input_check(input.down)) {
 
     //If the player does exist
     if (instance_exists(obj_playerparent)) {

@@ -90,7 +90,7 @@ else
             <kind>1</kind>
             <string>///Force level start
 
-if (keyboard_check_released(global.key_action[0]))
+if (input_check_released(input.action0))
     alarm[0] = 5;
 </string>
           </argument>

@@ -372,7 +372,7 @@ else if (state == yoshistate.ridden) {
         obj_playerparent.holding = 99;
         
         //If Yoshi does not have anything on the mount and 'Action 2' is pressed
-        if (keyboard_check_pressed(global.key_action[1]))
+        if (input_check_pressed(input.action1))
         &amp;&amp; (licking == 0)
         &amp;&amp; (obj_playerparent.gravity_enable == true)
         &amp;&amp; (obj_playerparent.control_enable == true) {
@@ -392,7 +392,7 @@ else if (state == yoshistate.ridden) {
                 m_anim = 3;
                 
                 //Lock tongue in position
-                if ((keyboard_check(global.key_u)) || (jumping &gt; 0)) {
+                if ((input_check(input.up)) || (jumping &gt; 0)) {
                 
                     //If the player is not crouched down
                     if (obj_playerparent.crouch == false)
@@ -1253,7 +1253,7 @@ if (mouthholder == obj_shell)
     || (mouthsprite == spr_shell_blue) {
     
         //If 'Shift' is being held outside water
-        if (keyboard_check(global.key_action[0])) 
+        if (input_check(input.action0)) 
         &amp;&amp; (obj_playerparent.swimming == false) {
         
             //If not flying and moving down, start flying.
@@ -1598,7 +1598,7 @@ if (mouthholder != noone) {
                 
                     //If the eaten item is a POW block.
                     if (sprite_index = spr_powblock_blue) 
-                    &amp;&amp; (!keyboard_check(global.key_d))      
+                    &amp;&amp; (!input_check(input.down))      
                         ready = 1;
                         
                     //Otherwise if the item is a galoomba

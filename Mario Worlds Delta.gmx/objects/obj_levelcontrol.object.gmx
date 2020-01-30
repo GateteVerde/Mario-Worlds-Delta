@@ -542,7 +542,7 @@ warning = 0;
 if (instance_exists(obj_playerparent))
 &amp;&amp; (barrier == 1)
 &amp;&amp; (obj_playerparent.control_enable == true)
-&amp;&amp; (keyboard_check_pressed(global.key_action[2]))
+&amp;&amp; (input_check_pressed(input.action2))
     event_user(1);
 
 //Deactivate objects under the following parents
@@ -689,7 +689,7 @@ audio_stop_sound(bgm_pswitch);
 if (obj_playerparent.state == statetype.idle) {
     
     //If the 'Up' key is pressed
-    if (keyboard_check(global.key_u)) {
+    if (input_check(input.up)) {
     
         camera_timer--;
         if (camera_timer &lt; 0) {
@@ -701,7 +701,7 @@ if (obj_playerparent.state == statetype.idle) {
     }
     
     //Otherwise, if the 'Down' key is pressed
-    else if (keyboard_check(global.key_d)) {
+    else if (input_check(input.down)) {
     
         camera_timer--;
         if (camera_timer &lt; 0) {

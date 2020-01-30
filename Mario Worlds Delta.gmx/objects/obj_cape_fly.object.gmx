@@ -229,21 +229,21 @@ if (state == statetype.jump)
     gravity = 0.1;
 
 //Allow diving
-if (keyboard_check_released(global.key_l))
-|| (keyboard_check_released(global.key_r))
+if (input_check_released(input.left))
+|| (input_check_released(input.right))
     candive = 1;
     
 //If diving is allowed
 if (candive == 1) {
 
     //If facing left and 'Left' is pressed
-    if (keyboard_check(global.key_l))
+    if (input_check(input.left))
     &amp;&amp; (xscale = -1)
     &amp;&amp; (vspeed &gt;= 0)
         smash = 1;
         
     //Otherwise, if facing right and 'Right' is pressed
-    else if (keyboard_check(global.key_r))
+    else if (input_check(input.right))
     &amp;&amp; (xscale == 1)
     &amp;&amp; (vspeed &gt;= 0)
         smash = 1;
@@ -257,7 +257,7 @@ if ((!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom+vspe
 || (global.mount == 1)
 || (global.powerup &lt; cs_pow_cape)
 || (!instance_exists(obj_playerparent))
-|| (!keyboard_check(global.key_action[1]))
+|| (!input_check(input.action1))
 || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
     instance_destroy();
     
@@ -289,13 +289,13 @@ if (smash == 1)
 &amp;&amp; (state == statetype.jump) {
 
     //If 'Left' is pressed
-    if (keyboard_check(global.key_l))
+    if (input_check(input.left))
     &amp;&amp; (hspeed &gt; -obj_playerparent.hspeed_run_full)
     &amp;&amp; (xscale == -1)
         hspeed -= 0.2;
         
     //Otherwise, if 'Right' is pressed
-    else if (keyboard_check(global.key_r))
+    else if (input_check(input.right))
     &amp;&amp; (hspeed &lt; obj_playerparent.hspeed_run_full)
     &amp;&amp; (xscale == 1)
         hspeed += 0.2;
@@ -306,8 +306,8 @@ if (hspeed != 0)
 &amp;&amp; (dive_index &gt;= 2) 
 &amp;&amp; (state == statetype.jump) {
     
-    if ((keyboard_check_pressed(global.key_l)) &amp;&amp; (xscale == 1))
-    || ((keyboard_check_pressed(global.key_r)) &amp;&amp; (xscale == -1))
+    if ((input_check_pressed(input.left)) &amp;&amp; (xscale == 1))
+    || ((input_check_pressed(input.right)) &amp;&amp; (xscale == -1))
         event_user(1);
 }
 

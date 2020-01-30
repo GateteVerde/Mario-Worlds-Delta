@@ -41,6 +41,19 @@ enum itemtype {
     beanstalk
 }
 
+//Input Enumerators
+enum input {
+
+    up,
+    down,
+    left,
+    right,
+    action0,
+    action1,
+    action2,
+    start
+}
+
 //Remember music from rooms
 global.levelmusic = bgm_gameover;
 

@@ -374,7 +374,7 @@ if (status == 'IDLE')
     &amp;&amp; (instance_number(obj_mapopener) == 0) {
 
         //Moving upwards
-        if (keyboard_check(global.key_u)) {
+        if (input_check(input.up)) {
         
             //Check for a path above
             var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
@@ -389,7 +389,7 @@ if (status == 'IDLE')
         }
         
         //Moving downwards
-        else if (keyboard_check(global.key_d)) {
+        else if (input_check(input.down)) {
         
             //Check for a path above
             var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
@@ -404,7 +404,7 @@ if (status == 'IDLE')
         }
         
         //Moving to the left
-        else if (keyboard_check(global.key_l)) {
+        else if (input_check(input.left)) {
         
             //Check for a path above
             var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
@@ -419,7 +419,7 @@ if (status == 'IDLE')
         }
         
         //Moving to the right
-        else if (keyboard_check(global.key_r)) {
+        else if (input_check(input.right)) {
         
             //Check for a path above
             var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
@@ -434,7 +434,7 @@ if (status == 'IDLE')
         }
             
         //Change player
-        if (keyboard_check_pressed(global.key_action[2])) {
+        if (input_check_pressed(input.action2)) {
         
             global.player++;
             if (global.player &gt; 2)
@@ -444,7 +444,7 @@ if (status == 'IDLE')
         //If there's a panel
         if (panel)
         &amp;&amp; (status == 'IDLE')
-        &amp;&amp; (keyboard_check_pressed(global.key_action[0])) {
+        &amp;&amp; (input_check_pressed(input.action0)) {
         
             //Play 'Enter Stage' sound
             audio_play_sound(snd_enterstage, 0, false);
@@ -462,7 +462,7 @@ if (status == 'IDLE')
         //Open adyancent paths on map if debug mode is enabled.
         if (panel)
         &amp;&amp; (debug_mode == true)
-        &amp;&amp; (keyboard_check_pressed(ord('O')))
+        &amp;&amp; (input_check_pressed(ord('O')))
             event_user(15);
     }
     

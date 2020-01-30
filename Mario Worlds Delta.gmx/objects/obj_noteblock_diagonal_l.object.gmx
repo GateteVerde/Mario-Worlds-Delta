@@ -146,7 +146,7 @@ if (ready == 0)
         state = statetype.jump;
         
         //Check if the 'Jump' key is pressed and allow variable jumping
-        if (keyboard_check(global.key_action[0]))
+        if (input_check(input.action0))
             jumping = 1;
         else
             jumping = 2;

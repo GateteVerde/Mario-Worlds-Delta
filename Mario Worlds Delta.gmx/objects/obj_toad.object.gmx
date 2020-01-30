@@ -261,7 +261,7 @@ else if (crouch == false) {
                         image_speed = 0;
                         
                         //But set the appropiate frame
-                        if (keyboard_check(global.key_u))
+                        if (input_check(input.up))
                             image_index = 1;
                         else
                             image_index = 0;
@@ -280,7 +280,7 @@ else if (crouch == false) {
                     }
                 
                     //Before setting the walk sprite, check if Toad is moving in the opposite direction
-                    if (((hspeed &gt; 0.1) &amp;&amp; (keyboard_check(global.key_l)) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (keyboard_check(global.key_r)) &amp;&amp; (xscale == 1)))
+                    if (((hspeed &gt; 0.1) &amp;&amp; (input_check(input.left)) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (input_check(input.right)) &amp;&amp; (xscale == 1)))
                     &amp;&amp; (swimming == false)
                     &amp;&amp; (!inice) {
                     
@@ -659,7 +659,7 @@ else if (crouch == false) {
                 image_speed = 0;
                 
                 //But set the appropiate frame
-                if (keyboard_check(global.key_u))
+                if (input_check(input.up))
                     image_index = 1;
                 else
                     image_index = 0;

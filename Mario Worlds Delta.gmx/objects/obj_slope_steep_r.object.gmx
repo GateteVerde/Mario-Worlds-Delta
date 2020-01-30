@@ -61,10 +61,10 @@ with (obj_playerparent) {
     &amp;&amp; (state != statetype.climb) {
     
         //If action 2 is held
-        if (keyboard_check(global.key_action[1])) &amp;&amp; (hspeed &gt; 1)        
+        if (input_check(input.action1)) &amp;&amp; (hspeed &gt; 1)        
             
         //Otherwise, if not held
-        || (!keyboard_check(global.key_action[1])) &amp;&amp; (hspeed &gt; 0.5)
+        || (!input_check(input.action1)) &amp;&amp; (hspeed &gt; 0.5)
             hspeed -= 0.1;
     }
 }
