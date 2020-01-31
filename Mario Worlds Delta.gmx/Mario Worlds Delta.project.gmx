@@ -998,6 +998,10 @@
         <sprites name="Level">
           <sprites name="Completion">
             <sprite>sprites\spr_hud_clear</sprite>
+            <sprite>sprites\spr_hud_clear_stars0</sprite>
+            <sprite>sprites\spr_hud_clear_stars1</sprite>
+            <sprite>sprites\spr_hud_clear_stars2</sprite>
+            <sprite>sprites\spr_hud_clear_stars3</sprite>
           </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
@@ -1219,15 +1223,15 @@
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
       <script>scripts\turn_towards_direction.gml</script>
     </scripts>
-    <script>scripts\pivot_set.gml</script>
-    <script>scripts\grab_pivots.gml</script>
-    <script>scripts\move_contact_object.gml</script>
-    <script>scripts\shard_create.gml</script>
     <scripts name="Input">
       <script>scripts\input_check.gml</script>
       <script>scripts\input_check_pressed.gml</script>
       <script>scripts\input_check_released.gml</script>
     </scripts>
+    <script>scripts\pivot_set.gml</script>
+    <script>scripts\grab_pivots.gml</script>
+    <script>scripts\move_contact_object.gml</script>
+    <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
@@ -1838,6 +1842,7 @@
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>
+            <object>objects\obj_score_goal</object>
           </objects>
           <objects name="Shards">
             <object>objects\obj_shard</object>
@@ -1903,7 +1908,11 @@
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>
-  <constants number="40">
+  <constants number="44">
+    <constant name="c_smwred">$0000f8</constant>
+    <constant name="c_smwgreen">$00f800</constant>
+    <constant name="c_smwyellow">$00f8f8</constant>
+    <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
     <constant name="cs_version">"v3.0.0"</constant>
     <constant name="cs_grinder">-105</constant>

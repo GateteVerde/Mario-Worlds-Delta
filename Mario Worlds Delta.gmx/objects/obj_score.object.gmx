@@ -54,10 +54,18 @@ friction = 0.0175;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy if there's no vertical speed
+            <string>///Score logic
 
-if (vspeed == 0)
+//If there's no vertical speed, destroy
+if (vspeed == 0) {
+
     instance_destroy();
+    exit;
+}
+
+//Prevent score texts from going above the hud
+if (y &lt; view_yview[0]+40)
+    y = view_yview[0]+40;
 </string>
           </argument>
         </arguments>

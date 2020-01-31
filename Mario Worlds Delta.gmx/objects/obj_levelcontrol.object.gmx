@@ -480,8 +480,18 @@ else {
 //Follow
 if (follow != noone) {
     
-    xTo = follow.x;
-    yTo = follow.y + camera_y;
+    //Set the y position
+    if (follow == obj_player_clear) {
+    
+        yTo = follow.y + camera_y;
+        if (obj_player_clear.ready3 == 0)
+            xTo = follow.x;
+    }
+    else {
+    
+        xTo = follow.x;
+        yTo = follow.y + camera_y;
+    }
 }
 
 //Bigger number on division gives slower camera response
