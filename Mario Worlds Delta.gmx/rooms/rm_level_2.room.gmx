@@ -4,7 +4,7 @@
   <width>1280</width>
   <height>240</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -59,7 +59,7 @@
     <instance objName="obj_semisolid" x="336" y="176" name="inst_139629E1" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="560" y="192" name="inst_91F7E48E" locked="0" code="" scaleX="45" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="0" y="192" name="inst_2BC545F0" locked="0" code="" scaleX="19" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_7F4903DA" locked="0" code="leveltime = 300;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_7F4903DA" locked="0" code="leveltime = 200;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="48" y="176" name="inst_3BCA00F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="144" y="144" name="inst_DF683DBA" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="608" y="144" name="inst_5FA57CD2" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
@@ -79,14 +79,6 @@
     <instance objName="obj_qblock" x="800" y="96" name="inst_7EC8C028" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="784" y="112" name="inst_6B18514D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="768" y="128" name="inst_8C6CC1B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="928" y="96" name="inst_0F980B9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="944" y="112" name="inst_B17B9AE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="960" y="128" name="inst_8C414EED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="976" y="144" name="inst_CB61F691" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="928" y="128" name="inst_6BC6E12A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="944" y="144" name="inst_F8C6726B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="960" y="96" name="inst_AA2B6619" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_coin" x="976" y="112" name="inst_3515DD3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="48" y="64" w="32" h="32" xo="208" yo="96" id="10022409" name="inst_A81A288F" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
