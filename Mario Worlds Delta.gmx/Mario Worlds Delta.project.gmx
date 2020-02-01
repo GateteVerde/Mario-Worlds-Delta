@@ -329,6 +329,12 @@
         <sprite>sprites\spr_qblock_hidden</sprite>
         <sprite>sprites\spr_qblock_winged</sprite>
       </sprites>
+      <sprites name="Area Blocks">
+        <sprite>sprites\spr_area_y</sprite>
+        <sprite>sprites\spr_area_g</sprite>
+        <sprite>sprites\spr_area_r</sprite>
+        <sprite>sprites\spr_area_b</sprite>
+      </sprites>
       <sprites name="Bricks">
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
@@ -403,7 +409,6 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
-      <sprite>sprites\spr_coin_ace_get</sprite>
       <sprite>sprites\spr_coin_alt</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
@@ -940,6 +945,7 @@
           <sprite>sprites\spr_shard_ice</sprite>
           <sprite>sprites\spr_shard_icicle</sprite>
           <sprite>sprites\spr_shard_stone</sprite>
+          <sprite>sprites\spr_shard_empty</sprite>
         </sprites>
         <sprites name="Weather">
           <sprite>sprites\spr_rain</sprite>
@@ -1320,6 +1326,7 @@
         </objects>
         <object>objects\obj_qblock</object>
         <object>objects\obj_qblock_winged</object>
+        <object>objects\obj_emptyblock</object>
       </objects>
       <objects name="Bricks">
         <object>objects\obj_brick</object>
@@ -1678,6 +1685,7 @@
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
         <object>objects\obj_deactivateparent</object>
+        <object>objects\obj_removeme</object>
       </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
@@ -1707,7 +1715,6 @@
             <object>objects\obj_brick_flip_b</object>
             <object>objects\obj_brick_throw_th</object>
           </objects>
-          <object>objects\obj_emptyblock</object>
           <object>objects\obj_blockcoin</object>
         </objects>
         <objects name="Items">
@@ -1744,6 +1751,7 @@
             <object>objects\obj_goal_tape</object>
             <object>objects\obj_goal_gate_front</object>
           </objects>
+          <object>objects\obj_coin_alt</object>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>

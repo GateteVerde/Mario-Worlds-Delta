@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>obj_coin</parentName>
+  <parentName>obj_removeme</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -50,35 +50,6 @@ bouncy = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_powblock_killer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Make it fall
-
-//Inherit event from parent
-event_inherited();
-
-//Replace the sprite
-sprite_index = spr_coin_ace_get;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_blockparent">
       <action>
         <libid>1</libid>
@@ -100,9 +71,6 @@ sprite_index = spr_coin_ace_get;
 
 //Play 'Coin' sound
 audio_stop_play_sound(snd_coin_big, 0, false);
-
-//Set the sprite
-sprite_index = spr_coin_ace_get;
 
 //Increment coins
 global.coins++;
@@ -156,9 +124,6 @@ instance_destroy();
 
 //Play 'Coin' sound
 audio_stop_play_sound(snd_coin_big, 0, false);
-
-//Set the sprite
-sprite_index = spr_coin_ace_get;
 
 //Increment coins
 global.coins++;

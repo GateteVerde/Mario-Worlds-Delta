@@ -57,15 +57,8 @@ friction = 0.0175;
             <string>///Score logic
 
 //If there's no vertical speed, destroy
-if (vspeed == 0) {
-
+if (vspeed == 0)
     instance_destroy();
-    exit;
-}
-
-//Prevent score texts from going above the hud
-if (y &lt; view_yview[0]+40)
-    y = view_yview[0]+40;
 </string>
           </argument>
         </arguments>
@@ -493,7 +486,10 @@ score += 10;
             <kind>1</kind>
             <string>///Draw it
 
-draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
+if (y &lt;= view_yview[0]+40)
+    draw_sprite_ext(sprite_index, -1, round(x), view_yview[0]+40, 1, 1, 0, c_white, image_alpha);
+else
+    draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>
