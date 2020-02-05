@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>obj_coin</parentName>
+  <parentName>obj_removeme</parentName>
   <maskName>spr_square</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -74,12 +74,6 @@ audio_stop_play_sound(snd_coin_big, 0, false);
 //Increment coins
 global.coins += 10;
 
-//Set yprev and make visible
-yprev = y;
-visible = 1;
-alarm[0] = -1;
-alarm[1] = -1;
-
 //Create a sparkle
 instance_create(x+8, y+8, obj_sparkle);
 
@@ -117,12 +111,6 @@ audio_stop_play_sound(snd_coin_big, 0, false);
 
 //Increment coins
 global.coins += 10;
-
-//Set yprev and make visible
-yprev = y;
-visible = 1;
-alarm[0] = -1;
-alarm[1] = -1;
 
 //Create a sparkle
 instance_create(x+8, y+8, obj_sparkle);

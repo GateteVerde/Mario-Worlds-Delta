@@ -595,17 +595,17 @@ if (vulnerable == 0) {
     audio_play_sound(snd_kick, 0, false);
     
     //Turn into a coin
-    with (instance_create(round(bbox_left+bbox_right)/2-8, round(bbox_top+bbox_bottom)/2-8, obj_coin)) {
-    
-        //Set the sprite
-        sprite_index = spr_coin_alt;
-    
-        //Apply gravity to the coin
-        ready = 1;
-    
+    with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2-8, obj_coin_alt)) {
+
         //Jump a bit
         vspeed = -4;
         y--;
+        
+        //Apply gravity to the coin
+        ready = 1;        
+        
+        //Give 200 points after collection
+        nopoints = false;
         
         //Move in the opposite way the player is
         if (!instance_exists(obj_playerparent))

@@ -74,6 +74,7 @@ global.coins = 0;
 
 //Star amount
 global.bonus = 0;
+global.bonusadd = 0;
 global.bonusgame = 0;
 
 //Lives

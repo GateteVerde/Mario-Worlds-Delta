@@ -30,34 +30,8 @@
 //Set the vertical speed
 vspeed = -1;
 
-//Reverse vertical movement
-alarm[0] = 128;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Reverse vertical movement
-
-vspeed = -vspeed;
-alarm[0] = 128;
+//Tape position
+pos = 0;
 </string>
           </argument>
         </arguments>
@@ -105,6 +79,14 @@ if (instance_exists(obj_playerparent)) {
         instance_destroy();
     }
 }
+
+//Set position based on vertical speed
+pos += vspeed*-1;
+
+//Reverse vertical speed when in given position
+if (pos == 0)
+|| (pos == 120)
+    vspeed = -vspeed;
 </string>
           </argument>
         </arguments>
@@ -135,6 +117,26 @@ audio_play_sound(snd_goalgate, 0, false);
 //Play 'Explosion' sound
 audio_play_sound(snd_explosion, 0, false);
 
+//3-UP + 50 bonus stars
+if (y &lt; ystart-118) {
+
+    //Add 50 bonus stars
+    global.bonusadd = 50;
+    
+    //Get 3 extra lives
+    myscore = instance_create(x+8, y, obj_score);
+    with (myscore) 
+        event_user(11);
+}
+
+//40 Bonus stars
+else if (y &lt; ystart-112)
+    global.bonusadd = 40;
+
+//1 - 30 Bonus stars
+else if (y &gt;= ystart-112)
+    global.bonusadd = round((ystart - y) / 112 * 29 + 1);
+
 //Turn the player onto the goal object
 with (other) {
 
@@ -145,35 +147,11 @@ with (other) {
     instance_destroy();
 }
 
-//Destroy the tape
+//Reveal how many stars were obtained
+instance_create(0, 0, obj_score_goal);
+
+//Destroy
 instance_destroy();
-
-//Get points
-myscore = instance_create(x+8, y, obj_score);
-
-//3-UP
-if (y &lt; ystart-127)
-    with (myscore) event_user(10);
-    
-//1-UP
-else if (y &lt; ystart-120)
-    with (myscore) event_user(9);
-    
-//4000 points
-else if (y &lt; ystart-96)
-    with (myscore) event_user(7);
-    
-//1000 points
-else if (y &lt; ystart-64)
-    with (myscore) event_user(5);
-    
-//400 points
-else if (y &lt; ystart-32)
-    with (myscore) event_user(3);
-
-//100 points
-else
-    with (myscore) event_user(1);
 </string>
           </argument>
         </arguments>

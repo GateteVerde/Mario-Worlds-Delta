@@ -75,8 +75,11 @@ alarm[2] = 460;
 //Take points off time and add it to score
 alarm[3] = 300;
 
+//Take bonus stars out of additive stars
+alarm[4] = 330;
+
 //Show 'Course Clear'
-alarm[4] = 200;
+alarm[5] = 200;
 
 //Whether the object is swimming
 swimming = false;
@@ -87,6 +90,26 @@ slope = false;
 //Create goal fade
 instance_create(0, 0, obj_goal_fade);
 
+//Remove every coin on screen
+with (obj_removeme) {
+
+    if (visible)
+    &amp;&amp; (outside_view(sprite_get_width(sprite_index)) == false) {
+    
+        //Give points
+        instance_create(round(bbox_left+bbox_right)/2-8, y, obj_enemy_score);
+    
+        //Create poof of smoke
+        with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_smoke)) {
+        
+            sprite_index = spr_smoke_16;
+        }
+        
+        //Destroy
+        instance_destroy();            
+    }
+}
+
 //Remove every NPC on screen
 with (obj_physicsparent) {
 
@@ -94,8 +117,7 @@ with (obj_physicsparent) {
     if (outside_view(sprite_get_width(sprite_index)) == false) {
     
         //If the object is ancestor of either holdparent, enemyparent or powerup parent
-        if (object_is_ancestor(object_index, obj_coin))
-        || (object_is_ancestor(object_index, obj_holdparent))
+        if (object_is_ancestor(object_index, obj_holdparent))
         || (object_is_ancestor(object_index, obj_enemyparent))
         || (object_is_ancestor(object_index, obj_powerupparent)) {
         
@@ -112,6 +134,41 @@ with (obj_physicsparent) {
             instance_destroy();
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Show 'Course Clear' text
+
+with (obj_hud) {
+    
+    //Set the time to show in the course clear frame
+    time = global.time;
+    
+    //Show or not show bonus stars
+    if (global.bonusadd == 0)
+        clear = 1;
+    else
+        clear = 2;
 }
 </string>
           </argument>
@@ -135,12 +192,26 @@ with (obj_physicsparent) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Show 'Course Clear' text
+            <string>///Decrement bonus stars
 
-with (obj_hud) {
+if (global.bonusadd &gt; 0) {
+
+    //Decrement additive bonus stars
+    global.bonusadd--;
     
-    time = global.time;
-    clear = 1;
+    //Increment bonus stars
+    global.bonus++;
+    if (global.bonus &gt; 99) {
+    
+        //Decrement 100 bonus stars
+        global.bonus -= 100;
+        
+        //Play '1-UP' sound
+        audio_play_sound(snd_1up, 0, false);    
+    }
+    
+    //Repeat the process...
+    alarm[4] = 4;
 }
 </string>
           </argument>
@@ -192,28 +263,9 @@ else if ((global.time &lt; 5) &amp;&amp; (global.time &gt; 0)) {
     global.time--;
 }
 
-//Play 'Count' sounds
-if (ready4 == 0) {
-
-    //If the timer is greater than 0
-    if (global.time &gt; 0) {
-    
-        ready4 = 1;
-        audio_play_sound(snd_count, 0, false);
-        audio_play_sound(snd_count2, 0, true);
-    }
-    else {
-    
-        ready4 = 2;
-        audio_play_sound(snd_count3, 0, false);
-    }
-}
-else if ((global.time &lt; 1) &amp;&amp; (ready4 == 1)) {
-
-    ready4 = 2;
-    audio_stop_sound(snd_count2);
-    audio_play_sound(snd_count3, 0, false);
-}    
+//Play sounds
+if (ready4 == 0)
+    ready4 = 1;
 </string>
           </argument>
         </arguments>
@@ -381,20 +433,35 @@ if (gravity == 0) {
 }
 else {
 
-    //Set the jump sprite
-    sprite_index = player_jump();
+    //If the player is underwater
+    if (swimming == false) {
     
-    //Animate yoshi
-    anim += 0.065+abs(hspeed)/7.5;
+        //Set the jump sprite
+        sprite_index = player_jump();
+        
+        //Do not animate
+        image_speed = 0;
+        
+        //Set the frame
+        if (vspeed &lt; 0)
+            image_index = 0;
+        else
+            image_index = 1;
+    }
+    else {
     
-    //Do not animate
-    image_speed = 0;
-    
-    //Set the frame
-    if (vspeed &lt; 0)
-        image_index = 0;
-    else
-        image_index = 1;
+        //Set the swimming sprite
+        sprite_index = player_swim();
+        
+        //Set the frame
+        if (vspeed &lt; 0)
+            image_speed = 0.15;
+        else {
+        
+            image_speed = 0;
+            image_index = 0;
+        }
+    }
 }
 
 //Set the big mask if the player is not small
@@ -430,6 +497,7 @@ event_inherited();
 //Close curtain and go to map
 if (ready3 == 1)
 &amp;&amp; (global.time == 0)
+&amp;&amp; (global.bonusadd == 0)
 &amp;&amp; (!audio_is_playing(snd_goalgate_2)) {
 
     //Close curtain
@@ -457,6 +525,47 @@ if (ready3 == 2) {
     if (hspeed &gt; 1.75)
         hspeed = 1.75;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Play the countdown sounds
+
+//Play 'Count' sounds
+if (ready4 == 1) {
+
+    //If the timer is greater than 0
+    if (global.time &gt; 0) {
+    
+        ready4 = 2;
+        audio_play_sound(snd_count, 0, false);
+        audio_play_sound(snd_count2, 0, true);
+    }
+    else    
+        ready4 = 3;
+}
+else if ((global.time &lt; 1) &amp;&amp; (global.bonusadd == 0) &amp;&amp; (ready4 == 2)) {
+
+    ready4 = 3;
+    audio_stop_sound(snd_count2);
+    audio_play_sound(snd_count3, 0, false);
+}    
 </string>
           </argument>
         </arguments>

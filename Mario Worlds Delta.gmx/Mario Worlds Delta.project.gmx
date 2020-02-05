@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="27" name="datafiles">
-    <datafiles number="27" name="music">
+  <datafiles number="28" name="datafiles">
+    <datafiles number="28" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -21,6 +21,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_athletic.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_bonus.ogg</name>
+        <exists>-1</exists>
+        <size>531402</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_bonus.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_overworld.ogg</name>
@@ -159,6 +176,7 @@
     <sound>sound\snd_vinesprout</sound>
     <sound>sound\snd_whistle</sound>
     <sound>sound\snd_yoshi</sound>
+    <sound>sound\snd_wrong</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -329,6 +347,12 @@
         <sprite>sprites\spr_qblock_hidden</sprite>
         <sprite>sprites\spr_qblock_winged</sprite>
       </sprites>
+      <sprites name="Area Blocks">
+        <sprite>sprites\spr_area_y</sprite>
+        <sprite>sprites\spr_area_g</sprite>
+        <sprite>sprites\spr_area_r</sprite>
+        <sprite>sprites\spr_area_b</sprite>
+      </sprites>
       <sprites name="Bricks">
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
@@ -341,6 +365,7 @@
       <sprite>sprites\spr_noteblock_hidden</sprite>
       <sprite>sprites\spr_noteblock_diagonal_r</sprite>
       <sprite>sprites\spr_noteblock_diagonal_l</sprite>
+      <sprite>sprites\spr_guessblock</sprite>
       <sprite>sprites\spr_iceblock</sprite>
       <sprite>sprites\spr_iceblock_coin</sprite>
       <sprite>sprites\spr_iceblock_muncher</sprite>
@@ -403,7 +428,6 @@
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
-      <sprite>sprites\spr_coin_ace_get</sprite>
       <sprite>sprites\spr_coin_alt</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
@@ -940,6 +964,7 @@
           <sprite>sprites\spr_shard_ice</sprite>
           <sprite>sprites\spr_shard_icicle</sprite>
           <sprite>sprites\spr_shard_stone</sprite>
+          <sprite>sprites\spr_shard_empty</sprite>
         </sprites>
         <sprites name="Weather">
           <sprite>sprites\spr_rain</sprite>
@@ -998,6 +1023,10 @@
         <sprites name="Level">
           <sprites name="Completion">
             <sprite>sprites\spr_hud_clear</sprite>
+            <sprite>sprites\spr_hud_clear_stars0</sprite>
+            <sprite>sprites\spr_hud_clear_stars1</sprite>
+            <sprite>sprites\spr_hud_clear_stars2</sprite>
+            <sprite>sprites\spr_hud_clear_stars3</sprite>
           </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
@@ -1089,6 +1118,8 @@
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Level Backgrounds">
+      <background>background\bgr_bonus</background>
+      <background>background\bgr_bonus_b</background>
       <background>background\bgr_cave</background>
       <background>background\bgr_cave_b</background>
       <background>background\bgr_cave_c</background>
@@ -1108,9 +1139,10 @@
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_ground</background>
+      <background>background\tls_ground_bonus</background>
       <background>background\tls_ground_forest</background>
-      <background>background\tls_ground_sewer</background>
       <background>background\tls_ground_pipes</background>
+      <background>background\tls_ground_sewer</background>
     </backgrounds>
     <backgrounds name="Map Tilesets">
       <background>background\tls_map</background>
@@ -1219,15 +1251,15 @@
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
       <script>scripts\turn_towards_direction.gml</script>
     </scripts>
-    <script>scripts\pivot_set.gml</script>
-    <script>scripts\grab_pivots.gml</script>
-    <script>scripts\move_contact_object.gml</script>
-    <script>scripts\shard_create.gml</script>
     <scripts name="Input">
       <script>scripts\input_check.gml</script>
       <script>scripts\input_check_pressed.gml</script>
       <script>scripts\input_check_released.gml</script>
     </scripts>
+    <script>scripts\pivot_set.gml</script>
+    <script>scripts\grab_pivots.gml</script>
+    <script>scripts\move_contact_object.gml</script>
+    <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
@@ -1272,6 +1304,7 @@
       </objects>
       <object>objects\obj_bganimator</object>
       <object>objects\obj_levelcontrol</object>
+      <object>objects\obj_guessblock_manager</object>
     </objects>
     <objects name="Collision">
       <object>objects\obj_solid</object>
@@ -1316,6 +1349,7 @@
         </objects>
         <object>objects\obj_qblock</object>
         <object>objects\obj_qblock_winged</object>
+        <object>objects\obj_emptyblock</object>
       </objects>
       <objects name="Bricks">
         <object>objects\obj_brick</object>
@@ -1674,6 +1708,7 @@
         <object>objects\obj_slopeparent</object>
         <object>objects\obj_slopeparent_ceiling</object>
         <object>objects\obj_deactivateparent</object>
+        <object>objects\obj_removeme</object>
       </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
@@ -1703,8 +1738,8 @@
             <object>objects\obj_brick_flip_b</object>
             <object>objects\obj_brick_throw_th</object>
           </objects>
-          <object>objects\obj_emptyblock</object>
           <object>objects\obj_blockcoin</object>
+          <object>objects\obj_guessblock</object>
         </objects>
         <objects name="Items">
           <objects name="Powerups">
@@ -1740,6 +1775,7 @@
             <object>objects\obj_goal_tape</object>
             <object>objects\obj_goal_gate_front</object>
           </objects>
+          <object>objects\obj_coin_alt</object>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
@@ -1838,6 +1874,7 @@
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>
+            <object>objects\obj_score_goal</object>
           </objects>
           <objects name="Shards">
             <object>objects\obj_shard</object>
@@ -1893,17 +1930,25 @@
         <room>rooms\rm_level_1b</room>
       </rooms>
       <rooms name="Level 2">
-        <room>rooms\rm_level_2</room>
+        <room>rooms\rm_level_2a</room>
+        <room>rooms\rm_level_2b</room>
       </rooms>
     </rooms>
     <rooms name="Special Screens">
       <rooms name="Events">
         <room>rooms\rm_gameover</room>
       </rooms>
+      <rooms name="Minigames">
+        <room>rooms\rm_minigame_a</room>
+      </rooms>
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>
-  <constants number="40">
+  <constants number="44">
+    <constant name="c_smwred">$0000f8</constant>
+    <constant name="c_smwgreen">$00f800</constant>
+    <constant name="c_smwyellow">$00f8f8</constant>
+    <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
     <constant name="cs_version">"v3.0.0"</constant>
     <constant name="cs_grinder">-105</constant>
