@@ -66,7 +66,7 @@ if (input_check(input.action1)) { //If the control key is being held.
 }               
 
 //Otherwise, do not reduce speed until the player makes contact with the ground.  
-else {
+else if (!input_check(input.action1)) {
 
     hspeedmax = hspeed_walk;
 }
@@ -76,7 +76,8 @@ if (inwall == false)
 && (control_enable == true) {
 
     //If 'Action 1' is pressed...
-    if (input_check_pressed(input.action0))
+    if ((input_check_pressed(input.action0))
+    || (input_check_pressed(input.action2)))
     
     //...and the player can jump.
     && (((state != statetype.jump)
@@ -84,13 +85,13 @@ if (inwall == false)
     && (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top+4, obj_slopeparent_ceiling, 1, 0)))
     
     //Allow the player to jump off of Yoshi or a shoe while in midair
-    || ((input_check(input.up))
+    || ((input_check(input.action2))
     && (crouch == false)
     && (holding == 99)
     && (global.mount != 0))) {
     
         //If the 'Up' key is pressed
-        if ((input_check(input.up)) 
+        if ((input_check(input.action2)) 
         && (crouch == false)
         && ((holding == 0) || (holding == 99))) {
         
@@ -173,10 +174,13 @@ if (inwall == false)
     }
     
     //Check if the player should still be variable jumping
-    if (input_check_released(input.action0))
-    && (jumping == 1)
-        jumping = 2;
-        
+    if (jumping == 1) {
+    
+        if (input_check_released(input.action0))
+        || (input_check_released(input.action2))
+            jumping = 2;
+    }
+    
     //If 'Right' is pressed and the player can move
     if ((input_check(input.right)) 
     && (allow_move()) 
@@ -350,7 +354,8 @@ if ((state == statetype.jump) || (delay != 0)) {
     else {
     
         //Set gravity
-        if (input_check(input.action0))
+        if ((input_check(input.action0))
+        || (input_check(input.action2)))
             gravity = grav_hold;
         else
             gravity = grav;
@@ -428,6 +433,7 @@ if ((global.powerup == cs_pow_cape)
     
     //Slowly fall down
     if (vspeed > 0)
-    && (input_check(input.action0))
+    && ((input_check(input.action0))
+    || (input_check(input.action2)))
         vspeed = 0.5;
 }

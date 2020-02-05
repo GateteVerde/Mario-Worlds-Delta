@@ -552,7 +552,7 @@ warning = 0;
 if (instance_exists(obj_playerparent))
 &amp;&amp; (barrier == 1)
 &amp;&amp; (obj_playerparent.control_enable == true)
-&amp;&amp; (input_check_pressed(input.action2))
+&amp;&amp; (input_check_pressed(input.select))
     event_user(1);
 
 //Deactivate objects under the following parents

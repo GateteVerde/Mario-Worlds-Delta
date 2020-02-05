@@ -434,7 +434,7 @@ if (status == 'IDLE')
         }
             
         //Change player
-        if (input_check_pressed(input.action2)) {
+        if (input_check_pressed(input.select)) {
         
             global.player++;
             if (global.player &gt; 2)
@@ -444,7 +444,8 @@ if (status == 'IDLE')
         //If there's a panel
         if (panel)
         &amp;&amp; (status == 'IDLE')
-        &amp;&amp; (input_check_pressed(input.action0)) {
+        &amp;&amp; ((input_check_pressed(input.action0))
+        || (input_check_pressed(input.action2))) {
         
             //Play 'Enter Stage' sound
             audio_play_sound(snd_enterstage, 0, false);

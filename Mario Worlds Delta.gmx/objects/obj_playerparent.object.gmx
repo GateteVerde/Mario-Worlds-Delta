@@ -629,7 +629,7 @@ if (flying &gt; 0)
 if (gravity_enable == true) {
 
     //If moving down
-    if (vspeed &gt; 0) {
+    if (vspeed &gt;= 0) {
     
         //Check for a semisolid ground
         var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
@@ -674,7 +674,7 @@ if (gravity_enable == true) {
         || ((steeper_r) &amp;&amp; (x &lt; steeper_r.bbox_right)) {
         
             //If moving down
-            if (vspeed &gt; 0) {
+            if (vspeed &gt;= 0) {
             
                 //Stop vertical movement
                 vspeed = 0;
@@ -693,7 +693,7 @@ if (gravity_enable == true) {
         else {
                     
             //If moving down
-            if (vspeed &gt; 0) {
+            if (vspeed &gt;= 0) {
             
                 //Stop vertical movement
                 vspeed = 0;
@@ -995,7 +995,8 @@ else if (!water)
         &amp;&amp; (state == statetype.jump) {
         
             //If 'Action 0' is being held
-            if (input_check(input.action0)) {
+            if (input_check(input.action0)) 
+            || (input_check(input.action2)) {
             
                 //Play 'Jump' sound
                 audio_play_sound(snd_jump, 0, false);

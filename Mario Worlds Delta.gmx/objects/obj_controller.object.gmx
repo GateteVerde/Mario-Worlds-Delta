@@ -818,7 +818,11 @@ file_text_writeln(file);
 file_text_write_string(file, string(global.key[input.action2]));
 file_text_writeln(file);
 
-//Save action 4 key
+//Save select key
+file_text_write_string(file, string(global.key[input.select]));
+file_text_writeln(file);
+
+//Save start key
 file_text_write_string(file, string(global.key[input.start]));
 file_text_writeln(file);
 
@@ -850,7 +854,11 @@ file_text_writeln(file);
 file_text_write_string(file, string(global.button[input.action2]));
 file_text_writeln(file);
 
-//Save action 4 button
+//Save select button
+file_text_write_string(file, string(global.button[input.select]));
+file_text_writeln(file);
+
+//Save start button
 file_text_write_string(file, string(global.button[input.start]));
 file_text_writeln(file);
 
@@ -914,19 +922,23 @@ if (file_exists("settings.dat")) {
     global.key[input.right] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 1' Key (Default: Shift)
+    //Set saved 'Action 0' Key (Default: Z)
     global.key[input.action0] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 2' Key (Default: Control)
+    //Set saved 'Action 1' Key (Default: X)
     global.key[input.action1] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 3' Key (Default: Space)
+    //Set saved 'Action 2' Key (Default: C)
     global.key[input.action2] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 4' Key (Default: Enter)
+    //Set saved 'Select' Key (Default: Backspace)
+    global.key[input.select] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set saved 'Start' Button (Default: Enter)
     global.key[input.start] = real(file_text_read_string(file));
     file_text_readln(file);
     
@@ -946,19 +958,23 @@ if (file_exists("settings.dat")) {
     global.button[input.right] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 1' Button (Default: A)
+    //Set saved 'Action 0' Button (Default: A)
     global.button[input.action0] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 2' Button (Default: X)
+    //Set saved 'Action 1' Button (Default: X)
     global.button[input.action1] = real(file_text_read_string(file));
     file_text_readln(file);
     
-    //Set saved 'Action 3' Button (Default: B)
+    //Set saved 'Action 2' Button (Default: B)
     global.button[input.action2] = real(file_text_read_string(file));
     file_text_readln(file);
+            
+    //Set saved 'Select' Button (Default: Select)
+    global.button[input.select] = real(file_text_read_string(file));
+    file_text_readln(file);
     
-    //Set saved 'Action 4' Button (Default: Start)
+    //Set saved 'Start' Button (Default: Start)
     global.button[input.start] = real(file_text_read_string(file));
 
     //Close the file
@@ -990,15 +1006,18 @@ else {
     global.key[input.right] = vk_right;
     
     //Action 1 (Shift)
-    global.key[input.action0] = vk_shift;
+    global.key[input.action0] = ord('X');
     
     //Action 2 (Control)
-    global.key[input.action1] = vk_control;
+    global.key[input.action1] = ord('Z');
     
     //Action 3 (Space)
-    global.key[input.action2] = vk_space;
+    global.key[input.action2] = ord('C');
     
-    //Action 4 (Enter)
+    //Select Key
+    global.key[input.select] = vk_backspace;
+    
+    //Start Key
     global.key[input.start] = vk_enter;
     
     //Default controller configs
@@ -1024,7 +1043,10 @@ else {
     //Action 3 (B)
     global.button[input.action2] = gp_face2;
     
-    //Action 4 (Start)
+    //Select (Select)
+    global.button[input.select] = gp_select;
+    
+    //Start (Start)
     global.button[input.start] = gp_start;
 }
 

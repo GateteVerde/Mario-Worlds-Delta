@@ -51,6 +51,7 @@ enum input {
     action0,
     action1,
     action2,
+    select,
     start
 }
 

@@ -69,7 +69,8 @@ if (inwall == false)
 
     //If 'Action 1' is pressed and the player is not holding anything
     if (holding != 1)
-    && (input_check_pressed(input.action0)) {
+    && ((input_check_pressed(input.action0))
+    || (input_check_pressed(input.action2))) {
     
         //Play 'Swim' sound
         audio_play_sound(snd_swim, 0, false);
@@ -87,10 +88,8 @@ if (inwall == false)
             vspeed -= 1;
             
             //Dismount from yoshi
-            if (global.mount == 1) {
-            
-                //with (obj_yoshi) event_user(0);
-            }
+            if (global.mount == 1)            
+                with (obj_yoshi) event_user(0);
         }
         
         //Otherwise, if 'Down' is pressed

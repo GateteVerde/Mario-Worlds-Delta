@@ -54,7 +54,8 @@ hspeedmax = hspeed_run;
 if (control_enable == true) {
 
     //If 'Action 1' is pressed, make the player jump
-    if (input_check_pressed(input.action0))
+    if ((input_check_pressed(input.action0))
+    || (input_check_pressed(input.action2)))
     && (jumping == 0)
     && (vspeed == 0)
     && (state != statetype.jump) {
