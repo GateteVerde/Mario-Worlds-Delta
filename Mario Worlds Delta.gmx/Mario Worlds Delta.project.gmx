@@ -1282,9 +1282,10 @@
         <object>objects\obj_lightparent</object>
         <object>objects\obj_lightcontrol</object>
       </objects>
-      <objects name="Weather">
-        <object>objects\obj_rainmaker</object>
-        <object>objects\obj_snowmaker</object>
+      <objects name="Progress">
+        <object>objects\obj_checkpoint</object>
+        <object>objects\obj_goal_gate</object>
+        <object>objects\obj_keyhole</object>
       </objects>
       <objects name="Warps">
         <objects name="Doors">
@@ -1302,8 +1303,12 @@
         </objects>
         <object>objects\obj_warpnode</object>
       </objects>
-      <object>objects\obj_bganimator</object>
+      <objects name="Weather">
+        <object>objects\obj_rainmaker</object>
+        <object>objects\obj_snowmaker</object>
+      </objects>
       <object>objects\obj_levelcontrol</object>
+      <object>objects\obj_bganimator</object>
       <object>objects\obj_guessblock_manager</object>
     </objects>
     <objects name="Collision">
@@ -1370,11 +1375,6 @@
       <object>objects\obj_lightblock</object>
     </objects>
     <objects name="Items">
-      <objects name="Progress">
-        <object>objects\obj_checkpoint</object>
-        <object>objects\obj_goal_gate</object>
-        <object>objects\obj_keyhole</object>
-      </objects>
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>

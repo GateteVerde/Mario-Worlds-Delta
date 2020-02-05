@@ -104,6 +104,8 @@ alarm[0] = 8;
 if (nospin == 0) {
 
     angle += 10*sign(hspeed)*-1;
+    if (angle &gt;= 180)
+        angle = 180;
 }
 
 //Water check
