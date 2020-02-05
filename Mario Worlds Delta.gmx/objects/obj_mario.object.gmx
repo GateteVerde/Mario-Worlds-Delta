@@ -31,23 +31,27 @@
 event_inherited();
 
 //Jump Strength
-jumpstrength = 3.4675;
-jumpstrength_spin = 3.23375;
+jumpstrength = 3.40625;
+jumpstrength_spin = 3.21875;
+jumpstrength_bounce = 3.6875;
 
 //Acceleration
-acc = 0.06;
+acc = 0.078125;
 
 //Acceleration (when turning)
-acc_turn = 0.2;
+acc_turn = 0.25;
 
 //Deceleration
-dec = 0.0375;
+dec = 0.046875;
 
 //Gravity
-grav = 0.3625;
+grav = 0.3125;
 
 //Gravity (when jumping)
 grav_alt = 0.0625;
+
+//Gravity (when holding the jump button while falling)
+grav_hold = 0.25;
 
 //In water acceleration
 acc_swim = 0.025;
@@ -59,13 +63,13 @@ acc_turn_swim = 0.05;
 dec_swim = 0.025;
 
 //Gravity (Underwater)
-grav_swim = 0.03;
+grav_swim = 0.025;
 
 //Minimum horizontal speed
-hspeed_walk = 1.3;
+hspeed_walk = 1.25;
 
 //Maximum horizontal speed
-hspeed_run = 2.7;
+hspeed_run = 2.5;
 
 //Maximum horizontal speed (Full Meter)
 hspeed_run_full = 3;

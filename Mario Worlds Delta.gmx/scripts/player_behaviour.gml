@@ -154,7 +154,7 @@ if (inwall == false)
         && (global.powerup >= cs_pow_cape) {
         
             //Set vertical speed
-            vspeed = -(jumpstrength*1.5)+abs(hspeed)/7.5*-1;
+            vspeed = -jumpstrength*1.5-abs(hspeed)/hspeed_run_full/3-run/12;
             
             //Initialize fly
             if (flying == 0)
@@ -164,11 +164,11 @@ if (inwall == false)
                 
             //Jump high if you have the frog powerup, and you are not riding anything
             if (jumpstyle == true)        
-                vspeed = -jumpstrength_spin+abs(hspeed)/7.5*-1;
+                vspeed = -jumpstrength_spin-abs(hspeed)/hspeed_run_full/3-run/12;
         
             //Jump depending of the horizontal speed.
             else     
-                vspeed = -jumpstrength+abs(hspeed)/7.5*-1;
+                vspeed = -jumpstrength-abs(hspeed)/hspeed_run_full/3-run/12;
         }
     }
     
@@ -350,7 +350,10 @@ if ((state == statetype.jump) || (delay != 0)) {
     else {
     
         //Set gravity
-        gravity = grav;
+        if (input_check(input.action0))
+            gravity = grav_hold;
+        else
+            gravity = grav;
         
         //End variable jumping if it does not end manually
         if (jumping == 1)

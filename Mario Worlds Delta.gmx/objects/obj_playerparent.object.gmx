@@ -1281,7 +1281,7 @@ alarm[9] = 10;
             <string>///Hop when stomping a enemy
 
 //Set the vertical speed
-vspeed = -jumpstrength;
+vspeed = -jumpstrength_bounce;
 
 //Boost jump
 y--;
