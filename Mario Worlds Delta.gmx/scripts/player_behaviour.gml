@@ -75,9 +75,8 @@ else if (!input_check(input.action1)) {
 if (inwall == false) 
 && (control_enable == true) {
 
-    //If 'Action 1' is pressed...
-    if ((input_check_pressed(input.action0))
-    || (input_check_pressed(input.action2)))
+    //If 'Action 1' or 'Action 2' is pressed...
+    if ((input_check_pressed(input.action0)) || (input_check_pressed(input.action2)))
     
     //...and the player can jump.
     && (((state != statetype.jump)
@@ -91,9 +90,8 @@ if (inwall == false)
     && (global.mount != 0))) {
     
         //If the 'Up' key is pressed
-        if ((input_check(input.action2)) 
-        && (crouch == false)
-        && ((holding == 0) || (holding == 99))) {
+        if (crouch == false)
+        && (input_check(input.action2)) {
         
             //If the player is riding a yoshi
             if (global.mount == 1) {
@@ -126,11 +124,23 @@ if (inwall == false)
             //Otherwise, perform spin jump
             else {
             
-                //Play 'Spin' sound
-                audio_play_sound(snd_spin, 0, false);
+                //If the player is not holding anything
+                if (holding == 0) {
                 
-                //Set jump style
-                jumpstyle = true;
+                    //Play 'Spin' sound
+                    audio_play_sound(snd_spin, 0, false);
+                    
+                    //Set jump style
+                    jumpstyle = true;
+                }
+                else {
+                
+                    //Play 'Jump' sound
+                    audio_play_sound(snd_jump, 0, false);
+                    
+                    //Set jump style
+                    jumpstyle = false;                                    
+                }
             }
         }
         
@@ -174,12 +184,10 @@ if (inwall == false)
     }
     
     //Check if the player should still be variable jumping
-    if (jumping == 1) {
-    
-        if (input_check_released(input.action0))
-        || (input_check_released(input.action2))
-            jumping = 2;
-    }
+    if (jumping == 1)
+    && ((input_check_released(input.action0))
+    || (input_check_released(input.action2)))
+        jumping = 2;
     
     //If 'Right' is pressed and the player can move
     if ((input_check(input.right)) 
@@ -353,16 +361,18 @@ if ((state == statetype.jump) || (delay != 0)) {
     //Otherwise, use default gravity
     else {
     
+        //Force end jumping
+        if (jumping == 1) {
+        
+            jumping = 2;
+        }
+    
         //Set gravity
-        if ((input_check(input.action0))
+        if ((input_check(input.action0)) 
         || (input_check(input.action2)))
             gravity = grav_hold;
         else
             gravity = grav;
-        
-        //End variable jumping if it does not end manually
-        if (jumping == 1)
-            jumping = 2;
     }
 }
 

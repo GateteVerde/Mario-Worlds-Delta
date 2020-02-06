@@ -1006,13 +1006,13 @@ else {
     global.key[input.right] = vk_right;
     
     //Action 1 (Shift)
-    global.key[input.action0] = ord('X');
+    global.key[input.action0] = vk_shift;
     
     //Action 2 (Control)
-    global.key[input.action1] = ord('Z');
+    global.key[input.action1] = vk_control;
     
     //Action 3 (Space)
-    global.key[input.action2] = ord('C');
+    global.key[input.action2] = vk_space;
     
     //Select Key
     global.key[input.select] = vk_backspace;

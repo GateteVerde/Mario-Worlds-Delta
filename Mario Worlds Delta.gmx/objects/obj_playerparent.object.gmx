@@ -636,8 +636,7 @@ if (gravity_enable == true) {
         
         //If that ground exists and the player is above it...
         if (semisolid) 
-        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) {
         
             //Snap above the platform
             y = semisolid.bbox_top-16;
@@ -1472,6 +1471,9 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Draw the player
+
+//Draw 'Jumping'
+draw_text(x-4, bbox_top-20, string(jumping));
 
 //Set up palette
 player_set_palette(id);
