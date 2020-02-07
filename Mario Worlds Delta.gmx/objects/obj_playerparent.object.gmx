@@ -290,7 +290,7 @@ if (control_enable == true)
         }
         
         //Otherwise, if the player has either the cape or the fire cape
-        else if ((global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape)) {
+        else if (global.powerup == cs_pow_cape) {
         
             //If the player is spinning, reset spins
             if (instance_exists(obj_spinner)) {
@@ -304,12 +304,8 @@ if (control_enable == true)
             }
             
             //Otherwise
-            else {
-            
-                with (instance_create(x, y, obj_spinner))
-                    if (global.powerup == cs_pow_firecape)                    
-                        alarm[0] = 4;                    
-            }            
+            else            
+                instance_create(x, y, obj_spinner);
         }
     }
 }
@@ -470,8 +466,7 @@ if (jumpstyle == 1)
 &amp;&amp; (global.mount == 0) {
     
     //Fireball
-    if (global.powerup == cs_pow_fire) 
-    || (global.powerup == cs_pow_firecape) {
+    if (global.powerup == cs_pow_fire) {
     
         with (instance_create(x, y, obj_fireball)) {
         

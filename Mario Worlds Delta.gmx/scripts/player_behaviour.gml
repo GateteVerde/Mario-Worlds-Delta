@@ -418,8 +418,7 @@ if (input_check(input.down))
 }
 
 //Cape float
-if ((global.powerup == cs_pow_cape)
-|| (global.powerup == cs_pow_firecape)) {
+if (global.powerup == cs_pow_cape) {
         
     //Otherwise, if flying
     if (flying == 1) {

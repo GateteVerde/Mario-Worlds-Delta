@@ -183,7 +183,7 @@ else {
     
     //Create a poof of smoke
     if (loop == 2) 
-    &amp;&amp; ((global.powerup == cs_pow_cape) || (global.powerup == cs_pow_firecape)) {
+    &amp;&amp; (global.powerup == cs_pow_cape) {
     
         with (instance_create(x, y, obj_smoke)) {
         
@@ -355,8 +355,7 @@ if (background_exists(back)) {
 }
 
 //Draw the cape
-if (global.powerup == cs_pow_cape)
-|| (global.powerup == cs_pow_firecape) {
+if (global.powerup == cs_pow_cape) {
 
     if (global.mount == 0)
         draw_sprite_ext(capesprite, capeframe, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);

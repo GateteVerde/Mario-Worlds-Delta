@@ -47,6 +47,7 @@ swimming = 0;
 if (place_meeting(x, y, obj_swim)) {
 
     swimming = 1;
+    vspeed = -3;
     gravity = 0.1;
 }
 </string>
@@ -100,21 +101,10 @@ alarm[0] = 8;
             <kind>1</kind>
             <string>///Dead enemy logic
 
-//Update angle
-if (nospin == 0) {
-
-    angle += 10*sign(hspeed)*-1;
-    if (angle &gt;= 180)
-        angle = 180;
-}
-
-//Water check
-event_user(0);
-
 //Cap vertical speed
 if (swimming == 1) {
 
-    gravity = 0.1;
+    gravity = 0.025;
     if (vspeed &gt; 1)
         vspeed = 1;
 }
@@ -124,6 +114,13 @@ else {
     if (vspeed &gt; 4)
         vspeed = 4;
 }
+
+//Water check
+event_user(0);
+
+//Update the angle
+if (nospin == 0) 
+    angle = 180; //angle += 10*sign(hspeed)*-1;
 </string>
           </argument>
         </arguments>

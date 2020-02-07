@@ -546,6 +546,7 @@
       <sprite>sprites\spr_door_p_outline</sprite>
       <sprite>sprites\spr_door_player</sprite>
       <sprite>sprites\spr_door_lock</sprite>
+      <sprite>sprites\spr_door_lock_unlocked</sprite>
       <sprite>sprites\spr_beanstalk</sprite>
       <sprite>sprites\spr_beanstalk_vine</sprite>
       <sprite>sprites\spr_bumper</sprite>
@@ -1948,7 +1949,7 @@
       <room>rooms\rm_levelstart</room>
     </rooms>
   </rooms>
-  <constants number="44">
+  <constants number="43">
     <constant name="c_smwred">$0000f8</constant>
     <constant name="c_smwgreen">$00f800</constant>
     <constant name="c_smwyellow">$00f8f8</constant>
@@ -1964,7 +1965,6 @@
     <constant name="cs_pow_super">1</constant>
     <constant name="cs_pow_fire">2</constant>
     <constant name="cs_pow_cape">3</constant>
-    <constant name="cs_pow_firecape">4</constant>
     <constant name="cs_left">1</constant>
     <constant name="cs_down">2</constant>
     <constant name="cs_right">3</constant>

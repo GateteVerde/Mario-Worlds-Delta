@@ -70,8 +70,11 @@ alarm[0] = 2;
             <string>///Unlock if this door was opened before
 
 if (lock == 1) 
-&amp;&amp; (ds_map_exists(global.doors, id))
+&amp;&amp; (ds_map_exists(global.doors, id)) {
+
     lock = 0;
+    sprite_index = spr_door_lock_unlocked;
+}
 </string>
           </argument>
         </arguments>
@@ -176,6 +179,9 @@ if (lock == 1)
 
     //Play 'Key' sound
     audio_play_sound(snd_key, 0, false);
+    
+    //Set the sprite
+    sprite_index = spr_door_lock_unlocked;
 
     //Unlock the door
     lock = 0;
@@ -187,14 +193,14 @@ if (lock == 1)
         audio_play_sound(snd_bump, 0, false);
         
         //Create a puff of smoke
-        with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_big;
+        with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_16;
         
         //Destroy
         instance_destroy();
     }
     
     //Create a puff of smoke
-    with (instance_create(x+8, y, obj_smoke)) sprite_index = spr_smoke_big;
+    with (instance_create(x+8, y, obj_smoke)) sprite_index = spr_smoke_16;
     
     //Remember it
     ds_map_add(global.doors, id, 1);

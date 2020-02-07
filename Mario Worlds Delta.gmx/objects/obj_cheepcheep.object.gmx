@@ -242,7 +242,7 @@ if (swimming == 0) {
         
             sprite_index = other.deathsprite;
             image_xscale = other.xscale;
-            vspeed = -4;
+            vspeed = -3;
         }        
     }
     
