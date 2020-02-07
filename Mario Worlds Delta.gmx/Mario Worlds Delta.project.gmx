@@ -1693,6 +1693,12 @@
         </objects>
         <objects name="In-Level Parents">
           <objects name="Collision">
+            <objects name="Slopes">
+              <object>objects\obj_slopeparent</object>
+              <object>objects\obj_slopeparent_ceiling</object>
+            </objects>
+            <object>objects\obj_solidparent</object>
+            <object>objects\obj_semisolidparent</object>
             <object>objects\obj_conveyorparent</object>
             <object>objects\obj_escalatorparent</object>
           </objects>
@@ -1705,8 +1711,6 @@
         <object>objects\obj_collisionparent</object>
         <object>objects\obj_effectsparent</object>
         <object>objects\obj_iceparent</object>
-        <object>objects\obj_slopeparent</object>
-        <object>objects\obj_slopeparent_ceiling</object>
         <object>objects\obj_deactivateparent</object>
         <object>objects\obj_removeme</object>
       </objects>

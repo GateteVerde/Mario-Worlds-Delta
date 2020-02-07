@@ -333,8 +333,15 @@ if (hunger == 0) &amp;&amp; (ready == 0) {
     }
     
     //Otherwise, create item
-    else if (other.edible == 1)
-        with (other) event_user(7);
+    else if (other.edible == 1) {
+    
+        with (other) {
+        
+            x = other.x;
+            y = other.y;
+            event_user(7);
+        }
+    }
         
     //Otherwise, eat it
     else {

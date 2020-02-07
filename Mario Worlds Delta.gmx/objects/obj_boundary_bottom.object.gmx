@@ -64,7 +64,7 @@ x = obj_playerparent.x;
 y = obj_playerparent.bbox_bottom+1;
 
 //If the object is overlapping a solid
-if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0))
+if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0))
     check = true;
 else
     check = false;

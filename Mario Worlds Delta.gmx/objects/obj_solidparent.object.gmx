@@ -2,10 +2,10 @@
 <object>
   <spriteName>spr_square</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>-1</depth>
+  <visible>-1</visible>
+  <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_solidparent</parentName>
+  <parentName>obj_semisolidparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events/>
   <PhysicsObject>0</PhysicsObject>

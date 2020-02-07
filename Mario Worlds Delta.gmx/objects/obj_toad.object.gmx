@@ -49,6 +49,9 @@ grav = 0.3625;
 //Gravity (when jumping)
 grav_alt = 0.0625;
 
+//Gravity (when holding the jump button while falling)
+grav_hold = 0.25;
+
 //In water acceleration
 acc_swim = 0.025;
 

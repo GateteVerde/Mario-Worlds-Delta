@@ -150,9 +150,9 @@ draw_set_halign(fa_center);
 
 //If the frame is the first one
 if (frame == 0)
-    draw_text_colour(view_xview[0] + view_wview[0] / 2 + 4, view_yview[0] + 80, string_format(global.bonusadd, 2, 0), colour, colour, colour, colour, 1);
+    draw_text_colour(view_xview[0] + view_wview[0] / 2 + 4, view_yview[0] + 64, string_format(global.bonusadd, 2, 0), colour, colour, colour, colour, 1);
 else
-    draw_text_colour(view_xview[0] + view_wview[0] / 2 + 4, view_yview[0] + 80, string_format(global.bonusadd, 2, 0), c_white, c_white, c_white, c_white, 1);
+    draw_text_colour(view_xview[0] + view_wview[0] / 2 + 4, view_yview[0] + 64, string_format(global.bonusadd, 2, 0), c_white, c_white, c_white, c_white, 1);
     
 //Reset alignment
 draw_set_halign(fa_left);

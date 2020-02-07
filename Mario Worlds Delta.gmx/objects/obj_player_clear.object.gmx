@@ -75,8 +75,8 @@ alarm[2] = 460;
 //Take points off time and add it to score
 alarm[3] = 300;
 
-//Take bonus stars out of additive stars
-alarm[4] = 330;
+//Take bonus stars off and add it to current stars
+alarm[4] = 300;
 
 //Show 'Course Clear'
 alarm[5] = 200;
@@ -519,7 +519,7 @@ if (ready2 == 1) {
 if (ready3 == 2) {
 
     //Build up some speed
-    hspeed += 0.05;
+    hspeed += 0.0324;
     
     //Prevent it from going too fast
     if (hspeed &gt; 1.75)
