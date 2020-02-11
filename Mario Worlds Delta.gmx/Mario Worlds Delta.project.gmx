@@ -344,6 +344,7 @@
       <sprites name="Item Blocks">
         <sprite>sprites\spr_qblock</sprite>
         <sprite>sprites\spr_qblock_empty</sprite>
+        <sprite>sprites\spr_qblock_empty_pensive</sprite>
         <sprite>sprites\spr_qblock_hidden</sprite>
         <sprite>sprites\spr_qblock_winged</sprite>
       </sprites>
@@ -1955,7 +1956,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v3.0.0"</constant>
+    <constant name="cs_version">"08/02/2020"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>

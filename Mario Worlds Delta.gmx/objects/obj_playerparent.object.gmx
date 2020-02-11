@@ -678,9 +678,10 @@ if (gravity_enable == true) {
                 event_user(15);
             }          
             
-            //Prevent the player from getting embed inside a slope  
-            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-                y--;              
+            //Prevent the player from getting embed inside a slope
+            if (vspeed &gt; -0.85)
+                while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+                    y--;              
         }
         
         //Otherwise
