@@ -113,7 +113,7 @@ else {
 with (obj_mapplayer) event_user(0);
 
 //Go to the levelstart screen
-room_goto(rm_levelstart);
+room_goto(global.targetroom);
 </string>
           </argument>
         </arguments>

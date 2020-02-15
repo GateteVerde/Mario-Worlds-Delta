@@ -14,6 +14,9 @@ jumpstyle = false;
 //Stop sliding down
 sliding = false;
 
+//Stop cape flight
+flying = 0;
+
 //If controls are enabled
 if (control_enable == true) {
 

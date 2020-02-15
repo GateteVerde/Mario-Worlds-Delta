@@ -96,7 +96,7 @@ global.clear = 0;
 global.targetroom = noone;
 
 //Start
-global.cpstart = 0;
+global.mariostart = 0;
 
 //Checkpoint
 global.checkpoint = noone;

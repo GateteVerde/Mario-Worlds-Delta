@@ -9,7 +9,7 @@
 */
 
 //Reset checkpoint
-global.cpstart = 0;
+global.mariostart = 0;
 
 //Restart time
 global.time = 0;

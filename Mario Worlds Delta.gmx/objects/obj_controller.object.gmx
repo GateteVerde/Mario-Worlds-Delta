@@ -320,6 +320,9 @@ window_center();
             <string>///Deactivate objects
 
 instance_deactivate_all(1);
+
+//Activate 'Mario Start!' text
+instance_activate_object(obj_mariostart);
 </string>
           </argument>
         </arguments>
@@ -347,11 +350,15 @@ instance_deactivate_all(1);
 //Set mode to fade from black
 mode = 0;
 
-//Begin fading
-fade = 0;
+//If Mario Start! does not exist
+if (!instance_exists(obj_mariostart)) {
 
-//Activate everything
-instance_activate_all();
+    //Begin fading from black
+    fade = 0;
+
+    //Activate everything
+    instance_activate_all()
+}
 
 //Delete the screenshot
 if (background_exists(back))

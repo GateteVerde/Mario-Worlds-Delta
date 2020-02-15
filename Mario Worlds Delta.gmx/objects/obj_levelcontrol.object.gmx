@@ -41,7 +41,7 @@ leveltime = 0;
 //Play music
 if (global.pswitch == 0)
 &amp;&amp; (global.starman == 0)
-    alarm[0] = 30;
+    alarm[0] = 2;
     
 //The music of the level
 levelmusic = noone;
@@ -929,11 +929,15 @@ if (leveltime &gt; 0)
         alarm[3] = 40;
 }
 
+//If the timer was set
+if (global.time &gt; 0)
+    alarm[2] = 40;
+
 //If the player just started the level
-if (global.cpstart == 0) {
+if (global.mariostart == 0) {
 
     //The level has started
-    global.cpstart = 1;
+    global.mariostart = 1;
     
     //If the checkpoint exists
     if (instance_exists(global.checkpoint)) {
@@ -944,11 +948,10 @@ if (global.cpstart == 0) {
         //Create new player object
         player_create(global.checkpoint.x, global.checkpoint.y);
     }
+    
+    //Create 'Mario Start!' text
+    instance_create(0, 0, obj_mariostart);
 }
-
-//If the timer was set, begin ticking
-if (global.time &gt; 0)
-    alarm[2] = 60;
     
 //If the player came from another room
 if (global.postchange != -1) {

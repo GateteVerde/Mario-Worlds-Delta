@@ -14,6 +14,9 @@ jumpstyle = false;
 //Stop sliding down
 sliding = false;
 
+//Stop cape flight
+flying = 0;
+
 //Figure out player's state
 if (gravity == 0)
 && ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolidparent, 0, 0))
