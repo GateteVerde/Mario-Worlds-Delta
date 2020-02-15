@@ -602,7 +602,11 @@ if (vulnerable == 0) {
         y--;
         
         //Apply gravity to the coin
-        ready = 1;        
+        ready = 1;
+        
+        //Disable alarms
+        alarm[0] = -1;
+        alarm[1] = -1;        
         
         //Give 200 points after collection
         nopoints = false;

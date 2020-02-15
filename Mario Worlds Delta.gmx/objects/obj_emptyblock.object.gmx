@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>///Empty Question Block
 
-//Show glitched piranha
-if (floor(random(100) &gt;= 98))
+//Show pensive block
+if (floor(random(1000) &gt;= 998))
     sprite_index = spr_qblock_empty_pensive;
 else
     sprite_index = spr_qblock_empty;

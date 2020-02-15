@@ -420,13 +420,16 @@ if (input_check(input.down))
 //Cape float
 if (global.powerup == cs_pow_cape) {
         
-    //Otherwise, if flying
+    //If flying
     if (flying == 1) {
     
         //Increment fly timer
         fly++;
+        
+        //If moving down and the player is not holding anything or it is not spin-jumping
         if (fly > 25) 
-        && (vspeed > 0) 
+        && (vspeed > 0)
+        && (holding == 0) 
         && (jumpstyle == 0) {
         
             //Create flying object
