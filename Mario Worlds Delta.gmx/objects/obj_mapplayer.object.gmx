@@ -86,6 +86,31 @@ if (global.clear &gt; 0) {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Ask to save the game
+
+status = 'IDLE';
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -224,6 +249,23 @@ else if (global.clear == 2) {
 else if (global.clear == 3) {
 
     event_user(15);
+}
+
+//Otherwise, if this is a switch palace
+else if (global.clear == 4) {
+
+    //Reset clear variable
+    global.clear = 0;
+    
+    //Mark panel as beaten
+    with (check) {
+    
+        ds_map_replace(global.worldmap, id, 2);
+        alarm[2] = 1;
+    }
+    
+    //Exit
+    exit;
 }
 
 //Reset clear variable
@@ -441,8 +483,9 @@ if (status == 'IDLE')
                 global.player = 0;
         }
         
-        //If there's a panel
+        //If there's a panel and this panel is available
         if (panel)
+        &amp;&amp; (panel.beaten &lt; 2)
         &amp;&amp; (status == 'IDLE')
         &amp;&amp; ((input_check_pressed(input.action0))
         || (input_check_pressed(input.action2))) {

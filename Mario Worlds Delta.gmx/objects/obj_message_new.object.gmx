@@ -28,7 +28,7 @@
             <string>///Displays a message
 
 //Ini section to read
-inisection = "No MSG";
+inisection = "NO_MSG";
 
 //Message to display
 message = "";
@@ -135,7 +135,7 @@ else if (ready == 1) {
     else if (switchmsg == 1) {
     
         //If the course clear theme is not playing
-        if (!audio_is_playing(snd_goalgate_2)) {
+        if (!audio_is_playing(snd_palaceclear)) {
         
             ready = 3;
             alarm[0] = 120;
@@ -212,16 +212,21 @@ draw_set_font(global.fontmsg);
 draw_set_colour(c_white);
 
 //If the text should be displayed
-if (ready == 1) {
+if (scale == 1) {
 
     //Draw the text
     draw_text(view_xview[0] + view_wview[0] / 2 - 72, view_yview[0] + 46, string(message));
     
     //If this is a switch palace message, draw blocks
-    if (switchmsg == 1) {
+    switch (inisection) {
     
+        //Yellow Switch Palace
+        case ("MSG_SWY"): {
         
-    }
+            draw_sprite(spr_area_y, 1, view_xview[0] + view_wview[0]/2 - 49, view_yview[0] + 78);
+            draw_sprite(spr_area_y, 0, view_xview[0] + view_wview[0]/2 + 16, view_yview[0] + 78);
+        } break;
+    }    
 }
 </string>
           </argument>

@@ -135,6 +135,12 @@ global.carriedsprite = noone;
 //Handle the activation / deactivation of on/off blocks
 global.onoff_block = 0;
 
+//Handle the state of the colour switches
+global.palaceswitch_y = 0;
+global.palaceswitch_g = 0;
+global.palaceswitch_r = 0;
+global.palaceswitch_b = 0;
+
 //Handle the data structure of the doors
 global.doors = ds_map_create();
 

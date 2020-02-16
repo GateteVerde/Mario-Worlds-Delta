@@ -136,6 +136,7 @@
     <sound>sound\snd_count</sound>
     <sound>sound\snd_count2</sound>
     <sound>sound\snd_count3</sound>
+    <sound>sound\snd_destroy</sound>
     <sound>sound\snd_door</sound>
     <sound>sound\snd_eat</sound>
     <sound>sound\snd_engine</sound>
@@ -167,6 +168,8 @@
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_move</sound>
+    <sound>sound\snd_palaceclear</sound>
+    <sound>sound\snd_palacesplit</sound>
     <sound>sound\snd_pathreveal</sound>
     <sound>sound\snd_pathreveal_end</sound>
     <sound>sound\snd_powerdown</sound>
@@ -192,8 +195,8 @@
     <sound>sound\snd_trampoline</sound>
     <sound>sound\snd_vinesprout</sound>
     <sound>sound\snd_whistle</sound>
-    <sound>sound\snd_yoshi</sound>
     <sound>sound\snd_wrong</sound>
+    <sound>sound\snd_yoshi</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -851,6 +854,7 @@
       <sprites name="Panels">
         <sprites name="Special">
           <sprite>sprites\spr_levelpipe</sprite>
+          <sprite>sprites\spr_levelpalace_y</sprite>
         </sprites>
         <sprite>sprites\spr_levelpanel</sprite>
         <sprite>sprites\spr_levelpanel_secret</sprite>
@@ -1013,6 +1017,7 @@
         <sprite>sprites\spr_splash_choco</sprite>
         <sprite>sprites\spr_splash_lava</sprite>
         <sprite>sprites\spr_splash_poison</sprite>
+        <sprite>sprites\spr_switcheff</sprite>
       </sprites>
       <sprites name="Palettes">
         <sprites name="NPCs">
@@ -1127,6 +1132,10 @@
       <sprite>sprites\spr_mariostart</sprite>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_lightningsheet</sprite>
+      <sprite>sprites\spr_palaceswitch_y</sprite>
+      <sprite>sprites\spr_palaceswitch_g</sprite>
+      <sprite>sprites\spr_palaceswitch_r</sprite>
+      <sprite>sprites\spr_palaceswitch_b</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
     <sprite>sprites\spr_down</sprite>
@@ -1617,6 +1626,7 @@
           <object>objects\obj_levelpipe</object>
         </objects>
         <object>objects\obj_levelpanel</object>
+        <object>objects\obj_levelpalace_y</object>
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">
@@ -1901,6 +1911,7 @@
           </objects>
           <objects name="Shards">
             <object>objects\obj_shard</object>
+            <object>objects\obj_shard_switch</object>
           </objects>
           <object>objects\obj_blob</object>
           <object>objects\obj_bubble</object>
@@ -1937,6 +1948,7 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_mariostart</object>
       <object>objects\obj_gameover</object>
+      <object>objects\obj_palaceswitch_y</object>
     </objects>
     <object>objects\obj_up</object>
     <object>objects\obj_down</object>
@@ -1964,6 +1976,12 @@
       </rooms>
       <rooms name="Minigames">
         <room>rooms\rm_minigame_a</room>
+      </rooms>
+      <rooms name="Switch Palaces">
+        <rooms name="Yellow">
+          <room>rooms\rm_palaceswitch_y</room>
+          <room>rooms\rm_palaceswitch_y2</room>
+        </rooms>
       </rooms>
     </rooms>
   </rooms>
