@@ -39,6 +39,9 @@ eff = 8;
 //Ready
 ready = 0;
 
+//Panel type
+paneltype = 2;
+
 //Was the level beaten
 beaten = 0;
 
@@ -130,10 +133,10 @@ else if (eff &gt; 0) {
             //Set the sprite and frame
             sprite_index = spr_switcheff;
             image_speed = 0;
-            image_index = 1;
+            image_index = 0;
             
             //Set the motion
-            motion_set(a, 3);
+            motion_set(a, 4.5);
         }
         
         //Set new direction
@@ -145,7 +148,7 @@ else if (eff &gt; 0) {
     if (eff &gt; 0)
         alarm[2] = 15;
     else
-        alarm[2] = 60;
+        alarm[2] = 90;
 }
 </string>
           </argument>

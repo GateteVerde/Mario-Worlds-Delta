@@ -136,56 +136,83 @@ check = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
 //If the level has been cleared with the normal exit
 if (global.clear == 1) {
 
-    //Check what exit was set in the panel
-    switch (check.normalexit) {
+    //If this panel is a switch palace, do not open paths
+    if (check.paneltype == 2) {
     
-        //Up
-        case (cs_up): {
+        //Reset clear variable
+        global.clear = 0;
+        
+        //Mark panel as beaten
+        with (check) {
+        
+            ds_map_replace(global.worldmap, id, 2);
+            alarm[2] = 1;
+        }
+        
+        //Exit
+        exit;            
+    }
     
-            //Check for a path above and open it if it is not visible
-            var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
-            
-            //If the path exists
-            if (pathU) 
-            &amp;&amp; (pathU.image_alpha == 0)
-                with (instance_create(x, y, obj_mapopener)) direct = 90;
-        } break;
+    //Otherwise
+    else {
+
+        //If this panel is a castle
+        if (check.paneltype == 1) {
+           
+            with (check) alarm[2] = 1;
+        }
+    
+        //Check what exit was set in the panel
+        switch (check.normalexit) {
         
-        //Down
-        case (cs_down): {
-            
-            //Check for a path below and open it if it is not visible
-            var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
-            
-            //If the path exists
-            if (pathD) 
-            &amp;&amp; (pathD.image_alpha == 0) 
-                with (instance_create(x, y, obj_mapopener)) direct = 270;
-        } break;
+            //Up
+            case (cs_up): {
         
-        //Left
-        case (cs_left): {
+                //Check for a path above and open it if it is not visible
+                var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
+                
+                //If the path exists
+                if (pathU) 
+                &amp;&amp; (pathU.image_alpha == 0)
+                    with (instance_create(x, y, obj_mapopener)) direct = 90;
+            } break;
             
-            //Check for a path at the left and open it if it is not visible
-            var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+            //Down
+            case (cs_down): {
+                
+                //Check for a path below and open it if it is not visible
+                var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
+                
+                //If the path exists
+                if (pathD) 
+                &amp;&amp; (pathD.image_alpha == 0) 
+                    with (instance_create(x, y, obj_mapopener)) direct = 270;
+            } break;
             
-            //If the path exists
-            if (pathL) 
-            &amp;&amp; (pathL.image_alpha == 0)
-                with (instance_create(x, y, obj_mapopener)) direct = 180;
-        } break;
-        
-        //Right
-        case (cs_right): {
+            //Left
+            case (cs_left): {
+                
+                //Check for a path at the left and open it if it is not visible
+                var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+                
+                //If the path exists
+                if (pathL) 
+                &amp;&amp; (pathL.image_alpha == 0)
+                    with (instance_create(x, y, obj_mapopener)) direct = 180;
+            } break;
             
-            //Check for a path at the right and open it if it is not visible
-            var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
-            
-            //If the path exists
-            if (pathR) 
-            &amp;&amp; (pathR.image_alpha == 0)
-                with (instance_create(x, y, obj_mapopener)) direct = 0;
-        } break;    
+            //Right
+            case (cs_right): {
+                
+                //Check for a path at the right and open it if it is not visible
+                var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
+                
+                //If the path exists
+                if (pathR) 
+                &amp;&amp; (pathR.image_alpha == 0)
+                    with (instance_create(x, y, obj_mapopener)) direct = 0;
+            } break;    
+        }
     }
 }
 
@@ -249,23 +276,6 @@ else if (global.clear == 2) {
 else if (global.clear == 3) {
 
     event_user(15);
-}
-
-//Otherwise, if this is a switch palace
-else if (global.clear == 4) {
-
-    //Reset clear variable
-    global.clear = 0;
-    
-    //Mark panel as beaten
-    with (check) {
-    
-        ds_map_replace(global.worldmap, id, 2);
-        alarm[2] = 1;
-    }
-    
-    //Exit
-    exit;
 }
 
 //Reset clear variable

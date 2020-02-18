@@ -855,6 +855,9 @@
         <sprites name="Special">
           <sprite>sprites\spr_levelpipe</sprite>
           <sprite>sprites\spr_levelpalace_y</sprite>
+          <sprite>sprites\spr_levelpalace_g</sprite>
+          <sprite>sprites\spr_levelpalace_r</sprite>
+          <sprite>sprites\spr_levelpalace_b</sprite>
         </sprites>
         <sprite>sprites\spr_levelpanel</sprite>
         <sprite>sprites\spr_levelpanel_secret</sprite>
@@ -1380,6 +1383,12 @@
         <objects name="Hidden">
           <object>objects\obj_qblock_hidden</object>
         </objects>
+        <objects name="Area Blocks">
+          <object>objects\obj_area_y</object>
+          <object>objects\obj_area_g</object>
+          <object>objects\obj_area_r</object>
+          <object>objects\obj_area_b</object>
+        </objects>
         <object>objects\obj_qblock</object>
         <object>objects\obj_qblock_winged</object>
         <object>objects\obj_emptyblock</object>
@@ -1627,6 +1636,8 @@
         </objects>
         <object>objects\obj_levelpanel</object>
         <object>objects\obj_levelpalace_y</object>
+        <object>objects\obj_levelpalace_g</object>
+        <object>objects\obj_levelpalace_r</object>
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">
@@ -1948,7 +1959,7 @@
       <object>objects\obj_controller</object>
       <object>objects\obj_mariostart</object>
       <object>objects\obj_gameover</object>
-      <object>objects\obj_palaceswitch_y</object>
+      <object>objects\obj_palaceswitch</object>
     </objects>
     <object>objects\obj_up</object>
     <object>objects\obj_down</object>
@@ -1978,10 +1989,10 @@
         <room>rooms\rm_minigame_a</room>
       </rooms>
       <rooms name="Switch Palaces">
-        <rooms name="Yellow">
-          <room>rooms\rm_palaceswitch_y</room>
-          <room>rooms\rm_palaceswitch_y2</room>
-        </rooms>
+        <room>rooms\rm_palaceswitch_y</room>
+        <room>rooms\rm_palaceswitch_g</room>
+        <room>rooms\rm_palaceswitch_r</room>
+        <room>rooms\rm_palaceswitch_switch</room>
       </rooms>
     </rooms>
   </rooms>

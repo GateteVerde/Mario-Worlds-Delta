@@ -356,15 +356,9 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Remember the star for the next room
+            <string>///Stop Starman BGM
 
-//If the effect is still present
-if alarm[0] &gt; 5
-    global.starman = alarm[0];
-
-//Stop the star if there is not enough time left
-else
-    audio_stop_sound(bgm_starman);
+audio_stop_sound(bgm_starman);
 </string>
           </argument>
         </arguments>

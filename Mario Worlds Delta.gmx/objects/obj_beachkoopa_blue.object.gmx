@@ -101,7 +101,7 @@ dir = -1;
 if (sprite_index == spr_beachkoopa_blue) then exit;
 
 //Check for a slope
-if (collision_rectangle(x,y+8,x,y+16,obj_slopeparent,1,0)) {
+if (collision_rectangle(x, y+8, x, y+16, obj_slopeparent, 1, 0)) {
 
     //Set state
     slide = true;
@@ -437,7 +437,9 @@ event_perform_object(obj_physicsparent, ev_step, 0);
 event_user(2);
 
 //Turn on ledges
-if (ready == 2) &amp;&amp; (kicky == 0) &amp;&amp; (!slide)
+if (ready == 2) 
+&amp;&amp; (kicky == 0) 
+&amp;&amp; (slide == false)
     event_user(6);
 
 //TEMPORARY item contact box length

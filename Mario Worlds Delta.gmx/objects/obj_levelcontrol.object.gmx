@@ -39,9 +39,7 @@ inisection = "Overworld";
 leveltime = 0;
 
 //Play music
-if (global.pswitch == 0)
-&amp;&amp; (global.starman == 0)
-    alarm[0] = 2;
+alarm[0] = 2;
     
 //The music of the level
 levelmusic = noone;
@@ -888,11 +886,9 @@ with (obj_player_door) instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Remember p-switch if enabled or remember last music played
+            <string>///Stop P-Switch BGM
 
-//Remember P-Switch time limit if enabled
-if (switchon)
-    global.pswitch = alarm[6]; 
+audio_stop_sound(bgm_pswitch);
 </string>
           </argument>
         </arguments>
@@ -1016,33 +1012,6 @@ else if (global.carrieditem != noone) {
     
     //Reset the variable
     global.carrieditem = noone;
-}
-
-//If the P-Switch needs to carry over from the previous room
-if (global.pswitch &gt; 0) {
-
-    //Turn on the P-Switch
-    event_user(2);
-
-    //Set the timer, and make sure it is not too short
-    alarm[6] = max(global.pswitch, 30);
-
-    //Reset the variable
-    global.pswitch = 0;
-}
-
-//If a star needs to carry over from the previous room
-if (global.starman &gt; 0) {
-
-    //With the newly created invincibility object, set its time limit, and make sure it is not too short
-    with (instance_create(x, y, obj_invincibility)) {
-    
-        alarm[0] = max(global.starman, 30);
-        alarm[3] = 1;
-    }
-
-    //Reset the variable
-    global.starman = 0;
 }
 </string>
           </argument>

@@ -223,8 +223,29 @@ if (scale == 1) {
         //Yellow Switch Palace
         case ("MSG_SWY"): {
         
-            draw_sprite(spr_area_y, 1, view_xview[0] + view_wview[0]/2 - 49, view_yview[0] + 78);
-            draw_sprite(spr_area_y, 0, view_xview[0] + view_wview[0]/2 + 16, view_yview[0] + 78);
+            draw_sprite(spr_area_y, 1, view_xview[0] + view_wview[0]/2 - 41, view_yview[0] + 78);
+            draw_sprite(spr_area_y, 0, view_xview[0] + view_wview[0]/2 + 24, view_yview[0] + 78);
+        } break;
+        
+        //Yellow Switch Palace
+        case ("MSG_SWG"): {
+        
+            draw_sprite(spr_area_g, 1, view_xview[0] + view_wview[0]/2 - 41, view_yview[0] + 78);
+            draw_sprite(spr_area_g, 0, view_xview[0] + view_wview[0]/2 + 24, view_yview[0] + 78);
+        } break;
+        
+        //Yellow Switch Palace
+        case ("MSG_SWR"): {
+        
+            draw_sprite(spr_area_r, 1, view_xview[0] + view_wview[0]/2 - 41, view_yview[0] + 78);
+            draw_sprite(spr_area_r, 0, view_xview[0] + view_wview[0]/2 + 24, view_yview[0] + 78);
+        } break;
+        
+        //Yellow Switch Palace
+        case ("MSG_SWB"): {
+        
+            draw_sprite(spr_area_b, 1, view_xview[0] + view_wview[0]/2 - 41, view_yview[0] + 78);
+            draw_sprite(spr_area_b, 0, view_xview[0] + view_wview[0]/2 + 24, view_yview[0] + 78);
         } break;
     }    
 }
