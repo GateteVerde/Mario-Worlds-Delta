@@ -27,6 +27,9 @@ global.starman = 0;
 //Restart ON/OFF Block
 global.onoffblock = false;
 
+//Restart the collected silver coins
+global.scoins = 0;
+
 //Clear the records of the opened doors
 global.doors = ds_map_create();
 

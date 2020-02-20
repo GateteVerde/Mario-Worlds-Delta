@@ -64,6 +64,9 @@ switch (argument[0]) {
     //P-Switch
     case (itemtype.pswitch): return spr_pswitch; break;
     
+    //Gray P-Switch
+    case (itemtype.gswitch): return spr_gswitch; break;
+    
     //Trampoline
     case (itemtype.trampoline): return spr_trampoline; break;
     

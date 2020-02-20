@@ -358,7 +358,6 @@
         <sprite>sprites\spr_palette_invincibility</sprite>
       </sprites>
       <sprite>sprites\spr_player</sprite>
-      <sprite>sprites\spr_player_start</sprite>
     </sprites>
     <sprites name="Blocks">
       <sprites name="Item Blocks">
@@ -450,6 +449,7 @@
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
       <sprite>sprites\spr_coin_alt</sprite>
+      <sprite>sprites\spr_coin_silver</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
       <sprite>sprites\spr_feather</sprite>
@@ -533,6 +533,8 @@
       </sprites>
       <sprite>sprites\spr_pswitch</sprite>
       <sprite>sprites\spr_pswitch_press</sprite>
+      <sprite>sprites\spr_gswitch</sprite>
+      <sprite>sprites\spr_gswitch_press</sprite>
       <sprite>sprites\spr_trampoline</sprite>
       <sprite>sprites\spr_trampoline_end</sprite>
       <sprite>sprites\spr_powblock_blue</sprite>
@@ -563,6 +565,7 @@
       <sprite>sprites\spr_icicle_appear</sprite>
       <sprite>sprites\spr_detonator</sprite>
       <sprite>sprites\spr_door</sprite>
+      <sprite>sprites\spr_door_s</sprite>
       <sprite>sprites\spr_door_p</sprite>
       <sprite>sprites\spr_door_p_outline</sprite>
       <sprite>sprites\spr_door_player</sprite>
@@ -930,6 +933,7 @@
         </sprites>
         <sprites name="Interactive">
           <sprite>sprites\spr_modifier_pswitch</sprite>
+          <sprite>sprites\spr_modifier_gswitch</sprite>
           <sprite>sprites\spr_modifier_trampoline</sprite>
           <sprite>sprites\spr_modifier_powblock</sprite>
           <sprite>sprites\spr_modifier_detonator</sprite>
@@ -1242,6 +1246,22 @@
       <script>scripts\player_create.gml</script>
       <script>scripts\player_set_palette.gml</script>
     </scripts>
+    <scripts name="Input">
+      <script>scripts\input_check.gml</script>
+      <script>scripts\input_check_pressed.gml</script>
+      <script>scripts\input_check_released.gml</script>
+    </scripts>
+    <scripts name="Shaders">
+      <scripts name="Palette">
+        <script>scripts\pal_swap_init_system.gml</script>
+        <script>scripts\pal_swap_set.gml</script>
+        <script>scripts\pal_swap_reset.gml</script>
+        <script>scripts\pal_swap_get_pal_count.gml</script>
+      </scripts>
+      <script>scripts\init_pixel.gml</script>
+      <script>scripts\init_shockwave.gml</script>
+      <script>scripts\update_shockwave.gml</script>
+    </scripts>
     <scripts name="Utility">
       <scripts name="Events">
         <scripts name="NPCs">
@@ -1252,17 +1272,6 @@
         <script>scripts\variable_global_reset.gml</script>
         <script>scripts\wmap_return.gml</script>
       </scripts>
-      <scripts name="Shaders">
-        <scripts name="Palette">
-          <script>scripts\pal_swap_init_system.gml</script>
-          <script>scripts\pal_swap_set.gml</script>
-          <script>scripts\pal_swap_reset.gml</script>
-          <script>scripts\pal_swap_get_pal_count.gml</script>
-        </scripts>
-        <script>scripts\init_pixel.gml</script>
-        <script>scripts\init_shockwave.gml</script>
-        <script>scripts\update_shockwave.gml</script>
-      </scripts>
       <scripts name="Sound">
         <script>scripts\audio_loop_sound.gml</script>
         <script>scripts\audio_stop_play_sound.gml</script>
@@ -1272,24 +1281,20 @@
         <script>scripts\string_add_zeros.gml</script>
         <script>scripts\string_make_width.gml</script>
       </scripts>
+      <script>scripts\init_shake.gml</script>
       <script>scripts\init_globals.gml</script>
       <script>scripts\outside_view.gml</script>
       <script>scripts\enemy_check.gml</script>
       <script>scripts\enum_get_sprite.gml</script>
-      <script>scripts\sprite_get_powerup.gml</script>
       <script>scripts\sprite_create_object.gml</script>
+      <script>scripts\sprite_get_powerup.gml</script>
+      <script>scripts\turn_towards_direction.gml</script>
       <script>scripts\draw_sprite_tiled_area_ext.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
-      <script>scripts\turn_towards_direction.gml</script>
     </scripts>
-    <scripts name="Input">
-      <script>scripts\input_check.gml</script>
-      <script>scripts\input_check_pressed.gml</script>
-      <script>scripts\input_check_released.gml</script>
-    </scripts>
-    <script>scripts\pivot_set.gml</script>
     <script>scripts\grab_pivots.gml</script>
     <script>scripts\move_contact_object.gml</script>
+    <script>scripts\pivot_set.gml</script>
     <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
@@ -1317,22 +1322,6 @@
         <object>objects\obj_checkpoint</object>
         <object>objects\obj_goal_gate</object>
         <object>objects\obj_keyhole</object>
-      </objects>
-      <objects name="Warps">
-        <objects name="Doors">
-          <object>objects\obj_door</object>
-          <object>objects\obj_door_p</object>
-          <object>objects\obj_door_player</object>
-        </objects>
-        <objects name="Pipes">
-          <objects name="Entrances">
-            <object>objects\obj_warptop</object>
-            <object>objects\obj_warpbottom</object>
-            <object>objects\obj_warpleft</object>
-            <object>objects\obj_warpright</object>
-          </objects>
-        </objects>
-        <object>objects\obj_warpnode</object>
       </objects>
       <objects name="Weather">
         <object>objects\obj_rainmaker</object>
@@ -1472,6 +1461,7 @@
         <object>objects\obj_blocktrain</object>
       </objects>
       <object>objects\obj_pswitch</object>
+      <object>objects\obj_gswitch</object>
       <object>objects\obj_trampoline</object>
       <object>objects\obj_powblock_blue</object>
       <object>objects\obj_pblock_on</object>
@@ -1638,6 +1628,7 @@
         <object>objects\obj_levelpalace_y</object>
         <object>objects\obj_levelpalace_g</object>
         <object>objects\obj_levelpalace_r</object>
+        <object>objects\obj_levelpalace_b</object>
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">
@@ -1700,6 +1691,7 @@
           <object>objects\obj_modifier_belt_left_fast</object>
         </objects>
         <object>objects\obj_modifier_pswitch</object>
+        <object>objects\obj_modifier_gswitch</object>
         <object>objects\obj_modifier_trampoline</object>
         <object>objects\obj_modifier_powblock</object>
         <object>objects\obj_modifier_detonator</object>
@@ -1709,6 +1701,23 @@
       <object>objects\obj_tilehurt</object>
       <object>objects\obj_tilesolid</object>
       <object>objects\obj_tilemanager</object>
+    </objects>
+    <objects name="Warps">
+      <objects name="Doors">
+        <object>objects\obj_door</object>
+        <object>objects\obj_door_s</object>
+        <object>objects\obj_door_p</object>
+        <object>objects\obj_door_player</object>
+      </objects>
+      <objects name="Pipes">
+        <objects name="Entrances">
+          <object>objects\obj_warptop</object>
+          <object>objects\obj_warpbottom</object>
+          <object>objects\obj_warpleft</object>
+          <object>objects\obj_warpright</object>
+        </objects>
+      </objects>
+      <object>objects\obj_warpnode</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -1820,6 +1829,7 @@
             <object>objects\obj_goal_gate_front</object>
           </objects>
           <object>objects\obj_coin_alt</object>
+          <object>objects\obj_coin_silver</object>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_big</object>
@@ -1992,6 +2002,7 @@
         <room>rooms\rm_palaceswitch_y</room>
         <room>rooms\rm_palaceswitch_g</room>
         <room>rooms\rm_palaceswitch_r</room>
+        <room>rooms\rm_palaceswitch_b</room>
         <room>rooms\rm_palaceswitch_switch</room>
       </rooms>
     </rooms>

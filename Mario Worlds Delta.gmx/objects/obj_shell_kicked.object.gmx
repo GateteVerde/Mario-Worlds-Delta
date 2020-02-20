@@ -53,6 +53,7 @@ koopainside = 0;
 
 //Whether this shell can harm the player
 harmplayer = 0;
+alarm[0] = 16;
 
 //Whether this shell is falling through one tile gaps
 fall = 0;
@@ -65,6 +66,31 @@ image_speed = 0.3;
 
 //Check sprite and set vulnerabilities
 event_user(14);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Allow shell to hurt the player
+
+harmplayer = 1;
 </string>
           </argument>
         </arguments>
@@ -117,15 +143,6 @@ if (sign(hspeed) != sign(prevhspeed)) {
     //Create wall smash
     instance_create(x+(5*sign(prevhspeed)), y+8, obj_shellthump);
 }
-
-//Destroy when outside the view
-if (outside_view(sprite_get_width(sprite_index)))
-    instance_destroy();
-
-//Permit the shell to harm the player
-if (harmplayer == 0)
-&amp;&amp; (!place_meeting(x, y, obj_playerparent))
-    harmplayer = 1;
 </string>
           </argument>
         </arguments>

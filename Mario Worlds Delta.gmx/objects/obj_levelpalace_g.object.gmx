@@ -128,7 +128,7 @@ else if (eff &gt; 0) {
     //Repeat 8 times
     repeat (8) {
     
-        with (instance_create(x+8, y-8, obj_shard_switch)) {
+        with (instance_create(x+8, y+8, obj_shard_switch)) {
         
             //Set the sprite and frame
             sprite_index = spr_switcheff;
@@ -136,7 +136,7 @@ else if (eff &gt; 0) {
             image_index = 1;
             
             //Set the motion
-            motion_set(a, 4.5);
+            motion_set(a, 4);
         }
         
         //Set new direction

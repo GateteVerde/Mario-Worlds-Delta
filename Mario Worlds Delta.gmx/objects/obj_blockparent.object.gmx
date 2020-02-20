@@ -182,7 +182,8 @@ else
             <string>///Bump the block
 
 //If the block can be hit
-if (ready == 0) {
+if (ready == 0) 
+&amp;&amp; (outside_view(sprite_get_width(sprite_index) == false)) {
 
     //Begin bump sequence
     vspeed = -2.25;

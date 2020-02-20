@@ -117,6 +117,9 @@ audio_play_sound(snd_goalgate, 0, false);
 //Play 'Explosion' sound
 audio_play_sound(snd_explosion, 0, false);
 
+//Make the camera shake
+init_shake(snd_explosion);
+
 //3-UP + 50 bonus stars
 if (y &lt; ystart-118) {
 

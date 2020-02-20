@@ -126,6 +126,50 @@ instance_destroy();
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn into a silver coin if the Gray P-Switch is active
+
+if (obj_levelcontrol.gswitchon == 1) {
+
+    //Turn into a coin
+    with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2-8, obj_coin_silver)) {
+
+        //Jump a bit
+        vspeed = -4;
+        y--;
+        
+        //Move in the opposite way the player is
+        if (!instance_exists(obj_playerparent))
+        || (obj_playerparent.x &lt; x)
+            hspeed = 0.5;
+        else
+            hspeed = -0.5;                    
+    }
+    
+    //Destroy
+    instance_destroy();    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>

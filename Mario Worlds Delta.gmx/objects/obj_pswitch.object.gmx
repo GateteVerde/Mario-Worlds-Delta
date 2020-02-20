@@ -149,6 +149,9 @@ if (sprite_index == spr_pswitch) {
     //Play 'Switch' sound
     audio_play_sound(snd_switch, 0, false);
     
+    //Make the camera shake
+    init_shake(snd_switch);
+    
     //Set the sprite
     sprite_index = spr_pswitch_press;
     alarm[0] = 60;
@@ -157,7 +160,6 @@ if (sprite_index == spr_pswitch) {
     with (obj_levelcontrol) {
     
         alarm[6] = 700;
-        alarm[7] = 580;
         event_user(2);
     }
     

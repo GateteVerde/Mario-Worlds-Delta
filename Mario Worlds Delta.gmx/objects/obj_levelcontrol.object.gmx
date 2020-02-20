@@ -50,9 +50,8 @@ musicdisable = false;
 //Is the P-Switch active?
 switchon = 0;
 
-//Camera variables
-camera_y = 0;
-camera_timer = 30;
+//Is the Gray P-Switch active?
+gswitchon = 0;
 
 //Barrier
 barrier = 0;
@@ -69,6 +68,55 @@ warning = 0;
 
 //Create HUD
 instance_create(0, 0, obj_hud);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End Gray P-Switch sequence
+
+//If the switch effect is on
+if (gswitchon == true) {
+
+    //Turn off the P-Switch
+    gswitchon = false;
+    
+    //Stop switch song
+    audio_stop_sound(bgm_pswitch);
+    
+    //Set invincibility theme
+    if (instance_exists(obj_invincibility)) {
+    
+        //If the invincibility timer is greater than 0
+        if (obj_invincibility.alarm[0] &gt; -1)
+            with (obj_invincibility) alarm[2] = 2;
+        
+        //Otherwise, play default music
+        else
+            alarm[0] = 2;
+    }
+    
+    //Otherwise, restart
+    else if (switchon == 0)
+        alarm[0] = 2;
+}
 </string>
           </argument>
         </arguments>
@@ -118,7 +166,7 @@ if (switchon == true) {
     }
     
     //Otherwise, restart
-    else
+    else if (gswitchon == 0)
         alarm[0] = 2;
 }
 </string>
@@ -458,37 +506,20 @@ if (barrier == true) {
     }
 }
 
-//Manage camera y position if the main player object exists
-if (instance_exists(obj_playerparent))
-    event_user(3);
-    
-//Otherwise, reset camera position
-else {
-    
-    //Reset timer
-    camera_timer = 30;
-    
-    //Return camera position
-    if (camera_y &gt; 0)
-        camera_y -= 4;
-    else if (camera_y &lt; 0)
-        camera_y += 4;            
-}
-
 //Follow
 if (follow != noone) {
     
     //Set the y position
     if (follow == obj_player_clear) {
     
-        yTo = follow.y + camera_y;
+        yTo = follow.y;
         if (obj_player_clear.ready3 == 0)
             xTo = follow.x;
     }
     else {
     
         xTo = follow.x;
-        yTo = follow.y + camera_y;
+        yTo = follow.y;
     }
 }
 
@@ -691,59 +722,33 @@ audio_stop_sound(bgm_pswitch);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Adjust camera y position
+            <string>///Begin Gray P-Switch events
 
-//Make sure the player is not doing anything
-if (obj_playerparent.state == statetype.idle) {
-    
-    //If the 'Up' key is pressed
-    if (input_check(input.up)) {
-    
-        camera_timer--;
-        if (camera_timer &lt; 0) {
-        
-            camera_y -= 4;
-            if (camera_y &lt; -64)
-                camera_y = -64;
-        }
-    }
-    
-    //Otherwise, if the 'Down' key is pressed
-    else if (input_check(input.down)) {
-    
-        camera_timer--;
-        if (camera_timer &lt; 0) {
-        
-            camera_y += 4;
-            if (camera_y &gt; 64)
-                camera_y = 64;
-        }
-    }
-    
-    //Otherwise, reset it
-    else {
-    
-        //Reset timer
-        camera_timer = 30;
-        
-        //Return camera position
-        if (camera_y &gt; 0)
-            camera_y -= 4;
-        else if (camera_y &lt; 0)
-            camera_y += 4;            
-    }
-}
-else {
+//Activate Gray P-Switch effects and reset coins if a silver switch was not activated before
+if (gswitchon == false) {
 
-    //Reset timer
-    camera_timer = 30;
+    //Remember the effect was activated
+    gswitchon = true;
     
-    //Return camera position
-    if (camera_y &gt; 0)
-        camera_y -= 4;
-    else if (camera_y &lt; 0)
-        camera_y += 4;
+    //Reset collected coins
+    if (global.scoins &gt; 0)
+        global.scoins = 0;
 }
+
+//Stop music
+alarm[1] = 1;
+
+//Stop invincibility music
+audio_stop_sound(bgm_starman);
+
+//Stop P-Switch music if it is playing...
+if (audio_is_playing(bgm_pswitch)) {
+
+    audio_stop_sound(bgm_pswitch);
+}
+
+//...and play it again
+audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
 </string>
           </argument>
         </arguments>

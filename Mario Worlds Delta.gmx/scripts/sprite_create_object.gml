@@ -39,6 +39,9 @@ switch (argument[2]) {
     //P-Switch
     case (spr_pswitch): return instance_create(argument[0], argument[1], obj_pswitch);
     
+    //Gray P-Switch
+    case (spr_gswitch): return instance_create(argument[0], argument[1], obj_gswitch);
+        
     //Trampoline
     case (spr_trampoline): return instance_create(argument[0], argument[1], obj_trampoline);
     

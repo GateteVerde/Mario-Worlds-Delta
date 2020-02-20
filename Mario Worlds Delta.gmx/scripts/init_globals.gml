@@ -30,6 +30,7 @@ enum itemtype {
     watermelon_fire,
     watermelon_bomb,
     pswitch,
+    gswitch,
     trampoline,
     powblock,
     detonator,
@@ -72,6 +73,9 @@ global.time = 0;
 
 //Coin amount
 global.coins = 0;
+
+//Silver coin amount
+global.scoins = 0;
 
 //Star amount
 global.bonus = 0;
