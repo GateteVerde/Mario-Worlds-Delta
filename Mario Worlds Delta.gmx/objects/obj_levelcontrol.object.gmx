@@ -63,6 +63,9 @@ ready = 0;
 //Object to follow
 follow = noone;
 
+//Camera orientation
+orientation = 1;
+
 //P-SWitch warning
 warning = 0;
 
@@ -508,24 +511,71 @@ if (barrier == true) {
 
 //Follow
 if (follow != noone) {
+
+    //Pan instantly if the barrier is deactivated
+    if (barrier == false) {
     
-    //Set the y position
-    if (follow == obj_player_clear) {
-    
-        yTo = follow.y;
-        if (obj_player_clear.ready3 == 0)
-            xTo = follow.x;
+        x = follow.x;
+        y = follow.y;
     }
-    else {
     
-        xTo = follow.x;
-        yTo = follow.y;
+    //Otherwise
+    else {
+
+        //Stay relative to the player's y position
+        y = follow.y;
+        
+        //If the camera is to the right and the player is from a certain distance from the camera
+        if ((orientation == 1) &amp;&amp; (follow.x &gt; x-32)) {
+    
+            //If the player has ended a level
+            if (follow == obj_player_clear) {
+            
+                //If the player did not stopped yet...
+                if (obj_player_clear.ready3 == 0) {
+                
+                    //Scroll the camera at a certain speed until the camera catches up.
+                    if (follow.x &gt; x-28)
+                        x += 4+follow.hspeed;
+                    else
+                        x = follow.x+32;                           
+                }
+            }
+            
+            //Otherwise
+            else {
+            
+                //Scroll the camera at a certain speed until the camera catches up.
+                if (follow.x &gt; x-28)
+                    x += 4+follow.hspeed;
+                else
+                    x = follow.x+32;
+            }
+        }
+        
+        //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
+        else if ((orientation == -1) &amp;&amp; (follow.x &lt; x+32)) {
+        
+            //Scroll the camera at a certain speed until the camera catches up.
+            if (follow.x &lt; x+28)
+                x -= 4-follow.hspeed;
+            else
+                x = follow.x-32;    
+        }
+        
+        //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
+        if ((follow.x-xprevious &lt; 0) &amp;&amp; (follow.x &lt; x-56))
+            orientation = -1;
+        
+        //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
+        else if ((follow.x-xprevious &gt; 0) &amp;&amp; (follow.x &gt; x+56))
+            orientation = 1;
     }
 }
 
-//Bigger number on division gives slower camera response
-x = round(xTo);
-y = round(yTo);
+//Round position
+x = round(x);
+y = round(y);
 </string>
           </argument>
         </arguments>

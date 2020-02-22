@@ -1337,7 +1337,10 @@ if (other.hspeed == 0) {
     if (other.object_index == obj_spinner) {
 
         //Set up vertical speed
-        imdead.vspeed = -5;
+        if (swimming == false) {
+        
+            imdead.vspeed = -5;
+        }
 
         //If the killer object is at the left of this object, move to the right
         if ((other.bbox_left+other.bbox_right/2) &lt; bbox_left+bbox_right/2)
