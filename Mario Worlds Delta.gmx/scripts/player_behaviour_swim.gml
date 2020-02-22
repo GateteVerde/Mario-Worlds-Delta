@@ -28,11 +28,17 @@ if (gravity == 0)
         //Reset state delay
         delay = 0;
     
-        //Figure out if the player is idle or walking
-        if (hspeed == 0)
-            state = statetype.idle;
+        //If the player is not holding anything
+        if (holding != 1) {
+        
+            //Figure out if the player is idle or walking
+            if (hspeed == 0)
+                state = statetype.idle;
+            else
+                state = statetype.walk;
+        }
         else
-            state = statetype.walk;
+            state = statetype.jump;
     }
     
     //Otherwise, if the player is moving up

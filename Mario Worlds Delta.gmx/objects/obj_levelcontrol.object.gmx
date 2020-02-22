@@ -519,14 +519,70 @@ if (follow != noone) {
         y = follow.y;
     }
     
-    //Otherwise
-    else {
+    //Otherwise, perform movement depending of the given conditions
+    else { 
 
         //Stay relative to the player's y position
-        y = follow.y;
+        if (instance_exists(obj_playerparent)) {
+        
+            //If the player is running
+            if (obj_playerparent.run == true) {
+            
+                y = obj_playerparent.y;
+                if (view_vspeed[view_current] != 4)
+                    view_vspeed[view_current] = 4;
+            }
+                
+            //Otherwise, if the player is climbing
+            else if (obj_playerparent.state == statetype.climb) {
+            
+                y = obj_playerparent.y;
+                if (view_vspeed[view_current] != 4)
+                    view_vspeed[view_current] = 4;
+            }
+                
+            //Otherwise
+            else {
+            
+                //If the player is swimming
+                if (obj_playerparent.swimming == true) {
+                
+                    y = obj_playerparent.y;
+                    if (view_vspeed[view_current] != 4)
+                        view_vspeed[view_current] = 4;
+                }
+                    
+                //Otherwise
+                else {
+                    
+                    //If the player is idle or walking
+                    if (obj_playerparent.state == statetype.idle)
+                    || (obj_playerparent.state == statetype.walk) {
+                    
+                        //If the player is above the camera, scroll the camera until it catches the player.
+                        if (obj_playerparent.y &gt; y+4)
+                            y -= 4;
+                        else {
+                        
+                            y = obj_playerparent.y;
+                            if (view_vspeed[view_current] != 4)
+                                view_vspeed[view_current] = 4;
+                        }
+                    }
+                    else if (obj_playerparent.y &gt; y) {
+                    
+                        y = obj_playerparent.y;
+                        if (view_vspeed[view_current] != 4)
+                            view_vspeed[view_current] = 4;
+                    } 
+                }
+            }
+        }
+        else
+            y = follow.y;
         
         //If the camera is to the right and the player is from a certain distance from the camera
-        if ((orientation == 1) &amp;&amp; (follow.x &gt; x-32)) {
+        if ((orientation == 1) &amp;&amp; (follow.x &gt; x-16)) {
     
             //If the player has ended a level
             if (follow == obj_player_clear) {
@@ -535,10 +591,10 @@ if (follow != noone) {
                 if (obj_player_clear.ready3 == 0) {
                 
                     //Scroll the camera at a certain speed until the camera catches up.
-                    if (follow.x &gt; x-28)
-                        x += 4+follow.hspeed;
+                    if (follow.x &gt; x-12)
+                        x += 2+follow.hspeed;
                     else
-                        x = follow.x+32;                           
+                        x = follow.x+16;                           
                 }
             }
             
@@ -546,29 +602,29 @@ if (follow != noone) {
             else {
             
                 //Scroll the camera at a certain speed until the camera catches up.
-                if (follow.x &gt; x-28)
-                    x += 4+follow.hspeed;
+                if (follow.x &gt; x-12)
+                    x += 2+follow.hspeed;
                 else
-                    x = follow.x+32;
+                    x = follow.x+16;
             }
         }
         
         //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
-        else if ((orientation == -1) &amp;&amp; (follow.x &lt; x+32)) {
+        else if ((orientation == -1) &amp;&amp; (follow.x &lt; x+16)) {
         
             //Scroll the camera at a certain speed until the camera catches up.
-            if (follow.x &lt; x+28)
-                x -= 4-follow.hspeed;
+            if (follow.x &lt; x+12)
+                x -= 2-follow.hspeed;
             else
-                x = follow.x-32;    
+                x = follow.x-16;    
         }
         
         //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
-        if ((follow.x-xprevious &lt; 0) &amp;&amp; (follow.x &lt; x-56))
+        if ((follow.x-xprevious &lt; 0) &amp;&amp; (follow.x &lt; x-40))
             orientation = -1;
         
         //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
-        else if ((follow.x-xprevious &gt; 0) &amp;&amp; (follow.x &gt; x+56))
+        else if ((follow.x-xprevious &gt; 0) &amp;&amp; (follow.x &gt; x+40))
             orientation = 1;
     }
 }

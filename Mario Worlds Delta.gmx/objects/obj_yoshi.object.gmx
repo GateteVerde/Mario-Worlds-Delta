@@ -1019,21 +1019,21 @@ if (m_vis == 1) {
         if (obj_player_clear.vspeed != 0) {
             
             if (obj_player_clear.vspeed &lt; 0)
-                draw_sprite_ext(spr_cape, 0, round(x)-(6*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_cape, 0, round(x)-(4*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
             else
-                draw_sprite_ext(spr_cape_fall, anim2, round(x)-(6*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_cape_fall, anim2, round(x)-(4*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
         }
         else {
         
             if (obj_player_clear.hspeed == 0)
                 draw_sprite_ext(spr_cape_climb, 1, round(x)-8, round(y)-8, 1, 1, 0, c_white, 1);
             else
-                draw_sprite_ext(spr_cape_walk, anim2, round(x)-(6*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_cape_walk, anim2, round(x)-(4*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
         }
     }
 
     //Draw the player
-    draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(m, f, round(x)-(4*sign(obj_player_clear.image_xscale)), round(y)-8+m_ypos, obj_player_clear.image_xscale, 1, 0, c_white, 1);
 }
 
 //Reset shader
@@ -1075,11 +1075,11 @@ if (m_vis == 1) {
     //Draw the cape at the frong
     if (global.powerup &gt;= cs_pow_cape) {
     
-        draw_sprite_ext(spr_cape, 0, round(x)-(6*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(spr_cape, 0, round(x)-(4*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
     }    
         
     //Draw the player
-    draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(m, f, round(x)-(4*sign(obj_player_door.image_xscale)), round(y)-7+m_ypos, obj_player_door.image_xscale, 1, 0, c_white, 1);
 }
 
 //Reset shader
@@ -1134,12 +1134,12 @@ if (m_vis == 1) {
         if (obj_player_warp.vspeed != 0)        
             draw_sprite_ext(spr_cape_climb, 1, round(x), round(y)-8, 1, 1, 0, c_white, 1);
         else
-            draw_sprite_ext(spr_cape_walk, -1, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape_walk, -1, round(x)-(4*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
     }
 
     //Draw the player
     if (obj_player_warp.vspeed == 0)
-        draw_sprite_ext(m, f, round(x)-(6*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(m, f, round(x)-(4*sign(obj_player_warp.image_xscale)), round(y)-8+m_ypos, obj_player_warp.image_xscale, 1, 0, c_white, 1);
     else
         draw_sprite_ext(m, f, round(x), round(y)-8, image_xscale, 1, 0, c_white, 1);
 }
@@ -1201,7 +1201,7 @@ player_set_palette(obj_playerparent);
 //Draw the player
 if (m_vis == 1) {
 
-    draw_sprite_ext(m, f, round(x)-(6*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+    draw_sprite_ext(m, f, round(x)-(4*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
 }
 
 //Reset shader

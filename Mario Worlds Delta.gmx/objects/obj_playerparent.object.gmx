@@ -631,7 +631,8 @@ if (gravity_enable == true) {
         
         //If that ground exists and the player is above it...
         if (semisolid) 
-        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) {
+        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solidparent, 1, 0)) {
         
             //Snap above the platform
             y = semisolid.bbox_top-16;
@@ -841,7 +842,7 @@ if (vspeed &lt; 0)
     
         while ((collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solidparent, 1, 0))
         || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
-            y++;
+            y += 0.9;
     }
         
     //Check if there's a block on the way.
@@ -878,11 +879,12 @@ if (vspeed &lt; 0)
         //If the player is not climbing
         if (state != statetype.climb) {
         
-            //Play 'Bump' sound
-            audio_play_sound(snd_bump, 0, false);
-            
             //Stop variable jumping
             jumping = 2;
+            
+            //Play 'Bump' sound
+            if (!audio_is_playing(snd_bump))
+                audio_play_sound(snd_bump, 0, false);          
         }
     }
 }
@@ -893,14 +895,14 @@ if (vspeed &lt; 0)
 
     while ((collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_solidparent, 1, 0))
     || (collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_slopeparent_ceiling, 1, 0)))
-        y++;
+        y += 0.9;
 }
 
 //If flying and there's a ceiling slope on the way
 if (flying &gt; 0)
 &amp;&amp; (collision_rectangle(bbox_left, bbox_top-vspeed-1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))
     while (collision_rectangle(bbox_left, bbox_top-vspeed-1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))
-        y++;
+        y += 0.9;
 
 //If the player is not climbing
 if (state != statetype.climb) {

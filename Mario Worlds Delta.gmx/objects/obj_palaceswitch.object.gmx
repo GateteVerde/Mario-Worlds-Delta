@@ -98,7 +98,7 @@ with (instance_create(0, 0, obj_message_new)) {
             <string>///Remember yoshi colour
 
 if (global.mount == 1)
-    global.mountcolour = colour;
+    global.mountcolour = obj_yoshi.colour;
 </string>
           </argument>
         </arguments>

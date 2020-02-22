@@ -35,7 +35,7 @@ image_index = 0;
 gravity = 0.2;
 
 //Angle
-angle = 0;
+angle = 180;
 
 //Is swimming
 swimming = 0;
@@ -86,11 +86,6 @@ else {
 
 //Water check
 event_user(0);
-
-//Set up angle
-angle += 10;
-if (angle &gt;= 180)
-    angle = 180;
 </string>
           </argument>
         </arguments>

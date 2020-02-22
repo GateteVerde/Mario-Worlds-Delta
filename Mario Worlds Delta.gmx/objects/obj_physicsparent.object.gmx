@@ -378,7 +378,8 @@ if (vspeed &gt;= 0) {
     if (semisolid)
     &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
-        y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
+        y = semisolid.y+floor(y-bbox_bottom-0.9);
+        //y = semisolid.bbox_top-floor(sprite_height-sprite_get_yoffset(sprite_index)-0.9);
 }
 
 //If moving down and there's no gravity
