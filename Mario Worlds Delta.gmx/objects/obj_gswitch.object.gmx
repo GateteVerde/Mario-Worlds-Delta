@@ -160,6 +160,7 @@ if (sprite_index == spr_gswitch) {
     with (obj_levelcontrol) {
     
         alarm[7] = 700;
+        alarm[8] = 580;
         event_user(3);
     }
     

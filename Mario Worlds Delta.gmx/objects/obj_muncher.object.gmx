@@ -5,8 +5,8 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>obj_hurtblock</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <parentName>self</parentName>
+  <maskName>spr_square</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -31,7 +31,118 @@
 nom = 0;
 
 //Animate
-image_speed = 0.1;
+image_speed = 0.15;
+
+//Create solid object
+mysolid = instance_create(x, y, obj_hurtblock);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collect the coin
+
+//If the sprite is a coin
+if (sprite_index == spr_coin) {
+    
+    //Play 'Coin' sound
+    audio_stop_play_sound(snd_coin, 0, false);
+    
+    //Increment coins
+    global.coins++;
+    
+    //Get 10 points
+    score += 10;
+    
+    //Create a sparkle
+    instance_create(x+8, y+8, obj_sparkle);
+    
+    //Destroy
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn into a coin
+
+//Set the sprite
+sprite_index = spr_muncher;
+
+//Set the frame
+image_speed = 0.15;
+image_index = 0;
+
+//Create solid object
+mysolid = instance_create(x, y, obj_hurtblock);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn into a coin
+
+//Set the sprite
+sprite_index = spr_coin;
+
+//Set the frame
+image_speed = 0.15;
+image_index = 0;
+
+//Destroy solid mask
+with (mysolid) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -61,6 +172,7 @@ draw_sprite(sprite_index, -1, round(x), round(y));
 
 //Draw 'Omnom' if permitted
 if (nom == 1)
+&amp;&amp; (sprite_index != spr_coin)
     draw_sprite(spr_muncher_ee, -1, round(x)+8, round(y)-8);
 </string>
           </argument>

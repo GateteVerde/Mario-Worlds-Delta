@@ -46,6 +46,7 @@ else {
 
     //If the player exists
     if (player)
+    &amp;&amp; (player.y &gt; bbox_top-11)
         with (player) event_user(0);    
 }
 </string>
