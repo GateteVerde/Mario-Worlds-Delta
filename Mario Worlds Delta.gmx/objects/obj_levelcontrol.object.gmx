@@ -69,33 +69,11 @@ orientation = 1;
 //P-SWitch warning
 warning = 0;
 
+//Gray P-Switch warning
+swarning = 0;
+
 //Create HUD
 instance_create(0, 0, obj_hud);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="8">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Warn the player the effect is about to run off
-
-audio_play_sound(snd_switchtimer, 0, false);
 </string>
           </argument>
         </arguments>
@@ -710,6 +688,25 @@ if (switchon) {
 }
 else
 warning = 0;
+
+//Warn the player that the p-switch is running out
+if (gswitchon) {
+    
+    //If the p-switch effect will last less than 2 seconds, warn the player
+    if (swarning == 0)
+    &amp;&amp; ((alarm[7] &gt;= 31) &amp;&amp; (alarm[7] &lt; 120)) {
+    
+        //Play 'Switch Timer' sound
+        audio_play_sound(snd_switchtimer, 0, false);
+        
+        //Warn
+        swarning = 1;
+    }
+    else if ((swarning == 1) &amp;&amp; (alarm[7] &gt; 120))
+        swarning = 0;
+}
+else
+swarning = 0;
 
 //Drop reserve item
 if (instance_exists(obj_playerparent))

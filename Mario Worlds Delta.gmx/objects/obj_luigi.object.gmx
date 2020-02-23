@@ -25,29 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///It's Luigi, the king of second bananas!
+            <string>///It's Luigi, king of second bananas
 
 //Inherit event from obj_playerparent
 event_inherited();
 
 //Jump Strength
-jumpstrength = 2.774;
-jumpstrength_spin = 2.587;
+jumpstrength = 3.40625;
+jumpstrength_spin = 3.21875;
+jumpstrength_bounce = 3.6875;
 
 //Acceleration
-acc = 0.048;
+acc = 0.078125;
 
 //Acceleration (when turning)
-acc_turn = 0.16;
+acc_turn = 0.25;
 
 //Deceleration
-dec = 0.03;
+dec = 0.046875;
 
 //Gravity
-grav = 0.25;
+grav = 0.3125;
 
 //Gravity (when jumping)
-grav_alt = 0.03;
+grav_alt = 0.0625;
 
 //Gravity (when holding the jump button while falling)
 grav_hold = 0.25;
@@ -62,7 +63,7 @@ acc_turn_swim = 0.05;
 dec_swim = 0.025;
 
 //Gravity (Underwater)
-grav_swim = 0.03;
+grav_swim = 0.025;
 
 //Minimum horizontal speed
 hspeed_walk = 1.25;
@@ -71,9 +72,9 @@ hspeed_walk = 1.25;
 hspeed_run = 2.5;
 
 //Maximum horizontal speed (Full Meter)
-hspeed_run_full = 3; 
+hspeed_run_full = 3;
 
-//Maximum falling speed
+//Max falling speed
 vspeedmax = 4;
 </string>
           </argument>
@@ -803,99 +804,6 @@ else if (crouch == false) {
 if (firing &gt; 0)
 &amp;&amp; (state == statetype.walk)
     firing = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Manage physics
-
-//If Luigi is riding a yoshi
-if (global.mount == 1) {    
-
-    //Jump Strength
-    jumpstrength = 3.4675;
-    jumpstrength_spin = 3.23375;
-    
-    //Acceleration
-    acc = 0.06;
-    
-    //Acceleration (when turning)
-    acc_turn = 0.2;
-    
-    //Deceleration
-    dec = 0.0375;
-    
-    //Gravity
-    grav = 0.3625;
-    
-    //Gravity (when jumping)
-    grav_alt = 0.0625;
-    
-    //Minimum horizontal speed
-    hspeed_walk = 1.3;
-    
-    //Maximum horizontal speed
-    hspeed_run = 2.7;
-    
-    //Maximum horizontal speed (Full Meter)
-    hspeed_run_full = 3;
-    
-    //Max falling speed
-    vspeedmax = 4;
-}
-
-//Otherwise, if Luigi is not riding a yoshi
-else {
-
-    //Jump Strength
-    jumpstrength = 3.6675;
-    jumpstrength_spin = 3.23375;
-    
-    //Acceleration
-    acc = 0.07;
-    
-    //Acceleration (when turning)
-    acc_turn = 0.17;
-    
-    //Deceleration
-    dec = 0.07;
-            
-    //Gravity
-    grav = 0.3625;
-    
-    //Gravity (when jumping)
-    grav_alt = 0.0625;            
-    
-    //Minimum horizontal speed
-    hspeed_walk = 1.25;
-    
-    //Maximum horizontal speed
-    hspeed_run = 2.5;
-    
-    //Maximum horizontal speed (Full Meter)
-    hspeed_run_full = 3;
-    
-    //Maximum falling speed
-    vspeedmax = 4;
-}
 </string>
           </argument>
         </arguments>
