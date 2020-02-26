@@ -27,17 +27,14 @@
             <kind>1</kind>
             <string>///Fire spit from a piranha plant
 
+//Animate
+image_speed = 0.2;
+
 //Move
 speed = 1.5;
 
 //Change depth
 alarm[0] = 6;
-
-//Leave a trail
-alarm[1] = 2;
-
-//Angle
-angle = 0;
 
 //Set up orange light
 if (instance_exists(obj_lightcontrol)) {
@@ -48,36 +45,6 @@ if (instance_exists(obj_lightcontrol)) {
         target = other.id;
         image_blend = make_colour_rgb(248, 144, 32);
     }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leave a trail
-
-alarm[1] = 2;
-with (instance_create(x, y, obj_cinder)) {
-
-    sprite_index = spr_cinder_alt;
-    depth = other.depth+1;
 }
 </string>
           </argument>
@@ -126,12 +93,8 @@ depth = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update angle and destroy when outside the view
+            <string>///Destroy when outside view
 
-//Update angle 
-angle += 10*sign(hspeed)*-1;
-
-//Destroy when outside view
 if (outside_view(16))
     instance_destroy();
 </string>
@@ -183,7 +146,7 @@ with (other) event_user(0);
             <kind>1</kind>
             <string>///Draw the sprite
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1*sign(hspeed), 1, angle, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1*sign(hspeed), 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

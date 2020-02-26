@@ -42,7 +42,17 @@ nopoints = false;
 
 //Bounce on ground
 //There's no need to change this variable
-bouncy = 0; 
+bouncy = 0;
+
+//Is swimming
+swimming = 0;
+
+//If underwater
+if (place_meeting(x, y, obj_swim)) {
+
+    swimming = 1;
+    vspeed = vspeed/4;
+}
 </string>
           </argument>
         </arguments>

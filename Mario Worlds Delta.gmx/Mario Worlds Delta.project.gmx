@@ -427,13 +427,11 @@
         </sprites>
       </sprites>
       <sprites name="Progress">
-        <sprite>sprites\spr_checkpoint</sprite>
-        <sprite>sprites\spr_checkpoint_mario</sprite>
-        <sprite>sprites\spr_checkpoint_mario_loop</sprite>
-        <sprite>sprites\spr_checkpoint_luigi</sprite>
-        <sprite>sprites\spr_checkpoint_luigi_loop</sprite>
-        <sprite>sprites\spr_checkpoint_toad</sprite>
-        <sprite>sprites\spr_checkpoint_toad_loop</sprite>
+        <sprites name="Check Point">
+          <sprite>sprites\spr_checkpoint</sprite>
+          <sprite>sprites\spr_checkpoint_gate</sprite>
+          <sprite>sprites\spr_checkpoint_gate_front</sprite>
+        </sprites>
         <sprite>sprites\spr_goal_gate</sprite>
         <sprite>sprites\spr_goal_tape</sprite>
         <sprite>sprites\spr_keyhole</sprite>
@@ -441,8 +439,6 @@
       </sprites>
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
-        <sprite>sprites\spr_fireball_l</sprite>
-        <sprite>sprites\spr_fireball_t</sprite>
       </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_p</sprite>
@@ -1320,6 +1316,7 @@
       </objects>
       <objects name="Progress">
         <object>objects\obj_checkpoint</object>
+        <object>objects\obj_checkpoint_tape</object>
         <object>objects\obj_goal_gate</object>
         <object>objects\obj_keyhole</object>
       </objects>
@@ -1527,6 +1524,7 @@
             </objects>
             <object>objects\obj_koopa_red</object>
             <object>objects\obj_parakoopa_red</object>
+            <object>objects\obj_parakoopa_red_hor</object>
             <object>objects\obj_beachkoopa_red</object>
           </objects>
           <objects name="Blue">
@@ -1825,6 +1823,7 @@
               <object>objects\obj_goal_fade</object>
               <object>objects\obj_goal_curtain</object>
             </objects>
+            <object>objects\obj_checkpoint_front</object>
             <object>objects\obj_goal_tape</object>
             <object>objects\obj_goal_gate_front</object>
           </objects>
@@ -1937,7 +1936,6 @@
           <object>objects\obj_blob</object>
           <object>objects\obj_bubble</object>
           <object>objects\obj_bubble_h</object>
-          <object>objects\obj_cinder</object>
           <object>objects\obj_note</object>
           <object>objects\obj_rain</object>
           <object>objects\obj_shellthump</object>
@@ -1962,8 +1960,8 @@
           <object>objects\obj_hud_map</object>
           <object>objects\obj_message_new</object>
         </objects>
-        <object>objects\obj_lightningsheet</object>
         <object>objects\obj_blockbumper</object>
+        <object>objects\obj_lightningsheet</object>
       </objects>
       <object>objects\obj_npc</object>
       <object>objects\obj_controller</object>
@@ -1989,6 +1987,9 @@
       <rooms name="Level 2">
         <room>rooms\rm_level_2a</room>
         <room>rooms\rm_level_2b</room>
+      </rooms>
+      <rooms name="Level 3">
+        <room>rooms\rm_level_3</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

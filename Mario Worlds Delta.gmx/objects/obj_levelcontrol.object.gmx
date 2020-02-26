@@ -559,28 +559,36 @@ if (follow != noone) {
                 }
                     
                 //Otherwise
-                else {
-                    
+                else if (obj_playerparent.swimming == false) {
+                
                     //If the player is idle or walking
-                    if (obj_playerparent.state == statetype.idle)
-                    || (obj_playerparent.state == statetype.walk) {
+                    if ((obj_playerparent.state == statetype.idle) 
+                    || (obj_playerparent.state == statetype.walk)) {
                     
-                        //If the player is above the camera, scroll the camera until it catches the player.
-                        if (obj_playerparent.y &gt; y+4)
-                            y -= 4;
-                        else {
+                        //If the player is above the camera
+                        if (obj_playerparent.y &lt; y) {
                         
-                            y = obj_playerparent.y;
-                            if (view_vspeed[view_current] != 4)
-                                view_vspeed[view_current] = 4;
+                            //If the camera is 4 pixels below the player y position, move 4 pixels upwards until the camera catches the player.
+                            if (y &gt; obj_playerparent.y+4)
+                                y -= 4;
+                                
+                            //Otherwise
+                            else {
+                            
+                                y = obj_playerparent.y;
+                                if (view_vspeed[view_current] != 4)
+                                    view_vspeed[view_current] = 4;
+                            }
                         }
                     }
-                    else if (obj_playerparent.y &gt; y) {
+                    
+                    //If the player is below the camera, catch him instantly
+                    if (obj_playerparent.y &gt; y) {
                     
                         y = obj_playerparent.y;
-                        if (view_vspeed[view_current] != 4)
-                            view_vspeed[view_current] = 4;
-                    } 
+                        if (view_vspeed[view_current] != -1)
+                            view_vspeed[view_current] = -1;
+                    }
                 }
             }
         }
@@ -1081,7 +1089,7 @@ if (global.mariostart == 0) {
         event_user(0);
         
         //Create new player object
-        player_create(global.checkpoint.x, global.checkpoint.y);
+        player_create(global.checkpoint.xcoor, global.checkpoint.ycoor);
     }
     
     //Create 'Mario Start!' text

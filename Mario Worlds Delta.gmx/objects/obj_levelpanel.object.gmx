@@ -109,7 +109,7 @@ else {
     checkpoint = noone;
     
     //...and go to the checkpoint room
-    global.targetroom = global.checkpoint;
+    global.targetroom = global.checkpointroom;
 }
 
 //Remember the player last position in map

@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///Hammer bro hammer
 
+//Animate it
+image_speed = 0.3;
+
 //Set the motion
 vspeed = -4;
 gravity = 0.125;
@@ -53,9 +56,6 @@ gravity = 0.125;
           <argument>
             <kind>1</kind>
             <string>///Hammer logic
-
-//Animate
-image_angle += 10*sign(hspeed)*-1;
 
 //Set the falling speed.
 if (vspeed &gt; 4) {
@@ -116,7 +116,7 @@ with (other) event_user(0);
             <kind>1</kind>
             <string>///Draw hammer
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, image_angle, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

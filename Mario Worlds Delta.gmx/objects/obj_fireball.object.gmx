@@ -33,88 +33,19 @@ event_inherited();
 //Play 'Fireball' sound
 audio_play_sound(snd_fireball, 0, false);
 
-//Leave a trail
-alarm[0] = 2;
-
-//Angle
-angle = 0;
-
-//Turn into a green fireball if Luigi is controlled
-if (global.player == 1) {
-
-    //Set green fireball sprite
-    sprite_index = spr_fireball_l;
+//Animate
+image_speed = 0.2;
     
-    //Set up green light
-    if (instance_exists(obj_lightcontrol)) {
-        
-        with (instance_create(0, 0, obj_light_npc)) {
-        
-            sprite_index = spr_light_fireball;
-            target = other.id;
-            image_blend = make_colour_rgb(165, 235, 33);
-        }
+//Set up orange light
+if (instance_exists(obj_lightcontrol)) {
+    
+    with (instance_create(0, 0, obj_light_npc)) {
+    
+        sprite_index = spr_light_fireball;
+        target = other.id;
+        image_blend = make_colour_rgb(248, 144, 32);
     }
 }
-    
-//Otherwise, turn into a blue fireball if Toad is controlled
-else if (global.player == 2) {
-
-    //Set blue fireball sprite
-    sprite_index = spr_fireball_t;
-    
-    //Set up green light
-    if (instance_exists(obj_lightcontrol)) {
-        
-        with (instance_create(0, 0, obj_light_npc)) {
-        
-            sprite_index = spr_light_fireball;
-            target = other.id;
-            image_blend = make_colour_rgb(136, 136, 248);
-        }
-    }
-}
-
-//Otherwise
-else {
-    
-    //Set up orange light
-    if (instance_exists(obj_lightcontrol)) {
-        
-        with (instance_create(0, 0, obj_light_npc)) {
-        
-            sprite_index = spr_light_fireball;
-            target = other.id;
-            image_blend = make_colour_rgb(248, 144, 32);
-        }
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Leave a trail
-
-alarm[0] = 2;
-instance_create(x, y, obj_cinder);
 </string>
           </argument>
         </arguments>
@@ -147,9 +78,6 @@ event_user(3);
 
 //Default floor collision
 event_user(4);
-
-//Update angle
-angle += 10*sign(hspeed)*-1;
 
 //Check for lava
 var lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 0, 0);
@@ -184,25 +112,29 @@ if (hspeed != prevhspeed) then event_user(0);
 //Bounce when in ground
 if (gravity == 0) {
 
+    //Prevent from getting embed on ground
     y--;
     
     //If Mario is being controlled
     if (global.player == 0)
-        vspeed = -2.5;
+        vspeed = -4.5; //-2.5
         
     //Otherwise, if Luigi is being controlled
     else if (global.player == 1)
-        vspeed = -3.5;
+        vspeed = -6.5; //-4.5
         
     //Otherwise, if Toad is being controlled
     else if (global.player == 2)
-        vspeed = -2;    
+        vspeed = -3.5; //-2   
 }
 else {
 
     if (vspeed &gt; 3)
         vspeed = 3;
 }
+
+//Gravity
+gravity = 0.4;
 
 //Destroy if outside the view
 if (x &lt; view_xview[0]-16)
@@ -290,7 +222,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw fireball
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, 1*sign(hspeed), 1, angle, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, 1*sign(hspeed), 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

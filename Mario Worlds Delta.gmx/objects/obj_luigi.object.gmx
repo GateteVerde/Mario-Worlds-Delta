@@ -31,18 +31,18 @@
 event_inherited();
 
 //Jump Strength
-jumpstrength = 3.40625;
-jumpstrength_spin = 3.21875;
-jumpstrength_bounce = 3.6875;
+jumpstrength = 3.6675;
+jumpstrength_spin = 3.40625; //3.21875
+jumpstrength_bounce = 3.8875; //3.6875
 
 //Acceleration
-acc = 0.078125;
+acc = 0.07;
 
 //Acceleration (when turning)
-acc_turn = 0.25;
+acc_turn = 0.17;
 
 //Deceleration
-dec = 0.046875;
+dec = 0.07;
 
 //Gravity
 grav = 0.3125;
@@ -804,6 +804,65 @@ else if (crouch == false) {
 if (firing &gt; 0)
 &amp;&amp; (state == statetype.walk)
     firing = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up different physics for Luigi when it is or not riding a yoshi
+
+//If the player is riding a yoshi
+if (global.mount == 1) {
+
+    //Jump Strength
+    jumpstrength = 3.40625;
+    jumpstrength_spin = 3.21875;
+    jumpstrength_bounce = 3.6875;
+    
+    //Acceleration
+    acc = 0.078125;
+    
+    //Acceleration (when turning)
+    acc_turn = 0.25;
+    
+    //Deceleration
+    dec = 0.046875;
+}
+
+//Otherwise
+else {
+
+    //Jump Strength
+    jumpstrength = 3.6675;
+    jumpstrength_spin = 3.40625;
+    jumpstrength_bounce = 3.8875;
+    
+    //Acceleration
+    acc = 0.07;
+    
+    //Acceleration (when turning)
+    acc_turn = 0.17;
+    
+    //Deceleration
+    dec = 0.07;
+}
 </string>
           </argument>
         </arguments>

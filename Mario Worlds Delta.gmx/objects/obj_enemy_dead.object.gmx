@@ -34,9 +34,6 @@ image_index = 0;
 //Set gravity
 gravity = 0.2;
 
-//Angle
-angle = 0;
-
 //Spin?
 nospin = 0;
 
@@ -47,8 +44,7 @@ swimming = 0;
 if (place_meeting(x, y, obj_swim)) {
 
     swimming = 1;
-    vspeed = -1;
-    gravity = 0.1;
+    vspeed = vspeed/4;
 }
 </string>
           </argument>
@@ -117,10 +113,6 @@ else {
 
 //Water check
 event_user(0);
-
-//Update the angle
-if (nospin == 0) 
-    angle = 180; //angle += 10*sign(hspeed)*-1;
 </string>
           </argument>
         </arguments>
@@ -209,7 +201,7 @@ else if (!water)
             <kind>1</kind>
             <string>///Draw the enemy
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, angle, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

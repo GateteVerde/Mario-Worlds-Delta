@@ -1561,6 +1561,9 @@ if (mouthholder != noone) {
                 //Use the correct sprite
                 sprite_index = other.mouthsprite;
                 
+                //Set up the correct direction
+                dir = obj_playerparent.xscale;
+                
                 //If the eaten item is a throwable brick.
                 if (sprite_index == spr_brick_throw_th) {
                     

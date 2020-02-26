@@ -4,7 +4,7 @@
   <width>1280</width>
   <height>240</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -80,29 +80,16 @@
     <instance objName="obj_qblock" x="240" y="128" name="inst_EEC6AAEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_egg_rainbow" x="240" y="128" name="inst_F6BDF781" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mushroom" x="248" y="112" name="inst_0627FBF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="464" y="160" name="inst_3F6CABA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="464" y="144" name="inst_464506C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="464" y="128" name="inst_2B63BC55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="464" y="112" name="inst_1C77762B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="448" y="112" name="inst_1A633392" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="432" y="112" name="inst_46C6ED1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="416" y="112" name="inst_9593CB1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="400" y="112" name="inst_6F40B5E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="384" y="112" name="inst_B5871AEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="384" y="128" name="inst_95459D3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="384" y="144" name="inst_2EB4209F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="384" y="160" name="inst_F798DC02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gswitch" x="360" y="160" name="inst_24D41FE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_gswitch" x="504" y="160" name="inst_7609D302" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_megamole" x="432" y="160" name="inst_32477F5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="400" y="128" name="inst_CCEF3EBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="400" y="144" name="inst_A3A0CE05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="400" y="160" name="inst_268DE640" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="416" y="128" name="inst_9C8F10F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="432" y="128" name="inst_DC3F4CAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="448" y="128" name="inst_F94EC0E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="448" y="144" name="inst_57D3FCB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_muncher" x="448" y="160" name="inst_C106AB01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="464" y="64" name="inst_B0A70DA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="464" y="80" name="inst_D28E2067" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="464" y="96" name="inst_A4861EDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="464" y="112" name="inst_00345137" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="464" y="128" name="inst_B056D117" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="368" y="112" name="inst_E8173F3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="368" y="128" name="inst_3B379E12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="368" y="144" name="inst_39C5B9D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint" x="368" y="160" name="inst_C4DEF8B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_checkpoint_tape" x="464" y="96" name="inst_6AFDFFAC" locked="0" code="xcoor = 424;&#xA;ycoor = 160;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="48" y="64" w="32" h="32" xo="208" yo="96" id="10022409" name="inst_A81A288F" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

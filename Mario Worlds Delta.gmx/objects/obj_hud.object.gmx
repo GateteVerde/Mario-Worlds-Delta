@@ -170,8 +170,8 @@ draw_set_font(global.fontnumb);
 draw_set_colour(c_white);
 
 //Lives
-draw_sprite_ext(spr_hud_mario, global.player, view_xview[0]+16, view_yview[0]+15, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+32, view_yview[0]+23, string_format(lives, 2, 0));
+draw_sprite_ext(spr_hud_mario, global.player, view_xview[view_current]+16, view_yview[view_current]+15-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_text(view_xview[view_current]+32, view_yview[view_current]+23, string_format(lives, 2, 0));
 
 //Ace Coins
 var a = 0;
@@ -179,29 +179,29 @@ if (ds_map_size(global.dcoins) &lt; 5) {
     
     repeat (ds_map_size(global.dcoins)) {
     
-        draw_sprite_ext(spr_hud_acecoins, 0, view_xview[0]+64+a, view_yview[0]+15, 1, 1, 0, c_white, 1);    
+        draw_sprite_ext(spr_hud_acecoins, 0, view_xview[view_current]+64+a, view_yview[view_current]+15-view_yport[view_current], 1, 1, 0, c_white, 1);    
             a += 8;
     }
 }
 else
-draw_sprite_ext(spr_hud_acecoins, 1, view_xview[0]+64, view_yview[0]+15, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_acecoins, 1, view_xview[view_current]+64, view_yview[view_current]+15-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumblarge);
 
 //Bonus
-draw_sprite_ext(spr_hud_stars, -1, view_xview[0]+72, view_yview[0]+23, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+96, view_yview[0]+15, string_format(global.bonus, 2, 0));
+draw_sprite_ext(spr_hud_stars, -1, view_xview[view_current]+72, view_yview[view_current]+23-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_text(view_xview[view_current]+96, view_yview[view_current]+15-view_yport[view_current], string_format(global.bonus, 2, 0));
 
 //Reserve Box
-draw_sprite_ext(spr_hud_reserve, -1, view_xview[0] + view_wview[0]/2, view_yview[0]+8, 1, 1, 0, c_white, 1);
-draw_sprite_ext(spr_hud_reserve_item, global.reserveitem, view_xview[0] + view_wview[0]/2, view_yview[0]+14, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_reserve, -1, view_xview[view_current] + view_wview[view_current]/2, view_yview[view_current]+8-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_reserve_item, global.reserveitem, view_xview[view_current] + view_wview[view_current]/2, view_yview[view_current]+14-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumbgold);
 
 //Timer
-draw_sprite_ext(spr_hud_time, -1, view_xview[0]+view_wview[0]-104+shakex, view_yview[0]+15+shakey, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_time, -1, view_xview[view_current]+view_wview[view_current]-104+shakex, view_yview[view_current]+15+shakey-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Show regular time if the stage is not clear
 if (clear == 0) {
@@ -212,29 +212,29 @@ if (clear == 0) {
         if (global.clear == 0)
         &amp;&amp; (global.time &lt;= 100) {
         
-            draw_text_colour(view_xview[0]+view_wview[0]-104+shakex, view_yview[0]+23+shakey, string_format(global.time, 3, false), c_white, c_white, c_white, c_white, 1);
-            draw_text_colour(view_xview[0]+view_wview[0]-104+shakex, view_yview[0]+23+shakey, string_format(global.time, 3, false), c_red, c_red, c_red, c_red, fade);
+            draw_text_colour(view_xview[view_current]+view_wview[view_current]-104+shakex, view_yview[view_current]+23+shakey-view_yport[view_current], string_format(global.time, 3, false), c_white, c_white, c_white, c_white, 1);
+            draw_text_colour(view_xview[view_current]+view_wview[view_current]-104+shakex, view_yview[view_current]+23+shakey-view_yport[view_current], string_format(global.time, 3, false), c_red, c_red, c_red, c_red, fade);
         }
         else
-            draw_text_colour(view_xview[0]+view_wview[0]-104, view_yview[0]+23, string_format(global.time, 3, 0), c_white, c_white, c_white, c_white, 1);
+            draw_text_colour(view_xview[view_current]+view_wview[view_current]-104, view_yview[view_current]+23-view_yport[view_current], string_format(global.time, 3, 0), c_white, c_white, c_white, c_white, 1);
     }
     else
-        draw_text_colour(view_xview[0]+view_wview[0]-104, view_yview[0]+23, "000", c_white, c_white, c_white, c_white, 1);
+        draw_text_colour(view_xview[view_current]+view_wview[view_current]-104, view_yview[view_current]+23-view_yport[view_current], "  0", c_white, c_white, c_white, c_white, 1);
 }
 else {
 
-    draw_text_colour(view_xview[0]+view_wview[0]-104, view_yview[0]+23, string_format(obj_hud.time, 3, false), c_white, c_white, c_white, c_white, 1);
+    draw_text_colour(view_xview[view_current]+view_wview[view_current]-104, view_yview[view_current]+23-view_yport[view_current], string_format(obj_hud.time, 3, false), c_white, c_white, c_white, c_white, 1);
 }
 
 //Set font
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, view_xview[0]+view_wview[0]-56, view_yview[0]+15, 1, 1, 0, c_white, 1);
-draw_text(view_xview[0]+view_wview[0]-32, view_yview[0]+15, string_format(global.coins, 2, false));
+draw_sprite_ext(spr_hud_coins, -1, view_xview[view_current]+view_wview[view_current]-56, view_yview[view_current]+15-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_text(view_xview[view_current]+view_wview[view_current]-32, view_yview[view_current]+15-view_yport[view_current], string_format(global.coins, 2, false));
 
 //Score
-draw_text(view_xview[0]+view_wview[0]-72, view_yview[0]+23, string_format(score, 7, false));
+draw_text(view_xview[view_current]+view_wview[view_current]-72, view_yview[view_current]+23-view_yport[view_current], string_format(score, 7, false));
 </string>
           </argument>
         </arguments>

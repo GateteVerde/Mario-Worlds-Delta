@@ -83,9 +83,9 @@ vspeed = 0.5;
 //Set the horizontal movement
 if (!instance_exists(obj_playerparent))
 || (obj_playerparent.x &lt; x)
-    dir = -1;
+    hspeed = -0.5;
 else
-    dir = 1;
+    hspeed = 0.5;
 </string>
           </argument>
         </arguments>
@@ -148,32 +148,11 @@ if ((hspeed &gt; 0) &amp;&amp; (xscale != 1))
             <kind>1</kind>
             <string>///Flying parakoopa logic
 
-//If the parakoopa is moving to the right.
-if (dir == 1) {
-    
-    //Cap horizontal speed.
-    if (hspeed &gt; 1)
-    hspeed = 1;
-        
-    //Change direction.
-    if (x &gt; xstart+40)
-        dir = -1;
-}
+//Set facing direction
+xscale = 1*sign(hspeed);
 
-//Otherwise, if the parakoopa is moving to the left.
-else if (dir == -1) {
-
-    //Cap horizontal speed.
-    if (hspeed &lt; -1)
-    hspeed = -1;
-        
-    //Change direction.
-    if (x &lt; xstart-40)    
-        dir = 1;
-}
-
-//Increment / Decrement speed.
-hspeed += 0.02*sign(dir);
+//Enemy collision
+event_user(2);
 
 //Wave
 if (y &gt; ystart)
