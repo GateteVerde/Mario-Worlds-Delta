@@ -583,6 +583,8 @@
               <sprite>sprites\spr_goomba_big_dead</sprite>
             </sprites>
             <sprite>sprites\spr_goomba</sprite>
+            <sprite>sprites\spr_goomba_stack</sprite>
+            <sprite>sprites\spr_goomba_stack_owo</sprite>
             <sprite>sprites\spr_goomba_sq</sprite>
             <sprite>sprites\spr_goomba_dead</sprite>
             <sprite>sprites\spr_goomba_wings</sprite>
@@ -656,6 +658,19 @@
             <sprite>sprites\spr_beachkoopa_blue_sq</sprite>
             <sprite>sprites\spr_beachkoopa_blue_slide</sprite>
             <sprite>sprites\spr_beachkoopa_blue_dead</sprite>
+          </sprites>
+          <sprites name="Yellow">
+            <sprites name="Shells">
+              <sprite>sprites\spr_shell_yellow</sprite>
+              <sprite>sprites\spr_shell_kamikaze</sprite>
+            </sprites>
+            <sprite>sprites\spr_koopa_yellow</sprite>
+            <sprite>sprites\spr_koopa_yellow_turn</sprite>
+            <sprite>sprites\spr_koopa_yellow_dead</sprite>
+            <sprite>sprites\spr_beachkoopa_yellow</sprite>
+            <sprite>sprites\spr_beachkoopa_yellow_walk</sprite>
+            <sprite>sprites\spr_beachkoopa_yellow_sq</sprite>
+            <sprite>sprites\spr_beachkoopa_yellow_dead</sprite>
           </sprites>
           <sprite>sprites\spr_koopa_wing</sprite>
           <sprite>sprites\spr_koopa_inside</sprite>
@@ -1531,6 +1546,13 @@
             <object>objects\obj_koopa_blue</object>
             <object>objects\obj_beachkoopa_blue</object>
           </objects>
+          <objects name="Yellow">
+            <object>objects\obj_koopa_yellow</object>
+            <object>objects\obj_parakoopa_yellow</object>
+            <object>objects\obj_beachkoopa_yellow</object>
+          </objects>
+          <object>objects\obj_shell</object>
+          <object>objects\obj_shell_kamikaze</object>
         </objects>
         <object>objects\obj_rex</object>
         <object>objects\obj_dinotorch</object>
@@ -1906,7 +1928,6 @@
               <object>objects\obj_bullseyebanzai</object>
             </objects>
           </objects>
-          <object>objects\obj_shell</object>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_hammerbro_hammer</object>
         </objects>

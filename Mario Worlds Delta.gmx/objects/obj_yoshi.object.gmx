@@ -38,6 +38,7 @@ enum yoshistate {
     runaway
 }
 state = yoshistate.idle;
+stateprev = 0;
 
 //Yoshi Colour
 colour = 0;
@@ -1234,7 +1235,9 @@ if (mouthholder == obj_shell)
 &amp;&amp; (instance_number(obj_tongue) == 0) {
     
     //If yoshi is yellow or has a yellow shell in mouth
-    if (colour == 2) {
+    if (colour == 2) 
+    || (mouthsprite == spr_shell_yellow) 
+    || (mouthsprite == spr_shell_kamikaze) {
                     
         //If the player lands after a jump, stomp
         if (stateprev == statetype.jump)
@@ -1250,7 +1253,8 @@ if (mouthholder == obj_shell)
     
     //If yoshi is blue or has a blue shell in mouth
     if (colour == 3) 
-    || (mouthsprite == spr_shell_blue) {
+    || (mouthsprite == spr_shell_blue) 
+    || (mouthsprite == spr_shell_kamikaze) {
     
         //If 'Shift' is being held outside water
         if (input_check(input.action0)) 
@@ -1408,6 +1412,7 @@ if (mouthholder != noone) {
             //If this is a red yoshi
             if (colour == 1)
             || (mouthsprite == spr_shell_red)
+            || (mouthsprite == spr_shell_kamikaze)
                 mouthholder = obj_yoshi_fire;
         }
         
@@ -1493,6 +1498,7 @@ if (mouthholder != noone) {
             //If this is a red yoshi or the shell is a red one
             if (colour == 1)
             || (mouthsprite == spr_shell_red)
+            || (mouthsprite == spr_shell_kamikaze)
                 mouthholder = obj_yoshi_fire;
             else
                 mouthholder = obj_shell_kicked;
@@ -1582,7 +1588,7 @@ if (mouthholder != noone) {
                 }
                 
                 //If the eaten item is a shell
-                else if (sprite_index == spr_shell) || (sprite_index == spr_shell_blue) {
+                else if (sprite_index == spr_shell) || (sprite_index == spr_shell_blue) || (sprite_index == spr_shell_yellow) {
                 
                     //Set the horizontal speed
                     prevhspeed = (2.7+abs(obj_playerparent.hspeed/4))*obj_playerparent.xscale;

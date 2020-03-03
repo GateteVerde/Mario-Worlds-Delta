@@ -486,7 +486,7 @@ if (status == 'IDLE')
         }
             
         //Change player
-        if (input_check_pressed(input.select)) {
+        if (input_check_pressed(input.start)) {
         
             global.player++;
             if (global.player &gt; 2)
@@ -515,8 +515,7 @@ if (status == 'IDLE')
         
         //Open adyancent paths on map if debug mode is enabled.
         if (panel)
-        &amp;&amp; (debug_mode == true)
-        &amp;&amp; (input_check_pressed(ord('O')))
+        &amp;&amp; (input_check_pressed(input.select))
             event_user(15);
     }
     

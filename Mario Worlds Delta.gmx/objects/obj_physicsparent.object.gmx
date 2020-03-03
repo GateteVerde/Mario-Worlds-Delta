@@ -372,14 +372,12 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
     
     //If there's a semisolid below
     if (semisolid)
     &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom, x+2, bbox_bottom+4, obj_slopeparent, 1, 0))
-        y = semisolid.y+floor(y-bbox_bottom-0.9);
-        //y = semisolid.bbox_top-floor(sprite_height-sprite_get_yoffset(sprite_index)-0.9);
+        y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
 }
 
 //If moving down and there's no gravity
@@ -401,7 +399,7 @@ if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
 }
 
 //Check for floor objects
-if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 0, 0))
+if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolidparent, 0, 0))
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolidparent, 0, 0))
 || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
@@ -412,7 +410,6 @@ if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_s
         //If this object is not ancestor of obj_holdparent
         if (!variable_instance_exists(object_index, "bouncy"))
         &amp;&amp; (!object_is_ancestor(object_index, obj_holdparent))
-        || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
             vspeed = 0;
         else {
         

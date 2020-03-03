@@ -4,7 +4,7 @@
   <width>1280</width>
   <height>240</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -52,9 +52,6 @@
   </views>
   <instances>
     <instance objName="obj_poison_tides" x="0" y="216" name="inst_6FC458FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="320" y="192" name="inst_B6A69421" locked="0" code="" scaleX="1" scaleY="8" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="528" y="192" name="inst_9B77042F" locked="0" code="" scaleX="1" scaleY="8" colour="4294967295" rotation="0"/>
-    <instance objName="obj_slope_r" x="304" y="176" name="inst_1322D482" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_l" x="528" y="176" name="inst_B03A6051" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="336" y="176" name="inst_139629E1" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="560" y="192" name="inst_91F7E48E" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
@@ -80,16 +77,13 @@
     <instance objName="obj_qblock" x="240" y="128" name="inst_EEC6AAEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_egg_rainbow" x="240" y="128" name="inst_F6BDF781" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mushroom" x="248" y="112" name="inst_0627FBF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="464" y="64" name="inst_B0A70DA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="464" y="80" name="inst_D28E2067" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="464" y="96" name="inst_A4861EDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="464" y="112" name="inst_00345137" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="464" y="128" name="inst_B056D117" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="368" y="112" name="inst_E8173F3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="368" y="128" name="inst_3B379E12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="368" y="144" name="inst_39C5B9D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint" x="368" y="160" name="inst_C4DEF8B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_checkpoint_tape" x="464" y="96" name="inst_6AFDFFAC" locked="0" code="xcoor = 424;&#xA;ycoor = 160;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slope_r" x="304" y="176" name="inst_40F4330C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_yellow" x="520" y="160" name="inst_F5E106FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_blue" x="472" y="160" name="inst_B127B03C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_red" x="424" y="160" name="inst_597E555F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa" x="376" y="160" name="inst_A58CF1E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_parakoopa_yellow" x="568" y="176" name="inst_01F523E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_parakoopa_yellow" x="616" y="176" name="inst_A8CE8C2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="48" y="64" w="32" h="32" xo="208" yo="96" id="10022409" name="inst_A81A288F" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

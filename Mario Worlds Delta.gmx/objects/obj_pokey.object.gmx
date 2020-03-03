@@ -100,9 +100,9 @@ if (hspeed != 0) {
     //Start moving
     if (!instance_exists(obj_playerparent))
     || (obj_playerparent.x &lt; x)
-        hspeed = -0.2;
+        hspeed = -0.25;
     else
-        hspeed = 0.2;
+        hspeed = 0.25;
 }
 
 //Change direction
@@ -137,9 +137,9 @@ if (hspeed == 0) {
     //If the player does not exist or it's at the left.
     if (!instance_exists(obj_playerparent))
     || (obj_playerparent.x &lt; x)
-        hspeed = -0.2;
+        hspeed = -0.25;
     else
-        hspeed = 0.2;
+        hspeed = 0.25;
 }
 
 //Move towards the player
@@ -341,10 +341,12 @@ else {
     //If the enemy exits, snap it.
     if (instance_exists(mebelow)) {
     
+        //Hereby horizontal scale
+        xscale = mebelow.xscale;
+        
         //Snap above it
         x = mebelow.x;
         y = mebelow.y-16;
-        xscale = mebelow.xscale;
     }
     
     //Otherwise, lose memory of it and move towards the player.
@@ -360,9 +362,9 @@ else {
         
             if (!instance_exists(obj_playerparent)) 
             || (obj_playerparent.x &lt; x)
-                hspeed = -0.2;
+                hspeed = -0.25;
             else
-                hspeed = 0.2;
+                hspeed = 0.25;
         }
     }
 }
@@ -411,6 +413,59 @@ if (mebelow == noone) {
         while (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-8, obj_solid, 1, 0))
             x--;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn at enemies script
+
+//Collision with regular enemies
+var overlap = collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-4, obj_enemyparent, 0, 1);
+if (overlap) 
+&amp;&amp; (overlap.vulnerable &lt; 99) {
+
+    //Go right if the object is further to the right or in the same spot and a higher id.
+    if ((bbox_left+bbox_right)*0.5 &gt; (overlap.bbox_left+overlap.bbox_right)*0.5)
+    || (((bbox_left+bbox_right)*0.5 = (overlap.bbox_left+overlap.bbox_right)*0.5) &amp;&amp; (id &gt; overlap.id))
+        hspeed = abs(hspeed);
+    
+    //Otherwise, go left.
+    else
+        hspeed = -abs(hspeed);
+}
+
+//Collision with holdable enemies
+var overlap2 = collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-4, obj_holdparent_enemy, 0, 1);
+if (overlap2) 
+&amp;&amp; (overlap2.vulnerable &lt; 99) {
+
+    //Go right if the object is further to the right or in the same spot and a higher id.
+    if ((bbox_left+bbox_right)*0.5 &gt; (overlap2.bbox_left+overlap2.bbox_right)*0.5)
+    || (((bbox_left+bbox_right)*0.5 = (overlap2.bbox_left+overlap2.bbox_right)*0.5) &amp;&amp; (id &gt; overlap2.id))
+        hspeed = abs(hspeed);
+    
+    //Otherwise, go left.
+    else
+        hspeed = -abs(hspeed);
 }
 </string>
           </argument>

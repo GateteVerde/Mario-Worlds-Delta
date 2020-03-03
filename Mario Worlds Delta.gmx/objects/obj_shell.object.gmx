@@ -99,6 +99,9 @@ if (koopainside == 1) {
         //Blue Koopa Troopa
         case (spr_shell_blue): instance_create(x, y, obj_beachkoopa_blue); break;
         
+        //Yellow Koopa Troopa
+        case (spr_shell_yellow): instance_create(x, y, obj_beachkoopa_yellow); break;
+        
         //Gargantua Green Koopa
         case (spr_shell_big): instance_create(x, y, obj_bigbeachkoopa); break;
         
@@ -427,6 +430,10 @@ if (sprite_index == spr_shell_red)
 //Blue Koopa
 else if (sprite_index == spr_shell_blue)
     deathsprite = spr_koopa_blue_dead;
+    
+//Yellow Koopa
+else if (sprite_index == spr_shell_yellow)
+    deathsprite = spr_koopa_yellow_dead;
     
 //Gargantua Green Koopa
 else if (sprite_index == spr_shell_big) {
