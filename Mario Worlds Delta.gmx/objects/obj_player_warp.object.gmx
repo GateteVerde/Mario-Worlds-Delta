@@ -157,10 +157,10 @@ global.exit_id = exit_id;
 
 //If the pipe does not lead to a different room
 if (destination == noone) {
-
+    
     //Move the player
     with (obj_warpnode) event_user(0);
-    
+        
     //Perform fade out
     with (obj_controller) {
     

@@ -738,6 +738,9 @@
         <sprite>sprites\spr_montymole_dig</sprite>
         <sprite>sprites\spr_montymole_dig2</sprite>
         <sprite>sprites\spr_megamole</sprite>
+        <sprite>sprites\spr_anttrooper</sprite>
+        <sprite>sprites\spr_anttrooper_fix</sprite>
+        <sprite>sprites\spr_anttrooper_turn</sprite>
         <sprites name="Wiggler">
           <sprite>sprites\spr_wiggler</sprite>
           <sprite>sprites\spr_wiggler_body</sprite>
@@ -1578,7 +1581,6 @@
         <object>objects\obj_spiketop</object>
         <object>objects\obj_spiketop_blue</object>
         <object>objects\obj_swoop</object>
-        <object>objects\obj_busterbeetle</object>
       </objects>
       <objects name="Underwater">
         <object>objects\obj_cheepcheep</object>
@@ -1589,6 +1591,7 @@
         <object>objects\obj_monty_chase</object>
         <object>objects\obj_monty_dig</object>
         <object>objects\obj_megamole</object>
+        <object>objects\obj_anttrooper</object>
         <object>objects\obj_wiggler</object>
         <object>objects\obj_pokey</object>
       </objects>
@@ -1606,6 +1609,7 @@
           <object>objects\obj_blaster_banzai</object>
           <object>objects\obj_blaster_bullseye</object>
         </objects>
+        <object>objects\obj_busterbeetle</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>

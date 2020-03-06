@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_solidparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -38,34 +38,6 @@ hitcombo = 0;
 
 //Shard sprite
 shardsprite = noone;
-
-//Make the block solid
-mysolid = instance_create(x, y, obj_solid);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Destroy solid mask
-
-with (mysolid) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -183,7 +155,7 @@ else
 
 //If the block can be hit
 if (ready == 0) 
-&amp;&amp; (outside_view(sprite_get_width(sprite_index) == false)) {
+&amp;&amp; (!outside_view(sprite_get_width(sprite_index))) {
 
     //Begin bump sequence
     vspeed = -2.25;

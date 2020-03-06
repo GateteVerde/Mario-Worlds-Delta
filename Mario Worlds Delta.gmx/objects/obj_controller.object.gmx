@@ -48,6 +48,9 @@ fade = 0;
 //Screenshot of the game, if it exists
 back = -1;
 
+//Pixelate screen
+pixelate = 0;
+
 //Shake variable
 shake = 0;
 shake_anim = 0;
@@ -90,6 +93,31 @@ application_surface_draw_enable(0)
 
 //Set the epsilon value for floating point numbers
 math_set_epsilon(0.000001);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stop pixelation effect
+
+pixelate = false;
 </string>
           </argument>
         </arguments>
@@ -1138,8 +1166,9 @@ shader_set_uniform_f(uni_shock_amplitude, var_shock_amplitude);
 shader_set_uniform_f(uni_shock_refraction, var_shock_refraction );
 shader_set_uniform_f(uni_shock_width, var_shock_width);
 
-//Set the pixelate shader
-if (fade &lt; 1) {
+//If the screen is fading
+if (fade &lt; 1) 
+&amp;&amp; (size &gt; 0.75) {
     
     shader_set(shd_pixel);
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);

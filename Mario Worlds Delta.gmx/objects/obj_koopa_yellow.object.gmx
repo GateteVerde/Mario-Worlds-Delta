@@ -71,6 +71,9 @@ alarm[10] = 2;
             <kind>1</kind>
             <string>///Follow the player
 
+//Repeat the process
+alarm[11] = 60+round(random(60));
+
 //If there's no gravity
 if (gravity == 0) {
 
@@ -81,9 +84,6 @@ if (gravity == 0) {
     else
         hspeed = 1;
 }
-
-//Change direction
-alarm[11] = 60+round(random_range(60, 120));
 </string>
           </argument>
         </arguments>
@@ -145,13 +145,13 @@ alarm[11] = 60;
             <string>///Yellow Koopa logic
 
 //Previous hspeed
-prevhspeed = hspeed;
+prevxscale = xscale;
 
 //Inherit event from parent
 event_inherited();
 
 //If the direction changed
-if (hspeed != prevhspeed) 
+if (hspeed != prevxscale) 
 &amp;&amp; (sprite_index != spr_koopa_yellow_turn) {
 
     //Set turning sprite

@@ -92,7 +92,7 @@ if (gravity == 0) {
 }
 
 //Change direction
-alarm[11] = 60+round(random_range(60, 120));
+alarm[11] = 60+round(random(60));
 </string>
           </argument>
         </arguments>

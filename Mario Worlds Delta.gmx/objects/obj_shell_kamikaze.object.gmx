@@ -287,6 +287,9 @@ if (global.mount == 1)
 
     //Force stop stomp sound
     audio_stop_sound(snd_stomp);
+    
+    //Destroy spin effects
+    with (obj_spinthump) instance_destroy();
 
     //Create spin smoke effect
     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinsmoke);

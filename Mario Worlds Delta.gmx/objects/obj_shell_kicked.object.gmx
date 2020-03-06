@@ -48,6 +48,12 @@ hitcombo = 0;
 //Whether this shell is flipped
 flip = 0;
 
+//Default hspeed
+myhsp = abs(hspeed);
+
+//Remember horizontal speed
+memhspeed = 0;
+
 //Whether there's a koopa inside this shell
 koopainside = 0;
 
@@ -131,7 +137,7 @@ event_user(14);
 if (sign(hspeed) != sign(prevhspeed)) {
 
     //If the item is not outside
-    if (!outside_view(8)) {
+    if (!outside_view(sprite_get_width(sprite_index))) {
     
         //Play 'Bump' sound
         audio_play_sound(snd_bump, 0, false);
@@ -254,35 +260,35 @@ else if (sprite_index == spr_shell_spiny) {
             <kind>1</kind>
             <string>///Check for 1 block gaps and destroy blocks on the way
 
-//If there's no gravity
-if (gravity == 0) 
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+5, obj_slopeparent, 0, 0)) {
+//If the object is not falling
+if (fall == 0) {
 
-    //If there's no semisolid below, slowdown
-    if ((hspeed &gt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+8, obj_semisolidparent, 1, 0)))
-    || ((hspeed &lt; 0) &amp;&amp; (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+8, obj_semisolidparent, 1, 0))) {
+    //If there's not a slope
+    if (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0)) {
     
-        if (fall == 0) {
+        //If there's not a semisolid below
+        if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0)) {
         
+            move_snap(4, 2);
+            y += 4;
             fall = 1;
-            hspeed = hspeed/2;
         }
-    }
-    else if (fall == 1) {
-    
-        fall = 0;
-        hspeed = hspeed*2;
     }
 }
 
+//Otherwise, if falling
+else if (fall == 1) 
+&amp;&amp; (gravity == 0)
+    fall = 0;
+
 //Check for blocks to the left
-var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_blockparent, 0, 0);
+var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_solidparent, 0, 0);
 if (block_l)
 &amp;&amp; (sprite_height &gt; 16)
     with (block_l) event_user(15);
 
 //Check for blocks to the right    
-var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_blockparent, 0, 0);
+var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_solidparent, 0, 0);
 if (block_r)
 &amp;&amp; (sprite_height &gt; 16)
     with (block_r) event_user(15);
