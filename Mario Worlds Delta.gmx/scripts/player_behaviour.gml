@@ -104,7 +104,7 @@ if (inwall == false)
                 || (state == statetype.walk) {
                 
                     //Play 'Spin' sound
-                    audio_play_sound(snd_spin, 0, false);
+                    audio_stop_play_sound(snd_spin, 0, false);
                     
                     //Set horizontal speed
                     hspeed = 1*(xscale*-1)
@@ -117,7 +117,7 @@ if (inwall == false)
                 else {
                 
                     //Play 'Jump' sound
-                    audio_play_sound(snd_jump, 0, false);
+                    audio_stop_play_sound(snd_jump, 0, false);
                 }
             }
             
@@ -128,7 +128,7 @@ if (inwall == false)
                 if (holding == 0) {
                 
                     //Play 'Spin' sound
-                    audio_play_sound(snd_spin, 0, false);
+                    audio_stop_play_sound(snd_spin, 0, false);
                     
                     //Set jump style
                     jumpstyle = true;
@@ -136,7 +136,7 @@ if (inwall == false)
                 else {
                 
                     //Play 'Jump' sound
-                    audio_play_sound(snd_jump, 0, false);
+                    audio_stop_play_sound(snd_jump, 0, false);
                     
                     //Set jump style
                     jumpstyle = false;                                    
@@ -148,7 +148,7 @@ if (inwall == false)
         else {
         
             //Play 'Jump' sound
-            audio_play_sound(snd_jump, 0, false);
+            audio_stop_play_sound(snd_jump, 0, false);
             
             //Set jump style
             jumpstyle = false;

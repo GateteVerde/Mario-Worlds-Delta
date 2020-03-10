@@ -162,9 +162,6 @@ else if (ready &gt; 0) {
             vspeed = 4;
     }
     
-    //Destroy when outside
-    if (outside_view(16)) then instance_destroy();
-    
     //Set angle
     if (ready == 1)
         angle += (hspeed*6)*-1;
@@ -172,8 +169,10 @@ else if (ready &gt; 0) {
         angle += (hspeed*12)*-1;
 }
 
-
-
+//Destroy when outside
+if (outside_view(16)) 
+&amp;&amp; (y &gt; view_yview[view_current])
+    instance_destroy();
 </string>
           </argument>
         </arguments>

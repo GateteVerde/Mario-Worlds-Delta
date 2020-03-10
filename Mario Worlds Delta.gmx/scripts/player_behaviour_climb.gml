@@ -118,7 +118,7 @@ if (control_enable == true) {
         jumping = 1;
         
         //Play 'Jump' sound
-        audio_play_sound(snd_jump, 0, false);
+        audio_stop_play_sound(snd_jump, 0, false);
     }
 }
 

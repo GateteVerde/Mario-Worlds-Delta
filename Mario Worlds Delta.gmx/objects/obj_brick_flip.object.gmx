@@ -76,7 +76,7 @@ if (instance_exists(obj_playerparent)) {
     &amp;&amp; (obj_playerparent.jumpstyle == 1) {
     
         //Play 'Break' sound
-        audio_play_sound(snd_break, 0, false);
+        audio_stop_play_sound(snd_break, 0, false);
         
         //Get 50 coins
         score += 50;

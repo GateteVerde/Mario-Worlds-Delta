@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="29" name="datafiles">
-    <datafiles number="29" name="music">
+  <datafiles number="32" name="datafiles">
+    <datafiles number="32" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -38,6 +38,40 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_bonus.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_desert.ogg</name>
+        <exists>-1</exists>
+        <size>992597</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_desert.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_forest.ogg</name>
+        <exists>-1</exists>
+        <size>815838</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_forest.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_overworld.ogg</name>
@@ -741,6 +775,10 @@
         <sprite>sprites\spr_anttrooper</sprite>
         <sprite>sprites\spr_anttrooper_fix</sprite>
         <sprite>sprites\spr_anttrooper_turn</sprite>
+        <sprite>sprites\spr_volcanolotus</sprite>
+        <sprite>sprites\spr_volcanolotus_charge</sprite>
+        <sprite>sprites\spr_volcanolotus_shoot</sprite>
+        <sprite>sprites\spr_lotusball</sprite>
         <sprites name="Wiggler">
           <sprite>sprites\spr_wiggler</sprite>
           <sprite>sprites\spr_wiggler_body</sprite>
@@ -1125,6 +1163,8 @@
             <sprite>sprites\spr_slope_steep_l</sprite>
             <sprite>sprites\spr_slope_steeper_r</sprite>
             <sprite>sprites\spr_slope_steeper_l</sprite>
+            <sprite>sprites\spr_slope_trunk_r</sprite>
+            <sprite>sprites\spr_slope_trunk_l</sprite>
           </sprites>
           <sprites name="Slippery">
             <sprite>sprites\spr_slippery</sprite>
@@ -1142,6 +1182,7 @@
         <sprite>sprites\spr_blowmask_big</sprite>
         <sprite>sprites\spr_path</sprite>
         <sprite>sprites\spr_powkiller</sprite>
+        <sprite>sprites\spr_shellmask</sprite>
         <sprite>sprites\spr_spinnermask</sprite>
         <sprite>sprites\spr_stompmask</sprite>
         <sprite>sprites\spr_stompmask_cape</sprite>
@@ -1178,6 +1219,7 @@
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
       <background>background\bgr_hills_thin</background>
+      <background>background\bgr_mountains_b</background>
       <background>background\bgr_nightsky</background>
       <background>background\bgr_nightsky_b</background>
       <background>background\bgr_nightsky_c</background>
@@ -1189,9 +1231,11 @@
     <backgrounds name="Level Tilesets">
       <background>background\tls_ground</background>
       <background>background\tls_ground_bonus</background>
+      <background>background\tls_ground_desert</background>
       <background>background\tls_ground_forest</background>
       <background>background\tls_ground_pipes</background>
       <background>background\tls_ground_sewer</background>
+      <background>background\tls_ground_swampland</background>
     </backgrounds>
     <backgrounds name="Map Tilesets">
       <background>background\tls_map</background>
@@ -1366,6 +1410,8 @@
         <object>objects\obj_slope_steep_l</object>
         <object>objects\obj_slope_steeper_r</object>
         <object>objects\obj_slope_steeper_l</object>
+        <object>objects\obj_slope_trunk_r</object>
+        <object>objects\obj_slope_trunk_l</object>
       </objects>
       <objects name="Slippery">
         <object>objects\obj_slippery</object>
@@ -1581,6 +1627,7 @@
         <object>objects\obj_spiketop</object>
         <object>objects\obj_spiketop_blue</object>
         <object>objects\obj_swoop</object>
+        <object>objects\obj_busterbeetle</object>
       </objects>
       <objects name="Underwater">
         <object>objects\obj_cheepcheep</object>
@@ -1592,6 +1639,7 @@
         <object>objects\obj_monty_dig</object>
         <object>objects\obj_megamole</object>
         <object>objects\obj_anttrooper</object>
+        <object>objects\obj_volcanolotus</object>
         <object>objects\obj_wiggler</object>
         <object>objects\obj_pokey</object>
       </objects>
@@ -1609,7 +1657,6 @@
           <object>objects\obj_blaster_banzai</object>
           <object>objects\obj_blaster_bullseye</object>
         </objects>
-        <object>objects\obj_busterbeetle</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
@@ -1920,6 +1967,7 @@
           </objects>
           <objects name="Forest / Desert">
             <object>objects\obj_monty_jump</object>
+            <object>objects\obj_lotusball</object>
             <object>objects\obj_wiggler_body</object>
           </objects>
           <objects name="Airship">
@@ -2011,7 +2059,6 @@
       </rooms>
       <rooms name="Level 2">
         <room>rooms\rm_level_2a</room>
-        <room>rooms\rm_level_2b</room>
       </rooms>
       <rooms name="Level 3">
         <room>rooms\rm_level_3</room>

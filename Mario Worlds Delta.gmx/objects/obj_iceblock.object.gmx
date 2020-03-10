@@ -79,7 +79,7 @@ with (myslip) instance_destroy();
             <string>///Shatter it
 
 //Play 'Break' sound
-audio_play_sound(snd_break, 0, false);
+audio_stop_play_sound(snd_break, 0, false);
 
 //Create shards    
 shard_create(x+8, y+8, spr_shard_ice, 3, 6, 45);

@@ -270,7 +270,7 @@ if (fall == 0) {
         if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0)) {
         
             move_snap(4, 2);
-            y += 4;
+            y += 3;
             fall = 1;
         }
     }

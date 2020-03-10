@@ -76,7 +76,7 @@ if (control_enable == true) {
         state = statetype.jump;
         
         //Play 'Jump' sound
-        audio_play_sound(snd_jump, 0, false);   
+        audio_stop_play_sound(snd_jump, 0, false);   
     }
 }
 

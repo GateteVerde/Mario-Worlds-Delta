@@ -82,7 +82,7 @@ if (inwall == false)
     || (input_check_pressed(input.action2))) {
     
         //Play 'Swim' sound
-        audio_play_sound(snd_swim, 0, false);
+        audio_stop_play_sound(snd_swim, 0, false);
         
         //Switch to jump state
         state = statetype.jump;
@@ -128,7 +128,7 @@ if (inwall == false)
             if (dive == 0) {
             
                 dive = 1;
-                audio_play_sound(snd_swim, 0, false);
+                audio_stop_play_sound(snd_swim, 0, false);
             }
             
             //Set the vertical speed

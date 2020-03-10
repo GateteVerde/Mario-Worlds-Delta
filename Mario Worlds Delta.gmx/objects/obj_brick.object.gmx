@@ -57,7 +57,7 @@ shardsprite = spr_shard;
             <string>///Break if hit with a holdable item
 
 //Play 'Break' sound
-audio_play_sound(snd_break, 0, false);
+audio_stop_play_sound(snd_break, 0, false);
 
 //Get 50 coins
 score += 50;
@@ -98,7 +98,7 @@ instance_destroy();
 if (global.powerup &gt; cs_pow_small) {
 
     //Play 'Break' sound
-    audio_play_sound(snd_break, 0, false);
+    audio_stop_play_sound(snd_break, 0, false);
     
     //Get 50 coins
     score += 50;
