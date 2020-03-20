@@ -778,7 +778,11 @@
         <sprite>sprites\spr_volcanolotus</sprite>
         <sprite>sprites\spr_volcanolotus_charge</sprite>
         <sprite>sprites\spr_volcanolotus_shoot</sprite>
+        <sprite>sprites\spr_craterlotus</sprite>
+        <sprite>sprites\spr_craterlotus_charge</sprite>
+        <sprite>sprites\spr_craterlotus_shoot</sprite>
         <sprite>sprites\spr_lotusball</sprite>
+        <sprite>sprites\spr_lotusball_homing</sprite>
         <sprites name="Wiggler">
           <sprite>sprites\spr_wiggler</sprite>
           <sprite>sprites\spr_wiggler_body</sprite>
@@ -903,7 +907,8 @@
         <sprite>sprites\spr_path_corner_ur</sprite>
         <sprite>sprites\spr_path_corner_dr</sprite>
         <sprite>sprites\spr_path_corner_dl</sprite>
-        <sprite>sprites\spr_path_bridge</sprite>
+        <sprite>sprites\spr_path_bridge_h</sprite>
+        <sprite>sprites\spr_path_bridge_v</sprite>
         <sprite>sprites\spr_path_ladder</sprite>
       </sprites>
       <sprites name="Panels">
@@ -1227,6 +1232,11 @@
       <background>background\bgr_sewer_b</background>
       <background>background\bgr_sewer_c</background>
       <background>background\bgr_sewer_d</background>
+      <background>background\bgr_swamp</background>
+      <background>background\bgr_swamp_b</background>
+    </backgrounds>
+    <backgrounds name="Level Foregrounds">
+      <background>background\fgr_smog</background>
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <background>background\tls_ground</background>
@@ -1386,6 +1396,7 @@
         <object>objects\obj_rainmaker</object>
         <object>objects\obj_snowmaker</object>
       </objects>
+      <object>objects\obj_tilehider</object>
       <object>objects\obj_levelcontrol</object>
       <object>objects\obj_bganimator</object>
       <object>objects\obj_guessblock_manager</object>
@@ -1640,6 +1651,7 @@
         <object>objects\obj_megamole</object>
         <object>objects\obj_anttrooper</object>
         <object>objects\obj_volcanolotus</object>
+        <object>objects\obj_craterlotus</object>
         <object>objects\obj_wiggler</object>
         <object>objects\obj_pokey</object>
       </objects>
@@ -1688,7 +1700,8 @@
         <object>objects\obj_path_corner_ur</object>
         <object>objects\obj_path_corner_dr</object>
         <object>objects\obj_path_corner_dl</object>
-        <object>objects\obj_path_bridge</object>
+        <object>objects\obj_path_bridge_h</object>
+        <object>objects\obj_path_bridge_v</object>
         <object>objects\obj_path_ladder</object>
       </objects>
       <objects name="Panels">
@@ -1968,6 +1981,7 @@
           <objects name="Forest / Desert">
             <object>objects\obj_monty_jump</object>
             <object>objects\obj_lotusball</object>
+            <object>objects\obj_lotusball_homing</object>
             <object>objects\obj_wiggler_body</object>
           </objects>
           <objects name="Airship">

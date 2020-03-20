@@ -226,6 +226,10 @@ if (global.bonusadd &gt; 0) {
     //Repeat the process...
     alarm[4] = 4;
 }
+
+//Play sounds
+if (ready4 == 0)
+    ready4 = 1;
 </string>
           </argument>
         </arguments>
@@ -564,7 +568,8 @@ if (ready3 == 2) {
 if (ready4 == 1) {
 
     //If the timer is greater than 0
-    if (global.time &gt; 0) {
+    if (global.time &gt; 0) 
+    || (global.bonusadd &gt; 0) {
     
         ready4 = 2;
         audio_play_sound(snd_count, 0, false);

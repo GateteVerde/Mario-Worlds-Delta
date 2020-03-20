@@ -80,7 +80,7 @@ if (vspeed != 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_semisolid">
+    <event eventtype="4" ename="obj_semisolidparent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -116,7 +116,7 @@ if (other.y != ystart) &amp;&amp; (vspeed &gt; 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_solid">
+    <event eventtype="4" ename="obj_solidparent">
       <action>
         <libid>1</libid>
         <id>603</id>

@@ -84,6 +84,10 @@ if (fade == 0) {
                 alpha -= (alphaval/100)
         }
     }
+    
+    //Fade smog if if exists
+    if (instance_exists(obj_rainmaker))
+        with (obj_rainmaker) alpha -= 0.00625;
 }
 
 //Fade out
@@ -107,6 +111,10 @@ else if (fade == 2) {
                 alpha += (alphaval/50);
         }
     }
+    
+    //Fade smog if if exists
+    if (instance_exists(obj_rainmaker))
+        with (obj_rainmaker) alpha += 0.0125;
 }
 
 //Fade tiles on depth -6

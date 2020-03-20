@@ -81,6 +81,7 @@ with (obj_water_tides) visible = 0;
 with (obj_lightparent) visible = 0;
 with (obj_lightcontrol) visible = 0;
 with (obj_effectsparent) visible = 0;
+with (obj_rainmaker) visible = 0;
 
 //Freeze everything on screen
 alarm[0] = 2;
@@ -198,13 +199,10 @@ with (obj_effectsparent) visible = 1;
 
 //Activate rain object
 instance_activate_object(obj_rainmaker);
-with (obj_rainmaker) event_user(0);
+with (obj_rainmaker) visible = 1;
 
 //Activate controller object
 instance_activate_object(obj_controller);
-
-//Deactivate particles
-with (obj_rainmaker) event_user(0);
 
 //Make the object visible
 visible = true;

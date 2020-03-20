@@ -410,6 +410,9 @@ else {
             <kind>1</kind>
             <string>///Map player logic
 
+//Check for a node
+node = collision_point(x+xorig, y+yorig, obj_node, 0, 0);
+
 //Update animation speed
 image_speed = 0.125;
 
@@ -419,7 +422,7 @@ if (status == 'IDLE')
 
     //Check for a panel
     panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
-
+    
     //Do not allow movement if there's paths opening
     if (is_ready == 0)
     &amp;&amp; (obj_controller.fade == 1)
@@ -514,7 +517,7 @@ if (status == 'IDLE')
         }
         
         //Open adyancent paths on map if debug mode is enabled.
-        if (panel)
+        if (node)
         &amp;&amp; (input_check_pressed(input.select))
             event_user(15);
     }
