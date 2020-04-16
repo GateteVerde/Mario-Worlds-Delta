@@ -207,21 +207,49 @@ if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent,
 if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
 
-    //If moving down
-    if (vspeed &gt;= 0) {
-    
-        //Stop vertical movement
-        vspeed = 0;
-        gravity = 0;
+    //Steeper slope check
+    steeper_l = collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_l, 1, 0);
+    steeper_r = collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_r, 1, 0);
         
-        //Smash the ground or not
-        event_user(0);
+    //If the slope is a steeper one, do not allow jump through
+    if (steeper_l) 
+    || (steeper_r) {
+    
+        //If moving down
+        if (vspeed &gt;= 0) {
+        
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
+            
+            //Reset values
+            event_user(0);
+        }          
+        
+        //Prevent the player from getting embed inside a slope
+        while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+            y--;              
     }
     
-    //Prevent the player from getting embed inside a slope
-    if (vspeed &gt; -1)
-        while (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-            y--;
+    //Otherwise
+    else {
+                
+        //If moving down
+        if (vspeed &gt;= 0) {
+        
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
+            
+            //Reset values
+            event_user(0);
+        }
+        
+        //Prevent the player from getting embed inside a slope
+        if (vspeed &gt; -0.85)    
+            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+                y--;
+    }
 }
 
 //Manage gravity

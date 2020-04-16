@@ -665,8 +665,8 @@ if (gravity_enable == true) {
         steeper_r = collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_r, 1, 0);
             
         //If the slope is a steeper one, do not allow jump through
-        if ((steeper_l) &amp;&amp; (x &gt; steeper_l.bbox_left))
-        || ((steeper_r) &amp;&amp; (x &lt; steeper_r.bbox_right)) {
+        if (steeper_l) 
+        || (steeper_r) {
         
             //If moving down
             if (vspeed &gt;= 0) {
@@ -680,9 +680,8 @@ if (gravity_enable == true) {
             }          
             
             //Prevent the player from getting embed inside a slope
-            if (vspeed &gt; -0.85)
-                while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-                    y--;              
+            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
+                y--;              
         }
         
         //Otherwise
