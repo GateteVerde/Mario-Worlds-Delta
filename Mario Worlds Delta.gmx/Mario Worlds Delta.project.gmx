@@ -820,6 +820,10 @@
       <sprite>sprites\spr_hammerbro_throw</sprite>
       <sprite>sprites\spr_hammerbro_hammer</sprite>
       <sprite>sprites\spr_hammerbro_dead</sprite>
+      <sprite>sprites\spr_boomerangbro</sprite>
+      <sprite>sprites\spr_boomerangbro_throw</sprite>
+      <sprite>sprites\spr_boomerangbro_boomerang</sprite>
+      <sprite>sprites\spr_boomerangbro_dead</sprite>
       <sprite>sprites\spr_walrus</sprite>
       <sprite>sprites\spr_walrus_turn</sprite>
       <sprite>sprites\spr_walrus_dead</sprite>
@@ -1674,6 +1678,7 @@
         <object>objects\obj_generator_galoomba</object>
       </objects>
       <object>objects\obj_hammerbro</object>
+      <object>objects\obj_boomerangbro</object>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
     </objects>
@@ -1996,6 +2001,7 @@
           </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_hammerbro_hammer</object>
+          <object>objects\obj_boomerangbro_boomerang</object>
         </objects>
         <objects name="World Map">
           <objects name="Decoration">
