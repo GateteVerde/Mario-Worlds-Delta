@@ -274,17 +274,14 @@ if (control_enable == true)
                 firing = 9;
                 with (instance_create(x, y, obj_fireball)) {
                 
+                    //Set the vertical speed
+                    vspeed = 3;
+                
                     //Set the horizontal speed
                     if (global.player == 2) //If Toad is under control
                         hspeed = 4*other.xscale;
                     else
-                        hspeed = 3*other.xscale;
-                    
-                    //Set the vertical speed
-                    if (input_check(input.up))
-                        vspeed = -3;
-                    else
-                        vspeed = 3;                    
+                        hspeed = 3*other.xscale;                   
                 }
             }
         }

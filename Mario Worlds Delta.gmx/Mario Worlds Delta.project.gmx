@@ -412,6 +412,7 @@
         <sprite>sprites\spr_brick_flip</sprite>
         <sprite>sprites\spr_brick_throw</sprite>
         <sprite>sprites\spr_brick_throw_th</sprite>
+        <sprite>sprites\spr_brick_fragile</sprite>
         <sprite>sprites\spr_brick_stone</sprite>
       </sprites>
       <sprite>sprites\spr_msgblock</sprite>
@@ -824,6 +825,9 @@
       <sprite>sprites\spr_boomerangbro_throw</sprite>
       <sprite>sprites\spr_boomerangbro_boomerang</sprite>
       <sprite>sprites\spr_boomerangbro_dead</sprite>
+      <sprite>sprites\spr_firebro</sprite>
+      <sprite>sprites\spr_firebro_throw</sprite>
+      <sprite>sprites\spr_firebro_dead</sprite>
       <sprite>sprites\spr_walrus</sprite>
       <sprite>sprites\spr_walrus_turn</sprite>
       <sprite>sprites\spr_walrus_dead</sprite>
@@ -1050,6 +1054,7 @@
           <sprites name="Bricks">
             <sprite>sprites\spr_shard</sprite>
             <sprite>sprites\spr_shard_flip</sprite>
+            <sprite>sprites\spr_shard_fragile</sprite>
             <sprite>sprites\spr_shard_blue</sprite>
           </sprites>
           <sprite>sprites\spr_shard_ice</sprite>
@@ -1462,6 +1467,7 @@
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_flip</object>
         <object>objects\obj_brick_throw</object>
+        <object>objects\obj_brick_fragile</object>
         <object>objects\obj_brick_stone</object>
       </objects>
       <object>objects\obj_msgblock</object>
@@ -1679,6 +1685,7 @@
       </objects>
       <object>objects\obj_hammerbro</object>
       <object>objects\obj_boomerangbro</object>
+      <object>objects\obj_firebro</object>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
     </objects>
@@ -2002,6 +2009,7 @@
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_hammerbro_hammer</object>
           <object>objects\obj_boomerangbro_boomerang</object>
+          <object>objects\obj_firebro_fireball</object>
         </objects>
         <objects name="World Map">
           <objects name="Decoration">
