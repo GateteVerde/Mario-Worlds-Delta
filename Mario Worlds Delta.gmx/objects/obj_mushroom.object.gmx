@@ -142,9 +142,6 @@ if (vspeed &gt;= 0) {
 if (other.vspeed &lt; 0)
 &amp;&amp; (vspeed &gt;= 0)
 &amp;&amp; (y &lt; other.bbox_top-11) {
-
-    //Set the vertical speed
-    vspeed = -5;
     
     //If the object does not have permission to move
     if (permission == 0) {
@@ -162,6 +159,10 @@ if (other.vspeed &lt; 0)
         else if (x &lt; other.x+sprite_width/2)
             hspeed = -1;
     }
+    
+    //Set the vertical speed if there's no solid above
+    if (!position_meeting(x, y-8, obj_solidparent))
+        vspeed = -5;
 }
 </string>
           </argument>

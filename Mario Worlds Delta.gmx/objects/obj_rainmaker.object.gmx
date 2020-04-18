@@ -74,10 +74,9 @@ alarm[0] = 100;
 alarm[0] = 100+random(round(200));
 
 //If this object can generate lightning
-if (lightning == 1) {
-
+if (lightning == 1)
+&amp;&amp; (instance_exists(obj_playerparent))
     instance_create(0, 0, obj_lightningsheet);
-}
 </string>
           </argument>
         </arguments>
@@ -140,7 +139,11 @@ if (smog == true) {
     draw_set_blend_mode(bm_add);
     
     //Draw the background
-    draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), view_yview[0]*(room_height-background_get_height(fgr_smog))/(room_height-view_hview[0]), 1, 1, 0, c_white, alpha);
+    if (background_get_height(fgr_smog) &lt; room_height)
+    &amp;&amp; (background_get_height(fgr_smog) &gt; view_hview[0])
+        draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), y+view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0]), 1, 1, 0, c_white, alpha);
+    else
+        draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), y, 1, 1, 0, background_blend[0], background_alpha[0]);
 
     //Set blending mode to normal
     draw_set_blend_mode(bm_normal);

@@ -48,6 +48,9 @@ fade = 0;
 //Screenshot of the game, if it exists
 back = -1;
 
+//TV Mode?
+tvmode = 0;
+
 //Pixelate screen
 pixelate = 0;
 
@@ -628,22 +631,7 @@ alarm[6] = 60;
             <kind>1</kind>
             <string>///Set up the screen to be displayed
 
-//Temporary variable
-/*var s;
-
-//Normal
-if (filter = 0)
-    s = 1;
-
-//2X
-else if (filter = 1)
-    s = 2;
-    
-//3X
-else if (filter = 2)
-    s = 3;
-*/
-
+//Set up filter
 var s = filter+1;
 
 //Reset display

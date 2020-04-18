@@ -91,6 +91,7 @@ if (global.screenfreeze == true) {
     with (obj_lightparent) visible = 0;
     with (obj_lightcontrol) visible = 0;
     with (obj_effectsparent) visible = 0;
+    with (obj_rainmaker) visible = 0;
     
     //Start animation
     alarm[0] = 1;
@@ -290,7 +291,7 @@ with (obj_effectsparent) visible = 1;
 
 //Activate rain object
 instance_activate_object(obj_rainmaker);
-with (obj_rainmaker) event_user(0);
+with (obj_rainmaker) visible = 1;
 
 //Activate controller object
 instance_activate_object(obj_controller);

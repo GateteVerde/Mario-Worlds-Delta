@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>obj_blockparent</parentName>
+  <parentName>obj_brick</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -136,7 +136,7 @@ instance_destroy();
 if (instance_exists(obj_playerparent)) {
 
     //If the player makes contact with this block and it is spinning
-    if (place_meeting(x, y-(obj_playerparent.vspeed*2.5), obj_playerparent))
+    if (place_meeting(x, y-(obj_playerparent.vspeed*2.5)-1, obj_playerparent))
     &amp;&amp; (obj_playerparent.vspeed &gt;= 0) {
     
         //Play 'Break' sound
@@ -158,81 +158,6 @@ if (instance_exists(obj_playerparent)) {
         instance_destroy();        
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="12">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Break the block if hit with an item
-
-alarm[3] = 4;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Allow the brick to be hit again
-
-ready = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Break the block
-
-alarm[2] = 4;
 </string>
           </argument>
         </arguments>

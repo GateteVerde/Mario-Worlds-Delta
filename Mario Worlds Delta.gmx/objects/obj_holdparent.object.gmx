@@ -239,8 +239,8 @@ if (held == true) {
         held = false;
 }
 
-//If the item is not held, inherit End Step from parent
-if (held == false)
+//If not held, inherit default event
+if (!held)
     event_inherited();
 </string>
           </argument>
@@ -396,8 +396,8 @@ if (held == false) {
     
     if (other.vspeed &lt; 0)
     &amp;&amp; (vspeed &gt;= 0)
-    &amp;&amp; (bbox_bottom &lt; yprevious+5)
-        vspeed = -2.5;
+    &amp;&amp; (bbox_bottom &lt; other.yprevious+5)
+        vspeed = -3;
 }
 </string>
           </argument>

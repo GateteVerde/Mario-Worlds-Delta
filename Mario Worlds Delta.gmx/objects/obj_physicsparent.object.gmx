@@ -275,9 +275,10 @@ if (vspeed &gt;= 0)
             <string>///Bump with block
 
 if (other.vspeed &lt; 0)
-&amp;&amp; (vspeed &gt;= 0) 
-&amp;&amp; (bbox_bottom &lt; yprevious+5)
-    vspeed = -2.5;
+&amp;&amp; (vspeed &gt;= 0)
+&amp;&amp; (bbox_bottom &lt; other.yprevious+5)
+&amp;&amp; (!position_meeting(x, y-8, obj_solidparent))
+    vspeed = -3;
 </string>
           </argument>
         </arguments>
