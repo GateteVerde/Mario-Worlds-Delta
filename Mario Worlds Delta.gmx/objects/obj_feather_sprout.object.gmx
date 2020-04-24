@@ -220,7 +220,7 @@ else if (action = "left") {
 
 //Change depth
 if (depth == 10)
-&amp;&amp; (!place_meeting(x, y, obj_solid))
+&amp;&amp; (!place_meeting(x, y, obj_solidparent))
     depth = -2;
 </string>
           </argument>

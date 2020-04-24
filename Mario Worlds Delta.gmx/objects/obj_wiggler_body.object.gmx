@@ -127,9 +127,15 @@ with (parent) event_user(1);
             <kind>1</kind>
             <string>///Hurt parent wiggler
 
-if (outside_view(16))
-exit;
+//If the object is not outside the view
+if (outside_view(16) == false) {
+    
+    //Activate the parent...
+    instance_activate_object(parent);
+    
+    //...and then kill it
     with (parent) event_user(0);
+}
 </string>
           </argument>
         </arguments>

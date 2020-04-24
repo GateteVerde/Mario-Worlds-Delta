@@ -797,6 +797,20 @@
       <sprites name="Castle / Ghost">
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
+        <sprites name="Mechakoopas">
+          <sprites name="Blasta">
+            <sprite>sprites\spr_blastakoopa</sprite>
+            <sprite>sprites\spr_blastakoopa_sq</sprite>
+            <sprite>sprites\spr_blastakoopa_sq2</sprite>
+            <sprite>sprites\spr_blastakoopa_charge</sprite>
+            <sprite>sprites\spr_blastakoopa_bullet</sprite>
+            <sprite>sprites\spr_blastakoopa_dead</sprite>
+          </sprites>
+          <sprite>sprites\spr_mechakoopa</sprite>
+          <sprite>sprites\spr_mechakoopa_sq</sprite>
+          <sprite>sprites\spr_mechakoopa_sq2</sprite>
+          <sprite>sprites\spr_mechakoopa_dead</sprite>
+        </sprites>
       </sprites>
       <sprites name="Airship">
         <sprites name="Bullet Bill">
@@ -1670,6 +1684,10 @@
         <object>objects\obj_thwomp</object>
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
+        <objects name="Mechakoopa">
+          <object>objects\obj_mechakoopa</object>
+          <object>objects\obj_blastakoopa</object>
+        </objects>
       </objects>
       <objects name="Airship">
         <objects name="Bullet Bill">
@@ -1996,6 +2014,15 @@
             <object>objects\obj_lotusball</object>
             <object>objects\obj_lotusball_homing</object>
             <object>objects\obj_wiggler_body</object>
+          </objects>
+          <objects name="Castle / Ghost">
+            <objects name="Mechakoopas">
+              <objects name="Blasta">
+                <object>objects\obj_blastakoopa_bullet</object>
+              </objects>
+              <object>objects\obj_mechakoopa_held</object>
+              <object>objects\obj_mechakoopa_debris</object>
+            </objects>
           </objects>
           <objects name="Airship">
             <objects name="Bullet Bill">

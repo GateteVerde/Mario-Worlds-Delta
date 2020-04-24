@@ -139,7 +139,8 @@ image_index = 1;
             <string>///Draw the platform
 
 //If the player is riding a yoshi, set the palette
-if (global.mount == 1) {
+if (global.mount == 1) 
+&amp;&amp; (instance_number(obj_yoshi) &gt; 0) {
 
     pal_swap_set(spr_palette_platform_yoshi, obj_yoshi.colour);
 }

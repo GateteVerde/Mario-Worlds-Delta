@@ -133,9 +133,6 @@ if (ready == 0)
 &amp;&amp; (other.mouthholder == obj_key)
 &amp;&amp; (other.state = yoshistate.ridden)
 &amp;&amp; (instance_exists(obj_playerparent)) {
-
-    //Play 'Key' sound
-    audio_play_sound(snd_key, 0, false);
     
     //Remember colour
     global.mountcolour = obj_yoshi.colour;    
@@ -164,7 +161,7 @@ if (ready == 0)
         other.mi = image_index
         
         //Facing direction
-        other.md = image_xscale;
+        other.md = obj_playerparent.xscale;
         
         //Swallow key
         mouthholder = noone;
@@ -333,8 +330,18 @@ if (ready != 0) {
             //Reset shader
             pal_swap_reset();
             
+            //Set the shader
+            pal_swap_set(spr_palette_master, global.powerup);
+            
             //Draw the player
             draw_sprite_ext(player_ride(), 0, mx-(6*sign(md)), my-8, md, 1, 0, c_white, fade);
+            
+            //Reset shader
+            pal_swap_reset();
+            
+            //Draw the cape
+            if (global.powerup == cs_pow_cape)            
+                draw_sprite_ext(spr_cape, 1, mx-(6*sign(md)), my-8, md, 1, 0, c_white, fade);
         }
     } 
     
@@ -345,8 +352,23 @@ if (ready != 0) {
         if (ready == 1)
         || (ready == 2) {
         
+            //Draw the key
             draw_sprite_ext(spr_key, 0, kx+8-10, ky, kd, 1, 0, c_white, fade);
+            
+            //Draw the cape
+            if (global.powerup == cs_pow_cape) {
+            
+                draw_sprite_ext(spr_cape, 0, mx, my, md, 1, 0, c_white, fade);
+            }
+            
+            //Set the shader
+            pal_swap_set(spr_palette_master, global.powerup);
+            
+            //Draw the player
             draw_sprite_ext(ms, mi, mx, my, md, 1, 0, c_white, fade);
+            
+            //Reset shader
+            pal_swap_reset();
         }        
     }   
 }

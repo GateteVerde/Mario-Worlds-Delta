@@ -36,21 +36,25 @@ image_speed = 0;
 //Item check
 alarm[0] = 2;
 
+//Allow block exit
+ready = 0;
+alarm[1] = 62;
+
 //If there is a solid on top of the block
-if (position_meeting(x,y-8,obj_solid)) {
+if (position_meeting(x, y-8, obj_solid)) {
 
     //Go down if both sides are blocked
-    if (position_meeting(x-16,y+8,obj_solid))
-    &amp;&amp; (position_meeting(x+16,y+8,obj_solid))
-        vspeed = 0.35;
+    if (position_meeting(x-16, y+8, obj_solid))
+    &amp;&amp; (position_meeting(x+16, y+8, obj_solid))
+        vspeed = 0.25;
 
     //Go right if the left side is blocked
-    else if (position_meeting(x-16,y+8,obj_solid))
-        hspeed = 0.35;
+    else if (position_meeting(x-16, y+8, obj_solid))
+        hspeed = 0.25;
 
     //Go left if the right side is blocked
-    else if (position_meeting(x+16,y+8,obj_solid))
-        hspeed = -0.35;
+    else if (position_meeting(x+16, y+8, obj_solid))
+        hspeed = -0.25;
 
     //Otherwise, go towards the player
     else {
@@ -59,20 +63,45 @@ if (position_meeting(x,y-8,obj_solid)) {
         if (instance_exists(obj_playerparent)) {
         
             if (obj_playerparent.x &gt; x)
-                hspeed = 0.35;
+                hspeed = 0.25;
             else
-                hspeed = -0.35;
+                hspeed = -0.25;
         }
         
         //Otherwise, if it does not exist.
         else
-            hspeed = -0.35;
+            hspeed = -0.25;
     }
 }
 
 //Otherwise, move up
 else
-    vspeed = -0.35;
+    vspeed = -0.25;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Allow block exit
+
+ready = 1;
 </string>
           </argument>
         </arguments>
@@ -179,7 +208,8 @@ instance_destroy();
             <string>///Turn into a real item when no solid is overlapping
 
 //If not overlapping with a solid
-if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solidparent, 0, 0)) {
+if (ready == 1)
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solidparent, 0, 0)) {
 
     //Create an item
     with (sprite_create_object(x, y, sprite_index)) {
