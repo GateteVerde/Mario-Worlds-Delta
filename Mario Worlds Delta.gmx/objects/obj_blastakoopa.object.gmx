@@ -116,6 +116,7 @@ sprite_index = spr_blastakoopa;
 
 if (image_index &gt; 0) {
 
+    //Change frame and repeat if needed
     image_index--;
     alarm[4] = 4;
 }
@@ -148,8 +149,8 @@ else
 //If the blastakoopa is facing left
 if (xscale &lt; 0) {
     
-    //Play 'Explosion' sound
-    audio_play_sound(snd_explosion, 0, false);
+    //Play 'Fire' sound
+    audio_play_sound(snd_mechakoopa_fire, 0, false);
     
     //Create missile bill
     mybullet = instance_create(x-8, y+8, obj_blastakoopa_bullet);                    
@@ -165,7 +166,7 @@ if (xscale &lt; 0) {
 else if (xscale &gt; 0) {
     
     //Play 'Explosion' sound
-    audio_play_sound(snd_explosion, 0, false);
+    audio_play_sound(snd_mechakoopa_fire, 0, false);
     
     //Create missile bill
     mybullet = instance_create(x+8, y+8, obj_blastakoopa_bullet);
@@ -203,7 +204,11 @@ alarm[4] = 30;
             <kind>1</kind>
             <string>///Animate
 
+//Animate
 image_speed = 0.2;
+
+//Play 'Mechakoopa-Prepare' sound
+audio_play_sound(snd_mechakoopa_prepare, 0, false);
 </string>
           </argument>
         </arguments>

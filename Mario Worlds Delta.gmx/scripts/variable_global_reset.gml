@@ -25,7 +25,7 @@ global.pswitch = 0;
 global.starman = 0;
 
 //Restart ON/OFF Block
-global.onoffblock = false;
+global.onoff_block = false;
 
 //Restart the collected silver coins
 global.scoins = 0;

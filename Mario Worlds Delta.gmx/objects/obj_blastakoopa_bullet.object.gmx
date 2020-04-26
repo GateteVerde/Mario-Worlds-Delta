@@ -52,7 +52,8 @@ image_speed = 0;
 lastdir = direction;
 
 //Follow the player
-homing = true;
+homing = false;
+alarm[0] = 30;
 
 //Begin flash seq
 alarm[1] = 180;
@@ -140,6 +141,29 @@ image_index = 1;
             <string>///Animate
 
 image_speed = 0.1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DO NOT REMOVE!
 </string>
           </argument>
         </arguments>
