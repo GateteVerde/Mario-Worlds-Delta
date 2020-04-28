@@ -157,6 +157,8 @@
     </sounds>
     <sound>sound\snd_1up</sound>
     <sound>sound\snd_beep</sound>
+    <sound>sound\snd_blastakoopa_fire</sound>
+    <sound>sound\snd_blastakoopa_prepare</sound>
     <sound>sound\snd_boost</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
@@ -200,8 +202,6 @@
     <sound>sound\snd_kick8</sound>
     <sound>sound\snd_lick</sound>
     <sound>sound\snd_lightning</sound>
-    <sound>sound\snd_mechakoopa_fire</sound>
-    <sound>sound\snd_mechakoopa_prepare</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_move</sound>
     <sound>sound\snd_palaceclear</sound>
@@ -234,6 +234,8 @@
     <sound>sound\snd_whistle</sound>
     <sound>sound\snd_wrong</sound>
     <sound>sound\snd_yoshi</sound>
+    <sound>sound\snd_zappakoopa_fire</sound>
+    <sound>sound\snd_zappakoopa_prepare</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -809,6 +811,16 @@
             <sprite>sprites\spr_blastakoopa_bullet</sprite>
             <sprite>sprites\spr_blastakoopa_dead</sprite>
           </sprites>
+          <sprites name="Zappa">
+            <sprite>sprites\spr_zappakoopa</sprite>
+            <sprite>sprites\spr_zappakoopa_sq</sprite>
+            <sprite>sprites\spr_zappakoopa_sq2</sprite>
+            <sprite>sprites\spr_zappakoopa_charge</sprite>
+            <sprite>sprites\spr_zappakoopa_lightning</sprite>
+            <sprite>sprites\spr_zappakoopa_lightning_end</sprite>
+            <sprite>sprites\spr_zappakoopa_beam</sprite>
+            <sprite>sprites\spr_zappakoopa_dead</sprite>
+          </sprites>
           <sprite>sprites\spr_mechakoopa</sprite>
           <sprite>sprites\spr_mechakoopa_sq</sprite>
           <sprite>sprites\spr_mechakoopa_sq2</sprite>
@@ -1230,6 +1242,7 @@
       <sprite>sprites\spr_palaceswitch_g</sprite>
       <sprite>sprites\spr_palaceswitch_r</sprite>
       <sprite>sprites\spr_palaceswitch_b</sprite>
+      <sprite>sprites\spr_lock</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
     <sprite>sprites\spr_down</sprite>
@@ -1690,6 +1703,7 @@
         <objects name="Mechakoopa">
           <object>objects\obj_mechakoopa</object>
           <object>objects\obj_blastakoopa</object>
+          <object>objects\obj_zappakoopa</object>
         </objects>
       </objects>
       <objects name="Airship">
@@ -2022,6 +2036,11 @@
             <objects name="Mechakoopas">
               <objects name="Blasta">
                 <object>objects\obj_blastakoopa_bullet</object>
+              </objects>
+              <objects name="Zappa">
+                <object>objects\obj_zappakoopa_beam</object>
+                <object>objects\obj_zappakoopa_beameff</object>
+                <object>objects\obj_zappakoopa_laser</object>
               </objects>
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>

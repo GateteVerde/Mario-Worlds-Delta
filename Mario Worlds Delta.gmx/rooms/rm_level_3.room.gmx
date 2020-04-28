@@ -4,7 +4,7 @@
   <width>1792</width>
   <height>256</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -62,7 +62,6 @@
     <instance objName="obj_semisolid" x="400" y="224" name="inst_EE32C1AA" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_5B3A3DB7" locked="0" code="inisection = &quot;Forest&quot;;&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="40" y="208" name="inst_5D8DB58D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_koopa_red" x="488" y="208" name="inst_351745FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_red" x="664" y="208" name="inst_E0AF1E80" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_red" x="744" y="208" name="inst_FCEADD1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="544" y="224" name="inst_F94660FC" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
@@ -87,9 +86,6 @@
     <instance objName="obj_semisolid" x="960" y="144" name="inst_411A7CA2" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1200" y="112" name="inst_EDDF2678" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1024" y="208" name="inst_12BC99BD" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_brick_throw" x="1024" y="176" name="inst_6CFC4AE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_brick_throw" x="1024" y="192" name="inst_F25845B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_brick_throw" x="1040" y="192" name="inst_36B2C083" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mechakoopa" x="1208" y="96" name="inst_773996A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_blastakoopa" x="1256" y="96" name="inst_82D53660" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="1296" y="144" name="inst_063C7B58" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -124,16 +120,18 @@
     <instance objName="obj_blastakoopa" x="1592" y="128" name="inst_A0587162" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="1168" y="176" name="inst_DBE16E2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="1152" y="192" name="inst_FD574200" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spikeblock" x="512" y="128" name="inst_B44C0521" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spikeblock_red" x="592" y="112" name="inst_00BAF646" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_spikeblock_blue" x="672" y="112" name="inst_31AAC424" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_onoffblock" x="640" y="160" name="inst_64DA1CE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_red" x="1040" y="80" name="inst_9097D7F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_red" x="1056" y="80" name="inst_32BD8C27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_red" x="1072" y="80" name="inst_002FBCCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_blue" x="1120" y="80" name="inst_2A4CF012" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_blue" x="1136" y="80" name="inst_BAEACA04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_blue" x="1152" y="80" name="inst_37B033D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="1040" y="192" name="inst_D8E9DF45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="1024" y="192" name="inst_FE60B8E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="1024" y="176" name="inst_0AA72CA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_zappakoopa" x="1032" y="160" name="inst_300012C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_zappakoopa" x="1048" y="176" name="inst_9751B8A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_red" x="472" y="208" name="inst_DD323119" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="80" y="128" w="16" h="16" xo="224" yo="128" id="10026850" name="inst_A1D23B11" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
