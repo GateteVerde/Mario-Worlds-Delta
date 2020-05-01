@@ -391,15 +391,6 @@ if (vspeed &gt;= 0) {
 //If moving down and there's no gravity
 if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
     
-    //Ignore this event if underwater
-    if (swimming == 0) {
-        
-        //Embed into the slope to ensure correct slope mechanics
-        if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-        &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent, 1, 0))
-            y += 4;
-    }
-    
     ///Handle slope collisions
     if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {

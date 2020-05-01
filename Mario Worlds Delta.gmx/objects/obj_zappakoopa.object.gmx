@@ -43,6 +43,9 @@ edible = 1;
 image_speed = 0.3;
 
 //Start moving
+laser = 0;
+laser_ex = 0;
+mylaser = noone;
 alarm[10] = 2;
 </string>
           </argument>
@@ -151,8 +154,9 @@ else
 audio_play_sound(snd_zappakoopa_fire, 0, false);
 
 //Create the item
-with (instance_create(x+8*sign(xscale), y+8, obj_zappakoopa_laser))
-    parent = other.id;
+mylaser = instance_create(x+8*sign(xscale), y+8, obj_zappakoopa_laser);
+mylaser.parent = id;
+laser_ex = 1;
 </string>
           </argument>
         </arguments>
@@ -244,6 +248,37 @@ if (gravity == 0) {
 }
 else
     alarm[1] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Laser 
+
+if (!instance_exists(mylaser))
+&amp;&amp; (laser_ex == 1)
+{
+    alarm[5] = 30;
+    laser_ex = 0;
+    mylaser = noone;
+}
 </string>
           </argument>
         </arguments>

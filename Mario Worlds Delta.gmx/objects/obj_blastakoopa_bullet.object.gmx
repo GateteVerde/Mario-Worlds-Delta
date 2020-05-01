@@ -194,6 +194,39 @@ if (homing) {
     //If the player does exist
     if (instance_exists(obj_playerparent)) {
     
+        //If the player is at the right
+        if (obj_playerparent.x &gt; x) {
+        
+            hspeed += 0.025;
+            if (hspeed &gt; 1)
+                hspeed = 1;
+        }
+        
+        //Otherwise, if the player is at the left
+        else if (obj_playerparent.x &lt; x) {
+        
+            hspeed += -0.025;
+            if (hspeed &lt; -1)
+                hspeed = -1;
+        }
+    
+        //If the player is below
+        if (obj_playerparent.y &gt; y) {
+        
+            vspeed += 0.025;
+            if (vspeed &gt; 1)
+                vspeed = 1;
+        }
+        
+        //Otherwise, if the player is above
+        else if (obj_playerparent.y &lt; y) {
+        
+            vspeed += -0.025;
+            if (vspeed &lt; -1)
+                vspeed = -1;
+        }
+    
+        /*
         //Declare a new variable that hold the direction between your own position and the position of obj_playerparent
         var new_dir = point_direction(x, y, obj_playerparent.x, obj_playerparent.y);
         
@@ -203,11 +236,8 @@ if (homing) {
         //Turn it
         direction -= min(1 * sign(diff), abs(diff));
         lastdir = direction;
+        */
     }
-    
-    //Otherwise
-    else
-        direction = lastdir
 }
 
 //Destroy when outside view

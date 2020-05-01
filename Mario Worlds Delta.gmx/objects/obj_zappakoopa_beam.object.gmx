@@ -63,21 +63,25 @@ alarm[0] = 2;
             <kind>1</kind>
             <string>///Create balls
 
-//If facing right
-if (parent.xscale == 1) {
+//If the parent does exist
+if (instance_exists(parent)) {
 
-    with (instance_create(x+lengthdir_x(random(24), random(360)), y+lengthdir_y(random(24), random(360)), obj_zappakoopa_beameff)) {
+    //If facing right
+    if (parent.xscale == 1) {
     
-        target = other.id;
+        with (instance_create(x+lengthdir_x(random(24), random(360)), y+lengthdir_y(random(24), random(360)), obj_zappakoopa_beameff)) {
+        
+            target = other.id;
+        }
     }
-}
-
-//Otherwise, if facing left
-else if (parent.xscale == -1) {
-
-    with (instance_create(x+lengthdir_x(random(24), random(360)), y+lengthdir_y(random(24), random(360)), obj_zappakoopa_beameff)) {
     
-        target = other.id;
+    //Otherwise, if facing left
+    else if (parent.xscale == -1) {
+    
+        with (instance_create(x+lengthdir_x(random(24), random(360)), y+lengthdir_y(random(24), random(360)), obj_zappakoopa_beameff)) {
+        
+            target = other.id;
+        }
     }
 }
 
@@ -156,16 +160,20 @@ draw_set_alpha(alpha);
 //Set precision
 draw_set_circle_precision(64);
 
-//If facing right
-if (parent.xscale == 1) {
-
-    draw_circle_colour(parent.x+6, parent.y+6, radius, make_colour_rgb(0, 147, 255), make_colour_rgb(0, 147, 255), false);
-}
-
-//Otherwise, if facing left
-else if (parent.xscale == -1) {
-
-    draw_circle_colour(parent.x-7, parent.y+6, radius, make_colour_rgb(0, 147, 255), make_colour_rgb(0, 147, 255), false);
+//If the parent does exist
+if (instance_exists(parent)) {
+    
+    //If facing right
+    if (parent.xscale == 1) {
+    
+        draw_circle_colour(parent.x+6, parent.y+6, radius, make_colour_rgb(0, 147, 255), make_colour_rgb(0, 147, 255), false);
+    }
+    
+    //Otherwise, if facing left
+    else if (parent.xscale == -1) {
+    
+        draw_circle_colour(parent.x-7, parent.y+6, radius, make_colour_rgb(0, 147, 255), make_colour_rgb(0, 147, 255), false);
+    }
 }
     
 //Reset alpha

@@ -31,13 +31,13 @@
 event_inherited();
 
 //How vulnerable is this enemy to items
-vulnerable = 0;
+vulnerable = 1;
 
 //How vulnerable is this enemy to the player
 stomp = 0;
 
 //How vulnerable is this enemy to Yoshi
-edible = 1;
+edible = 2;
 
 //Animate
 image_speed = 0.3;

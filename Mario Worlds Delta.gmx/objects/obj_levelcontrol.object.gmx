@@ -72,6 +72,9 @@ warning = 0;
 //Gray P-Switch warning
 swarning = 0;
 
+//Reach last ground Y
+floorY = 0;
+
 //Create HUD
 instance_create(0, 0, obj_hud);
 </string>
@@ -562,8 +565,11 @@ if (follow != noone) {
                 else if (obj_playerparent.swimming == false) {
                 
                     //If the player is idle or walking
-                    if ((obj_playerparent.state == statetype.idle) 
-                    || (obj_playerparent.state == statetype.walk)) {
+                    if (obj_playerparent.state == statetype.idle) 
+                    || (obj_playerparent.state == statetype.walk) {
+                    
+                        //Position player just reached                    
+                        floorY = obj_playerparent.y;
                     
                         //If the player is above the camera
                         if (obj_playerparent.y &lt; y) {
@@ -580,6 +586,12 @@ if (follow != noone) {
                                     view_vspeed[view_current] = 4;
                             }
                         }
+                    } 
+                    else {
+                    
+                        //If player didn't reach Y position on the ground, catch the player (only applies going up)
+                        if (round(y) &gt; floorY)
+                            y -= 4;
                     }
                     
                     //If the player is below the camera, catch him instantly
