@@ -164,11 +164,11 @@ if (sprite_index == spr_walltrampoline) {
             //Play 'Trampoline' sound.
             audio_play_sound(snd_trampoline, 0, false);
             
+            //Set vertical speed
+            obj_playerparent.vspeed = -note_boost;
+            
             //Boost Jump
             obj_playerparent.y--;
-            
-            //Set vertical speed
-            obj_playerparent.vspeed = -4.725;  
             
             //Check if 'Shift' is pressed.
             if (input_check(input.action0))

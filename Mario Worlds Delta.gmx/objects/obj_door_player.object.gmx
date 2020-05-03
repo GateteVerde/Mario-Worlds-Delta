@@ -139,6 +139,9 @@ if (input_check_pressed(input.up))
             //Colour
             warpme.isflashing = player.isflashing;
             
+            //Set up door id
+            warpme.my_door = id;
+            
             //Destroy player object
             with (obj_playerparent) instance_destroy();
         }

@@ -133,7 +133,7 @@ if (ready == 0)
         audio_play_sound(snd_trampoline, 0, false);
 
         //Set the motion
-        vspeed = -4.125;
+        vspeed = -note_boost;
         hspeed = 3;
         
         //Boost jump

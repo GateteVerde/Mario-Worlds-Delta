@@ -31,9 +31,15 @@
 event_inherited();
 
 //Jump Strength
-jumpstrength = 3.6675;
-jumpstrength_spin = 3.40625; //3.21875
-jumpstrength_bounce = 3.8875; //3.6875
+jumpstrength = 3.30075; //3.6675
+jumpstrength_spin = 3.065625; //3.40625
+jumpstrength_bounce = 3.49875; //3.8875
+
+//Trampoline boost
+trampoline_boost = 4.4325; //4.925 
+
+//Note boost
+note_boost = 3.7125; //4.125
 
 //Acceleration
 acc = 0.07;
@@ -45,13 +51,13 @@ acc_turn = 0.17;
 dec = 0.07;
 
 //Gravity
-grav = 0.3125;
+grav = 0.27; //0.3125
 
 //Gravity (when jumping)
-grav_alt = 0.0625;
+grav_alt = 0.053; //0.0625
 
 //Gravity (when holding the jump button while falling)
-grav_hold = 0.25;
+grav_hold = 0.225; //0.25
 
 //In water acceleration
 acc_swim = 0.025;
@@ -75,7 +81,7 @@ hspeed_run = 2.5;
 hspeed_run_full = 3;
 
 //Max falling speed
-vspeedmax = 4;
+vspeedmax = 3.5;
 </string>
           </argument>
         </arguments>
@@ -434,14 +440,8 @@ else if (crouch == false) {
                                     //Set the sprite
                                     sprite_index = player_jump();
                                     
-                                    //Do not animate
-                                    image_speed = 0;
-                                    
-                                    //But set the appropiate frame
-                                    if (vspeed &lt; 0)
-                                        image_index = 0;
-                                    else
-                                        image_index = 1;
+                                    //Animate
+                                    image_speed = 0.4;
                                 }
                             }
                         }
@@ -745,11 +745,10 @@ else if (crouch == false) {
                         }
                     
                         //Set the sprite
-                        sprite_index = player_hold2();
+                        sprite_index = player_hold3();
                         
-                        //Do not animate
-                        image_speed = 0;
-                        image_index = 0;
+                        //Animate
+                        image_speed = 0.4;
                     }
                 }
                 
@@ -785,7 +784,7 @@ else if (crouch == false) {
                     else {
                     
                         //Do not animate
-                        image_speed = 0;
+                        image_speed = 0.5;
                         image_index = 0;
                     }
                 }
@@ -844,15 +843,27 @@ if (global.mount == 1) {
     
     //Deceleration
     dec = 0.046875;
+    
+    //Gravity
+    grav = 0.3125;
+    
+    //Gravity (when jumping)
+    grav_alt = 0.0625;
+    
+    //Gravity (when holding the jump button while falling)
+    grav_hold = 0.25;
+    
+    //Max falling speed
+    vspeedmax = 4;
 }
 
 //Otherwise
 else {
 
     //Jump Strength
-    jumpstrength = 3.6675;
-    jumpstrength_spin = 3.40625;
-    jumpstrength_bounce = 3.8875;
+    jumpstrength = 3.30075; //3.6675
+    jumpstrength_spin = 3.065625; //3.40625
+    jumpstrength_bounce = 3.49875; //3.8875
     
     //Acceleration
     acc = 0.07;
@@ -862,6 +873,18 @@ else {
     
     //Deceleration
     dec = 0.07;
+    
+    //Gravity
+    grav = 0.27; //0.3125
+    
+    //Gravity (when jumping)
+    grav_alt = 0.053; //0.0625
+    
+    //Gravity (when holding the jump button while falling)
+    grav_hold = 0.225; //0.25
+    
+    //Max falling speed
+    vspeedmax = 3.5;
 }
 </string>
           </argument>

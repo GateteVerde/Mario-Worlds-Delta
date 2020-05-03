@@ -127,7 +127,7 @@ if (!ready) {
             audio_play_sound(snd_trampoline, 0, false);
 
             //Set the vertical speed
-            vspeed = -4.125;
+            vspeed = -note_boost;
             
             //Boost jump
             y--;

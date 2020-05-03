@@ -220,7 +220,7 @@ if (sprite_index == spr_trampoline) {
             with (obj_playerparent) {
             
                 //Set vertical speed
-                vspeed = -4.925;
+                vspeed = -trampoline_boost;
                     
                 //Boost jump
                 y -= 8;
