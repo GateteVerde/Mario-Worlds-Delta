@@ -178,8 +178,26 @@ if (inwall == false)
                 vspeed = -jumpstrength_spin-abs(hspeed)/hspeed_run_full/3-run/12;
         
             //Jump depending of the horizontal speed.
-            else     
-                vspeed = -jumpstrength-abs(hspeed)/hspeed_run_full/3-run/12;
+            else {
+                
+                //If Toad is being controlled and he charged enough to do a squat jump
+                if (squat_ready == 1) && (global.player == 2) {
+                
+                    //Set the sprite
+                    sprite_index = player_squat();
+                
+                    //Reset variables
+                    squat_ready = 2;                    
+                    
+                    //Set the animation
+                    image_index = 0;                      
+                    
+                    //Set vertical speed
+                    vspeed = -note_boost;
+                }
+                else
+                    vspeed = -jumpstrength-abs(hspeed)/hspeed_run_full/3-run/12;
+            }
         }
     }
     

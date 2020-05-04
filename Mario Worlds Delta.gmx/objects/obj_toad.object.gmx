@@ -31,27 +31,27 @@
 event_inherited();
 
 //Jump Strength
-jumpstrength = 3.40625;
-jumpstrength_spin = 3.21875;
-jumpstrength_bounce = 3.6875;
+jumpstrength = 3.23375;
+jumpstrength_spin = 3.0584375;
+jumpstrength_bounce = 3.34375;
 
 //Trampoline boost
 trampoline_boost = 4.925;
 
 //Note boost
-note_boost = 4.125
+note_boost = 4.125;
 
 //Acceleration
-acc = 0.078125;
+acc = 0.1;
 
 //Acceleration (when turning)
-acc_turn = 0.25;
+acc_turn = 0.2;
 
 //Deceleration
-dec = 0.046875;
+dec = 0.05;
 
 //Gravity
-grav = 0.3125;
+grav = 0.3625;
 
 //Gravity (when jumping)
 grav_alt = 0.0625;
@@ -69,16 +69,16 @@ acc_turn_swim = 0.05;
 dec_swim = 0.025;
 
 //Gravity (Underwater)
-grav_swim = 0.025;
+grav_swim = 0.03;
 
 //Minimum horizontal speed
-hspeed_walk = 1.25;
+hspeed_walk = 1.5;
 
 //Maximum horizontal speed
-hspeed_run = 2.5;
+hspeed_run = 3;
 
 //Maximum horizontal speed (Full Meter)
-hspeed_run_full = 3;
+hspeed_run_full = 3.5;
 
 //Max falling speed
 vspeedmax = 4;
@@ -115,94 +115,126 @@ else
 //If Toad is crouched down
 if (crouch == true) {
 
-    //Set up the crouch sprite
-    sprite_index = player_crouch();
-    
-    //Do not animate
-    image_speed = 0;
-    
-    //If Toad is not holding anything
+    //If toad is squatting down
     if (holding == 0)
-        image_index = 0;
+    &amp;&amp; (squat_ready == 2) {
     
-    //Otherwise, if Toad is holding something
-    else {
-    
-        //You can set up multiple holding states if you want
-        if (holding == 1)
-            image_index = 1;
-    }
-    
-    //Cancel turning
-    turnnow = 0;
-    
-    //Set up the mask
-    mask_index = spr_mask_player;
-
-    //Set up the cape state
-    if (state == statetype.idle) {
-    
+        //Set up the squat sprite
+        sprite_index = player_squat();
+        
+        //Animate
+        image_speed = 0.2;
+        
+        //Set up the cape state
         with (obj_cape) {
         
-            //Set cape position and state
-            state = capestate.cape_idle;
-            
-            //If Toad is not riding a Yoshi
-            if (global.mount == 0) {
-            
-                yy = 1;
-                depth = other.depth+1;
-            }
-                
-            //Otherwise, if Toad is riding a yoshi
-            else {
-            
-                yy = 3;
-                if (other.depth == 10)
-                    depth = 10;
-                else
-                    depth = -6;
-            }
-        }
-    }
-    else if (state == statetype.walk) {
-    
-        with (obj_cape) {
+            //Set cape state
+            state = capestate.cape_climb;
         
-            state = capestate.cape_walk;
-            depth = other.depth+1;
-            yy = 1
-        }
-    }
-    else if (state == statetype.jump) {
-    
-        //With the cape
-        with (obj_cape) {
-        
-            //Set position
+            //Set cape position
             yy = 1;
-        
-            //If moving up
-            if (other.vspeed &lt; 0) {
             
-                //Set state
-                state = capestate.cape_jump_up;
+            //Set cape depth
+            depth = other.depth+1;
+        }
+        
+        //Set up the mask
+        if (global.powerup == cs_pow_small)
+            mask_index = spr_mask_player;
+        else
+            mask_index = spr_mask_player_big;
+    }
+    else {
+
+        //Set up the crouch sprite
+        sprite_index = player_crouch();
+        
+        //Do not animate
+        image_speed = 0;
+        
+        //If Toad is not holding anything
+        if (holding == 0)
+            image_index = 0;
+        
+        //Otherwise, if Toad is holding something
+        else {
+        
+            //You can set up multiple holding states if you want
+            if (holding == 1)
+                image_index = 1;
+        }
+        
+        //Cancel turning
+        turnnow = 0;
+        
+        //Set up the mask
+        mask_index = spr_mask_player;
+    
+        //Set up the cape state
+        if (state == statetype.idle) {
+        
+            with (obj_cape) {
+            
+                //Set cape position and state
+                state = capestate.cape_idle;
                 
-                //Set depth
-                if (global.mount == 1) {
+                //If Toad is not riding a Yoshi
+                if (global.mount == 0) {
                 
+                    yy = 1;
+                    depth = other.depth+1;
+                }
+                    
+                //Otherwise, if Toad is riding a yoshi
+                else {
+                
+                    yy = 3;
                     if (other.depth == 10)
                         depth = 10;
                     else
                         depth = -6;
                 }
-                else
-                    depth = other.depth+1;
             }
-            else {
+        }
+        else if (state == statetype.walk) {
+        
+            with (obj_cape) {
             
-                state = capestate.cape_jump_down;
+                state = capestate.cape_walk;
                 depth = other.depth+1;
+                yy = 1
+            }
+        }
+        else if (state == statetype.jump) {
+        
+            //With the cape
+            with (obj_cape) {
+            
+                //Set position
+                yy = 1;
+            
+                //If moving up
+                if (other.vspeed &lt; 0) {
+                
+                    //Set state
+                    state = capestate.cape_jump_up;
+                    
+                    //Set depth
+                    if (global.mount == 1) {
+                    
+                        if (other.depth == 10)
+                            depth = 10;
+                        else
+                            depth = -6;
+                    }
+                    else
+                        depth = other.depth+1;
+                }
+                else {
+                
+                    state = capestate.cape_jump_down;
+                    depth = other.depth+1;
+                }
             }
         }
     }
@@ -815,6 +847,155 @@ if (firing &gt; 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up different physics for Luigi when it is or not riding a yoshi
+
+//If the player is riding a yoshi
+if (global.mount == 1) {
+
+    //Jump Strength
+    jumpstrength = 3.40625;
+    jumpstrength_spin = 3.21875;
+    jumpstrength_bounce = 3.6875;
+    
+    //Acceleration
+    acc = 0.078125;
+    
+    //Acceleration (when turning)
+    acc_turn = 0.25;
+    
+    //Deceleration
+    dec = 0.046875;
+    
+    //Gravity
+    grav = 0.3125;
+    
+    //Gravity (when jumping)
+    grav_alt = 0.0625;
+    
+    //Gravity (when holding the jump button while falling)
+    grav_hold = 0.25;
+    
+    //Minimum horizontal speed
+    hspeed_walk = 1.3;
+    
+    //Maximum horizontal speed
+    hspeed_run = 2.7;
+    
+    //Maximum horizontal speed (Full Meter)
+    hspeed_run_full = 3;
+    
+    //Max falling speed
+    vspeedmax = 4;
+}
+
+//Otherwise
+else {
+
+    //Jump Strength
+    jumpstrength = 3.23375;
+    jumpstrength_spin = 3.0584375;
+    jumpstrength_bounce = 3.34375;
+    
+    //Acceleration
+    acc = 0.1;
+    
+    //Acceleration (when turning)
+    acc_turn = 0.2;
+    
+    //Deceleration
+    dec = 0.05;
+    
+    //Gravity
+    grav = 0.3625;
+    
+    //Gravity (when jumping)
+    grav_alt = 0.0625;
+    
+    //Minimum horizontal speed
+    hspeed_walk = 1.5;
+    
+    //Maximum horizontal speed
+    hspeed_run = 3;
+    
+    //Maximum horizontal speed (Full Meter)
+    hspeed_run_full = 3.5;
+    
+    //Max falling speed
+    vspeedmax = 4;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toad's logic
+
+//Inherit event from parent
+event_inherited();
+
+//Charge when crouched down
+if (crouch == true)
+&amp;&amp; (state != statetype.jump) {
+
+    //Increment timer
+    squat_time++;
+    
+    //If the squat time is greater than 120, allow big jump
+    if (squat_time &gt; 120) 
+    &amp;&amp; (squat_ready == 0) {
+    
+        //Play 'Charge' sound
+        audio_play_sound(snd_charge, 0, false);
+    
+        //Set the squat state
+        squat_ready = 1;
+    }
+}
+else {
+
+    squat_time = 0;
+    if (squat_ready != 2)
+        squat_ready = 0;    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="7">
       <action>
         <libid>1</libid>
@@ -840,6 +1021,13 @@ if (speed &gt; 0) {
     //If the player is climbing
     if (sprite_index == player_climb())
         image_index = 1;
+}
+
+//If the player is doing a squat jump
+if (sprite_index == player_squat()) {
+
+    image_speed = 0;
+    image_index = 3;
 }
 </string>
           </argument>

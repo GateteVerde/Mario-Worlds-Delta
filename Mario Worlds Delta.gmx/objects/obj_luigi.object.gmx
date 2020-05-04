@@ -891,6 +891,48 @@ else {
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Toad's logic
+
+//Inherit event from parent
+event_inherited();
+
+//Play 'Scuttle' sound when in-air and not swimming
+if (swimming == false)
+&amp;&amp; (state == statetype.jump) {
+
+    //If the 'Scuttle' sound is not playing
+    if (!audio_is_playing(snd_scuttle)) {
+    
+        //Play 'Scuttle' sound
+        audio_play_sound(snd_scuttle, 0, false);
+        
+        //Set 'Scuttle' gain and pitch.
+        audio_sound_gain(snd_scuttle, random_range(0.9, 1.0), 0);
+        audio_sound_pitch(snd_scuttle, choose(0.9, 1.0, 1.1));
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="7">
       <action>
         <libid>1</libid>

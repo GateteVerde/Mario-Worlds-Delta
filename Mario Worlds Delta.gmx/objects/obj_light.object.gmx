@@ -32,6 +32,13 @@ if (instance_exists(obj_followme)) {
 
     x = obj_followme.x;
     y = obj_followme.y;
+    
+} 
+else if (instance_exists(obj_player_clear)) {
+
+    //If player cleared level, light still follows
+    x = obj_player_clear.x;
+    y = obj_player_clear.y;    
 }
 </string>
           </argument>

@@ -127,6 +127,10 @@ dive = 0;
 fly = 0;
 flying = 0;
 
+//Squat Timer
+squat_time = 0;
+squat_ready = 0;
+
 //Projectile direction when spinning
 dir = 1;
 
@@ -1148,6 +1152,14 @@ jumping = 0;
 //End spin jump
 jumpstyle = 0;
 
+//End squat jump
+if (squat_ready == 2) {
+
+    squat_ready = 0;
+    if (squat_time &gt; 0)
+        squat_time = 0;
+}
+
 //Reset combos when not sliding down a slope
 if (sliding == false) 
 &amp;&amp; (hitcombo &gt; 0)
@@ -1454,14 +1466,32 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw the player
 
-//Set up palette
-player_set_palette(id);
+//If the player is about to squat jump
+if (squat_ready == 1)
+&amp;&amp; (squat_time mod 6 == 0) 
+&amp;&amp; (instance_number(obj_invincibility) == 0) {
 
-//Draw the player
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+    //Draw sprite
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);     
+    
+    //Draw blended sprite
+    draw_set_blend_mode(bm_add);
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+    draw_set_blend_mode(bm_normal);      
+}
 
-//Reset palette
-pal_swap_reset();
+//Otherwise
+else {
+    
+    //Set up palette
+    player_set_palette(id);
+        
+    //Draw the player
+    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+    
+    //Reset palette
+    pal_swap_reset();
+}
 </string>
           </argument>
         </arguments>

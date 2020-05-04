@@ -19,8 +19,13 @@ switch (global.powerup) {
             return spr_mario_small_jump;
             
         //Luigi
-        else if (global.player == 1)
-            return spr_luigi_small_jump;
+        else if (global.player == 1) {
+        
+            if (vspeed < 0)
+                return spr_luigi_small_jump;
+            else
+                return spr_luigi_small_jump2;
+        }
             
         //Toad
         else if (global.player == 2)
@@ -35,8 +40,13 @@ switch (global.powerup) {
             return spr_mario_big_jump;
             
         //Luigi
-        else if (global.player == 1)
-            return spr_luigi_big_jump;
+        else if (global.player == 1) {
+        
+            if (vspeed < 0)
+                return spr_luigi_big_jump;
+            else
+                return spr_luigi_big_jump2;
+        }
             
         //Toad
         else if (global.player == 2)

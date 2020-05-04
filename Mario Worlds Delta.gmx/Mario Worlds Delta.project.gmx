@@ -165,6 +165,7 @@
     <sound>sound\snd_burn</sound>
     <sound>sound\snd_capecancel</sound>
     <sound>sound\snd_capefly</sound>
+    <sound>sound\snd_charge</sound>
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
@@ -236,6 +237,7 @@
     <sound>sound\snd_yoshi</sound>
     <sound>sound\snd_zappakoopa_fire</sound>
     <sound>sound\snd_zappakoopa_prepare</sound>
+    <sound>sound\snd_scuttle</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -290,6 +292,7 @@
           <sprite>sprites\spr_luigi_small</sprite>
           <sprite>sprites\spr_luigi_small_walk</sprite>
           <sprite>sprites\spr_luigi_small_jump</sprite>
+          <sprite>sprites\spr_luigi_small_jump2</sprite>
           <sprite>sprites\spr_luigi_small_run</sprite>
           <sprite>sprites\spr_luigi_small_runjump</sprite>
           <sprite>sprites\spr_luigi_small_skid</sprite>
@@ -310,6 +313,7 @@
           <sprite>sprites\spr_luigi_big</sprite>
           <sprite>sprites\spr_luigi_big_walk</sprite>
           <sprite>sprites\spr_luigi_big_jump</sprite>
+          <sprite>sprites\spr_luigi_big_jump2</sprite>
           <sprite>sprites\spr_luigi_big_run</sprite>
           <sprite>sprites\spr_luigi_big_runjump</sprite>
           <sprite>sprites\spr_luigi_big_skid</sprite>
@@ -340,6 +344,7 @@
           <sprite>sprites\spr_toad_small_jump</sprite>
           <sprite>sprites\spr_toad_small_run</sprite>
           <sprite>sprites\spr_toad_small_runjump</sprite>
+          <sprite>sprites\spr_toad_small_squat</sprite>
           <sprite>sprites\spr_toad_small_skid</sprite>
           <sprite>sprites\spr_toad_small_climb</sprite>
           <sprite>sprites\spr_toad_small_swim</sprite>
@@ -359,6 +364,7 @@
           <sprite>sprites\spr_toad_big_jump</sprite>
           <sprite>sprites\spr_toad_big_run</sprite>
           <sprite>sprites\spr_toad_big_runjump</sprite>
+          <sprite>sprites\spr_toad_big_squat</sprite>
           <sprite>sprites\spr_toad_big_skid</sprite>
           <sprite>sprites\spr_toad_big_climb</sprite>
           <sprite>sprites\spr_toad_big_swim</sprite>
@@ -1315,6 +1321,7 @@
           <script>scripts\player_idle.gml</script>
           <script>scripts\player_walk.gml</script>
           <script>scripts\player_jump.gml</script>
+          <script>scripts\player_squat.gml</script>
           <script>scripts\player_run.gml</script>
           <script>scripts\player_runjump.gml</script>
           <script>scripts\player_skid.gml</script>
