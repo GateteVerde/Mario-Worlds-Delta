@@ -69,6 +69,9 @@ showfps = false;
 givelives = 0;
 alarm[7] = 1;
 
+//Frames
+frame = 0;
+
 //Game width / heigh
 global.gw = 256;
 global.gh = 224;
@@ -452,6 +455,9 @@ if (background_exists(back))
 
 //Update Shockwave shader
 update_shockwave();
+
+//Increment frames
+frame += 0.5;
 
 //Prevent lives from going over 999
 if (lives &gt; 99)

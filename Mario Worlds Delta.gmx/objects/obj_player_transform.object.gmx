@@ -370,7 +370,7 @@ if (global.powerup == cs_pow_cape) {
 }
 
 //Set the palette
-pal_swap_set(spr_palette_master, global.powerup);
+player_set_palette(id);
 
 //Draw the player
 if (global.mount == 1)

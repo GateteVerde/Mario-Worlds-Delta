@@ -14,8 +14,18 @@
 //If the player is invincible
 if (instance_exists(obj_invincibility)) {
 
-    //Set the invincibility palette
-    pal = spr_palette_invincibility;
+    //Set palette based on controlled character
+    switch (global.player) {
+    
+        //Mario
+        case (0): pal = spr_palette_mario_invincibility; break;
+        
+        //Luigi
+        case (1): pal = spr_palette_luigi_invincibility; break;
+        
+        //Toad
+        case (2): pal = spr_palette_toad_invincibility; break;
+    }
     
     //Set the palette position
     numb = argument[0].isflashing;
@@ -24,8 +34,18 @@ if (instance_exists(obj_invincibility)) {
 //Otherwise, if the player is not invincible
 else {
 
-    //Set the master palette
-    pal = spr_palette_master;
+    //Set palette based on controlled character
+    switch (global.player) {
+    
+        //Mario
+        case (0): pal = spr_palette_mario; break;
+        
+        //Luigi
+        case (1): pal = spr_palette_luigi; break;
+        
+        //Toad
+        case (2): pal = spr_palette_toad; break;
+    }
     
     //Set the palette position
     numb = global.powerup;

@@ -4,7 +4,7 @@
   <width>1792</width>
   <height>256</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -72,7 +72,6 @@
     <instance objName="obj_qblock" x="320" y="48" name="inst_BFC2F07F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower_alt" x="320" y="48" name="inst_82A97577" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_BFDA823E" locked="0" code="inisection = &quot;Desert&quot;;&#xA;leveltime = 300;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_piranhaplant" x="528" y="176" name="inst_5DFC7F03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="768" y="96" name="inst_C378C7E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="800" y="96" name="inst_DA89E9E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="832" y="96" name="inst_D7454986" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -117,6 +116,23 @@
     <instance objName="obj_solid" x="1184" y="224" name="inst_F9C1CB81" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1200" y="224" name="inst_44BE72F7" locked="0" code="" scaleX="37" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goal_gate" x="1328" y="80" name="inst_10719A7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="576" y="144" name="inst_DF2B3B18" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="592" y="128" name="inst_91C72153" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="608" y="128" name="inst_995BA4C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="624" y="144" name="inst_6F48A627" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boomerangbro" x="792" y="144" name="inst_B856CEB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boomerangbro" x="824" y="80" name="inst_13CA0A8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_jumpplant" x="528" y="160" name="inst_08EF634A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="160" name="inst_7E270DCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="144" name="inst_ED2A79D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="176" name="inst_EF1440ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="192" name="inst_D04738DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="128" name="inst_8977A89C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="112" name="inst_6B429C1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="96" name="inst_88837CFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="80" name="inst_C98E2049" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="48" name="inst_D3396F65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="608" y="64" name="inst_29CC1EFA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_desert" x="224" y="160" w="16" h="48" xo="320" yo="0" id="10025941" name="inst_5EC38ECE" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

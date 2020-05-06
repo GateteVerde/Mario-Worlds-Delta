@@ -52,7 +52,6 @@ image_speed = 0.15;
 if (position_meeting(x, bbox_bottom+8, obj_goomba)) {
 
     mebelow = collision_point(x, bbox_bottom+8, obj_goomba, 0, 0);
-    sprite_index = spr_goomba_stack;
     alarm[1] = 10;
 }
  
@@ -257,10 +256,6 @@ if (mebelow == noone) {
             
         //Reset offset values
         offset = 0;
-        offsetnext = 0;
-        
-        //Deny offset values
-        alarm[1] = -1;
     }
 }
 

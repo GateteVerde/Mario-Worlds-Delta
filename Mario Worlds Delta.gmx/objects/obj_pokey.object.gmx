@@ -210,7 +210,7 @@ alarm[9] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Manage offset values
+            <string>///Manage offset
 
 //If there's memory of a pokey below
 if (instance_exists(mebelow)) {
@@ -237,7 +237,7 @@ switch (offsetnext) {
 offsetnext++;
 if (offsetnext == 4)
     offsetnext = 0;
-
+    
 //Keep changing offset values
 alarm[0] = 10;
 </string>
