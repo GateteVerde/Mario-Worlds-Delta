@@ -36,5 +36,8 @@ global.doors = ds_map_create();
 //Clear the records of the collected dragon coins
 global.dcoins = ds_map_create();
 
+//Reset bonus game
+global.bonusgame = 0;
+
 //Reset warps
 global.postchange = -1;

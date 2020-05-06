@@ -604,8 +604,12 @@ if (follow != noone) {
                 }
             }
         }
-        else
+        else {
+        
             y = follow.y;
+            if (view_vspeed[view_current] != 4)
+                view_vspeed[view_current] = 4;
+        }
         
         //If the camera is to the right and the player is from a certain distance from the camera
         if ((orientation == 1) &amp;&amp; (follow.x &gt; x-16)) {

@@ -78,7 +78,7 @@ global.coins = 0;
 global.scoins = 0;
 
 //Star amount
-global.bonus = 0;
+global.bonus = 90;
 global.bonusadd = 0;
 global.bonusgame = 0;
 

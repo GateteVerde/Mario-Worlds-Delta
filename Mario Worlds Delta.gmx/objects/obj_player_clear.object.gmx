@@ -63,6 +63,9 @@ hspeed = 0.324;
 global.checkpoint = noone;
 global.checkpointroom = noone;
 
+//Allow Mario Start! text
+global.mariostart = 0;
+
 //States
 ready = 0;
 ready2 = 0;
@@ -219,8 +222,8 @@ if (global.bonusadd &gt; 0) {
         //Decrement 100 bonus stars
         global.bonus -= 100;
         
-        //Play '1-UP' sound
-        audio_play_sound(snd_1up, 0, false);    
+        //Enable bonus game
+        global.bonusgame = 1;    
     }
     
     //Repeat the process...

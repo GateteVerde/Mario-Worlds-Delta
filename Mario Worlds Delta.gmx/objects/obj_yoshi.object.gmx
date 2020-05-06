@@ -1202,7 +1202,10 @@ player_set_palette(obj_playerparent);
 //Draw the player
 if (m_vis == 1) {
 
-    draw_sprite_ext(m, f, round(x)-(4*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+    if (obj_playerparent.cleared &lt; 2)
+        draw_sprite_ext(m, f, round(x)-(4*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
+    else
+        draw_sprite_ext(m, 3, round(x)-(4*sign(obj_playerparent.xscale)), round(y)-8+m_ypos, obj_playerparent.xscale, 1, 0, c_white, obj_playerparent.image_alpha);
 }
 
 //Reset shader

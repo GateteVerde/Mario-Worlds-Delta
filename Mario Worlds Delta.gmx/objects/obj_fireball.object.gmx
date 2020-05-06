@@ -117,15 +117,15 @@ if (gravity == 0) {
     
     //If Mario is being controlled
     if (global.player == 0)
-        vspeed = -4.5; //-2.5
+        vspeed = -4.5;
         
     //Otherwise, if Luigi is being controlled
     else if (global.player == 1)
-        vspeed = -6.5; //-4.5
+        vspeed = -5.5;
         
     //Otherwise, if Toad is being controlled
     else if (global.player == 2)
-        vspeed = -3.5; //-2   
+        vspeed = -2.5;
 }
 else {
 

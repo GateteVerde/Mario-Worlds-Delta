@@ -115,7 +115,10 @@ alarm[1] = 60;
 draw_clear(c_black);
 
 //Draw the text
-draw_sprite(spr_mariostart, global.player, view_xview[0] + view_wview[0] / 2, view_yview[0]+112);
+if (global.bonusgame == 0)
+    draw_sprite(spr_mariostart, global.player, view_xview[0] + view_wview[0] / 2, view_yview[0]+112);
+else
+    draw_sprite(spr_mariostart, 4, view_xview[0] + view_wview[0] / 2, view_yview[0]+112);
 </string>
           </argument>
         </arguments>

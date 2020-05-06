@@ -159,6 +159,7 @@
     <sound>sound\snd_beep</sound>
     <sound>sound\snd_blastakoopa_fire</sound>
     <sound>sound\snd_blastakoopa_prepare</sound>
+    <sound>sound\snd_bonusend</sound>
     <sound>sound\snd_boost</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
@@ -213,6 +214,7 @@
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
     <sound>sound\snd_reservedrop</sound>
+    <sound>sound\snd_scuttle</sound>
     <sound>sound\snd_shatter</sound>
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
@@ -237,7 +239,6 @@
     <sound>sound\snd_yoshi</sound>
     <sound>sound\snd_zappakoopa_fire</sound>
     <sound>sound\snd_zappakoopa_prepare</sound>
-    <sound>sound\snd_scuttle</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -1250,6 +1251,7 @@
       <sprite>sprites\spr_palaceswitch_g</sprite>
       <sprite>sprites\spr_palaceswitch_r</sprite>
       <sprite>sprites\spr_palaceswitch_b</sprite>
+      <sprite>sprites\spr_bonusblock</sprite>
       <sprite>sprites\spr_lock</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
@@ -1269,6 +1271,7 @@
       <background>background\bgr_cave_ice</background>
       <background>background\bgr_cave_ice_b</background>
       <background>background\bgr_cave_ice_c</background>
+      <background>background\bgr_desert</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
       <background>background\bgr_hills_thin</background>
@@ -1907,6 +1910,11 @@
       </objects>
       <objects name="Do Not Use!">
         <objects name="Players">
+          <objects name="Playables">
+            <object>objects\obj_mario</object>
+            <object>objects\obj_luigi</object>
+            <object>objects\obj_toad</object>
+          </objects>
           <objects name="Cape">
             <object>objects\obj_cape</object>
             <object>objects\obj_cape_fly</object>
@@ -1916,11 +1924,6 @@
             <object>objects\obj_player_dead</object>
             <object>objects\obj_player_clear</object>
             <object>objects\obj_player_door</object>
-          </objects>
-          <objects name="Special">
-            <object>objects\obj_mario</object>
-            <object>objects\obj_luigi</object>
-            <object>objects\obj_toad</object>
           </objects>
           <object>objects\obj_spinner</object>
           <object>objects\obj_boundary_top</object>
@@ -2129,6 +2132,8 @@
       <object>objects\obj_mariostart</object>
       <object>objects\obj_gameover</object>
       <object>objects\obj_palaceswitch</object>
+      <object>objects\obj_bonusblock_center</object>
+      <object>objects\obj_bonusblock</object>
     </objects>
     <object>objects\obj_up</object>
     <object>objects\obj_down</object>
@@ -2158,6 +2163,7 @@
       </rooms>
       <rooms name="Minigames">
         <room>rooms\rm_minigame_a</room>
+        <room>rooms\rm_minigame_bonus</room>
       </rooms>
       <rooms name="Switch Palaces">
         <room>rooms\rm_palaceswitch_y</room>

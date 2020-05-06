@@ -131,12 +131,15 @@ flying = 0;
 squat_time = 0;
 squat_ready = 0;
 
+//Bonus Game Clear
+cleared = 0;
+timer = 0;
+
 //Projectile direction when spinning
 dir = 1;
 
 //Begin alarms
 alarm[3] = 1;
-alarm[4] = 1;
 alarm[6] = 1;
 alarm[8] = 1;
 alarm[11] = 1;
@@ -442,6 +445,31 @@ else {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Return to the world map
+
+wmap_return();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -600,6 +628,27 @@ invulnerable = false;
 
 //Check if above a slope
 slope = player_inslope();
+
+//Do 'V-Pose' if clearing bonus level
+if (cleared == 1) {
+
+    //Disable controls
+    control_enable = false;
+    
+    //Do not crouch
+    crouch = 0;
+    
+    //Increment timer
+    timer += 1000/60;
+    
+    //End state
+    if (timer &gt;= 2677)
+    &amp;&amp; (audio_is_playing(snd_bonusend)) {
+    
+        cleared = 2;
+        alarm[4] = 220;
+    }
+}
 
 //Decrement boost
 if (boostme &gt; 0) {
@@ -1468,7 +1517,7 @@ instance_destroy();
 
 //If the player is about to squat jump
 if (squat_ready == 1)
-&amp;&amp; (squat_time mod 6 == 0) 
+&amp;&amp; (squat_time mod 4 == 0) 
 &amp;&amp; (instance_number(obj_invincibility) == 0) {
 
     //Draw sprite
