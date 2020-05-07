@@ -261,10 +261,10 @@ else if (sprite_index == spr_shell_spiny) {
             <string>///Check for 1 block gaps and destroy blocks on the way
 
 //If the object is not falling
-if (fall == 0) {
+if ((fall == 0) &amp;&amp; (vspeed == 0)) {
 
     //If there's not a slope
-    if (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0)) {
+    if (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
     
         //If there's not a semisolid below
         if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0)) {
@@ -410,18 +410,10 @@ if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_s
     gravity = 0;
     if (vspeed &gt; 0) {
     
-        //If this object is not ancestor of obj_holdparent
-        if (!variable_instance_exists(object_index, "bouncy"))
-        &amp;&amp; (!object_is_ancestor(object_index, obj_holdparent))
-        || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
+        if (vspeed &gt; 0.5)
+            vspeed = -vspeed/2;
+        else
             vspeed = 0;
-        else {
-        
-            if (vspeed &gt; 0.5)
-                vspeed = -vspeed/2;
-            else
-                vspeed = 0;
-        }
     }
 }
 else {

@@ -453,9 +453,13 @@ if (vspeed &lt; 0) {
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
-        //Prevent the NPC from getting embed on the ceiling      
-        while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solidparent, 1, 0))
-        || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))        
+        //Prevent the NPC from getting embed on linear ceilings
+        while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solidparent, 1, 0))
+        &amp;&amp; (!place_meeting(x, y, obj_solidparent))
+            y++;
+    
+        //Prevent the NPC from getting embed on non-linear ceilings      
+        while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))       
             y++;
         
         //Check if there's a block on the way.
