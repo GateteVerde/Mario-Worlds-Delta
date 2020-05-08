@@ -42,6 +42,9 @@ ready = 0;
 //Number of kills
 hitcombo = 0;
 
+//Snowball angle
+angle = 0;
+
 //Whether the brick will harm the player
 harmplayer = 0;
 
@@ -132,13 +135,16 @@ image_speed = 0.2;
 if (!held) {
 
     //Previous horizontal speed
-    prevhspeed = hspeed;    
+    prevhspeed = hspeed;
     
     //Inherit event
     event_inherited();
     
     //If kicked
     if (ready == 1) {
+    
+        //Increment angle
+        angle -= 10*sign(hspeed);
     
         //If the direction changes...
         if (hspeed != prevhspeed) {
@@ -159,11 +165,6 @@ if (!held) {
             //Shatter
             event_user(0);
         }
-        
-        /*Allow the block to harm the player
-        if (harmplayer == 0)
-        &amp;&amp; (!place_meeting(x, y, obj_playerparent))
-            harmplayer = 1;*/
     }
 }
 </string>
@@ -633,17 +634,73 @@ else {
             <kind>1</kind>
             <string>///Shatter it
 
-//Play 'Break' sound
-audio_stop_play_sound(snd_break, 0, false);
+//If this is a snow block
+if (sprite_index == spr_pokey_snowball) {
 
-//Create shards    
-shard_create(x, y+8, spr_shard_blue, 3, 6, 45);
-shard_create(x, y+8, spr_shard_blue, 1, 6, 60);
-shard_create(x, y+8, spr_shard_blue, 0, 6, 120);
-shard_create(x, y+8, spr_shard_blue, 2, 6, 135);
+    //Play 'Bump' sound
+    audio_stop_play_sound(snd_bump, 0, false);
+
+    //Repeat 8 times
+    repeat (8) {
+        
+        with (instance_create(x+random_range(-8, 8), y+random(16), obj_cloud)) {
+        
+            gravity = 0.2;
+            hspeed = random(2*sign(other.hspeed)*-1);
+            vspeed = random_range(-4, 2);
+        }
+    }
+}
+
+//Otherwise
+else {
+    
+    //Play 'Break' sound
+    audio_stop_play_sound(snd_break, 0, false);
+    
+    //Create shards    
+    shard_create(x, y+8, spr_shard_blue, 3, 6, 45);
+    shard_create(x, y+8, spr_shard_blue, 1, 6, 60);
+    shard_create(x, y+8, spr_shard_blue, 0, 6, 120);
+    shard_create(x, y+8, spr_shard_blue, 2, 6, 135);
+}
     
 //Destroy
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw throwable block
+
+//If this is a regular throw block
+if (sprite_index == spr_brick_throw_th)
+    event_inherited();
+    
+//Otherwise, draw the indicated sprite
+else {
+
+    if (sprite_index == spr_pokey_snowball)
+        draw_sprite_ext(spr_pokey_snowball_angle, -1, round(x), round(y)+8, 1, 1, angle, c_white, 1);
+}
 </string>
           </argument>
         </arguments>

@@ -70,7 +70,7 @@ path_start(pth_snow, spd, path_action_continue, false);
 if (ready == 0) {
 
     //Destroy when colliding with any collision object
-    if (place_meeting(x, bbox_bottom-1, obj_semisolid))
+    if (place_meeting(x, bbox_bottom-1, obj_semisolidparent))
     || (place_meeting(x, bbox_bottom-1, obj_slopeparent))
     || (place_meeting(x, bbox_bottom-1, obj_swim)) {
     
