@@ -133,41 +133,6 @@ if (fire) {
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Shatter it
-
-//Play 'Break' sound
-audio_stop_play_sound(snd_break, 0, false);
-
-//Create shards    
-shard_create(x+8, y+8, spr_shard_ice, 3, 6, 45);
-shard_create(x+8, y+8, spr_shard_ice, 1, 6, 60);
-shard_create(x+8, y+8, spr_shard_ice, 0, 6, 120);
-shard_create(x+8, y+8, spr_shard_ice, 2, 6, 135);
-    
-//Destroy
-instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="7">
       <action>
         <libid>1</libid>

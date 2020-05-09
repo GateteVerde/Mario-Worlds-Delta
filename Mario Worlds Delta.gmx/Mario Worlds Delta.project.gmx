@@ -884,6 +884,10 @@
           <sprite>sprites\spr_bullseyebanzai</sprite>
           <sprite>sprites\spr_bullseyebanzai_dead</sprite>
         </sprites>
+        <sprite>sprites\spr_bobomb</sprite>
+        <sprite>sprites\spr_bobomb_down</sprite>
+        <sprite>sprites\spr_bobomb_down_th</sprite>
+        <sprite>sprites\spr_bobomb_dead</sprite>
       </sprites>
       <sprite>sprites\spr_hammerbro</sprite>
       <sprite>sprites\spr_hammerbro_throw</sprite>
@@ -1759,6 +1763,7 @@
           <object>objects\obj_blaster_banzai</object>
           <object>objects\obj_blaster_bullseye</object>
         </objects>
+        <object>objects\obj_bobomb</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
@@ -2100,6 +2105,7 @@
               <object>objects\obj_banzaibill</object>
               <object>objects\obj_bullseyebanzai</object>
             </objects>
+            <object>objects\obj_bobomb_held</object>
           </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_hammerbro_hammer</object>
