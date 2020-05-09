@@ -30,7 +30,11 @@
 //Play 'Explosion' sound
 audio_stop_play_sound(snd_explosion, 0, false);
 
-//Make invisible
+//Animate
+image_speed = 0.2;
+
+//Do not hurt player
+hurtplayer = 1;
 alarm[0] = 4;
 
 //Combo
@@ -63,7 +67,7 @@ with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_sm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate more stars and destroy
+            <string>///Generate more stars
 
 //Create stars
 var b;
@@ -73,9 +77,6 @@ repeat (5) {
     instance_create(x+8+lengthdir_x(32, b), y+8+lengthdir_y(32, b), obj_spinstar);
     b += 72;
 }
-
-//Destroy
-instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -98,10 +99,10 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make invisible, generate stars
+            <string>///Disable player hurt script, generate stars
 
-//Make invisible
-visible = 0;
+//Do not hurt player
+hurtplayer = 0;
 
 //Create stars
 var a;
@@ -164,13 +165,14 @@ if (visible)
             <kind>1</kind>
             <string>///Hurt the player
 
-with (other) event_user(0);
+if (hurtplayer == 1)
+    with (other) event_user(0);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="7" enumb="7">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -187,9 +189,9 @@ with (other) event_user(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Do not draw
+            <string>///Destroy
 
-exit;
+instance_destroy();
 </string>
           </argument>
         </arguments>

@@ -30,7 +30,11 @@
 //Play 'Big Thud' sound
 audio_stop_play_sound(snd_thud_big, 0, false);
 
-//Make invisible
+//Animate
+image_speed = 0.2;
+
+//Do not hurt player
+hurtplayer = 1;
 alarm[0] = 4;
 
 //Combo
@@ -63,7 +67,7 @@ with (instance_create(x+16+lengthdir_x(32, 315), y+16+lengthdir_y(32, 315), obj_
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate more stars and destroy
+            <string>///Generate more stars
 
 //Create stars
 var b;
@@ -73,9 +77,6 @@ repeat (5) {
     instance_create(x+16+lengthdir_x(48, b), y+16+lengthdir_y(48, b), obj_spinstar);
     b += 72;
 }
-
-//Destroy
-instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -98,10 +99,10 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make invisible, generate stars
+            <string>///Disable player hurt script, generate stars
 
-//Make invisible
-visible = 0;
+//Do not hurt player
+hurtplayer = 0;
 
 //Create stars
 var a;

@@ -120,7 +120,7 @@ if (fire) {
     with (instance_create(x+8, y, obj_smoke)) sprite_index = spr_smoke_16;    
     
     //Create a coin
-    with (instance_create(x, y-1, obj_coin)) image_index = obj_coin.image_index;
+    with (instance_create(x, y, obj_coin)) image_index = obj_coin.image_index;
     
     //Destroy fireball
     with (fire) event_user(0);    
