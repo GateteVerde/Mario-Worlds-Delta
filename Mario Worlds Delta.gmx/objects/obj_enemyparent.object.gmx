@@ -633,7 +633,8 @@ else
             <string>///Collision with projectiles
 
 //If the enemy is vulnerable to fireballs
-if (vulnerable == 0) {
+if (vulnerable == 0) 
+|| (vulnerable == 2) {
 
     //Play 'Kick' sound
     audio_play_sound(snd_kick, 0, false);
@@ -1359,12 +1360,12 @@ if (overlap)
 
 //Collision with holdable enemies
 var overlap2 = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom-4, obj_holdparent_enemy, 0, 1);
-if (overlap2) 
+if (overlap2)
 &amp;&amp; (overlap2.vulnerable &lt; 99) {
 
     //Go right if the object is further to the right or in the same spot and a higher id.
     if ((bbox_left+bbox_right)*0.5 &gt; (overlap2.bbox_left+overlap2.bbox_right)*0.5)
-    || (((bbox_left+bbox_right)*0.5 = (overlap2.bbox_left+overlap2.bbox_right)*0.5) &amp;&amp; (id &gt; overlap2.id))
+    || ((bbox_left+bbox_right)*0.5 = (overlap2.bbox_left+overlap2.bbox_right)*0.5) //&amp;&amp; (id &gt; overlap2.id))
         hspeed = abs(hspeed);
     
     //Otherwise, go left.

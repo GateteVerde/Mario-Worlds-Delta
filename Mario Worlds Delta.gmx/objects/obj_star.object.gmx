@@ -59,7 +59,7 @@ alarm[0] = 1;
 event_inherited();
 
 //Animate
-image_speed = 0.3;
+image_speed = 0.5;
 
 //If the item does not have permission
 if (permission == 0) {

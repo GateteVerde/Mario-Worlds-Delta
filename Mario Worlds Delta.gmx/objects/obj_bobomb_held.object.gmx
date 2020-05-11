@@ -101,8 +101,11 @@ exit;
             <kind>1</kind>
             <string>///Animate faster
 
-sprite_index = spr_bobomb_down_th;
 image_speed = 0.3;
+if (sprite_index == spr_bobomb_down)
+    sprite_index = spr_bobomb_down_th;
+else
+    sprite_index = spr_bobomb_cannon_th;
 </string>
           </argument>
         </arguments>
@@ -314,6 +317,18 @@ else {
 
 //Create dead enemy object
 imdead = instance_create(round(bbox_left+bbox_right)/2, y-2, obj_bobomb_held);
+
+//Set up sprite
+if (sprite_index == spr_bobomb_cannon)
+|| (sprite_index == spr_bobomb_cannon_th) {
+
+    imdead.sprite_index = spr_bobomb_cannon;
+    imdead.image_speed = 0;
+    imdead.image_index = 0;
+}
+
+//Hereby death sprite
+imdead.deathsprite = deathsprite;
 
 //Set up the xscale
 imdead.dir = xscale;

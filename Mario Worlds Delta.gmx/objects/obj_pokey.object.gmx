@@ -432,17 +432,23 @@ else {
 
 //Set the sprite
 if (position_meeting(x, y-8, obj_pokey)) {
-
-    image_index = 1;
+    
+    //Set body image
+    image_index = 1;    
+    
+    //Allow stomp and fireball kill
     if (sprite_index == spr_pokey_snow)
         stomp = 1;
 }
 else {
 
-    image_index = 0;
+    //Set head image
+    image_index = 0;    
+    
+    //Allow stomp
     if (sprite_index == spr_pokey_snow)
         stomp = 4;
-    else
+    else    
         stomp = 1;
 }
 </string>

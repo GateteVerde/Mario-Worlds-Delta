@@ -40,6 +40,9 @@ alarm[0] = 2;
 ready = 0;
 alarm[1] = 62;
 
+//Set animation
+alarm[2] = 1;
+
 //If there is a solid on top of the block
 if (position_meeting(x, y-8, obj_solid)) {
 
@@ -77,6 +80,37 @@ if (position_meeting(x, y-8, obj_solid)) {
 //Otherwise, move up
 else
     vspeed = -0.25;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set the animation speed
+
+//Fire flower
+if (sprite_index == spr_fireflower)
+    image_speed = 0.15;
+    
+//Starman
+else if (sprite_index == spr_star)
+    image_speed = 0.5;
 </string>
           </argument>
         </arguments>

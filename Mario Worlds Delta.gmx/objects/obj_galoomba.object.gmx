@@ -71,6 +71,9 @@ alarm[10] = 2;
             <kind>1</kind>
             <string>///Galoomba logic
 
+//Collision with enemies
+event_user(2);
+
 //Default wall collision
 event_user(3);
 
