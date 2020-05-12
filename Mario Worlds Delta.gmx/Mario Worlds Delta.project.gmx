@@ -891,6 +891,9 @@
         <sprite>sprites\spr_bobomb_cannon</sprite>
         <sprite>sprites\spr_bobomb_cannon_th</sprite>
         <sprite>sprites\spr_bobomb_cannon_dead</sprite>
+        <sprite>sprites\spr_cannon</sprite>
+        <sprite>sprites\spr_cannon_ball</sprite>
+        <sprite>sprites\spr_cannon_quad</sprite>
       </sprites>
       <sprite>sprites\spr_hammerbro</sprite>
       <sprite>sprites\spr_hammerbro_throw</sprite>
@@ -1768,6 +1771,9 @@
         </objects>
         <object>objects\obj_bobomb</object>
         <object>objects\obj_bobomb_cannon</object>
+        <object>objects\obj_cannon</object>
+        <object>objects\obj_cannon_bomb</object>
+        <object>objects\obj_cannon_quad</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
@@ -2110,6 +2116,7 @@
               <object>objects\obj_bullseyebanzai</object>
             </objects>
             <object>objects\obj_bobomb_held</object>
+            <object>objects\obj_cannon_ball</object>
           </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_hammerbro_hammer</object>

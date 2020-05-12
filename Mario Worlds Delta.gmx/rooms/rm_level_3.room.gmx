@@ -4,7 +4,7 @@
   <width>1792</width>
   <height>256</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_player" x="72" y="192" name="inst_855C73A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="56" y="192" name="inst_855C73A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="192" y="128" name="inst_74933FEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="176" y="144" name="inst_AFF4BD74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="160" y="160" name="inst_0746FF45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -112,16 +112,6 @@
     <instance objName="obj_galoomba" x="360" y="96" name="inst_692F3250" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_galoomba" x="312" y="144" name="inst_66E2FA5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_trampoline" x="248" y="144" name="inst_8928BE97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pokey" x="616" y="192" name="inst_B4B4C6F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pokey" x="616" y="176" name="inst_8D646994" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pokey" x="616" y="160" name="inst_11093D70" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pokey" x="616" y="144" name="inst_D6FB77ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="544" y="176" name="inst_40A2DD7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="544" y="192" name="inst_AFBEE16F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="560" y="192" name="inst_6027862C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="656" y="176" name="inst_417D371A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="656" y="192" name="inst_1542A4C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iceblock_coin" x="640" y="192" name="inst_3EC150E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_snowmaker" x="16" y="-16" name="inst_BBBFF25F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slippery" x="0" y="192" name="inst_33285DC2" locked="0" code="" scaleX="32" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slippery" x="224" y="144" name="inst_9054EA24" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
@@ -173,7 +163,16 @@
     <instance objName="obj_bobomb_cannon" x="824" y="144" name="inst_D45136B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bobomb_cannon" x="776" y="144" name="inst_BE919D48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slippery" x="672" y="144" name="inst_A21E49D0" locked="0" code="" scaleX="17" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_star" x="104" y="128" name="inst_DFDAFA62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_quad" x="608" y="96" name="inst_33781896" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="592" y="48" name="inst_F6D8FC19" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_msgblock" x="112" y="144" name="inst_F8A19464" locked="0" code="inisection = &quot;MSG_001&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon" x="544" y="192" name="inst_F72FF624" locked="0" code="direct = 45;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon" x="656" y="192" name="inst_1BEE3343" locked="0" code="direct = 135;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_bomb" x="368" y="96" name="inst_D44AA85C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_bomb" x="496" y="192" name="inst_4283DAB5" locked="0" code="direct = -1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_fireflower" x="88" y="144" name="inst_FA185F63" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_fireflower" x="152" y="144" name="inst_F657B559" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_star" x="120" y="80" name="inst_4F06E6C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="352" y="176" w="16" h="16" xo="1728" yo="16" id="10026941" name="inst_4E1B94E2" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -236,6 +235,8 @@
     <tile bgName="tls_ground" x="400" y="176" w="16" h="16" xo="1728" yo="0" id="10026999" name="inst_25CD2F94" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="384" y="176" w="16" h="16" xo="1728" yo="0" id="10027000" name="inst_5245D48E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="368" y="176" w="16" h="16" xo="1728" yo="0" id="10027001" name="inst_70D74058" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="592" y="48" w="16" h="16" xo="96" yo="16" id="10027104" name="inst_2A8FB823" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="608" y="48" w="16" h="16" xo="96" yo="16" id="10027105" name="inst_1690E5FA" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="960" y="160" w="16" h="16" xo="720" yo="112" id="10026638" name="inst_6B7DBAE8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="944" y="144" w="32" h="16" xo="704" yo="112" id="10026639" name="inst_0A1CB435" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="944" y="128" w="32" h="16" xo="704" yo="112" id="10026640" name="inst_50664A34" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -580,6 +581,7 @@
     <tile bgName="tls_ground" x="1232" y="240" w="16" h="16" xo="1616" yo="16" id="10027100" name="inst_C9604A4A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="1216" y="240" w="16" h="16" xo="1616" yo="16" id="10027101" name="inst_C5B948BA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="1200" y="240" w="16" h="16" xo="1616" yo="16" id="10027102" name="inst_FB70DBE3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_sewer" x="600" y="64" w="16" h="16" xo="320" yo="80" id="10027107" name="inst_BE4B1771" depth="8" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
