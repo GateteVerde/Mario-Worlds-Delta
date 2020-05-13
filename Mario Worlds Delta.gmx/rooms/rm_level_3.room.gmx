@@ -81,6 +81,10 @@
     <instance objName="obj_skullraft" x="224" y="176" name="inst_1E609F44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_skullraft" x="240" y="176" name="inst_DE6EAA10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_034AD04C" locked="0" code="bg_index = 0;&#xA;bg_frame[0] = bgr_cave_b;&#xA;bg_frame[1] = bgr_cave_c;&#xA;bg_frame[2] = bgr_cave_b;&#xA;bg_frame[3] = bgr_cave;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="912" y="176" name="inst_D6B08F28" locked="0" code="" scaleX="2" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="96" y="-80" name="inst_574A9FE5" locked="0" code="" scaleX="2" scaleY="10" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="112" y="64" name="inst_026A9194" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warptop" x="912" y="176" name="inst_1E7F8497" locked="0" code="destination = rm_level_3;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="240" y="224" w="48" h="16" xo="112" yo="224" id="10027476" name="inst_6472ED9A" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -182,6 +186,26 @@
     <tile bgName="tls_ground" x="64" y="240" w="16" h="16" xo="16" yo="224" id="10027473" name="inst_C6C6B7C8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="48" y="240" w="16" h="16" xo="16" yo="224" id="10027474" name="inst_8F32226F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="32" y="240" w="16" h="16" xo="16" yo="224" id="10027475" name="inst_EB3673D2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="96" y="64" w="16" h="16" xo="0" yo="32" id="10027515" name="inst_09EF8A97" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="112" y="64" w="16" h="16" xo="16" yo="32" id="10027516" name="inst_FB5C8A55" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="112" y="0" w="16" h="16" xo="16" yo="16" id="10027519" name="inst_07DB83F6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="112" y="16" w="16" h="16" xo="16" yo="16" id="10027520" name="inst_47A10A3C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="112" y="32" w="16" h="16" xo="16" yo="16" id="10027521" name="inst_3A2D3504" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="112" y="48" w="16" h="16" xo="16" yo="16" id="10027522" name="inst_4FE3BA46" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="96" y="0" w="16" h="16" xo="0" yo="16" id="10027523" name="inst_D768AF74" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="96" y="16" w="16" h="16" xo="0" yo="16" id="10027524" name="inst_22D10DF3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="96" y="32" w="16" h="16" xo="0" yo="16" id="10027525" name="inst_C5FCDF1D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="96" y="48" w="16" h="16" xo="0" yo="16" id="10027526" name="inst_54CBFA64" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="912" y="176" w="16" h="16" xo="0" yo="0" id="10027527" name="inst_D9C79FF5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="928" y="176" w="16" h="16" xo="16" yo="0" id="10027528" name="inst_3853F03A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="928" y="192" w="16" h="16" xo="16" yo="16" id="10027529" name="inst_399FF408" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="928" y="208" w="16" h="16" xo="16" yo="16" id="10027530" name="inst_93280D72" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="928" y="224" w="16" h="16" xo="16" yo="16" id="10027531" name="inst_B5FAA4D0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="928" y="240" w="16" h="16" xo="16" yo="16" id="10027532" name="inst_62F3C6E4" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="912" y="192" w="16" h="16" xo="0" yo="16" id="10027533" name="inst_691D7EE0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="912" y="208" w="16" h="16" xo="0" yo="16" id="10027534" name="inst_76BD29A9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="912" y="224" w="16" h="16" xo="0" yo="16" id="10027535" name="inst_F28A3AED" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="912" y="240" w="16" h="16" xo="0" yo="16" id="10027536" name="inst_C8B1D43F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_lava" x="176" y="208" w="16" h="16" xo="16" yo="0" id="10027164" name="inst_4342803A" depth="-6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_lava" x="192" y="208" w="16" h="16" xo="16" yo="0" id="10027165" name="inst_0DE31863" depth="-6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_lava" x="208" y="208" w="16" h="16" xo="16" yo="0" id="10027166" name="inst_9E6423F4" depth="-6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
