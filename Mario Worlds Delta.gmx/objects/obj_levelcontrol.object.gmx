@@ -77,6 +77,41 @@ floorY = 0;
 
 //Create HUD
 instance_create(0, 0, obj_hud);
+
+//Initialize tile animation system
+animated_tile_init();
+
+//Add tiles
+animated_tile_add(tls_lava, .15,
+                  tls_lava_animate_1,
+                  tls_lava_animate_2,
+                  tls_lava_animate_3,
+                  tls_lava_animate_4);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clean all animated tiles
+
+animated_tile_cleanup();
 </string>
           </argument>
         </arguments>
@@ -684,6 +719,9 @@ y = round(y);
             <kind>1</kind>
             <string>///Deals with various game logic parameters
 
+//Update animated tiles
+animated_tile_update();
+
 //Get 1-UP for each 100 coins
 if (global.coins &gt; 99) {
     
@@ -1052,6 +1090,29 @@ with (obj_player_door) instance_destroy();
             <string>///Stop P-Switch BGM
 
 audio_stop_sound(bgm_pswitch);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clean all animated tiles
+
+animated_tile_cleanup();
 </string>
           </argument>
         </arguments>

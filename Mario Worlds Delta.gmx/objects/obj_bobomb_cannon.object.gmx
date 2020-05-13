@@ -215,6 +215,33 @@ else if (hspeed &lt; 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_lava">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blow instantly
+
+instance_create(x-8, y, obj_explosion);
+instance_destroy();
+exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="17">
       <action>
         <libid>1</libid>
@@ -241,7 +268,7 @@ imdead = instance_create(round(bbox_left+bbox_right)/2, y-2, obj_bobomb_held);
 imdead.sprite_index = spr_bobomb_cannon;
 
 //Set up the xscale
-imdead.image_xscale = xscale;
+imdead.dir = xscale;
 
 //Do not animate
 imdead.image_speed = 0;

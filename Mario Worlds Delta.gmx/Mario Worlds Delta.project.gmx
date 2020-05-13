@@ -589,6 +589,7 @@
         <sprite>sprites\spr_platform_track_blue</sprite>
         <sprite>sprites\spr_platform_track_blue_b</sprite>
         <sprite>sprites\spr_platform_accordion</sprite>
+        <sprite>sprites\spr_skullraft</sprite>
         <sprite>sprites\spr_engine</sprite>
         <sprite>sprites\spr_donut</sprite>
         <sprite>sprites\spr_donut_triple</sprite>
@@ -1028,6 +1029,17 @@
     <sprites name="Decoration">
       <sprites name="Liquids">
         <sprites name="Lava">
+          <sprites name="Skull Raft Lava">
+            <sprite>sprites\spr_lavamask</sprite>
+            <sprite>sprites\spr_lavamask_slope_r</sprite>
+            <sprite>sprites\spr_lavamask_slope_l</sprite>
+            <sprite>sprites\spr_lavamask_slope_sr</sprite>
+            <sprite>sprites\spr_lavamask_slope_sl</sprite>
+            <sprite>sprites\spr_lavamask_slope_ceiling_r</sprite>
+            <sprite>sprites\spr_lavamask_slope_ceiling_l</sprite>
+            <sprite>sprites\spr_lavamask_slope_ceiling_sr</sprite>
+            <sprite>sprites\spr_lavamask_slope_ceiling_sl</sprite>
+          </sprites>
           <sprite>sprites\spr_lava</sprite>
           <sprite>sprites\spr_lava_choco</sprite>
           <sprite>sprites\spr_lava_poison</sprite>
@@ -1331,6 +1343,12 @@
       <background>background\fgr_smog</background>
     </backgrounds>
     <backgrounds name="Level Tilesets">
+      <backgrounds name="Animated (DO NOT USE)">
+        <background>background\tls_lava_animate_1</background>
+        <background>background\tls_lava_animate_2</background>
+        <background>background\tls_lava_animate_3</background>
+        <background>background\tls_lava_animate_4</background>
+      </backgrounds>
       <background>background\tls_ground</background>
       <background>background\tls_ground_bonus</background>
       <background>background\tls_ground_desert</background>
@@ -1338,6 +1356,7 @@
       <background>background\tls_ground_pipes</background>
       <background>background\tls_ground_sewer</background>
       <background>background\tls_ground_swampland</background>
+      <background>background\tls_lava</background>
     </backgrounds>
     <backgrounds name="Map Tilesets">
       <background>background\tls_map</background>
@@ -1425,6 +1444,21 @@
       <script>scripts\update_shockwave.gml</script>
     </scripts>
     <scripts name="Utility">
+      <scripts name="Animated Tiles">
+        <script>scripts\animated_tile_add.gml</script>
+        <script>scripts\animated_tile_cleanup.gml</script>
+        <script>scripts\animated_tile_disable_all.gml</script>
+        <script>scripts\animated_tile_enable_all.gml</script>
+        <script>scripts\animated_tile_get_animation_speed.gml</script>
+        <script>scripts\animated_tile_get_background.gml</script>
+        <script>scripts\animated_tile_get_current_background.gml</script>
+        <script>scripts\animated_tile_get_current_frame.gml</script>
+        <script>scripts\animated_tile_get_frame_count.gml</script>
+        <script>scripts\animated_tile_get_next_frame.gml</script>
+        <script>scripts\animated_tile_init.gml</script>
+        <script>scripts\animated_tile_is_playing.gml</script>
+        <script>scripts\animated_tile_update.gml</script>
+      </scripts>
       <scripts name="Events">
         <scripts name="NPCs">
           <script>scripts\npc_destroy.gml</script>
@@ -1620,6 +1654,7 @@
         <object>objects\obj_platform_accordion_h</object>
         <object>objects\obj_platform_accordion_v</object>
         <object>objects\obj_platform_accordion_hv</object>
+        <object>objects\obj_skullraft</object>
         <object>objects\obj_engine</object>
         <object>objects\obj_donut</object>
         <object>objects\obj_donut_triple</object>
@@ -1833,6 +1868,13 @@
     <objects name="Decoration">
       <objects name="Liquids">
         <objects name="Lava">
+          <objects name="Skull Raft Lava">
+            <object>objects\obj_lavamask</object>
+            <object>objects\obj_lavamask_slope_r</object>
+            <object>objects\obj_lavamask_slope_l</object>
+            <object>objects\obj_lavamask_slope_sr</object>
+            <object>objects\obj_lavamask_slope_sl</object>
+          </objects>
           <object>objects\obj_lava</object>
           <object>objects\obj_lava_tides</object>
           <object>objects\obj_choco_tides</object>
@@ -2230,7 +2272,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"08/02/2020"</constant>
+    <constant name="cs_version">"May 13th, 2020"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>
