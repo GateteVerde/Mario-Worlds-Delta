@@ -164,7 +164,7 @@ var lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj
 if (lava) {
 
     //Play 'Burn' sound
-    audio_play_sound(snd_burn, 0, false);
+    audio_stop_play_sound(snd_burn, 0, false);
 
     //Create smoke
     with (instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, obj_smoke)) sprite_index = spr_smoke_16;

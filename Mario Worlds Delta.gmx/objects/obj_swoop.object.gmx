@@ -84,7 +84,7 @@ if (ready == 0) {
         &amp;&amp; (obj_playerparent.y &gt; y) {
         
             //Play 'Swoop' sound
-            audio_play_sound(snd_swoop, 0, false);
+            audio_stop_play_sound(snd_swoop, 0, false);
             
             //Set flying sprite
             sprite_index = spr_swoop_fly;

@@ -61,7 +61,7 @@ alarm[0] = 60;
             <string>///Jump towards the player
 
 //Play 'Blargg' sound
-audio_play_sound(snd_blargg, 0, false);
+audio_stop_play_sound(snd_blargg, 0, false);
 
 //Move up
 alarm[0] = 180;

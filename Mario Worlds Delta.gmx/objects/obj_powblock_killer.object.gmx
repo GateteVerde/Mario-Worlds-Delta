@@ -28,7 +28,7 @@
             <string>///Do different stuff on the screen.
 
 //Play 'Pow' sound
-audio_play_sound(snd_thud, 0, false);
+audio_stop_play_sound(snd_thud, 0, false);
 
 //Scale
 image_xscale = 0;

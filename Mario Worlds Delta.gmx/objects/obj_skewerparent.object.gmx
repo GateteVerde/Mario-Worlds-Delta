@@ -100,7 +100,7 @@ if (gravity != 0) {
         else if (count == 3) {
         
             //Play 'Thud' sound
-            audio_play_sound(snd_thud, 0, false);
+            audio_stop_play_sound(snd_thud, 0, false);
                 
             //Destroy one more block and stop
             with (other) event_user(0);

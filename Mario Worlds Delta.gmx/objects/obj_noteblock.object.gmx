@@ -124,7 +124,7 @@ if (!ready) {
         with (obj_playerparent) {
         
             //Play 'Trampoline' sound
-            audio_play_sound(snd_trampoline, 0, false);
+            audio_stop_play_sound(snd_trampoline, 0, false);
 
             //Set the vertical speed
             vspeed = -note_boost;
@@ -220,7 +220,7 @@ if (sprout != itemtype.coin)
     else if (sprout == itemtype.beanstalk) {
     
         //Play 'Vine Sprout' sound
-        audio_play_sound(snd_vinesprout, 0, false);
+        audio_stop_play_sound(snd_vinesprout, 0, false);
         
         //Create beanstalk
         with (instance_create(xstart+8, ystart, obj_beanstalk)) 

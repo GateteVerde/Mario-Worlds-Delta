@@ -183,7 +183,7 @@ else if (ready == 1) {
     if (mysolid) {
     
         //Play 'Explosion' sound
-        audio_play_sound(snd_explosion, 0, false);
+        audio_stop_play_sound(snd_explosion, 0, false);
         
         //Change state
         ready = 2;

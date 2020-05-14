@@ -208,7 +208,6 @@
     <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_hurt</sound>
-    <sound>sound\snd_intro</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_key</sound>
     <sound>sound\snd_keyhole</sound>
@@ -1464,9 +1463,6 @@
         <script>scripts\animated_tile_update.gml</script>
       </scripts>
       <scripts name="Events">
-        <scripts name="NPCs">
-          <script>scripts\npc_destroy.gml</script>
-        </scripts>
         <script>scripts\pswitch_on.gml</script>
         <script>scripts\pswitch_off.gml</script>
         <script>scripts\variable_global_reset.gml</script>

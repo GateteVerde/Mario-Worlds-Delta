@@ -151,7 +151,7 @@ else
             <string>///Unleash the laser
 
 //Play 'Zappakoopa / Fire' sound
-audio_play_sound(snd_zappakoopa_fire, 0, false);
+audio_stop_play_sound(snd_zappakoopa_fire, 0, false);
 
 //Create the item
 mylaser = instance_create(x+8*sign(xscale), y+8, obj_zappakoopa_laser);
@@ -212,7 +212,7 @@ with (instance_create(x+8*sign(xscale), y+8, obj_zappakoopa_beam))
 image_speed = 0.2;
 
 //Play 'Zappakoopa / Prepare' sound
-audio_play_sound(snd_zappakoopa_prepare, 0, false);
+audio_stop_play_sound(snd_zappakoopa_prepare, 0, false);
 </string>
           </argument>
         </arguments>

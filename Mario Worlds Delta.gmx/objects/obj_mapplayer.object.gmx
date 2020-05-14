@@ -504,7 +504,7 @@ if (status == 'IDLE')
         || (input_check_pressed(input.action2))) {
         
             //Play 'Enter Stage' sound
-            audio_play_sound(snd_enterstage, 0, false);
+            audio_stop_play_sound(snd_enterstage, 0, false);
         
             //The player is ready
             is_ready = 1;
@@ -582,7 +582,7 @@ else if (status == 'WALK') {
             &amp;&amp; (y+yorig == node.y+7) {
             
                 //Play 'Move' sound
-                audio_play_sound(snd_move, 0, false);
+                audio_stop_play_sound(snd_move, 0, false);
             
                 //Set stop state
                 status = 'IDLE';

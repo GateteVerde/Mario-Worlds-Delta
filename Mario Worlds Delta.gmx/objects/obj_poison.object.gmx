@@ -57,7 +57,7 @@ repeat (6) {
     else {
     
         //Play 'Kick' sound
-        audio_play_sound(snd_kick, 0, false);
+        audio_stop_play_sound(snd_kick, 0, false);
     
         //Create smoke effect
         with (instance_create(x, y+8, obj_smoke)) {

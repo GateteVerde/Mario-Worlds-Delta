@@ -199,7 +199,7 @@ throw = 0;
             <string>///Throw a hammer
 
 //Play 'Hammer' sound
-audio_play_sound(snd_hammer, 0, false);
+audio_stop_play_sound(snd_hammer, 0, false);
 
 //If the player does not exist or the player is at the left
 if (!instance_exists(obj_playerparent))

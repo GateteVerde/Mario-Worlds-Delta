@@ -127,7 +127,7 @@ audio_stop_sound(mapmusic);
             <kind>1</kind>
             <string>///Play map music
 
-audio_play_sound(mapmusic, 0, true);
+audio_stop_play_sound(mapmusic, 0, true);
 </string>
           </argument>
         </arguments>

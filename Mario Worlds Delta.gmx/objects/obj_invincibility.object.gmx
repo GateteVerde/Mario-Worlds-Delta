@@ -156,7 +156,7 @@ obj_levelcontrol.alarm[1] = 1;
 //Play 'Starman' theme
 if (!audio_is_playing(bgm_pswitch))
 &amp;&amp; (!audio_is_playing(bgm_starman))
-    audio_play_sound(bgm_starman, 0, true);
+    audio_stop_play_sound(bgm_starman, 0, true);
 </string>
           </argument>
         </arguments>
@@ -288,7 +288,7 @@ else {
 if ((warning == 0) &amp;&amp; (alarm[0] &lt;= 120)) {
 
     //Play 'Switch Timer' sound
-    audio_play_sound(snd_switchtimer, 0, false);
+    audio_stop_play_sound(snd_switchtimer, 0, false);
     
     //Warn
     warning = 1;

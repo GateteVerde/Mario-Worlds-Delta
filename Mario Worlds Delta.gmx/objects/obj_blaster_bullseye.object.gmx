@@ -102,7 +102,7 @@ else {
                 if (!collision_line(bbox_left-1, y, bbox_left-1, y+15, obj_solid, 0, 0)) {
                 
                     //Play 'Explosion' sound
-                    audio_play_sound(snd_explosion, 0, false);
+                    audio_stop_play_sound(snd_explosion, 0, false);
                     
                     //Create bullet bill
                     mybullet = instance_create(x, y-32, obj_bullseyebanzai);
@@ -135,7 +135,7 @@ else {
                 if (!collision_line(bbox_right+1, y, bbox_right+1, y+15, obj_solid, 0, 0)) {
                 
                     //Play 'Explosion' sound
-                    audio_play_sound(snd_explosion, 0, false);
+                    audio_stop_play_sound(snd_explosion, 0, false);
                     
                     //Create bullet bill
                     mybullet = instance_create(x, y-32, obj_bullseyebanzai);

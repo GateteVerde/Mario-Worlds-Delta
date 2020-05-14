@@ -237,7 +237,7 @@ if (other.bbox_bottom &gt; yprevious+5) {
             <string>///Shatter it
 
 //Play 'Shatter' sound
-audio_play_sound(snd_shatter, 0, false);
+audio_stop_play_sound(snd_shatter, 0, false);
 
 //Create smoke
 with (instance_create(x+8, y+16, obj_smoke)) sprite_index = spr_smoke_16;

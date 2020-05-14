@@ -202,7 +202,7 @@ if (ready == 0) {
     if ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, semisolid, 0, 0)) &amp;&amp; (semisolid.y &gt; ystart)) {
     
         //Play 'Thud' sound
-        audio_play_sound(snd_thud, 0, false);
+        audio_stop_play_sound(snd_thud, 0, false);
         
         //Create smoke effects
         with (instance_create(bbox_left, bbox_bottom, obj_smoke)) { sprite_index = spr_smoke_16; motion_set(180, 1); }

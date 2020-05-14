@@ -31,7 +31,7 @@
 colour = 0;
 
 //Play 'Yoshi' sound
-audio_play_sound(snd_yoshi, 0, false);
+audio_stop_play_sound(snd_yoshi, 0, false);
 
 //Animate
 image_speed = 0.15;

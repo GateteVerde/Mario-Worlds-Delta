@@ -510,7 +510,7 @@ else
 if (input_check(input.up)) {
 
     //Play 'Kick' sound
-    audio_play_sound(snd_kick, 0, false);
+    audio_stop_play_sound(snd_kick, 0, false);
     
     //Create thump
     instance_create(x, y+8, obj_spinthump);
@@ -563,7 +563,7 @@ else {
         if (obj_playerparent.hspeed != 0) {
         
             //Play 'Kick' sound.
-            audio_play_sound(snd_kick, 0, false);
+            audio_stop_play_sound(snd_kick, 0, false);
     
             //Create thump
             instance_create(x, y+8, obj_spinthump);

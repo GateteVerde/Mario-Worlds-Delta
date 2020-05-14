@@ -164,7 +164,7 @@ ready = 1;
 if (sprite_index == spr_feather) {
 
     //Play 'Sprout' sound
-    audio_play_sound(snd_sprout, 0, false);
+    audio_stop_play_sound(snd_sprout, 0, false);
 
     //Turn into a real feather
     instance_create(x, ystart, obj_feather_sprout);
@@ -174,7 +174,7 @@ if (sprite_index == spr_feather) {
 else if (sprite_index == spr_beanstalk) {
 
     //Play 'Vine Sprout' sound
-    audio_play_sound(snd_vinesprout, 0, false);
+    audio_stop_play_sound(snd_vinesprout, 0, false);
     
     //Turn into a real beanstalk
     if (!place_meeting(x, ystart-16, obj_solid))
@@ -187,7 +187,7 @@ else if (sprite_index == spr_beanstalk) {
 else {
 
     //Play 'Sprout' sound
-    audio_play_sound(snd_sprout, 0, false);
+    audio_stop_play_sound(snd_sprout, 0, false);
     
     //If moving up...
     if (vspeed &lt; 0) {

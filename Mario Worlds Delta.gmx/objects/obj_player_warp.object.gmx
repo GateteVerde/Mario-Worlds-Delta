@@ -118,7 +118,7 @@ else {
             <string>///Allow movement
 
 //Play 'Powerdown' sound
-audio_play_sound(snd_powerdown, 0, false);
+audio_stop_play_sound(snd_powerdown, 0, false);
 
 //Allow movement
 canmove = 1;

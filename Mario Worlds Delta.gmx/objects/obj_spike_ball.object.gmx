@@ -245,7 +245,7 @@ if ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+5, bbox
     if (!outside_view(8)) {
     
         //Play 'Bump' sound
-        audio_play_sound(snd_bump, 0, false);
+        audio_stop_play_sound(snd_bump, 0, false);
     }
     
     //Bump blocks

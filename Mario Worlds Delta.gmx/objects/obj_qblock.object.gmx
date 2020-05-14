@@ -247,7 +247,7 @@ if (sprout == itemtype.coin_multi)
     &amp;&amp; (sprout == itemtype.coin_multi) {
     
         //Play 'Coin Big' sound
-        audio_play_sound(snd_coin_big, 0, false);
+        audio_stop_play_sound(snd_coin_big, 0, false);
     
         //Repeat 10 times
         repeat (10) {

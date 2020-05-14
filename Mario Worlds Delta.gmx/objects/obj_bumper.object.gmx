@@ -140,7 +140,7 @@ else if (ready == 2) {
             <string>///Bounce against the bumper
     
 //Play 'Trampoline' sound
-audio_play_sound(snd_trampoline, 0, false);
+audio_stop_play_sound(snd_trampoline, 0, false);
 
 //Bounce it
 ready = 1;

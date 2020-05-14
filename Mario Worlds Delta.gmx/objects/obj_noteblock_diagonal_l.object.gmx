@@ -130,7 +130,7 @@ if (ready == 0)
     with (obj_playerparent) {
     
         //Play 'Trampoline' sound
-        audio_play_sound(snd_trampoline, 0, false);
+        audio_stop_play_sound(snd_trampoline, 0, false);
 
         //Set the motion
         vspeed = -note_boost;

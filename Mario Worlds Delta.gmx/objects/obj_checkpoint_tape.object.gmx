@@ -67,7 +67,7 @@ image_speed = 0;
 if (image_index == 0) {
 
     //Play 'Whistle' sound
-    audio_play_sound(snd_whistle, 0, false);
+    audio_stop_play_sound(snd_whistle, 0, false);
     
     //Create a sparkle
     instance_create(x+16, y+8, obj_sparkle);  

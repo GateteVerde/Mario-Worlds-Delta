@@ -301,8 +301,7 @@ if (control_enable == true)
                         
                 with (obj_spinner) {
                 
-                    audio_stop_sound(snd_spin);
-                    audio_play_sound(snd_spin, 0, false);
+                    audio_stop_play_sound(snd_spin, 0, false);
                     spin = 0;
                 }
             }
@@ -984,7 +983,7 @@ if (vspeed &lt; 0)
             
             //Play 'Bump' sound
             if (!audio_is_playing(snd_bump))
-                audio_play_sound(snd_bump, 0, false);          
+                audio_stop_play_sound(snd_bump, 0, false);          
         }
     }
 }
@@ -1084,7 +1083,7 @@ else if (!water)
             || (input_check(input.action2)) {
             
                 //Play 'Jump' sound
-                audio_play_sound(snd_jump, 0, false);
+                audio_stop_play_sound(snd_jump, 0, false);
                 
                 //Stop swimming
                 swimming = false;
@@ -1417,7 +1416,7 @@ if (invulnerable == false) {
     if (global.mount == 1) {
     
         //Play 'Hurt' sound
-        audio_play_sound(snd_hurt, 0, false);
+        audio_stop_play_sound(snd_hurt, 0, false);
     
         //With Yoshi
         with (obj_yoshi) {
@@ -1460,7 +1459,7 @@ if (invulnerable == false) {
         if (instance_exists(obj_cape_fly)) {
         
             //Play 'Cape Cancel' sound
-            audio_play_sound(snd_capecancel, 0, false);
+            audio_stop_play_sound(snd_capecancel, 0, false);
             
             //Destroy cape object
             with (obj_cape_fly) instance_destroy();
@@ -1476,7 +1475,7 @@ if (invulnerable == false) {
             if (global.powerup &gt; cs_pow_super) {
             
                 //Play 'Powerdown' sound
-                audio_play_sound(snd_powerdown, 0, false);
+                audio_stop_play_sound(snd_powerdown, 0, false);
                 
                 //Perform animation sequence
                 _transform = instance_create(0, 0, obj_player_transform);
@@ -1488,7 +1487,7 @@ if (invulnerable == false) {
             else if (global.powerup == cs_pow_super) {
             
                 //Play 'Powerdown' sound
-                audio_play_sound(snd_powerdown, 0, false);
+                audio_stop_play_sound(snd_powerdown, 0, false);
                 
                 //Drop reserve item
                 with (obj_levelcontrol) {

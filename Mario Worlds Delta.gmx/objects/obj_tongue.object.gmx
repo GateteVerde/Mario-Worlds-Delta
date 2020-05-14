@@ -170,7 +170,7 @@ if (instance_exists(obj_yoshi))
                 if (powerup != noone) {
                 
                     //Play 'Eat' sound
-                    audio_play_sound(snd_eat, 0, false);
+                    audio_stop_play_sound(snd_eat, 0, false);
                     
                     //Obtain powerup
                     obj_yoshi.powerup = powerup;
@@ -190,7 +190,7 @@ if (instance_exists(obj_yoshi))
     
                     //If Yoshi's mouth is not full, swallow
                     else if (obj_yoshi.mouthholder == noone)                
-                        audio_play_sound(snd_eat, 0, false);
+                        audio_stop_play_sound(snd_eat, 0, false);
                 }
             }
 

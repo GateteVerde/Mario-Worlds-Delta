@@ -167,7 +167,7 @@ with (instance_create(x, y+8, obj_smoke))
             <string>///Hatch
 
 //Play 'Hatch' sound
-audio_play_sound(snd_hatch, 0, false);
+audio_stop_play_sound(snd_hatch, 0, false);
 
 //Set frame
 image_index = 1;

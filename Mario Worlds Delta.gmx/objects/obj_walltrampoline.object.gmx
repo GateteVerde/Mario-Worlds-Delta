@@ -162,7 +162,7 @@ if (sprite_index == spr_walltrampoline) {
         if (instance_exists(obj_playerparent)) {
         
             //Play 'Trampoline' sound.
-            audio_play_sound(snd_trampoline, 0, false);
+            audio_stop_play_sound(snd_trampoline, 0, false);
             
             //Set vertical speed
             obj_playerparent.vspeed = -note_boost;

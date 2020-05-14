@@ -117,7 +117,7 @@ if (input_check_pressed(input.up))
         &amp;&amp; (player.state != statetype.climb) {
         
             //Play 'Door' sound
-            audio_play_sound(snd_door, 0, false);
+            audio_stop_play_sound(snd_door, 0, false);
             
             //Animate the door
             image_speed = 0.2;
@@ -178,7 +178,7 @@ if (lock == 1)
 &amp;&amp; (other.held == true) {
 
     //Play 'Key' sound
-    audio_play_sound(snd_key, 0, false);
+    audio_stop_play_sound(snd_key, 0, false);
     
     //Set the sprite
     sprite_index = spr_door_lock_unlocked;
@@ -190,7 +190,7 @@ if (lock == 1)
     with (other) {
     
         //Play 'Bump' sound
-        audio_play_sound(snd_bump, 0, false);
+        audio_stop_play_sound(snd_bump, 0, false);
         
         //Create a puff of smoke
         with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_16;

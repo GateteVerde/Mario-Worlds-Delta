@@ -75,7 +75,7 @@ if (player)
     if (input_check_pressed(input.up)) {
     
         //Play 'Message' sound
-        audio_play_sound(snd_message, 0, false);
+        audio_stop_play_sound(snd_message, 0, false);
         
         //Display message
         with (instance_create(0, 0, obj_dialog)) {

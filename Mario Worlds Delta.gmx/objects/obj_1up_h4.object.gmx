@@ -58,7 +58,7 @@ if (ready == 0)
 if (obj_1up_h3.ready == 1) {
 
     //Play 'Powerup' sound
-    audio_play_sound(snd_sprout, 0, false);
+    audio_stop_play_sound(snd_sprout, 0, false);
 
     //Activate it...
     ready = 1;

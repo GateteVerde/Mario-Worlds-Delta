@@ -266,7 +266,7 @@ if (ready == 0)
             <string>///Begin key sequence
 
 //Play 'Keyhole' sound
-audio_play_sound(snd_keyhole, 0, false);
+audio_stop_play_sound(snd_keyhole, 0, false);
 
 //Start the animation
 ready = 1;

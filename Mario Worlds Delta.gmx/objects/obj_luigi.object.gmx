@@ -1007,7 +1007,7 @@ if (state == statetype.jump)
     if (!audio_is_playing(snd_scuttle)) {
     
         //Play 'Scuttle' sound
-        audio_play_sound(snd_scuttle, 0, false);
+        audio_stop_play_sound(snd_scuttle, 0, false);
         
         //Set 'Scuttle' gain and pitch.
         audio_sound_gain(snd_scuttle, random_range(0.9, 1.0), 0);

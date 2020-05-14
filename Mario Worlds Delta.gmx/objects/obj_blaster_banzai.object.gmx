@@ -97,7 +97,7 @@ else {
             if (!collision_rectangle(bbox_left-1, y, bbox_left-1, y+15, obj_solid, 0, 0)) {
             
                 //Play 'Explosion' sound
-                audio_play_sound(snd_explosion, 0, false);
+                audio_stop_play_sound(snd_explosion, 0, false);
                 
                 //Create bullet bill
                 with (instance_create(x, y-64, obj_banzaibill)) {
@@ -130,7 +130,7 @@ else {
             if (!collision_rectangle(bbox_right+1, y, bbox_right+1, y+15, obj_solid, 0, 0)) {
             
                 //Play 'Explosion' sound
-                audio_play_sound(snd_explosion, 0, false);
+                audio_stop_play_sound(snd_explosion, 0, false);
                 
                 //Create bullet bill
                 with (instance_create(x, y-64, obj_banzaibill)) {

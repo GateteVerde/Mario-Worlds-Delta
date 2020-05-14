@@ -75,7 +75,7 @@ rewards = 0;
 if (!instance_exists(obj_1up)) {
 
     //Play 'Bonus End' sound
-    audio_play_sound(snd_bonusend, 0, false);
+    audio_stop_play_sound(snd_bonusend, 0, false);
     
     //Stop music
     with (obj_levelcontrol) {
@@ -145,7 +145,7 @@ if (rewards &gt;= 1) {
     rewards--;
     
     //Play 'Sprout' sound
-    audio_play_sound(snd_sprout, 0, false);
+    audio_stop_play_sound(snd_sprout, 0, false);
     
     //Create 1-UP
     with (instance_create(32, 48, obj_1up)) {
@@ -726,9 +726,9 @@ for (i=0; i&lt;8; i++) {
 }
 rewards = total;
 if (total &gt; 0)
-    audio_play_sound(snd_correct, 0, false);
+    audio_stop_play_sound(snd_correct, 0, false);
 else
-    audio_play_sound(snd_wrong, 0, false);
+    audio_stop_play_sound(snd_wrong, 0, false);
 </string>
           </argument>
         </arguments>

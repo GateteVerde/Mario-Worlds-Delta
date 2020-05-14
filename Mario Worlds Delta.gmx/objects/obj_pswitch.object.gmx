@@ -147,7 +147,7 @@ exit;
 if (sprite_index == spr_pswitch) {
 
     //Play 'Switch' sound
-    audio_play_sound(snd_switch, 0, false);
+    audio_stop_play_sound(snd_switch, 0, false);
     
     //Make the camera shake
     init_shake(snd_switch);

@@ -236,7 +236,7 @@ if (ready &lt; 2) {
     else {
     
         //Play 'Kick' sound
-        audio_play_sound(snd_kick, 0, false);
+        audio_stop_play_sound(snd_kick, 0, false);
     
         //Create dead object
         with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_enemy_dead)) {

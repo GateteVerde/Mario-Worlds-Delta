@@ -132,10 +132,10 @@ if (used == 0) {
             _yyy = obj_playerparent.y-obj_playerparent.bbox_top;
             
             //Play 'Bump' sound
-            audio_play_sound(snd_bump, 0, false);
+            audio_stop_play_sound(snd_bump, 0, false);
             
             //Play 'Switch' sound
-            audio_play_sound(snd_switch, 0, false);
+            audio_stop_play_sound(snd_switch, 0, false);
             
             //Stop vertical speed
             obj_playerparent.vspeed = 0;

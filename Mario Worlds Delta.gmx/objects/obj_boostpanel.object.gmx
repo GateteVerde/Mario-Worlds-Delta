@@ -92,7 +92,7 @@ if (player)
     &amp;&amp; (player.hspeed != 0) {
     
         //Play 'Boost' sound
-        audio_play_sound(snd_boost, 0, false);
+        audio_stop_play_sound(snd_boost, 0, false);
     
         //Give the player a good boost
         with (obj_playerparent) {

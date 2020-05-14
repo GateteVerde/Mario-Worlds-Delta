@@ -504,7 +504,7 @@ else if (hspeed &lt; 0) {
             <string>///Glide up
 
 //Play 'Cape' sound
-audio_play_sound(snd_capefly, 0, false);
+audio_stop_play_sound(snd_capefly, 0, false);
 
 //If not smashing
 if (smash == 0)
@@ -554,7 +554,7 @@ if (smash == 1) {
     if (dive_index == 5) {
     
         //Play 'Thud' sound
-        audio_play_sound(snd_thud, 0, false);
+        audio_stop_play_sound(snd_thud, 0, false);
 
         //Create 'Yoshi Stomp'
         with (instance_create(view_xview[0] + view_wview[0] / 2, view_yview[0], obj_stomp)) sprite_index = spr_stompmask_cape;

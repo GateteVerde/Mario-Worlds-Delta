@@ -38,7 +38,7 @@ switch (global.player) {
 }
 
 //Play 'Player Down' sound
-audio_play_sound(bgm_death, 0, false);
+audio_stop_play_sound(bgm_death, 0, false);
 
 //Stop rest of music
 audio_stop_sound(bgm_starman);

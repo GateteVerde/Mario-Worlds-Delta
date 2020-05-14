@@ -142,10 +142,10 @@ while (step &gt;= 1) {
         &amp;&amp; (y+yorig == node.y+7) {
         
             //Stop 'Path Reveal' sound
-            audio_stop_sound(snd_pathreveal);
+            audio_stop_play_sound(snd_pathreveal);
         
             //Play 'Path Reveal End' sound
-            audio_play_sound(snd_pathreveal_end, 0, false);
+            audio_stop_play_sound(snd_pathreveal_end, 0, false);
             
             //Check for a panel
             panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);

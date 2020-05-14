@@ -382,7 +382,7 @@ else if (state == yoshistate.ridden) {
             if (mouthholder == noone) {
             
                 //Play 'Lick' sound
-                audio_play_sound(snd_lick, 0, false);
+                audio_stop_play_sound(snd_lick, 0, false);
                 
                 //Start licking
                 licking = 1;
@@ -953,7 +953,7 @@ if (state == yoshistate.idle)
     &amp;&amp; (other.visible == true) {
     
         //Play 'Yoshi' sound
-        audio_play_sound(snd_yoshi, 0, false);
+        audio_stop_play_sound(snd_yoshi, 0, false);
                 
         //Set up yoshi state
         state = yoshistate.ridden;  
@@ -1247,7 +1247,7 @@ if (mouthholder == obj_shell)
         &amp;&amp; (obj_playerparent.state != statetype.jump) {
           
             //Play 'Yoshi Stomp' sound
-            audio_play_sound(snd_stomp_yoshi, 0, false);
+            audio_stop_play_sound(snd_stomp_yoshi, 0, false);
             
             //Create 'Stomp' object
             instance_create(x, bbox_bottom, obj_stomp);
@@ -1403,7 +1403,7 @@ if (state == yoshistate.ridden) {
 if (mouthholder != noone) {
     
     //Play 'Spit' sound
-    audio_play_sound(snd_spit, 0, false);
+    audio_stop_play_sound(snd_spit, 0, false);
     
     //Spit out the item
     if (obj_playerparent.crouch == true) 
@@ -1426,7 +1426,7 @@ if (mouthholder != noone) {
         if (mouthholder == obj_yoshi_fire) {
     
             //Play 'Flames' sound
-            audio_play_sound(snd_flames, 0, false);
+            audio_stop_play_sound(snd_flames, 0, false);
             
             //Make yoshi fire
             instance_create(x+(10*obj_playerparent.xscale),y-12,obj_yoshi_fire);
@@ -1440,7 +1440,7 @@ if (mouthholder != noone) {
         else if (mouthholder == obj_watermelon_fire) {
         
             //Play 'Flames' sound
-            audio_play_sound(snd_flames, 0, false);
+            audio_stop_play_sound(snd_flames, 0, false);
             
             //If there's ammo left
             if (ammo &gt; 0) {
@@ -1514,7 +1514,7 @@ if (mouthholder != noone) {
         if (mouthholder == obj_yoshi_fire) {
         
             //Play 'Flames' sound
-            audio_play_sound(snd_flames, 0, false);
+            audio_stop_play_sound(snd_flames, 0, false);
             
             //Make yoshi fire
             instance_create(x+(10*obj_playerparent.xscale),y-16,obj_yoshi_fire);
@@ -1529,7 +1529,7 @@ if (mouthholder != noone) {
         else if (mouthholder == obj_watermelon_fire) {
         
             //Play 'Flames' sound
-            audio_play_sound(snd_flames, 0, false);
+            audio_stop_play_sound(snd_flames, 0, false);
             
             //If there's ammo left
             if (ammo &gt; 0) {

@@ -28,7 +28,7 @@
             <string>///Reserve item
 
 //Play 'Reserve Drop' sound
-audio_play_sound(snd_reservedrop, 0, false)
+audio_stop_play_sound(snd_reservedrop, 0, false)
 
 //Animate
 image_speed = 0;
@@ -195,7 +195,7 @@ if (sprite_index == spr_mushroom) {
     if (global.powerup == cs_pow_small) {
     
         //Play 'Powerup' sound
-        audio_play_sound(snd_powerup, 0, false);
+        audio_stop_play_sound(snd_powerup, 0, false);
     
         //Get it
         _transform = instance_create(0, 0, obj_player_transform);
@@ -207,7 +207,7 @@ if (sprite_index == spr_mushroom) {
     else {
     
         //Play 'Powerup' sound
-        audio_play_sound(snd_reserve, 0, false);
+        audio_stop_play_sound(snd_reserve, 0, false);
     
         //Put the 'Mushroom' in reserve
         if (global.reserveitem == cs_pow_small)
@@ -234,7 +234,7 @@ else if (sprite_index == spr_fireflower) {
     if (global.powerup != cs_pow_fire) {
         
         //Play 'Powerup' sound
-        audio_play_sound(snd_powerup, 0, false);    
+        audio_stop_play_sound(snd_powerup, 0, false);    
         
         //Perform animation sequence
         _transform = instance_create(0, 0, obj_player_transform)
@@ -250,8 +250,8 @@ else if (sprite_index == spr_fireflower) {
     else {
     
         //Play sounds
-        audio_play_sound(snd_powerup, 0, false);
-        audio_play_sound(snd_reserve, 0, false);
+        audio_stop_play_sound(snd_powerup, 0, false);
+        audio_stop_play_sound(snd_reserve, 0, false);
     }
     
     //Destroy

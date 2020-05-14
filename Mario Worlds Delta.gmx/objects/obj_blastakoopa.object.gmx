@@ -151,7 +151,7 @@ else
 if (xscale &lt; 0) {
     
     //Play 'Blastakoopa / Fire' sound
-    audio_play_sound(snd_blastakoopa_fire, 0, false);
+    audio_stop_play_sound(snd_blastakoopa_fire, 0, false);
     
     //Create missile bill
     mybullet = instance_create(x-8, y+8, obj_blastakoopa_bullet);                    
@@ -167,7 +167,7 @@ if (xscale &lt; 0) {
 else if (xscale &gt; 0) {
     
     //Play 'Blastakoopa / Fire' sound
-    audio_play_sound(snd_blastakoopa_fire, 0, false);
+    audio_stop_play_sound(snd_blastakoopa_fire, 0, false);
     
     //Create missile bill
     mybullet = instance_create(x+8, y+8, obj_blastakoopa_bullet);
@@ -209,7 +209,7 @@ alarm[4] = 30;
 image_speed = 0.2;
 
 //Play 'Blastakoopa / Prepare' sound
-audio_play_sound(snd_blastakoopa_prepare, 0, false);
+audio_stop_play_sound(snd_blastakoopa_prepare, 0, false);
 </string>
           </argument>
         </arguments>

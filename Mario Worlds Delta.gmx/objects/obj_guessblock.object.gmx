@@ -246,7 +246,7 @@ if (parent.count == 0) {
     else if (numb == 2) {
     
         //Play 'Wrong' sound
-        audio_play_sound(snd_wrong, 0, false);
+        audio_stop_play_sound(snd_wrong, 0, false);
         
         //Turn into a empty block
         alarm[1] = 8;
@@ -260,7 +260,7 @@ if (parent.count == 0) {
     else if (numb == 3) {
     
         //Play 'Wrong' sound
-        audio_play_sound(snd_wrong, 0, false);
+        audio_stop_play_sound(snd_wrong, 0, false);
         
         //Turn into a empty block
         alarm[1] = 8;
@@ -292,7 +292,7 @@ else if (parent.count == 1) {
     else if (numb == 3) {
     
         //Play 'Wrong' sound
-        audio_play_sound(snd_wrong, 0, false);
+        audio_stop_play_sound(snd_wrong, 0, false);
         
         //Turn into a empty block
         alarm[1] = 8;

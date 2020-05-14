@@ -140,7 +140,7 @@ if (sign(hspeed) != sign(prevhspeed)) {
     if (!outside_view(sprite_get_width(sprite_index))) {
     
         //Play 'Bump' sound
-        audio_play_sound(snd_bump, 0, false);
+        audio_stop_play_sound(snd_bump, 0, false);
     }
         
     //Bump blocks

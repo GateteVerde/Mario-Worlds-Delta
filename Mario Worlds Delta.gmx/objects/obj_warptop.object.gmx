@@ -76,7 +76,7 @@ if (input_check(input.down)) {
         if (player) {
         
             //Play 'Powerdown' sound
-            audio_play_sound(snd_powerdown, 0, false);
+            audio_stop_play_sound(snd_powerdown, 0, false);
         
             //Create a new warp player object
             warpme = instance_create(obj_playerparent.x, y-16, obj_player_warp);

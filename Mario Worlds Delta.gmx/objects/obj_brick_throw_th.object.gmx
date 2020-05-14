@@ -153,7 +153,7 @@ if (!held) {
             if (!outside_view(8)) {
             
                 //Play 'Bump' sound
-                audio_play_sound(snd_bump, 0, false);
+                audio_stop_play_sound(snd_bump, 0, false);
             }
                 
             //Bump blocks
@@ -195,7 +195,7 @@ if (!held) {
 if (held) {
 
     //Play 'Kick' sound
-    audio_play_sound(snd_kick, 0, false);
+    audio_stop_play_sound(snd_kick, 0, false);
 
     //Get 1000 points
     with (instance_create(x-8, y, obj_score)) event_user(5);
@@ -268,7 +268,7 @@ else {
         else if ((held == 0) &amp;&amp; (ready == 0)) {
         
             //Play 'Kick' sound
-            audio_play_sound(snd_kick, 0, false);
+            audio_stop_play_sound(snd_kick, 0, false);
             
             //Create thump
             instance_create(x, y+8, obj_spinthump);
@@ -516,10 +516,10 @@ if (vspeed != 0) {
 if (place_meeting(x, y, obj_solid)) {
 
     //Play 'Bump' sound
-    audio_play_sound(snd_bump, 0, false);
+    audio_stop_play_sound(snd_bump, 0, false);
     
     //Play 'Kick' sound
-    audio_play_sound(snd_kick, 0, false);
+    audio_stop_play_sound(snd_kick, 0, false);
     
     //Get 800 points
     with (instance_create((bbox_left+bbox_right)/2-8, y, obj_score)) event_user(1);
@@ -535,7 +535,7 @@ else {
     if (input_check(input.up)) {
     
         //Play 'Kick' sound
-        audio_play_sound(snd_kick, 0, false);
+        audio_stop_play_sound(snd_kick, 0, false);
         
         //Create thump
         instance_create(x, y+8, obj_spinthump);
@@ -571,7 +571,7 @@ else {
         if (obj_playerparent.hspeed != 0) {
         
             //Play 'Kick' sound.
-            audio_play_sound(snd_kick, 0, false);
+            audio_stop_play_sound(snd_kick, 0, false);
     
             //Create thump
             instance_create(x, y+8, obj_spinthump);

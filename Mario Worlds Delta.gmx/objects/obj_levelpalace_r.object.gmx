@@ -99,7 +99,7 @@ if (ds_map_exists(global.worldmap, id))
 if (eff == 0) {
 
     //Play 'Destroy' sound
-    audio_play_sound(snd_destroy, 0, false);
+    audio_stop_play_sound(snd_destroy, 0, false);
     
     //Turn into a stomped switch
     image_speed = 0;

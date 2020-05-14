@@ -91,7 +91,7 @@ ready = 0;
 if (!outside_view(16)) {
     
     //Play 'Message' sound
-    audio_play_sound(snd_message, 0, false);
+    audio_stop_play_sound(snd_message, 0, false);
     
     //Show message
     with (instance_create(0, 0, obj_message_new)) 

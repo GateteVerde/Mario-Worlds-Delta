@@ -72,7 +72,7 @@ alarm[10] = 2;
             <string>///Custom stomp script event
 
 //Play 'Split' sound
-audio_play_sound(snd_split, 0, false);
+audio_stop_play_sound(snd_split, 0, false);
 
 //Create big smoke
 with (instance_create(x, y-16, obj_smoke)) sprite_index = spr_smoke_48;

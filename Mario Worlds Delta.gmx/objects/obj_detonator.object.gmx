@@ -112,7 +112,7 @@ image_speed = 0.3;
 if (active == 0) {
 
     //Play 'Switch' sound
-    audio_play_sound(snd_switch, 0, false);
+    audio_stop_play_sound(snd_switch, 0, false);
     
     //Set frame
     image_index = 1;

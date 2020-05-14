@@ -65,7 +65,7 @@ cannon = 0;
             <string>///Shot the player like in a cannon
 
 //Play 'Explosion' sound
-audio_play_sound(snd_explosion, 0, false);
+audio_stop_play_sound(snd_explosion, 0, false);
 
 //Create smoke particles based on cannon direcion
 switch (cannon) {

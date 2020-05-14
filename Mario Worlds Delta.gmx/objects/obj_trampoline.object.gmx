@@ -214,7 +214,7 @@ if (sprite_index == spr_trampoline) {
         if (instance_exists(obj_playerparent)) {
         
             //Play 'Trampoline' sound
-            audio_play_sound(snd_trampoline, 0, false);
+            audio_stop_play_sound(snd_trampoline, 0, false);
             
             //With the player
             with (obj_playerparent) {

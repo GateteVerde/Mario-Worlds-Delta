@@ -112,7 +112,7 @@ else
             <string>///Allow block to be hit again and swap blocks
 
 //Play 'Switch' sound
-audio_play_sound(snd_switch, 0, false);
+audio_stop_play_sound(snd_switch, 0, false);
 
 //Allow block hit
 ready = 0;

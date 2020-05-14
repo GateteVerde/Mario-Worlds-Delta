@@ -28,7 +28,7 @@
             <string>///Your game is over, press 'Any' key to continue!
 
 //Play 'Game Over' track
-audio_play_sound(bgm_gameover, 0, false);
+audio_stop_play_sound(bgm_gameover, 0, false);
 
 //Do not animate
 image_speed = 0;
@@ -69,8 +69,8 @@ init_globals();
 //With the controller
 with (obj_controller) {
 
-    //Play 'Intro' sound
-    audio_play_sound(snd_intro, 0, false);
+    //Play 'Coin' sound
+    audio_stop_play_sound(snd_coin, 0, false);
     
     //Go to next screen
     alarm[4] = 200;

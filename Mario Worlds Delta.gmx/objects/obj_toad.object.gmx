@@ -1116,7 +1116,7 @@ if (crouch == true)
     &amp;&amp; (squat_ready == 0) {
     
         //Play 'Charge' sound
-        audio_play_sound(snd_charge, 0, false);
+        audio_stop_play_sound(snd_charge, 0, false);
     
         //Set the squat state
         squat_ready = 1;

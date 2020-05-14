@@ -28,7 +28,7 @@
             <string>///Spin Smoke
 
 //Play 'Spinstomp' sound
-audio_play_sound(snd_spinstomp, 0, false);
+audio_stop_play_sound(snd_spinstomp, 0, false);
 
 //Animate
 image_speed = 0.15;

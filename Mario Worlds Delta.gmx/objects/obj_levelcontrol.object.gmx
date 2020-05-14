@@ -292,7 +292,7 @@ exit;
             <kind>1</kind>
             <string>///Play 'Hurry' sound
 
-audio_play_sound(snd_hurry, 0, false);
+audio_stop_play_sound(snd_hurry, 0, false);
 </string>
           </argument>
         </arguments>
@@ -740,7 +740,7 @@ if (switchon) {
     &amp;&amp; ((alarm[6] &gt;= 31) &amp;&amp; (alarm[6] &lt; 120)) {
     
         //Play 'Switch Timer' sound
-        audio_play_sound(snd_switchtimer, 0, false);
+        audio_stop_play_sound(snd_switchtimer, 0, false);
         
         //Warn
         warning = 1;
@@ -759,7 +759,7 @@ if (gswitchon) {
     &amp;&amp; ((alarm[7] &gt;= 31) &amp;&amp; (alarm[7] &lt; 120)) {
     
         //Play 'Switch Timer' sound
-        audio_play_sound(snd_switchtimer, 0, false);
+        audio_stop_play_sound(snd_switchtimer, 0, false);
         
         //Warn
         swarning = 1;

@@ -125,7 +125,7 @@ if (input_check_pressed(input.up))
         &amp;&amp; (player.state != statetype.climb) {
         
             //Play 'Door' sound
-            audio_play_sound(snd_door, 0, false);
+            audio_stop_play_sound(snd_door, 0, false);
             
             //Animate the door
             image_speed = 0.2;

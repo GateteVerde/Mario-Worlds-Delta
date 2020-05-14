@@ -75,7 +75,7 @@ if (!instance_exists(obj_playerparent)) {
 }
 
 //Play 'Explosion' sound
-audio_play_sound(snd_explosion, 0, false);
+audio_stop_play_sound(snd_explosion, 0, false);
 
 //Direction
 switch (direct) {

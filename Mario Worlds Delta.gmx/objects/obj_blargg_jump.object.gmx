@@ -112,7 +112,7 @@ if ((other.bbox_bottom &lt; bbox_top+5) &amp;&amp; (other.vspeed &gt; 0)) {
     || (other.jumpstyle == 1) {
     
         //Play 'Stomp' sound.
-        audio_play_sound(snd_stomp, 0, false);
+        audio_stop_play_sound(snd_stomp, 0, false);
         
         //Make the player jump
         with (other) event_user(1);            
