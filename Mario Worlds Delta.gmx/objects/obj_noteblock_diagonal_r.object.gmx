@@ -147,6 +147,7 @@ if (ready == 0)
         
         //Check if the 'Jump' key is pressed and allow variable jumping
         if (input_check(input.action0))
+        || (input_check(input.action2))
             jumping = 1;
         else
             jumping = 2;

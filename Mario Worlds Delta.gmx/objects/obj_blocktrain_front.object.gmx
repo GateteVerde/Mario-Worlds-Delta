@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_solid</parentName>
+  <parentName>obj_solid_moving</parentName>
   <maskName>spr_square</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -151,9 +151,6 @@ if (collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playe
     else
         obj_playerparent.y = ceil(bbox_top-16);
 }
-
-//Push NPCs
-npc_destroy();
 
 //This object should also push the player
 if ((hspeed &lt; 0) &amp;&amp; (collision_line(bbox_left+hspeed, bbox_top, bbox_left, bbox_bottom, obj_playerparent, 0, 0)))

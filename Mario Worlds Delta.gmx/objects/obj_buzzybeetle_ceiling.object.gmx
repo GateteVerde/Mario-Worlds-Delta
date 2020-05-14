@@ -83,8 +83,8 @@ if (ready == 0) {
     }
     
     //Make sure if does not wall off ceilings
-    if ((hspeed &lt; 0) &amp;&amp; (!position_meeting(bbox_left, y-4, obj_solidparent)))
-    || ((hspeed &gt; 0) &amp;&amp; (!position_meeting(bbox_right, y-4, obj_solidparent)))
+    if ((hspeed &lt; 0) &amp;&amp; (!position_meeting(bbox_left, y-4, obj_solid)))
+    || ((hspeed &gt; 0) &amp;&amp; (!position_meeting(bbox_right, y-4, obj_solid)))
         hspeed = -hspeed;
 }
 

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_semisolid</parentName>
+  <parentName>obj_semisolid_moving</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -202,7 +202,7 @@ if ((collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_play
     }
     
     //Check for a moving platform
-    var check = collision_rectangle(obj_playerparent.bbox_left, obj_playerparent.bbox_bottom-1, obj_playerparent.bbox_right, obj_playerparent.bbox_bottom+1, obj_semisolidparent, 0, 1);
+    var check = collision_rectangle(obj_playerparent.bbox_left, obj_playerparent.bbox_bottom-1, obj_playerparent.bbox_right, obj_playerparent.bbox_bottom+1, obj_semisolid, 0, 1);
     if (check)
         exit;                
 

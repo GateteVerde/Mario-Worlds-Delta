@@ -267,7 +267,7 @@ if ((fall == 0) &amp;&amp; (vspeed == 0)) {
     if (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
     
         //If there's not a semisolid below
-        if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0)) {
+        if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0)) {
         
             move_snap(4, 2);
             y += 3;
@@ -282,13 +282,13 @@ else if (fall == 1)
     fall = 0;
 
 //Check for blocks to the left
-var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_solidparent, 0, 0);
+var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_solid, 0, 0);
 if (block_l)
 &amp;&amp; (sprite_height &gt; 16)
     with (block_l) event_user(15);
 
 //Check for blocks to the right    
-var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_solidparent, 0, 0);
+var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_solid, 0, 0);
 if (block_r)
 &amp;&amp; (sprite_height &gt; 16)
     with (block_r) event_user(15);
@@ -379,7 +379,7 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
     //If there's a semisolid below
     if (semisolid)
@@ -402,8 +402,8 @@ if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
 }
 
 //Check for floor objects
-if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 0, 0))
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolidparent, 0, 0))
+if (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
 || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //Stop vertical movement
@@ -445,11 +445,11 @@ else {
 if (vspeed &lt; 0) {
 
     //...and the NPC bumps a ceiling
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //Prevent the NPC from getting embed on the ceiling      
-        while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solidparent, 1, 0))
+        while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
         || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))        
             y++;
         

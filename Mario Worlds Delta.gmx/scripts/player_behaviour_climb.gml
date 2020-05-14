@@ -56,7 +56,7 @@ if (control_enable == true) {
     if (input_check(input.up)) && (!input_check(input.down)) {
     
         //If there's a ceiling on the way, prevent the player from moving up
-        if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0))
+        if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
         || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))
             vspeed = 0;
             
@@ -94,7 +94,7 @@ if (control_enable == true) {
                 vspeed = 1;
                 
             //If there's a semisolid below, abort climbing
-            var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 0, 0);
+            var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0);
             if (semisolid)
                 state = statetype.jump;
         }

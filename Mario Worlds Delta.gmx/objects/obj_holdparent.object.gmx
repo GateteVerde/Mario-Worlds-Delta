@@ -319,7 +319,7 @@ if (held == false) {
                     
             //Stop it if it gets stuck in a solid
             if (vspeed &lt; 0)
-            &amp;&amp; (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-1, obj_solidparent, 0, 0)) {
+            &amp;&amp; (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 0, 0)) {
             
                 //Stop movement
                 speed = 0;
@@ -338,7 +338,7 @@ if (held == false) {
         x -= 2.5*sign(dir);
        
         //If the item is not longer overlapping a solid
-        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-1, obj_solidparent, 0, 0))
+        if (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 0, 0))
             inwall = false;
     }
 }
@@ -516,7 +516,7 @@ if (input_check(input.up)) {
     instance_create(x, y+8, obj_spinthump);
     
     //If the item is not overlapping a solid
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solidparent, 1, 0)) {
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
     
         //Set the horizontal speed
         hspeed = obj_playerparent.hspeed/1.5;
@@ -540,7 +540,7 @@ if (input_check(input.up)) {
 else if (input_check(input.down)) {
     
     //Check if the object is stuck on a solid and move it
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solidparent, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
     
         //Move it to a safe position
         inwall = true;
@@ -557,7 +557,7 @@ else if (input_check(input.down)) {
 else {
 
     //If the item is not overlapping a solid.
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_solidparent, 0, 0)) {
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_solid, 0, 0)) {
         
         //If the player has horizontal speed
         if (obj_playerparent.hspeed != 0) {

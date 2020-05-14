@@ -225,8 +225,9 @@ if (sprite_index == spr_trampoline) {
                 //Boost jump
                 y -= 8;
                 
-                //Allow variable jumping if 'Shift' is pressed
+                //Allow variable jumping if 'Shift' or 'Space' is pressed
                 if (input_check(input.action0))
+                || (input_check(input.action2))
                     jumping = 1;
                 else
                     jumping = 2;

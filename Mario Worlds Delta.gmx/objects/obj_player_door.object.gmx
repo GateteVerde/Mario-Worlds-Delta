@@ -231,15 +231,15 @@ if (holding == 1) &amp;&amp; (vspeed == 0) {
         draw_sprite_ext(myitem, myframe, round(x)+(10*image_xscale), round(y)-3, 1, 1, 0, c_white, 1);
 }
 
+//Set the palette
+player_set_palette(id);
+
 //Draw cape
 if (global.powerup &gt;= cs_pow_cape) {
 
     draw_sprite_ext(spr_cape, 0, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
 }
     
-//Set the palette
-player_set_palette(id);
-
 //Draw the player
 draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
     

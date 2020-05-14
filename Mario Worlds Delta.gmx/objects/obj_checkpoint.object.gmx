@@ -35,7 +35,7 @@ pole = noone;
 alarm[0] = 2;
 
 //Check if there's a semisolid in place
-if (!position_meeting(x, y+16, obj_semisolidparent)) {
+if (!position_meeting(x, y+16, obj_semisolid)) {
 
     //If there's a midwaygate in position
     if (position_meeting(x, y+16, obj_checkpoint)) {
@@ -62,7 +62,7 @@ if (!position_meeting(x, y+16, obj_semisolidparent)) {
         anim_st = 8;
     }
 }
-else if (position_meeting(x, y+16, obj_semisolidparent)) {
+else if (position_meeting(x, y+16, obj_semisolid)) {
 
     anim = 4;
     anim_st = 4;

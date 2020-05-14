@@ -65,7 +65,7 @@ vspeed = spd;
             <string>///Rain logic
 
 //Check for a semisolid
-var semisolid = collision_rectangle(bbox_left-hspeed, bbox_bottom, bbox_left, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
+var semisolid = collision_rectangle(bbox_left-hspeed, bbox_bottom, bbox_left, bbox_bottom+vspeed, obj_semisolid, 0, 0);
 
 //Check for a slope
 var slope = collision_rectangle(bbox_left-hspeed, bbox_bottom, bbox_left, bbox_bottom+vspeed, obj_slopeparent, 1, 0);

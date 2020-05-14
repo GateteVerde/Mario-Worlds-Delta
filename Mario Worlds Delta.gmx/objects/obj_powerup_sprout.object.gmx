@@ -243,7 +243,7 @@ instance_destroy();
 
 //If not overlapping with a solid
 if (ready == 1)
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solidparent, 0, 0)) {
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_solid, 0, 0)) {
 
     //Create an item
     with (sprite_create_object(x, y, sprite_index)) {

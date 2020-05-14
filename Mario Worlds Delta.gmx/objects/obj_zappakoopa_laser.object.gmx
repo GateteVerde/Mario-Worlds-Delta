@@ -105,7 +105,7 @@ if (beam == 0) {
     if (parent.xscale &gt; 0) {
         
         //If there's a solid on the way
-        if (((collision_point(x, y, obj_solidparent, 0, 0)) || (collision_point(x, y, obj_slopeparent, 1, 0))) 
+        if (((collision_point(x, y, obj_solid, 0, 0)) || (collision_point(x, y, obj_slopeparent, 1, 0))) 
         || (x &gt; view_xview[view_current]+view_wview[view_current]+16)) {
         
             move_snap(4, 1);
@@ -123,7 +123,7 @@ if (beam == 0) {
     else if (parent.xscale &lt; 0) {
         
         //If there's a solid on the way
-        if (((collision_point(x, y, obj_solidparent, 0, 0)) || (collision_point(x, y, obj_slopeparent, 1, 0))) 
+        if (((collision_point(x, y, obj_solid, 0, 0)) || (collision_point(x, y, obj_slopeparent, 1, 0))) 
         || (x &lt; view_xview[view_current]-16)) {
         
             move_snap(4, 1);

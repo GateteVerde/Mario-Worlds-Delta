@@ -9,7 +9,7 @@
 */
 
 //Check if the player is making contact with a slope
-if (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1,obj_slopeparent,1,0))
+if (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1, obj_slopeparent, 1, 0))
     return true;
 else
     return false;

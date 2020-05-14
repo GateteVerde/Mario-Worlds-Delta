@@ -179,7 +179,7 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
     //If there's a semisolid in position
     if (semisolid) 
@@ -296,13 +296,15 @@ event_user(3);
 if (vspeed &lt; 0) {
 
     //...and the player bumps a ceiling
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+    if ((collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid_moving, 1, 0)))
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //If the player is jumping or climbing
         if (state == statetype.jump) {
         
-            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solidparent, 1, 0))
+            while ((collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+            || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid_moving, 1, 0))
             || (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
                 y++;
         }
@@ -422,34 +424,58 @@ else if (vspeed &gt;= 0) {
             <kind>1</kind>
             <string>///Default wall collision
 
-//If moving right
+//If moving right and the player bumps a wall to the right
 if (hspeed &gt; 0) {
 
-    //If there's a wall in position
-    if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solidparent, 1, 0)) {
+    //Collision with non-moving solid objects
+    if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
         
         //Stop horizontal speed
         hspeed = 0;    
         
         //Prevent the player from getting embed in the wall
-        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solidparent, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 1, 0))
+        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+            x--;
+    }
+    
+    //Collision with moving solid objects
+    else if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid_moving, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid_moving, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid_moving, 0, 0))
             x--;
     }
 }
 
-//Otherwise, if moving left
+//Otherwise, if moving left and the player bumps a wall to the left
 else if (hspeed &lt; 0) {
 
-    //If there's a wall in position
-    if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solidparent, 1, 0)) {
+    //Collision with non-solid moving objects
+    if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
         
         //Stop horizontal speed
         hspeed = 0;    
         
         //Prevent the player from getting embed in the wall
-        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solidparent, 1, 0))
-        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 1, 0))    
+        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
+            x++;
+    }
+    
+    //Collision with moving solid object
+    else if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid_moving, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid_moving, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
             x++;
     }
 }
@@ -611,31 +637,8 @@ else if (gravity == 0) {
             <kind>1</kind>
             <string>///Draw the player
 
-//Create temporary variables
-var pal, numb;
-
-//If the player is invincible
-if (instance_exists(obj_invincibility)) {
-
-    //Set the invincibility palette
-    pal = spr_palette_invincibility;
-    
-    //Set the palette position
-    numb = obj_playerparent.isflashing;
-}
-
-//Otherwise, if the player is not invincible
-else {
-
-    //Set the master palette
-    pal = spr_palette_master;
-    
-    //Set the palette position
-    numb = global.powerup;
-}
-
 //Set the palette
-pal_swap_set(pal, numb);
+player_set_palette(obj_playerparent);
 
 //Draw the player
 if (global.mount == 0) {

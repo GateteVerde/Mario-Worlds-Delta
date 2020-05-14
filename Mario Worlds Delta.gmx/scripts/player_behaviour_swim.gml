@@ -19,8 +19,9 @@ flying = 0;
 
 //Figure out player's state
 if (gravity == 0)
-&& ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolidparent, 0, 0))
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))) {
+&& ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid_moving, 0, 0)))
+|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //If the player is not moving up
     if (vspeed >= 0) {
@@ -161,7 +162,7 @@ if (inwall == false)
         xscale = 1;
         
         //If there's NOT a wall on the way.
-        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4),obj_solidparent, 1, 0)) {
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
         
             //Set the horizontal speed.
             if (hspeed >= 0) //If the player horizontal speed is equal/greater than 0.        
@@ -185,7 +186,7 @@ if (inwall == false)
         xscale = -1;
         
         //If there's NOT a wall on the way.
-        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4),obj_solidparent, 1, 0)) {
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0)) {
         
             //Set the horizontal speed.
             if (hspeed <= 0) //If the player horizontal speed is equal/lower than 0.        

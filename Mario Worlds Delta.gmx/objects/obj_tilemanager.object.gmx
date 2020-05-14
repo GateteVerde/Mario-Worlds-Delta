@@ -74,14 +74,21 @@ with (obj_tilesolid) {
     vspeed = other.vspeed;
 }
 
+//Make the test semisolids move along
+with (obj_tilesemisolid) {
+    
+    hspeed = other.hspeed;
+    vspeed = other.vspeed;
+}
+
 //Movement
-if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_up,0,0))
+if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_up,0,0))
     vspeed -= target_speed;
-else if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_down,0,0))
+else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_down,0,0))
     vspeed += target_speed;
-else if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_left,0,0))
+else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_left,0,0))
     hspeed -= target_speed;
-else if (collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_right,0,0))
+else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_right,0,0))
     hspeed += target_speed;
 </string>
           </argument>

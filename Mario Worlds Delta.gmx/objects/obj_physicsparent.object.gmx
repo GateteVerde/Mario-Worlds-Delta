@@ -66,7 +66,7 @@ swimming = false;
 */
 
 //Check for a moving platform
-var moving = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_bottom+4+vspeed, obj_semisolidparent, 0, 0);
+var moving = collision_rectangle(x, bbox_top-5, x, bbox_bottom+4+vspeed, obj_semisolid, 0, 0);
 
 //If there's a moving platform
 if (moving) {
@@ -79,21 +79,23 @@ if (moving) {
         &amp;&amp; (other.id.bbox_bottom &lt; yprevious+5)
         &amp;&amp; (other.id.gravity == 0) {
         
-            //If this moving object is a moving platform
+            //If this moving object is a icicle, a donut or a skull raft
             if (object_index == obj_icicle)
             || (object_index == obj_donut)
-            || (object_index == obj_donut_red) {
+            || (object_index == obj_donut_red) 
+            || (object_index == obj_skullraft) {
             
                 //If moving down
                 if (vspeed &gt; 0) {
                 
                     //Check if falling through a semisolid
-                    var check = collision_rectangle(other.id.bbox_left, bbox_top-5, other.id.bbox_right, bbox_top+1, obj_semisolidparent, 0, 1);
+                    var check = collision_rectangle(other.id.bbox_left, bbox_top-5, other.id.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
                     
                     //If not falling through, or falling througn a lower donut, snap the player vertically
                     if (!check)
-                    || ((check.object_index == obj_donut || check.object_index == obj_donut_red || check.object_index == obj_icicle) &amp;&amp; (check.y &gt; y || (check.y == y &amp;&amp; check &gt; id)))
-                        other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
+                    || ((check.object_index == obj_donut || check.object_index == obj_donut_red || check.object_index == obj_icicle || check.object_index == obj_skullraft) &amp;&amp; (check.y &gt; y || (check.y == y &amp;&amp; check &gt; id)))
+                        other.id.y = ceil(bbox_top-16);
+                        //other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
                 }               
             }
             
@@ -104,13 +106,14 @@ if (moving) {
                 if (vspeed != 0) {
                     
                     //Snap the instance vertically
-                    other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
+                    other.id.y = ceil(bbox_top-16);
+                    //other.id.y = bbox_top-(other.id.sprite_height-sprite_get_yoffset(other.id.sprite_index));
                 }
             }
             
             //Move the player horizontally if there is no solid in his way            
-            if (x &lt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_left-1, other.id.bbox_top+4, other.id.bbox_left, other.id.bbox_bottom-5, obj_solidparent, 0, 0))
-            || (x &gt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_right, other.id.bbox_top+4, other.id.bbox_right+1, other.id.bbox_bottom-5, obj_solidparent, 0, 0))
+            if (x &lt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_left-1, other.id.bbox_top+4, other.id.bbox_left, other.id.bbox_bottom-5, obj_solid, 0, 0))
+            || (x &gt; x-xprevious) &amp;&amp; (!collision_rectangle(other.id.bbox_right, other.id.bbox_top+4, other.id.bbox_right+1, other.id.bbox_bottom-5, obj_solid, 0, 0))
                 other.id.x += x-xprevious;
         }
     }
@@ -140,10 +143,10 @@ if (moving) {
             <string>///Physics logic
 
 //Item trap checks
-t = collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0);
-b = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolidparent, 1, 0);
-l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_solidparent, 1, 0);
-r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_solidparent, 1, 0);
+t = collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0);
+b = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0);
+l = collision_rectangle(bbox_left-1, bbox_top, bbox_left, bbox_bottom, obj_solid, 1, 0);
+r = collision_rectangle(bbox_right, bbox_top, bbox_right+1, bbox_bottom, obj_solid, 1, 0);
 
 //Default wall collision
 event_user(3);
@@ -155,7 +158,7 @@ event_user(4);
 event_user(5);
 
 //Check for lava
-var lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 0, 0);
+var lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 1, 0);
 
 //If there's lava
 if (lava) {
@@ -173,12 +176,12 @@ if (lava) {
         image_speed = 0.3
         
         //Set the sprite
-        if (lava.sprite_index == spr_lava)
-            sprite_index = spr_splash_lava;
-        else if (lava.sprite_index == spr_lava_choco)
+        if (lava.sprite_index == spr_lava_choco)
             sprite_index = spr_splash_choco;
         else if (lava.sprite_index == spr_lava_poison)
-            sprite_index = spr_splash_poison;        
+            sprite_index = spr_splash_poison;
+        else
+            sprite_index = spr_splash_lava;       
     }
     
     //Destroy
@@ -277,7 +280,7 @@ if (vspeed &gt;= 0)
 if (other.vspeed &lt; 0)
 &amp;&amp; (vspeed &gt;= 0)
 &amp;&amp; (bbox_bottom &lt; other.yprevious+5)
-&amp;&amp; (!position_meeting(x, y-8, obj_solidparent))
+&amp;&amp; (!position_meeting(x, y-8, obj_solid))
     vspeed = -3;
 </string>
           </argument>
@@ -313,14 +316,14 @@ if (conveyor)
     //If the conveyor is moving to the right
     if (conveyor.image_speed &gt; 0) {
     
-        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solidparent, 1, 0))
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0))
             x += conveyor.image_speed;
     }
     
     //Otherwise, if the conveyor is moving to the left
     else if (conveyor.image_speed &lt; 0) {
     
-        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solidparent, 1, 0))
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
             x += conveyor.image_speed;            
     }
 }
@@ -373,7 +376,7 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
-    var semisolid = collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 0, 0);
+    var semisolid = collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
     
     //If there's a semisolid below
     if (semisolid)
@@ -400,8 +403,8 @@ if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
 }
 
 //Check for floor objects
-if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolidparent, 0, 0))
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolidparent, 0, 0))
+if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
 || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //Stop vertical movement
@@ -450,12 +453,12 @@ else {
 if (vspeed &lt; 0) {
 
     //...and the NPC bumps a ceiling
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //Prevent the NPC from getting embed on linear ceilings
-        while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solidparent, 1, 0))
-        &amp;&amp; (!place_meeting(x, y, obj_solidparent))
+        while (collision_rectangle(bbox_left, bbox_top+1, bbox_right, bbox_top+1, obj_solid, 1, 0))
+        &amp;&amp; (!place_meeting(x, y, obj_solid))
             y++;
     
         //Prevent the NPC from getting embed on non-linear ceilings      
@@ -534,29 +537,29 @@ if (vspeed != 0) {
 
 //If moving right and the NPC bumps a wall to the right
 if (hspeed &gt; 0) 
-&amp;&amp; ((collision_rectangle(bbox_right, bbox_top+5, bbox_right+1, bbox_bottom-4-(slope*4), obj_solidparent, 1, 0))
+&amp;&amp; ((collision_rectangle(bbox_right, bbox_top+5, bbox_right+1, bbox_bottom-4-(slope*4), obj_solid, 1, 0))
 || (collision_rectangle(bbox_right, bbox_top+5, bbox_right+1, bbox_bottom-4-(slope*4), obj_slope_steeper_r, 1, 0))) {
     
     //Stop horizontal movement
     hspeed = -hspeed;
     
     //Prevent the NPC from getting embed in the wall
-    while (collision_rectangle(bbox_right, bbox_top+5, bbox_right, bbox_bottom-1, obj_solidparent, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 0, 0))
+    while (collision_rectangle(bbox_right, bbox_top+5, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x--;
 }
 
 //Otherwise, if moving left and the NPC bumps a wall to the left
 else if (hspeed &lt; 0)
-&amp;&amp; ((collision_rectangle(bbox_left-1, bbox_top+5, bbox_left, bbox_bottom-4-(slope*4), obj_solidparent, 1, 0))
+&amp;&amp; ((collision_rectangle(bbox_left-1, bbox_top+5, bbox_left, bbox_bottom-4-(slope*4), obj_solid, 1, 0))
 || (collision_rectangle(bbox_left-1, bbox_top+5, bbox_left, bbox_bottom-4-(slope*4), obj_slope_steeper_l, 1, 0))) {
     
     //Stop horizontal movement
     hspeed = -hspeed;
     
     //Prevent the NPC from getting embed in the wall
-    while (collision_rectangle(bbox_left, bbox_top+5, bbox_left, bbox_bottom-1, obj_solidparent, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 0, 0))
+    while (collision_rectangle(bbox_left, bbox_top+5, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
         x++;
 }
 </string>

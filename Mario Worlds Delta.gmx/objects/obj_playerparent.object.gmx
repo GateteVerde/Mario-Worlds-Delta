@@ -677,12 +677,12 @@ if (gravity_enable == true) {
     if (vspeed &gt;= 0) {
     
         //Check for a semisolid ground
-        var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolidparent, 1, 0);
+        var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
         
         //If that ground exists and the player is above it...
         if (semisolid) 
         &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solidparent, 1, 0)) {
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
         
             //Snap above the platform
             y = semisolid.bbox_top-16;
@@ -693,7 +693,26 @@ if (gravity_enable == true) {
             
             //Reset values
             event_user(15);
-        }    
+        }
+        
+        //Check for a semisolid ground
+        var ss_moving = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid_moving, 1, 0);
+        
+        //If that ground exists and the player is above it...
+        if (ss_moving) 
+        &amp;&amp; (bbox_bottom &lt; ss_moving.yprevious+5) 
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, ss_moving.y-1, obj_solid, 1, 0)) {
+        
+            //Snap above the platform
+            y = ss_moving.bbox_top-16;
+            
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
+            
+            //Reset values
+            event_user(15);
+        }        
     }
     
     //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
@@ -824,14 +843,14 @@ if (conveyor)
     //If the conveyor is moving to the right
     if (conveyor.image_speed &gt; 0) {
     
-        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solidparent, 1, 0))
+        if (!collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-4, obj_solid, 1, 0))
             x += conveyor.image_speed;
     }
     
     //Otherwise, if the conveyor is moving to the left
     else if (conveyor.image_speed &lt; 0) {
     
-        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solidparent, 1, 0))
+        if (!collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-4, obj_solid, 1, 0))
             x += conveyor.image_speed;            
     }
 }
@@ -856,40 +875,72 @@ if (escalator)
 }
 
 //If moving right and the player bumps a wall to the right
-if (hspeed &gt; 0)
-&amp;&amp; (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solidparent, 1, 0)) {
+if (hspeed &gt; 0) {
+
+    //Collision with non-moving solid objects
+    if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solid, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))
+            x--;
+    }
     
-    //Stop horizontal speed
-    hspeed = 0;    
-    
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solidparent, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 0, 0))
-        x--;
+    //Collision with moving solid objects
+    else if (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom-1, obj_solid_moving, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_right, bbox_top+4, bbox_right, bbox_bottom-1, obj_solid_moving, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid_moving, 0, 0))
+            x--;
+    }
 }
 
 //Otherwise, if moving left and the player bumps a wall to the left
-else if (hspeed &lt; 0)
-&amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solidparent, 1, 0)) {
+else if (hspeed &lt; 0) {
+
+    //Collision with non-solid moving objects
+    if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
+            x++;
+    }
     
-    //Stop horizontal speed
-    hspeed = 0;    
-    
-    //Prevent the player from getting embed in the wall
-    while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solidparent, 1, 0))
-    &amp;&amp; (!collision_point(x, bbox_top+4, obj_solidparent, 0, 0))    
-        x++;
+    //Collision with moving solid object
+    else if (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid_moving, 1, 0)) {
+        
+        //Stop horizontal speed
+        hspeed = 0;    
+        
+        //Prevent the player from getting embed in the wall
+        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid_moving, 1, 0))
+        &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
+            x++;
+    }
 }
 
 //If moving up...
 if (vspeed &lt; 0)
-&amp;&amp; ((collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+&amp;&amp; ((collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
+|| (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid_moving, 1, 0)) 
 || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))) {
 
     //If not flying
     if (flying == 0) {
     
-        while ((collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solidparent, 1, 0))
+        while ((collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solid_moving, 1, 0))
         || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
             y += 0.9;
     }
@@ -942,7 +993,7 @@ if (vspeed &lt; 0)
 if (vspeed &lt; 0)
 &amp;&amp; (flying &gt; 0) {
 
-    while ((collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_solidparent, 1, 0))
+    while ((collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_solid, 1, 0))
     || (collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_slopeparent_ceiling, 1, 0)))
         y += 0.9;
 }
@@ -1021,7 +1072,7 @@ else if (!water)
 &amp;&amp; (swimming == true) {
 
     //If there's not a solid above
-    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+    if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //If the player is moving up
@@ -1070,8 +1121,8 @@ if (vspeed == 0)
     
     //If the player gets stuck
     if (inwall == false)
-    &amp;&amp; (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solidparent, 1, 0)) 
-    &amp;&amp; (!collision_line(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_solidparent, 1, 0)) {
+    &amp;&amp; (collision_line(bbox_left, bbox_top+4, bbox_right, bbox_top+4, obj_solid, 1, 0)) 
+    &amp;&amp; (!collision_line(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_solid, 1, 0)) {
     
         //If the direction was not set, set it up
         if (direct2 == 0) then direct2 = xscale;
@@ -1087,7 +1138,7 @@ if (vspeed == 0)
     else if (inwall == true) {
     
         //If the player is not longer stuck, allow movement
-        if (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solidparent, 1, 0)) 
+        if (!collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
         || (crouch == true) 
         || (global.powerup == cs_pow_small) {
         
@@ -1102,8 +1153,8 @@ if (vspeed == 0)
         x += 1*sign(direct);
         
         //If the player collides with a wall while being stuck, reverse direction
-        if (collision_rectangle(bbox_left, y+4, bbox_left, bbox_bottom-1, obj_solidparent, 1, 0))
-        || (collision_rectangle(bbox_right, y+4, bbox_right, bbox_bottom-1, obj_solidparent, 1, 0))
+        if (collision_rectangle(bbox_left, y+4, bbox_left, bbox_bottom-1, obj_solid, 1, 0))
+        || (collision_rectangle(bbox_right, y+4, bbox_right, bbox_bottom-1, obj_solid, 1, 0))
             direct = -direct;
     }
 }
@@ -1122,16 +1173,16 @@ if (inwall == false)
     //If facing right
     if (xscale == 1) {
     
-        while (collision_point(bbox_right, bbox_top, obj_solidparent, 1, 0))
-        &amp;&amp; (collision_point(bbox_right, bbox_bottom, obj_solidparent, 1, 0))
+        while (collision_point(bbox_right, bbox_top, obj_solid, 1, 0))
+        &amp;&amp; (collision_point(bbox_right, bbox_bottom, obj_solid, 1, 0))
             x--;
     }
     
     //Otherwise, if facing left
     else if (xscale == -1) {
     
-        while (collision_point(bbox_left, bbox_top, obj_solidparent, 1, 0))
-        &amp;&amp; (collision_point(bbox_left, bbox_bottom, obj_solidparent, 1, 0))
+        while (collision_point(bbox_left, bbox_top, obj_solid, 1, 0))
+        &amp;&amp; (collision_point(bbox_left, bbox_bottom, obj_solid, 1, 0))
             x++;
     }
 }
@@ -1331,6 +1382,7 @@ y--;
 
 //If 'Action 1' is held
 if (input_check(input.action0))
+|| (input_check(input.action2))
     jumping = 1;
 else
     jumping = 2;
