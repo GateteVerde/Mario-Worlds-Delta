@@ -223,6 +223,7 @@
     <sound>sound\snd_lightning</sound>
     <sound>sound\snd_message</sound>
     <sound>sound\snd_move</sound>
+    <sound>sound\snd_oink</sound>
     <sound>sound\snd_palaceclear</sound>
     <sound>sound\snd_palacesplit</sound>
     <sound>sound\snd_pathreveal</sound>
@@ -243,6 +244,7 @@
     <sound>sound\snd_sprout</sound>
     <sound>sound\snd_stomp</sound>
     <sound>sound\snd_stomp_yoshi</sound>
+    <sound>sound\snd_stun</sound>
     <sound>sound\snd_swim</sound>
     <sound>sound\snd_switch</sound>
     <sound>sound\snd_switchtimer</sound>
@@ -747,6 +749,25 @@
           <sprite>sprites\spr_koopa_inside</sprite>
           <sprite>sprites\spr_koopa_inside_big</sprite>
         </sprites>
+        <sprites name="Bros.">
+          <sprite>sprites\spr_hammerbro</sprite>
+          <sprite>sprites\spr_hammerbro_throw</sprite>
+          <sprite>sprites\spr_hammerbro_hammer</sprite>
+          <sprite>sprites\spr_hammerbro_dead</sprite>
+          <sprite>sprites\spr_boomerangbro</sprite>
+          <sprite>sprites\spr_boomerangbro_throw</sprite>
+          <sprite>sprites\spr_boomerangbro_boomerang</sprite>
+          <sprite>sprites\spr_boomerangbro_dead</sprite>
+          <sprite>sprites\spr_firebro</sprite>
+          <sprite>sprites\spr_firebro_throw</sprite>
+          <sprite>sprites\spr_firebro_dead</sprite>
+        </sprites>
+        <sprites name="Chucks">
+          <sprite>sprites\spr_charginchuck</sprite>
+          <sprite>sprites\spr_charginchuck_walk</sprite>
+          <sprite>sprites\spr_charginchuck_jump</sprite>
+          <sprite>sprites\spr_charginchuck_damage</sprite>
+        </sprites>
         <sprite>sprites\spr_rex</sprite>
         <sprite>sprites\spr_rex_dead</sprite>
         <sprite>sprites\spr_rex2</sprite>
@@ -898,17 +919,6 @@
         <sprite>sprites\spr_cannon_ball</sprite>
         <sprite>sprites\spr_cannon_quad</sprite>
       </sprites>
-      <sprite>sprites\spr_hammerbro</sprite>
-      <sprite>sprites\spr_hammerbro_throw</sprite>
-      <sprite>sprites\spr_hammerbro_hammer</sprite>
-      <sprite>sprites\spr_hammerbro_dead</sprite>
-      <sprite>sprites\spr_boomerangbro</sprite>
-      <sprite>sprites\spr_boomerangbro_throw</sprite>
-      <sprite>sprites\spr_boomerangbro_boomerang</sprite>
-      <sprite>sprites\spr_boomerangbro_dead</sprite>
-      <sprite>sprites\spr_firebro</sprite>
-      <sprite>sprites\spr_firebro_throw</sprite>
-      <sprite>sprites\spr_firebro_dead</sprite>
       <sprite>sprites\spr_walrus</sprite>
       <sprite>sprites\spr_walrus_turn</sprite>
       <sprite>sprites\spr_walrus_dead</sprite>
@@ -1110,6 +1120,10 @@
         </sprites>
         <sprite>sprites\spr_warpnode</sprite>
       </sprites>
+      <sprites name="Sound FX">
+        <sprite>sprites\spr_fx</sprite>
+        <sprite>sprites\spr_fx_oink</sprite>
+      </sprites>
       <sprite>sprites\spr_tilemanager</sprite>
       <sprite>sprites\spr_generatormarker</sprite>
     </sprites>
@@ -1228,12 +1242,6 @@
         <sprites name="Map">
           <sprite>sprites\spr_hud_map</sprite>
         </sprites>
-        <sprites name="Title">
-          <sprite>sprites\spr_title_top</sprite>
-          <sprite>sprites\spr_title_middle</sprite>
-          <sprite>sprites\spr_title_bottom</sprite>
-          <sprite>sprites\spr_title_cog</sprite>
-        </sprites>
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
@@ -1326,6 +1334,7 @@
       <background>background\bgr_cave_ice</background>
       <background>background\bgr_cave_ice_b</background>
       <background>background\bgr_cave_ice_c</background>
+      <background>background\bgr_clouds</background>
       <background>background\bgr_desert</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
@@ -1366,7 +1375,7 @@
     </backgrounds>
     <background>background\bgr_pit</background>
     <background>background\bgr_title</background>
-    <background>background\bgr_titlebgr</background>
+    <background>background\bgr_titlebg</background>
     <background>background\bgr_marioworlds</background>
   </backgrounds>
   <paths name="paths">
@@ -1744,6 +1753,15 @@
           <object>objects\obj_shell</object>
           <object>objects\obj_shell_kamikaze</object>
         </objects>
+        <objects name="Bros.">
+          <object>objects\obj_hammerbro</object>
+          <object>objects\obj_boomerangbro</object>
+          <object>objects\obj_firebro</object>
+        </objects>
+        <objects name="Chucks">
+          <object>objects\obj_charginchuck</object>
+          <object>objects\obj_clappinchuck</object>
+        </objects>
         <object>objects\obj_rex</object>
         <object>objects\obj_dinotorch</object>
         <object>objects\obj_dinorhino</object>
@@ -1814,9 +1832,6 @@
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
       </objects>
-      <object>objects\obj_hammerbro</object>
-      <object>objects\obj_boomerangbro</object>
-      <object>objects\obj_firebro</object>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
     </objects>
@@ -1931,6 +1946,10 @@
         <object>objects\obj_modifier_detonator</object>
         <object>objects\obj_modifier_beanstalk</object>
         <object>objects\obj_modifier_key</object>
+      </objects>
+      <objects name="Sound FX">
+        <object>objects\obj_fx</object>
+        <object>objects\obj_fx_oink</object>
       </objects>
       <object>objects\obj_tilehurt</object>
       <object>objects\obj_tilesolid</object>
@@ -2119,6 +2138,11 @@
             <objects name="Goombas">
               <object>objects\obj_galoomba_held</object>
             </objects>
+            <objects name="Bros.">
+              <object>objects\obj_hammerbro_hammer</object>
+              <object>objects\obj_boomerangbro_boomerang</object>
+              <object>objects\obj_firebro_fireball</object>
+            </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>
           </objects>
@@ -2166,9 +2190,6 @@
             <object>objects\obj_cannon_ball</object>
           </objects>
           <object>objects\obj_shell_kicked</object>
-          <object>objects\obj_hammerbro_hammer</object>
-          <object>objects\obj_boomerangbro_boomerang</object>
-          <object>objects\obj_firebro_fireball</object>
         </objects>
         <objects name="World Map">
           <objects name="Decoration">
@@ -2276,8 +2297,8 @@
     <constant name="c_smwgreen">$00f800</constant>
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
-    <constant name="cs_disclaimer">"2012-20?? GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9 - r237"</constant>
+    <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
+    <constant name="cs_version">"v0.9 - r238"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>
