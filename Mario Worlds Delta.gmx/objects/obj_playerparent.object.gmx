@@ -715,8 +715,8 @@ if (gravity_enable == true) {
     }
     
     //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-    if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent, 1, 0)) {
+    if ((collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0)) &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent, 1, 0)))
+    || ((collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent_move, 1, 0)) &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent_move, 1, 0))) {
     
         //If the player is moving or the player is not moving and it is being pushed
         if (state == statetype.walk)
@@ -771,6 +771,27 @@ if (gravity_enable == true) {
                 while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
                     y--;
         }
+    }
+    
+    //Handle collision with moving slopes
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent_move, 1, 0))
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent_move, 1, 0)) {
+                
+        //If moving down
+        if (vspeed &gt;= 0) {
+        
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
+            
+            //Reset values
+            event_user(15);
+        }
+        
+        //Prevent the player from getting embed inside a slope
+        if (vspeed &gt; -0.85)    
+            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent_move, 1, 0))
+                y--;
     }
     
     //If the player is not swimming

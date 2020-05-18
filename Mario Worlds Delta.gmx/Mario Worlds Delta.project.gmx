@@ -591,6 +591,8 @@
         <sprite>sprites\spr_platform_track_blue</sprite>
         <sprite>sprites\spr_platform_track_blue_b</sprite>
         <sprite>sprites\spr_platform_accordion</sprite>
+        <sprite>sprites\spr_platform_slope_r</sprite>
+        <sprite>sprites\spr_platform_slope_l</sprite>
         <sprite>sprites\spr_skullraft</sprite>
         <sprite>sprites\spr_engine</sprite>
         <sprite>sprites\spr_donut</sprite>
@@ -1663,6 +1665,8 @@
         <object>objects\obj_platform_accordion_h</object>
         <object>objects\obj_platform_accordion_v</object>
         <object>objects\obj_platform_accordion_hv</object>
+        <object>objects\obj_platform_slope_r</object>
+        <object>objects\obj_platform_slope_l</object>
         <object>objects\obj_skullraft</object>
         <object>objects\obj_engine</object>
         <object>objects\obj_donut</object>
@@ -1998,6 +2002,7 @@
           <objects name="Collision">
             <objects name="Slopes">
               <object>objects\obj_slopeparent</object>
+              <object>objects\obj_slopeparent_move</object>
               <object>objects\obj_slopeparent_ceiling</object>
             </objects>
             <objects name="Moving">
