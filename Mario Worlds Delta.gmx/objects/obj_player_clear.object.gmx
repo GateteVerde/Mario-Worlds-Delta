@@ -584,7 +584,7 @@ if (ready4 == 1) {
 else if ((global.time &lt; 1) &amp;&amp; (global.bonusadd == 0) &amp;&amp; (ready4 == 2)) {
 
     ready4 = 3;
-    audio_stop_play_sound(snd_count2);
+    audio_stop_play_sound(snd_count2, 0, false);
     audio_stop_play_sound(snd_count3, 0, false);
 }    
 </string>
