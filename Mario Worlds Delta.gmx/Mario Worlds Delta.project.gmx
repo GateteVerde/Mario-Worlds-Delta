@@ -593,6 +593,8 @@
         <sprite>sprites\spr_platform_accordion</sprite>
         <sprite>sprites\spr_platform_slope_r</sprite>
         <sprite>sprites\spr_platform_slope_l</sprite>
+        <sprite>sprites\spr_platform_timed</sprite>
+        <sprite>sprites\spr_platform_timed_number</sprite>
         <sprite>sprites\spr_skullraft</sprite>
         <sprite>sprites\spr_engine</sprite>
         <sprite>sprites\spr_donut</sprite>
@@ -1667,6 +1669,7 @@
         <object>objects\obj_platform_accordion_hv</object>
         <object>objects\obj_platform_slope_r</object>
         <object>objects\obj_platform_slope_l</object>
+        <object>objects\obj_platform_timed</object>
         <object>objects\obj_skullraft</object>
         <object>objects\obj_engine</object>
         <object>objects\obj_donut</object>
@@ -1968,12 +1971,10 @@
         <object>objects\obj_door_player</object>
       </objects>
       <objects name="Pipes">
-        <objects name="Entrances">
-          <object>objects\obj_warptop</object>
-          <object>objects\obj_warpbottom</object>
-          <object>objects\obj_warpleft</object>
-          <object>objects\obj_warpright</object>
-        </objects>
+        <object>objects\obj_warptop</object>
+        <object>objects\obj_warpbottom</object>
+        <object>objects\obj_warpleft</object>
+        <object>objects\obj_warpright</object>
       </objects>
       <object>objects\obj_warpnode</object>
     </objects>

@@ -48,6 +48,9 @@ hp = 3;
 //Fire Hits
 firehp = 5;
 
+//Lookout
+lookout = -1;
+
 //Death Sprite
 deathsprite = sprite_index;
 
@@ -85,12 +88,9 @@ alarm[10] = 60;
           <argument>
             <kind>1</kind>
             <string>///Start moving
-    
+
 //Set the running sprite
 sprite_index = spr_charginchuck_walk;
-
-//Animate
-image_speed = 0.5;
 
 //Disable friction
 friction = 0;
@@ -98,12 +98,82 @@ friction = 0;
 //Play sound
 alarm[0] = 6;
 
-//Move towards the player
-if (!instance_exists(obj_playerparent))
-|| (obj_playerparent.x &lt; x)
-    hspeed = -1.75;
+//If the player is above
+if (obj_playerparent.bbox_bottom &lt; y-16) {
+
+    //Animate
+    image_speed = 0.25;
+    
+    //Do not lookout
+    lookout = 0;
+    
+    //Stop moving
+    alarm[1] = 120;
+    
+    //Move towards the player
+    if (!instance_exists(obj_playerparent))
+    || (obj_playerparent.x &lt; x)
+        hspeed = -1;
+    else
+        hspeed = 1;
+}
+
+//Otherwise
+else {
+        
+    //Animate
+    image_speed = 0.5;
+    
+    //Lookout for player
+    lookout = 1;
+    
+    //Move towards the player
+    if (!instance_exists(obj_playerparent))
+    || (obj_playerparent.x &lt; x)
+        hspeed = -1.75;
+    else
+        hspeed = 1.75;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stop moving
+
+if (gravity == 0) {
+    
+    //Stop animation
+    sprite_index = spr_charginchuck;
+    
+    //Stop horizontal speed
+    hspeed = 0;
+    
+    //Reset lookout
+    lookout = -1;
+    
+    //Charge at the player again
+    alarm[10] = 32;
+}
 else
-    hspeed = 1.75;
+    alarm[1] = 1;
 </string>
           </argument>
         </arguments>
@@ -131,9 +201,13 @@ else
 //Repeat the process
 alarm[0] = 6;
 
-//If chargin, play 'Bump' sound
-if (sprite_index == spr_charginchuck_walk)
-    audio_stop_play_sound(snd_bump, 0, false);
+//If the chuck is on lockout mode
+if (lookout == 1) {
+    
+    //If chargin, play 'Bump' sound
+    if (sprite_index == spr_charginchuck_walk)
+        audio_stop_play_sound(snd_bump, 0, false);
+}
 </string>
           </argument>
         </arguments>
@@ -197,6 +271,9 @@ stompsprite = sprite_index;
             <kind>1</kind>
             <string>///Chargin' Chuck logic
 
+//Push value
+xx = abs(hspeed);
+
 //If running or jumping
 if (sprite_index == spr_charginchuck_walk) 
 || (sprite_index == spr_charginchuck_jump) {
@@ -225,9 +302,9 @@ if (sprite_index == spr_charginchuck_walk)
     
     //Move away from walls
     if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+4, bbox_left+hspeed, bbox_bottom-1, obj_solid, 0, 0)))
-        x += 1.75;
+        x += xx;
     if ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right+hspeed, bbox_top+4, bbox_right+hspeed, bbox_bottom-1, obj_solid, 0, 0)))
-        x -= 1.75;    
+        x -= xx;    
 }
 
 //Otherwise if damaged
@@ -246,9 +323,9 @@ else {
     
     //Move away from walls
     if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left+hspeed, bbox_top+4, bbox_left+hspeed, bbox_bottom-1, obj_solid, 0, 0)))
-        x += 1.75;
+        x += xx;
     if ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right+hspeed, bbox_top+4, bbox_right+hspeed, bbox_bottom-1, obj_solid, 0, 0)))
-        x -= 1.75;
+        x -= xx;
 }
 
 //Floor collision
@@ -266,26 +343,65 @@ if (gravity == 0) {
         //Set the running sprite
         sprite_index = spr_charginchuck_walk;
         
-        //Animate
-        image_speed = 0.5;
+        //Set frame
         image_index = 1;
+        
+        //Set horizontal speed
+        if (lookout == 0)
+            image_speed = 0.25;
+        else
+            image_speed = 0.5;        
     }
     
-    //Always charge at the player
+    //If the player does exist
     if (instance_exists(obj_playerparent)) {
-    
-        //If the player managed to get away...
-        if (hspeed &lt; 0) &amp;&amp; (obj_playerparent.x &gt; x+32)
-        || (hspeed &gt; 0) &amp;&amp; (obj_playerparent.x &lt; x-32) {
         
-            //Stop animation
-            sprite_index = spr_charginchuck;
+        //Always charge at the player if in lookout mode
+        if (lookout == 1) {
+        
+            //If the player managed to get away...
+            if (hspeed &lt; 0) &amp;&amp; (obj_playerparent.x &gt; x+32)
+            || (hspeed &gt; 0) &amp;&amp; (obj_playerparent.x &lt; x-32) {
             
-            //Stop horizontal speed
-            hspeed = 0;
+                //Stop animation
+                sprite_index = spr_charginchuck;
+                
+                //Stop horizontal speed
+                hspeed = 0;
+                
+                //Reset lookout
+                lookout = -1;
+                
+                //Charge at the player again
+                alarm[10] = 32;
+            }
+        }
+        else if (lookout == 0) {
+        
+            //If the player is not above
+            if (obj_playerparent.bbox_bottom &gt; y-16) {
             
-            //Charge at the player again
-            alarm[10] = 32;
+                //If the chuck is moving to the right
+                if ((hspeed &gt; 0) &amp;&amp; (obj_playerparent.x &gt; x)) 
+                || ((hspeed &lt; 0) &amp;&amp; (obj_playerparent.x &lt; x)) {
+                
+                    //Double horizontal speed
+                    hspeed = hspeed*2;                    
+                    
+                    //Activate lookout mode
+                    lookout = 1;
+                                 
+                    //Stop alarm 1
+                    alarm[1] = -1;
+                    
+                    //Set animation speed
+                    image_speed = 0.5;
+                    
+                    //If there's not gravity, set dash sprite
+                    if (gravity == 0)
+                        sprite_index = spr_charginchuck_walk;
+                }
+            }
         }
     }
 }

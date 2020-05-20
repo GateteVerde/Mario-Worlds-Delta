@@ -135,10 +135,6 @@
     <instance objName="obj_qblock" x="64" y="64" name="inst_0349C1FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_star" x="80" y="64" name="inst_2E588096" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_feather" x="64" y="64" name="inst_89EA816F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_twister" x="1000" y="144" name="inst_239EEEDA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_twister" x="1096" y="80" name="inst_17169DF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_twister" x="1208" y="144" name="inst_94B097F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_twister" x="1288" y="96" name="inst_C116D9EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="2000" y="176" name="inst_A0FDF34E" locked="0" code="" scaleX="9" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="2160" y="128" name="inst_7A4C63BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="2192" y="80" name="inst_44CB8F33" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -171,17 +167,10 @@
     <instance objName="obj_brick" x="2000" y="160" name="inst_71BFCCC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick" x="1984" y="160" name="inst_5AC06C62" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1984" y="176" name="inst_35200B2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="256" y="128" name="inst_F8DC97E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="384" y="96" name="inst_00E344D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="512" y="64" name="inst_164E4B84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="640" y="32" name="inst_2E5BA096" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="768" y="96" name="inst_420CB396" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="1856" y="128" name="inst_4E7AB2F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="1872" y="128" name="inst_9FCAED59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="2016" y="80" name="inst_A7D3CA3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fx" x="2032" y="80" name="inst_130E6439" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform_slope_r" x="224" y="48" name="inst_0E1628C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform_slope_l" x="272" y="48" name="inst_333FDCFD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warptop" x="1728" y="176" name="inst_58902175" locked="0" code="destination = rm_level_3;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_timed" x="832" y="48" name="inst_C4A22516" locked="0" code="time = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="1392" y="192" w="16" h="16" xo="640" yo="208" id="10027645" name="inst_86A70140" depth="16" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
