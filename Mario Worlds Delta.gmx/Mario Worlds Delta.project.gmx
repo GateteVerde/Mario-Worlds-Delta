@@ -228,6 +228,7 @@
     <sound>sound\snd_palacesplit</sound>
     <sound>sound\snd_pathreveal</sound>
     <sound>sound\snd_pathreveal_end</sound>
+    <sound>sound\snd_pop</sound>
     <sound>sound\snd_powerdown</sound>
     <sound>sound\snd_powerup</sound>
     <sound>sound\snd_reserve</sound>
@@ -465,6 +466,7 @@
       <sprite>sprites\spr_powblock</sprite>
       <sprite>sprites\spr_powblock_th</sprite>
       <sprite>sprites\spr_lightblock</sprite>
+      <sprite>sprites\spr_lightblock_disco</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Mounts">
@@ -869,6 +871,8 @@
       <sprites name="Castle / Ghost">
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
+        <sprite>sprites\spr_ninji</sprite>
+        <sprite>sprites\spr_ninji_dead</sprite>
         <sprites name="Mechakoopas">
           <sprites name="Blasta">
             <sprite>sprites\spr_blastakoopa</sprite>
@@ -1140,6 +1144,7 @@
             <sprite>sprites\spr_light_fireball</sprite>
             <sprite>sprites\spr_light_lava_top</sprite>
             <sprite>sprites\spr_light_lava_bottom</sprite>
+            <sprite>sprites\spr_light_disco</sprite>
           </sprites>
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_ring_b</sprite>
@@ -1319,6 +1324,7 @@
       <sprite>sprites\spr_palaceswitch_r</sprite>
       <sprite>sprites\spr_palaceswitch_b</sprite>
       <sprite>sprites\spr_bonusblock</sprite>
+      <sprite>sprites\spr_discoball</sprite>
       <sprite>sprites\spr_lock</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
@@ -1523,6 +1529,7 @@
           <object>objects\obj_light</object>
           <object>objects\obj_light_npc</object>
           <object>objects\obj_light_static</object>
+          <object>objects\obj_light_disco</object>
         </objects>
         <object>objects\obj_lightparent</object>
         <object>objects\obj_lightcontrol</object>
@@ -1613,6 +1620,7 @@
       <object>objects\obj_viewblock</object>
       <object>objects\obj_powblock</object>
       <object>objects\obj_lightblock</object>
+      <object>objects\obj_lightblock_disco</object>
     </objects>
     <objects name="Items">
       <object>objects\obj_coin</object>
@@ -1815,6 +1823,7 @@
         <object>objects\obj_thwomp</object>
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
+        <object>objects\obj_ninji</object>
         <objects name="Mechakoopa">
           <object>objects\obj_mechakoopa</object>
           <object>objects\obj_blastakoopa</object>
@@ -2211,6 +2220,7 @@
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_pow</object>
+            <object>objects\obj_light_disco_gen</object>
           </objects>
           <objects name="Score">
             <object>objects\obj_score</object>
