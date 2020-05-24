@@ -22,7 +22,7 @@ var _als = instance_create(0, 0, obj_audio_loop_sound);
 
 with (_als) {
 
-    _audio = audio_stop_play_sound(argument[0], argument[4], 1);
+    _audio = audio_play_sound(argument[0], argument[4], 1);
     _loop_begin = argument[1] / argument[3];
     _loop_end = argument[2] / argument[3];
     _transition_delay = 0.00; //<[Custom]

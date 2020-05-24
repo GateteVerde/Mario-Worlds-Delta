@@ -584,6 +584,10 @@
         <sprite>sprites\spr_platform_pulley_48</sprite>
         <sprite>sprites\spr_platform_pulley_64</sprite>
         <sprite>sprites\spr_platform_pulley_80</sprite>
+        <sprite>sprites\spr_platform_seesaw_48</sprite>
+        <sprite>sprites\spr_platform_seesaw_64</sprite>
+        <sprite>sprites\spr_platform_seesaw_80</sprite>
+        <sprite>sprites\spr_platform_seesaw_96</sprite>
         <sprite>sprites\spr_platform_ferris_32</sprite>
         <sprite>sprites\spr_platform_ferris_48</sprite>
         <sprite>sprites\spr_platform_ferris_64</sprite>
@@ -1346,6 +1350,7 @@
       <background>background\bgr_cave_ice_c</background>
       <background>background\bgr_clouds</background>
       <background>background\bgr_desert</background>
+      <background>background\bgr_desert_night</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
       <background>background\bgr_hills_and_clouds_e</background>
@@ -1668,6 +1673,7 @@
         <object>objects\obj_platform</object>
         <object>objects\obj_platform_falling</object>
         <object>objects\obj_platform_pulley</object>
+        <object>objects\obj_platform_seesaw</object>
         <object>objects\obj_platform_ferris</object>
         <object>objects\obj_platform_yoshi</object>
         <object>objects\obj_platform_track</object>
