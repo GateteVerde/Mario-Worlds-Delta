@@ -281,7 +281,7 @@ if (clear &gt; 0) {
     if (clear == 2) {
     
         //Draw 'Bonus!' text
-        draw_sprite_ext(spr_hud_clear, 3, view_xview[0]+view_wview[0]/2-64, view_yview[0]+64, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(spr_hud_clear, 4, view_xview[0]+view_wview[0]/2-64, view_yview[0]+64, 1, 1, 0, c_white, 1);
         
         //Set font
         draw_set_font(global.fontnumblarge);

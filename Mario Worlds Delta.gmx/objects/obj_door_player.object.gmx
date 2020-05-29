@@ -72,8 +72,11 @@ switch (global.player) {
     //Luigi -&gt; Toad
     case (1): global.player = 2; break;
     
-    //Toad -&gt; Mario
-    case (2): global.player = 0; break;
+    //Toad -&gt; Peach
+    case (2): global.player = 3; break;
+    
+    //Peach -&gt; Mario
+    case (3): global.player = 0; break;
 }
 
 //Create a new player with the new parameters

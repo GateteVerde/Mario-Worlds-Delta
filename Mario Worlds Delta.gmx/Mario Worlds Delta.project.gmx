@@ -406,6 +406,52 @@
         <sprite>sprites\spr_toad_dead</sprite>
         <sprite>sprites\spr_toad_block</sprite>
       </sprites>
+      <sprites name="Peach">
+        <sprites name="Small">
+          <sprite>sprites\spr_peach_small</sprite>
+          <sprite>sprites\spr_peach_small_walk</sprite>
+          <sprite>sprites\spr_peach_small_jump</sprite>
+          <sprite>sprites\spr_peach_small_run</sprite>
+          <sprite>sprites\spr_peach_small_runjump</sprite>
+          <sprite>sprites\spr_peach_small_skid</sprite>
+          <sprite>sprites\spr_peach_small_climb</sprite>
+          <sprite>sprites\spr_peach_small_swim</sprite>
+          <sprite>sprites\spr_peach_small_swim2</sprite>
+          <sprite>sprites\spr_peach_small_hold</sprite>
+          <sprite>sprites\spr_peach_small_hold2</sprite>
+          <sprite>sprites\spr_peach_small_crouch</sprite>
+          <sprite>sprites\spr_peach_small_spin</sprite>
+          <sprite>sprites\spr_peach_small_slide</sprite>
+          <sprite>sprites\spr_peach_small_kick</sprite>
+          <sprite>sprites\spr_peach_small_clear</sprite>
+          <sprite>sprites\spr_peach_small_ride</sprite>
+        </sprites>
+        <sprites name="Big">
+          <sprite>sprites\spr_peach_big</sprite>
+          <sprite>sprites\spr_peach_big_walk</sprite>
+          <sprite>sprites\spr_peach_big_jump</sprite>
+          <sprite>sprites\spr_peach_big_run</sprite>
+          <sprite>sprites\spr_peach_big_runjump</sprite>
+          <sprite>sprites\spr_peach_big_skid</sprite>
+          <sprite>sprites\spr_peach_big_climb</sprite>
+          <sprite>sprites\spr_peach_big_swim</sprite>
+          <sprite>sprites\spr_peach_big_swim2</sprite>
+          <sprite>sprites\spr_peach_big_hold</sprite>
+          <sprite>sprites\spr_peach_big_hold2</sprite>
+          <sprite>sprites\spr_peach_big_crouch</sprite>
+          <sprite>sprites\spr_peach_big_spin</sprite>
+          <sprite>sprites\spr_peach_big_slide</sprite>
+          <sprite>sprites\spr_peach_big_kick</sprite>
+          <sprite>sprites\spr_peach_big_clear</sprite>
+          <sprite>sprites\spr_peach_big_ride</sprite>
+          <sprite>sprites\spr_peach_big_shoot</sprite>
+        </sprites>
+        <sprites name="Cape">
+          <sprite>sprites\spr_peach_cape</sprite>
+        </sprites>
+        <sprite>sprites\spr_peach_dead</sprite>
+        <sprite>sprites\spr_peach_block</sprite>
+      </sprites>
       <sprites name="Miscellaneous">
         <sprites name="Cape Parts">
           <sprite>sprites\spr_cape</sprite>
@@ -428,6 +474,8 @@
         <sprite>sprites\spr_palette_luigi_invincibility</sprite>
         <sprite>sprites\spr_palette_toad</sprite>
         <sprite>sprites\spr_palette_toad_invincibility</sprite>
+        <sprite>sprites\spr_palette_peach</sprite>
+        <sprite>sprites\spr_palette_peach_invincibility</sprite>
       </sprites>
       <sprite>sprites\spr_player</sprite>
     </sprites>
@@ -997,6 +1045,25 @@
           <sprite>sprites\spr_maptoad_select</sprite>
           <sprite>sprites\spr_maptoad_climb</sprite>
         </sprites>
+        <sprites name="Peach">
+          <sprites name="Yoshi">
+            <sprite>sprites\spr_mappeach_yoshi</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_up</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_side</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_water</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_water_up</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_water_side</sprite>
+            <sprite>sprites\spr_mappeach_yoshi_select</sprite>
+          </sprites>
+          <sprite>sprites\spr_mappeach</sprite>
+          <sprite>sprites\spr_mappeach_up</sprite>
+          <sprite>sprites\spr_mappeach_side</sprite>
+          <sprite>sprites\spr_mappeach_water</sprite>
+          <sprite>sprites\spr_mappeach_water_up</sprite>
+          <sprite>sprites\spr_mappeach_water_side</sprite>
+          <sprite>sprites\spr_mappeach_select</sprite>
+          <sprite>sprites\spr_mappeach_climb</sprite>
+        </sprites>
       </sprites>
       <sprites name="Paths">
         <sprite>sprites\spr_path_node</sprite>
@@ -1351,6 +1418,8 @@
       <background>background\bgr_clouds</background>
       <background>background\bgr_desert</background>
       <background>background\bgr_desert_night</background>
+      <background>background\bgr_desert_night_b</background>
+      <background>background\bgr_desert_night_c</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
       <background>background\bgr_hills_and_clouds_e</background>
@@ -1404,10 +1473,6 @@
     <scripts name="Player">
       <scripts name="Animation">
         <scripts name="In-Level">
-          <scripts name="Progress">
-            <script>scripts\checkpoint_flag.gml</script>
-            <script>scripts\checkpoint_flag_loop.gml</script>
-          </scripts>
           <script>scripts\player_idle.gml</script>
           <script>scripts\player_walk.gml</script>
           <script>scripts\player_jump.gml</script>
@@ -1429,7 +1494,6 @@
           <script>scripts\player_ride.gml</script>
           <script>scripts\player_shoot.gml</script>
           <script>scripts\player_cape.gml</script>
-          <script>scripts\player_smash.gml</script>
         </scripts>
         <scripts name="In-Map">
           <script>scripts\player_map.gml</script>
@@ -1592,6 +1656,7 @@
         <object>objects\obj_block_mario</object>
         <object>objects\obj_block_luigi</object>
         <object>objects\obj_block_toad</object>
+        <object>objects\obj_block_peach</object>
       </objects>
       <objects name="Item Blocks">
         <objects name="Hidden">
@@ -2046,6 +2111,7 @@
             <object>objects\obj_mario</object>
             <object>objects\obj_luigi</object>
             <object>objects\obj_toad</object>
+            <object>objects\obj_peach</object>
           </objects>
           <objects name="Cape">
             <object>objects\obj_cape</object>

@@ -492,7 +492,7 @@ if (status == 'IDLE')
         if (input_check_pressed(input.start)) {
         
             global.player++;
-            if (global.player &gt; 2)
+            if (global.player &gt; 3)
                 global.player = 0;
         }
         

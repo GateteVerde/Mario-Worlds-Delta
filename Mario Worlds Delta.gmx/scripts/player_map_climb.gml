@@ -19,4 +19,7 @@ switch (global.player) {
     
     //Toad
     case (2): return spr_maptoad_climb;
+    
+    //Peach
+    case (3): return spr_mappeach_climb;
 }          

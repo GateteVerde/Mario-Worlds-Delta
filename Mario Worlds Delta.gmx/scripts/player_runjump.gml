@@ -25,6 +25,10 @@ switch (global.powerup) {
         //Toad
         else if (global.player == 2)
             return spr_toad_small_runjump;
+            
+        //Peach
+        else if (global.player == 3)
+            return spr_peach_small_runjump;
     } break;
     
     //Default
@@ -41,5 +45,9 @@ switch (global.powerup) {
         //Toad
         else if (global.player == 2)
             return spr_toad_big_runjump;
+            
+        //Peach
+        else if (global.player == 3)
+            return spr_peach_big_runjump;
     } break;
 }

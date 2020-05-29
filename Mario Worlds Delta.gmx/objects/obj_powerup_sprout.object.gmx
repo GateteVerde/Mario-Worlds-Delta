@@ -206,7 +206,15 @@ else {
         || (sprite_index == spr_watermelon_fire) 
         || (sprite_index == spr_watermelon_bomb) {
         
+            //Set vertical speed
             vspeed = -2.5;
+            gravity = 0;
+            
+            //Deny solid check
+            ready = 1;
+            alarm[1] = -1;
+            
+            //Make it bounce outside the block
             bouncy = 1;
         }
     }

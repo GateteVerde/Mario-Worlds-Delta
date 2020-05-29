@@ -131,6 +131,10 @@ flying = 0;
 squat_time = 0;
 squat_ready = 0;
 
+//Floating Timer
+floatnow = 0;
+floating = 0;
+
 //Bonus Game Clear
 cleared = 0;
 timer = 0;
@@ -1279,6 +1283,11 @@ if (squat_ready == 2) {
     if (squat_time &gt; 0)
         squat_time = 0;
 }
+
+//End floating
+floatnow = 0;
+if (floating &gt; 0)
+    floating = 0;
 
 //Reset combos when not sliding down a slope
 if (sliding == false) 

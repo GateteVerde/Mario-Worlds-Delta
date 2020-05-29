@@ -22,4 +22,7 @@ switch (global.player) {
     
     //Toad
     case (2): return instance_create(argument[0], argument[1], obj_toad);
+    
+    //Peach
+    case (3): return instance_create(argument[0], argument[1], obj_peach);
 }

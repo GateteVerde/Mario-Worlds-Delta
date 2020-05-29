@@ -127,7 +127,7 @@ if (obj_playerparent.gravity == 0)
         add = 1.5 * sign(x-obj_playerparent.x);
     }
     
-    //Set player horizontal speed
+    //Set player horizontal speed (Comment to disable)
     obj_playerparent.hspeed -= (0.05+(abs(image_angle)/360))*sign(image_angle);
 }
 else {
@@ -172,7 +172,7 @@ else if (image_angle &lt;= -45)
 draw_sprite_ext(sprite_index, 0, x, y, 1, 1, image_angle, c_white, 1);
 
 //Render gear 
-draw_sprite_ext(sprite_index, 1, x, y, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, 1, x, y+4, 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

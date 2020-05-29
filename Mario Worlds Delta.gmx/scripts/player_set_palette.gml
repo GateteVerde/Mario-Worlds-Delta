@@ -25,6 +25,9 @@ if (instance_exists(obj_invincibility)) {
         
         //Toad
         case (2): pal = spr_palette_toad_invincibility; break;
+        
+        //Peach
+        case (3): pal = spr_palette_peach_invincibility; break;
     }
     
     //Set the palette position
@@ -45,6 +48,9 @@ else {
         
         //Toad
         case (2): pal = spr_palette_toad; break;
+        
+        //Peach
+        case (3): pal = spr_palette_peach; break;
     }
     
     //Set the palette position

@@ -28,6 +28,9 @@ switch (global.mount) {
                 
                 //Toad
                 case (2): return spr_maptoad;
+                
+                //Peach
+                case (3): return spr_mappeach;
             }
         }
         
@@ -45,6 +48,9 @@ switch (global.mount) {
                 
                 //Toad
                 case (2): return spr_maptoad_water;
+                
+                //Peach
+                case (3): return spr_mappeach_water;
             }                    
         }
     } break;
@@ -66,6 +72,9 @@ switch (global.mount) {
                 
                 //Toad
                 case (2): return spr_maptoad_yoshi;
+                
+                //Peach
+                case (3): return spr_mappeach_yoshi;
             }
         }
         
@@ -83,6 +92,9 @@ switch (global.mount) {
                 
                 //Toad
                 case (2): return spr_maptoad_yoshi_water;
+                
+                //Peach
+                case (3): return spr_mappeach_yoshi_water;
             }                    
         }
     } break;

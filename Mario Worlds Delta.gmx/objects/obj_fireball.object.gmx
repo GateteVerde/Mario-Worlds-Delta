@@ -115,8 +115,9 @@ if (gravity == 0) {
     //Prevent from getting embed on ground
     y--;
     
-    //If Mario is being controlled
+    //If Mario or Peach is being controlled
     if (global.player == 0)
+    || (global.player == 3)
         vspeed = -4.5;
         
     //Otherwise, if Luigi is being controlled
