@@ -67,19 +67,8 @@ for (var i = 0; i &lt; array_length_1d(tiles); i++) {
     tile_set_position(tiles[i], xx + hspeed, yy + vspeed);
 }
 
-//Make the test solid move along
-with (obj_tilesolid) {
-    
-    hspeed = other.hspeed;
-    vspeed = other.vspeed;
-}
-
-//Make the test semisolids move along
-with (obj_tilesemisolid) {
-    
-    hspeed = other.hspeed;
-    vspeed = other.vspeed;
-}
+//Manage collision position
+event_user(0);
 
 //Movement
 if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_up,0,0))
@@ -90,6 +79,43 @@ else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_le
     hspeed -= target_speed;
 else if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom,obj_right,0,0))
     hspeed += target_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage collision position
+
+//Solid
+with (obj_tilesolid) {
+
+    hspeed = other.hspeed;
+    vspeed = other.vspeed;
+}
+
+//Semisolid
+with (obj_tilesemisolid) {
+
+    hspeed = other.hspeed;
+    vspeed = other.vspeed;
+}
 </string>
           </argument>
         </arguments>

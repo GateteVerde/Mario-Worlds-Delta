@@ -36,15 +36,16 @@ image_speed = 0.1;
 //Whether the player has kicked this pow
 ready = 0;
 
+//Make it solid on top
+mytop = instance_create(x-8, y+1, obj_semisolid);
+
 //Create light if required
 if (instance_exists(obj_lightcontrol)) {
 
-    with (instance_create(0, 0, obj_light_npc))    
+    mylight = instance_create(0, 0, obj_light_npc);
+    with (mylight)    
         target = other.id;
 }
-
-//Make it solid on top
-mytop = instance_create(x-8, y+1, obj_semisolid);
 </string>
           </argument>
         </arguments>
@@ -74,6 +75,10 @@ event_inherited();
 
 //Destroy semisolid collision
 with (mytop) instance_destroy();
+
+//Destroy light
+if (mylight != noone)
+    with (mylight) instance_destroy();
 </string>
           </argument>
         </arguments>

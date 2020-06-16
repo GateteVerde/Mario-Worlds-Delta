@@ -3,7 +3,7 @@
   <spriteName>spr_eventmarker</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-6</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -57,7 +57,23 @@ alarm[1] = 32;
             <kind>1</kind>
             <string>///Loop 'Title' theme
 
-audio_stop_play_sound(bgm_title, 0, true);
+//Open INI
+ini_open("MWDMusic.ini");
+
+//Read values
+levelmusic  = ini_read_string('Title', 'song_name', 0);
+loop_s      = ini_read_real('Title', 'loop_s', 0);
+loop_e      = ini_read_real('Title', 'loop_e', 1);
+sample_rate = ini_read_real('Title', 'sample_rate', 0);
+
+//Close INI
+ini_close();
+
+//Add the sound
+global.stream = audio_create_stream(levelmusic);
+
+//Play it
+audio_loop_sound(global.stream, loop_s, loop_e, sample_rate, 1);
 </string>
           </argument>
         </arguments>
@@ -111,8 +127,12 @@ alarm[0] = 30;
 //If 'Action 4' is pressed
 if (input_check_pressed(input.start)) {
 
-    //Stop 'Title' music
-    audio_stop_sound(bgm_title);
+    //Stop the stream...
+    audio_stop_sound(global.stream);
+    
+    //...and free it from memory
+    audio_destroy_stream(global.stream);
+    global.stream = noone;
     
     //Play 'Correct' sound
     audio_stop_play_sound(snd_correct, 0, false);
@@ -121,8 +141,11 @@ if (input_check_pressed(input.start)) {
     room_goto(rm_worldmap);
 }
 
-//Set background position
-background_x[0] -= 0.25;
+//Set background 0 position
+background_x[0] -= 1;
+
+//Set background 1 position
+background_x[1] -= 2;
 </string>
           </argument>
         </arguments>

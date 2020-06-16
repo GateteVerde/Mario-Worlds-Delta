@@ -30,13 +30,11 @@
 //Inherit event from parent
 event_inherited();
 
-//Animate
-image_speed = 0.1;
-
 //Create light if required
 if (instance_exists(obj_lightcontrol)) {
 
-    with (instance_create(0, 0, obj_light_npc))    
+    mylight = instance_create(0, 0, obj_light_npc);
+    with (mylight)    
         target = other.id;
 }
 </string>
@@ -44,7 +42,7 @@ if (instance_exists(obj_lightcontrol)) {
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="10">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -61,9 +59,11 @@ if (instance_exists(obj_lightcontrol)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Do not restart position if sprout out from a block
+            <string>///Destroy lights if they exist and do main event
 
-carried = true;
+event_inherited();
+if (mylight != noone)
+    with (mylight) instance_destroy();
 </string>
           </argument>
         </arguments>

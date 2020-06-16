@@ -54,17 +54,9 @@ target = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Follow the player
+            <string>///Follow the target item
 
-//If the NPC does not exist
-if (!instance_exists(target)) {
-
-    instance_destroy();
-    exit;
-}
-
-//Otherwise, if it exists, move towards it.
-else if (instance_exists(target)) {
+if (instance_exists(target)) {
 
     x = target.x;
     y = target.y;

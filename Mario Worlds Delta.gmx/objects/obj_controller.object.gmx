@@ -37,6 +37,9 @@ init_shockwave();
 //Remember last room
 last_room = noone;
 
+//Remember HUD Type
+hud_type = 0;
+
 //How the screen is fading
 //0: From black
 //1: To black
@@ -519,7 +522,7 @@ else if (keyboard_check_pressed(vk_enter)) {
     event_user(1);
 }
 
-//Toggles VSync
+//Toggle VSync
 else if (keyboard_check_pressed(ord('V'))) {
 
     //Toggle vertical syncronization on / off.
@@ -533,6 +536,26 @@ else if (keyboard_check_pressed(ord('V'))) {
         
     //Apply settings
     event_user(1);
+}
+
+//Toggle HUD type (But only when on in a level)
+else if (keyboard_check_pressed(ord('H'))) {
+
+    //If you are not in a stage
+    if (room == rm_title)
+    || (room == rm_worldmap) {
+    
+        //Toggle HUD type
+        hud_type = !hud_type;
+        
+        //Display message
+        if (hud_type)
+            message = "MINIMALISTIC HUD ON";
+        else
+            message = "MINIMALISTIC HUD OFF";
+    }
+    else
+        audio_stop_play_sound(snd_wrong, 0, false);
 }
 
 //Toggle FPS display
@@ -850,6 +873,10 @@ file_text_writeln(file);
 file_text_write_string(file, string(vsync));
 file_text_writeln(file);
 
+//Save HUD style
+file_text_write_string(file, string(hud_type));
+file_text_writeln(file);
+
 //Save up key
 file_text_write_string(file, string(global.key[input.up]));
 file_text_writeln(file);
@@ -946,7 +973,7 @@ file_text_close(file);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Load Fullscreen + Window size + VSync Settings
+            <string>///Load Fullscreen + Window size + HUD + VSync Settings
 
 //If the 'settings.dat' file exist.
 if (file_exists("settings.dat")) {
@@ -964,6 +991,10 @@ if (file_exists("settings.dat")) {
 
     //Set vsync based on the read value
     vsync = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set hud based on the read value
+    hud_type = real(file_text_read_string(file));
     file_text_readln(file);
     
     //Set saved 'Up' Key

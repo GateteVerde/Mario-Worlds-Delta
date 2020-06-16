@@ -35,6 +35,9 @@ switch (global.player) {
     
     //Toad
     case (2): sprite_index = spr_toad_dead; break;
+    
+    //Peach
+    case (3): sprite_index = spr_peach_dead; break;
 }
 
 //Play 'Player Down' sound

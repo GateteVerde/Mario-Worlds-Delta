@@ -331,7 +331,20 @@ if (ready != 0) {
             pal_swap_reset();
             
             //Set the shader
-            pal_swap_set(spr_palette_master, global.powerup);
+            switch (global.player) {
+            
+                //Mario
+                case (0): pal_swap_set(spr_palette_mario, global.powerup); break;
+                
+                //Mario
+                case (1): pal_swap_set(spr_palette_luigi, global.powerup); break;
+                
+                //Mario
+                case (2): pal_swap_set(spr_palette_toad, global.powerup); break;
+                
+                //Mario
+                case (3): pal_swap_set(spr_palette_peach, global.powerup); break;
+            }
             
             //Draw the player
             draw_sprite_ext(player_ride(), 0, mx-(6*sign(md)), my-8, md, 1, 0, c_white, fade);
