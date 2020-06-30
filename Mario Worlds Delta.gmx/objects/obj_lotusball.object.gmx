@@ -45,6 +45,8 @@ if (instance_exists(obj_lightcontrol)) {
         image_blend = make_colour_rgb(248, 144, 32);
     }
 }
+else
+    mylight = noone;
 </string>
           </argument>
         </arguments>

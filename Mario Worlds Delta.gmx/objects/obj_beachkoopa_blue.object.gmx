@@ -339,7 +339,7 @@ else if (idd != noone) {
         
         //Accelerate, if there is no gravity
         if (gravity == 0)
-            hspeed +=0.13*xscale;
+            hspeed += 0.13*xscale;
     
         //If it hits max speed
          if ((hspeed &gt; random_range(1.1, 1.4) &amp;&amp; xscale == 1)
@@ -363,6 +363,10 @@ else if (idd != noone) {
         
         //Drag shell
         idd.hspeed = hspeed;
+        
+        //Stop shell animation
+        idd.image_speed = 0;
+        idd.image_index = 0;
     }
     
     //Gentle item handling
@@ -370,7 +374,7 @@ else if (idd != noone) {
         
         //Accelerate, if there is no gravity
         if (gravity == 0)
-            hspeed +=0.12*xscale;
+            hspeed += 0.12*xscale;
     
         //If it hits max speed
          if ((hspeed &gt; random_range(0.9, 1.1) &amp;&amp; xscale == 1)
@@ -403,7 +407,6 @@ else if (idd != noone) {
         x -= 3*dir;
         
         //Declare initem false if koopa is no longer overlapping the held item
-        //Declare in item false if koopa is no longer overlapping the held item
         if (!collision_rectangle(bbox_left, bbox_top-7, bbox_right, bbox_bottom+4, idd, 0, 0))
             initem = false;
     }
