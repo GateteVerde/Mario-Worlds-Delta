@@ -546,13 +546,22 @@ else if (keyboard_check_pressed(ord('H'))) {
     || (room == rm_worldmap) {
     
         //Toggle HUD type
-        hud_type = !hud_type;
+        hud_type++;
+        if (hud_type &gt; 2)
+            hud_type = 0;
+                
+        //Switch message
+        switch (hud_type) {
         
-        //Display message
-        if (hud_type)
-            message = "MINIMALISTIC HUD ON";
-        else
-            message = "MINIMALISTIC HUD OFF";
+            //SMA2
+            case (1): message = "HUD TYPE: SMA2"; break;
+            
+            //Minimalist
+            case (2): message = "HUD TYPE: MINIMALIST"; break;
+            
+            //Default
+            default: message = "HUD TYPE: DEFAULT"; break;
+        }
     }
     else
         audio_stop_play_sound(snd_wrong, 0, false);

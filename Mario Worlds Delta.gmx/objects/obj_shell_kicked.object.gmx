@@ -284,13 +284,17 @@ else if (fall == 1)
 //Check for blocks to the left
 var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_solid, 0, 0);
 if (block_l)
+&amp;&amp; (hspeed &lt; 0)
 &amp;&amp; (sprite_height &gt; 16)
+&amp;&amp; (block_l.sprite_height &lt; 17)
     with (block_l) event_user(15);
 
 //Check for blocks to the right    
 var block_r = collision_rectangle(bbox_right, bbox_top, bbox_right+9+hspeed, bbox_bottom, obj_solid, 0, 0);
 if (block_r)
+&amp;&amp; (hspeed &gt; 0)
 &amp;&amp; (sprite_height &gt; 16)
+&amp;&amp; (block_r.sprite_height &lt; 17)
     with (block_r) event_user(15);
 </string>
           </argument>

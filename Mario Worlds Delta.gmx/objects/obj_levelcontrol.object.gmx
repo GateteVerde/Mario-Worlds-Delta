@@ -1017,11 +1017,24 @@ audio_loop_sound(bgm_pswitch, 468000, 535500, 44100, 1);
             <kind>1</kind>
             <string>///Release reserve item
 
+var drop;
+switch (obj_controller.hud_type) {
+
+    //SMA4
+    case (1): drop = 8; break;
+
+    //Minimalist
+    case (2): drop = 2; break;
+
+    //Default
+    default: drop = 14; break;
+}
+
 //If there's an item in the reserve item box
 if (global.reserveitem != cs_pow_small) {
 
     //Create the reserve item
-    with (instance_create(view_xview[0] + view_wview[0]/2, view_yview[0]+14, obj_reserveitem)) {
+    with (instance_create(view_xview[0] + view_wview[0]/2, view_yview[0]+drop, obj_reserveitem)) {
     
         //Mushroom
         if (global.reserveitem == cs_pow_super)

@@ -514,6 +514,10 @@
     </sprites>
     <sprites name="Blocks">
       <sprites name="Item Blocks">
+        <sprites name="Big">
+          <sprite>sprites\spr_qblock_big</sprite>
+          <sprite>sprites\spr_qblock_big_empty</sprite>
+        </sprites>
         <sprite>sprites\spr_qblock</sprite>
         <sprite>sprites\spr_qblock_empty</sprite>
         <sprite>sprites\spr_qblock_empty_pensive</sprite>
@@ -521,12 +525,22 @@
         <sprite>sprites\spr_qblock_winged</sprite>
       </sprites>
       <sprites name="Area Blocks">
+        <sprites name="Big">
+          <sprite>sprites\spr_area_big_y</sprite>
+          <sprite>sprites\spr_area_big_g</sprite>
+          <sprite>sprites\spr_area_big_r</sprite>
+          <sprite>sprites\spr_area_big_b</sprite>
+        </sprites>
         <sprite>sprites\spr_area_y</sprite>
         <sprite>sprites\spr_area_g</sprite>
         <sprite>sprites\spr_area_r</sprite>
         <sprite>sprites\spr_area_b</sprite>
       </sprites>
       <sprites name="Bricks">
+        <sprites name="Big">
+          <sprite>sprites\spr_brick_big</sprite>
+          <sprite>sprites\spr_brick_flip_big</sprite>
+        </sprites>
         <sprite>sprites\spr_brick</sprite>
         <sprite>sprites\spr_brick_flip</sprite>
         <sprite>sprites\spr_brick_throw</sprite>
@@ -888,6 +902,10 @@
         <sprite>sprites\spr_spiny_dead</sprite>
         <sprite>sprites\spr_shell_spiny</sprite>
         <sprites name="Piranha Plants">
+          <sprites name="Gargantua">
+            <sprite>sprites\spr_piranhacus</sprite>
+            <sprite>sprites\spr_piranhacus_long</sprite>
+          </sprites>
           <sprite>sprites\spr_piranhaplant</sprite>
           <sprite>sprites\spr_piranhaplant_long</sprite>
           <sprite>sprites\spr_piranhaplant_long_glitch</sprite>
@@ -1352,6 +1370,12 @@
             <sprite>sprites\spr_hud_minimalist_reserve</sprite>
             <sprite>sprites\spr_hud_minimalist_reserve_item</sprite>
           </sprites>
+          <sprites name="SMA2">
+            <sprite>sprites\spr_hud_sma2_mario</sprite>
+            <sprite>sprites\spr_hud_sma2_coins</sprite>
+            <sprite>sprites\spr_hud_sma2_reserve</sprite>
+            <sprite>sprites\spr_hud_sma2_acecoins</sprite>
+          </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
           <sprite>sprites\spr_hud_stars</sprite>
@@ -1710,20 +1734,33 @@
         <object>objects\obj_block_peach</object>
       </objects>
       <objects name="Item Blocks">
-        <objects name="Hidden">
-          <object>objects\obj_qblock_hidden</object>
-        </objects>
         <objects name="Area Blocks">
+          <objects name="Big">
+            <object>objects\obj_area_big_y</object>
+            <object>objects\obj_area_big_g</object>
+            <object>objects\obj_area_big_r</object>
+            <object>objects\obj_area_big_b</object>
+          </objects>
           <object>objects\obj_area_y</object>
           <object>objects\obj_area_g</object>
           <object>objects\obj_area_r</object>
           <object>objects\obj_area_b</object>
+        </objects>
+        <objects name="Big Blocks">
+          <object>objects\obj_qblock_big</object>
+        </objects>
+        <objects name="Hidden">
+          <object>objects\obj_qblock_hidden</object>
         </objects>
         <object>objects\obj_qblock</object>
         <object>objects\obj_qblock_winged</object>
         <object>objects\obj_emptyblock</object>
       </objects>
       <objects name="Bricks">
+        <objects name="Big">
+          <object>objects\obj_brick_big</object>
+          <object>objects\obj_brick_flip_big</object>
+        </objects>
         <object>objects\obj_brick</object>
         <object>objects\obj_brick_flip</object>
         <object>objects\obj_brick_throw</object>
@@ -1912,6 +1949,10 @@
         <object>objects\obj_spiny</object>
         <object>objects\obj_spiny_ceiling</object>
         <objects name="Piranha Plants">
+          <objects name="Gargantua">
+            <object>objects\obj_piranhacus</object>
+            <object>objects\obj_longpiranhacus</object>
+          </objects>
           <object>objects\obj_piranhaplant</object>
           <object>objects\obj_piranhaplant_long</object>
           <object>objects\obj_piranhaplant_long_down</object>
