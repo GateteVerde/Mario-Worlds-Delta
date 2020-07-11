@@ -330,7 +330,7 @@ else {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, view_xview[view_current]+view_wview[view_current]-48, view_yview[view_current]+8-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma2_coins, -1, view_xview[view_current]+view_wview[view_current]-48, view_yview[view_current]+8-view_yport[view_current], 1, 1, 0, c_white, 1);
 draw_text(view_xview[view_current]+view_wview[view_current]-24, view_yview[view_current]+8-view_yport[view_current], string_format(global.coins, 2, false));
 
 //Score
