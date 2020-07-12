@@ -42,6 +42,7 @@ if (instance_exists(obj_lightcontrol)) {
     
         sprite_index = spr_light_fireball;
         target = other.id;
+        yoffset = 0;
         image_blend = make_colour_rgb(248, 144, 32);
     }
 }

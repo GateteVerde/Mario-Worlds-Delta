@@ -118,9 +118,18 @@ for (var i=0; i&lt;instance_count; i++;) {
     &amp;&amp; (object_is_ancestor(instance_id[i].object_index, obj_lightparent))) {
         
         with (instance_id[i]) {
-
-            //Draw each light, alpha does not work in subtractive mode
-            draw_sprite_ext(sprite_index, image_index, x-view_xview[view_current], y-view_yview[view_current], image_xscale, image_yscale, image_angle, image_blend, 1);
+            
+            //Draw a circle if the radius is greater than 0
+            if (radius &gt; 0) {
+                
+                //Draw a circle
+                draw_set_circle_precision(64);
+                draw_circle_colour(x-view_xview[view_current]+xoffset, y-view_yview[view_current]+yoffset, radius, image_blend, image_blend, false);
+            }
+            
+            //Otherwise, perform the User Defined event from the object
+            else
+                event_user(15);
         }
     }
 }
