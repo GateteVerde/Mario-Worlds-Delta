@@ -115,7 +115,9 @@ else {
 //Water check
 event_user(0);
 
-//
+//Destroy when outside the room
+if (bbox_top &gt; room_height)
+    instance_destroy();
 </string>
           </argument>
         </arguments>

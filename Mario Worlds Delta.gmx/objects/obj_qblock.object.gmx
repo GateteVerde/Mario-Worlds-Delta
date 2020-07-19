@@ -165,8 +165,7 @@ if (sprout == itemtype.coin_multi)
 || (sprout == itemtype.coin_multi_shroom) {
 
     //If the timer is still going on, allow the block to be hit again.
-    if (global.player == 0)
-    &amp;&amp; (timer &lt; 2)
+    if (timer &lt; 2)
         ready = 0;
         
     //Otherwise, perform end of bump event from parent

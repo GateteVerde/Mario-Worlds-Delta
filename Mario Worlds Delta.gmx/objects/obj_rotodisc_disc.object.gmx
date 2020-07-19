@@ -50,8 +50,9 @@ if (instance_exists(obj_lightcontrol)) {
     with (light) {
     
         target = other.id;
-        image_blend = c_white;
-        sprite_index = spr_light_fireball;
+        radius = 24;
+        yoffset = 0;
+        image_blend = make_colour_rgb(248, 144, 32);
     }
 }
 </string>
@@ -78,8 +79,8 @@ if (instance_exists(obj_lightcontrol)) {
             <kind>1</kind>
             <string>///Update palette and light colour
 
-//Repeat
-alarm[1] = 2;
+//Update palette
+palette++;
 
 //Set light colour if it exists
 if (light != noone) {
@@ -87,34 +88,36 @@ if (light != noone) {
     switch (palette) {
     
         //Red
-        case (0): with (light) image_blend = make_colour_rgb(136, 0, 0);
+        case (0): with (light) image_blend = make_colour_rgb(136, 0, 0); break;
         
         //Green
-        case (1): with (light) image_blend = make_colour_rgb(0, 120, 0);
+        case (1): with (light) image_blend = make_colour_rgb(0, 120, 0); break;
         
         //Black
-        case (2): with (light) image_blend = make_colour_rgb(40, 48, 72); 
+        case (2): with (light) image_blend = make_colour_rgb(40, 48, 72); break;
         
         //Teal
-        case (3): with (light) image_blend = make_colour_rgb(32, 112, 104);
+        case (3): with (light) image_blend = make_colour_rgb(32, 112, 104); break;
         
         //Gold
-        case (4): with (light) image_blend = make_colour_rgb(136, 88, 24);
+        case (4): with (light) image_blend = make_colour_rgb(136, 88, 24); break;
         
         //Silver
-        case (5): with (light) image_blend = make_colour_rgb(112, 112, 112);
+        case (5): with (light) image_blend = make_colour_rgb(112, 112, 112); break;
         
         //Yellow
-        case (6): with (light) image_blend = make_colour_rgb(248, 120, 0);
+        case (6): with (light) image_blend = make_colour_rgb(248, 120, 0); break;
         
         //Blue
-        case (7): with (light) image_blend = make_colour_rgb(64, 64, 216);
+        case (7): with (light) image_blend = make_colour_rgb(64, 64, 216); break;
     }
 }
 
-//Update palette
-palette++;
-if (palette &gt; 8)
+//Repeat
+alarm[1] = 2;
+
+//Cap palette variable
+if (palette &gt; 7)
     palette = 0;
 </string>
           </argument>

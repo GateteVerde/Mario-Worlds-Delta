@@ -109,6 +109,9 @@ instance_destroy();
 //Play 'Big Coin' sound
 audio_stop_play_sound(snd_coin_big, 0, false);
 
+//Increment controller coins
+obj_controller.coins += 10;
+
 //Increment coins
 global.coins += 10;
 

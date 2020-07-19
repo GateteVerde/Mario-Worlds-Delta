@@ -37,6 +37,9 @@ init_shockwave();
 //Remember last room
 last_room = noone;
 
+//Coins collected in room
+current_coins = 0;
+
 //Remember HUD Type
 hud_type = 0;
 
@@ -547,7 +550,7 @@ else if (keyboard_check_pressed(ord('H'))) {
     
         //Toggle HUD type
         hud_type++;
-        if (hud_type &gt; 2)
+        if (hud_type &gt; 3)
             hud_type = 0;
                 
         //Switch message
@@ -557,7 +560,10 @@ else if (keyboard_check_pressed(ord('H'))) {
             case (1): message = "HUD TYPE: SMA2"; break;
             
             //Minimalist
-            case (2): message = "HUD TYPE: MINIMALIST"; break;
+            case (2): message = "HUD TYPE: MINI/SCORE"; break;
+            
+            //Minimalist (No Score)
+            case (3): message = "HUD TYPE: MINI/NO SCORE"; break;
             
             //Default
             default: message = "HUD TYPE: DEFAULT"; break;
@@ -673,7 +679,7 @@ alarm[6] = 60;
 var s = filter+1;
 
 //Reset display
-display_reset(0, vsync);
+display_reset(8, vsync);
 
 //Set up the window
 window_set_size(global.gw*s, global.gh*s);

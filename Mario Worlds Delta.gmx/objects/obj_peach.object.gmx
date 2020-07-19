@@ -129,8 +129,13 @@ if (floating &gt; 0) &amp;&amp; (floating &lt; 128) {
 
     //Increment next offset
     offsetnext++;
-    if (offsetnext == 4)
-        offsetnext = 0;
+    
+    //Leave a trail if floating
+    with (instance_create(x-8+random(16), y+16+random_range(-4, 4), obj_sparkle)) {
+    
+        image_speed = 0.1;
+        sprite_index = spr_sparkle_small_pink;
+    }
 }
 else {
 
@@ -141,6 +146,10 @@ else {
 
 //Repeat process
 alarm[5] = 6;
+
+//Cap offset value
+if (offsetnext == 4)
+    offsetnext = 0;
 </string>
           </argument>
         </arguments>

@@ -176,6 +176,9 @@ if (other.vspeed != 0) {
 //Play 'Coin' sound
 audio_stop_play_sound(snd_coin, 0, false);
 
+//Increment controller coins
+obj_controller.coins++;
+
 //Increment coins
 global.coins++;
 

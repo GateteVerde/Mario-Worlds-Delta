@@ -32,6 +32,10 @@ vspeed = -1;
 
 //Friction
 friction = 0.0175;
+
+//Make invisible if the minimalistic hud was selected
+if (obj_controller.hud_type == 3)
+    image_alpha = 0;
 </string>
           </argument>
         </arguments>
@@ -85,6 +89,9 @@ if (vspeed == 0)
 
 //Set the sprite
 sprite_index = spr_poisonpts;
+
+//Make visible
+image_alpha = 1;
 </string>
           </argument>
         </arguments>
@@ -111,6 +118,9 @@ sprite_index = spr_poisonpts;
 
 //Set the sprite
 sprite_index = spr_5uppts;
+
+//Make visible
+image_alpha = 1;
 
 //Give lives
 obj_controller.givelives += 5;
@@ -141,6 +151,9 @@ obj_controller.givelives += 5;
 //Set the sprite
 sprite_index = spr_3uppts;
 
+//Make visible
+image_alpha = 1;
+
 //Give lives
 obj_controller.givelives += 3;
 </string>
@@ -170,6 +183,9 @@ obj_controller.givelives += 3;
 //Set the sprite
 sprite_index = spr_2uppts;
 
+//Make visible
+image_alpha = 1;
+
 //Give lives
 obj_controller.givelives += 2;
 </string>
@@ -198,6 +214,9 @@ obj_controller.givelives += 2;
 
 //Set the sprite
 sprite_index = spr_1uppts;
+
+//Make visible
+image_alpha = 1;
 
 //Give lives
 obj_controller.givelives++;

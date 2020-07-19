@@ -193,8 +193,12 @@ alarm[1] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make sure pokey parts do not get lost
+            <string>///Goomba Stack behaviour + G-Switch effect
 
+//Inherit event from parent
+event_inherited();
+
+//Stacking
 if (!instance_exists(mebelow)) {
 
     var next = mebelow;

@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="35" name="datafiles">
-    <datafiles number="35" name="music">
+  <datafiles number="36" name="datafiles">
+    <datafiles number="36" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -38,6 +38,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_bonus.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_classic.ogg</name>
+        <exists>-1</exists>
+        <size>703626</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_classic.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_desert.ogg</name>
@@ -562,6 +579,7 @@
       <sprite>sprites\spr_powblock_th</sprite>
       <sprite>sprites\spr_lightblock</sprite>
       <sprite>sprites\spr_lightblock_disco</sprite>
+      <sprite>sprites\spr_starblock</sprite>
     </sprites>
     <sprites name="Items">
       <sprites name="Mounts">
@@ -611,6 +629,7 @@
       </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_p</sprite>
+      <sprite>sprites\spr_coin_5</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
       <sprite>sprites\spr_coin_alt</sprite>
@@ -1245,6 +1264,12 @@
       </sprites>
       <sprites name="Warp">
         <sprites name="Pipes">
+          <sprites name="Branch Warps">
+            <sprite>sprites\spr_warp_branch</sprite>
+            <sprite>sprites\spr_warp_branch_up</sprite>
+            <sprite>sprites\spr_warp_branch_left</sprite>
+            <sprite>sprites\spr_warp_branch_right</sprite>
+          </sprites>
           <sprite>sprites\spr_warp</sprite>
           <sprite>sprites\spr_warp_up</sprite>
           <sprite>sprites\spr_warp_left</sprite>
@@ -1317,6 +1342,7 @@
         <sprite>sprites\spr_sparkle</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
+        <sprite>sprites\spr_sparkle_small_pink</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
         <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_spinstar2</sprite>
@@ -1513,6 +1539,7 @@
       <background>background\tls_ground_pipes</background>
       <background>background\tls_ground_sewer</background>
       <background>background\tls_ground_swampland</background>
+      <background>background\tls_ground_giant</background>
       <background>background\tls_lava</background>
     </backgrounds>
     <backgrounds name="Map Tilesets">
@@ -1775,6 +1802,7 @@
       <object>objects\obj_powblock</object>
       <object>objects\obj_lightblock</object>
       <object>objects\obj_lightblock_disco</object>
+      <object>objects\obj_starblock</object>
     </objects>
     <objects name="Items">
       <object>objects\obj_coin</object>
@@ -2140,6 +2168,12 @@
         <object>objects\obj_door_player</object>
       </objects>
       <objects name="Pipes">
+        <objects name="Branch Pipes">
+          <object>objects\obj_warptop_branch</object>
+          <object>objects\obj_warpbottom_branch</object>
+          <object>objects\obj_warpleft_branch</object>
+          <object>objects\obj_warpright_branch</object>
+        </objects>
         <object>objects\obj_warptop</object>
         <object>objects\obj_warpbottom</object>
         <object>objects\obj_warpleft</object>
@@ -2454,7 +2488,8 @@
         <room>rooms\rm_level_2a</room>
       </rooms>
       <rooms name="Level 3">
-        <room>rooms\rm_level_3</room>
+        <room>rooms\rm_level_3a</room>
+        <room>rooms\rm_level_3b</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

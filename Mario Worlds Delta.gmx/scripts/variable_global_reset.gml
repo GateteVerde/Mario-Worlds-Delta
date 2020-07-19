@@ -41,3 +41,6 @@ global.bonusgame = 0;
 
 //Reset warps
 global.postchange = -1;
+
+//Reset coins on controller object
+obj_controller.coins = 0;
