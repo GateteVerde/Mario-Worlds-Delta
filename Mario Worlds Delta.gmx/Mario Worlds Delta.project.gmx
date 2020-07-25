@@ -632,7 +632,8 @@
       <sprite>sprites\spr_coin_5</sprite>
       <sprite>sprites\spr_coin_10</sprite>
       <sprite>sprites\spr_coin_ace</sprite>
-      <sprite>sprites\spr_coin_alt</sprite>
+      <sprite>sprites\spr_coin_outline</sprite>
+      <sprite>sprites\spr_coin_block</sprite>
       <sprite>sprites\spr_coin_silver</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
@@ -1809,6 +1810,7 @@
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
+      <object>objects\obj_coin_outline</object>
       <object>objects\obj_mushroom</object>
       <object>objects\obj_fireflower</object>
       <object>objects\obj_feather</object>
@@ -2006,6 +2008,7 @@
         <object>objects\obj_volcanolotus</object>
         <object>objects\obj_craterlotus</object>
         <object>objects\obj_wiggler</object>
+        <object>objects\obj_wiggler_long</object>
         <object>objects\obj_pokey</object>
       </objects>
       <objects name="Castle / Ghost">
@@ -2180,6 +2183,7 @@
         <object>objects\obj_warpright</object>
       </objects>
       <object>objects\obj_warpnode</object>
+      <object>objects\obj_warpparent</object>
     </objects>
     <objects name="Special">
       <objects name="Parents">
@@ -2451,6 +2455,7 @@
           </objects>
           <objects name="Title">
             <object>objects\obj_title</object>
+            <object>objects\obj_title_menu</object>
             <object>objects\obj_title_player</object>
           </objects>
           <object>objects\obj_audio_loop_sound</object>
@@ -2486,6 +2491,11 @@
       </rooms>
       <rooms name="Level 2">
         <room>rooms\rm_level_2a</room>
+        <rooms name="Branches">
+          <room>rooms\rm_level_2b_branch1</room>
+          <room>rooms\rm_level_2b_branch2</room>
+          <room>rooms\rm_level_2b_branch3</room>
+        </rooms>
       </rooms>
       <rooms name="Level 3">
         <room>rooms\rm_level_3a</room>

@@ -150,6 +150,17 @@ if (instance_exists(mebelow)) {
 }
 
 switch (offsetnext) {
+
+    case (0): offset = offsetxscale; break;
+    case (1): offset = offsetxscale+1; break;
+    case (2): offset = offsetxscale; break;
+    case (3): offset = 0; break;
+    case (4): offset = -offsetxscale; break;
+    case (5): offset = -offsetxscale+1; break;
+    case (6): offset = -offsetxscale; break;
+    case (7): offset = 0; break;
+
+    /*
     case (0): {
         offset = offsetxscale;
     } break;
@@ -162,11 +173,12 @@ switch (offsetnext) {
     case (3): {
         offset = 0;
     } break;
+    */
 }
 
 //Increment next offset
 offsetnext++;
-if (offsetnext == 4)
+if (offsetnext == 8)
     offsetnext = 0;
 
 //Keep changing offset values
@@ -428,6 +440,7 @@ if (overlap2)
 
 if (owo == 1)
 &amp;&amp; (mebelow != noone)
+&amp;&amp; (sprite_index != stompsprite)
     draw_sprite_ext(spr_goomba_stack_owo, 1, round(x)+offset, round(y)+1, xscale, 1, 0, c_white, 1);
 else
     draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+1, xscale, 1, 0, c_white, 1);    
