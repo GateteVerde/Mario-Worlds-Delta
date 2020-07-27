@@ -44,8 +44,7 @@ swimming = 0;
 if (place_meeting(x, y, obj_swim)) {
 
     swimming = 1;
-    vspeed = -1;
-    gravity = 0.1;
+    vspeed = vspeed/2;
 }
 </string>
           </argument>

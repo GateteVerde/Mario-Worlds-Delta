@@ -309,6 +309,7 @@
     <sound>sound\snd_yoshi</sound>
     <sound>sound\snd_zappakoopa_fire</sound>
     <sound>sound\snd_zappakoopa_prepare</sound>
+    <sound>sound\snd_bossclear</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Playable Characters">
@@ -621,6 +622,7 @@
         </sprites>
         <sprite>sprites\spr_goal_gate</sprite>
         <sprite>sprites\spr_goal_tape</sprite>
+        <sprite>sprites\spr_orb</sprite>
         <sprite>sprites\spr_keyhole</sprite>
         <sprite>sprites\spr_keyhole_anim</sprite>
       </sprites>
@@ -1697,6 +1699,7 @@
         <object>objects\obj_checkpoint</object>
         <object>objects\obj_checkpoint_tape</object>
         <object>objects\obj_goal_gate</object>
+        <object>objects\obj_orb</object>
         <object>objects\obj_keyhole</object>
       </objects>
       <objects name="Weather">
