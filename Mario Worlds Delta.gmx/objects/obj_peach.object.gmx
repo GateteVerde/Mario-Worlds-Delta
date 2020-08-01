@@ -1130,6 +1130,14 @@ if (floatnow != 1) {
     if (offsetnext &gt; 0)
         offsetnext = 0;
 }
+
+//Reset offset if swimming or climbing
+if (state == 3) || (swimming == true) {
+
+    offset = 0;
+    if (offsetnext &gt; 0)
+        offsetnext = 0;
+}
 </string>
           </argument>
         </arguments>

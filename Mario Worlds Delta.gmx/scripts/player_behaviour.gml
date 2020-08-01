@@ -375,7 +375,7 @@ if (state != statetype.jump) { //If the player is not jumping
 if ((state == statetype.jump) || (delay != 0)) {
 
     //If the player vertical speed is lower than -2, and it is jumping
-    if (vspeed < -2)
+    if (vspeed < -2.2)
     && (jumping == 1)
         gravity = grav_alt;
         

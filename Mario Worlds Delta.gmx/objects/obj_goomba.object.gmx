@@ -52,7 +52,7 @@ image_speed = 0.15;
 if (position_meeting(x, bbox_bottom+8, obj_goomba)) {
 
     mebelow = collision_point(x, bbox_bottom+8, obj_goomba, 0, 0);
-    alarm[1] = 10;
+    alarm[1] = 5;
 }
  
 //If there's not enemies below, note that and start walking towards mario.
@@ -182,7 +182,7 @@ if (offsetnext == 8)
     offsetnext = 0;
 
 //Keep changing offset values
-alarm[1] = 10;
+alarm[1] = 5;
 </string>
           </argument>
         </arguments>
@@ -261,7 +261,7 @@ if (mebelow == noone) {
         gravity = 0;
         
         //Manage offset values
-        alarm[1] = 10;
+        alarm[1] = 5;
     }
     
     //Otherwise, execute default event and deny offset functions.
