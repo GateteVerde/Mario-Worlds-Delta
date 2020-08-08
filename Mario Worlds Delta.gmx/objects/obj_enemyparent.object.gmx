@@ -643,8 +643,12 @@ if (vulnerable == 0)
     with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2-8, obj_coin_alt)) {
 
         //Jump a bit
-        vspeed = -4;
         y--;
+        if (other.swimming)
+            vspeed = -4;
+        else
+            vspeed = -2;
+        
         
         //Apply gravity to the coin
         ready = 1;
@@ -1447,7 +1451,10 @@ imdead.sprite_index = deathsprite;
 imdead.image_xscale = xscale;
 
 //Set up vertical speed
-imdead.vspeed = -3;
+if (!swimming)
+    imdead.vspeed = -3;
+else
+    imdead.vspeed = -1.5;
 
 //If the killer object is not moving
 if (other.hspeed == 0) {
