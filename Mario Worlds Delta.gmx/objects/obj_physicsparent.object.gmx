@@ -34,7 +34,10 @@ slope = false;
 hitcombo = false;
 
 //Is the object underwater?
-swimming = false;
+if (collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+    swimming = true;
+else
+    swimming = false;
 </string>
           </argument>
         </arguments>
@@ -290,6 +293,20 @@ if (escalator)
 slope = player_inslope();
 
 //If moving down
+if (gravity == 0)
+&amp;&amp; (vspeed &gt; -0.85) {
+
+    //Manage position in slope
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+8, obj_slopeparent, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(x-1, bbox_bottom-3, x+1, bbox_bottom-3, obj_slopeparent, 1, 0)) {
+    
+        //manage slope
+        with (obj_slopeparent) 
+            slope_calculate();
+    }
+}
+
+//If moving down
 if (vspeed &gt;= 0) {
 
     //Check for a semisolid
@@ -301,6 +318,7 @@ if (vspeed &gt;= 0) {
         y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
 }
 
+/*
 //If moving down and there's no gravity
 if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
     
@@ -318,6 +336,7 @@ if ((gravity == 0) &amp;&amp; (vspeed &gt;= -1)) {
                 y--;
     }
 }
+*/
 
 //Check for floor objects
 if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
@@ -358,7 +377,7 @@ else {
     else {
     
         //Gravity
-        gravity = 0.025;
+        gravity = 0.05;
         
         //Cap vertical speed
         if (vspeed &gt; 1)

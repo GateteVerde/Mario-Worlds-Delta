@@ -123,12 +123,17 @@ if (ready &gt; 0) {
     //Inherit event
     event_inherited();
 
-    //Set walking sprite and jump
+    //Jump if stun
     if (sprite_index == spr_beachkoopa_yellow) {
     
+        //Set walking sprite
         sprite_index = spr_beachkoopa_yellow_walk;
-        vspeed = -2.5;
+        
+        //Boost jump
         y--;
+        
+        //If underwater
+        vspeed = -2.5;
     }
     
     //Follow the player
@@ -160,6 +165,10 @@ if (ready &gt; 0) {
 
 //Inherit event
 event_inherited();
+
+//Deny swimming if jumping
+if (jumping == 1)
+    swimming = false;
 
 //Sliding logic
 if (ready == 0) {
@@ -268,9 +277,7 @@ else if (ready &gt; 0) {
         //Reset jump
         if (jumping == 1)
         &amp;&amp; (gravity == 0)
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_shell, 0, 0))
-            jumping = 0;
-                   
+            jumping = 0;                         
     }
 }
 

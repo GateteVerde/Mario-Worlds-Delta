@@ -100,6 +100,9 @@ if (mylight != noone)
             <kind>1</kind>
             <string>///Fireball logic
 
+//Ignore swimming
+swimming = false;
+
 //Previous horizontal speed
 prevhspeed = hspeed;
 

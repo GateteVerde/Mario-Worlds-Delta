@@ -86,12 +86,20 @@ if (ready &gt; 0) {
     //Inherit event
     event_inherited();
 
-    //Set walking sprite and jump
+    //Jump if stun
     if (sprite_index == spr_beachkoopa_red) {
     
+        //Set walking sprite
         sprite_index = spr_beachkoopa_red_walk;
-        vspeed = -2.5;
+        
+        //Boost jump
         y--;
+        
+        //If underwater
+        if (!swimming)
+            vspeed = -2.5;
+        else
+            vspeed = -0.625;
     }
 }
 </string>
@@ -120,6 +128,10 @@ if (ready &gt; 0) {
 
 //Inherit event from parent
 event_perform_object(obj_enemyparent, ev_step, ev_step_normal);
+
+//Deny swimming if jumping
+if (jumping == 1)
+    swimming = false;
 
 //Sliding logic
 if (ready == 0) {
@@ -187,7 +199,6 @@ else if (ready &gt; 0) {
         //Reset jump
         if (jumping == 1)
         &amp;&amp; (gravity == 0)
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_shell, 0, 0))
             jumping = 0;           
     }
 }

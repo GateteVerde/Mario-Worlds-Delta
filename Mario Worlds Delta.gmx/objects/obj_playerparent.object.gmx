@@ -160,6 +160,14 @@ t = instance_create(x, y, obj_boundary_top);
 b = instance_create(x, y, obj_boundary_bottom);
 l = instance_create(x, y, obj_boundary_left);
 r = instance_create(x, y, obj_boundary_right);
+
+//find slope
+if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed, obj_slopeparent, 1, 0)) {
+
+    //manage slope
+    with (obj_slopeparent)    
+        slope_calculate();
+}
 </string>
           </argument>
         </arguments>
@@ -632,6 +640,19 @@ invulnerable = false;
 //Check if above a slope
 slope = player_inslope();
 
+//If moving down
+if (gravity == 0)
+&amp;&amp; (vspeed &gt; -0.85) {
+
+    //Manage position in slope
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent, 1, 0)) {
+    
+        //manage slope
+        with (obj_slopeparent) 
+            slope_calculate();
+    }
+}
+
 //Do 'V-Pose' if clearing bonus level
 if (cleared == 1) {
 
@@ -718,62 +739,19 @@ if (gravity_enable == true) {
         }        
     }
     
-    //Embed the player into the slope if he is walking or sliding down to ensure correct slope physics
-    if ((collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0)) &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent, 1, 0)))
-    || ((collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent_move, 1, 0)) &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom-3, obj_slopeparent_move, 1, 0))) {
-    
-        //If the player is moving or the player is not moving and it is being pushed
-        if (state == statetype.walk)
-        || ((state == statetype.idle) &amp;&amp; (x-xprevious != 0))
-            y += 4;
-    }
-    
     //Handle collision with slopes
     if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
-    
-        //Steeper slope check
-        steeper_l = collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_l, 1, 0);
-        steeper_r = collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slope_steeper_r, 1, 0);
-            
-        //If the slope is a steeper one, do not allow jump through
-        if (steeper_l) 
-        || (steeper_r) {
         
-            //If moving down
-            if (vspeed &gt;= 0) {
-            
-                //Stop vertical movement
-                vspeed = 0;
-                gravity = 0;
-                
-                //Reset values
-                event_user(15);
-            }          
-            
-            //Prevent the player from getting embed inside a slope
-            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-                y--;              
-        }
+        //If moving down
+        if (vspeed &gt;= 0) {
         
-        //Otherwise
-        else {
-                    
-            //If moving down
-            if (vspeed &gt;= 0) {
+            //Stop vertical movement
+            vspeed = 0;
+            gravity = 0;
             
-                //Stop vertical movement
-                vspeed = 0;
-                gravity = 0;
-                
-                //Reset values
-                event_user(15);
-            }
-            
-            //Prevent the player from getting embed inside a slope
-            if (vspeed &gt; -0.85)    
-                while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent, 1, 0))
-                    y--;
+            //Reset values
+            event_user(15);
         }
     }
     
@@ -791,11 +769,6 @@ if (gravity_enable == true) {
             //Reset values
             event_user(15);
         }
-        
-        //Prevent the player from getting embed inside a slope
-        if (vspeed &gt; -0.85)    
-            while (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed-2, obj_slopeparent_move, 1, 0))
-                y--;
     }
     
     //If the player is not swimming

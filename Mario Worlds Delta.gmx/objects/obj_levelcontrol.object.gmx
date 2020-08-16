@@ -32,11 +32,13 @@
 **
 **  inisection      = The ini section to check up
 **  leveltime       = The time limit in seconds (Optional)
+**  makeswim        = To make the entire level swimable
 */
 
 //Default values
 inisection = "Overworld";
 leveltime = 0;
+makeswim = false;
 
 //Play music
 alarm[0] = 2;
@@ -75,6 +77,9 @@ swarning = 0;
 //Reach last ground Y
 floorY = 0;
 
+//Underwater init
+alarm[8] = 2;
+
 //Create HUD
 instance_create(0, 0, obj_hud);
 
@@ -112,6 +117,38 @@ animated_tile_add(tls_lava, .15,
             <string>///Clean all animated tiles
 
 animated_tile_cleanup();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create a invisible swim object that covers the entire room
+
+if (makeswim == true) {
+
+    with (instance_create(-1000, -1000, obj_swim)) {
+    
+        image_xscale = (room_width/16)+1000;
+        image_yscale = (room_height/16)+1000;
+    }
+}
 </string>
           </argument>
         </arguments>

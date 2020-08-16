@@ -34,18 +34,17 @@ image_index = 0;
 //Set gravity
 gravity = 0.2;
 
-//Spin?
-nospin = 0;
-
 //Is swimming
 swimming = 0;
 
 //If underwater
 if (place_meeting(x, y, obj_swim)) {
 
-    swimming = 1;
-    vspeed = -1;
+    //Set swimming gravity
     gravity = 0.1;
+    
+    //Set swimming state
+    swimming = 1;
 }
 </string>
           </argument>
@@ -101,7 +100,7 @@ alarm[0] = 8;
 //Cap vertical speed
 if (swimming == 1) {
 
-    gravity = 0.025;
+    gravity = 0.05;
     if (vspeed &gt; 1)
         vspeed = 1;
 }

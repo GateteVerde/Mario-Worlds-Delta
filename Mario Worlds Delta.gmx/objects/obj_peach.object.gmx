@@ -1090,7 +1090,7 @@ else {
 event_inherited();
 
 //If the player has jumped
-if (jumping == 2) 
+if (jumping == 2)
 &amp;&amp; (global.powerup != cs_pow_cape) {
 
     //If peach can float, start it.
@@ -1132,8 +1132,10 @@ if (floatnow != 1) {
 }
 
 //Reset offset if swimming or climbing
-if (state == 3) || (swimming == true) {
+if (state == 3) 
+|| (swimming == true) {
 
+    floatnow = 0;
     offset = 0;
     if (offsetnext &gt; 0)
         offsetnext = 0;
