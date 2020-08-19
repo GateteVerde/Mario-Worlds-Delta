@@ -46,6 +46,13 @@ bouncy = 0;
 
 //Is swimming
 swimming = 0;
+
+//If underwater
+if (place_meeting(x, y, obj_swim)) {
+
+    swimming = 1;
+    vspeed = vspeed/2;
+}
 </string>
           </argument>
         </arguments>

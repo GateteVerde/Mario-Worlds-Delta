@@ -40,11 +40,16 @@ swimming = 0;
 //If underwater
 if (place_meeting(x, y, obj_swim)) {
 
+<<<<<<< HEAD
     //Set swimming gravity
     gravity = 0.1;
     
     //Set swimming state
     swimming = 1;
+=======
+    swimming = 1;
+    vspeed = vspeed/2;
+>>>>>>> parent of 7c658bf... Added blurp fish
 }
 </string>
           </argument>
