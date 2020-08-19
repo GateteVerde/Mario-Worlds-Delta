@@ -641,7 +641,7 @@ invulnerable = false;
 slope = player_inslope();
 
 //If moving down
-if (vspeed &gt;= -0.85) {
+if (state &lt; 2) {
 
     //Manage position in slope
     if ((collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed+2, obj_slopeparent, 1, 0)) 
@@ -651,11 +651,6 @@ if (vspeed &gt;= -0.85) {
         with (obj_slopeparent) 
             slope_calculate();
     }
-    
-    //Collision with steeper slopes
-    while (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_slope_steeper_r, 1, 0))
-    || (collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_slope_steeper_l, 1, 0))
-        y--;
 }
 
 //Do 'V-Pose' if clearing bonus level

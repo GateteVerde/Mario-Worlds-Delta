@@ -63,7 +63,7 @@ with (obj_playerparent) {
     &amp;&amp; (sliding == false)
     &amp;&amp; (state != statetype.jump)
     &amp;&amp; (state != statetype.climb)  
-        hspeed -= 0.3;
+        hspeed -= 0.5;
 }
 </string>
           </argument>
