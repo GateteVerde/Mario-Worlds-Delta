@@ -641,11 +641,10 @@ invulnerable = false;
 slope = player_inslope();
 
 //If moving down
-if (state &lt; 2) {
+if (vspeed &gt;= 0) {
 
     //Manage position in slope
-    if ((collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed+2, obj_slopeparent, 1, 0)) 
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0))) {
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent) 
@@ -740,8 +739,8 @@ if (gravity_enable == true) {
     }
     
     //Handle collision with slopes
-    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+    if (collision_rectangle(x-3, bbox_bottom-4, x+3, bbox_bottom, obj_slopeparent, 1, 0))
+    &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent, 1, 0)) {
         
         //If moving down
         if (vspeed &gt;= 0) {
@@ -755,9 +754,9 @@ if (gravity_enable == true) {
         }
     }
     
-    //Handle collision with slopes
-    if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom, obj_slopeparent_move, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent_move, 1, 0)) {
+    //Handle collision with moving slopes
+    if (collision_rectangle(x-3, bbox_bottom-4, x+3, bbox_bottom, obj_slopeparent_move, 1, 0))
+    &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent_move, 1, 0)) {
                 
         //If moving down
         if (vspeed &gt;= 0) {

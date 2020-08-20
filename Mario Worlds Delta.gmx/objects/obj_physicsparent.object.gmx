@@ -293,11 +293,10 @@ if (escalator)
 slope = player_inslope();
 
 //If moving down
-if (vspeed &gt;= -0.85) {
+if (vspeed &gt;= 0) {
 
     //Manage position in slope
-    if ((collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed+2, obj_slopeparent, 1, 0)) 
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-8, x+2, bbox_bottom-8, obj_slopeparent, 1, 0))) {
+    if (collision_rectangle(x-3, bbox_bottom-3, x+3, bbox_bottom+3, obj_slopeparent, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent) 

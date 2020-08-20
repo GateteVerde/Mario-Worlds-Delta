@@ -548,6 +548,10 @@
     <instance objName="obj_charginchuck" x="2824" y="80" name="inst_56CE6B0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_charginchuck" x="2712" y="240" name="inst_7343F889" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_charginchuck" x="2488" y="64" name="inst_F137C29E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slope_r" x="416" y="208" name="inst_AD49BA90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slope_r" x="448" y="192" name="inst_09817000" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slope_l" x="336" y="256" name="inst_D986515C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_slope_l" x="368" y="272" name="inst_4EA6CF9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="1232" y="80" w="16" h="16" xo="144" yo="208" id="10017583" name="inst_2DB35E20" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -727,6 +731,16 @@
     <tile bgName="tls_ground" x="5152" y="416" w="16" h="16" xo="16" yo="224" id="10021180" name="inst_0F39AF0C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="5136" y="416" w="16" h="16" xo="16" yo="224" id="10021181" name="inst_265078DF" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="5120" y="416" w="16" h="16" xo="16" yo="224" id="10021182" name="inst_0512E754" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="336" y="256" w="64" h="64" xo="128" yo="352" id="10030496" name="inst_3A65C379" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="336" y="320" w="64" h="16" xo="128" yo="400" id="10030522" name="inst_9A785963" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="336" y="336" w="64" h="16" xo="128" yo="400" id="10030523" name="inst_766F696B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="192" w="64" h="48" xo="64" yo="352" id="10030525" name="inst_526C2AEF" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="240" w="64" h="16" xo="64" yo="400" id="10030526" name="inst_3F68A1A7" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="256" w="64" h="16" xo="64" yo="400" id="10030527" name="inst_C5C0F437" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="272" w="64" h="16" xo="64" yo="400" id="10030528" name="inst_383C1252" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="288" w="64" h="16" xo="64" yo="400" id="10030529" name="inst_0B2B6414" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="304" w="64" h="16" xo="64" yo="400" id="10030530" name="inst_197AC874" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="416" y="320" w="64" h="16" xo="64" yo="400" id="10030531" name="inst_98F1C1C3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="0" y="400" w="16" h="16" xo="16" yo="208" id="10016175" name="inst_E7117A22" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="16" y="400" w="16" h="16" xo="16" yo="208" id="10016176" name="inst_58436320" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="32" y="400" w="16" h="16" xo="16" yo="208" id="10016177" name="inst_E04F1ADD" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
