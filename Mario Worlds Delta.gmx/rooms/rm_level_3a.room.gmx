@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bgr_underwater" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bgr_hills_and_clouds" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_player" x="40" y="384" name="inst_CDAC17C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_35D7E805" locked="0" code="inisection = 'Swimming'&#xA;leveltime = 400;&#xA;makeswim = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_35D7E805" locked="0" code="inisection = 'Classic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="256" y="336" name="inst_9C489853" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="336" y="336" name="inst_A86FD696" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="368" y="336" name="inst_04EE245A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -178,32 +178,10 @@
     <instance objName="obj_parakoopa" x="1080" y="336" name="inst_DD631F21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_parakoopa" x="1048" y="368" name="inst_5A05A198" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_parakoopa_super" x="1064" y="352" name="inst_37773271" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="552" y="336" name="inst_24C9B0FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="536" y="320" name="inst_5951DE2F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="520" y="304" name="inst_28F80415" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="536" y="288" name="inst_49C12439" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="552" y="272" name="inst_E103AFF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="568" y="272" name="inst_2AF36DB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="552" y="288" name="inst_F81D01CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="536" y="304" name="inst_8875EFFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="552" y="320" name="inst_90A2E274" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="568" y="336" name="inst_C976582D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="696" y="304" name="inst_34F5287C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="680" y="304" name="inst_19B5D1CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="680" y="288" name="inst_970F0529" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="664" y="288" name="inst_0D4D339F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="664" y="272" name="inst_AF08160F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="648" y="272" name="inst_95642B2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="664" y="256" name="inst_20AB9F55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="680" y="240" name="inst_C11000D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="696" y="240" name="inst_6897545D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_blurp" x="680" y="256" name="inst_48A8E2A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_qblock_hidden" x="112" y="336" name="inst_B6EA59DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_star" x="112" y="336" name="inst_8F996B7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bganimator" x="16" y="-16" name="inst_EEE54397" locked="0" code="bg_index = 0;&#xA;bg_frame[0] = bgr_underwater_b;&#xA;bg_frame[1] = bgr_underwater_c;&#xA;bg_frame[2] = bgr_underwater_d;&#xA;bg_frame[3] = bgr_underwater;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_parakoopa" x="1096" y="320" name="inst_6243B581" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_qblock_hidden" x="112" y="272" name="inst_1D6CE1D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_feather" x="112" y="272" name="inst_0AAA7B97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="424" y="384" name="inst_9C794033" locked="0" code="varmsg = &quot;Didn't expected to see me around here, huh?&quot;;&#xA;mugshot = spr_mugshot_gatete;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sound_oink" x="1024" y="320" name="inst_B988B50B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="1352" y="384" name="inst_87363BD2" locked="0" code="sprite_index = spr_glitchypsix;&#xA;varmsg = &quot;I recall seeing a checkpoint around here, I wonder if GateteVerde removed it...&quot;;&#xA;mugshot = spr_mugshot_glitchypsix;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="144" y="336" w="96" h="64" xo="464" yo="0" id="10029554" name="inst_6A4CE170" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -97,6 +97,9 @@ global.fontnumbgold = font_add_sprite(spr_font_numb_gold, ord('0'), 0, 0);
 //In-HUD Large Numbers
 global.fontnumblarge = font_add_sprite(spr_font_numb_large, ord('0'), 0, 0);
 
+//In-Dialogue Font
+global.fontdialog = font_add_sprite(spr_font_dialogue, ord('!'), 1, 0);
+
 //In-Message Font
 global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);
 

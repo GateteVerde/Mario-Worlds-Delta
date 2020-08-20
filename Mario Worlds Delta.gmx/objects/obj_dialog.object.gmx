@@ -39,7 +39,7 @@ varmsg = "No message was set";
 mugshot = noone;
 
 //Font
-font = fnt_gui; //global.fontmsg;
+font = global.fontdialog; //global.fontmsg;
 
 //Can the text be seen?
 showing = false;
@@ -89,7 +89,7 @@ alarm[0] = 1;
 draw_set_font(font);
 
 //Format the text to the correct width
-text = string(string_make_width(varmsg, 216));
+text = string(string_make_width(varmsg, 173));
 
 //The text that should display next if it is too long
 newtext = "";
@@ -192,7 +192,7 @@ if (input_check_pressed(input.action0)) {
 //Iterate over all the characters in the message
 for (i=1; i&lt;string_length(text); i++) {
 
-    if (string_height(string_copy(text, 1, min(i+1, string_length(text)))) &gt; 32) {
+    if (string_height(string_copy(text, 1, min(i+1, string_length(text)))) &gt; 39) {
     
         //Split off the lines after the new line to be displayed later
         newtext = string_copy(text, i+1, string_length(text)-i);
@@ -246,7 +246,7 @@ if (background_exists(back)) {
 }
 
 //Draw the message box
-draw_sprite_ext(spr_dialog, 0, view_xview[0]+(view_wview[0]/2)-144, view_yview[0]+view_hview[0]-64, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_dialog, 0, view_xview[0]+(view_wview[0]/2)-117, view_yview[0]+view_hview[0]-64, 1, 1, 0, c_white, 1);
 
 //If the text should be displayed
 if (showing) {   
@@ -256,16 +256,16 @@ if (showing) {
         a++;
     
     //Set the font
-    draw_set_font(font); 
+    draw_set_font(font);
 
     //Draw the text up to the number of letters that should be displayed
-    draw_text_colour_shadowed(view_xview[0]+(view_wview[0]/2)-96, view_yview[0]+view_hview[0]-56, string_copy(text,1,a), make_colour_rgb(40, 40, 40), c_white, 1, 1, 1, 1);
+    draw_text_colour(view_xview[0]+(view_wview[0]/2)-67, view_yview[0]+view_hview[0]-59, string_copy(text,1,a), c_white, c_white, c_white, c_white, 1);
     
     //Draw mugshot if exists
     if (mugshot != noone) {
     
         //Draw the mugshot
-        draw_sprite_ext(mugshot, anim, view_xview[0]+(view_wview[0]/2)-140, view_yview[0]+view_hview[0]-64, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(mugshot, anim, view_xview[0]+(view_wview[0]/2)-109, view_yview[0]+view_hview[0]-57, 1, 1, 0, c_white, 1);
         
         //Animate the mugshot
         if (a &lt; string_length(text))       
@@ -278,9 +278,9 @@ if (showing) {
     if (a &gt;= string_length(text)) {
     
         if (newtext = "")
-            draw_sprite_ext(spr_cursor, anim2, view_xview[0]+(view_wview[0]/2)+128, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cursor, anim2, view_xview[0]+(view_wview[0]/2)+102, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
         else
-            draw_sprite_ext(spr_cursor_continue, anim2, view_xview[0]+(view_wview[0]/2)+128, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cursor_continue, anim2, view_xview[0]+(view_wview[0]/2)+102, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
     }
 }
 </string>

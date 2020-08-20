@@ -1391,6 +1391,7 @@
         <sprites name="Dialogues">
           <sprites name="Mugshots">
             <sprite>sprites\spr_mugshot</sprite>
+            <sprite>sprites\spr_mugshot_gatete</sprite>
             <sprite>sprites\spr_mugshot_glitchypsix</sprite>
           </sprites>
           <sprites name="Cursors">
@@ -1435,6 +1436,7 @@
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
         <sprite>sprites\spr_font_numb_large</sprite>
+        <sprite>sprites\spr_font_dialogue</sprite>
         <sprite>sprites\spr_font_message</sprite>
       </sprites>
       <sprites name="Masks">
@@ -1493,6 +1495,7 @@
       </sprites>
       <sprites name="Cameos">
         <sprite>sprites\spr_talk</sprite>
+        <sprite>sprites\spr_gatete</sprite>
         <sprite>sprites\spr_glitchypsix</sprite>
       </sprites>
       <sprite>sprites\spr_mariostart</sprite>
@@ -1702,9 +1705,7 @@
     <shader type="GLSLES">shaders\shd_pixel.shader</shader>
     <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
   </shaders>
-  <fonts name="fonts">
-    <font>fonts\fnt_gui</font>
-  </fonts>
+  <fonts name="fonts"/>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_player_warp</object>
