@@ -192,7 +192,7 @@ if (input_check_pressed(input.action0)) {
 //Iterate over all the characters in the message
 for (i=1; i&lt;string_length(text); i++) {
 
-    if (string_height(string_copy(text, 1, min(i+1, string_length(text)))) &gt; 39) {
+    if (string_height(string_copy(text, 1, min(i+1, string_length(text)))) &gt; 40) {
     
         //Split off the lines after the new line to be displayed later
         newtext = string_copy(text, i+1, string_length(text)-i);
@@ -246,7 +246,7 @@ if (background_exists(back)) {
 }
 
 //Draw the message box
-draw_sprite_ext(spr_dialog, 0, view_xview[0]+(view_wview[0]/2)-117, view_yview[0]+view_hview[0]-64, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_dialog, 0, x, y, 1, 1, 0, c_white, 1);
 
 //If the text should be displayed
 if (showing) {   
@@ -259,13 +259,13 @@ if (showing) {
     draw_set_font(font);
 
     //Draw the text up to the number of letters that should be displayed
-    draw_text_colour(view_xview[0]+(view_wview[0]/2)-67, view_yview[0]+view_hview[0]-59, string_copy(text,1,a), c_white, c_white, c_white, c_white, 1);
+    draw_text_colour(x+49, y+5, string_copy(text,1,a), c_white, c_white, c_white, c_white, 1);
     
     //Draw mugshot if exists
     if (mugshot != noone) {
     
         //Draw the mugshot
-        draw_sprite_ext(mugshot, anim, view_xview[0]+(view_wview[0]/2)-109, view_yview[0]+view_hview[0]-57, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(mugshot, anim, x+8, y+7, 1, 1, 0, c_white, 1);
         
         //Animate the mugshot
         if (a &lt; string_length(text))       
@@ -278,9 +278,9 @@ if (showing) {
     if (a &gt;= string_length(text)) {
     
         if (newtext = "")
-            draw_sprite_ext(spr_cursor, anim2, view_xview[0]+(view_wview[0]/2)+102, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cursor, anim2, x+218, y+32, 1, 1, 0, c_white, 1);
         else
-            draw_sprite_ext(spr_cursor_continue, anim2, view_xview[0]+(view_wview[0]/2)+102, view_yview[0]+view_hview[0]-32, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cursor_continue, anim2, x+218, y+32, 1, 1, 0, c_white, 1);
     }
 }
 </string>
