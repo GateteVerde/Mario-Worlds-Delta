@@ -125,7 +125,14 @@ imdead.sprite_index = spr_shell_big_red;
 imdead.image_xscale = 1;
 
 //Set up vertical speed
-imdead.vspeed = -5;
+if (!swimming) {
+
+    imdead.vspeed = -5;
+}
+else {
+
+    imdead.vspeed = -3;
+}
 
 //Flip it
 imdead.flip = 1;

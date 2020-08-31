@@ -643,11 +643,19 @@ slope = player_inslope();
 //If moving down
 if (vspeed &gt;= 0) {
 
-    //Manage position in slope
+    //Manage position in a slope
     if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent) 
+            slope_calculate();
+    }
+    
+    //Manage position in a moving slope
+    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent_move, 1, 0)) {
+    
+        //manage slope
+        with (obj_slopeparent_move) 
             slope_calculate();
     }
 }

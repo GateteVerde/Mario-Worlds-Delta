@@ -682,7 +682,7 @@ alarm[6] = 60;
 var s = filter+1;
 
 //Reset display
-display_reset(8, vsync);
+display_reset(0, vsync);
 
 //Set up the window
 window_set_size(global.gw*s, global.gh*s);

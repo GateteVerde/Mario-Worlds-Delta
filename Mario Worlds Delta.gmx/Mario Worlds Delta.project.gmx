@@ -865,6 +865,11 @@
             <sprite>sprites\spr_beachkoopa_red_dead</sprite>
           </sprites>
           <sprites name="Blue">
+            <sprites name="Super Koopas">
+              <sprite>sprites\spr_superkoopa_blue</sprite>
+              <sprite>sprites\spr_superkoopa_blue_fly</sprite>
+              <sprite>sprites\spr_superkoopa_blue_dead</sprite>
+            </sprites>
             <sprites name="Shells">
               <sprite>sprites\spr_shell_blue</sprite>
             </sprites>
@@ -907,6 +912,8 @@
           <sprite>sprites\spr_firebro</sprite>
           <sprite>sprites\spr_firebro_throw</sprite>
           <sprite>sprites\spr_firebro_dead</sprite>
+          <sprite>sprites\spr_afhb</sprite>
+          <sprite>sprites\spr_afhb_platform</sprite>
         </sprites>
         <sprites name="Chucks">
           <sprite>sprites\spr_charginchuck</sprite>
@@ -1234,6 +1241,7 @@
         <sprite>sprites\spr_waterfall</sprite>
         <sprite>sprites\spr_waterfall_bottom</sprite>
         <sprite>sprites\spr_tides</sprite>
+        <sprite>sprites\spr_tides_bottom</sprite>
       </sprites>
       <sprite>sprites\spr_muncher</sprite>
       <sprite>sprites\spr_muncher_ee</sprite>
@@ -1378,6 +1386,7 @@
       <sprites name="Palettes">
         <sprites name="NPCs">
           <sprites name="Enemies">
+            <sprite>sprites\spr_palette_beachkoopa_cape</sprite>
             <sprite>sprites\spr_palette_wiggler</sprite>
           </sprites>
           <sprite>sprites\spr_palette_yoshi</sprite>
@@ -1537,6 +1546,7 @@
       <background>background\bgr_hills_and_clouds_e</background>
       <background>background\bgr_hills_thin</background>
       <background>background\bgr_mountains_b</background>
+      <background>background\bgr_mountains_c</background>
       <background>background\bgr_nightsky</background>
       <background>background\bgr_nightsky_b</background>
       <background>background\bgr_nightsky_c</background>
@@ -1971,6 +1981,9 @@
             <object>objects\obj_beachkoopa_red</object>
           </objects>
           <objects name="Blue">
+            <objects name="Super Koopas">
+              <object>objects\obj_superkoopa</object>
+            </objects>
             <object>objects\obj_koopa_blue</object>
             <object>objects\obj_beachkoopa_blue</object>
           </objects>
@@ -1986,6 +1999,7 @@
           <object>objects\obj_hammerbro</object>
           <object>objects\obj_boomerangbro</object>
           <object>objects\obj_firebro</object>
+          <object>objects\obj_afhb</object>
         </objects>
         <objects name="Chucks">
           <object>objects\obj_charginchuck</object>
@@ -2388,6 +2402,7 @@
               <object>objects\obj_hammerbro_hammer</object>
               <object>objects\obj_boomerangbro_boomerang</object>
               <object>objects\obj_firebro_fireball</object>
+              <object>objects\obj_afhb_rider</object>
             </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>
@@ -2528,6 +2543,9 @@
       <rooms name="Level 3">
         <room>rooms\rm_level_3a</room>
         <room>rooms\rm_level_3b</room>
+      </rooms>
+      <rooms name="Level 4">
+        <room>rooms\rm_level_4</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

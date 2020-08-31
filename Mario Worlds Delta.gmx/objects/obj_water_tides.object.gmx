@@ -91,6 +91,7 @@ with (water) {
 
 alarm[1] = 7;
 if (push)
+&amp;&amp; (instance_exists(obj_playerparent))
     instance_create(view_xview[0]+view_wview[0], random_range(y+16, room_height), obj_bubble_h);
 </string>
           </argument>
@@ -152,7 +153,7 @@ if (vspeed == 0) {
             <string>///Tides logic
 
 //Update xx
-xx -= 0.5;
+xx--;
 
 //If the water is changing it's position.
 if (vspeed != 0) {
@@ -169,6 +170,10 @@ if (vspeed != 0) {
         //Repeat again
         alarm[0] = 360;
     }
+    
+    //Stop if the player is not present
+    if (!instance_exists(obj_playerparent))
+        vspeed = 0;
 }
 
 //Update water position.
@@ -218,22 +223,10 @@ if (player)
             <string>///Draw the water
 
 //Draw water
-draw_sprite_tiled_area_ext(sprite_index, -1, x+xx, y, x, y, x+room_width-1, y+15, c_white, image_alpha);
-
-//Set colour
-draw_set_colour(make_colour_rgb(0, 128, 255));
-
-//Set alpha
-draw_set_alpha(alpha);
+draw_sprite_tiled_area_ext(spr_tides, -1, x+xx, y, x, y, x+room_width-1, y+15, c_white, image_alpha);
 
 //Draw water body
-draw_rectangle(x, y+16, x+room_width-1, room_height, false);
-
-//Reset colour
-draw_set_colour(c_white);
-
-//Reset alpha
-draw_set_alpha(1);
+draw_sprite_tiled_area_ext(spr_tides_bottom, -1, x+xx, y+16, x, y+16, x+room_width-1, room_height-1, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

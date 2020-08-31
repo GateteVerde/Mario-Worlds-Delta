@@ -227,6 +227,29 @@ if (depth == 10)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_blockparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DO NOT REMOVE!
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_playerparent">
       <action>
         <libid>1</libid>
@@ -246,49 +269,52 @@ if (depth == 10)
             <kind>1</kind>
             <string>///Turn into 'Cape' or 'Fire Cape'
 
-//Get 1000 points
-if (nopoints == false) {
+//If the item is not sprouting
+if (action != "sprout") {
 
-    with (instance_create(x-8, y, obj_score))
-        event_user(5);
-}
-
-//If the player is big and there's NOT an item on reserve.
-if (global.powerup == cs_pow_super)
-&amp;&amp; (global.reserveitem == cs_pow_small)
-    global.reserveitem = cs_pow_super;
+    //Get 1000 points
+    if (nopoints == false) {
     
-//Otherwise, if the player does have a powerup
-else if (global.powerup &gt; cs_pow_super)
-    global.reserveitem = global.powerup;
-
-//If the player does not have the correct powerup
-if (global.powerup != cs_pow_cape) {
-    
-    //Play 'Powerup' sound
-    audio_stop_play_sound(snd_feather, 0, false);    
-    
-    //Perform animation sequence
-    _transform = instance_create(0, 0, obj_player_transform)
-    with (_transform) {
-    
-        oldpowerup = global.powerup;
-        newpowerup = other.powerup;
+        with (instance_create(x-8, y, obj_score))
+            event_user(5);
     }
     
-    //Set powerup
-    global.powerup = cs_pow_cape;     
+    //If the player is big and there's NOT an item on reserve.
+    if (global.powerup == cs_pow_super)
+    &amp;&amp; (global.reserveitem == cs_pow_small)
+        global.reserveitem = cs_pow_super;
+        
+    //Otherwise, if the player does have a powerup
+    else if (global.powerup &gt; cs_pow_super)
+        global.reserveitem = global.powerup;
+    
+    //If the player does not have the correct powerup
+    if (global.powerup != cs_pow_cape) {
+        
+        //Play 'Powerup' sound
+        audio_stop_play_sound(snd_feather, 0, false);    
+        
+        //Perform animation sequence
+        _transform = instance_create(0, 0, obj_player_transform)
+        with (_transform) {
+        
+            oldpowerup = global.powerup;
+            newpowerup = other.powerup;
+        }
+        
+        //Set powerup
+        global.powerup = cs_pow_cape;     
+    }
+    else {
+    
+        //Play sounds
+        audio_stop_play_sound(snd_powerup, 0, false);
+        audio_stop_play_sound(snd_reserve, 0, false);
+    }
+    
+    //Destroy
+    instance_destroy();
 }
-else {
-
-    //Play sounds
-    audio_stop_play_sound(snd_powerup, 0, false);
-    audio_stop_play_sound(snd_reserve, 0, false);
-}
-
-//Destroy
-instance_destroy();
-
 </string>
           </argument>
         </arguments>

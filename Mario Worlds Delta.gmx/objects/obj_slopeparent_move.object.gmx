@@ -58,15 +58,15 @@ slope_y2 = 0;
             <string>///Player Logic (While on platform)
 
 //Check for the player
-var player = collision_rectangle(bbox_left, bbox_top-4, bbox_right, bbox_bottom-4, obj_playerparent, 1, 0);
+var player = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_bottom+4, obj_playerparent, 1, 0);
 
 //If the player exists
 if (player)
-&amp;&amp; (player.state != statetype.jump)
-&amp;&amp; (player.bbox_bottom &lt; bbox_bottom+5) {
+&amp;&amp; (player.vspeed &gt;= 0) 
+&amp;&amp; (player.bbox_bottom &lt; self.bbox_bottom) {
     
     //Snap the player vertically
-    player.y++;
+    //player.y++;
 
     //Snap the player horizontally
     player.x += x-xprevious;

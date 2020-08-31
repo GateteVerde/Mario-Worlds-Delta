@@ -610,16 +610,16 @@ if (follow != noone) {
             if (obj_playerparent.run == true) {
             
                 y = obj_playerparent.y;
-                if (view_vspeed[view_current] != 4)
-                    view_vspeed[view_current] = 4;
+                if (view_vspeed[view_current] != 6)
+                    view_vspeed[view_current] = 6;
             }
                 
             //Otherwise, if the player is climbing
             else if (obj_playerparent.state == statetype.climb) {
             
                 y = obj_playerparent.y;
-                if (view_vspeed[view_current] != 4)
-                    view_vspeed[view_current] = 4;
+                if (view_vspeed[view_current] != 6)
+                    view_vspeed[view_current] = 6;
             }
                 
             //Otherwise
@@ -629,8 +629,8 @@ if (follow != noone) {
                 if (obj_playerparent.swimming == true) {
                 
                     y = obj_playerparent.y;
-                    if (view_vspeed[view_current] != 4)
-                        view_vspeed[view_current] = 4;
+                    if (view_vspeed[view_current] != 6)
+                        view_vspeed[view_current] = 6;
                 }
                     
                 //Otherwise
@@ -654,8 +654,8 @@ if (follow != noone) {
                             else {
                             
                                 y = obj_playerparent.y;
-                                if (view_vspeed[view_current] != 4)
-                                    view_vspeed[view_current] = 4;
+                                if (view_vspeed[view_current] != 6)
+                                    view_vspeed[view_current] = 6;
                             }
                         }
                     } 

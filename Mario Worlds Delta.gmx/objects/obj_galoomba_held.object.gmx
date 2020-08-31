@@ -425,7 +425,10 @@ imdead.sprite_index = sprite_index;
 imdead.dir = xscale;
 
 //Set up vertical speed
-imdead.vspeed = -5;
+if (!swimming)
+    imdead.vspeed = -5;
+else
+    imdead.vspeed = -3;
 
 //If the killer object is at the left of this object, move to the right
 if ((other.bbox_left+other.bbox_right/2) &lt;= bbox_left+bbox_right/2) 

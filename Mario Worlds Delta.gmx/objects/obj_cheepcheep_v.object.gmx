@@ -129,6 +129,7 @@ if (swimming == 1) {
     if (prevswim == 0) {
     
         vspeed = 0.5*sign(xscale);
+        hspeed = 0;
         prevswim = 1;
         yy = y;
     }
