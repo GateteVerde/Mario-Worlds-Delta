@@ -1232,9 +1232,9 @@ pal_swap_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check what shell does have yoshi on his mouth and give abilities
+            <string>///Check if yoshi has abilities or a shell inside and give the required ability.
 
-if (mouthholder == obj_shell)
+if ((mouthholder == obj_shell) || (mouthholder == obj_yoshi_fire))
 &amp;&amp; (instance_number(obj_tongue) == 0) {
     
     //If yoshi is yellow or has a yellow shell in mouth
@@ -1255,7 +1255,8 @@ if (mouthholder == obj_shell)
     }
     
     //If yoshi is blue or has a blue shell in mouth
-    if (colour == 3) 
+    if (colour == 3)
+    || (mouthholder == obj_yoshi_fire)
     || (mouthsprite == spr_shell_blue) 
     || (mouthsprite == spr_shell_kamikaze) {
     
@@ -1732,16 +1733,17 @@ if (state != yoshistate.ridden) {
     pal_swap_reset();
     
     //Draw yoshi's wing
-    if (mouthholder == obj_shell) 
+    if (mouthholder == obj_shell)
+    || (mouthholder == obj_yoshi_fire)
     &amp;&amp; (instance_number(obj_tongue) == 0) {
     
         if (colour == 3)
         || (mouthsprite == spr_shell_blue) {
         
             if (state == yoshistate.idle)
-                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+4, xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+4, xscale, 1, 0, c_white, 1);
             else
-                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
         }
     }
 }
@@ -1764,7 +1766,8 @@ else if (state == yoshistate.ridden) {
         event_user(10);
         
         //Draw yoshi's wing
-        if (mouthholder == obj_shell) 
+        if (mouthholder == obj_shell)
+        || (mouthholder == obj_yoshi_fire)
         &amp;&amp; (instance_number(obj_tongue) == 0) {
         
             if (colour == 3)
@@ -1788,7 +1791,8 @@ else if (state == yoshistate.ridden) {
             //Draw wings
             if (mouthholder == obj_shell) {
             
-                if (colour == 3) 
+                if (colour == 3)
+                || (mouthholder == obj_yoshi_fire)
                 || (mouthsprite == spr_shell_blue) {
                 
                     draw_sprite_ext(spr_koopa_wing, 0, round(x)+12, round(y), 1, 1, 0, c_white, 1);
@@ -1845,6 +1849,7 @@ else if (state == yoshistate.ridden) {
         if (mouthholder == obj_shell) {
         
             if (colour == 3)
+            || (mouthholder == obj_yoshi_fire)
             || (mouthsprite == spr_shell_blue)
                 draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1, obj_player_door.image_xscale, 1, 0, c_white, 1);
         }
@@ -1866,12 +1871,13 @@ else if (state == yoshistate.ridden) {
         event_user(13);
         
         //Draw yoshi's wing
-        if (mouthholder == obj_shell) 
+        if (mouthholder == obj_shell)
+        || (mouthholder == obj_yoshi_fire)
         &amp;&amp; (instance_number(obj_tongue) == 0) {
         
             if (colour == 3)
             || (mouthsprite == spr_shell_blue)
-                draw_sprite_ext(spr_koopa_wing, flyanim, round(x), round(y)+1, obj_player_clear.image_xscale, 1, 0, c_white, 1);
+                draw_sprite_ext(spr_koopa_wing, 0, round(x), round(y)+1, obj_player_clear.image_xscale, 1, 0, c_white, 1);
         }
     }
 }

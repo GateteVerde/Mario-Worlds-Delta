@@ -1573,6 +1573,7 @@
       </backgrounds>
       <background>background\tls_ground</background>
       <background>background\tls_ground_bonus</background>
+      <background>background\tls_ground_clouds</background>
       <background>background\tls_ground_desert</background>
       <background>background\tls_ground_forest</background>
       <background>background\tls_ground_pipes</background>
@@ -2545,7 +2546,9 @@
         <room>rooms\rm_level_3b</room>
       </rooms>
       <rooms name="Level 4">
-        <room>rooms\rm_level_4</room>
+        <room>rooms\rm_level_4a</room>
+        <room>rooms\rm_level_4b</room>
+        <room>rooms\rm_level_4c</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

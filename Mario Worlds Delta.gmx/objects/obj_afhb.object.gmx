@@ -46,7 +46,7 @@ loffset = 0;
 roffset = 0;
 
 //Distance
-distance = 56;
+distance = 64;
 
 //Position
 myx = xstart+distance;
@@ -109,7 +109,7 @@ image_index = !image_index;
             <string>///Player logic (In-Platform)
 
 //Check for the player
-var player = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+4, obj_playerparent, 0, 0);
+var player = collision_rectangle(bbox_left, bbox_top-5, bbox_right, bbox_top+5, obj_playerparent, 0, 0);
 
 //If the player exists
 if (player)
@@ -225,8 +225,8 @@ else if (ready == 2) {
 }
 
 //Time it
-mytimer += 0.5;
-angle = cos(mytimer*0.05)*(pi/2);
+mytimer += 0.495;
+angle = cos(mytimer*0.0495)*(pi/2);
 
 //Set the position of the block
 x = myx-sin(angle)*distance;
@@ -334,14 +334,12 @@ if (instance_exists(obj_playerparent)) {
             <kind>1</kind>
             <string>///Draw the platform
 
+//Blocks
+draw_sprite_ext(sprite_index, 2, round(x), round(y)+loffset, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, 3, round(x), round(y)+roffset, 1, 1, 0, c_white, 1);
+
 //Wings
 draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
-
-//Left block
-draw_sprite_ext(sprite_index, 2, round(x), round(y)+loffset, 1, 1, 0, c_white, 1)
-
-//Right block
-draw_sprite_ext(sprite_index, 3, round(x), round(y)+roffset, 1, 1, 0, c_white, 1)
 </string>
           </argument>
         </arguments>
