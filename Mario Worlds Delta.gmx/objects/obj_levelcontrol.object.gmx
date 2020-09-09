@@ -32,12 +32,14 @@
 **
 **  inisection      = The ini section to check up
 **  leveltime       = The time limit in seconds (Optional)
+**  camlock         = To lock the camera in position
 **  makeswim        = To make the entire level swimable
 */
 
 //Default values
 inisection = "Overworld";
 leveltime = 0;
+camlock = false;
 makeswim = false;
 
 //Play music
@@ -640,8 +642,8 @@ if (follow != noone) {
                     if (obj_playerparent.state == statetype.idle) 
                     || (obj_playerparent.state == statetype.walk) {
                     
-                        //Position player just reached                    
-                        floorY = obj_playerparent.y;
+                        //Position player just reached
+                        if (camlock == false) then { floorY = obj_playerparent.y; }
                     
                         //If the player is above the camera
                         if (obj_playerparent.y &lt; y) {

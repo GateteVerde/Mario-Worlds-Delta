@@ -4,7 +4,7 @@
   <width>3584</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -182,6 +182,12 @@
     <instance objName="obj_npc" x="424" y="384" name="inst_9C794033" locked="0" code="varmsg = &quot;Didn't expected to see me around here, huh?&quot;;&#xA;mugshot = spr_mugshot_gatete;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sound_oink" x="1024" y="320" name="inst_B988B50B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="1336" y="384" name="inst_87363BD2" locked="0" code="sprite_index = spr_glitchypsix;&#xA;varmsg = &quot;I recall seeing a checkpoint around here, I wonder if GateteVerde removed it...&quot;;&#xA;mugshot = spr_mugshot_glitchypsix;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="96" y="336" name="inst_36377D8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_egg_rainbow" x="96" y="336" name="inst_0C617BD3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shell" x="232" y="384" name="inst_AEBBB2A3" locked="0" code="sprite_index = spr_shell_blue;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shell" x="200" y="384" name="inst_739E0E08" locked="0" code="sprite_index = spr_shell_yellow;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shell" x="168" y="384" name="inst_E2DFC211" locked="0" code="sprite_index = spr_shell_red;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shell" x="136" y="384" name="inst_A1D51E1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="144" y="336" w="96" h="64" xo="464" yo="0" id="10029554" name="inst_6A4CE170" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
