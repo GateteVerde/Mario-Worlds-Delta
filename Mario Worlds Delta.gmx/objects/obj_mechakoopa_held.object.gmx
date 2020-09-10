@@ -460,8 +460,8 @@ else {
     
     //Set the default stun sprite
     sprite_index = stun1;
-    image_speed = 0.15;
-    image_index = 0;
+    image_speed = 0;
+    image_index = 2;
     
     //Reset alarms
     alarm[0] = 312;

@@ -1000,8 +1000,10 @@ event_inherited();
 if (state == statetype.jump)
 &amp;&amp; (swimming == false)
 &amp;&amp; (crouch == false)
-&amp;&amp; (run = false)
+&amp;&amp; (image_speed != 0)
+&amp;&amp; (obj_playerparent.jumpstyle == 0)
 &amp;&amp; (global.mount == 0)
+&amp;&amp; (instance_exists(obj_playerparent))
 &amp;&amp; (instance_exists(obj_levelcontrol)) {
 
     //If the 'Scuttle' sound is not playing
