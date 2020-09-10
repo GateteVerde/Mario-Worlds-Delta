@@ -79,6 +79,9 @@ flying = 0;
 //Flying animation
 flyanim = 1;
 
+//Flying time
+flytime = 0;
+
 //Can yoshi be ridden again
 rideme = 1;
 
@@ -192,13 +195,16 @@ if (state == yoshistate.idle)
             <kind>1</kind>
             <string>///Make flying noises for Yoshi when flying
 
-if (flying) {
+if (flying &gt; 0) {
 
-    //Play 'Lick' sound
+    //Play 'Fly' sound
     audio_stop_play_sound(snd_fly, 0, false)
     
-    //Repeat the process.
-    alarm[4] = 8;
+    //Repeat the process
+    if (flying == 1)
+        alarm[4] = 8;
+    else
+        alarm[4] = 24;
 }
 </string>
           </argument>
@@ -893,6 +899,10 @@ if (state != yoshistate.ridden) {
     else if (hspeed &lt; 0)
         xscale = -1;
 }
+
+//Destroy when outside the room
+if (bbox_bottom &gt; room_height+32)
+    instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -1264,7 +1274,7 @@ if (mouthholder == obj_shell)
         &amp;&amp; (obj_playerparent.swimming == false) {
         
             //If not flying and moving down, start flying.
-            if (!flying)
+            if (flying == 0)
             &amp;&amp; (obj_playerparent.vspeed &gt; 0) 
             &amp;&amp; (obj_playerparent.flying = 0) {
             
@@ -1273,7 +1283,7 @@ if (mouthholder == obj_shell)
             }
             
             //When flying
-            if (flying) {
+            if (flying == 1) {
             
                 //With the player
                 with (obj_playerparent) {
@@ -1282,19 +1292,41 @@ if (mouthholder == obj_shell)
                     if (!collision_rectangle(bbox_left, bbox_top-3, bbox_right, bbox_top, obj_solid, 0, 0))
                     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top-3, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
                     
-                        vspeed += -1;
-                        if (vspeed &lt; -2)
-                            vspeed = -2;                                                     
+                        //If the player has the cape powerup
+                        if (global.powerup == cs_pow_cape) {
+                        
+                            vspeed += -1;
+                            if (vspeed &lt; -2)
+                                vspeed = -2;
+                        }
+                        
+                        //Otherwise
+                        else if (other.flytime &lt; 30) {
+                            
+                            vspeed += -1;
+                            if (vspeed &lt; -2)
+                                vspeed = -2;
+                        }                                                     
                     }
                 }
                 
-                //Animate wing
-                flyanim += 0.25;
+                //Increment fly animation
+                flyanim += 0.25; 
+                
+                //Increment fly time
+                flytime++;
+                if (flytime &gt; 30)
+                &amp;&amp; (global.powerup &lt; cs_pow_cape)
+                    flying = 2;                
             }
             
-            //Otherwise, reset fly animation
-            else
-                flyanim = 0;
+            //Otherwise, reset fly animation and timer
+            else {
+            
+                flyanim += 0.083;
+                if (flytime &gt; 0)
+                    flytime = 0;
+            }
         }
         
         //Otherwise, reset flight
@@ -1303,7 +1335,12 @@ if (mouthholder == obj_shell)
             audio_stop_sound(snd_fly);
             flying = 0;
             flyanim = 0;
-        }    
+        }
+        
+        //If 'Jump' is no longer pressed, reset timer
+        if (flytime &gt; 0)
+        &amp;&amp; (input_check_released(input.action0))
+            flytime = 0;
     }    
 }
 

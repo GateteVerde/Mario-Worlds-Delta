@@ -1001,6 +1001,7 @@ if (state == statetype.jump)
 &amp;&amp; (swimming == false)
 &amp;&amp; (crouch == false)
 &amp;&amp; (run = false)
+&amp;&amp; (global.mount == 0)
 &amp;&amp; (instance_exists(obj_levelcontrol)) {
 
     //If the 'Scuttle' sound is not playing
