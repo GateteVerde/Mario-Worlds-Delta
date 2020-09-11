@@ -99,7 +99,7 @@ else {
             if (obj_playerparent.x &lt; x) {
                 
                 //If there's not a solid in position, shoot a bullet
-                if (!collision_line(bbox_left-1, y, bbox_left-1, y+15, obj_solid, 0, 0)) {
+                if (!collision_line(bbox_left-1, bbox_top+1, bbox_left-1, bbox_bottom-1, obj_solid, 0, 0)) {
                 
                     //Play 'Explosion' sound
                     audio_stop_play_sound(snd_explosion, 0, false);
@@ -132,7 +132,7 @@ else {
             else if (obj_playerparent.x &gt; x) {
                         
                 //If there's not a solid in position, shoot a bullet
-                if (!collision_line(bbox_right+1, y, bbox_right+1, y+15, obj_solid, 0, 0)) {
+                if (!collision_line(bbox_right+1, bbox_top+1, bbox_right+1, bbox_bottom-1, obj_solid, 0, 0)) {
                 
                     //Play 'Explosion' sound
                     audio_stop_play_sound(snd_explosion, 0, false);
