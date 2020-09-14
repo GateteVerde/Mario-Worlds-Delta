@@ -255,8 +255,11 @@ if (ready == 0) {
             <string>///Make the player bounce if it is above
 
 if (vspeed &lt; 0)
-&amp;&amp; (other.bbox_bottom &lt; yprevious+5)
+&amp;&amp; (other.bbox_bottom &lt; yprevious+5) {
+
     other.vspeed = -3;
+    other.y--;
+}
 </string>
           </argument>
         </arguments>
