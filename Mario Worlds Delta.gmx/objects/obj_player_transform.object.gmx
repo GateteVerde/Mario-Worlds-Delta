@@ -220,14 +220,36 @@ alarm[1] = 6;
             <kind>1</kind>
             <string>///Set the old powerup frame
 
-//Set the powerup set in 'newpowerup
-global.powerup = oldpowerup;
+//If the old powerup is small
+if ((oldpowerup == 0) &amp;&amp; (newpowerup &lt; 2)) {
 
-//Obtain sprite from player
-sprite_index = obj_playerparent.sprite_index;
+    sprite_index = player_grow();
+    image_speed = 0.25;
+    global.powerup = newpowerup;
+    exit;
+}
 
-//Next frame
-alarm[2] = 6;
+//Otherwise, if the old powerup is big
+else if ((oldpowerup == 1) &amp;&amp; (newpowerup == 0)) {
+
+    sprite_index = player_shrink();
+    image_speed = 0.25;
+    global.powerup = newpowerup;
+    exit;
+}
+
+//Otherwise, do a normal transformation
+else {
+    
+    //Set the powerup set in 'newpowerup
+    global.powerup = oldpowerup;
+    
+    //Obtain sprite from player
+    sprite_index = obj_playerparent.sprite_index;
+    
+    //Next frame
+    alarm[2] = 6;
+}
 </string>
           </argument>
         </arguments>
@@ -323,6 +345,65 @@ alarm[2] = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//If this object used an animation
+
+//If the screen did froze
+if (global.screenfreeze == true) {
+
+    //Delete screenshot
+    background_delete(back);
+    
+    //Activate instances
+    instance_activate_all();
+    
+    //Make cape visible
+    with (obj_cape) image_alpha = 1;
+    
+    //Make player on yoshi visible
+    with (obj_yoshi) m_vis = 1;
+    
+    //With the player
+    with (obj_playerparent) {
+    
+        //Disable gravity
+        gravity_enable = true;
+        
+        //Resume movement
+        event_user(14);
+        
+        //Make invisible
+        visible = true;
+        
+        //Reset alarm 0
+        if (alarm[0] &gt; -1)
+            alarm[0] = 90;
+    }
+}
+
+//Destroy
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -373,8 +454,13 @@ if (global.powerup == cs_pow_cape) {
 player_set_palette(id);
 
 //Draw the player
-if (global.mount == 1)
-    draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+if (global.mount == 1) {
+
+    if (image_speed == 0)
+        draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+    else
+        draw_sprite_ext(sprite_index, -1, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+}
 else
     draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
     

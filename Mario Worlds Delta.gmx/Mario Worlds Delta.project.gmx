@@ -376,6 +376,8 @@
         </sprites>
         <sprite>sprites\spr_mario_dead</sprite>
         <sprite>sprites\spr_mario_block</sprite>
+        <sprite>sprites\spr_mario_transform_grow</sprite>
+        <sprite>sprites\spr_mario_transform_shrink</sprite>
       </sprites>
       <sprites name="Luigi">
         <sprites name="Small">
@@ -426,6 +428,8 @@
         </sprites>
         <sprite>sprites\spr_luigi_dead</sprite>
         <sprite>sprites\spr_luigi_block</sprite>
+        <sprite>sprites\spr_luigi_transform_grow</sprite>
+        <sprite>sprites\spr_luigi_transform_shrink</sprite>
       </sprites>
       <sprites name="Toad">
         <sprites name="Small">
@@ -474,6 +478,8 @@
         </sprites>
         <sprite>sprites\spr_toad_dead</sprite>
         <sprite>sprites\spr_toad_block</sprite>
+        <sprite>sprites\spr_toad_transform_grow</sprite>
+        <sprite>sprites\spr_toad_transform_shrink</sprite>
       </sprites>
       <sprites name="Peach">
         <sprites name="Small">
@@ -520,6 +526,8 @@
         </sprites>
         <sprite>sprites\spr_peach_dead</sprite>
         <sprite>sprites\spr_peach_block</sprite>
+        <sprite>sprites\spr_peach_transform_grow</sprite>
+        <sprite>sprites\spr_peach_transform_shrink</sprite>
       </sprites>
       <sprites name="Miscellaneous">
         <sprites name="Cape Parts">
@@ -1632,6 +1640,8 @@
           <script>scripts\player_map_select.gml</script>
           <script>scripts\player_map_climb.gml</script>
         </scripts>
+        <script>scripts\player_grow.gml</script>
+        <script>scripts\player_shrink.gml</script>
       </scripts>
       <scripts name="Behaviour">
         <script>scripts\player_behaviour.gml</script>
