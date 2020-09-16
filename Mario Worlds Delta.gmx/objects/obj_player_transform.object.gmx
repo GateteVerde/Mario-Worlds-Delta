@@ -223,19 +223,25 @@ alarm[1] = 6;
 //If the old powerup is small
 if ((oldpowerup == 0) &amp;&amp; (newpowerup &lt; 2)) {
 
+    //Set the sprite and frames
     sprite_index = player_grow();
     image_speed = 0.25;
+    image_index = 0;
+    
+    //Set the new powerup
     global.powerup = newpowerup;
-    exit;
 }
 
 //Otherwise, if the old powerup is big
 else if ((oldpowerup == 1) &amp;&amp; (newpowerup == 0)) {
 
+    //Set the sprite and frames
     sprite_index = player_shrink();
     image_speed = 0.25;
+    image_index = 0;
+    
+    //Set the powerup
     global.powerup = newpowerup;
-    exit;
 }
 
 //Otherwise, do a normal transformation
