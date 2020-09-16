@@ -544,7 +544,7 @@ else if (keyboard_check_pressed(ord('V'))) {
     event_user(1);
 }
 
-//Toggle HUD type (But only when not in a level)
+//Toggle HUD type (But only when on in a level)
 else if (keyboard_check_pressed(ord('H'))) {
 
     //If you are not in a stage
