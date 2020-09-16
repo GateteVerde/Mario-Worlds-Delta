@@ -996,29 +996,34 @@ else {
 //Inherit event from parent
 event_inherited();
 
-//Play 'Scuttle' sound when in-air and not swimming
-if (state == statetype.jump)
-&amp;&amp; (swimming == false)
-&amp;&amp; (crouch == false)
-&amp;&amp; (image_speed != 0)
-&amp;&amp; (obj_playerparent.jumpstyle == 0)
-&amp;&amp; (global.mount == 0)
-&amp;&amp; (instance_exists(obj_playerparent))
-&amp;&amp; (instance_exists(obj_levelcontrol)) {
+//Play 'Scuttle' sound when in-air
 
-    //If the 'Scuttle' sound is not playing
-    if (!audio_is_playing(snd_scuttle)) {
+if (instance_exists(obj_playerparent)) {
+
+    if (state == statetype.jump)
+    &amp;&amp; (swimming == false)
+    &amp;&amp; (crouch == false)
+    &amp;&amp; (image_speed != 0)
+    &amp;&amp; (run = false || holding = true)
+    &amp;&amp; (jumpstyle == 0)
+    &amp;&amp; (global.mount == 0)
+    &amp;&amp; (instance_exists(obj_levelcontrol)) {
     
-        //Play 'Scuttle' sound
-        audio_stop_play_sound(snd_scuttle, 0, false);
+        //If the 'Scuttle' sound is not playing
+        if (!audio_is_playing(snd_scuttle)) {
         
-        //Set 'Scuttle' gain and pitch.
-        audio_sound_gain(snd_scuttle, random_range(0.9, 1.0), 0);
-        audio_sound_pitch(snd_scuttle, choose(0.9, 1.0, 1.1));
+            //Play 'Scuttle' sound
+            audio_stop_play_sound(snd_scuttle, 0, false);
+            
+            //Set 'Scuttle' gain and pitch.
+            audio_sound_gain(snd_scuttle, random_range(0.9, 1.0), 0);
+            audio_sound_pitch(snd_scuttle, choose(0.9, 1.0, 1.1));
+        }
     }
+    else
+        audio_stop_sound(snd_scuttle);
+    
 }
-else
-    audio_stop_sound(snd_scuttle);
 </string>
           </argument>
         </arguments>

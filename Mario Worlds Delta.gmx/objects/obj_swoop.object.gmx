@@ -137,6 +137,10 @@ else {
         xscale = 1;
     else if (hspeed &lt; 0)
         xscale = -1;
+      
+    //Destroy when outside view and active 
+    if (outside_view(32))
+        instance_destroy();
 }
 </string>
           </argument>
