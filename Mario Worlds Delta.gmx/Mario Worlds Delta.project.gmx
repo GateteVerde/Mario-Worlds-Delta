@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="37" name="datafiles">
-    <datafiles number="37" name="music">
+  <datafiles number="39" name="datafiles">
+    <datafiles number="39" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -192,6 +192,23 @@
         </ConfigOptions>
         <filename>bgm_underground.ogg</filename>
       </datafile>
+      <datafile>
+        <name>bgm_castle.ogg</name>
+        <exists>-1</exists>
+        <size>3126112</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_castle.ogg</filename>
+      </datafile>
     </datafiles>
     <datafile>
       <name>MWDMusic.ini</name>
@@ -260,6 +277,7 @@
     <sound>sound\snd_count</sound>
     <sound>sound\snd_count2</sound>
     <sound>sound\snd_count3</sound>
+    <sound>sound\snd_crumble</sound>
     <sound>sound\snd_destroy</sound>
     <sound>sound\snd_door</sound>
     <sound>sound\snd_eat</sound>
@@ -1031,6 +1049,17 @@
         </sprites>
       </sprites>
       <sprites name="Castle / Ghost">
+        <sprites name="Dry Bones">
+          <sprite>sprites\spr_drybones</sprite>
+          <sprite>sprites\spr_drybones_crumble</sprite>
+          <sprite>sprites\spr_drybones_turn</sprite>
+          <sprite>sprites\spr_drybones_throw</sprite>
+          <sprite>sprites\spr_drybones_bone</sprite>
+          <sprite>sprites\spr_bonybeetle</sprite>
+          <sprite>sprites\spr_bonybeetle_hide</sprite>
+        </sprites>
+        <sprite>sprites\spr_podoboo</sprite>
+        <sprite>sprites\spr_thwimp</sprite>
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
         <sprite>sprites\spr_ninji</sprite>
@@ -1538,6 +1567,9 @@
     <backgrounds name="Level Backgrounds">
       <background>background\bgr_bonus</background>
       <background>background\bgr_bonus_b</background>
+      <background>background\bgr_castle</background>
+      <background>background\bgr_castle_dark</background>
+      <background>background\bgr_castle_water</background>
       <background>background\bgr_cave</background>
       <background>background\bgr_cave_b</background>
       <background>background\bgr_cave_c</background>
@@ -2066,6 +2098,13 @@
         <object>objects\obj_pokey</object>
       </objects>
       <objects name="Castle / Ghost">
+        <objects name="Dry Bones">
+          <object>objects\obj_bonybeetle</object>
+          <object>objects\obj_drybones</object>
+          <object>objects\obj_drybones_throw</object>
+        </objects>
+        <object>objects\obj_podoboo</object>
+        <object>objects\obj_thwimp</object>
         <object>objects\obj_thwomp</object>
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
@@ -2449,6 +2488,10 @@
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>
             </objects>
+            <objects name="Dry Bones">
+              <object>objects\obj_crumblebones</object>
+              <object>objects\obj_drybones_bone</object>
+            </objects>
           </objects>
           <objects name="Airship">
             <objects name="Bullet Bill">
@@ -2560,6 +2603,11 @@
         <room>rooms\rm_level_4a</room>
         <room>rooms\rm_level_4b</room>
         <room>rooms\rm_level_4c</room>
+      </rooms>
+      <rooms name="Level 5">
+        <room>rooms\rm_level_5a</room>
+        <room>rooms\rm_level_5b</room>
+        <room>rooms\rm_level_5c</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">
