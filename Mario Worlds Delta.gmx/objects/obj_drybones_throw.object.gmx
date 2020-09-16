@@ -31,7 +31,7 @@
 event_inherited();
 
 //How vulnerable is this enemy to various items?
-vulnerable = 2;
+vulnerable = 1;
 
 //How vulnerable is this enemy to the player?
 stomp = 4;
@@ -112,7 +112,7 @@ if (!instance_exists(obj_playerparent))
     with (instance_create(x+2, y-6, obj_drybones_bone)) {
     
         image_xscale = -1;
-        hspeed = -1.5;
+        hspeed = -2;
 
     }
 }
@@ -121,8 +121,7 @@ else {
     with (instance_create(x-2, y-6, obj_drybones_bone)) {
     
         image_xscale = 1;
-        hspeed = 1.5;
-
+        hspeed = 2;
     }    
 }
 
@@ -284,11 +283,13 @@ obj_playerparent.hitcombo++;
 with (instance_create(x,y,obj_crumblebones)) {
 
     sprite_index = spr_drybones_crumble;
-    deathsprite = other.sprite_index;
+    deathsprite = spr_drybones;
     xscale = other.xscale;
     type = 1;
     
 }
+
+//Destroy
 instance_destroy();
 </string>
           </argument>

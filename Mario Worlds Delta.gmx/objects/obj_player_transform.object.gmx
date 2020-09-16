@@ -368,7 +368,7 @@ alarm[2] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//If this object used an animation
+            <string>///If this object used an animation, destroy via this event
 
 //If the screen did froze
 if (global.screenfreeze == true) {

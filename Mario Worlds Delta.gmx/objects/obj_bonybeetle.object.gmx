@@ -31,7 +31,7 @@
 event_inherited();
 
 //How vulnerable is this enemy to items
-vulnerable = 2;
+vulnerable = 1;
 
 //How vulnerable is this enemy to the player
 stomp = 4;
@@ -337,11 +337,13 @@ obj_playerparent.hitcombo++;
 with (instance_create(x,y,obj_crumblebones)) {
 
     sprite_index = spr_drybones_crumble;
-    deathsprite = other.sprite_index;
+    deathsprite = spr_bonybeetle;
     xscale = other.xscale;
     type = 2;
     
 }
+
+//Destroy
 instance_destroy();
 </string>
           </argument>

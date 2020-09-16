@@ -2099,9 +2099,9 @@
       </objects>
       <objects name="Castle / Ghost">
         <objects name="Dry Bones">
-          <object>objects\obj_bonybeetle</object>
           <object>objects\obj_drybones</object>
           <object>objects\obj_drybones_throw</object>
+          <object>objects\obj_bonybeetle</object>
         </objects>
         <object>objects\obj_podoboo</object>
         <object>objects\obj_thwimp</object>
@@ -2476,6 +2476,10 @@
             <object>objects\obj_pokey_dead</object>
           </objects>
           <objects name="Castle / Ghost">
+            <objects name="Dry Bones">
+              <object>objects\obj_crumblebones</object>
+              <object>objects\obj_drybones_bone</object>
+            </objects>
             <objects name="Mechakoopas">
               <objects name="Blasta">
                 <object>objects\obj_blastakoopa_bullet</object>
@@ -2487,10 +2491,6 @@
               </objects>
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>
-            </objects>
-            <objects name="Dry Bones">
-              <object>objects\obj_crumblebones</object>
-              <object>objects\obj_drybones_bone</object>
             </objects>
           </objects>
           <objects name="Airship">

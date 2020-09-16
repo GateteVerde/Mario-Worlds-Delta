@@ -81,7 +81,7 @@ alarm[3] = 4;
 if (vspeed &lt; 0) {
 
     //Create cinder effect.
-    with (instance_create(x+random_range(-4,4),y+12,obj_smoke)) {
+    with (instance_create(x+random_range(-4,4), y+12, obj_smoke)) {
     
         //Set the gravity
         gravity = 0.4;
@@ -124,11 +124,11 @@ if (vspeed &lt; 0) {
 audio_play_sound(snd_burn, 0, false);
 
 //Check for nearby lava.
-lava = collision_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,obj_lava,0,0);
+lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 0, 0);
 if (lava) {
 
     //Create lava splash
-    with (instance_create(x-8,lava.y-12,obj_smoke))
+    with (instance_create(x, lava.y-12, obj_smoke))
         sprite_index = spr_splash_lava;
 }
 </string>
@@ -227,7 +227,9 @@ alarm[1] = 40+random(round(80));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>exit;
+            <string>///UNUSED ON THIS ENEMY
+
+exit;
 </string>
           </argument>
         </arguments>
@@ -274,7 +276,7 @@ if (bbox_top &gt; room_height) {
 }
 
 //Bounce in contact with lava.
-lava = collision_rectangle(bbox_left,bbox_bottom+7,bbox_right,bbox_bottom+7,obj_lava,0,0);
+lava = collision_rectangle(bbox_left, bbox_bottom+7, bbox_right, bbox_bottom+7, obj_lava, 0, 0);
 if (lava) {
 
     //Bounce.
@@ -287,7 +289,7 @@ if (lava) {
         alarm[0] = 10;
         
         //Create lava splash
-        with (instance_create(x-8,lava.y-12,obj_smoke))
+        with (instance_create(x, lava.y-12, obj_smoke))
             sprite_index = spr_splash_lava;
     }
 }
@@ -320,7 +322,9 @@ if (vspeed &gt; 6)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>exit;
+            <string>///UNUSED ON THIS ENEMY
+
+exit;
 </string>
           </argument>
         </arguments>

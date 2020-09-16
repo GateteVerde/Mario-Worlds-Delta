@@ -164,7 +164,7 @@ else if (image_speed &lt; 0) {
             instance_destroy();
         } break;
         
-        //Dry Bones (throw)
+        //Dry Bones (Throw)
         case (1): {
         
             with (instance_create(x,y,obj_drybones_throw)) {
