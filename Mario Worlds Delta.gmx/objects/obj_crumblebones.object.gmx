@@ -151,38 +151,42 @@ if (image_speed &gt; 0) {
 //Otherwise, if animating backwards
 else if (image_speed &lt; 0) {
 
-    //Turn into the correct object
-    switch (type) {
+    //If this is a pile of drybones
+    if (sprite_index == spr_drybones_crumble) {
     
-        //Dry Bones
-        case (0): {
+        //Turn into the correct object
+        switch (type) {
         
-            with (instance_create(x,y,obj_drybones)) {
+            //Dry Bones
+            case (0): {
             
-                hspeed = 0.5*sign(other.xscale);
-            }
-            instance_destroy();
-        } break;
-        
-        //Dry Bones (Throw)
-        case (1): {
-        
-            with (instance_create(x,y,obj_drybones_throw)) {
-            
-                hspeed = 0.5*sign(other.xscale);
-            }
-            instance_destroy();
-        } break;
-        
-        //Bony Beetle
-        case (2): {
+                with (instance_create(x,y,obj_drybones)) {
                 
-            with (instance_create(x,y,obj_bonybeetle)) {
+                    hspeed = 0.5*sign(other.xscale);
+                }
+                instance_destroy();
+            } break;
             
-                hspeed = 0.5*sign(other.xscale);
-            }
-            instance_destroy();            
-        } break;
+            //Dry Bones (Throw)
+            case (1): {
+            
+                with (instance_create(x,y,obj_drybones_throw)) {
+                
+                    hspeed = 0.5*sign(other.xscale);
+                }
+                instance_destroy();
+            } break;
+        }
+    }
+    
+    //Otherwise, if these are bones from a bony beetle
+    else {
+    
+        with (instance_create(x, y, obj_bonybeetle)) {
+        
+            hspeed = 0.5*sign(other.xscale);
+        }
+        instance_destroy();
     }
 }
 </string>

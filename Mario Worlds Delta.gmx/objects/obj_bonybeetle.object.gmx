@@ -271,23 +271,20 @@ else if (hspeed &lt; 0)
     xscale = -1;
     
 //Change direction towards player if far enough away
-if instance_exists(obj_playerparent) {
+if (instance_exists(obj_playerparent)) {
 
     if ((obj_playerparent.x &gt; x+80) || (obj_playerparent.x &lt; x-80))
     &amp;&amp; (hspeed != 0)
-    &amp;&amp; !place_meeting(x,y,obj_enemyparent) {
+    &amp;&amp; (!place_meeting(x,y,obj_enemyparent)) {
     
         if (sprite_index != spr_drybones_throw) {
         
             if (obj_playerparent.x &lt; x)
                 hspeed = -0.5;
             else
-                hspeed = 0.5;
-            
-            }
-    
+                hspeed = 0.5;    
+        }    
     }
-
 }
 </string>
           </argument>
@@ -336,11 +333,9 @@ obj_playerparent.hitcombo++;
 //Turn into a pile of bones
 with (instance_create(x,y,obj_crumblebones)) {
 
-    sprite_index = spr_drybones_crumble;
+    sprite_index = spr_bonybeetle_crumble;
     deathsprite = spr_bonybeetle;
-    xscale = other.xscale;
-    type = 2;
-    
+    xscale = other.xscale;    
 }
 
 //Destroy

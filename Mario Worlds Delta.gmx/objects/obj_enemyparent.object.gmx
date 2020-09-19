@@ -548,11 +548,11 @@ if (vulnerable &lt; 2) {
     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinthump);
     
     //Get points based on combo
-    if (other.hitcombo &lt;= 6) { //If the player did 6 or less consecutive stomps
+    if (other.hitcombo &lt;= 7) { //If the player did 7 or less consecutive stomps
     
         audio_stop_play_sound(snd_kick, 0, false);
         with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
-            event_user(2+obj_playerparent.hitcombo);
+            event_user(1+obj_playerparent.hitcombo);
     }
     else {
     

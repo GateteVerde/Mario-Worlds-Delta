@@ -196,8 +196,6 @@ event_inherited();
 //Previous hspeed
 prevhspeed = hspeed;
 
-
-
 //Set the scale
 if (hspeed &gt; 0)
     xscale = 1;
@@ -217,23 +215,20 @@ if (hspeed != prevhspeed)
 }
 
 //Change direction towards player if far enough away
-if instance_exists(obj_playerparent) {
+if (instance_exists(obj_playerparent)) {
 
     if ((obj_playerparent.x &gt; x+80) || (obj_playerparent.x &lt; x-80))
     &amp;&amp; (hspeed != 0)
-    &amp;&amp; !place_meeting(x,y,obj_enemyparent) {
+    &amp;&amp; (!place_meeting(x,y,obj_enemyparent)) {
     
         if (sprite_index != spr_drybones_throw) {
         
             if (obj_playerparent.x &lt; x)
                 hspeed = -0.5;
             else
-                hspeed = 0.5;
-            
-            }
-    
+                hspeed = 0.5;            
+        }    
     }
-
 }
 </string>
           </argument>
