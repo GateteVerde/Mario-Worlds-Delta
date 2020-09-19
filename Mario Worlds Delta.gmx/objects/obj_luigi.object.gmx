@@ -1007,6 +1007,7 @@ if (instance_exists(obj_playerparent)) {
     &amp;&amp; (run = false || holding = true)
     &amp;&amp; (jumpstyle == 0)
     &amp;&amp; (global.mount == 0)
+    &amp;&amp; !(instance_exists(obj_cape_fly))
     &amp;&amp; (instance_exists(obj_levelcontrol)) {
     
         //If the 'Scuttle' sound is not playing

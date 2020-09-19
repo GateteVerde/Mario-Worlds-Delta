@@ -809,6 +809,7 @@
       <sprite>sprites\spr_door</sprite>
       <sprite>sprites\spr_door_s</sprite>
       <sprite>sprites\spr_door_p</sprite>
+      <sprite>sprites\spr_door_boss</sprite>
       <sprite>sprites\spr_door_p_outline</sprite>
       <sprite>sprites\spr_door_player</sprite>
       <sprite>sprites\spr_door_lock</sprite>
@@ -1568,6 +1569,7 @@
       <background>background\bgr_bonus</background>
       <background>background\bgr_bonus_b</background>
       <background>background\bgr_castle</background>
+      <background>background\bgr_castle_b</background>
       <background>background\bgr_castle_dark</background>
       <background>background\bgr_castle_water</background>
       <background>background\bgr_cave</background>
@@ -2262,6 +2264,7 @@
         <object>objects\obj_door_s</object>
         <object>objects\obj_door_p</object>
         <object>objects\obj_door_player</object>
+        <object>objects\obj_door_boss</object>
       </objects>
       <objects name="Pipes">
         <objects name="Branch Pipes">
@@ -2608,6 +2611,8 @@
         <room>rooms\rm_level_5a</room>
         <room>rooms\rm_level_5b</room>
         <room>rooms\rm_level_5c</room>
+        <room>rooms\rm_level_5d</room>
+        <room>rooms\rm_level_5e</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

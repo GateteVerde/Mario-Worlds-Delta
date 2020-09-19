@@ -74,7 +74,7 @@
     <instance objName="obj_ballnchain" x="448" y="192" name="inst_B85623C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ballnchain" x="352" y="288" name="inst_BCC464DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ballnchain" x="544" y="96" name="inst_B2F7B7E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_4AD3417C" locked="0" code="inisection = 'Castle'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_4AD3417C" locked="0" code="inisection = 'Castle'&#xA;leveltime = 400;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="0" y="384" name="inst_BCC4EA94" locked="0" code="" scaleX="23" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="672" y="112" name="inst_F6100DB3" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="736" y="32" name="inst_408C140A" locked="0" code="" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
@@ -121,7 +121,6 @@
     <instance objName="obj_warpleft" x="352" y="64" name="inst_E96C9361" locked="0" code="destination = rm_level_5b;&#xA;exit_dir = cs_warp_right;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_area_y" x="480" y="192" name="inst_CCBE7C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="32" y="368" name="inst_08421C05" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_feather" x="80" y="368" name="inst_5B0E7096" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="400" y="400" w="16" h="16" xo="16" yo="432" id="10033520" name="inst_6E5B77D5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
