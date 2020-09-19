@@ -388,7 +388,6 @@ else {
     
     //If the koopa is jumping inside
     if (jumping == 1)
-    &amp;&amp; (gravity == 0) 
     &amp;&amp; (ready == 2) {
         
         //With the shell

@@ -307,7 +307,6 @@ else {
     
     //If the koopa is jumping inside
     if (jumping == 1)
-    &amp;&amp; (gravity == 0) 
     &amp;&amp; (ready == 2) {
     
         //If the shell is a green one, become a green koopa
@@ -459,6 +458,7 @@ exit;
             <string>///Draw beachkoopa
 
 draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+draw_text(x,y,ready);
 </string>
           </argument>
         </arguments>

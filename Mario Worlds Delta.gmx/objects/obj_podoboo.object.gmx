@@ -55,6 +55,31 @@ deathsprite = spr_podoboo;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Make stompable again
+
+stomp = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -300,6 +325,44 @@ xscale = 1;
 //Prevent it from falling too fast.
 if (vspeed &gt; 6)
     vspeed = 6;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_playerparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with the player
+
+//Inherit event
+event_inherited();
+
+//If just spun on, give a moment to be spun on again
+if (other.bbox_bottom &lt; bbox_top-vspeed+5) {
+
+    if ((other.jumpstyle == 1) || (global.mount &gt; 0)) {
+    
+        alarm[4] = 5;
+        stomp = -1;
+    
+    }
+    
+}
 </string>
           </argument>
         </arguments>
