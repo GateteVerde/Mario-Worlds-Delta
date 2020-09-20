@@ -128,7 +128,7 @@ status = 'IDLE';
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Open adyacent paths depending of what exit was found
+            <string>///Open adjacent paths depending of what exit was found
 
 //Find nearest panel
 check = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
@@ -158,8 +158,19 @@ if (global.clear == 1) {
 
         //If this panel is a castle
         if (check.paneltype == 1) {
-           
-            with (check) alarm[2] = 1;
+        
+            if (check.beaten) != 2 {
+            
+                with (check) {
+                
+                    ds_map_replace(global.worldmap, id, 2);
+                    alarm[2] = 1;
+                    exit;
+                    
+                }
+                
+            }
+            
         }
     
         //Check what exit was set in the panel
@@ -282,7 +293,8 @@ else if (global.clear == 3) {
 global.clear = 0;
 
 //Mark level as beaten
-with (check) ds_map_replace(global.worldmap_beaten, id, 1);
+with (check)
+    if paneltype != 1 ds_map_replace(global.worldmap_beaten, id, 1);
 
 //Do not remember checkpoint for this level
 if (variable_instance_exists(check, "checkpoint")) {

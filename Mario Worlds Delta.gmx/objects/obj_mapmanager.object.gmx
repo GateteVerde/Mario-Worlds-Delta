@@ -46,6 +46,13 @@ anim = 0;
 
 //Generate a cloud every second
 alarm[11] = 60;
+
+if global.savedmount = 1 {
+    global.mount = 1;
+    global.mountcolour = global.savedmountcolour;
+    global.savedmount = 0;
+    global.savedmountcolour = 0;
+}
 </string>
           </argument>
         </arguments>

@@ -32,11 +32,13 @@
 //
 //      lightning   = Create lightning effect?
 //      smog        = Show smog?
+//      raining     = Make rain? Used for when you only want smog/lightning
 */
 
 //Default values
 lightning = 1;
 smog = false;
+raining = true;
 
 //Smog pos
 pos = 0;
@@ -101,10 +103,14 @@ if (lightning == 1)
             <kind>1</kind>
             <string>///Generate rain drops
 
-repeat (1) {
-    
-    with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), view_yview[view_current]-5, obj_rain))
-        depth = round(random_range(-6,9));
+if (raining == true) {
+
+    repeat (1) {
+        
+        with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), view_yview[view_current]-5, obj_rain))
+            depth = round(random_range(-6,9));
+    }
+
 }
 
 //Update smog position

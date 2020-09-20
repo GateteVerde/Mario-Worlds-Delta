@@ -576,6 +576,9 @@ if (smash == 1) {
     
         //Play 'Thud' sound
         audio_stop_play_sound(snd_thud, 0, false);
+        
+        //Shake screen
+        init_shake(snd_thud);
 
         //Create 'Yoshi Stomp'
         with (instance_create(view_xview[0] + view_wview[0] / 2, view_yview[0], obj_stomp)) sprite_index = spr_powkiller;

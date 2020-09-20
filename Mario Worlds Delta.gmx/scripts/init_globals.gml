@@ -121,6 +121,10 @@ global.exit_id = -1;
 global.mount = 0;
 global.mountcolour = 0;
 
+//If player is unmounted due to a special circumstance
+global.savedmount = 0;
+global.savedmountcolour = 0;
+
 //Item in reserve
 global.reserveitem = 0;
 

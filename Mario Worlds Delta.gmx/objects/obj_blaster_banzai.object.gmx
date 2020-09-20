@@ -99,6 +99,9 @@ else {
                 //Play 'Explosion' sound
                 audio_stop_play_sound(snd_explosion, 0, false);
                 
+                //Shake screen
+                init_shake(snd_explosion);
+                
                 //Create bullet bill
                 with (instance_create(x, y-64, obj_banzaibill)) {
                 
@@ -131,6 +134,9 @@ else {
             
                 //Play 'Explosion' sound
                 audio_stop_play_sound(snd_explosion, 0, false);
+                
+                //Shake screen
+                init_shake(snd_explosion);
                 
                 //Create bullet bill
                 with (instance_create(x, y-64, obj_banzaibill)) {

@@ -61,6 +61,9 @@ beaten = 0;
 //Alpha
 image_alpha = 0;
 
+//Set up custom level panels
+alarm[4] = 1;
+
 //If there's a modifier on this path
 if (ds_map_exists(global.worldmap, id))
 || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_modifier, 1, 0)) {
@@ -68,6 +71,36 @@ if (ds_map_exists(global.worldmap, id))
     image_alpha = 1;
     if (!ds_map_exists(global.worldmap, id))
         ds_map_add(global.worldmap, id, 1);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up custom level panels
+
+if sprite_index = spr_levelpanel_ghost {
+
+    image_alpha = 1;
+    instance_create(x+8, y, obj_mapboo);
+    
 }
 </string>
           </argument>

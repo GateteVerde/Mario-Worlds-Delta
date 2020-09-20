@@ -135,6 +135,9 @@ if (player)
     //Play 'Explosion' sound
     audio_stop_play_sound(snd_explosion, 0, false);
     
+    //Shake screen
+    init_shake(snd_explosion);
+    
     //Play 'Palace Clear' fanfare
     audio_stop_play_sound(snd_palaceclear, 0, false);
     

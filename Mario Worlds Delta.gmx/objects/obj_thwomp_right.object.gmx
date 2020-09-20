@@ -185,6 +185,9 @@ else if (ready == 1) {
         //Play 'Explosion' sound
         audio_stop_play_sound(snd_explosion, 0, false);
         
+        //Shake screen
+        init_shake(25);
+        
         //Change state
         ready = 2;
     

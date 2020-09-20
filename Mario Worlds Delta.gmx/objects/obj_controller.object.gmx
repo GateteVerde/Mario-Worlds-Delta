@@ -64,6 +64,7 @@ pixelate = 0;
 shake = 0;
 shake_anim = 0;
 alarm[9] = 1;
+yport = 0;
 
 //Game message
 message = "";
@@ -162,13 +163,13 @@ if (shake == true) {
 
     //Increment shake_anim variable
     shake_anim++;
-    alarm[9] = 1;
+    alarm[9] = 2;
     
     //Set the position of the view
     if (shake_anim % 2)
-        view_yport += 4;
+        yport = ((choose(2,4)) * (window_get_height() / view_hview));
     else
-        view_yport -= 4;
+        yport = ((-choose(2,4)) * (window_get_height() / view_hview));
 }
 else
     shake_anim = 0;
@@ -197,8 +198,8 @@ else
             <string>///Stop screen shake
 
 shake = 0;
-if (view_yport &gt; 0)
-    view_yport = 0;
+if (yport != 0)
+    yport = 0;
 </string>
           </argument>
         </arguments>
@@ -1221,7 +1222,7 @@ if (fade &lt; 1)
 draw_rectangle_colour(0, 0, global.gw*(filter+1), global.gh*(filter+1), c_black, c_black, c_black, c_black, 0);
 
 //Draw the application surface
-draw_surface_stretched(application_surface, 0, 0, global.gw*(filter+1), global.gh*(filter+1));
+draw_surface_stretched(application_surface, 0, yport, global.gw*(filter+1), global.gh*(filter+1));
 
 //Reset the shader
 shader_reset();

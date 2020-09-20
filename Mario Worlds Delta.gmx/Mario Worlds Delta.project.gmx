@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="39" name="datafiles">
-    <datafiles number="39" name="music">
+  <datafiles number="40" name="datafiles">
+    <datafiles number="40" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -208,6 +208,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_castle.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_ghosthouse.ogg</name>
+        <exists>-1</exists>
+        <size>1474818</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_ghosthouse.ogg</filename>
       </datafile>
     </datafiles>
     <datafile>
@@ -1237,6 +1254,9 @@
           <sprite>sprites\spr_levelpalace_g</sprite>
           <sprite>sprites\spr_levelpalace_r</sprite>
           <sprite>sprites\spr_levelpalace_b</sprite>
+          <sprite>sprites\spr_levelpanel_castle</sprite>
+          <sprite>sprites\spr_levelpanel_fortress</sprite>
+          <sprite>sprites\spr_levelpanel_castle_destroyed</sprite>
         </sprites>
         <sprite>sprites\spr_levelpanel</sprite>
         <sprite>sprites\spr_levelpanel_secret</sprite>
@@ -1244,10 +1264,12 @@
         <sprite>sprites\spr_levelpanel_big_secret</sprite>
         <sprite>sprites\spr_levelpanel_grotto</sprite>
         <sprite>sprites\spr_levelpanel_grotto_secret</sprite>
+        <sprite>sprites\spr_levelpanel_ghost</sprite>
       </sprites>
       <sprites name="Decoration">
         <sprites name="NPCs">
           <sprite>sprites\spr_maplakitu</sprite>
+          <sprite>sprites\spr_mapboo</sprite>
           <sprite>sprites\spr_maplakitu_shadow</sprite>
           <sprite>sprites\spr_mappiranha</sprite>
         </sprites>
@@ -1557,6 +1579,10 @@
       <sprite>sprites\spr_bonusblock</sprite>
       <sprite>sprites\spr_discoball</sprite>
       <sprite>sprites\spr_lock</sprite>
+      <sprite>sprites\spr_castledoor_frame</sprite>
+      <sprite>sprites\spr_castledoor</sprite>
+      <sprite>sprites\spr_ghosthousedoor</sprite>
+      <sprite>sprites\spr_noyoshi</sprite>
     </sprites>
     <sprite>sprites\spr_up</sprite>
     <sprite>sprites\spr_down</sprite>
@@ -1620,6 +1646,7 @@
       <background>background\tls_ground_clouds</background>
       <background>background\tls_ground_desert</background>
       <background>background\tls_ground_forest</background>
+      <background>background\tls_ground_ghosthouse</background>
       <background>background\tls_ground_pipes</background>
       <background>background\tls_ground_sewer</background>
       <background>background\tls_ground_swampland</background>
@@ -2171,6 +2198,7 @@
           <object>objects\obj_levelpipe</object>
         </objects>
         <object>objects\obj_levelpanel</object>
+        <object>objects\obj_levelpanel_castle</object>
         <object>objects\obj_levelpalace_y</object>
         <object>objects\obj_levelpalace_g</object>
         <object>objects\obj_levelpalace_r</object>
@@ -2178,6 +2206,7 @@
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">
+          <object>objects\obj_mapboo</object>
           <object>objects\obj_maplakitu</object>
           <object>objects\obj_mappiranha</object>
         </objects>
@@ -2346,6 +2375,7 @@
             <object>objects\obj_player_dead</object>
             <object>objects\obj_player_clear</object>
             <object>objects\obj_player_door</object>
+            <object>objects\obj_player_fortress</object>
           </objects>
           <object>objects\obj_spinner</object>
           <object>objects\obj_boundary_top</object>
@@ -2560,6 +2590,10 @@
             <object>objects\obj_title_menu</object>
             <object>objects\obj_title_player</object>
           </objects>
+          <objects name="Cutscene">
+            <object>objects\obj_castledoor</object>
+            <object>objects\obj_castledoor_black</object>
+          </objects>
           <object>objects\obj_audio_loop_sound</object>
           <object>objects\obj_hud</object>
           <object>objects\obj_hud_map</object>
@@ -2569,6 +2603,7 @@
         <object>objects\obj_lightningsheet</object>
       </objects>
       <object>objects\obj_npc</object>
+      <object>objects\obj_noyoshi_cutscene</object>
       <object>objects\obj_controller</object>
       <object>objects\obj_mariostart</object>
       <object>objects\obj_gameover</object>
@@ -2614,9 +2649,15 @@
         <room>rooms\rm_level_5c</room>
         <room>rooms\rm_level_5d</room>
         <room>rooms\rm_level_5e</room>
+        <room>rooms\rm_level_5f</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">
+      <rooms name="Entrance Templates">
+        <room>rooms\rm_ghosthouse_entrance</room>
+        <room>rooms\rm_castle_entrance</room>
+        <room>rooms\rm_noyoshi_entrance</room>
+      </rooms>
       <rooms name="Events">
         <room>rooms\rm_gameover</room>
       </rooms>
@@ -2631,6 +2672,7 @@
         <room>rooms\rm_palaceswitch_b</room>
         <room>rooms\rm_palaceswitch_switch</room>
       </rooms>
+      <room>rooms\rm_testlevel</room>
     </rooms>
   </rooms>
   <constants number="43">
