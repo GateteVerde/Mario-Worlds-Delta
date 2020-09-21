@@ -367,7 +367,8 @@ else {
 if (vspeed &lt; 0) {
 
     //...and the NPC bumps a ceiling
-    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0)) 
+    if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_tilesolid, 1, 0))
     &amp;&amp; (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0)) {
     
         //Prevent the NPC from getting embed on linear ceilings

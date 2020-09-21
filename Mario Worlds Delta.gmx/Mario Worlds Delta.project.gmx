@@ -40,6 +40,23 @@
         <filename>bgm_bonus.ogg</filename>
       </datafile>
       <datafile>
+        <name>bgm_castle.ogg</name>
+        <exists>-1</exists>
+        <size>3126112</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_castle.ogg</filename>
+      </datafile>
+      <datafile>
         <name>bgm_classic.ogg</name>
         <exists>-1</exists>
         <size>703626</size>
@@ -89,6 +106,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_forest.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_ghosthouse.ogg</name>
+        <exists>-1</exists>
+        <size>1474818</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_ghosthouse.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_overworld.ogg</name>
@@ -191,40 +225,6 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_underground.ogg</filename>
-      </datafile>
-      <datafile>
-        <name>bgm_castle.ogg</name>
-        <exists>-1</exists>
-        <size>3126112</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>bgm_castle.ogg</filename>
-      </datafile>
-      <datafile>
-        <name>bgm_ghosthouse.ogg</name>
-        <exists>-1</exists>
-        <size>1474818</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>bgm_ghosthouse.ogg</filename>
       </datafile>
     </datafiles>
     <datafile>
@@ -1066,7 +1066,7 @@
           <sprite>sprites\spr_pokey_dead</sprite>
         </sprites>
       </sprites>
-      <sprites name="Castle / Ghost">
+      <sprites name="Castle">
         <sprites name="Dry Bones">
           <sprite>sprites\spr_drybones</sprite>
           <sprite>sprites\spr_drybones_crumble</sprite>
@@ -1107,6 +1107,10 @@
           <sprite>sprites\spr_mechakoopa_sq2</sprite>
           <sprite>sprites\spr_mechakoopa_dead</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Ghost">
+        <sprite>sprites\spr_boobuddy</sprite>
+        <sprite>sprites\spr_boobuddy_taunt</sprite>
       </sprites>
       <sprites name="Airship">
         <sprites name="Bullet Bill">
@@ -1475,6 +1479,7 @@
         <sprites name="Level">
           <sprites name="Completion">
             <sprite>sprites\spr_hud_clear</sprite>
+            <sprite>sprites\spr_hud_clear_noscore</sprite>
             <sprite>sprites\spr_hud_clear_stars0</sprite>
             <sprite>sprites\spr_hud_clear_stars1</sprite>
             <sprite>sprites\spr_hud_clear_stars2</sprite>
@@ -2127,7 +2132,7 @@
         <object>objects\obj_wiggler_long</object>
         <object>objects\obj_pokey</object>
       </objects>
-      <objects name="Castle / Ghost">
+      <objects name="Castle">
         <objects name="Dry Bones">
           <object>objects\obj_drybones</object>
           <object>objects\obj_drybones_throw</object>
@@ -2144,6 +2149,9 @@
           <object>objects\obj_blastakoopa</object>
           <object>objects\obj_zappakoopa</object>
         </objects>
+      </objects>
+      <objects name="Ghost">
+        <object>objects\obj_boobuddy</object>
       </objects>
       <objects name="Airship">
         <objects name="Bullet Bill">

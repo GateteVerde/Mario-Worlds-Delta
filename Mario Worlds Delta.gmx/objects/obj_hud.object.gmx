@@ -183,18 +183,21 @@ draw_text(view_xview[view_current]+24, view_yview[view_current]-view_yport[view_
 draw_sprite_ext(spr_hud_stars, -1, view_xview[view_current]+48, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
 draw_text(view_xview[view_current]+64, view_yview[view_current]-view_yport[view_current], string_format(global.bonus, 2, 0));
 
+//Ace Coin Outline
+draw_sprite_ext(spr_hud_sma2_acecoins, 2, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
+
 //Ace Coins
 var a = 0;
 if (ds_map_size(global.dcoins) &lt; 5) {
     
     repeat (ds_map_size(global.dcoins)) {
         
-        draw_sprite_ext(spr_hud_acecoins, 0, view_xview[view_current]+88+a, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);    
+        draw_sprite_ext(spr_hud_sma2_acecoins, 0, view_xview[view_current]+88+a, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);    
             a += 8;
     }
 }
 else
-draw_sprite_ext(spr_hud_acecoins, 1, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma2_acecoins, 1, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Reserve Box
 draw_sprite_ext(spr_hud_minimalist_reserve, -1, view_xview[view_current] + view_wview[view_current]/2 + 9, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
@@ -280,18 +283,21 @@ draw_text(view_xview[view_current]+24, view_yview[view_current]-view_yport[view_
 draw_sprite_ext(spr_hud_stars, -1, view_xview[view_current]+48, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
 draw_text(view_xview[view_current]+64, view_yview[view_current]-view_yport[view_current], string_format(global.bonus, 2, 0));
 
+//Ace Coin Outline
+draw_sprite_ext(spr_hud_sma2_acecoins, 2, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
+
 //Ace Coins
 var a = 0;
 if (ds_map_size(global.dcoins) &lt; 5) {
     
     repeat (ds_map_size(global.dcoins)) {
         
-        draw_sprite_ext(spr_hud_acecoins, 0, view_xview[view_current]+88+a, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);    
+        draw_sprite_ext(spr_hud_sma2_acecoins, 0, view_xview[view_current]+88+a, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);    
             a += 8;
     }
 }
 else
-draw_sprite_ext(spr_hud_acecoins, 1, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma2_acecoins, 1, view_xview[view_current]+88, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Reserve Box
 draw_sprite_ext(spr_hud_minimalist_reserve, -1, view_xview[view_current] + view_wview[view_current]/2 + 9, view_yview[view_current]-view_yport[view_current], 1, 1, 0, c_white, 1);
@@ -368,6 +374,9 @@ draw_set_font(global.fontnumb);
 //Lives
 draw_sprite_ext(spr_hud_sma2_mario, global.player, view_xview[view_current]+8, view_yview[view_current]+8-view_yport[view_current], 1, 1, 0, c_white, 1);
 draw_text(view_xview[view_current]+32, view_yview[view_current]+8-view_yport[view_current], string_format(lives, 2, 0));
+
+//Ace Coin Outline
+draw_sprite_ext(spr_hud_sma2_acecoins, 2, view_xview[view_current]+8, view_yview[view_current]+16-view_yport[view_current], 1, 1, 0, c_white, 1);
 
 //Ace Coins
 var a = 0;
@@ -577,7 +586,14 @@ event_user(obj_controller.hud_type);
 if (clear &gt; 0) {
 
     //Draw HUD
-    draw_sprite_ext(spr_hud_clear, global.player, view_xview[0]+view_wview[0]/2-64, view_yview[0]+64, 1, 1, 0, c_white, 1);
+    switch (obj_controller.hud_type) {
+    
+        //Minimalist / No Score
+        case (3): draw_sprite_ext(spr_hud_clear_noscore, global.player, view_xview[0]+view_wview[0]/2-64, view_yview[0]+64, 1, 1, 0, c_white, 1); break;
+        
+        //Default
+        default: draw_sprite_ext(spr_hud_clear, global.player, view_xview[0]+view_wview[0]/2-64, view_yview[0]+64, 1, 1, 0, c_white, 1); break;
+    }
     
     //Set font
     draw_set_font(global.fontnumb);
@@ -585,14 +601,18 @@ if (clear &gt; 0) {
     //Set colour
     draw_set_colour(c_white);
     
-    //Time left
-    draw_text(view_xview[0]+view_wview[0]/2-56, view_yview[0]+96, string_format(time, 3, 0));
-    
-    //Multiplier
-    draw_text(view_xview[0]+view_wview[0]/2-24, view_yview[0]+96, string_format(multiplier, 3, 0));
-    
-    //Time left x 50
-    draw_text(view_xview[0]+view_wview[0]/2+8, view_yview[0]+96, string_format(global.time*multiplier, 7, 0));
+    //Do not draw in Minimalist / No Score
+    if (obj_controller.hud_type &lt; 3) {
+        
+        //Time left
+        draw_text(view_xview[0]+view_wview[0]/2-56, view_yview[0]+96, string_format(time, 3, 0));
+        
+        //Multiplier
+        draw_text(view_xview[0]+view_wview[0]/2-24, view_yview[0]+96, string_format(multiplier, 3, 0));
+        
+        //Time left x 50
+        draw_text(view_xview[0]+view_wview[0]/2+8, view_yview[0]+96, string_format(global.time*multiplier, 7, 0));
+    }
     
     //Draw bonus stars
     if (clear == 2) {
