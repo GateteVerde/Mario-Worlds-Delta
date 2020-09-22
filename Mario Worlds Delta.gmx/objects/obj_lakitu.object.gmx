@@ -277,6 +277,10 @@ if (activated == true) {
                 baitx = 20;
             else baitx = -20;
             
+            var fishin_ymod = 0;
+            if (type == 1)
+                fishin_ymod = -2;
+            
             if (instance_exists(obj_playerparent) &amp;&amp; (type == 1)) {
             
                 //If close to the player, bring the fishing rod closer if a Fishin' Boo
@@ -290,14 +294,14 @@ if (activated == true) {
             }
             
             //Set bait Y position for Lakitu and Fishin' Boo
-            baity = 13;
+            baity = 13 + fishin_ymod;
             
             //Where to put the bait on the bottom of the reel
-            baitlength = -baity+sprite_get_height(spr_lakitu_reel)+sprite_get_yoffset(bait);
+            baitlength = -baity + sprite_get_height(spr_lakitu_reel) + sprite_get_yoffset(bait);
             
             //Handle position of bait
-            bait.x = x-baitx;
-            bait.y = y+baitlength;
+            bait.x = x - baitx;
+            bait.y = y + baitlength;
             
         } else {
         
@@ -350,8 +354,15 @@ if (x &lt; view_xview[view_current] + ((view_wview[view_current]) + 64)) &amp;&a
 //If not a fisher, don't have bait and start throwing
 if (fisher = false) &amp;&amp; (instance_exists(bait)) {
 
+    //Destroy bait if not needed anymore
     with bait instance_destroy();
+    
+    //Start throwing
     alarm[0] = irandom_range(100,350);
+    
+    //If not a normal Lakitu, get out
+    if (type == 1)
+        instance_destroy();
     
 }
 </string>
