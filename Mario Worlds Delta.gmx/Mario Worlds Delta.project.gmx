@@ -991,6 +991,7 @@
         <sprite>sprites\spr_shell_buzzy</sprite>
         <sprite>sprites\spr_spiny</sprite>
         <sprite>sprites\spr_spiny_dead</sprite>
+        <sprite>sprites\spr_spiny_thrown</sprite>
         <sprite>sprites\spr_shell_spiny</sprite>
         <sprites name="Piranha Plants">
           <sprites name="Gargantua">
@@ -1065,6 +1066,15 @@
           <sprite>sprites\spr_pokey</sprite>
           <sprite>sprites\spr_pokey_dead</sprite>
         </sprites>
+        <sprites name="Lakitu">
+          <sprite>sprites\spr_lakitu_object</sprite>
+          <sprite>sprites\spr_lakitu</sprite>
+          <sprite>sprites\spr_lakitu_fish</sprite>
+          <sprite>sprites\spr_lakitu_dead</sprite>
+          <sprite>sprites\spr_lakitu_cloud</sprite>
+          <sprite>sprites\spr_lakitu_cloud_front</sprite>
+          <sprite>sprites\spr_lakitu_reel</sprite>
+        </sprites>
       </sprites>
       <sprites name="Castle">
         <sprites name="Dry Bones">
@@ -1109,8 +1119,17 @@
         </sprites>
       </sprites>
       <sprites name="Ghost">
+        <sprite>sprites\spr_bluefire</sprite>
         <sprite>sprites\spr_boobuddy</sprite>
         <sprite>sprites\spr_boobuddy_taunt</sprite>
+        <sprite>sprites\spr_booblock</sprite>
+        <sprite>sprites\spr_bigboo</sprite>
+        <sprite>sprites\spr_eerie</sprite>
+        <sprites name="Fishin' Boo">
+          <sprite>sprites\spr_fishinboo</sprite>
+          <sprite>sprites\spr_fishinboo_object</sprite>
+          <sprite>sprites\spr_fishinboo_rod</sprite>
+        </sprites>
       </sprites>
       <sprites name="Airship">
         <sprites name="Bullet Bill">
@@ -1617,6 +1636,10 @@
       <background>background\bgr_desert_night_c</background>
       <background>background\bgr_forest</background>
       <background>background\bgr_forest_c</background>
+      <background>background\bgr_ghosthouse</background>
+      <background>background\bgr_ghosthouse_b</background>
+      <background>background\bgr_ghosthouse_c</background>
+      <background>background\bgr_ghosthouse_d</background>
       <background>background\bgr_hills_and_clouds</background>
       <background>background\bgr_hills_and_clouds_e</background>
       <background>background\bgr_hills_thin</background>
@@ -2121,6 +2144,8 @@
         <object>objects\obj_blurp</object>
       </objects>
       <objects name="Forest / Desert">
+        <object>objects\obj_lakitu</object>
+        <object>objects\obj_fishinglakitu</object>
         <object>objects\obj_monty</object>
         <object>objects\obj_monty_chase</object>
         <object>objects\obj_monty_dig</object>
@@ -2152,6 +2177,12 @@
       </objects>
       <objects name="Ghost">
         <object>objects\obj_boobuddy</object>
+        <object>objects\obj_booblock</object>
+        <object>objects\obj_boostream</object>
+        <object>objects\obj_boo_ring</object>
+        <object>objects\obj_fishinboo</object>
+        <object>objects\obj_eerie</object>
+        <object>objects\obj_eerie_wave</object>
       </objects>
       <objects name="Airship">
         <objects name="Bullet Bill">
@@ -2501,6 +2532,7 @@
             <object>objects\obj_spike_ball</object>
           </objects>
           <objects name="Underground">
+            <object>objects\obj_spiny_thrown</object>
             <objects name="Piranha Plants">
               <object>objects\obj_plantfire</object>
               <object>objects\obj_plantfire2</object>
@@ -2511,13 +2543,14 @@
             <object>objects\obj_busterpickup</object>
           </objects>
           <objects name="Forest / Desert">
+            <object>objects\obj_lakitubait</object>
             <object>objects\obj_monty_jump</object>
             <object>objects\obj_lotusball</object>
             <object>objects\obj_lotusball_homing</object>
             <object>objects\obj_wiggler_body</object>
             <object>objects\obj_pokey_dead</object>
           </objects>
-          <objects name="Castle / Ghost">
+          <objects name="Castle">
             <objects name="Dry Bones">
               <object>objects\obj_crumblebones</object>
               <object>objects\obj_drybones_bone</object>
@@ -2534,6 +2567,9 @@
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>
             </objects>
+          </objects>
+          <objects name="Ghost">
+            <object>objects\obj_ringboo</object>
           </objects>
           <objects name="Airship">
             <objects name="Bullet Bill">
@@ -2658,6 +2694,13 @@
         <room>rooms\rm_level_5d</room>
         <room>rooms\rm_level_5e</room>
         <room>rooms\rm_level_5f</room>
+      </rooms>
+      <rooms name="Level 6">
+        <room>rooms\rm_level_6a</room>
+        <room>rooms\rm_level_6b</room>
+        <room>rooms\rm_level_6c</room>
+        <room>rooms\rm_level_6d</room>
+        <room>rooms\rm_level_6e</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">
