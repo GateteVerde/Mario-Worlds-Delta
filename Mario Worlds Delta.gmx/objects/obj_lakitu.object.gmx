@@ -93,6 +93,9 @@ timer = 0;
 
 //Activated to follow?
 activated = false;
+
+//Can throw yet?
+canthrow = false;
 </string>
           </argument>
         </arguments>
@@ -307,6 +310,7 @@ if (activated == true) {
         
             //Stop fishing and start throwin' stuff!
             fishing = false;
+            
             //If a Lakitu, change sprite back - otherwise, get out
             if (type == 0)
                 sprite_index = spr_lakitu;
@@ -314,7 +318,10 @@ if (activated == true) {
                 instance_destroy();
                 exit;
             }
-            alarm[0] = irandom_range(100,350);
+            
+            //Start throwing
+            if (canthrow == false)
+                canthrow = true;
             
         }
         
@@ -345,24 +352,34 @@ if (x &lt; view_xview[view_current] + ((view_wview[view_current]) + 64)) &amp;&a
         //If set to be a fisher, start fishing, otherwise start throwing Spinies
         if fisher = true
             fishing = true;
-        else alarm[0] = irandom_range(100,350);
+        else if (canthrow == false)
+            canthrow = true;
         
     }
     
 }
 
 //If not a fisher, don't have bait and start throwing
-if (fisher = false) &amp;&amp; (instance_exists(bait)) {
+if (fisher = false) &amp;&amp; (instance_exists(bait)) &amp;&amp; (activated) {
 
     //Destroy bait if not needed anymore
     with bait instance_destroy();
     
     //Start throwing
-    alarm[0] = irandom_range(100,350);
+    if (canthrow == false)
+        canthrow = true;
     
     //If not a normal Lakitu, get out
     if (type == 1)
         instance_destroy();
+    
+}
+
+if (activated) &amp;&amp; (canthrow == true) {
+
+    alarm[0] = irandom_range(100,350);
+    
+    canthrow = 2;
     
 }
 </string>
