@@ -1130,6 +1130,7 @@
           <sprite>sprites\spr_fishinboo_rod</sprite>
           <sprite>sprites\spr_bluefire</sprite>
         </sprites>
+        <sprite>sprites\spr_ghostfloor</sprite>
       </sprites>
       <sprites name="Airship">
         <sprites name="Bullet Bill">
@@ -2179,10 +2180,11 @@
         <object>objects\obj_boobuddy</object>
         <object>objects\obj_booblock</object>
         <object>objects\obj_boostream</object>
-        <object>objects\obj_boo_ring</object>
+        <object>objects\obj_booring</object>
         <object>objects\obj_fishinboo</object>
         <object>objects\obj_eerie</object>
         <object>objects\obj_eerie_wave</object>
+        <object>objects\obj_ghostfloor</object>
       </objects>
       <objects name="Airship">
         <objects name="Bullet Bill">

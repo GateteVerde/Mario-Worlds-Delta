@@ -120,7 +120,8 @@ canthrow = false;
             <kind>1</kind>
             <string>///Destroy bait if killed
 
-if instance_exists(bait) with (bait) instance_destroy();
+if (instance_exists(bait))
+    with (bait) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -149,7 +150,7 @@ if instance_exists(bait) with (bait) instance_destroy();
 image_index = 0;
 
 //Set next throw timer
-alarm[0] = irandom_range(50,300);
+alarm[0] = irandom_range(50, 300);
 </string>
           </argument>
         </arguments>
@@ -173,6 +174,8 @@ alarm[0] = irandom_range(50,300);
           <argument>
             <kind>1</kind>
             <string>///Throw spiny
+
+//Set the frame
 image_index = 1;
 
 //Set next throw up
@@ -182,8 +185,7 @@ alarm[1] = 35;
 with (instance_create(x,y,obj_spiny_thrown)) {
 
     vspeed = -3;
-    hspeed = 1.5 * other.xscale;
-    
+    hspeed = 1.5 * other.xscale;    
 }
 </string>
           </argument>
@@ -287,13 +289,10 @@ if (activated == true) {
             if (instance_exists(obj_playerparent) &amp;&amp; (type == 1)) {
             
                 //If close to the player, bring the fishing rod closer if a Fishin' Boo
-            
                 if (distance_to_point(obj_playerparent.x,y) &lt; 16) {
                 
-                    baitx = (baitx * .75);
-                    
-                }
-                
+                    baitx = (baitx * .75);                    
+                }                
             }
             
             //Set bait Y position for Lakitu and Fishin' Boo
@@ -306,7 +305,8 @@ if (activated == true) {
             bait.x = x - baitx;
             bait.y = y + baitlength;
             
-        } else {
+        } 
+        else {
         
             //Stop fishing and start throwin' stuff!
             fishing = false;
@@ -321,12 +321,9 @@ if (activated == true) {
             
             //Start throwing
             if (canthrow == false)
-                canthrow = true;
-            
-        }
-        
-    }
-    
+                canthrow = true;            
+        }        
+    }    
 }
 
 //Stay near view if activated
@@ -335,11 +332,11 @@ if (x &gt;= view_xview[view_current] + ((view_wview[view_current]) + 64)) {
     if (activated = true)
         x = view_xview[view_current] + ((view_wview[view_current]) + 64);
     
-} else if (x &lt;= (view_xview[view_current]) - 64) {
+} 
+else if (x &lt;= (view_xview[view_current]) - 64) {
 
     if (activated = true)
         x = view_xview[view_current] - 64;
-
 }
 
 //If close enough to the player, start following
@@ -355,8 +352,7 @@ if (x &lt; view_xview[view_current] + ((view_wview[view_current]) + 64)) &amp;&a
         else if (canthrow == false)
             canthrow = true;
         
-    }
-    
+    }    
 }
 
 //If not a fisher, don't have bait and start throwing
@@ -371,16 +367,13 @@ if (fisher = false) &amp;&amp; (instance_exists(bait)) &amp;&amp; (activated) {
     
     //If not a normal Lakitu, get out
     if (type == 1)
-        instance_destroy();
-    
+        instance_destroy();    
 }
 
 if (activated) &amp;&amp; (canthrow == true) {
 
-    alarm[0] = irandom_range(100,350);
-    
-    canthrow = 2;
-    
+    alarm[0] = irandom_range(100,350);    
+    canthrow = 2;    
 }
 </string>
           </argument>

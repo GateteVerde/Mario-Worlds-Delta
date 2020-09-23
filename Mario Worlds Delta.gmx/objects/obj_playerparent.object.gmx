@@ -704,16 +704,20 @@ if (flying &gt; 0)
 //If gravity is enabled
 if (gravity_enable == true) {
 
+    //If there's a ghost ground below, make player ignore floor
+    //while (collision_point(x, bbox_bottom, obj_ghostfloor, 1, 0)) y += 0.05;
+    
     //If moving down
     if (vspeed &gt;= 0) {
     
         //Check for a semisolid ground
         var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+vspeed, obj_semisolid, 1, 0);
         
-        //If that ground exists and the player is above it...
-        if (semisolid) 
-        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5) 
-        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) {
+        //IF that ground exists and the player is above it and there's no ghost floor below
+        if (semisolid)
+        &amp;&amp; (bbox_bottom &lt; semisolid.yprevious+5)
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, semisolid.y-1, obj_solid, 1, 0)) 
+        &amp;&amp; (!collision_point(x, semisolid.y-1, obj_ghostfloor, 1, 0)) {
         
             //Snap above the platform
             y = semisolid.bbox_top-16;
@@ -723,7 +727,7 @@ if (gravity_enable == true) {
             gravity = 0;
             
             //Reset values
-            event_user(15);
+            event_user(15);            
         }
         
         //Check for a semisolid ground
@@ -743,7 +747,7 @@ if (gravity_enable == true) {
             
             //Reset values
             event_user(15);
-        }        
+        }  
     }
     
     //Handle collision with slopes
