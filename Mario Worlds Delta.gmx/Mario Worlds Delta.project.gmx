@@ -1088,9 +1088,13 @@
           <sprite>sprites\spr_bonybeetle_hide</sprite>
         </sprites>
         <sprite>sprites\spr_podoboo</sprite>
+        <sprite>sprites\spr_podoboo_choco</sprite>
+        <sprite>sprites\spr_podoboo_poison</sprite>
+        <sprite>sprites\spr_podoboo_diagonal</sprite>
         <sprite>sprites\spr_thwimp</sprite>
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
+        <sprite>sprites\spr_thwomp_big</sprite>
         <sprite>sprites\spr_ninji</sprite>
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprites name="Mechakoopas">
@@ -1446,7 +1450,8 @@
         <sprite>sprites\spr_blob</sprite>
         <sprite>sprites\spr_bubble</sprite>
         <sprite>sprites\spr_cinder</sprite>
-        <sprite>sprites\spr_cinder_alt</sprite>
+        <sprite>sprites\spr_cinder_choco</sprite>
+        <sprite>sprites\spr_cinder_poison</sprite>
         <sprite>sprites\spr_note</sprite>
         <sprite>sprites\spr_shellthump</sprite>
         <sprite>sprites\spr_shellthump_st</sprite>
@@ -1581,7 +1586,6 @@
         </sprites>
         <sprite>sprites\spr_24mask</sprite>
         <sprite>sprites\spr_blowmask</sprite>
-        <sprite>sprites\spr_blowmask_big</sprite>
         <sprite>sprites\spr_path</sprite>
         <sprite>sprites\spr_powkiller</sprite>
         <sprite>sprites\spr_shellmask</sprite>
@@ -2165,10 +2169,12 @@
           <object>objects\obj_bonybeetle</object>
         </objects>
         <object>objects\obj_podoboo</object>
+        <object>objects\obj_podoboo_diagonal</object>
         <object>objects\obj_thwimp</object>
         <object>objects\obj_thwomp</object>
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
+        <object>objects\obj_thwomp_mega</object>
         <object>objects\obj_ninji</object>
         <objects name="Mechakoopa">
           <object>objects\obj_mechakoopa</object>
@@ -2471,7 +2477,7 @@
           <object>objects\obj_coin_silver</object>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
-          <object>objects\obj_explosion_big</object>
+          <object>objects\obj_explosion_stars</object>
           <object>objects\obj_twister_bubble</object>
         </objects>
         <objects name="Gizmos">
@@ -2704,6 +2710,9 @@
         <room>rooms\rm_level_6d</room>
         <room>rooms\rm_level_6e</room>
       </rooms>
+      <rooms name="Level 7">
+        <room>rooms\rm_level_7a</room>
+      </rooms>
     </rooms>
     <rooms name="Special Rooms">
       <rooms name="Entrance Templates">
@@ -2734,7 +2743,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9.5 - r256"</constant>
+    <constant name="cs_version">"v0.9 - r296"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>

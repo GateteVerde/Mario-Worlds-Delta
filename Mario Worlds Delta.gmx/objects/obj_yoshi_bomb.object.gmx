@@ -140,7 +140,7 @@ angle += 10*sign(hspeed);
             <kind>1</kind>
             <string>///Blow up
 
-instance_create(x-16, y-8, obj_explosion_big);
+instance_create(x, y, obj_explosion);
 instance_destroy();
 exit;
 </string>

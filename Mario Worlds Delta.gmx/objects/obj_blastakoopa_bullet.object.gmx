@@ -87,7 +87,7 @@ alarm[3] = 420;
             <kind>1</kind>
             <string>///Blow up
 
-instance_create(x-16, y-16, obj_explosion_big);
+instance_create(x, y-8, obj_explosion);
 instance_destroy();
 exit;
 </string>

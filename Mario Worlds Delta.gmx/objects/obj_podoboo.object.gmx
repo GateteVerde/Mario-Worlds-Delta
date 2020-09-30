@@ -39,17 +39,17 @@ edible = 2;
 //Whether the podoboo is jumping
 ready = 0;
 
+//Do not swim
+swimming = false;
+
 //Animate
-image_speed = 0.2;
+image_speed = 0.3;
 
 //Set the gravity.
 gravity = 0.2;
 
 //Create cinder effect when moving up
 alarm[3] = 1;
-
-//Death sprite
-deathsprite = spr_podoboo;
 </string>
           </argument>
         </arguments>
@@ -118,7 +118,17 @@ if (vspeed &lt; 0) {
         image_speed = 0.1;
         
         //Set the effect sprite
-        sprite_index = spr_cinder;
+        switch (other.sprite_index) {
+        
+            //Choco
+            case (spr_podoboo_choco): sprite_index = spr_cinder_choco; break;
+            
+            //Poison
+            case (spr_podoboo_poison): sprite_index = spr_cinder_poison; break;
+        
+            //Default
+            default: sprite_index = spr_cinder; break;
+        }
     }
 }
 </string>
@@ -153,8 +163,21 @@ lava = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lav
 if (lava) {
 
     //Create lava splash
-    with (instance_create(x, lava.y-12, obj_smoke))
-        sprite_index = spr_splash_lava;
+    with (instance_create(x, lava.y-12, obj_smoke)) {
+    
+        //Change splash sprite based on current sprite
+        switch (other.sprite_index) {
+        
+            //Choco
+            case (spr_podoboo_choco): sprite_index = spr_splash_choco; break;
+            
+            //Poison
+            case (spr_podoboo_poison): sprite_index = spr_splash_poison; break;
+            
+            //Default
+            default: sprite_index = spr_splash_lava; break;
+        }
+    }
 }
 </string>
           </argument>
@@ -279,6 +302,9 @@ exit;
             <kind>1</kind>
             <string>///Podoboo logic
 
+//Update death sprite with current sprite
+deathsprite = sprite_index;
+
 //Make it fall when reaching start position.
 if ((y &lt; ystart+39) &amp;&amp; (ready == true)) {
 
@@ -306,6 +332,19 @@ if (lava) {
 
     //Bounce.
     if ((!ready) &amp;&amp; (vspeed &gt; 0)) {
+    
+        //Change sprite depending of lava colour
+        switch (lava.sprite_index) {
+        
+            //Choco
+            case (spr_lava_choco): sprite_index = spr_podoboo_choco; break;
+            
+            //Poison
+            case (spr_lava_poison): sprite_index = spr_podoboo_poison; break;
+            
+            //Default
+            default: sprite_index = spr_podoboo; break;
+        }
 
         //Make it stop
         ready = true;
@@ -314,8 +353,21 @@ if (lava) {
         alarm[0] = 10;
         
         //Create lava splash
-        with (instance_create(x, lava.y-12, obj_smoke))
-            sprite_index = spr_splash_lava;
+        with (instance_create(x, lava.y-12, obj_smoke)) {
+        
+            //Change splash sprite based on current sprite
+            switch (other.sprite_index) {
+            
+                //Choco
+                case (spr_podoboo_choco): sprite_index = spr_splash_choco; break;
+                
+                //Poison
+                case (spr_podoboo_poison): sprite_index = spr_splash_poison; break;
+                
+                //Default
+                default: sprite_index = spr_splash_lava; break;
+            }
+        }
     }
 }
 
@@ -363,6 +415,38 @@ if (other.bbox_bottom &lt; bbox_top-vspeed+5) {
     }
     
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Turn into a poof of smoke
+
+//Create puff of smoke
+with (instance_create(x, y, obj_smoke)) {
+
+    sprite_index = spr_smoke_16;
+}
+
+//Destroy
+instance_destroy();
 </string>
           </argument>
         </arguments>

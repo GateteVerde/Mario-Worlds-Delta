@@ -63,7 +63,7 @@ else {
 }
 
 //Top
-a = -14;
+a = 1;
 alarm[9] = 2;
 
 //Offset values
@@ -229,26 +229,21 @@ alarm[11] = 60;
             <kind>1</kind>
             <string>///Update how many parts are above
 
-//Only update if there's no body part below
-if (mebelow == noone) {
-
-    //Repeat 99 times
-    repeat (99) {
-    
-        //If there's a pokey part above, update a
-        if (position_meeting(x, bbox_top+a, obj_pokey))
-            a -= 14;
-        else {
-        
-            a += 14;
-            if (a &lt; -14)
-                a = -14;
-        }
-    }
-}
-
 //Keep updating
 alarm[9] = 2;
+
+repeat (99) {
+        
+    //If there's a pokey above
+    if (instance_position(x, y-(a*14), obj_pokey))
+        a++;
+    else {
+    
+        a--;
+        if (a &lt; 1)
+            a = 1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -478,16 +473,16 @@ else {
 //If there's not a pokey below, perform wall collision
 if (mebelow == noone) {
 
-    if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1, bbox_top+a, bbox_left, bbox_bottom-8, obj_solid, 1, 0)))
-    || ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_top+a, bbox_right+1, bbox_bottom-8, obj_solid, 1, 0))) {
+    if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-1, bbox_bottom-(a*14), bbox_left, bbox_bottom-4, obj_solid, 1, 0)))
+    || ((hspeed &gt; 0) &amp;&amp; (collision_rectangle(bbox_right, bbox_bottom-(a*14), bbox_right+1, bbox_bottom-4, obj_solid, 1, 0))) {
     
         //Reverse horizontal speed
         hspeed = -hspeed;
         
         //Prevent getting embed on walls
-        while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-8, obj_solid, 1, 0))
+        while (collision_rectangle(bbox_left, bbox_bottom-(a*16), bbox_left, bbox_bottom-4, obj_solid, 1, 0))
             x++;
-        while (collision_rectangle(bbox_left, bbox_top+4, bbox_right, bbox_bottom-8, obj_solid, 1, 0))
+        while (collision_rectangle(bbox_left, bbox_top-(a*16), bbox_right, bbox_bottom-4, obj_solid, 1, 0))
             x--;
     }
 }

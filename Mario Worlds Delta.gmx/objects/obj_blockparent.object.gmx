@@ -123,8 +123,20 @@ alarm[1] = 4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Update depth
+            <string>///Block logic
 
+//Checks
+var thwomp = collision_rectangle(bbox_left-1, y-4, bbox_right, y, obj_thwomp_mega, 1, 0);
+var skewer = collision_rectangle(bbox_left-4, bbox_top-4, bbox_right+4, bbox_bottom+4, obj_skewerparent, 1, 0);
+
+//If the conditions meet, destroy
+if ((thwomp) &amp;&amp; (thwomp.ready == 1))
+|| ((skewer) &amp;&amp; (skewer.gravity != 0)) {
+
+    event_user(15);
+}
+
+//Depth
 if (speed &gt; 0)
     depth = -2;
 else
@@ -193,6 +205,63 @@ if (ready == 0)
             <string>///Bump the block
 
 event_user(15);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_explosion">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Bomb destroy / Bump with explosion
+
+//If this block can be shattered with a explosion
+if (shardsprite != noone) {
+    
+    //Play 'Break' sound
+    audio_stop_play_sound(snd_break, 0, false);
+    
+    //Create shards    
+    shard_create(x+8, y+8, shardsprite, 3, 6, 45);
+    shard_create(x+8, y+8, shardsprite, 1, 6, 60);
+    shard_create(x+8, y+8, shardsprite, 0, 6, 120);
+    shard_create(x+8, y+8, shardsprite, 2, 6, 135);
+        
+    //Destroy
+    instance_destroy();
+}
+
+//Otherwise, bump it
+else {
+
+    //If not bumped
+    if (ready == 0) {
+    
+        //Begin bump sequence
+        vspeed = -2.25;
+        alarm[0] = 4;
+        
+        //Block is hit
+        ready = 1;
+        
+        //Perform block events
+        event_user(0);
+    }
+}
 </string>
           </argument>
         </arguments>

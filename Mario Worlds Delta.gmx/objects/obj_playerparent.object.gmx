@@ -644,7 +644,7 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Manage position in a slope
-    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent) 
@@ -652,7 +652,7 @@ if (vspeed &gt;= 0) {
     }
     
     //Manage position in a moving slope
-    if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+3, obj_slopeparent_move, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent_move, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent_move) 
@@ -864,7 +864,7 @@ if (conveyor)
 }
 
 //Collision with escalator
-var escalator = collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_escalatorparent, 1, 0);
+var escalator = collision_rectangle(bbox_left, bbox_bottom+4, bbox_right, bbox_bottom+8, obj_escalatorparent, 1, 0);
 if (escalator)
 &amp;&amp; (escalator.image_speed != 0) {
 
@@ -876,8 +876,8 @@ if (escalator)
         x += escalator.add;
         
         //Ensure that the player has correct escalator collision
-        if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, escalator.myslope, 1, 0))
-        &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, escalator.myslope, 1, 0))
+        if (collision_rectangle(bbox_left, bbox_bottom+4, bbox_right, bbox_bottom+8, escalator.myslope, 1, 0))
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, escalator.myslope, 1, 0))
             y++;
     }
 }

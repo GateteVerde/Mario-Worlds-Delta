@@ -167,7 +167,6 @@
     <instance objName="obj_path_h" x="264" y="168" name="inst_9F428C22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_v" x="240" y="184" name="inst_38EB83F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_v" x="240" y="192" name="inst_8F37DC07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelpanel" x="168" y="128" name="inst_5A1B5835" locked="0" code="levelname = &quot;MONDO&quot;;&#xA;target = rm_level_4a;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier" x="248" y="196" name="inst_69697A56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier" x="248" y="188" name="inst_1419EF09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier" x="260" y="176" name="inst_212412FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -180,14 +179,18 @@
     <instance objName="obj_node" x="176" y="264" name="inst_DF42975F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_h" x="200" y="168" name="inst_E80E8FB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_h" x="192" y="168" name="inst_D290A147" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_h" x="184" y="168" name="inst_8BE20316" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_corner_ur" x="168" y="168" name="inst_88241A7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_v" x="168" y="160" name="inst_2CFE0450" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_v" x="168" y="152" name="inst_828646B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_v" x="168" y="144" name="inst_4924FC72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_node" x="168" y="128" name="inst_1EFEAFA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_path_corner_ur" x="176" y="168" name="inst_88241A7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_path_v" x="176" y="160" name="inst_828646B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_path_v" x="176" y="152" name="inst_4924FC72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_node" x="176" y="136" name="inst_1EFEAFA4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel_castle" x="208" y="168" name="inst_943F5EE2" locked="0" code="levelname = &quot;\#2 MORTON'S CASTLE&quot;;&#xA;target = rm_level_5a;&#xA;sprite_index = spr_levelpanel_castle;&#xA;normalexit = cs_left;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="272" y="168" name="inst_C9E267BD" locked="0" code="levelname = &quot;GHOST HOUSE&quot;;&#xA;target = rm_level_6a;&#xA;sprite_index = spr_levelpanel_ghost;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_node" x="240" y="272" name="inst_74ADBD7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_path_v" x="240" y="264" name="inst_BCED6DA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelpanel" x="240" y="272" name="inst_D0B9203D" locked="0" code="levelname = &quot;ENEMY TEST AREA&quot;;&#xA;target = rm_level_7a;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelpanel" x="176" y="136" name="inst_B10055F3" locked="0" code="levelname = &quot;MONDO&quot;;&#xA;target = rm_level_4a;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier" x="248" y="268" name="inst_4D0A9E2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier" x="248" y="280" name="inst_04A0639D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

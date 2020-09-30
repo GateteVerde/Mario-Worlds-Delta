@@ -13,9 +13,9 @@ if (gravity == 0)
 && (!collision_point(x, bbox_bottom, obj_ghostfloor, 1, 0))
 && ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) 
 || (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid_moving, 0, 0)))
-|| ((collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent_move, 1, 0))) 
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_platform_seesaw, 1, 0)) {
+|| ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0))
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent_move, 1, 0))) 
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_platform_seesaw, 1, 0)) {
 
     //If the player is not moving up
     if (vspeed >= 0) {
@@ -215,7 +215,7 @@ if (inwall == false)
     if ((input_check(input.right)) 
     && (allow_move()) 
     && (!input_check(input.left))
-    && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_r, 1, 0))) {
+    && (!collision_rectangle(bbox_left, bbox_bottom+4, bbox_right, bbox_bottom+8, obj_slope_steeper_r, 1, 0))) {
     
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != 1)) {
@@ -261,7 +261,7 @@ if (inwall == false)
     else if ((input_check(input.left)) 
     && (allow_move()) 
     && (!input_check(input.right))
-    && (!collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slope_steeper_l, 1, 0))) {
+    && (!collision_rectangle(bbox_left, bbox_bottom+4, bbox_right, bbox_bottom+8, obj_slope_steeper_l, 1, 0))) {
     
         //If the player is holding something, do a special turn
         if ((holding == 1) && (xscale != -1)) {
@@ -417,7 +417,7 @@ if (input_check(input.down))
 && (control_enable == true)
 && (sliding == false)
 && (state != statetype.jump)
-&& (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0))
+&& (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0))
 && (!collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolid, 1, 0)) {
  
     //If the player is not holding anything or it is riding yoshi

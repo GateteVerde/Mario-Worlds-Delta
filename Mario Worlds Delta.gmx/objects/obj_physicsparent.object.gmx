@@ -296,7 +296,7 @@ slope = player_inslope();
 if (vspeed &gt;= 0) {
 
     //Manage position in slope
-    if (collision_rectangle(x-3, bbox_bottom-3, x+3, bbox_bottom+3, obj_slopeparent, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0)) {
     
         //manage slope
         with (obj_slopeparent) 
@@ -319,15 +319,16 @@ if (vspeed &gt;= 0) {
 //Check for floor objects
 if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0))
-|| (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+2, obj_slopeparent, 1, 0)) {
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0)) {
 
     //Stop vertical movement
     gravity = 0;
-    if (vspeed &gt; 0) {
+    if (vspeed &gt;= 0) {
     
         //If this object is not ancestor of obj_holdparent
         if (!variable_instance_exists(object_index, "bouncy"))
         &amp;&amp; (!object_is_ancestor(object_index, obj_holdparent))
+        || (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_slopeparent, 1, 0))
             vspeed = 0;
         else {
         

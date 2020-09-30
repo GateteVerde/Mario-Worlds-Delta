@@ -93,17 +93,13 @@
     <instance objName="obj_semisolid" x="448" y="320" name="inst_4D9A20AA" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="496" y="352" name="inst_FA073DEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="528" y="384" name="inst_F0C69149" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_drybones_throw" x="56" y="80" name="inst_3A7620BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_thwomp" x="464" y="192" name="inst_D496BA9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_thwomp" x="304" y="64" name="inst_589044B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpnode" x="648" y="368" name="inst_2074AD44" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lava" x="352" y="336" name="inst_8CC02C6C" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="obj_podoboo" x="360" y="144" name="inst_A0734DC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="664" y="368" name="inst_2074AD44" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_podoboo" x="360" y="128" name="inst_A0734DC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="64" y="80" name="inst_C8B2BD9B" locked="0" code="destination = rm_level_5e;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bonybeetle" x="184" y="80" name="inst_11546CC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bonybeetle" x="120" y="80" name="inst_D560AF9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_drybones" x="408" y="240" name="inst_DEA797D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boobuddy" x="520" y="288" name="inst_15CCBBF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lava" x="352" y="336" name="inst_D1EDA860" locked="0" code="" scaleX="2" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_drybones" x="40" y="80" name="inst_030E2DC8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="0" y="80" w="16" h="16" xo="144" yo="448" id="10034373" name="inst_0E767E93" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

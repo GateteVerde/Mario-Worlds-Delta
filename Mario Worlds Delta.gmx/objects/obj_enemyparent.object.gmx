@@ -1457,10 +1457,13 @@ alarm[0] = 20;
             <string>///Default enemy death script
 
 //Create dead enemy object
-imdead = instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_enemy_dead);
+imdead = instance_create(round(bbox_left+bbox_right)/2, y, obj_enemy_dead);
 
 //Set up the sprite
 imdead.sprite_index = deathsprite;
+
+//Set up the frame
+imdead.image_index = image_index;
 
 //Set up the xscale
 imdead.image_xscale = xscale;

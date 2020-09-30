@@ -264,6 +264,9 @@ alarm[1] = 40;
 //Inherit event
 event_inherited();
 
+//Update death sprite
+deathsprite = sprite_index;
+
 //Set the facing direction
 if (hspeed &gt; 0)
     xscale = 1;

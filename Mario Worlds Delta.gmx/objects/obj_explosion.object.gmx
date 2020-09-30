@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_blowmask</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>obj_killparent</parentName>
@@ -30,21 +30,84 @@
 //Play 'Explosion' sound
 audio_stop_play_sound(snd_explosion, 0, false);
 
-//Animate
-image_speed = 0.2;
-
-//Do not hurt player
-hurtplayer = 1;
-alarm[0] = 4;
-
 //Combo
 hitcombo = 0;
 
-//Create smoke
-with (instance_create(x+8+lengthdir_x(20, 45), y+8+lengthdir_y(20, 45), obj_smoke)) sprite_index = spr_smoke_16;
-with (instance_create(x+8+lengthdir_x(20, 135), y+8+lengthdir_y(20, 135), obj_smoke)) sprite_index = spr_smoke_16;
-with (instance_create(x+8+lengthdir_x(20, 225), y+8+lengthdir_y(20, 225), obj_smoke)) sprite_index = spr_smoke_16;
-with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_smoke)) sprite_index = spr_smoke_16;
+//Hurt Player?
+//0: No
+//1: Yes
+hurtplayer = 1;
+
+//Destroy
+alarm[0] = 48;
+
+//Generate star effect
+alarm[1] = 1;
+
+//Disallow player hurt
+alarm[3] = 4;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Disallow player hurt
+
+hurtplayer = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate more stars
+
+//Generate effect
+var b;
+b = 270;
+repeat (5) {
+
+    eff = instance_create(x, y+8, obj_explosion_stars);
+    with (eff) {
+    
+        dir = b;
+    }
+    b += 72;
+}
+alarm[1] = 8;
 </string>
           </argument>
         </arguments>
@@ -67,16 +130,21 @@ with (instance_create(x+8+lengthdir_x(20, 315), y+8+lengthdir_y(20, 315), obj_sm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate more stars
+            <string>///Generate stars
 
-//Create stars
-var b;
-b = 270;
+//Generate effect
+var a;
+a = 90;
 repeat (5) {
 
-    instance_create(x+8+lengthdir_x(32, b), y+8+lengthdir_y(32, b), obj_spinstar);
-    b += 72;
+    eff = instance_create(x, y+8, obj_explosion_stars);
+    with (eff) {
+    
+        dir = a;
+    }
+    a += 72;
 }
+alarm[2] = 8;
 </string>
           </argument>
         </arguments>
@@ -99,22 +167,9 @@ repeat (5) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Disable player hurt script, generate stars
+            <string>///Destroy
 
-//Do not hurt player
-hurtplayer = 0;
-
-//Create stars
-var a;
-a = 90;
-repeat (5) {
-
-    instance_create(x+8+lengthdir_x(16, a), y+8+lengthdir_y(16, a), obj_spinstar);
-    a += 72;
-}
-
-//Create a new set of stars and destroy
-alarm[1] = 4;
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -167,31 +222,6 @@ if (visible)
 
 if (hurtplayer == 1)
     with (other) event_user(0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Destroy
-
-instance_destroy();
 </string>
           </argument>
         </arguments>
