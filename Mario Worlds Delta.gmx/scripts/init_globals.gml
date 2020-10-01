@@ -19,6 +19,7 @@ enum itemtype {
     coin_star,
     coin_multi,
     coin_multi_shroom,
+    coin_snake,
     mushroom,
     fireflower,
     fireflower_plus,

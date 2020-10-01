@@ -203,7 +203,8 @@ else if (sprout == itemtype.coin_star) {
 else {
 
     //If the item inside is not a coin
-    if (sprout != itemtype.coin) {
+    if (sprout != itemtype.coin) 
+    &amp;&amp; (sprout != itemtype.coin_snake) {
     
         //If the player is small
         with (instance_create(x+8, y, obj_powerup_sprout))    
@@ -253,6 +254,12 @@ if (sprout == itemtype.coin_multi)
     
     //Increment coins
     coins++;
+}
+
+//If the block holds a coin chain
+else if (sprout == itemtype.coin_snake) {
+
+    instance_create(x, ystart, obj_coinsnake);
 }
 
 //Create a coin if any of the conditions below meet

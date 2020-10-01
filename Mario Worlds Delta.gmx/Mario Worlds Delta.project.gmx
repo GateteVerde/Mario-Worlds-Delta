@@ -1379,6 +1379,7 @@
         <sprite>sprites\spr_modifier_coin_star</sprite>
         <sprite>sprites\spr_modifier_coin_multi</sprite>
         <sprite>sprites\spr_modifier_coin_multi_shroom</sprite>
+        <sprite>sprites\spr_modifier_coin_snake</sprite>
         <sprite>sprites\spr_modifier_beanstalk</sprite>
         <sprite>sprites\spr_modifier_key</sprite>
       </sprites>
@@ -2311,6 +2312,7 @@
         <object>objects\obj_modifier_coin_star</object>
         <object>objects\obj_modifier_coin_multi</object>
         <object>objects\obj_modifier_coin_multi_shroom</object>
+        <object>objects\obj_modifier_coin_snake</object>
       </objects>
       <objects name="Gizmos">
         <objects name="Belts">
@@ -2436,6 +2438,7 @@
             <object>objects\obj_brick_throw_th</object>
           </objects>
           <object>objects\obj_blockcoin</object>
+          <object>objects\obj_coinsnake</object>
           <object>objects\obj_guessblock</object>
         </objects>
         <objects name="Items">
