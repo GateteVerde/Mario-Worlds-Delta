@@ -190,10 +190,10 @@ else if (!position_meeting(x+8, y+8, obj_coin)) {
 alarm[0] = 16;
 
 //Destroy on contact with solids or semisolids
-if ((direction == 0) &amp;&amp; ((position_meeting(x+24, y+8, obj_coin)) || (position_meeting(x+24, y+8, obj_solid))))
-|| ((direction == 90) &amp;&amp; ((position_meeting(x+8, y+8, obj_coin)) || (position_meeting(x+8, y-8, obj_solid))))
-|| ((direction == 180) &amp;&amp; ((position_meeting(x-8, y+8, obj_coin)) || (position_meeting(x-8, y+8, obj_solid))))
-|| ((direction == 270) &amp;&amp; ((position_meeting(x+8, y+24, obj_coin)) || (position_meeting(x+8, y+24, obj_semisolid))))
+if ((direction == 0) &amp;&amp; (position_meeting(x+17, y+8, obj_solid)))
+|| ((direction == 90) &amp;&amp; (position_meeting(x+8, y-1, obj_solid)))
+|| ((direction == 180) &amp;&amp; (position_meeting(x-1, y+8, obj_solid)))
+|| ((direction == 270) &amp;&amp; (position_meeting(x+8, y+17, obj_semisolid)))
     instance_destroy();
 </string>
           </argument>
@@ -269,6 +269,31 @@ instance_destroy();
       </action>
     </event>
     <event eventtype="4" ename="obj_slopeparent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy
+
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_coin">
       <action>
         <libid>1</libid>
         <id>603</id>

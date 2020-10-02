@@ -4,7 +4,7 @@
   <width>1536</width>
   <height>416</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -51,8 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_levelcontrol" x="-144" y="-480" name="inst_4AD3417C" locked="0" code="inisection = 'GhostHouse'&#xA;leveltime = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpnode" x="1248" y="368" name="inst_0EAE7F83" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="1240" y="368" name="inst_0EAE7F83" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pswitch" x="104" y="288" name="inst_39CA1699" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boobuddy" x="200" y="352" name="inst_43A9ED21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boobuddy" x="296" y="336" name="inst_2631A12F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -70,15 +69,15 @@
     <instance objName="obj_qblock" x="784" y="320" name="inst_990987D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_coin_multi" x="784" y="320" name="inst_AF987E2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_booring" x="784" y="320" name="inst_F4AB92A4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_boobuddy" x="592" y="320" name="inst_76C11ADE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boobuddy" x="584" y="320" name="inst_76C11ADE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="592" y="320" name="inst_961FFA66" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="592" y="304" name="inst_0CE6A3A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="608" y="288" name="inst_88DD37C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="624" y="304" name="inst_50FA5D3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="624" y="320" name="inst_EB49DC2D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door_p" x="608" y="320" name="inst_D53E14E4" locked="0" code="destination = rm_level_6d;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_p" x="784" y="160" name="inst_C24B156E" locked="0" code="destination = rm_level_6d;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door" x="32" y="368" name="inst_E0926420" locked="0" code="destination = rm_level_6b;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_p" x="784" y="160" name="inst_C24B156E" locked="0" code="destination = rm_level_6d;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="32" y="368" name="inst_E0926420" locked="0" code="destination = rm_level_6b;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1264" y="16" name="inst_95259C81" locked="0" code="" scaleX="1" scaleY="25" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="16" y="0" name="inst_F2D6BAEE" locked="0" code="" scaleX="78" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="16" name="inst_BBA10494" locked="0" code="" scaleX="1" scaleY="25" colour="4294967295" rotation="0"/>
@@ -102,12 +101,12 @@
     <instance objName="obj_pblock_off" x="464" y="336" name="inst_706BBB23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_off" x="496" y="336" name="inst_D7C9D855" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_off" x="480" y="336" name="inst_A7134A09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bganimator" x="16" y="-16" name="inst_685FB6ED" locked="0" code="bg_frame[0] = bgr_ghosthouse_b;&#xA;bg_frame[1] = bgr_ghosthouse_c;&#xA;bg_frame[2] = bgr_ghosthouse_b;&#xA;bg_frame[3] = bgr_ghosthouse;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_75BD78CD" locked="0" code="inisection = 'GhostHouse'&#xA;leveltime = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bganimator" x="16" y="-16" name="inst_685FB6ED" locked="0" code="bg_frame[0] = bgr_ghosthouse_b;&#xA;bg_frame[1] = bgr_ghosthouse_c;&#xA;bg_frame[2] = bgr_ghosthouse_b;&#xA;bg_frame[3] = bgr_ghosthouse;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_75BD78CD" locked="0" code="inisection = 'GhostHouse'&#xA;leveltime = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="480" y="320" name="inst_CCD73D02" locked="0" code="destination = rm_level_6e;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpnode" x="32" y="288" name="inst_EEC57954" locked="0" code="myid = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_booblock" x="992" y="288" name="inst_977AF419" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_eerie_wave" x="1056" y="352" name="inst_CA2795FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="40" y="288" name="inst_EEC57954" locked="0" code="myid = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_booblock" x="1000" y="288" name="inst_977AF419" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_eerie_wave" x="1064" y="352" name="inst_CA2795FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_ghosthouse" x="928" y="384" w="16" h="16" xo="208" yo="80" id="10038336" name="inst_54BCD20C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

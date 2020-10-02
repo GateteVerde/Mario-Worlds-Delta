@@ -33,18 +33,25 @@ sprite_index = spr_pblock;
 //Do not animate
 image_speed = 0;
 
-//Become solid if the pswitch is active
-if (obj_levelcontrol.switchon == 1) {
+//Solid
+mysolid = noone;
 
-    mysolid = instance_create(x,y,obj_solid)
-    image_index = 0;
-}
+//IF the level controller exists
+if (instance_exists(obj_levelcontrol)) {
 
-//Otherwise, be an outline
-else {
-
-    mysolid = noone;
-    image_speed = 0.15;
+    //Become solid if the pswitch is active
+    if (obj_levelcontrol.switchon == 1) {
+    
+        mysolid = instance_create(x, y, obj_solid)
+        image_index = 0;
+    }
+    
+    //Otherwise, be an outline
+    else {
+    
+        mysolid = noone;
+        image_speed = 0.15;
+    }
 }
 </string>
           </argument>
@@ -70,29 +77,33 @@ else {
             <kind>1</kind>
             <string>///Inactive "P" platform logic
 
-//Turn solid if the P-Switch is active
-if (obj_levelcontrol.switchon == 1) {
-
-    //Set solid frame
-    image_speed = 0;
-    image_index = 0;
+//If the level controller exists
+if (instance_exists(obj_levelcontrol)) {
     
-    //If the solid does not exist
-    if (mysolid == noone)
-        mysolid = instance_create(x, y, obj_solid);
-}
-
-//Otherwise, turn non-solid
-else {
-
-    //Set non-solid frames
-    image_speed = 0.15;
+    //Turn solid if the P-Switch is active
+    if (obj_levelcontrol.switchon == 1) {
     
-    //Destroy solid
-    if (mysolid != noone) {
+        //Set solid frame
+        image_speed = 0;
+        image_index = 0;
+        
+        //If the solid does not exist
+        if (mysolid == noone)
+            mysolid = instance_create(x, y, obj_solid);
+    }
     
-        with (mysolid) instance_destroy();
-        mysolid = noone;
+    //Otherwise, turn non-solid
+    else {
+    
+        //Set non-solid frames
+        image_speed = 0.15;
+        
+        //Destroy solid
+        if (mysolid != noone) {
+        
+            with (mysolid) instance_destroy();
+            mysolid = noone;
+        }
     }
 }
 </string>
