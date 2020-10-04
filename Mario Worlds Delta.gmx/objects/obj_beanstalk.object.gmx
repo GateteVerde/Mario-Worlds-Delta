@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>10</depth>
   <persistent>0</persistent>
-  <parentName>obj_climb</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -30,14 +30,12 @@
 //Animate
 image_speed = 0.15;
 
+//Create a climbable surface
+ready = 0;
+alarm[0] = 2;
+
 //Set the vertical speed
-if (vspeed == 0) {
-
-    vspeed = -1;
-}
-
-//Create vines
-alarm[0] = 16;
+vspeed = -1;
 </string>
           </argument>
         </arguments>
@@ -60,27 +58,15 @@ alarm[0] = 16;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create a beanstalk.
+            <string>///Allow creation of vines.
 
-alarm[0] = 16;
-if (vspeed != 0) {
-
-    ID = instance_create(xstart, ystart, obj_beanstalk_vine);
-    with (ID) {
-    
-        //Set this object as parent.
-        mom = other.id;
-        
-        //Set vertical speed.
-        vspeed = other.vspeed;
-    }
-}
+ready = 1;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_semisolid">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -97,103 +83,28 @@ if (vspeed != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with semisolid
+            <string>///Beanstalk logic
 
-if (other.y != ystart) &amp;&amp; (vspeed &gt; 0) {
+//Check for a solid
+var block = collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top-1, obj_solid, 0, 0);
 
-    //Make invisible
-    sprite_index = spr_beanstalk_vine;
+//Create a new vine if snapped onto the grid
+if (ready) 
+&amp;&amp; (place_snapped(0,16)) {
+
+    //Do not create vines
+    ready = false;
+    alarm[0] = 2;
     
-    //Reset animation
-    image_index = 0;
-    
-    //Stop vertical speed
-    vspeed = 0;
-    y = other.bbox_top-16;
+    //Create a new vine
+    instance_create(x, y, obj_beanstalk_vine);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_solid">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Collision with solid
 
-//If not at the start position
-if (other.y != ystart) {
-
-    //If moving up
-    if (vspeed &lt; 0) {
-    
-        //Make invisible
-        sprite_index = spr_beanstalk_vine;
-        
-        //Reset animation
-        image_index = 0;
-        
-        //Stop vertical speed
-        vspeed = 0;
-        y = other.y+16;
-    }
-    
-    //Otherwise, if moving down
-    else if (vspeed &gt; 0) {
-    
-        //Make invisible
-        sprite_index = spr_beanstalk_vine;
-        
-        //Reset animation
-        image_index = 0;
-        
-        //Stop vertical speed
-        vspeed = 0;
-        y = other.bbox_top-16;    
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw it
-
-if (vspeed &lt;= 0)
-    draw_sprite(sprite_index, -1, round(x), round(y));
-else
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+16, 1, -1, 0, c_white, 1);
+//Destroy when outside or when in contact with a solid.
+if (y &lt; -48) 
+|| (block) 
+&amp;&amp; (block.y &lt; ystart-16)
+    instance_destroy();
 </string>
           </argument>
         </arguments>

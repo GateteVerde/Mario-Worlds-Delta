@@ -658,7 +658,8 @@ else
             <kind>1</kind>
             <string>///Remember the item held for the next room.
 
-if (held) {
+if (held) 
+&amp;&amp; (global.postchange &lt; 1) {
 
     //Remember the object.
     global.carrieditem = object_index;

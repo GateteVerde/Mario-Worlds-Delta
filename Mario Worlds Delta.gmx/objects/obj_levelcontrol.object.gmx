@@ -1189,6 +1189,13 @@ animated_tile_cleanup();
             <kind>1</kind>
             <string>///Handles checkpoints, and other stuff
 
+//If the player warped through a door, do not carry an item
+if (global.postchange == 0) {
+
+    global.carrieditem = noone;
+    global.carriedsprite = noone;
+}
+
 //Manage music
 event_user(5);
 

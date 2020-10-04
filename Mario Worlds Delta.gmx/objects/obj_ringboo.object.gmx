@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-3</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemyparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -31,7 +31,7 @@
 event_inherited();
 
 //How vulnerable is this enemy to items
-vulnerable = 100;
+vulnerable = 99;
 
 //How vulnerable is this enemy to the player
 stomp = 2;
@@ -44,6 +44,12 @@ deathsprite = sprite_index;
 
 //Stomp sprite
 stompsprite = sprite_index;
+
+//Facing direction
+xscale = choose(-1, 1);
+
+//Do not swim
+swimming = false;
 
 //Circle timer
 timer = 0;
@@ -98,6 +104,8 @@ image_index = animframe + (type * 2);
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -114,12 +122,9 @@ image_index = animframe + (type * 2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Hurt the player on impact since ring Boos are invincible
+            <string>///Draw boos
 
-var player = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_playerparent, 0, 0);
-
-if (player)
-    with (player) event_user(0);
+draw_sprite_ext(sprite_index, -1, round(x), round(y), xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

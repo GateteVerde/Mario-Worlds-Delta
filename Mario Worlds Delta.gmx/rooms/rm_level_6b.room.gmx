@@ -51,10 +51,10 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_4AD3417C" locked="0" code="inisection = 'GhostHouse'&#xA;leveltime = 300;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_4AD3417C" locked="0" code="inisection = 'GhostHouse'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="40" y="368" name="inst_06A6A359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_booring" x="416" y="320" name="inst_5F25E4C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_qblock" x="1184" y="320" name="inst_FB4AFDD5" locked="0" code="sprite_index = spr_brick_flip;&#xA;image_speed = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="1184" y="320" name="inst_FB4AFDD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="1232" y="240" name="inst_FE75583C" locked="0" code="destination = rm_level_6c;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_9B7C4A36" locked="0" code="bg_frame[0] = bgr_ghosthouse_b;&#xA;bg_frame[1] = bgr_ghosthouse_c;&#xA;bg_frame[2] = bgr_ghosthouse_b;&#xA;bg_frame[3] = bgr_ghosthouse;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_trampoline" x="664" y="240" name="inst_6747F568" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -89,14 +89,12 @@
     <instance objName="obj_warpnode" x="552" y="368" name="inst_C1D9696E" locked="0" code="myid = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_on" x="656" y="256" name="inst_FB469855" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_boostream" x="488" y="224" name="inst_046E8230" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fishinboo" x="800" y="256" name="inst_56942FF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_left" x="880" y="384" name="inst_B4D34494" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_left" x="720" y="384" name="inst_3BB57742" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_right" x="576" y="384" name="inst_3BD8A262" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_right" x="736" y="384" name="inst_3CD84771" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ghostfloor" x="592" y="384" name="inst_B0354802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ghostfloor" x="848" y="384" name="inst_A0F1690A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpnode" x="1240" y="368" name="inst_3740BFE4" locked="0" code="myid = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="1224" y="368" name="inst_3740BFE4" locked="0" code="myid = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bigboo" x="848" y="352" name="inst_F679F695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="304" y="352" name="inst_BCF91F3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="1104" y="352" name="inst_A638CD84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_brick_flip" x="1184" y="320" name="inst_B2AB7C5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_1up" x="1184" y="320" name="inst_974F8FE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_ghosthouse" x="0" y="384" w="16" h="16" xo="192" yo="80" id="10040447" name="inst_440913A6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -767,6 +765,11 @@
     <tile bgName="tls_ground_ghosthouse" x="1408" y="112" w="16" h="16" xo="160" yo="128" id="10041352" name="inst_2D7C68DA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="1408" y="128" w="16" h="16" xo="160" yo="128" id="10041353" name="inst_83AB4F6C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="1408" y="144" w="16" h="16" xo="160" yo="128" id="10041354" name="inst_79B4F63E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="624" y="400" w="16" h="16" xo="176" yo="80" id="10042069" name="inst_727F1DE5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="688" y="400" w="16" h="16" xo="176" yo="80" id="10042070" name="inst_9A8F33F9" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="752" y="400" w="16" h="16" xo="176" yo="80" id="10042071" name="inst_7C844C16" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="816" y="400" w="16" h="16" xo="176" yo="80" id="10042072" name="inst_CCA6954F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="880" y="400" w="16" h="16" xo="176" yo="80" id="10042073" name="inst_C780B38D" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="1168" y="240" w="16" h="16" xo="176" yo="64" id="10041368" name="inst_654B828B" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="1184" y="240" w="16" h="16" xo="176" yo="64" id="10041369" name="inst_1F50DD0A" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="1200" y="240" w="16" h="16" xo="176" yo="64" id="10041370" name="inst_793B56AC" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

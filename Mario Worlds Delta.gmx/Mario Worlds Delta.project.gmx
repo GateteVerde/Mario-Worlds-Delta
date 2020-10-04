@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="40" name="datafiles">
-    <datafiles number="40" name="music">
+  <datafiles number="41" name="datafiles">
+    <datafiles number="41" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -38,6 +38,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_bonus.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_boss.ogg</name>
+        <exists>-1</exists>
+        <size>796495</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_boss.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_castle.ogg</name>
@@ -1127,6 +1144,7 @@
         <sprite>sprites\spr_boobuddy_taunt</sprite>
         <sprite>sprites\spr_booblock</sprite>
         <sprite>sprites\spr_bigboo</sprite>
+        <sprite>sprites\spr_bigboo_turn</sprite>
         <sprite>sprites\spr_eerie</sprite>
         <sprites name="Fishin' Boo">
           <sprite>sprites\spr_fishinboo</sprite>
@@ -2184,11 +2202,12 @@
         </objects>
       </objects>
       <objects name="Ghost">
-        <object>objects\obj_boobuddy</object>
+        <object>objects\obj_boo</object>
         <object>objects\obj_booblock</object>
         <object>objects\obj_boostream</object>
         <object>objects\obj_booring</object>
         <object>objects\obj_fishinboo</object>
+        <object>objects\obj_bigboo</object>
         <object>objects\obj_eerie</object>
         <object>objects\obj_eerie_wave</object>
         <object>objects\obj_ghostfloor</object>
@@ -2437,6 +2456,7 @@
             <object>objects\obj_brick_flip_b</object>
             <object>objects\obj_brick_throw_th</object>
           </objects>
+          <object>objects\obj_beanstalk</object>
           <object>objects\obj_blockcoin</object>
           <object>objects\obj_coinsnake</object>
           <object>objects\obj_guessblock</object>
@@ -2522,7 +2542,6 @@
           <object>objects\obj_powblock_active</object>
           <object>objects\obj_powblock_killer</object>
           <object>objects\obj_icicle_shard</object>
-          <object>objects\obj_beanstalk</object>
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
@@ -2712,6 +2731,7 @@
         <room>rooms\rm_level_6c</room>
         <room>rooms\rm_level_6d</room>
         <room>rooms\rm_level_6e</room>
+        <room>rooms\rm_level_6f</room>
       </rooms>
       <rooms name="Level 7">
         <room>rooms\rm_level_7a</room>
@@ -2746,7 +2766,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9 - r296"</constant>
+    <constant name="cs_version">"v0.9 - r299"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>
