@@ -715,6 +715,7 @@
       <sprite>sprites\spr_coin_outline</sprite>
       <sprite>sprites\spr_coin_block</sprite>
       <sprite>sprites\spr_coin_silver</sprite>
+      <sprite>sprites\spr_coin_gold</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
       <sprite>sprites\spr_feather</sprite>
@@ -1152,6 +1153,8 @@
           <sprite>sprites\spr_fishinboo_rod</sprite>
           <sprite>sprites\spr_bluefire</sprite>
         </sprites>
+        <sprite>sprites\spr_slimebubble</sprite>
+        <sprite>sprites\spr_slimebubble_mask</sprite>
         <sprite>sprites\spr_ghostfloor</sprite>
       </sprites>
       <sprites name="Airship">
@@ -1971,6 +1974,7 @@
     <objects name="Items">
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_p</object>
+      <object>objects\obj_coin_5</object>
       <object>objects\obj_coin_10</object>
       <object>objects\obj_coin_ace</object>
       <object>objects\obj_coin_outline</object>
@@ -2210,6 +2214,7 @@
         <object>objects\obj_bigboo</object>
         <object>objects\obj_eerie</object>
         <object>objects\obj_eerie_wave</object>
+        <object>objects\obj_slimebubble</object>
         <object>objects\obj_ghostfloor</object>
       </objects>
       <objects name="Airship">
