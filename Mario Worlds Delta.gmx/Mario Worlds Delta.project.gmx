@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="41" name="datafiles">
-    <datafiles number="41" name="music">
+  <datafiles number="42" name="datafiles">
+    <datafiles number="42" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -195,7 +195,7 @@
       <datafile>
         <name>bgm_swimming.ogg</name>
         <exists>-1</exists>
-        <size>1445073</size>
+        <size>1242551</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -1047,6 +1047,13 @@
         <sprite>sprites\spr_cheepcheep_dead</sprite>
         <sprite>sprites\spr_blurp</sprite>
         <sprite>sprites\spr_blurp_dead</sprite>
+        <sprite>sprites\spr_ripvanfish</sprite>
+        <sprite>sprites\spr_ripvanfish_awaken</sprite>
+        <sprite>sprites\spr_ripvanfish_dead</sprite>
+        <sprite>sprites\spr_urchin</sprite>
+        <sprite>sprites\spr_urchin_dead</sprite>
+        <sprite>sprites\spr_blooper</sprite>
+        <sprite>sprites\spr_blooper_dead</sprite>
       </sprites>
       <sprites name="Forest / Desert">
         <sprite>sprites\spr_montymole</sprite>
@@ -1143,6 +1150,8 @@
       <sprites name="Ghost">
         <sprite>sprites\spr_boobuddy</sprite>
         <sprite>sprites\spr_boobuddy_taunt</sprite>
+        <sprite>sprites\spr_boobuddy_stretch</sprite>
+        <sprite>sprites\spr_boobuddy_stretch_ceiling</sprite>
         <sprite>sprites\spr_booblock</sprite>
         <sprite>sprites\spr_bigboo</sprite>
         <sprite>sprites\spr_bigboo_turn</sprite>
@@ -1182,6 +1191,8 @@
         <sprite>sprites\spr_bobomb_cannon</sprite>
         <sprite>sprites\spr_bobomb_cannon_th</sprite>
         <sprite>sprites\spr_bobomb_cannon_dead</sprite>
+        <sprite>sprites\spr_bobomb_parachute</sprite>
+        <sprite>sprites\spr_bobomb_parachute_land</sprite>
         <sprite>sprites\spr_cannon</sprite>
         <sprite>sprites\spr_cannon_ball</sprite>
         <sprite>sprites\spr_cannon_quad</sprite>
@@ -1482,6 +1493,7 @@
         <sprite>sprites\spr_smoke_32</sprite>
         <sprite>sprites\spr_smoke_48</sprite>
         <sprite>sprites\spr_smoke_64</sprite>
+        <sprite>sprites\spr_snore</sprite>
         <sprite>sprites\spr_sparkle</sprite>
         <sprite>sprites\spr_sparkle_small</sprite>
         <sprite>sprites\spr_sparkle_small_blue</sprite>
@@ -1688,6 +1700,7 @@
     </backgrounds>
     <backgrounds name="Level Foregrounds">
       <background>background\fgr_smog</background>
+      <background>background\fgr_fish</background>
     </backgrounds>
     <backgrounds name="Level Tilesets">
       <backgrounds name="Animated (DO NOT USE)">
@@ -2170,6 +2183,10 @@
         <object>objects\obj_cheepcheep</object>
         <object>objects\obj_cheepcheep_v</object>
         <object>objects\obj_blurp</object>
+        <object>objects\obj_ripvanfish</object>
+        <object>objects\obj_urchin</object>
+        <object>objects\obj_urchin_wall</object>
+        <object>objects\obj_blooper</object>
       </objects>
       <objects name="Forest / Desert">
         <object>objects\obj_lakitu</object>
@@ -2209,6 +2226,8 @@
         <object>objects\obj_boo</object>
         <object>objects\obj_booblock</object>
         <object>objects\obj_boostream</object>
+        <object>objects\obj_boostretch</object>
+        <object>objects\obj_boostretch_ceiling</object>
         <object>objects\obj_booring</object>
         <object>objects\obj_fishinboo</object>
         <object>objects\obj_bigboo</object>
@@ -2228,12 +2247,14 @@
         </objects>
         <object>objects\obj_bobomb</object>
         <object>objects\obj_bobomb_cannon</object>
+        <object>objects\obj_bobomb_parachute</object>
         <object>objects\obj_cannon</object>
         <object>objects\obj_cannon_bomb</object>
         <object>objects\obj_cannon_quad</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
+        <object>objects\obj_generator_bobomb</object>
       </objects>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
@@ -2674,6 +2695,7 @@
             <object>objects\obj_castledoor_black</object>
           </objects>
           <object>objects\obj_audio_loop_sound</object>
+          <object>objects\obj_fish</object>
           <object>objects\obj_hud</object>
           <object>objects\obj_hud_map</object>
           <object>objects\obj_message_new</object>

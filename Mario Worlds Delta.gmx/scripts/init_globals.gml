@@ -83,6 +83,9 @@ global.bonus = 0;
 global.bonusadd = 0;
 global.bonusgame = 0;
 
+//Whistle
+global.whistle = 0;
+
 //Lives
 lives = 5;
 

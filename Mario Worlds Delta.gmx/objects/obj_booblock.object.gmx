@@ -107,7 +107,8 @@ if floor(frame) &gt; 0
         
 if instance_exists(mysolid)
     stomp = -1;
-else stomp = 2;
+else 
+    stomp = 2;
 
 with (mysolid) visible = false;
 </string>
@@ -138,13 +139,13 @@ with (mysolid) visible = false;
 event_inherited();
 
 //Move the solid
-if instance_exists(mysolid) {
+if (instance_exists(mysolid)) {
 
-    with mysolid {
+    with (mysolid) {
+    
         x = other.x-8;
         y = other.y;
     }
-
 }
 </string>
           </argument>

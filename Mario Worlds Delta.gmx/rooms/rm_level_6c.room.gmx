@@ -4,7 +4,7 @@
   <width>1536</width>
   <height>416</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -98,8 +98,8 @@
     <instance objName="obj_semisolid" x="528" y="384" name="inst_854CBE75" locked="0" code="" scaleX="27" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="976" y="336" name="inst_7A3DBC60" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1088" y="384" name="inst_26C62F4D" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_qblock" x="1152" y="320" name="inst_E967F44B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_modifier_fireflower_alt" x="1152" y="320" name="inst_EEEAC5E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="1248" y="208" name="inst_E967F44B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_fireflower_alt" x="1248" y="208" name="inst_EEEAC5E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_off" x="464" y="336" name="inst_706BBB23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_off" x="496" y="336" name="inst_D7C9D855" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pblock_off" x="480" y="336" name="inst_A7134A09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -116,6 +116,12 @@
     <instance objName="obj_solid" x="16" y="176" name="inst_72C16236" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="16" y="240" name="inst_89221747" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_emptyblock" x="816" y="160" name="inst_B861DA69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="1200" y="272" name="inst_2772D775" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="1136" y="320" name="inst_C5B74B98" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock" x="1232" y="208" name="inst_443652AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boostretch" x="1160" y="304" name="inst_E557B10F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boostretch" x="1240" y="256" name="inst_814A288B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boostretch_ceiling" x="1176" y="336" name="inst_22116D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_ghosthouse" x="928" y="384" w="16" h="16" xo="208" yo="80" id="10038336" name="inst_54BCD20C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -851,6 +857,14 @@
     <tile bgName="tls_ground_ghosthouse" x="32" y="176" w="16" h="16" xo="176" yo="112" id="10042066" name="inst_34368975" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="16" y="240" w="16" h="16" xo="176" yo="112" id="10042067" name="inst_A44C6E05" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_ghosthouse" x="32" y="240" w="16" h="16" xo="176" yo="112" id="10042068" name="inst_ECF08800" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1248" y="272" w="16" h="16" xo="320" yo="64" id="10042444" name="inst_573670FC" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1200" y="272" w="16" h="16" xo="288" yo="64" id="10042446" name="inst_E9FD9193" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1136" y="320" w="16" h="16" xo="288" yo="64" id="10042447" name="inst_D7594388" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1184" y="320" w="16" h="16" xo="320" yo="64" id="10042448" name="inst_672F8199" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1216" y="272" w="16" h="16" xo="304" yo="64" id="10042449" name="inst_B7A7A73F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1232" y="272" w="16" h="16" xo="304" yo="64" id="10042450" name="inst_5E6DD514" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1152" y="320" w="16" h="16" xo="304" yo="64" id="10042451" name="inst_EA3AA224" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_ghosthouse" x="1168" y="320" w="16" h="16" xo="304" yo="64" id="10042452" name="inst_F19E2824" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

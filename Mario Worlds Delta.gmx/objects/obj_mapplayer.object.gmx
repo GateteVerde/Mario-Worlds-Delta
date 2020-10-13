@@ -508,7 +508,7 @@ if (status == 'IDLE')
                 global.player = 0;
         }
         
-        //If there's a panel and this panel is available
+        //If there's a panel and this panel is available        
         if (panel)
         &amp;&amp; (panel.beaten &lt; 2)
         &amp;&amp; (status == 'IDLE')
