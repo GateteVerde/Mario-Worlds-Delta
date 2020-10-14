@@ -5,10 +5,10 @@
   <visible>-1</visible>
   <depth>13</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_platform_ferris_platform</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,14 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Ferris platform
-
-parent = noone;
-index = 0;
-oldx = 0;
-oldy = 0;
-fakex = 0;
-fakey = 0;
+            <string>///DO NOT REMOVE!
 </string>
           </argument>
         </arguments>
@@ -55,19 +48,10 @@ fakey = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw chain
+            <string>///Draw chains
 
-if (instance_exists(parent)) {
-    
-    //Chain
-    var a;
-    a = 0;
-    repeat (parent.amount) {
-    
-        draw_sprite_ext(spr_ferris_chain, 0, xstart+8, ystart, parent.distance, 1, parent.angle+a, c_white, 1);
-        a += (360/parent.amount);
-    }
-}
+for (i=1; i&lt;(dist/16); i++)
+    draw_sprite_ext(spr_ferris_chain, 0, xstart+8+lengthdir_x(i*16, point_direction(xstart+8, ystart, x, y)), ystart-8+lengthdir_y(i*16, point_direction(xstart, ystart-8, x, y)), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>
