@@ -1050,6 +1050,7 @@
         <sprite>sprites\spr_ripvanfish</sprite>
         <sprite>sprites\spr_ripvanfish_awaken</sprite>
         <sprite>sprites\spr_ripvanfish_dead</sprite>
+        <sprite>sprites\spr_porchupuffer</sprite>
         <sprite>sprites\spr_urchin</sprite>
         <sprite>sprites\spr_urchin_dead</sprite>
         <sprite>sprites\spr_blooper</sprite>
@@ -1527,6 +1528,7 @@
             <sprite>sprites\spr_mugshot</sprite>
             <sprite>sprites\spr_mugshot_gatete</sprite>
             <sprite>sprites\spr_mugshot_glitchypsix</sprite>
+            <sprite>sprites\spr_mugshot_leanne</sprite>
             <sprite>sprites\spr_mugshot_sammu</sprite>
           </sprites>
           <sprites name="Cursors">
@@ -1632,6 +1634,7 @@
         <sprite>sprites\spr_talk</sprite>
         <sprite>sprites\spr_gatete</sprite>
         <sprite>sprites\spr_glitchypsix</sprite>
+        <sprite>sprites\spr_leanne</sprite>
         <sprite>sprites\spr_sammu</sprite>
       </sprites>
       <sprite>sprites\spr_mariostart</sprite>
@@ -2186,6 +2189,7 @@
         <object>objects\obj_cheepcheep_v</object>
         <object>objects\obj_blurp</object>
         <object>objects\obj_ripvanfish</object>
+        <object>objects\obj_porchupuffer</object>
         <object>objects\obj_urchin</object>
         <object>objects\obj_urchin_wall</object>
         <object>objects\obj_blooper</object>
@@ -2576,6 +2580,7 @@
           <object>objects\obj_enemy_multidead</object>
           <object>objects\obj_enemy_stomped</object>
           <object>objects\obj_enemy_score</object>
+          <object>objects\obj_enemy_tick</object>
           <objects name="Land">
             <objects name="Goombas">
               <object>objects\obj_galoomba_held</object>

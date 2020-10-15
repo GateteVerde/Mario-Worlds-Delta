@@ -67,7 +67,7 @@ fisher = false;
 fishing = false;
 
 //Create bait
-bait = instance_create(x,y,obj_lakitubait);
+bait = instance_create(x, y, obj_lakitubait);
 
 //Bait X
 baitx = 20;
@@ -118,10 +118,17 @@ canthrow = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy bait if killed
+            <string>///Generate a new lakitu and destroy bait if killed
 
-if (instance_exists(bait))
+//Destroy bait if it exists
+if (instance_exists(bait)) {
+
     with (bait) instance_destroy();
+}
+
+//Generate a new lakitu
+with (instance_create(0, ystart, obj_enemy_tick)) 
+    sprite_index = spr_lakitu;
 </string>
           </argument>
         </arguments>
