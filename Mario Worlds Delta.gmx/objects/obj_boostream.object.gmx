@@ -103,6 +103,7 @@ if (streamsize &gt; 0) {
         isparent = false;
         depth = other.depth + 1;
         image_xscale = other.image_xscale;
+        streamsize = other.streamsize;
         
     }
     
