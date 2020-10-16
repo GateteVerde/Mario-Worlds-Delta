@@ -1529,6 +1529,8 @@
             <sprite>sprites\spr_mugshot_gatete</sprite>
             <sprite>sprites\spr_mugshot_glitchypsix</sprite>
             <sprite>sprites\spr_mugshot_leanne</sprite>
+            <sprite>sprites\spr_mugshot_mors</sprite>
+            <sprite>sprites\spr_mugshot_nick</sprite>
             <sprite>sprites\spr_mugshot_sammu</sprite>
           </sprites>
           <sprites name="Cursors">
@@ -1635,6 +1637,8 @@
         <sprite>sprites\spr_gatete</sprite>
         <sprite>sprites\spr_glitchypsix</sprite>
         <sprite>sprites\spr_leanne</sprite>
+        <sprite>sprites\spr_mors</sprite>
+        <sprite>sprites\spr_nick</sprite>
         <sprite>sprites\spr_sammu</sprite>
       </sprites>
       <sprite>sprites\spr_mariostart</sprite>
@@ -2769,6 +2773,9 @@
       </rooms>
       <rooms name="Level 7">
         <room>rooms\rm_level_7a</room>
+        <rooms name="Secret Dev Room">
+          <room>rooms\rm_devtest</room>
+        </rooms>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

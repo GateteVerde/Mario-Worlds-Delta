@@ -1356,7 +1356,7 @@ if (overlap)
 &amp;&amp; (overlap.vulnerable &lt; 99) {
 
     //Make sure the variable is defined
-    if variable_instance_exists(overlap, enemyturn) {
+    if (variable_instance_exists(overlap, enemyturn)) {
 
         if (enemyturn)
         &amp;&amp; (overlap.enemyturn) {
@@ -1368,12 +1368,9 @@ if (overlap)
             
             //Otherwise, go left.
             else
-                hspeed = -abs(hspeed);
-            
-        }
-    
-    }
-    
+                hspeed = -abs(hspeed);            
+        }    
+    }    
 }
 
 //Collision with holdable enemies
@@ -1382,7 +1379,7 @@ if (overlap2)
 &amp;&amp; (overlap2.vulnerable &lt; 99) {
 
     //Make sure the variable is defined
-    if variable_instance_exists(overlap, enemyturn) {
+    if (variable_instance_exists(overlap, enemyturn)) {
 
         if (enemyturn)
         &amp;&amp; (overlap2.enemyturn) {
@@ -1394,12 +1391,9 @@ if (overlap2)
             
             //Otherwise, go left.
             else
-                hspeed = -abs(hspeed);
-                
-        }
-    
-    }
-    
+                hspeed = -abs(hspeed);                
+        }    
+    }    
 }
 </string>
           </argument>

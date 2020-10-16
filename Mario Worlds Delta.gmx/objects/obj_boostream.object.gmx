@@ -162,12 +162,17 @@ if (isparent) {
 
     //Set up initial movement
     if (hspeed = 0) {
-        if instance_exists(obj_playerparent) {
+    
+        vspeed = streamspeed;
+        if (instance_exists(obj_playerparent)) {
+        
             if (x &gt; obj_playerparent.x)
                 hspeed = -streamspeed;
-            else hspeed = streamspeed;
-        } else hspeed = streamspeed;
-        vspeed = streamspeed;
+            else 
+                hspeed = streamspeed;
+        } 
+        else
+            hspeed = streamspeed;
     }
 
     //Collision with walls
@@ -180,21 +185,24 @@ if (isparent) {
     if hspeed != 0 &amp;&amp; vspeed != 0 {
     
         if (r) {
+        
             hspeed = -streamspeed;
         }
         
         if (l) {
+        
             hspeed = streamspeed;
         }
         
         if (t) {
+        
             vspeed = streamspeed;
         }
         
         if (b || b2) {
-            vspeed = -streamspeed;
-        }
         
+            vspeed = -streamspeed;
+        }    
     }
     
     //Handle image flipping

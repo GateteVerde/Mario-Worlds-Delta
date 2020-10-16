@@ -53,8 +53,20 @@ event_inherited();
             <kind>1</kind>
             <string>///Green Slime Bubble logic
 
-//Inherit event from eerie
-event_perform_object(obj_eerie, ev_step, ev_step_normal);
+//Activate when close to view
+if (point_in_rectangle(x,y,view_xview[view_current]-32,view_yview[view_current]-64,view_xview[view_current]+view_wview[view_current]+32,view_yview[view_current]+view_hview[view_current])) &amp;&amp; (activated = false) {
+    
+    activated = true;
+    if (instance_exists(obj_playerparent)) {
+    
+        if (x &gt; obj_playerparent.x)
+            hspeed = -1;
+        else 
+            hspeed = 1;
+    } 
+    else 
+        hspeed = 1;
+}
 
 //Wave
 if (hspeed != 0) {
@@ -62,6 +74,11 @@ if (hspeed != 0) {
     y = ystart + sin((timer) * 0.0225) * 48;
     timer ++;
 }
+
+//Make destroyable when in view
+if (activated = 1) 
+&amp;&amp; (point_in_rectangle(x,y,view_xview[view_current]+32,view_yview[view_current],view_xview[view_current]+view_wview[view_current]-32,view_yview[view_current]+view_hview[view_current]))
+    activated = 2;
 
 //Destroy when outside the view
 if (activated == 2)

@@ -231,18 +231,18 @@ if (activated == true) {
             //Change direction if on far right
             dir = 1;
             
-        } else if (x &lt;= view_xview[view_current] + ((view_wview[view_current] / 2) - lurerange)) {
+        } 
+        else if (x &lt;= view_xview[view_current] + ((view_wview[view_current] / 2) - lurerange)) {
         
             //Change direction if on far left
-            dir = -1;
-            
+            dir = -1;            
         }
         
         //Face the player
         if (x &gt; obj_playerparent.x)
             xscale = -1;
-        else xscale = 1;
-    
+        else 
+            xscale = 1;    
     }
     
     //Manage hspeed
@@ -254,12 +254,11 @@ if (activated == true) {
     
     if (dir == 1) {
 
-        hspeed -= accel;
-    
-    } else {
+        hspeed -= accel;    
+    } 
+    else {
 
-        hspeed += accel;
-    
+        hspeed += accel;    
     }
     
     //Keep the Lakitu from going too fast
@@ -321,7 +320,9 @@ if (activated == true) {
             //If a Lakitu, change sprite back - otherwise, get out
             if (type == 0)
                 sprite_index = spr_lakitu;
+
             else {
+            
                 instance_destroy();
                 exit;
             }
@@ -357,8 +358,7 @@ if (x &lt; view_xview[view_current] + ((view_wview[view_current]) + 64)) &amp;&a
         if fisher = true
             fishing = true;
         else if (canthrow == false)
-            canthrow = true;
-        
+            canthrow = true;        
     }    
 }
 
@@ -457,15 +457,14 @@ if (type == 1)
 draw_sprite_ext(spr_lakitu_cloud_front, type, round(x), round(y) + 10, 1, 1, 0, c_white, 1);
 
 //Rod
-if fishing = true {
+if (fishing == true) {
     
     //Draw lakitu reel
     draw_sprite_ext(spr_lakitu_reel, type, round(x)-baitx, round(y)-baity, 1, 1, 0, c_white, 1);
     
     //Draw bait to avoid lag
     if instance_exists(bait)
-        draw_sprite(bait.sprite_index,bait.image_index,x-baitx,y+baitlength);
-        
+        draw_sprite(bait.sprite_index,bait.image_index,x-baitx,y+baitlength);        
 }
 </string>
           </argument>
