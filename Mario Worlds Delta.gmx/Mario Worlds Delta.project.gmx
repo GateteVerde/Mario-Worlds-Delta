@@ -786,6 +786,9 @@
         <sprite>sprites\spr_platform_seesaw_64</sprite>
         <sprite>sprites\spr_platform_seesaw_80</sprite>
         <sprite>sprites\spr_platform_seesaw_96</sprite>
+        <sprite>sprites\spr_platform_island_48</sprite>
+        <sprite>sprites\spr_platform_island_64</sprite>
+        <sprite>sprites\spr_platform_island_80</sprite>
         <sprite>sprites\spr_platform_ferris_32</sprite>
         <sprite>sprites\spr_platform_ferris_48</sprite>
         <sprite>sprites\spr_platform_ferris_64</sprite>
@@ -814,6 +817,8 @@
       <sprite>sprites\spr_gswitch_press</sprite>
       <sprite>sprites\spr_trampoline</sprite>
       <sprite>sprites\spr_trampoline_end</sprite>
+      <sprite>sprites\spr_trampoline_timed</sprite>
+      <sprite>sprites\spr_trampoline_timed_end</sprite>
       <sprite>sprites\spr_powblock_blue</sprite>
       <sprite>sprites\spr_powblock_blue_th</sprite>
       <sprite>sprites\spr_onoffblock_on</sprite>
@@ -986,6 +991,7 @@
         </sprites>
         <sprite>sprites\spr_rex</sprite>
         <sprite>sprites\spr_rex_dead</sprite>
+        <sprite>sprites\spr_rex_stomp</sprite>
         <sprite>sprites\spr_rex2</sprite>
         <sprite>sprites\spr_rex2_sq</sprite>
         <sprite>sprites\spr_rex2_dead</sprite>
@@ -2044,6 +2050,7 @@
         <object>objects\obj_platform_falling</object>
         <object>objects\obj_platform_pulley</object>
         <object>objects\obj_platform_seesaw</object>
+        <object>objects\obj_platform_island</object>
         <object>objects\obj_platform_ferris</object>
         <object>objects\obj_platform_yoshi</object>
         <object>objects\obj_platform_track</object>
@@ -2065,6 +2072,7 @@
       <object>objects\obj_pswitch</object>
       <object>objects\obj_gswitch</object>
       <object>objects\obj_trampoline</object>
+      <object>objects\obj_trampoline_timed</object>
       <object>objects\obj_powblock_blue</object>
       <object>objects\obj_pblock_on</object>
       <object>objects\obj_pblock_off</object>
