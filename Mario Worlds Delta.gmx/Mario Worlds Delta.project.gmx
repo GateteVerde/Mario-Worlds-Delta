@@ -291,6 +291,7 @@
       <sound>sound\bgm_starman</sound>
     </sounds>
     <sound>sound\snd_1up</sound>
+    <sound>sound\snd_beam</sound>
     <sound>sound\snd_beep</sound>
     <sound>sound\snd_blargg</sound>
     <sound>sound\snd_blastakoopa_fire</sound>
@@ -304,6 +305,7 @@
     <sound>sound\snd_capecancel</sound>
     <sound>sound\snd_capefly</sound>
     <sound>sound\snd_charge</sound>
+    <sound>sound\snd_chuck_whistle</sound>
     <sound>sound\snd_clack</sound>
     <sound>sound\snd_coin</sound>
     <sound>sound\snd_coin_big</sound>
@@ -883,6 +885,10 @@
           <sprite>sprites\spr_galoomba_wing_back</sprite>
           <sprite>sprites\spr_galoomba_parachute</sprite>
           <sprite>sprites\spr_galoomba_parachute_land</sprite>
+          <sprite>sprites\spr_galoomba_red</sprite>
+          <sprite>sprites\spr_galoomba_red_sleep</sprite>
+          <sprite>sprites\spr_galoomba_red_down</sprite>
+          <sprite>sprites\spr_galoomba_red_dead</sprite>
           <sprite>sprites\spr_goombud</sprite>
           <sprite>sprites\spr_goombud_down</sprite>
           <sprite>sprites\spr_goombud_dead</sprite>
@@ -983,18 +989,28 @@
           <sprite>sprites\spr_afhb</sprite>
           <sprite>sprites\spr_afhb_platform</sprite>
         </sprites>
+        <sprites name="Rexes">
+          <sprites name="Red">
+            <sprite>sprites\spr_rex_red</sprite>
+            <sprite>sprites\spr_rex_red_stomp</sprite>
+            <sprite>sprites\spr_rex_red_dead</sprite>
+            <sprite>sprites\spr_rex2_red</sprite>
+            <sprite>sprites\spr_rex2_red_sq</sprite>
+            <sprite>sprites\spr_rex2_red_dead</sprite>
+          </sprites>
+          <sprite>sprites\spr_rex</sprite>
+          <sprite>sprites\spr_rex_stomp</sprite>
+          <sprite>sprites\spr_rex_dead</sprite>
+          <sprite>sprites\spr_rex2</sprite>
+          <sprite>sprites\spr_rex2_sq</sprite>
+          <sprite>sprites\spr_rex2_dead</sprite>
+        </sprites>
         <sprites name="Chucks">
           <sprite>sprites\spr_charginchuck</sprite>
           <sprite>sprites\spr_charginchuck_walk</sprite>
           <sprite>sprites\spr_charginchuck_jump</sprite>
           <sprite>sprites\spr_charginchuck_damage</sprite>
         </sprites>
-        <sprite>sprites\spr_rex</sprite>
-        <sprite>sprites\spr_rex_dead</sprite>
-        <sprite>sprites\spr_rex_stomp</sprite>
-        <sprite>sprites\spr_rex2</sprite>
-        <sprite>sprites\spr_rex2_sq</sprite>
-        <sprite>sprites\spr_rex2_dead</sprite>
         <sprite>sprites\spr_dinotorch</sprite>
         <sprite>sprites\spr_dinotorch_blow</sprite>
         <sprite>sprites\spr_dinotorch_dead</sprite>
@@ -1061,6 +1077,10 @@
         <sprite>sprites\spr_urchin_dead</sprite>
         <sprite>sprites\spr_blooper</sprite>
         <sprite>sprites\spr_blooper_dead</sprite>
+        <sprite>sprites\spr_huckitcrab</sprite>
+        <sprite>sprites\spr_huckitcrab_throw</sprite>
+        <sprite>sprites\spr_huckitcrab_dead</sprite>
+        <sprite>sprites\spr_huckitcrab_rock</sprite>
       </sprites>
       <sprites name="Forest / Desert">
         <sprite>sprites\spr_montymole</sprite>
@@ -1127,6 +1147,11 @@
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
         <sprite>sprites\spr_thwomp_big</sprite>
+        <sprite>sprites\spr_magikoopa</sprite>
+        <sprite>sprites\spr_magikoopa_alt</sprite>
+        <sprite>sprites\spr_magikoopa_dead</sprite>
+        <sprite>sprites\spr_magikoopa_magic</sprite>
+        <sprite>sprites\spr_magikoopa_magic_mask</sprite>
         <sprite>sprites\spr_ninji</sprite>
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprites name="Mechakoopas">
@@ -1532,12 +1557,15 @@
         <sprites name="Dialogues">
           <sprites name="Mugshots">
             <sprite>sprites\spr_mugshot</sprite>
+            <sprite>sprites\spr_mugshot_electro</sprite>
             <sprite>sprites\spr_mugshot_gatete</sprite>
             <sprite>sprites\spr_mugshot_glitchypsix</sprite>
+            <sprite>sprites\spr_mugshot_hypernova</sprite>
             <sprite>sprites\spr_mugshot_leanne</sprite>
             <sprite>sprites\spr_mugshot_mors</sprite>
             <sprite>sprites\spr_mugshot_nick</sprite>
             <sprite>sprites\spr_mugshot_sammu</sprite>
+            <sprite>sprites\spr_mugshot_zircon</sprite>
           </sprites>
           <sprites name="Cursors">
             <sprite>sprites\spr_cursor</sprite>
@@ -1640,12 +1668,15 @@
       </sprites>
       <sprites name="Cameos">
         <sprite>sprites\spr_talk</sprite>
+        <sprite>sprites\spr_electro</sprite>
         <sprite>sprites\spr_gatete</sprite>
         <sprite>sprites\spr_glitchypsix</sprite>
+        <sprite>sprites\spr_hypernova</sprite>
         <sprite>sprites\spr_leanne</sprite>
         <sprite>sprites\spr_mors</sprite>
         <sprite>sprites\spr_nick</sprite>
         <sprite>sprites\spr_sammu</sprite>
+        <sprite>sprites\spr_zircon</sprite>
       </sprites>
       <sprite>sprites\spr_mariostart</sprite>
       <sprite>sprites\spr_gameover</sprite>
@@ -2113,6 +2144,7 @@
           <object>objects\obj_galoomba</object>
           <object>objects\obj_galoomba_parachute</object>
           <object>objects\obj_paragaloomba</object>
+          <object>objects\obj_galoomba_red</object>
           <object>objects\obj_goombud</object>
         </objects>
         <objects name="Koopas">
@@ -2161,11 +2193,14 @@
           <object>objects\obj_firebro</object>
           <object>objects\obj_afhb</object>
         </objects>
+        <objects name="Rex">
+          <object>objects\obj_rex</object>
+          <object>objects\obj_rex_red</object>
+        </objects>
         <objects name="Chucks">
           <object>objects\obj_charginchuck</object>
           <object>objects\obj_clappinchuck</object>
         </objects>
-        <object>objects\obj_rex</object>
         <object>objects\obj_dinotorch</object>
         <object>objects\obj_dinorhino</object>
         <object>objects\obj_spike</object>
@@ -2205,6 +2240,7 @@
         <object>objects\obj_urchin</object>
         <object>objects\obj_urchin_wall</object>
         <object>objects\obj_blooper</object>
+        <object>objects\obj_huckitcrab</object>
       </objects>
       <objects name="Forest / Desert">
         <object>objects\obj_lakitu</object>
@@ -2226,6 +2262,11 @@
           <object>objects\obj_drybones_throw</object>
           <object>objects\obj_bonybeetle</object>
         </objects>
+        <objects name="Mechakoopa">
+          <object>objects\obj_mechakoopa</object>
+          <object>objects\obj_blastakoopa</object>
+          <object>objects\obj_zappakoopa</object>
+        </objects>
         <object>objects\obj_podoboo</object>
         <object>objects\obj_podoboo_diagonal</object>
         <object>objects\obj_thwimp</object>
@@ -2233,12 +2274,8 @@
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
         <object>objects\obj_thwomp_mega</object>
+        <object>objects\obj_magikoopa</object>
         <object>objects\obj_ninji</object>
-        <objects name="Mechakoopa">
-          <object>objects\obj_mechakoopa</object>
-          <object>objects\obj_blastakoopa</object>
-          <object>objects\obj_zappakoopa</object>
-        </objects>
       </objects>
       <objects name="Ghost">
         <object>objects\obj_boo</object>
@@ -2617,6 +2654,9 @@
             <object>objects\obj_blargg_jump</object>
             <object>objects\obj_busterpickup</object>
           </objects>
+          <objects name="Underwater">
+            <object>objects\obj_huckitcrab_rock</object>
+          </objects>
           <objects name="Forest / Desert">
             <object>objects\obj_lakitubait</object>
             <object>objects\obj_monty_jump</object>
@@ -2642,6 +2682,7 @@
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>
             </objects>
+            <object>objects\obj_magic</object>
           </objects>
           <objects name="Ghost">
             <object>objects\obj_ringboo</object>
@@ -2815,7 +2856,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9 - r299"</constant>
+    <constant name="cs_version">"v0.9.1 - r307"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>

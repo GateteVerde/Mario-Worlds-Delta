@@ -127,6 +127,9 @@ alarm[0] = 30;
 //If 'Action 4' is pressed
 if (input_check_pressed(input.start)) {
 
+    //Play 'Correct' sound
+    audio_stop_play_sound(snd_correct, 0, false);    
+    
     //Stop the stream...
     audio_stop_sound(global.stream);
     
@@ -134,8 +137,11 @@ if (input_check_pressed(input.start)) {
     audio_destroy_stream(global.stream);
     global.stream = noone;
     
-    //Play 'Correct' sound
-    audio_stop_play_sound(snd_correct, 0, false);
+    //Disable pixelation
+    with (obj_controller) {
+    
+        pixelate = 60;
+    }
 
     //Go to the engine test
     room_goto(rm_worldmap);

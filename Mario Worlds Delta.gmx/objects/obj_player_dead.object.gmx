@@ -118,6 +118,13 @@ alarm[2] = 202;
             <kind>1</kind>
             <string>///Go to the level start screen
 
+//Disable pixelation
+with (obj_controller) {
+
+    pixelate = 60;
+}
+
+//Return to map
 wmap_return();
 </string>
           </argument>

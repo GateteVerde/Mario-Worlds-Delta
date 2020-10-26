@@ -1356,20 +1356,16 @@ if (overlap)
 &amp;&amp; (overlap.vulnerable &lt; 99) {
 
     //Make sure the variable is defined
-    if (variable_instance_exists(overlap, enemyturn)) {
+    if (enemyturn == true) {
 
-        if (enemyturn)
-        &amp;&amp; (overlap.enemyturn) {
-    
-            //Go right if the object is further to the right or in the same spot and a higher id.
-            if ((bbox_left+bbox_right)*0.5 &gt; (overlap.bbox_left+overlap.bbox_right)*0.5)
-            || (((bbox_left+bbox_right)*0.5 = (overlap.bbox_left+overlap.bbox_right)*0.5) &amp;&amp; (id &gt; overlap.id))
-                hspeed = abs(hspeed);
-            
-            //Otherwise, go left.
-            else
-                hspeed = -abs(hspeed);            
-        }    
+        //Go right if the object is further to the right or in the same spot and a higher id.
+        if ((bbox_left+bbox_right)*0.5 &gt; (overlap.bbox_left+overlap.bbox_right)*0.5)
+        || (((bbox_left+bbox_right)*0.5 = (overlap.bbox_left+overlap.bbox_right)*0.5) &amp;&amp; (id &gt; overlap.id))
+            hspeed = abs(hspeed);
+        
+        //Otherwise, go left.
+        else
+            hspeed = -abs(hspeed);            
     }    
 }
 
@@ -1379,20 +1375,16 @@ if (overlap2)
 &amp;&amp; (overlap2.vulnerable &lt; 99) {
 
     //Make sure the variable is defined
-    if (variable_instance_exists(overlap, enemyturn)) {
+    if (enemyturn == true) {
 
-        if (enemyturn)
-        &amp;&amp; (overlap2.enemyturn) {
-    
-            //Go right if the object is further to the right or in the same spot and a higher id.
-            if ((bbox_left+bbox_right)*0.5 &gt; (overlap2.bbox_left+overlap2.bbox_right)*0.5)
-            || ((bbox_left+bbox_right)*0.5 = (overlap2.bbox_left+overlap2.bbox_right)*0.5) //&amp;&amp; (id &gt; overlap2.id))
-                hspeed = abs(hspeed);
-            
-            //Otherwise, go left.
-            else
-                hspeed = -abs(hspeed);                
-        }    
+        //Go right if the object is further to the right or in the same spot and a higher id.
+        if ((bbox_left+bbox_right)*0.5 &gt; (overlap2.bbox_left+overlap2.bbox_right)*0.5)
+        || (((bbox_left+bbox_right)*0.5 = (overlap2.bbox_left+overlap2.bbox_right)*0.5) &amp;&amp; (id &gt; overlap2.id))
+            hspeed = abs(hspeed);
+        
+        //Otherwise, go left.
+        else
+            hspeed = -abs(hspeed);                
     }    
 }
 </string>

@@ -100,6 +100,18 @@ else {
             } 
         } break;
         
+        //Red Galoomba
+        case (spr_galoomba_red_down): {
+        
+            with (instance_create(x, y, obj_galoomba_red)) {
+            
+                sprite_index = spr_galoomba_red;
+                vspeed = -3;
+                charge = 1;
+                image_speed = 0.2;
+            }         
+        } break;
+        
         //Goombud
         case (spr_goombud_down): {
         
@@ -387,6 +399,10 @@ else {
 //Galoomba
 if (sprite_index == spr_galoomba_down)
     deathsprite = spr_galoomba_dead;
+    
+//Red Galoomba
+else if (sprite_index == spr_galoomba_red_down)
+    deathsprite = spr_galoomba_red_dead;
     
 //Goombud
 else if (sprite_index == spr_goombud_down)

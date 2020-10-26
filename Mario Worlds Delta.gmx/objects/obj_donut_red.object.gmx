@@ -33,9 +33,6 @@ shake = 0;
 //Offset
 offset = 0;
 alarm[1] = 1;
-
-//Set up alarm
-alarm[0] = 7;
 </string>
           </argument>
         </arguments>
@@ -69,22 +66,14 @@ if (vspeed == 0) {
         //If the player is above and it's not overlapping a semisolid, resume timer
         if (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top, obj_playerparent, 0, 0))
         &amp;&amp; (obj_playerparent.bbox_bottom &lt; yprevious+5)
-        &amp;&amp; (obj_playerparent.state != statetype.jump)    
-            shake = 1;
-    
-        //Otherwise, wait to shake.
-        else {
+        &amp;&amp; (obj_playerparent.state != statetype.jump) {
         
-            shake = 0;
-            alarm[0] = 7;
+            if (shake == 0) {
+                
+                shake = 1;
+                alarm[0] = 14;
+            }
         }
-    }
-    
-    //Otherwise, stop shaking
-    else {
-    
-        shake = 0;
-        alarm[0] = 7;
     }
 }
 
@@ -102,9 +91,12 @@ else {
         //Check if falling through a semisolid
         var check = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
         
+        //Check if falling through a semisolid
+        var check2 = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
+        
         //If not falling through, or falling througn a lower donut, snap the player vertically
         if (!check)
-        || ((check.object_index == obj_solid || check.object_index == obj_donut || check.object_index == obj_donut_triple || check.object_index == obj_donut_red || check.object_index == obj_donut_red_triple || check.object_index == obj_icicle) &amp;&amp; (check.y &gt; y || (check.y == y &amp;&amp; check &gt; id)))
+        &amp;&amp; (!check2)
             obj_playerparent.y = ceil(bbox_top-16);
     }
 }

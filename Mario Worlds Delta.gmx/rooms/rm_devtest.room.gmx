@@ -93,7 +93,7 @@
     <instance objName="obj_beepblock_blue" x="912" y="496" name="inst_AA2EEE08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_blue" x="928" y="496" name="inst_FAA64C1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beepblock_blue" x="80" y="496" name="inst_8FA58ACE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_npc" x="312" y="592" name="inst_C9891510" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;These blocks here will always give fire flowers, no matter which powerup you have.&quot;;&#xA;mugshot = spr_mugshot_leanne;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="312" y="592" name="inst_C9891510" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;These blocks here will always give fire flowers, no matter which powerup you have.&quot;;&#xA;mugshot = spr_mugshot_leanne;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="712" y="592" name="inst_20758235" locked="0" code="sprite_index = spr_nick;&#xA;varmsg = &quot;These blocks here will always give cape feathers, no matter which powerup you have.&quot;;&#xA;mugshot = spr_mugshot_nick;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_platform" x="480" y="448" name="inst_3C778744" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_up" x="480" y="448" name="inst_4132B62E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -101,23 +101,87 @@
     <instance objName="obj_qblock" x="32" y="576" name="inst_7EB6499D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_4DDF98A9" locked="0" code="bg_frame[0] = bgr_nightsky_b;&#xA;bg_frame[1] = bgr_nightsky_c;&#xA;bg_frame[2] = bgr_nightsky_b;&#xA;bg_frame[3] = bgr_nightsky;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rainmaker" x="32" y="-16" name="inst_400795BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_npc" x="872" y="656" name="inst_D25FC913" locked="0" code="sprite_index = spr_mors;&#xA;varmsg = &quot;Why is that walrus down there?&quot;;&#xA;mugshot = spr_mugshot_mors;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="872" y="656" name="inst_D25FC913" locked="0" code="sprite_index = spr_mors;&#xA;varmsg = &quot;What are those walruses doing down there?&quot;;&#xA;mugshot = spr_mugshot_mors;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="992" y="640" name="inst_76FC6AFE" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="912" y="672" name="inst_E47854CF" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="928" y="736" name="inst_510CAC77" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_walrus" x="968" y="720" name="inst_5E87AA4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_walrus" x="984" y="720" name="inst_5E87AA4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="928" y="672" name="inst_B23B7178" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="944" y="672" name="inst_E86A780E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="960" y="672" name="inst_1301A801" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="976" y="672" name="inst_A32B6EC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rex" x="120" y="640" name="inst_E77757B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rex" x="168" y="656" name="inst_B55C1E09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rex" x="216" y="656" name="inst_04915D87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rex" x="808" y="656" name="inst_F5FE0D01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rex" x="856" y="656" name="inst_81CC9EE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rex" x="904" y="656" name="inst_63451258" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trampoline_timed" x="248" y="592" name="inst_EA6F6A9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trampoline_timed" x="776" y="592" name="inst_63D32784" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="1000" y="624" name="inst_A60D2DEF" locked="0" code="sprite_index = spr_zircon;&#xA;varmsg = &quot;Those walruses are mine now!&quot;;&#xA;mugshot = spr_mugshot_zircon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grayrus" x="936" y="720" name="inst_EE79DF21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_semisolid" x="1008" y="640" name="inst_710E4811" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="184" y="656" name="inst_A7D9CD07" locked="0" code="sprite_index = spr_electro;&#xA;varmsg = &quot;Hmmm, I'm not the biggest fan of this cold place, but hey at least I'm near some cool people.&quot;;&#xA;mugshot = spr_mugshot_electro;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="400" y="336" name="inst_1E0E20AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="384" y="336" name="inst_479B7BA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="368" y="336" name="inst_059D8893" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="352" y="336" name="inst_0BC452F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="336" y="336" name="inst_54CA5C34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="320" y="336" name="inst_F4E7A719" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="304" y="336" name="inst_49ED9118" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="288" y="336" name="inst_96BC957C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="608" y="336" name="inst_21882F7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="624" y="336" name="inst_6476E930" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="640" y="336" name="inst_52E07305" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="656" y="336" name="inst_20FB8B8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="672" y="336" name="inst_54A684AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="688" y="336" name="inst_89591DA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="704" y="336" name="inst_A6FC3E51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="720" y="336" name="inst_32BF6202" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="336" y="272" name="inst_D3976EE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="320" y="272" name="inst_096780C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="304" y="272" name="inst_657FB36A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="288" y="272" name="inst_68EFE602" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="720" y="272" name="inst_BED11954" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="704" y="272" name="inst_BD129A6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="688" y="272" name="inst_B40C8B2F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="672" y="272" name="inst_708F604E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="720" y="288" name="inst_6E0CEB4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="720" y="304" name="inst_4CB57223" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="720" y="320" name="inst_CE532AAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="288" y="288" name="inst_A332C93D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="288" y="304" name="inst_DC6B6DA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock" x="288" y="320" name="inst_06C43949" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="96" y="448" name="inst_7EB235C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="304" y="320" name="inst_A8416FAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="704" y="320" name="inst_5EC275E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_ace" x="912" y="448" name="inst_A912EC1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="336" y="288" name="inst_2580484E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="336" y="304" name="inst_A4DEB56C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="336" y="320" name="inst_05319D85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="672" y="288" name="inst_4185A404" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="672" y="304" name="inst_83748657" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iceblock_coin" x="672" y="320" name="inst_789E5C52" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="288" y="256" name="inst_F0EAC74A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="304" y="256" name="inst_EAC06EDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="320" y="256" name="inst_14FA80B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="304" y="240" name="inst_3F4A9578" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="720" y="256" name="inst_F507B9A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="688" y="256" name="inst_B30A3ADE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="704" y="256" name="inst_9BA081A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="704" y="240" name="inst_7D4584EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="768" y="592" name="inst_CF9B8D0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="768" y="576" name="inst_86BBC3EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="752" y="592" name="inst_C456B61F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="240" y="576" name="inst_05D7E9B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="240" y="592" name="inst_EC7C878F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin_5" x="256" y="592" name="inst_A1ED639C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_triple" x="384" y="224" name="inst_95EB2D5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_triple" x="592" y="224" name="inst_38BC240E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_triple" x="432" y="176" name="inst_49774E23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_triple" x="544" y="176" name="inst_CFB0C0E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_red_triple" x="352" y="160" name="inst_2B1435FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_donut_red_triple" x="624" y="160" name="inst_5AFA200E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_huckitcrab" x="344" y="592" name="inst_A2F71904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_huckitcrab" x="680" y="592" name="inst_AC942504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_huckitcrab" x="632" y="704" name="inst_B8779B7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_huckitcrab" x="392" y="704" name="inst_D12CB6BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_npc" x="392" y="320" name="inst_86D463D9" locked="0" code="sprite_index = spr_hypernova;&#xA;varmsg = &quot;What am I doing up here?&quot;;&#xA;mugshot = spr_mugshot_hypernova;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_clouds" x="240" y="592" w="16" h="16" xo="32" yo="0" id="10042980" name="inst_D5D58D20" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

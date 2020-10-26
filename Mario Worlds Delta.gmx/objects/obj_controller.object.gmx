@@ -320,6 +320,13 @@ event_user(1);
             <kind>1</kind>
             <string>///Return to title
 
+//Disable pixel
+with (obj_controller) {
+
+    pixelate = 60;
+}
+
+//Go to title
 room_goto(rm_title);
 </string>
           </argument>
@@ -468,6 +475,9 @@ update_shockwave();
 
 //Increment frames
 frame += 0.5;
+
+//Decrement pixelation
+pixelate--;
 
 //Prevent lives from going over 999
 if (lives &gt; 99)
@@ -1212,7 +1222,8 @@ shader_set_uniform_f(uni_shock_width, var_shock_width);
 
 //If the screen is fading
 if (fade &lt; 1) 
-&amp;&amp; (size &gt; 0.75) {
+&amp;&amp; (size &gt; 0.75) 
+&amp;&amp; (pixelate &lt;= 0) {
     
     shader_set(shd_pixel);
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);

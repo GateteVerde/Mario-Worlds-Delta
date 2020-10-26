@@ -128,8 +128,14 @@ y = round(obj_player_clear.y);
 scale += -3.125;
 if (scale &lt; 0) {
 
-    if (global.bonusgame == 0)
+    if (global.bonusgame == 0) {
+    
+        with (obj_controller) {
+        
+            pixelate = 60;
+        }
         wmap_return();
+    }
     else {
     
         //Enable bonus game
