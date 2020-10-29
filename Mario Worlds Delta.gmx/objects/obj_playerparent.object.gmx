@@ -641,7 +641,7 @@ invulnerable = false;
 slope = player_inslope();
 
 //If moving down
-if (vspeed &gt;= 0) {
+if (vspeed &gt;= -0.85) {
 
     //Manage position in a slope
     if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent, 1, 0)) {
@@ -703,9 +703,6 @@ if (flying &gt; 0)
 
 //If gravity is enabled
 if (gravity_enable == true) {
-
-    //If there's a ghost ground below, make player ignore floor
-    //while (collision_point(x, bbox_bottom, obj_ghostfloor, 1, 0)) y += 0.05;
     
     //If moving down
     if (vspeed &gt;= 0) {
@@ -755,7 +752,8 @@ if (gravity_enable == true) {
     &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent, 1, 0)) {
         
         //If moving down
-        if (vspeed &gt;= 0) {
+        if (vspeed &gt;= 0) 
+        &amp;&amp; ((direction &gt;= 180) &amp;&amp; (direction &lt;= 360)) {
         
             //Stop vertical movement
             vspeed = 0;

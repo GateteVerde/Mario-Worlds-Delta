@@ -160,10 +160,12 @@ else {
 
         //Check if falling through a semisolid
         var check = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid, 0, 1);
+        var check2 = collision_rectangle(obj_playerparent.bbox_left, bbox_top-5, obj_playerparent.bbox_right, bbox_top+1, obj_semisolid_moving, 0, 1);
         
         //If not falling through, or falling througn a lower donut, snap the player vertically
-        if (!check)
-        || ((check.object_index == obj_solid || check.object_index == obj_donut || check.object_index == obj_donut_triple || check.object_index == obj_donut_red || check.object_index == obj_donut_red_triple || check.object_index == obj_icicle) &amp;&amp; (check.y &gt; y || (check.y == y &amp;&amp; check &gt; id)))
+        if (!check) 
+        &amp;&amp; (!check2) 
+        || (((check2.object_index = obj_donut) || (check2.object_index = obj_donut_red) || (check2.object_index = obj_icicle)) &amp;&amp; ((check2.y &gt; y) || ((check2.y = y) &amp;&amp; (check2 &gt; id))))
             obj_playerparent.y = ceil(bbox_top-16);
     }
 }

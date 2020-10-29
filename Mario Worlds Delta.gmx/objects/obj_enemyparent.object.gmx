@@ -650,7 +650,7 @@ if (vulnerable == 0)
         if (other.swimming == 0)
             vspeed = -4;
         else
-            vspeed = -1;
+            vspeed = -2;
         
         
         //Apply gravity to the coin

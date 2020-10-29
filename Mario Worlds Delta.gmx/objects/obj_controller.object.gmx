@@ -440,7 +440,7 @@ if (!instance_exists(obj_mariostart)) {
     fade = 0;
 
     //Activate everything
-    instance_activate_all()
+    instance_activate_all();
 }
 
 //Delete the screenshot

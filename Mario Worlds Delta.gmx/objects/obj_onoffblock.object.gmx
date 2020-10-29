@@ -40,7 +40,7 @@ if (global.onoff_block == 1) {
 }
 
 //Create a light if the controller exists
-light = instance_create(x+8, y, obj_light_static);
+light = instance_create(x+8, y+16, obj_light_static);
 
 //Grade
 grade = 1;

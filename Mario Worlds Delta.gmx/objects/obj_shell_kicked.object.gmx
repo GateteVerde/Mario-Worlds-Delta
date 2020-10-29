@@ -267,10 +267,10 @@ if ((fall == 0) &amp;&amp; (vspeed == 0)) {
     if (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
     
         //If there's not a semisolid below
-        if (!collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, obj_semisolid, 1, 0)) {
+        if (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+1, obj_semisolid, 1, 0)) {
         
-            move_snap(4, 2);
-            y += 3;
+            move_snap(8, 16);
+            y += 4;
             fall = 1;
         }
     }

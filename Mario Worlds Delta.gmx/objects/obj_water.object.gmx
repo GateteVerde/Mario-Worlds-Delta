@@ -28,17 +28,17 @@
             <string>///Water
 
 //Animate
-anim = 0;
+anim = 1;
 
 //Set depth
 depth = -7;
 
 //Create a water surface
-water = instance_create(x, y+4, obj_swim);
+water = instance_create(x, y+8, obj_swim);
 with (water) {
 
     image_xscale = other.image_xscale;
-    image_yscale = other.image_yscale;
+    image_yscale = other.image_yscale-0.5;
 }
 </string>
           </argument>
@@ -65,6 +65,8 @@ with (water) {
             <string>///Update water animation
 
 anim += 0.15;
+if (anim &gt; 4.99)
+    anim = 1;
 </string>
           </argument>
         </arguments>
@@ -90,10 +92,10 @@ anim += 0.15;
             <string>///Draw the water
 
 //Draw water
-draw_sprite_tiled_area_ext(spr_tides, anim, x, y, x, y, x+sprite_width-1, y+15, c_white, 1);
+draw_sprite_tiled_area_ext(sprite_index, anim, x, y, x, y, x+sprite_width-1, y+15, c_white, 1);
 if (sprite_height &gt; 16) {
 
-    draw_sprite_tiled_area_ext(sprite_index, 0, x, y+16, x, y+16, x+sprite_width-1, y+sprite_height, c_white, 1);
+    draw_sprite_tiled_area_ext(sprite_index, 0, x, y+16, x, y+16, x+sprite_width-1, y+sprite_height-1, c_white, 1);
 }
 </string>
           </argument>

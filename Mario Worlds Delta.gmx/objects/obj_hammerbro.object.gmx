@@ -205,7 +205,7 @@ audio_stop_play_sound(snd_hammer, 0, false);
 if (!instance_exists(obj_playerparent))
 || (obj_playerparent.x &lt; x) {
 
-    with (instance_create(x+2, y-2, obj_hammerbro_hammer)) {
+    with (instance_create(x+2, y-8, obj_hammerbro_hammer)) {
     
         hspeed = -1;
         image_xscale = -1;
@@ -213,7 +213,7 @@ if (!instance_exists(obj_playerparent))
 }
 else {
 
-    with (instance_create(x-2, y-2, obj_hammerbro_hammer)) {
+    with (instance_create(x-2, y-8, obj_hammerbro_hammer)) {
     
         hspeed = 1;
         image_xscale = 1;

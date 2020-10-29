@@ -660,6 +660,10 @@
       <sprite>sprites\spr_powblock_th</sprite>
       <sprite>sprites\spr_lightblock</sprite>
       <sprite>sprites\spr_lightblock_disco</sprite>
+      <sprite>sprites\spr_onoffblock_on</sprite>
+      <sprite>sprites\spr_onoffblock_off</sprite>
+      <sprite>sprites\spr_onoffplatform_red</sprite>
+      <sprite>sprites\spr_onoffplatform_blue</sprite>
       <sprite>sprites\spr_starblock</sprite>
     </sprites>
     <sprites name="Items">
@@ -709,6 +713,132 @@
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
       </sprites>
+      <sprites name="Gizmos">
+        <sprites name="Obstacles">
+          <sprites name="Skewers">
+            <sprites name="Bases">
+              <sprite>sprites\spr_skewerbase</sprite>
+              <sprite>sprites\spr_skewerbase_side</sprite>
+            </sprites>
+            <sprite>sprites\spr_skewer</sprite>
+            <sprite>sprites\spr_skewer_down</sprite>
+            <sprite>sprites\spr_skewer_left</sprite>
+            <sprite>sprites\spr_skewer_right</sprite>
+          </sprites>
+          <sprite>sprites\spr_firebar</sprite>
+          <sprite>sprites\spr_rotodisc</sprite>
+          <sprite>sprites\spr_ballnchain</sprite>
+        </sprites>
+        <sprites name="Platforms">
+          <sprites name="Platform Parts">
+            <sprites name="Engine">
+              <sprite>sprites\spr_engine_saw</sprite>
+              <sprite>sprites\spr_engine_rope</sprite>
+              <sprite>sprites\spr_engine_platform_48</sprite>
+              <sprite>sprites\spr_engine_platform_64</sprite>
+              <sprite>sprites\spr_engine_platform_80</sprite>
+              <sprite>sprites\spr_engine_grinder</sprite>
+            </sprites>
+            <sprite>sprites\spr_pulley_rope</sprite>
+            <sprite>sprites\spr_ferris</sprite>
+            <sprite>sprites\spr_ferris_chain</sprite>
+          </sprites>
+          <sprites name="Platform Path">
+            <sprite>sprites\spr_path_limit</sprite>
+          </sprites>
+          <sprites name="Belts">
+            <sprite>sprites\spr_conveyor</sprite>
+            <sprite>sprites\spr_conveyor_light</sprite>
+            <sprite>sprites\spr_conveyor_ledge_left</sprite>
+            <sprite>sprites\spr_conveyor_ledge_right</sprite>
+            <sprite>sprites\spr_escalator_r</sprite>
+            <sprite>sprites\spr_escalator_l</sprite>
+            <sprite>sprites\spr_escalator_joint</sprite>
+          </sprites>
+          <sprite>sprites\spr_platform_48</sprite>
+          <sprite>sprites\spr_platform_64</sprite>
+          <sprite>sprites\spr_platform_80</sprite>
+          <sprite>sprites\spr_platform_falling_48</sprite>
+          <sprite>sprites\spr_platform_falling_64</sprite>
+          <sprite>sprites\spr_platform_falling_80</sprite>
+          <sprite>sprites\spr_platform_pulley_48</sprite>
+          <sprite>sprites\spr_platform_pulley_64</sprite>
+          <sprite>sprites\spr_platform_pulley_80</sprite>
+          <sprite>sprites\spr_platform_seesaw_48</sprite>
+          <sprite>sprites\spr_platform_seesaw_64</sprite>
+          <sprite>sprites\spr_platform_seesaw_80</sprite>
+          <sprite>sprites\spr_platform_seesaw_96</sprite>
+          <sprite>sprites\spr_platform_island_48</sprite>
+          <sprite>sprites\spr_platform_island_64</sprite>
+          <sprite>sprites\spr_platform_island_80</sprite>
+          <sprite>sprites\spr_platform_ferris_32</sprite>
+          <sprite>sprites\spr_platform_ferris_48</sprite>
+          <sprite>sprites\spr_platform_ferris_64</sprite>
+          <sprite>sprites\spr_platform_ferris_80</sprite>
+          <sprite>sprites\spr_platform_yoshi</sprite>
+          <sprite>sprites\spr_platform_track</sprite>
+          <sprite>sprites\spr_platform_track_blue</sprite>
+          <sprite>sprites\spr_platform_track_blue_b</sprite>
+          <sprite>sprites\spr_platform_accordion</sprite>
+          <sprite>sprites\spr_platform_slope_r</sprite>
+          <sprite>sprites\spr_platform_slope_l</sprite>
+          <sprite>sprites\spr_platform_timed</sprite>
+          <sprite>sprites\spr_platform_timed_number</sprite>
+          <sprite>sprites\spr_movingpipe</sprite>
+          <sprite>sprites\spr_skullraft</sprite>
+          <sprite>sprites\spr_engine</sprite>
+          <sprite>sprites\spr_donut</sprite>
+          <sprite>sprites\spr_donut_triple</sprite>
+          <sprite>sprites\spr_donut_red</sprite>
+          <sprite>sprites\spr_donut_red_triple</sprite>
+          <sprite>sprites\spr_donut_appear</sprite>
+          <sprite>sprites\spr_blocktrain</sprite>
+        </sprites>
+        <sprite>sprites\spr_pswitch</sprite>
+        <sprite>sprites\spr_pswitch_press</sprite>
+        <sprite>sprites\spr_gswitch</sprite>
+        <sprite>sprites\spr_gswitch_press</sprite>
+        <sprite>sprites\spr_trampoline</sprite>
+        <sprite>sprites\spr_trampoline_end</sprite>
+        <sprite>sprites\spr_trampoline_timed</sprite>
+        <sprite>sprites\spr_trampoline_timed_end</sprite>
+        <sprite>sprites\spr_powblock_blue</sprite>
+        <sprite>sprites\spr_powblock_blue_th</sprite>
+        <sprite>sprites\spr_walltrampoline</sprite>
+        <sprite>sprites\spr_walltrampoline_end</sprite>
+        <sprite>sprites\spr_glowblock</sprite>
+        <sprite>sprites\spr_crate</sprite>
+        <sprite>sprites\spr_pblock</sprite>
+        <sprite>sprites\spr_pblock_off</sprite>
+        <sprite>sprites\spr_spikeblock</sprite>
+        <sprite>sprites\spr_spikeblock_b</sprite>
+        <sprite>sprites\spr_spikeblock_red</sprite>
+        <sprite>sprites\spr_spikeblock_blue</sprite>
+        <sprite>sprites\spr_beepblock_red</sprite>
+        <sprite>sprites\spr_beepblock_blue</sprite>
+        <sprite>sprites\spr_beepblock_empty</sprite>
+        <sprite>sprites\spr_boostpanel</sprite>
+        <sprite>sprites\spr_bombblock</sprite>
+        <sprite>sprites\spr_deathblock</sprite>
+        <sprite>sprites\spr_floodblock</sprite>
+        <sprite>sprites\spr_floodblock_reset</sprite>
+        <sprite>sprites\spr_icicle</sprite>
+        <sprite>sprites\spr_icicle_static</sprite>
+        <sprite>sprites\spr_icicle_appear</sprite>
+        <sprite>sprites\spr_detonator</sprite>
+        <sprite>sprites\spr_door</sprite>
+        <sprite>sprites\spr_door_s</sprite>
+        <sprite>sprites\spr_door_p</sprite>
+        <sprite>sprites\spr_door_boss</sprite>
+        <sprite>sprites\spr_door_p_outline</sprite>
+        <sprite>sprites\spr_door_player</sprite>
+        <sprite>sprites\spr_door_lock</sprite>
+        <sprite>sprites\spr_door_lock_unlocked</sprite>
+        <sprite>sprites\spr_beanstalk</sprite>
+        <sprite>sprites\spr_beanstalk_vine</sprite>
+        <sprite>sprites\spr_bumper</sprite>
+        <sprite>sprites\spr_key</sprite>
+      </sprites>
       <sprite>sprites\spr_coin</sprite>
       <sprite>sprites\spr_coin_p</sprite>
       <sprite>sprites\spr_coin_5</sprite>
@@ -732,134 +862,6 @@
       <sprite>sprites\spr_watermelon_bomb</sprite>
       <sprite>sprites\spr_3upmoon</sprite>
       <sprite>sprites\spr_twister</sprite>
-    </sprites>
-    <sprites name="Gizmos">
-      <sprites name="Obstacles">
-        <sprites name="Skewers">
-          <sprites name="Bases">
-            <sprite>sprites\spr_skewerbase</sprite>
-            <sprite>sprites\spr_skewerbase_side</sprite>
-          </sprites>
-          <sprite>sprites\spr_skewer</sprite>
-          <sprite>sprites\spr_skewer_down</sprite>
-          <sprite>sprites\spr_skewer_left</sprite>
-          <sprite>sprites\spr_skewer_right</sprite>
-        </sprites>
-        <sprite>sprites\spr_firebar</sprite>
-        <sprite>sprites\spr_rotodisc</sprite>
-        <sprite>sprites\spr_ballnchain</sprite>
-      </sprites>
-      <sprites name="Platforms">
-        <sprites name="Platform Parts">
-          <sprites name="Engine">
-            <sprite>sprites\spr_engine_saw</sprite>
-            <sprite>sprites\spr_engine_rope</sprite>
-            <sprite>sprites\spr_engine_platform_48</sprite>
-            <sprite>sprites\spr_engine_platform_64</sprite>
-            <sprite>sprites\spr_engine_platform_80</sprite>
-            <sprite>sprites\spr_engine_grinder</sprite>
-          </sprites>
-          <sprite>sprites\spr_pulley_rope</sprite>
-          <sprite>sprites\spr_ferris</sprite>
-          <sprite>sprites\spr_ferris_chain</sprite>
-        </sprites>
-        <sprites name="Platform Path">
-          <sprite>sprites\spr_path_limit</sprite>
-        </sprites>
-        <sprites name="Belts">
-          <sprite>sprites\spr_conveyor</sprite>
-          <sprite>sprites\spr_conveyor_light</sprite>
-          <sprite>sprites\spr_conveyor_ledge_left</sprite>
-          <sprite>sprites\spr_conveyor_ledge_right</sprite>
-          <sprite>sprites\spr_escalator_r</sprite>
-          <sprite>sprites\spr_escalator_l</sprite>
-          <sprite>sprites\spr_escalator_joint</sprite>
-        </sprites>
-        <sprite>sprites\spr_platform_48</sprite>
-        <sprite>sprites\spr_platform_64</sprite>
-        <sprite>sprites\spr_platform_80</sprite>
-        <sprite>sprites\spr_platform_falling_48</sprite>
-        <sprite>sprites\spr_platform_falling_64</sprite>
-        <sprite>sprites\spr_platform_falling_80</sprite>
-        <sprite>sprites\spr_platform_pulley_48</sprite>
-        <sprite>sprites\spr_platform_pulley_64</sprite>
-        <sprite>sprites\spr_platform_pulley_80</sprite>
-        <sprite>sprites\spr_platform_seesaw_48</sprite>
-        <sprite>sprites\spr_platform_seesaw_64</sprite>
-        <sprite>sprites\spr_platform_seesaw_80</sprite>
-        <sprite>sprites\spr_platform_seesaw_96</sprite>
-        <sprite>sprites\spr_platform_island_48</sprite>
-        <sprite>sprites\spr_platform_island_64</sprite>
-        <sprite>sprites\spr_platform_island_80</sprite>
-        <sprite>sprites\spr_platform_ferris_32</sprite>
-        <sprite>sprites\spr_platform_ferris_48</sprite>
-        <sprite>sprites\spr_platform_ferris_64</sprite>
-        <sprite>sprites\spr_platform_ferris_80</sprite>
-        <sprite>sprites\spr_platform_yoshi</sprite>
-        <sprite>sprites\spr_platform_track</sprite>
-        <sprite>sprites\spr_platform_track_blue</sprite>
-        <sprite>sprites\spr_platform_track_blue_b</sprite>
-        <sprite>sprites\spr_platform_accordion</sprite>
-        <sprite>sprites\spr_platform_slope_r</sprite>
-        <sprite>sprites\spr_platform_slope_l</sprite>
-        <sprite>sprites\spr_platform_timed</sprite>
-        <sprite>sprites\spr_platform_timed_number</sprite>
-        <sprite>sprites\spr_skullraft</sprite>
-        <sprite>sprites\spr_engine</sprite>
-        <sprite>sprites\spr_donut</sprite>
-        <sprite>sprites\spr_donut_triple</sprite>
-        <sprite>sprites\spr_donut_red</sprite>
-        <sprite>sprites\spr_donut_red_triple</sprite>
-        <sprite>sprites\spr_donut_appear</sprite>
-        <sprite>sprites\spr_blocktrain</sprite>
-      </sprites>
-      <sprite>sprites\spr_pswitch</sprite>
-      <sprite>sprites\spr_pswitch_press</sprite>
-      <sprite>sprites\spr_gswitch</sprite>
-      <sprite>sprites\spr_gswitch_press</sprite>
-      <sprite>sprites\spr_trampoline</sprite>
-      <sprite>sprites\spr_trampoline_end</sprite>
-      <sprite>sprites\spr_trampoline_timed</sprite>
-      <sprite>sprites\spr_trampoline_timed_end</sprite>
-      <sprite>sprites\spr_powblock_blue</sprite>
-      <sprite>sprites\spr_powblock_blue_th</sprite>
-      <sprite>sprites\spr_onoffblock_on</sprite>
-      <sprite>sprites\spr_onoffblock_off</sprite>
-      <sprite>sprites\spr_onoffplatform_red</sprite>
-      <sprite>sprites\spr_onoffplatform_blue</sprite>
-      <sprite>sprites\spr_walltrampoline</sprite>
-      <sprite>sprites\spr_walltrampoline_end</sprite>
-      <sprite>sprites\spr_crate</sprite>
-      <sprite>sprites\spr_pblock</sprite>
-      <sprite>sprites\spr_pblock_off</sprite>
-      <sprite>sprites\spr_spikeblock</sprite>
-      <sprite>sprites\spr_spikeblock_b</sprite>
-      <sprite>sprites\spr_spikeblock_red</sprite>
-      <sprite>sprites\spr_spikeblock_blue</sprite>
-      <sprite>sprites\spr_beepblock_red</sprite>
-      <sprite>sprites\spr_beepblock_blue</sprite>
-      <sprite>sprites\spr_beepblock_empty</sprite>
-      <sprite>sprites\spr_boostpanel</sprite>
-      <sprite>sprites\spr_bombblock</sprite>
-      <sprite>sprites\spr_deathblock</sprite>
-      <sprite>sprites\spr_floodblock</sprite>
-      <sprite>sprites\spr_floodblock_reset</sprite>
-      <sprite>sprites\spr_icicle</sprite>
-      <sprite>sprites\spr_icicle_static</sprite>
-      <sprite>sprites\spr_icicle_appear</sprite>
-      <sprite>sprites\spr_detonator</sprite>
-      <sprite>sprites\spr_door</sprite>
-      <sprite>sprites\spr_door_s</sprite>
-      <sprite>sprites\spr_door_p</sprite>
-      <sprite>sprites\spr_door_boss</sprite>
-      <sprite>sprites\spr_door_p_outline</sprite>
-      <sprite>sprites\spr_door_player</sprite>
-      <sprite>sprites\spr_door_lock</sprite>
-      <sprite>sprites\spr_door_lock_unlocked</sprite>
-      <sprite>sprites\spr_beanstalk</sprite>
-      <sprite>sprites\spr_beanstalk_vine</sprite>
-      <sprite>sprites\spr_bumper</sprite>
-      <sprite>sprites\spr_key</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprites name="Land">
@@ -1892,6 +1894,7 @@
       <script>scripts\turn_towards_direction.gml</script>
       <script>scripts\draw_sprite_tiled_area_ext.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
+      <script>scripts\instance_nearest_below.gml</script>
     </scripts>
     <script>scripts\grab_pivots.gml</script>
     <script>scripts\move_contact_object.gml</script>
@@ -2028,9 +2031,78 @@
       <object>objects\obj_powblock</object>
       <object>objects\obj_lightblock</object>
       <object>objects\obj_lightblock_disco</object>
+      <object>objects\obj_onoffblock</object>
+      <object>objects\obj_onoffplatform_red</object>
+      <object>objects\obj_onoffplatform_blue</object>
       <object>objects\obj_starblock</object>
     </objects>
     <objects name="Items">
+      <objects name="Gizmos">
+        <objects name="Platforms">
+          <objects name="Belts">
+            <object>objects\obj_conveyor</object>
+            <object>objects\obj_escalator_r</object>
+            <object>objects\obj_escalator_l</object>
+            <object>objects\obj_escalator_down_r</object>
+            <object>objects\obj_escalator_down_l</object>
+            <object>objects\obj_escalator_joint</object>
+          </objects>
+          <objects name="Paths">
+            <object>objects\obj_path_limit</object>
+            <object>objects\obj_path_changer</object>
+          </objects>
+          <object>objects\obj_platform</object>
+          <object>objects\obj_platform_falling</object>
+          <object>objects\obj_platform_pulley</object>
+          <object>objects\obj_platform_seesaw</object>
+          <object>objects\obj_platform_island</object>
+          <object>objects\obj_platform_ferris</object>
+          <object>objects\obj_platform_yoshi</object>
+          <object>objects\obj_platform_track</object>
+          <object>objects\obj_platform_track_blue</object>
+          <object>objects\obj_platform_accordion_h</object>
+          <object>objects\obj_platform_accordion_v</object>
+          <object>objects\obj_platform_accordion_hv</object>
+          <object>objects\obj_platform_slope_r</object>
+          <object>objects\obj_platform_slope_l</object>
+          <object>objects\obj_platform_timed</object>
+          <object>objects\obj_movingpipe</object>
+          <object>objects\obj_skullraft</object>
+          <object>objects\obj_engine</object>
+          <object>objects\obj_donut</object>
+          <object>objects\obj_donut_triple</object>
+          <object>objects\obj_donut_red</object>
+          <object>objects\obj_donut_red_triple</object>
+          <object>objects\obj_blocktrain</object>
+        </objects>
+        <object>objects\obj_pswitch</object>
+        <object>objects\obj_gswitch</object>
+        <object>objects\obj_trampoline</object>
+        <object>objects\obj_trampoline_timed</object>
+        <object>objects\obj_powblock_blue</object>
+        <object>objects\obj_pblock_on</object>
+        <object>objects\obj_pblock_off</object>
+        <object>objects\obj_walltrampoline</object>
+        <object>objects\obj_glowblock</object>
+        <object>objects\obj_crate</object>
+        <object>objects\obj_spikeblock</object>
+        <object>objects\obj_spikeblock_g</object>
+        <object>objects\obj_spikeblock_red</object>
+        <object>objects\obj_spikeblock_blue</object>
+        <object>objects\obj_beepblock_red</object>
+        <object>objects\obj_beepblock_blue</object>
+        <object>objects\obj_boostpanel</object>
+        <object>objects\obj_bombblock</object>
+        <object>objects\obj_deathblock</object>
+        <object>objects\obj_floodblock</object>
+        <object>objects\obj_floodblock_reset</object>
+        <object>objects\obj_icicle</object>
+        <object>objects\obj_icicle_static</object>
+        <object>objects\obj_detonator</object>
+        <object>objects\obj_beanstalk_vine</object>
+        <object>objects\obj_bumper</object>
+        <object>objects\obj_key</object>
+      </objects>
       <object>objects\obj_coin</object>
       <object>objects\obj_coin_p</object>
       <object>objects\obj_coin_5</object>
@@ -2051,84 +2123,6 @@
       <object>objects\obj_watermelon_bomb</object>
       <object>objects\obj_3upmoon</object>
       <object>objects\obj_twister</object>
-    </objects>
-    <objects name="Gizmos">
-      <objects name="Obstacles">
-        <objects name="Skewers">
-          <object>objects\obj_skewer</object>
-          <object>objects\obj_skewer_down</object>
-          <object>objects\obj_skewer_left</object>
-          <object>objects\obj_skewer_right</object>
-        </objects>
-        <object>objects\obj_firebar</object>
-        <object>objects\obj_rotodisc</object>
-        <object>objects\obj_ballnchain</object>
-      </objects>
-      <objects name="Platforms">
-        <objects name="Belts">
-          <object>objects\obj_conveyor</object>
-          <object>objects\obj_escalator_r</object>
-          <object>objects\obj_escalator_l</object>
-          <object>objects\obj_escalator_down_r</object>
-          <object>objects\obj_escalator_down_l</object>
-          <object>objects\obj_escalator_joint</object>
-        </objects>
-        <objects name="Paths">
-          <object>objects\obj_path_limit</object>
-          <object>objects\obj_path_changer</object>
-        </objects>
-        <object>objects\obj_platform</object>
-        <object>objects\obj_platform_falling</object>
-        <object>objects\obj_platform_pulley</object>
-        <object>objects\obj_platform_seesaw</object>
-        <object>objects\obj_platform_island</object>
-        <object>objects\obj_platform_ferris</object>
-        <object>objects\obj_platform_yoshi</object>
-        <object>objects\obj_platform_track</object>
-        <object>objects\obj_platform_track_blue</object>
-        <object>objects\obj_platform_accordion_h</object>
-        <object>objects\obj_platform_accordion_v</object>
-        <object>objects\obj_platform_accordion_hv</object>
-        <object>objects\obj_platform_slope_r</object>
-        <object>objects\obj_platform_slope_l</object>
-        <object>objects\obj_platform_timed</object>
-        <object>objects\obj_skullraft</object>
-        <object>objects\obj_engine</object>
-        <object>objects\obj_donut</object>
-        <object>objects\obj_donut_triple</object>
-        <object>objects\obj_donut_red</object>
-        <object>objects\obj_donut_red_triple</object>
-        <object>objects\obj_blocktrain</object>
-      </objects>
-      <object>objects\obj_pswitch</object>
-      <object>objects\obj_gswitch</object>
-      <object>objects\obj_trampoline</object>
-      <object>objects\obj_trampoline_timed</object>
-      <object>objects\obj_powblock_blue</object>
-      <object>objects\obj_pblock_on</object>
-      <object>objects\obj_pblock_off</object>
-      <object>objects\obj_onoffblock</object>
-      <object>objects\obj_onoffplatform_red</object>
-      <object>objects\obj_onoffplatform_blue</object>
-      <object>objects\obj_walltrampoline</object>
-      <object>objects\obj_crate</object>
-      <object>objects\obj_spikeblock</object>
-      <object>objects\obj_spikeblock_g</object>
-      <object>objects\obj_spikeblock_red</object>
-      <object>objects\obj_spikeblock_blue</object>
-      <object>objects\obj_beepblock_red</object>
-      <object>objects\obj_beepblock_blue</object>
-      <object>objects\obj_boostpanel</object>
-      <object>objects\obj_bombblock</object>
-      <object>objects\obj_deathblock</object>
-      <object>objects\obj_floodblock</object>
-      <object>objects\obj_floodblock_reset</object>
-      <object>objects\obj_icicle</object>
-      <object>objects\obj_icicle_static</object>
-      <object>objects\obj_detonator</object>
-      <object>objects\obj_beanstalk_vine</object>
-      <object>objects\obj_bumper</object>
-      <object>objects\obj_key</object>
     </objects>
     <objects name="Enemies">
       <objects name="Land">
@@ -2177,6 +2171,7 @@
               <object>objects\obj_superkoopa</object>
             </objects>
             <object>objects\obj_koopa_blue</object>
+            <object>objects\obj_parakoopa_blue</object>
             <object>objects\obj_beachkoopa_blue</object>
           </objects>
           <objects name="Yellow">
@@ -2266,6 +2261,17 @@
           <object>objects\obj_mechakoopa</object>
           <object>objects\obj_blastakoopa</object>
           <object>objects\obj_zappakoopa</object>
+        </objects>
+        <objects name="Obstacles">
+          <objects name="Skewers">
+            <object>objects\obj_skewer</object>
+            <object>objects\obj_skewer_down</object>
+            <object>objects\obj_skewer_left</object>
+            <object>objects\obj_skewer_right</object>
+          </objects>
+          <object>objects\obj_firebar</object>
+          <object>objects\obj_rotodisc</object>
+          <object>objects\obj_ballnchain</object>
         </objects>
         <object>objects\obj_podoboo</object>
         <object>objects\obj_podoboo_diagonal</object>
@@ -2577,52 +2583,38 @@
             <object>objects\obj_goal_tape</object>
             <object>objects\obj_goal_gate_front</object>
           </objects>
+          <objects name="Gizmos">
+            <objects name="Platforms">
+              <objects name="Platform Paths">
+                <object>objects\obj_path_mask</object>
+              </objects>
+              <objects name="Engine">
+                <object>objects\obj_engine_rope</object>
+                <object>objects\obj_engine_blade</object>
+                <object>objects\obj_engine_platform</object>
+                <object>objects\obj_engine_grinder</object>
+              </objects>
+              <object>objects\obj_platform_pulley_right</object>
+              <object>objects\obj_platform_pulley_rope</object>
+              <object>objects\obj_platform_ferris_chain</object>
+              <object>objects\obj_platform_ferris_platform</object>
+              <object>objects\obj_accordion_block</object>
+              <object>objects\obj_donut_ticker</object>
+              <object>objects\obj_blocktrain_front</object>
+              <object>objects\obj_blocktrain_back</object>
+              <object>objects\obj_blocktrain_middle</object>
+              <object>objects\obj_blocktrain_killer</object>
+            </objects>
+            <object>objects\obj_powblock_active</object>
+            <object>objects\obj_powblock_killer</object>
+            <object>objects\obj_icicle_shard</object>
+          </objects>
           <object>objects\obj_coin_alt</object>
           <object>objects\obj_coin_silver</object>
           <object>objects\obj_coinchange</object>
           <object>objects\obj_explosion</object>
           <object>objects\obj_explosion_stars</object>
           <object>objects\obj_twister_bubble</object>
-        </objects>
-        <objects name="Gizmos">
-          <objects name="Platforms">
-            <objects name="Platform Paths">
-              <object>objects\obj_path_mask</object>
-            </objects>
-            <objects name="Engine">
-              <object>objects\obj_engine_rope</object>
-              <object>objects\obj_engine_blade</object>
-              <object>objects\obj_engine_platform</object>
-              <object>objects\obj_engine_grinder</object>
-            </objects>
-            <object>objects\obj_platform_pulley_right</object>
-            <object>objects\obj_platform_pulley_rope</object>
-            <object>objects\obj_platform_ferris_chain</object>
-            <object>objects\obj_platform_ferris_platform</object>
-            <object>objects\obj_accordion_block</object>
-            <object>objects\obj_donut_ticker</object>
-            <object>objects\obj_blocktrain_front</object>
-            <object>objects\obj_blocktrain_back</object>
-            <object>objects\obj_blocktrain_middle</object>
-            <object>objects\obj_blocktrain_killer</object>
-          </objects>
-          <objects name="Obstacles">
-            <objects name="Skewers">
-              <object>objects\obj_skewerparent</object>
-              <object>objects\obj_skewertrunk</object>
-              <object>objects\obj_skewertrunk_down</object>
-              <object>objects\obj_skewertrunk_left</object>
-              <object>objects\obj_skewertrunk_right</object>
-            </objects>
-            <object>objects\obj_firebar_ball</object>
-            <object>objects\obj_rotodisc_disc</object>
-            <object>objects\obj_rotodisc_trail</object>
-            <object>objects\obj_ballnchain_ball</object>
-            <object>objects\obj_ballnchain_chain</object>
-          </objects>
-          <object>objects\obj_powblock_active</object>
-          <object>objects\obj_powblock_killer</object>
-          <object>objects\obj_icicle_shard</object>
         </objects>
         <objects name="Enemies">
           <object>objects\obj_enemy_dead</object>
@@ -2681,6 +2673,20 @@
               </objects>
               <object>objects\obj_mechakoopa_held</object>
               <object>objects\obj_mechakoopa_debris</object>
+            </objects>
+            <objects name="Obstacles">
+              <objects name="Skewers">
+                <object>objects\obj_skewerparent</object>
+                <object>objects\obj_skewertrunk</object>
+                <object>objects\obj_skewertrunk_down</object>
+                <object>objects\obj_skewertrunk_left</object>
+                <object>objects\obj_skewertrunk_right</object>
+              </objects>
+              <object>objects\obj_firebar_ball</object>
+              <object>objects\obj_rotodisc_disc</object>
+              <object>objects\obj_rotodisc_trail</object>
+              <object>objects\obj_ballnchain_ball</object>
+              <object>objects\obj_ballnchain_chain</object>
             </objects>
             <object>objects\obj_magic</object>
           </objects>
