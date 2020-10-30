@@ -16,9 +16,19 @@ https://www.dropbox.com/s/55qtbfvbfw95477/Mario%20Worlds%20Delta.zip?dl=0
 They told me to credit the following people:
 
 - AmazingAlien
+- AbsolutiaFrost
+- Bebn Legg
+- GlitchyPSIX
+- HelloSammu
+- Hypernova
+- Leanne
 - Mack
+- MrDoubleA
 - Mors
-- ShibaM
+- Nick64
+- Pinci
+- Zircon
+- <user here was removed>
 
 ------------------------------------------------------------------------------------------
 
