@@ -641,10 +641,10 @@ invulnerable = false;
 slope = player_inslope();
 
 //If moving down
-if (vspeed &gt;= -0.85) {
+if (vspeed &gt;= 0) {
 
     //Manage position in a slope
-    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent, 0, 0)) {
     
         //manage slope
         with (obj_slopeparent) 
@@ -652,7 +652,7 @@ if (vspeed &gt;= -0.85) {
     }
     
     //Manage position in a moving slope
-    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent_move, 1, 0)) {
+    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent_move, 0, 0)) {
     
         //manage slope
         with (obj_slopeparent_move) 
@@ -747,7 +747,7 @@ if (gravity_enable == true) {
         }  
     }
     
-    //Handle collision with slopes
+    /*Handle collision with slopes
     if (collision_rectangle(x-3, bbox_bottom-4, x+3, bbox_bottom, obj_slopeparent, 1, 0))
     &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent, 1, 0)) {
         
@@ -778,7 +778,7 @@ if (gravity_enable == true) {
             //Reset values
             event_user(15);
         }
-    }
+    }*/
     
     //If the player is not swimming
     if (swimming == 0) {

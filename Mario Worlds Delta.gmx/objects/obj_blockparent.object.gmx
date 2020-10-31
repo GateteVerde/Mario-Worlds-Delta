@@ -208,7 +208,11 @@ if (ready == 0)
 if (shardsprite != noone) {
     
     //Play 'Break' sound
-    audio_stop_play_sound(snd_break, 0, false);
+    if (sprite_index == spr_brick_crystal)
+    || (sprite_index == spr_brick_crystal_hit)
+        audio_stop_play_sound(snd_shatter, 0, false);
+    else
+        audio_stop_play_sound(snd_break, 0, false);
     
     //Create shards    
     shard_create(x+8, y+8, shardsprite, 3, 6, 45);

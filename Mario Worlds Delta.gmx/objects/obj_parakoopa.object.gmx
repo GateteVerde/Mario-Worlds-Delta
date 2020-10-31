@@ -55,7 +55,7 @@ alarm[10] = 2;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="25">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -72,22 +72,16 @@ alarm[10] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Parakoopa logic
+            <string>///Jump
 
-//Inherit event from parent
-event_inherited();
+//Boost jump
+y--;
 
-//Bounce
-if (gravity == 0) {
-
-    //If the item is underwater
-    if (swimming == false)
-        vspeed = -4;
-        
-    //Otherwise, make a little bounce
-    else
-        vspeed = -2;
-}
+//If swimming
+if (swimming)
+    vspeed = -2;
+else
+    vspeed = -4;
 </string>
           </argument>
         </arguments>

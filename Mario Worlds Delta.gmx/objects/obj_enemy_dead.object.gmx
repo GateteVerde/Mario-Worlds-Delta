@@ -114,9 +114,6 @@ else {
 //Water check
 event_user(0);
 
-//Round position
-x = ceil(x);
-
 //Destroy when outside the room
 if (bbox_top &gt; room_height)
     instance_destroy();

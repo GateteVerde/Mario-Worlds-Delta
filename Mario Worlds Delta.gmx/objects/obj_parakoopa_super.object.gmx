@@ -8,7 +8,7 @@
   <parentName>obj_parakoopa</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="25">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,22 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Super Parakoopa logic
+            <string>///Jump
 
-//Inherit event from parent
-event_inherited();
+//Boost jump
+y--;
 
-//Bounce
-if (gravity == 0) {
-
-    //If the item is underwater
-    if (swimming == false)
-        vspeed = -6;
-        
-    //Otherwise, make a little bounce
-    else
-        vspeed = -3;
-}
+//If swimming
+if (swimming)
+    vspeed = -3;
+else
+    vspeed = -6;
 </string>
           </argument>
         </arguments>

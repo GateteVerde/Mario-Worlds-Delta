@@ -167,8 +167,8 @@ else {
         
         //If not falling through, or falling througn a lower donut, snap the player vertically
         if (!check) 
-        &amp;&amp; (!check2) 
-        || (((check2.object_index = obj_donut) || (check2.object_index = obj_donut_red) || (check2.object_index = obj_icicle)) &amp;&amp; ((check2.y &gt; y) || ((check2.y = y) &amp;&amp; (check2 &gt; id))))
+        &amp;&amp; ((!check2) 
+        || (((check2.object_index = obj_donut) || (check2.object_index = obj_donut_red) || (check2.object_index = obj_icicle)) &amp;&amp; ((check2.y &gt; y) || ((check2.y = y) &amp;&amp; (check2 &gt; id)))))
             obj_playerparent.y = ceil(bbox_top-16);
     }
 }

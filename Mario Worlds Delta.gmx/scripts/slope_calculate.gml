@@ -15,7 +15,7 @@ if other.x >= (x + slope_x1)
         vspeed = 0;
         gravity = 0;
 
-        //trigger special values
+        //Trigger special values
         event_user(15);
     }
 }
