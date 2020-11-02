@@ -4,7 +4,7 @@
   <width>1024</width>
   <height>768</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -177,11 +177,10 @@
     <instance objName="obj_donut_triple" x="544" y="176" name="inst_CFB0C0E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_donut_red_triple" x="352" y="160" name="inst_2B1435FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_donut_red_triple" x="624" y="160" name="inst_5AFA200E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_huckitcrab" x="344" y="592" name="inst_A2F71904" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_huckitcrab" x="680" y="592" name="inst_AC942504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_huckitcrab" x="632" y="704" name="inst_B8779B7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_huckitcrab" x="392" y="704" name="inst_D12CB6BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="392" y="320" name="inst_86D463D9" locked="0" code="sprite_index = spr_hypernova;&#xA;varmsg = &quot;What am I doing up here?&quot;;&#xA;mugshot = spr_mugshot_hypernova;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_muncher" x="16" y="624" name="inst_440F1F65" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_muncher" x="32" y="624" name="inst_E65AC5BD" locked="0" code="nom = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_muncher" x="48" y="624" name="inst_B3608B21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_clouds" x="240" y="592" w="16" h="16" xo="32" yo="0" id="10042980" name="inst_D5D58D20" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

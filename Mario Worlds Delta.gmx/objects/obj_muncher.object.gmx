@@ -33,6 +33,9 @@ nom = 0;
 //Animate
 image_speed = 0.15;
 
+//"ONMON" frame
+frame = 0;
+
 //Create solid object
 mysolid = instance_create(x, y, obj_hurtblock);
 </string>
@@ -170,10 +173,13 @@ with (mysolid) instance_destroy();
 //Draw it
 draw_sprite(sprite_index, -1, round(x), round(y));
 
+//Update frame
+frame += 0.075;
+
 //Draw 'Omnom' if permitted
 if (nom == 1)
 &amp;&amp; (sprite_index != spr_coin)
-    draw_sprite(spr_muncher_ee, -1, round(x)+8, round(y)-8);
+    draw_sprite(spr_muncher_ee, frame, round(x)+8, round(y)-8);
 </string>
           </argument>
         </arguments>

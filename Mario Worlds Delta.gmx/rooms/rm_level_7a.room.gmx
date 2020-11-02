@@ -137,8 +137,6 @@
     <instance objName="obj_firebro" x="712" y="352" name="inst_6D8F4034" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hammerbro" x="136" y="256" name="inst_28197C45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hammerbro" x="184" y="320" name="inst_073AE8DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_firebar" x="352" y="368" name="inst_40E6B9A0" locked="0" code="length = 10;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_firebar" x="560" y="368" name="inst_7DF4D3EE" locked="0" code="clockwise = -1;&#xA;length = 10;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_iceblock_coin" x="320" y="368" name="inst_EF9C0380" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_iceblock_coin" x="304" y="368" name="inst_843282E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_iceblock_coin" x="288" y="384" name="inst_7FA92B97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -153,6 +151,8 @@
     <instance objName="obj_qblock_hidden" x="464" y="192" name="inst_A3087C42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_star" x="448" y="192" name="inst_7F8E9C11" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_star" x="464" y="192" name="inst_8A971C7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpleft" x="864" y="368" name="inst_2984BAB6" locked="0" code="destination = rm_devtest;&#xA;exit_dir = cs_warp_up;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpright" x="48" y="368" name="inst_22A18C33" locked="0" code="destination = rm_devtest;&#xA;exit_dir = cs_warp_up;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="272" y="320" w="16" h="16" xo="2144" yo="48" id="10043930" name="inst_879BE194" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
