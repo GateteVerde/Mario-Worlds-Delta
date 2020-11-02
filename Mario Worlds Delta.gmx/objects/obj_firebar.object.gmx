@@ -49,7 +49,7 @@ dist = 8;
 angle = 0;
 
 //Frame
-ang = 0;
+frame = 0;
 
 //Create firebars
 alarm[0] = 2;
@@ -114,7 +114,6 @@ for (var i=0; i&lt;length; i++) {
             <string>///Set the angle of the firebar
 
 angle += myspeed*(clockwise*-1);
-ang += 10*(clockwise*-1);
 if (angle &gt; 360)
     angle -= 360;
 </string>
@@ -141,8 +140,12 @@ if (angle &gt; 360)
             <kind>1</kind>
             <string>///Draw base and fireball
 
+//Update frame
+frame += 0.2;
+
+//Draw it
 draw_sprite(sprite_index, -1, round(x), round(y));
-draw_sprite_ext(spr_fireball, -1, round(x)+8, round(y)+8, 1, 1, ang, c_white, 1);
+draw_sprite_ext(spr_fireball, frame, round(x)+8, round(y)+8, 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

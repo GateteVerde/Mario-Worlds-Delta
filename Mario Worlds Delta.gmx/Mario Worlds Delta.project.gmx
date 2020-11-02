@@ -716,6 +716,7 @@
       </sprites>
       <sprites name="Projectiles">
         <sprite>sprites\spr_fireball</sprite>
+        <sprite>sprites\spr_fireballmask</sprite>
       </sprites>
       <sprites name="Gizmos">
         <sprites name="Obstacles">
@@ -984,14 +985,11 @@
           <sprite>sprites\spr_hammerbro</sprite>
           <sprite>sprites\spr_hammerbro_throw</sprite>
           <sprite>sprites\spr_hammerbro_hammer</sprite>
-          <sprite>sprites\spr_hammerbro_dead</sprite>
           <sprite>sprites\spr_boomerangbro</sprite>
           <sprite>sprites\spr_boomerangbro_throw</sprite>
           <sprite>sprites\spr_boomerangbro_boomerang</sprite>
-          <sprite>sprites\spr_boomerangbro_dead</sprite>
           <sprite>sprites\spr_firebro</sprite>
           <sprite>sprites\spr_firebro_throw</sprite>
-          <sprite>sprites\spr_firebro_dead</sprite>
           <sprite>sprites\spr_afhb</sprite>
           <sprite>sprites\spr_afhb_platform</sprite>
         </sprites>
@@ -2875,7 +2873,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9.1 - r307"</constant>
+    <constant name="cs_version">"v0.9.1 - r313"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>

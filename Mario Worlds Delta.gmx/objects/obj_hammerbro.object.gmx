@@ -46,13 +46,13 @@ hammers = 1+random(round(3));
 throw = 0;
 
 //Death Sprite
-deathsprite = spr_hammerbro_dead;
+deathsprite = sprite_index;
 
 //Stomp Sprite
-stompsprite = spr_hammerbro_dead;
+stompsprite = sprite_index;
 
 //Animate
-image_speed = 0.2;
+image_speed = 0.15;
 
 //Reverse horizontal speed.
 alarm[1] = 32;
@@ -401,7 +401,7 @@ alarm[1] = 60;
 if (throw == 0) {
 
     //Animate
-    image_speed = 0.2;
+    image_speed = 0.15;
 
     //Set default sprite
     sprite_index = spr_hammerbro;
@@ -417,6 +417,10 @@ else if (throw) {
     image_speed = 0;
     image_index = throw-1;
 }
+
+//Update deathsprite / stompsprite
+deathsprite = sprite_index;
+stompsprite = sprite_index;
 </string>
           </argument>
         </arguments>

@@ -46,13 +46,13 @@ prevhsp = 0;
 prevalm = 0;
 
 //Death Sprite
-deathsprite = spr_firebro_dead;
+deathsprite = sprite_index;
 
 //Stomp Sprite
-stompsprite = spr_firebro_dead;
+stompsprite = sprite_index;
 
 //Animate
-image_speed = 0.2;
+image_speed = 0.15;
 
 //Reverse horizontal speed.
 alarm[1] = 32;
@@ -304,7 +304,7 @@ else
 if (throw == 0) {
 
     //Animate
-    image_speed = 0.2;
+    image_speed = 0.15;
 
     //Set default sprite
     sprite_index = spr_firebro;
@@ -320,6 +320,10 @@ else if (throw) {
     image_speed = 0;
     image_index = throw-1;
 }
+
+//Update deathsprite / stompsprite
+deathsprite = sprite_index;
+stompsprite = sprite_index;
 </string>
           </argument>
         </arguments>
