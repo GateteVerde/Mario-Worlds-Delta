@@ -294,14 +294,6 @@ slope = player_inslope();
 
 //If moving down
 if (vspeed &gt;= 0) {
-
-    //Manage position in slope
-    if (collision_rectangle(bbox_left, bbox_bottom-3, bbox_right, bbox_bottom+3, obj_slopeparent, 0, 0)) {
-    
-        //manage slope
-        with (obj_slopeparent) 
-            slope_calculate();
-    }
     
     //Check for a semisolid
     var semisolid = collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+vspeed, obj_semisolid, 0, 0);
@@ -312,9 +304,24 @@ if (vspeed &gt;= 0) {
         y = semisolid.bbox_top-(sprite_height-sprite_get_yoffset(sprite_index));
 }
 
+//Embed into the slope to ensure correct slope mechanics
+if (collision_rectangle(bbox_left,bbox_bottom,bbox_right,bbox_bottom+4,obj_slopeparent,1,0))
+&amp;&amp; (!collision_rectangle(bbox_left,bbox_bottom-4,bbox_right,bbox_bottom-4,obj_slopeparent,1,0))
+&amp;&amp; (vspeed == 0)
+    y += 4;
+
+///Handle slope collisions
+if (collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom-8, obj_slopeparent, 1, 0)) {
+
+    while (collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom, obj_slopeparent, 1, 0))
+        y--;
+}
+
 //Check for floor objects
 if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0))
-&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0)) {
+&amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0)) 
+|| (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_slopeparent, 1, 0)) {
 
     //Stop vertical movement
     gravity = 0;

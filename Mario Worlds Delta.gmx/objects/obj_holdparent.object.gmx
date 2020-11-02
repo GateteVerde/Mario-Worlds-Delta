@@ -463,47 +463,6 @@ if (held == false) {
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="25">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Slowdown when in a slope
-
-//If there's not slippery ground below
-if (!collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)) {
-
-    //Slowdown until it stops
-    hspeed = max(0, abs(hspeed)-0.075)*sign(hspeed);
-    if (abs(hspeed) &lt; 0.075)
-        hspeed = 0;
-}
-
-//Otherwise, if there's slippery ground below
-else if (collision_rectangle(bbox_left, bbox_bottom-8, bbox_right, bbox_bottom+1, obj_iceparent, 1, 0)){
-
-    //Slow down until it stops, but slower
-    hspeed = max(0, abs(hspeed)-0.0375)*sign(hspeed);
-    if (abs(hspeed) &lt; 0.0375)
-        hspeed = 0;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="23">
       <action>
         <libid>1</libid>

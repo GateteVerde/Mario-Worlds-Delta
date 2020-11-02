@@ -55,7 +55,7 @@ alarm[10] = 2;
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="25">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -72,16 +72,23 @@ alarm[10] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Jump
+            <string>///Parakoopa logic
 
-//Boost jump
-y--;
+//Inherit event from parent
+event_inherited();
 
-//If swimming
-if (swimming)
-    vspeed = -2;
-else
-    vspeed = -4;
+//If not jumping
+if (gravity == 0) {
+    
+    //Boost jump
+    y--;
+    
+    //If swimming
+    if (swimming)
+        vspeed = -2;
+    else
+        vspeed = -4;
+}
 </string>
           </argument>
         </arguments>
