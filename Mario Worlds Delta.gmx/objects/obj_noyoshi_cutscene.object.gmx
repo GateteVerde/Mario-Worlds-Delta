@@ -59,11 +59,10 @@ alarm[0] = 1;
             <kind>1</kind>
             <string>///Set up cutscene player and variables
 
-with (instance_create(x,y,obj_player_fortress)) {
+with (instance_create(x, y, obj_player_fortress)) {
 
     doortype = other.doortype;
-    destination = other.destination;
-    
+    destination = other.destination;    
 }
 </string>
           </argument>

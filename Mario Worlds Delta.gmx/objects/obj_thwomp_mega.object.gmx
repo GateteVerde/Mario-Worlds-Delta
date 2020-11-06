@@ -147,6 +147,14 @@ else if (ready == 1) {
         //Reset count
         count = 0;
         
+        //Stun the player if possible
+        if (instance_exists(obj_playerparent)) {
+        
+            //If the player is not on the ground
+            if (obj_playerparent.state != statetype.jump)
+                with (obj_playerparent) stun = 60;
+        }
+        
         //Create smoke effects
         with (instance_create(bbox_left, bbox_bottom, obj_smoke)) sprite_index = spr_smoke_32;
         with (instance_create(bbox_right, bbox_bottom, obj_smoke)) sprite_index = spr_smoke_32;

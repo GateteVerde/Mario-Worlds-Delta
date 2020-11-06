@@ -816,8 +816,8 @@ swarning = 0;
 //Drop reserve item
 if (instance_exists(obj_playerparent))
 &amp;&amp; (barrier == 1)
-&amp;&amp; (obj_playerparent.control_enable == true)
 &amp;&amp; (input_check_pressed(input.select))
+&amp;&amp; (obj_playerparent.control_enable == true)
     event_user(1);
 
 //Deactivate objects under the following parents
@@ -1333,6 +1333,40 @@ else
 
 //Draw pit marker
 draw_background_ext(bgr_pit, 0, room_height-32, room_width/16, 1, 0, background_blend[0], 1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Pause
+
+//If 'Alt' is not pressed
+if (keyboard_check(vk_alt))
+|| (instance_number(obj_playerparent) == 0)
+exit;
+
+//Pause the game
+instance_create(0, 0, obj_pause);
+
+//Clear the enter key
+keyboard_clear(vk_enter);
 </string>
           </argument>
         </arguments>

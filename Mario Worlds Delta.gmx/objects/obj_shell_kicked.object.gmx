@@ -263,16 +263,13 @@ else if (sprite_index == spr_shell_spiny) {
 //If the object is not falling
 if ((fall == 0) &amp;&amp; (vspeed == 0)) {
 
-    //If there's not a slope
-    if (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+    //If there's not a semisolid below
+    if (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+1, obj_semisolid, 1, 0)) 
+    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
     
-        //If there's not a semisolid below
-        if (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+1, obj_semisolid, 1, 0)) {
-        
-            move_snap(8, 16);
-            y += 4;
-            fall = 1;
-        }
+        move_snap(8, 16);
+        y += 4;
+        fall = 1;
     }
 }
 

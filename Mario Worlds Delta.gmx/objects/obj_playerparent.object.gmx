@@ -139,6 +139,10 @@ floating = 0;
 cleared = 0;
 timer = 0;
 
+//Check if stun
+stun = 0;
+stun_frame = 0;
+
 //Projectile direction when spinning
 dir = 1;
 
@@ -637,6 +641,9 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Player Logic
 
+//Update stun frame
+stun_frame += 0.15;
+
 //Check if above a slope
 slope = player_inslope();
 
@@ -680,6 +687,18 @@ if (cleared == 1) {
         alarm[4] = 220;
     }
 }
+
+//Decrement stun
+if (stun &gt; 0) {
+
+    //Decrement
+    stun--;
+    
+    //Disable player controls
+    control_enable = false;
+}
+else
+control_enable = true;
 
 //Decrement boost
 if (boostme &gt; 0) {
@@ -746,39 +765,6 @@ if (gravity_enable == true) {
             event_user(15);
         }  
     }
-    
-    /*Handle collision with slopes
-    if (collision_rectangle(x-3, bbox_bottom-4, x+3, bbox_bottom, obj_slopeparent, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent, 1, 0)) {
-        
-        //If moving down
-        if (vspeed &gt;= 0) 
-        &amp;&amp; ((direction &gt;= 180) &amp;&amp; (direction &lt;= 360)) {
-        
-            //Stop vertical movement
-            vspeed = 0;
-            gravity = 0;
-            
-            //Reset values
-            event_user(15);
-        }
-    }
-    
-    //Handle collision with moving slopes
-    if (collision_rectangle(x-3, bbox_bottom-4, x+3, bbox_bottom, obj_slopeparent_move, 1, 0))
-    &amp;&amp; (!collision_rectangle(x-3, bbox_bottom-8, x+3, bbox_bottom-8, obj_slopeparent_move, 1, 0)) {
-                
-        //If moving down
-        if (vspeed &gt;= 0) {
-        
-            //Stop vertical movement
-            vspeed = 0;
-            gravity = 0;
-            
-            //Reset values
-            event_user(15);
-        }
-    }*/
     
     //If the player is not swimming
     if (swimming == 0) {

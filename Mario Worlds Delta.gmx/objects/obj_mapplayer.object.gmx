@@ -501,7 +501,7 @@ if (status == 'IDLE')
         }
             
         //Change player
-        if (input_check_pressed(input.start)) {
+        if (input_check_pressed(input.select)) {
         
             global.player++;
             if (global.player &gt; 3)
