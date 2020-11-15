@@ -97,8 +97,8 @@ if (obj_controller.hud_type &lt; 3) {
         //Repeat the process
         alarm[2] = 2;
     
-        //Get 250 points
-        score += 250;
+        //Get 500 points
+        score += 500;
         
         //Decrement 5 seconds
         global.time -= 5;
@@ -110,8 +110,8 @@ if (obj_controller.hud_type &lt; 3) {
         //Repeat the process
         alarm[2] = 2;
     
-        //Get 50 points
-        score += 50;
+        //Get 100 points
+        score += 100;
         
         //Decrement 1 second
         global.time--;
@@ -165,6 +165,9 @@ with (obj_hud) {
     
     //Show 'Course Clear'
     clear = 1;
+    
+    //Multiplier
+    multiplier = 100;
     
     //Set the time to show in the course clear frame
     time = global.time;
@@ -352,6 +355,12 @@ if (image_alpha == 1) {
     //Set clear state
     global.clear = 1;
     
+    //Remember yoshi colour
+    if (global.mount == 1) {
+    
+        global.mountcolour = obj_yoshi.colour;
+    }
+    
     //Make following objects invisible
     with (obj_hud) visible = 0;
     with (obj_water) visible = 0;
@@ -364,32 +373,6 @@ if (image_alpha == 1) {
     //Begin deactivation sequence
     alarm[1] = 2;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Remember yoshi colour
-
-if (global.mount == 1)
-    global.mountcolour = colour;
 </string>
           </argument>
         </arguments>
