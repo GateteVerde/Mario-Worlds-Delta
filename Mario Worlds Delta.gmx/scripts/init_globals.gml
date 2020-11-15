@@ -63,10 +63,14 @@ global.levelmusic = bgm_gameover;
 //Stream being played in room
 global.stream = noone;
 
+//Current world
+global.world = 1;
+
 //Current Player
 //0: Mario
 //1: Luigi
 //2: Toad
+//3: Peach
 global.player = 0;
 
 //Time Limit

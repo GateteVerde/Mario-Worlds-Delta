@@ -89,6 +89,13 @@ alarm[10] = 60;
             <kind>1</kind>
             <string>///Start moving
 
+//If the player does not exist
+if (!instance_exists(obj_playerparent)) {
+
+    alarm[10] = 1;
+    exit;
+}
+
 //Set the running sprite
 sprite_index = spr_charginchuck_walk;
 
@@ -97,8 +104,8 @@ friction = 0;
     
 //Play sound
 alarm[0] = 6;
-
-//If the player is above
+    
+//If the player is below
 if (obj_playerparent.bbox_bottom &lt; y-16) {
 
     //Animate
@@ -111,8 +118,7 @@ if (obj_playerparent.bbox_bottom &lt; y-16) {
     alarm[1] = 120;
     
     //Move towards the player
-    if (!instance_exists(obj_playerparent))
-    || (obj_playerparent.x &lt; x)
+    if (obj_playerparent.x &lt; x)
         hspeed = -1;
     else
         hspeed = 1;
@@ -128,8 +134,7 @@ else {
     lookout = 1;
     
     //Move towards the player
-    if (!instance_exists(obj_playerparent))
-    || (obj_playerparent.x &lt; x)
+    if (obj_playerparent.x &lt; x)
         hspeed = -1.75;
     else
         hspeed = 1.75;
@@ -460,10 +465,38 @@ if (firehp &lt;= 0) {
     audio_stop_play_sound(snd_kick, 0, false);
     
     //Get 1000 points
-    with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(5);
+    with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(7);
     
     //Create smoke effect
     with (instance_create(round(bbox_left+bbox_right)/2-8, round(bbox_top+bbox_bottom)/2-8, obj_smoke)) sprite_index = spr_smoke_16;
+    
+    //Create 3 coins
+    repeat (3) {
+    
+        //Play 'Big Coin' sound
+        audio_stop_play_sound(snd_coin_big, 0, false);
+    
+        //Create the coins
+        with (instance_create(x, bbox_top, obj_coin_alt)) {
+        
+            //Set the horizontal speed
+            hspeed = random_range(-0.5, 0.5);
+            
+            //Disable alarms
+            alarm[0] = -1;
+            alarm[1] = -1;
+            
+            //Apply gravity to the coin
+            ready = 1;
+                                    
+            //Jump a bit
+            y--;
+            if (other.swimming == 0)
+                vspeed = -4;
+            else
+                vspeed = -3;  
+        }
+    }
     
     //Perform death event
     event_user(0);
@@ -541,8 +574,8 @@ if (sprite_index != spr_charginchuck_damage) {
         //If the firehp is lower than 2
         if (firehp &lt;= 1) {
         
-            //Get 800 points
-            with (instance_create((bbox_left+bbox_right)/2-8, y, obj_score)) event_user(4);
+            //Get 2000 points
+            with (instance_create((bbox_left+bbox_right)/2-8, y, obj_score)) event_user(6);
             
             //Create stomped enemy object
             with (instance_create(x, y, obj_enemy_stomped)) {
@@ -582,11 +615,11 @@ if (sprite_index != spr_charginchuck_damage) {
         }
     }
     
-    //Otherwise, get 800 points and kill
+    //Otherwise, get 2000 points and kill
     else {
     
-        //Get 800 points
-        with (instance_create((bbox_left+bbox_right)/2-8, y, obj_score)) event_user(4);
+        //Get 2000 points
+        with (instance_create((bbox_left+bbox_right)/2-8, y, obj_score)) event_user(6);
         
         //Create stomped enemy object
         with (instance_create(x, y, obj_enemy_stomped)) {

@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="42" name="datafiles">
-    <datafiles number="42" name="music">
+  <datafiles number="43" name="datafiles">
+    <datafiles number="43" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -89,6 +89,23 @@
           </Config>
         </ConfigOptions>
         <filename>bgm_classic.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>bgm_credits.ogg</name>
+        <exists>-1</exists>
+        <size>2011696</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>bgm_credits.ogg</filename>
       </datafile>
       <datafile>
         <name>bgm_desert.ogg</name>
@@ -655,6 +672,7 @@
       <sprite>sprites\spr_noteblock_diagonal_r</sprite>
       <sprite>sprites\spr_noteblock_diagonal_l</sprite>
       <sprite>sprites\spr_guessblock</sprite>
+      <sprite>sprites\spr_woodblock</sprite>
       <sprite>sprites\spr_yblock</sprite>
       <sprite>sprites\spr_youtline</sprite>
       <sprite>sprites\spr_iceblock</sprite>
@@ -996,6 +1014,10 @@
           <sprite>sprites\spr_firebro_throw</sprite>
           <sprite>sprites\spr_afhb</sprite>
           <sprite>sprites\spr_afhb_platform</sprite>
+          <sprite>sprites\spr_sumobro</sprite>
+          <sprite>sprites\spr_sumobro_stomp</sprite>
+          <sprite>sprites\spr_sumobro_flame</sprite>
+          <sprite>sprites\spr_sumobro_lightning</sprite>
         </sprites>
         <sprites name="Rexes">
           <sprites name="Red">
@@ -1577,9 +1599,11 @@
             <sprite>sprites\spr_mugshot_glitchypsix</sprite>
             <sprite>sprites\spr_mugshot_hypernova</sprite>
             <sprite>sprites\spr_mugshot_leanne</sprite>
+            <sprite>sprites\spr_mugshot_mack</sprite>
             <sprite>sprites\spr_mugshot_mors</sprite>
             <sprite>sprites\spr_mugshot_nick</sprite>
             <sprite>sprites\spr_mugshot_sammu</sprite>
+            <sprite>sprites\spr_mugshot_savern</sprite>
             <sprite>sprites\spr_mugshot_zircon</sprite>
           </sprites>
           <sprites name="Cursors">
@@ -1609,6 +1633,13 @@
             <sprite>sprites\spr_hud_sma2_coins</sprite>
             <sprite>sprites\spr_hud_sma2_reserve</sprite>
             <sprite>sprites\spr_hud_sma2_acecoins</sprite>
+          </sprites>
+          <sprites name="SMA4">
+            <sprite>sprites\spr_hud_sma4_world</sprite>
+            <sprite>sprites\spr_hud_sma4_mario</sprite>
+            <sprite>sprites\spr_hud_sma4_coins</sprite>
+            <sprite>sprites\spr_hud_sma4_time</sprite>
+            <sprite>sprites\spr_hud_sma4_pmeter</sprite>
           </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
@@ -1688,9 +1719,11 @@
         <sprite>sprites\spr_glitchypsix</sprite>
         <sprite>sprites\spr_hypernova</sprite>
         <sprite>sprites\spr_leanne</sprite>
+        <sprite>sprites\spr_mack</sprite>
         <sprite>sprites\spr_mors</sprite>
         <sprite>sprites\spr_nick</sprite>
         <sprite>sprites\spr_sammu</sprite>
+        <sprite>sprites\spr_savern</sprite>
         <sprite>sprites\spr_zircon</sprite>
       </sprites>
       <sprite>sprites\spr_mariostart</sprite>
@@ -1790,6 +1823,7 @@
     <background>background\bgr_titlebg</background>
     <background>background\bgr_titlebg_flr</background>
     <background>background\bgr_marioworlds</background>
+    <background>background\bgr_theend</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_balloon</path>
@@ -2038,6 +2072,7 @@
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_noteblock_diagonal_r</object>
       <object>objects\obj_noteblock_diagonal_l</object>
+      <object>objects\obj_woodblock</object>
       <object>objects\obj_yblock</object>
       <object>objects\obj_iceblock</object>
       <object>objects\obj_iceblock_coin</object>
@@ -2204,6 +2239,7 @@
           <object>objects\obj_boomerangbro</object>
           <object>objects\obj_firebro</object>
           <object>objects\obj_afhb</object>
+          <object>objects\obj_sumobro</object>
         </objects>
         <objects name="Rex">
           <object>objects\obj_rex</object>
@@ -2650,6 +2686,8 @@
               <object>objects\obj_boomerangbro_boomerang</object>
               <object>objects\obj_firebro_fireball</object>
               <object>objects\obj_afhb_rider</object>
+              <object>objects\obj_sumobro_flame</object>
+              <object>objects\obj_sumobro_lightning</object>
             </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>
@@ -2769,18 +2807,19 @@
           <object>objects\obj_spinthump</object>
         </objects>
         <objects name="System">
+          <objects name="Cutscene">
+            <object>objects\obj_castledoor</object>
+            <object>objects\obj_castledoor_black</object>
+          </objects>
           <objects name="Dialogues">
             <object>objects\obj_dialog</object>
             <object>objects\obj_message</object>
           </objects>
-          <objects name="Title">
+          <objects name="Title / Credits">
+            <object>objects\obj_credits</object>
             <object>objects\obj_title</object>
             <object>objects\obj_title_menu</object>
             <object>objects\obj_title_player</object>
-          </objects>
-          <objects name="Cutscene">
-            <object>objects\obj_castledoor</object>
-            <object>objects\obj_castledoor_black</object>
           </objects>
           <object>objects\obj_audio_loop_sound</object>
           <object>objects\obj_fish</object>
@@ -2865,6 +2904,7 @@
         <room>rooms\rm_noyoshi_entrance</room>
       </rooms>
       <rooms name="Events">
+        <room>rooms\rm_credits</room>
         <room>rooms\rm_gameover</room>
       </rooms>
       <rooms name="Minigames">
@@ -2887,7 +2927,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9.2 - r315"</constant>
+    <constant name="cs_version">"v0.9.3 - r316"</constant>
     <constant name="cs_grinder">-105</constant>
     <constant name="cs_saw">-104</constant>
     <constant name="cs_rope">-103</constant>

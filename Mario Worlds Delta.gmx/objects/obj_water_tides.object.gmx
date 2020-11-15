@@ -171,8 +171,9 @@ if (vspeed != 0) {
         alarm[0] = 360;
     }
     
-    //Stop if the player is not present
-    if (!instance_exists(obj_playerparent))
+    //If the player does no longer exist, stop
+    if (instance_exists(obj_player_warp))
+    || (instance_exists(obj_player_dead))
         vspeed = 0;
 }
 
@@ -194,7 +195,8 @@ player = collision_rectangle(water.bbox_left, water.bbox_top, water.bbox_right, 
 
 //If player is overlapping this object and it's swimming.
 if (player)
-&amp;&amp; (player.swimming == true) {
+&amp;&amp; (player.swimming == true) 
+&amp;&amp; (!instance_exists(obj_player_transform)) {
 
     //If this object can push
     if (push == true)
@@ -223,7 +225,7 @@ if (player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw the water
+            <string>///Draw tides
 
 //Draw water
 draw_sprite_tiled_area_ext(spr_tides, -1, x+xx, y, x, y, x+room_width-1, y+15, c_white, image_alpha);

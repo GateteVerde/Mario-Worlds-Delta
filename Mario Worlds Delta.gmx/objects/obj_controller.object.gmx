@@ -591,7 +591,7 @@ else if (keyboard_check_pressed(ord('H'))) {
     
         //Toggle HUD type
         hud_type++;
-        if (hud_type &gt; 3)
+        if (hud_type &gt; 4)
             hud_type = 0;
                 
         //Switch message
@@ -600,11 +600,14 @@ else if (keyboard_check_pressed(ord('H'))) {
             //SMA2
             case (1): message = "HUD TYPE: SMA2"; break;
             
+            //SMA4
+            case (2): message = "HUD TYPE: SMA4"; break;
+            
             //Minimalist
-            case (2): message = "HUD TYPE: MINI/SCORE"; break;
+            case (3): message = "HUD TYPE: MINI/SCORE"; break;
             
             //Minimalist (No Score)
-            case (3): message = "HUD TYPE: MINI/NO SCORE"; break;
+            case (4): message = "HUD TYPE: MINI/NO SCORE"; break;
             
             //Default
             default: message = "HUD TYPE: DEFAULT"; break;

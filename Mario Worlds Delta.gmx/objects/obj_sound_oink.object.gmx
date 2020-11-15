@@ -80,7 +80,8 @@ if (instance_exists(obj_playerparent))
             <kind>1</kind>
             <string>///Unleash the noise
 
-if (ready == 0) {
+if (ready == 0) 
+&amp;&amp; (!place_empty(x, y)) {
 
     //Unleash the pig
     instance_create(x+8, y+12, obj_sound_oink_b);

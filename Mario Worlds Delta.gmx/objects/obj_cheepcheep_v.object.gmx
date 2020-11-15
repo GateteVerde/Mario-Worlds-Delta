@@ -197,6 +197,15 @@ else if (swimming == 0) {
         //Set horizontal speed
         hspeed = 1*sign(flopdir);
         
+        //Create splash effect
+        with (instance_create(x, y+8, obj_smoke)) {
+        
+            sprite_index = spr_smoke_16;
+            image_speed = 0.15;
+            image_index = 2;
+            gravity = 0.25;
+        }
+        
         //Set the vertical speed
         vspeed = -2;
     }

@@ -238,6 +238,48 @@ draw_background_ext(bgr_titlebg, x, y, 1, 1, 0, c_white, 1);
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Go to credits
+
+//Play 'Correct' sound
+audio_stop_play_sound(snd_correct, 0, false);    
+
+//Stop the stream...
+audio_stop_sound(global.stream);
+
+//...and free it from memory
+audio_destroy_stream(global.stream);
+global.stream = noone;
+
+//Disable pixelation
+with (obj_controller) {
+
+    pixelate = 60;
+}
+
+//Go to the engine test
+room_goto(rm_credits);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

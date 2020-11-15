@@ -50,6 +50,9 @@ instance_deactivate_all(1);
 
 //Activate persistent object
 instance_activate_object(obj_controller);
+
+//Activate music player object
+instance_activate_object(obj_audio_loop_sound);
 </string>
           </argument>
         </arguments>

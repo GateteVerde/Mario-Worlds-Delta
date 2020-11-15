@@ -602,9 +602,9 @@ if (vulnerable &lt; 99)
         //Create 'Spinthump' effect
         instance_create(round(bbox_left+bbox_right)/2, other.bbox_top, obj_spinthump);
             
-        //Get 200 points
+        //Get 100 points
         with (instance_create(round(bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
-            event_user(2);
+            event_user(1);
     }
 }
 
@@ -650,9 +650,8 @@ if (vulnerable == 0)
         if (other.swimming == 0)
             vspeed = -4;
         else
-            vspeed = -2;
-        
-        
+            vspeed = -3;
+                
         //Apply gravity to the coin
         ready = 1;
         
@@ -1465,9 +1464,10 @@ imdead.image_index = image_index;
 imdead.image_xscale = xscale;
 
 //If the killing object is the cape
-if (other.object_index == obj_spinner) {
+if (other.object_index == obj_spinner) 
+|| (other.object_index == obj_blockparent) {
 
-    //Cape kill
+    //Cape / Block kill
     if (variable_instance_exists(id, "swimming")) {
         
         if (swimming == 0)

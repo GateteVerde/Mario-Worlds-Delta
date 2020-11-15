@@ -141,7 +141,6 @@ timer = 0;
 
 //Check if stun
 stun = 0;
-stun_frame = 0;
 
 //Projectile direction when spinning
 dir = 1;
@@ -641,9 +640,6 @@ invulnerable = false;
             <kind>1</kind>
             <string>///Player Logic
 
-//Update stun frame
-stun_frame += 0.15;
-
 //Check if above a slope
 slope = player_inslope();
 
@@ -947,7 +943,8 @@ if (vspeed &lt; 0)
     if (block) {
         
         //If the block has NOT been hit.
-        if (block.ready == 0) {
+        if (block.ready == 0) 
+        &amp;&amp; (block.object_index != obj_woodblock) {
     
             //Trigger block events
             with (block) {
