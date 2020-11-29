@@ -1020,7 +1020,8 @@ if (stomp != -1)
     else {
     
         //If the player is above the enemy
-        if (other.bbox_bottom &lt; bbox_top-vspeed+5) {
+        if (other.vspeed &gt;= 0)
+        &amp;&amp; (other.bbox_bottom &lt; bbox_top-vspeed+5) {
     
             //If the player is spin jumping
             if (stomp != 3)
@@ -1035,7 +1036,7 @@ if (stomp != -1)
                     instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)/2, obj_spinsmoke);
                     
                     //Get points based on combo
-                    if (other.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
+                    if (other.hitcombo &lt;= 6)
                         with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(2+obj_playerparent.hitcombo);
                     else
                         with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(9);
@@ -1086,13 +1087,10 @@ if (stomp != -1)
             //Regular stomp
             else if ((stomp == 0) || (stomp == 4)) {
             
-                //Play 'Stomp' sound
-                audio_stop_play_sound(snd_stomp, 0, false);
-            
                 //Prevent certain enemies from getting double stomped
                 if (vspeed &lt; 0) {
                 
-                    y = yprevious;
+                    y = yprevious-1;
                     if (other.vspeed &gt; 0)
                         other.y = other.yprevious;
                 }
@@ -1104,10 +1102,34 @@ if (stomp != -1)
                 if (stomp == 0) {
                 
                     //Get points based on combo
-                    if (other.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
-                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(2+obj_playerparent.hitcombo);
-                    else
-                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) event_user(9);
+                    if (other.hitcombo &lt;= 6) {
+                        
+                        //If the player stomped once
+                        if (other.hitcombo == 0)
+                            audio_stop_play_sound(snd_kick2, 0, false);
+                        else {  
+                        
+                            //Get sound index
+                            var snd = asset_get_index("snd_kick" + string(other.hitcombo+2));
+                            
+                            //If the sound exists
+                            if (snd &gt; -1)
+                                audio_stop_play_sound(snd, 0, false);
+                        }
+                                            
+                        //If the player did 6 or less consecutive stomps
+                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                            event_user(2+obj_playerparent.hitcombo);
+                    }
+                    else {
+                    
+                        //Play 'Kick 8' sound
+                        audio_stop_play_sound(snd_kick8, 0, false);
+                    
+                        //Get a 1-UP
+                        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                            event_user(9);
+                    }
                     
                     //Increment combo
                     other.hitcombo++;

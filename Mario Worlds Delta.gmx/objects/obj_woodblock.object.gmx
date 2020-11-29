@@ -90,10 +90,11 @@ ready = 0;
 
 //If the block can be bumped and the player exists
 if (ready == 0) 
-&amp;&amp; (instance_exists(obj_playerparent)) {
+&amp;&amp; (instance_exists(obj_playerparent)) 
+&amp;&amp; (obj_playerparent.bbox_bottom &gt; y) {
 
     //If the player is at the right
-    if (collision_rectangle(bbox_right, y, bbox_right+1, y+15, obj_playerparent, 0, 0)) {
+    if (collision_rectangle(bbox_right, y+8, bbox_right+1, y+8, obj_playerparent, 0, 0)) {
     
         //Push the player backwards
         obj_playerparent.hspeed = 3;
@@ -110,7 +111,7 @@ if (ready == 0)
     }
     
     //Otherwise,  if the player is at the left
-    else if (collision_rectangle(bbox_left-1, y, bbox_left, y+15, obj_playerparent, 0, 0)) {
+    else if (collision_rectangle(bbox_left-1, y+8, bbox_left, y+8, obj_playerparent, 0, 0)) {
     
         //Push the player backwards
         obj_playerparent.hspeed = -3;

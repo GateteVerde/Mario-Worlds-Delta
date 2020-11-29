@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bgr_desert" x="0" y="0" htiled="-1" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bgr_desert_night" x="0" y="0" htiled="-1" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -246,6 +246,18 @@
     <instance objName="obj_coin" x="464" y="288" name="inst_31A3CFF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin_ace" x="1472" y="304" name="inst_B329EC40" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin_ace" x="1984" y="304" name="inst_87D02A5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_spike" x="1480" y="176" name="inst_E223FC13" locked="0" code="static = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="1456" y="192" name="inst_52457605" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bganimator" x="16" y="-16" name="inst_DE594567" locked="0" code="bg_frame[0] = bgr_desert_night_b;&#xA;bg_frame[1] = bgr_desert_night_c;&#xA;bg_frame[2] = bgr_desert_night_b;&#xA;bg_frame[3] = bgr_desert_night;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1424" y="176" name="inst_9D34969E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1408" y="192" name="inst_8394DDC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1392" y="208" name="inst_CB85F3BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1520" y="176" name="inst_911F3FF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1536" y="192" name="inst_4AD1EA8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_coin" x="1552" y="208" name="inst_4A829F55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock_hidden" x="1312" y="224" name="inst_1BA4027E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_qblock_hidden" x="1328" y="224" name="inst_968702FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sledgebro" x="1992" y="256" name="inst_A36D255F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_desert" x="16" y="384" w="16" h="16" xo="160" yo="48" id="10044193" name="inst_3D6D2A07" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -312,6 +324,9 @@
     <tile bgName="tls_ground_desert" x="2448" y="384" w="16" h="16" xo="256" yo="48" id="10044683" name="inst_A2BB88F6" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_desert" x="2480" y="384" w="16" h="16" xo="160" yo="48" id="10044684" name="inst_405E2AC5" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_desert" x="2496" y="368" w="16" h="32" xo="176" yo="32" id="10044685" name="inst_2B01C421" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="1456" y="192" w="16" h="16" xo="304" yo="48" id="10045358" name="inst_E801394F" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="1472" y="192" w="16" h="16" xo="304" yo="48" id="10045359" name="inst_F9C5E54E" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="1488" y="192" w="16" h="16" xo="304" yo="48" id="10045360" name="inst_5E7D4FC5" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_desert" x="0" y="400" w="16" h="16" xo="288" yo="160" id="10044064" name="inst_C33C4C56" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_desert" x="16" y="400" w="16" h="16" xo="288" yo="160" id="10044065" name="inst_6291C441" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_desert" x="32" y="400" w="16" h="16" xo="288" yo="160" id="10044066" name="inst_174C5F08" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

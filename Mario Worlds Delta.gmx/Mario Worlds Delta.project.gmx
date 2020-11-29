@@ -339,11 +339,13 @@
     <sound>sound\snd_explosion</sound>
     <sound>sound\snd_feather</sound>
     <sound>sound\snd_fireball</sound>
+    <sound>sound\snd_firework</sound>
     <sound>sound\snd_flames</sound>
     <sound>sound\snd_fly</sound>
     <sound>sound\snd_goalgate</sound>
     <sound>sound\snd_goalgate_2</sound>
     <sound>sound\snd_goalgate_3</sound>
+    <sound>sound\snd_goalgate_special</sound>
     <sound>sound\snd_hammer</sound>
     <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
@@ -1012,6 +1014,8 @@
           <sprite>sprites\spr_boomerangbro_boomerang</sprite>
           <sprite>sprites\spr_firebro</sprite>
           <sprite>sprites\spr_firebro_throw</sprite>
+          <sprite>sprites\spr_sledgebro</sprite>
+          <sprite>sprites\spr_sledgebro_throw</sprite>
           <sprite>sprites\spr_afhb</sprite>
           <sprite>sprites\spr_afhb_platform</sprite>
           <sprite>sprites\spr_sumobro</sprite>
@@ -1036,6 +1040,13 @@
           <sprite>sprites\spr_rex2_dead</sprite>
         </sprites>
         <sprites name="Chucks">
+          <sprites name="Clappin' Chuck">
+            <sprite>sprites\spr_clappinchuck</sprite>
+            <sprite>sprites\spr_clappinchuck_jump</sprite>
+          </sprites>
+          <sprites name="Bouncin' Chuck">
+            <sprite>sprites\spr_bouncinchuck</sprite>
+          </sprites>
           <sprite>sprites\spr_charginchuck</sprite>
           <sprite>sprites\spr_charginchuck_walk</sprite>
           <sprite>sprites\spr_charginchuck_jump</sprite>
@@ -1270,6 +1281,7 @@
       <sprite>sprites\spr_chainchomp</sprite>
       <sprite>sprites\spr_chainchomp_chain</sprite>
       <sprite>sprites\spr_chainchomp_chainpost</sprite>
+      <sprite>sprites\spr_enemybubble</sprite>
     </sprites>
     <sprites name="World Map">
       <sprites name="Playable Characters">
@@ -1553,7 +1565,10 @@
         <sprite>sprites\spr_cinder</sprite>
         <sprite>sprites\spr_cinder_choco</sprite>
         <sprite>sprites\spr_cinder_poison</sprite>
+        <sprite>sprites\spr_firework</sprite>
         <sprite>sprites\spr_note</sprite>
+        <sprite>sprites\spr_pop</sprite>
+        <sprite>sprites\spr_shake</sprite>
         <sprite>sprites\spr_shellthump</sprite>
         <sprite>sprites\spr_shellthump_st</sprite>
         <sprite>sprites\spr_smoke</sprite>
@@ -2238,6 +2253,7 @@
           <object>objects\obj_hammerbro</object>
           <object>objects\obj_boomerangbro</object>
           <object>objects\obj_firebro</object>
+          <object>objects\obj_sledgebro</object>
           <object>objects\obj_afhb</object>
           <object>objects\obj_sumobro</object>
         </objects>
@@ -2248,6 +2264,8 @@
         <objects name="Chucks">
           <object>objects\obj_charginchuck</object>
           <object>objects\obj_clappinchuck</object>
+          <object>objects\obj_splittinchuck</object>
+          <object>objects\obj_bouncinchuck</object>
         </objects>
         <object>objects\obj_dinotorch</object>
         <object>objects\obj_dinorhino</object>
@@ -2374,6 +2392,7 @@
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
       <object>objects\obj_chainchomp</object>
+      <object>objects\obj_enemybubble</object>
     </objects>
     <objects name="World Map">
       <object>objects\obj_mapmanager</object>
@@ -2766,6 +2785,7 @@
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_chomp</object>
           <object>objects\obj_chomp_chain</object>
+          <object>objects\obj_enemybubble_respawn</object>
         </objects>
         <objects name="World Map">
           <objects name="Decoration">

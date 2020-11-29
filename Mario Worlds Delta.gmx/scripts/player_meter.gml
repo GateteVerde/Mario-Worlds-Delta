@@ -9,7 +9,7 @@
 */
 
 //If the player horizontal speed is equal greater than the value given in "hspeed_run"
-if (abs(hspeed) > hspeed_run-0.1) {
+if (abs(hspeed) >= hspeed_run) {
 
     //If the player is not jumping or climbing
     if (state != statetype.jump)
@@ -37,8 +37,7 @@ if (abs(hspeed) > hspeed_run-0.1) {
 }
 
 //Otherwise, if the player horizontal speed is lower than the value given in "hspeed_run".
-else if (abs(hspeed) < hspeed_run)
-&& ((state == statetype.idle) || (state == statetype.walk)) {
+else if ((abs(hspeed) < hspeed_run) && (state != statetype.jump)) {
 
     //Make the player walk
     run = false;

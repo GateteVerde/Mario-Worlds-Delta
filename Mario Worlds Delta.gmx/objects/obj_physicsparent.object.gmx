@@ -323,9 +323,11 @@ if (collision_rectangle(bbox_left, bbox_bottom-1, bbox_right, bbox_bottom+1, obj
 &amp;&amp; (!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom-4, obj_semisolid, 0, 0)) 
 || (collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+1, obj_slopeparent, 1, 0)) {
 
-    //Stop vertical movement
-    gravity = 0;
+    //If moving down
     if (vspeed &gt;= 0) {
+    
+        //Stop gravity
+        gravity = 0;
     
         //If this object is not ancestor of obj_holdparent
         if (!variable_instance_exists(object_index, "bouncy"))

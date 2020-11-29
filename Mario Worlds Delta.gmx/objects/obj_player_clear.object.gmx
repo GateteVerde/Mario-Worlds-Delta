@@ -66,6 +66,9 @@ global.checkpointroom = noone;
 //Allow Mario Start! text
 global.mariostart = 0;
 
+//Fireworks
+fireworks = 0;
+
 //States
 ready = 0;
 ready2 = 0;
@@ -140,6 +143,55 @@ with (obj_physicsparent) {
             instance_destroy();
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate more fireworks
+
+//If there's fireworks left
+if (fireworks &gt; 0) {
+    
+    //Play 'Firework' sound
+    audio_play_sound(snd_firework, 0, false);
+    
+    //Spawn a firework
+    with (instance_create(view_xview[view_current] + view_wview[view_current] / 2 + random_range(-80, 80), view_yview[0]+random_range(32,64), obj_smoke)) {
+    
+        //Set sprite
+        sprite_index = spr_firework;
+    
+        //Set speed
+        image_speed = 0.3;
+        
+        //Set speed
+        score += 500;
+    }
+      
+    //Decrease amount of firework
+    fireworks--;
+    
+    //Repeat
+    alarm[6] = 30;
 }
 </string>
           </argument>
@@ -331,6 +383,10 @@ ready2 = 1;
 
 //Make the player move again
 alarm[1] = 100;
+
+//If there's fireworks
+if (fireworks &gt; 0)
+    alarm[6] = 30;
 </string>
           </argument>
         </arguments>
@@ -356,7 +412,8 @@ alarm[1] = 100;
             <string>///Start walking
 
 //If the timer hits zero
-if (global.time == 0) {
+if (fireworks == 0)
+&amp;&amp; (global.time == 0) {
 
     //Play 'Goal End' sound
     audio_stop_play_sound(snd_goalgate_3, 0, false);
@@ -391,9 +448,25 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Play 'Clear BGM'
+            <string>///Play 'Clear BGM' and set fireworks
 
-audio_stop_play_sound(snd_goalgate_2, 0, false);
+if (global.time -(floor(global.time/10)*10) == 6)
+|| (global.time -(floor(global.time/10)*10) == 3)
+|| (global.time -(floor(global.time/10)*10) == 1) {
+
+    //Plays 'Special Clear' theme
+    audio_stop_play_sound(snd_goalgate_special, 0, false);
+    
+    //Set amount of fireworks
+    if (global.time -(floor(global.time/10)*10) == 6)
+        fireworks = 6;
+    else if (global.time -(floor(global.time/10)*10) == 3)
+        fireworks = 3;
+    else if (global.time -(floor(global.time/10)*10) == 1)
+        fireworks = 1;
+}
+else
+    audio_stop_play_sound(snd_goalgate_2, 0, false);
 </string>
           </argument>
         </arguments>
@@ -528,9 +601,11 @@ event_inherited();
 
 //Close curtain and go to map
 if (ready3 == 1)
+&amp;&amp; (fireworks == 0)
 &amp;&amp; (global.time == 0)
 &amp;&amp; (global.bonusadd == 0)
-&amp;&amp; (!audio_is_playing(snd_goalgate_2)) {
+&amp;&amp; (!audio_is_playing(snd_goalgate_2))
+&amp;&amp; (!audio_is_playing(snd_goalgate_special)) {
 
     //Close curtain
     ready3 = 2;

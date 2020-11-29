@@ -451,6 +451,7 @@ if (global.powerup == cs_pow_cape) {
         //If moving down and the player is not holding anything or it is not spin-jumping
         if (fly > 25) 
         && (vspeed > 0)
+        && (crouch == 0)
         && (holding == 0) 
         && (jumpstyle == 0) {
         

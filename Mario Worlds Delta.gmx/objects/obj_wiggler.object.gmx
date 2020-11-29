@@ -434,31 +434,69 @@ else if (hspeed &lt; 0) {
             <kind>1</kind>
             <string>///Get stunned
 
+//If the wiggler is not mad
 if (state == 0) {
 
     //Get points based on combo
-    if (obj_playerparent.hitcombo &lt;= 6) //If the player did 6 or less consecutive stomps
-        with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(2+obj_playerparent.hitcombo);
+    if (other.hitcombo &lt;= 6) {
+        
+        //If the player stomped once
+        if (other.hitcombo == 0)
+            audio_stop_play_sound(snd_kick2, 0, false);
+        else {  
+        
+            //Get sound index
+            var snd = asset_get_index("snd_kick" + string(other.hitcombo+2));
+            
+            //If the sound exists
+            if (snd &gt; -1)
+                audio_stop_play_sound(snd, 0, false);
+        }
+                            
+        //If the player did 6 or less consecutive stomps
+        with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+            event_user(2+obj_playerparent.hitcombo);
+    }
     else {
     
-        switch (obj_playerparent.hitcombo) {
+        //Play 'Kick 8' sound
+        audio_stop_play_sound(snd_kick8, 0, false);
         
-            //Seven
-            case (7): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(9); break;
+        //Get lives based on combo
+        switch (other.hitcombo) {
+        
+            case (7): {
             
-            //Eight
-            case (8): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(10); break;
+                //Get a 1-UP
+                with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                    event_user(9);
+            } break;
             
-            //Nine
-            case (9): with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(11); break;
+            case (8): {
             
-            //Ten or more
-            default: with (instance_create((bbox_left+bbox_right)/2-8,y,obj_score)) event_user(12); break;
+                //Get 2-UP
+                with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                    event_user(10);
+            } break;
+            
+            case (9): {
+            
+                //Get 3-UP
+                with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                    event_user(11);
+            } break;
+            
+            default: {
+            
+                //Get 5-UP
+                with (instance_create((bbox_left+bbox_right)/2-8, bbox_top, obj_score)) 
+                    event_user(12);
+            } break;
         }
     }
     
     //Increment combo
-    obj_playerparent.hitcombo++;
+    other.hitcombo++;
     
     //Kill flower
     with (instance_create(x, y, obj_enemy_dead)) {
@@ -502,6 +540,8 @@ if (state == 0) {
     //Go after the player
     alarm[1] = 65;
 }
+else
+audio_stop_play_sound(snd_stomp, 0, false);
 </string>
           </argument>
         </arguments>

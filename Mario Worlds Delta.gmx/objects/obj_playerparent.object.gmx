@@ -141,6 +141,7 @@ timer = 0;
 
 //Check if stun
 stun = 0;
+stun_anim = 0;
 
 //Projectile direction when spinning
 dir = 1;
@@ -684,17 +685,20 @@ if (cleared == 1) {
     }
 }
 
-//Decrement stun
-if (stun &gt; 0) {
-
-    //Decrement
-    stun--;
+else {
     
-    //Disable player controls
-    control_enable = false;
+    //Decrement stun
+    if (stun &gt; 0) {
+    
+        //Decrement
+        stun--;
+        
+        //Disable player controls
+        control_enable = false;
+    }
+    else
+        control_enable = true;
 }
-else
-control_enable = true;
 
 //Decrement boost
 if (boostme &gt; 0) {
@@ -915,8 +919,7 @@ else if (hspeed &lt; 0) {
         //Prevent the player from getting embed in the wall
         while (collision_rectangle(bbox_left, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid_moving, 1, 0))
         &amp;&amp; (!collision_point(x, bbox_top+4, obj_solid, 0, 0))    
-            x++;
-            
+            x++;            
     }
 }
 
@@ -925,16 +928,6 @@ if (vspeed &lt; 0)
 &amp;&amp; ((collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
 || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid_moving, 1, 0)) 
 || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_slopeparent_ceiling, 1, 0))) {
-
-    //If not flying
-    if (flying == 0) {
-    
-        while ((collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solid, 1, 0))
-        || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_solid_moving, 1, 0))
-        || (collision_rectangle(bbox_left+1, bbox_top+1, bbox_right-1, bbox_top+1, obj_slopeparent_ceiling, 1, 0)))
-            y += 0.9;
-        
-    }
         
     //Check if there's a block on the way.
     var block = collision_rectangle(bbox_left, bbox_top-2, bbox_right, bbox_top-1, obj_blockparent, 0, 0);
@@ -981,20 +974,20 @@ if (vspeed &lt; 0)
     }
 }
 
-//Prevent the player's head from getting embed on ceilings when flying
+//If moving up and the player is flying
 if (vspeed &lt; 0)
 &amp;&amp; (flying &gt; 0) {
 
-    while ((collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_solid, 1, 0))
-    || (collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_slopeparent_ceiling, 1, 0))
-    || (collision_rectangle(bbox_left+1, bbox_top+vspeed, bbox_right-1, bbox_top+vspeed, obj_solid_moving, 1, 0)))
+    //If there's a solid
+    while (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_solid, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_solid_moving, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_slopeparent_ceiling, 1, 0))
         y += 0.9;
 }
 
-//If flying and there's a ceiling slope on the way
-if (flying &gt; 0)
-&amp;&amp; (collision_rectangle(bbox_left, bbox_top-vspeed-1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))
-    while (collision_rectangle(bbox_left, bbox_top-vspeed-1, bbox_right, bbox_top+1, obj_slopeparent_ceiling, 1, 0))
+//If the player is jumping
+if (state == statetype.jump)
+    while (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_slopeparent_ceiling, 1, 0))
         y += 0.9;
 
 //If the player is not climbing
@@ -1565,6 +1558,9 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw the player
 
+//Increment stun animation
+stun_anim += 0.5;
+
 //If the player is about to squat jump
 if (squat_ready == 1)
 &amp;&amp; (squat_time mod 4 == 0) 
@@ -1587,6 +1583,12 @@ else {
         
     //Draw the player
     draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+    
+    //Draw stun
+    if (stun &gt; 0) {
+    
+        draw_sprite_ext(spr_shake, stun_anim, x, y, 1, 1, 0, c_white, 1);
+    }
     
     //Reset palette
     pal_swap_reset();

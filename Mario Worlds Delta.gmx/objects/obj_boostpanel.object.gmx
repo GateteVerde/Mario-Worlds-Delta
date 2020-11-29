@@ -98,7 +98,7 @@ if (player)
         with (obj_playerparent) {
         
             //Boost
-            hspeed = (hspeed_run_full+1)*sign(hspeed);
+            hspeed = (hspeed_run_full)*sign(hspeed);
             
             //Boost the player
             boostme = 120;

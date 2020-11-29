@@ -260,24 +260,30 @@ else if (sprite_index == spr_shell_spiny) {
             <kind>1</kind>
             <string>///Check for 1 block gaps and destroy blocks on the way
 
-//If the object is not falling
-if ((fall == 0) &amp;&amp; (vspeed == 0)) {
+//Slowdown if nearby a 1 block gap.
+if ((collision_rectangle(bbox_left-4, bbox_top+4, bbox_left, bbox_bottom+4, obj_solid, 0, 0)) &amp;&amp; (hspeed &lt; 0))
+|| ((collision_rectangle(bbox_right, bbox_top+4, bbox_right+4, bbox_bottom+4, obj_solid, 0, 0)) &amp;&amp; (hspeed &gt; 0)) {
 
-    //If there's not a semisolid below
-    if (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+1, obj_semisolid, 1, 0)) 
-    &amp;&amp; (!collision_rectangle(x-2, bbox_bottom+1, x+2, bbox_bottom+4, obj_slopeparent, 1, 0)) {
+    if (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+4, obj_semisolid, 0, 0))
+    &amp;&amp; (!collision_rectangle(x, bbox_bottom, x, bbox_bottom+4, obj_slopeparent, 1, 0)) {
     
-        move_snap(8, 16);
-        y += 4;
-        fall = 1;
+        //Move 4 pixels downwards.
+        if (check == false) {
+        
+            y += 4;
+            check = true;
+        }
     }
+    
+    //Make the shell able to enter on small gaps.
+    else
+        check = false;
 }
 
-//Otherwise, if falling
-else if (fall == 1) 
-&amp;&amp; (gravity == 0)
-    fall = 0;
-
+//Make the shell able to enter on small gaps
+else
+check = false;
+    
 //Check for blocks to the left
 var block_l = collision_rectangle(bbox_left-9-hspeed, bbox_top, bbox_left, bbox_bottom, obj_solid, 0, 0);
 if (block_l)
