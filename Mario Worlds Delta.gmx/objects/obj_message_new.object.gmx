@@ -218,7 +218,7 @@ draw_set_colour(c_white);
 if (scale == 1) {
 
     //Draw the text
-    draw_text(view_xview[0] + view_wview[0] / 2 - 72, view_yview[0] + 46, string(message));
+    draw_text_colour_shadowed(view_xview[0] + view_wview[0] / 2 - 72, view_yview[0] + 46, string(message), c_black, c_white, 1, 1, 1, 1);
     
     //If this is a switch palace message, draw blocks
     switch (inisection) {

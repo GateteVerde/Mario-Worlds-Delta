@@ -4,7 +4,7 @@
   <width>992</width>
   <height>768</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -95,7 +95,12 @@
     <instance objName="obj_enemybubble" x="288" y="400" name="inst_83C788F0" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemybubble" x="624" y="368" name="inst_EBCD64FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemybubble" x="672" y="400" name="inst_35A3BD94" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bouncinchuck" x="168" y="656" name="inst_8D5379AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_passinchuck" x="120" y="624" name="inst_62936B13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="112" y="640" name="inst_1790B510" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="96" y="656" name="inst_F9EA27AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="112" y="656" name="inst_B9110F9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_stone" x="128" y="656" name="inst_816F7EB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_passinchuck" x="168" y="656" name="inst_CFDFA808" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="400" y="656" w="16" h="32" xo="48" yo="160" id="10045123" name="inst_B1A77F1B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

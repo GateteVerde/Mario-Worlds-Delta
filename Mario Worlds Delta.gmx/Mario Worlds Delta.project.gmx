@@ -1047,6 +1047,10 @@
           <sprites name="Bouncin' Chuck">
             <sprite>sprites\spr_bouncinchuck</sprite>
           </sprites>
+          <sprites name="Passin' Chuck">
+            <sprite>sprites\spr_passinchuck</sprite>
+            <sprite>sprites\spr_football</sprite>
+          </sprites>
           <sprite>sprites\spr_charginchuck</sprite>
           <sprite>sprites\spr_charginchuck_walk</sprite>
           <sprite>sprites\spr_charginchuck_jump</sprite>
@@ -1656,6 +1660,9 @@
             <sprite>sprites\spr_hud_sma4_time</sprite>
             <sprite>sprites\spr_hud_sma4_pmeter</sprite>
           </sprites>
+          <sprites name="Hello Engine">
+            <sprite>sprites\spr_hud_hello_bar</sprite>
+          </sprites>
           <sprite>sprites\spr_hud_mario</sprite>
           <sprite>sprites\spr_hud_coins</sprite>
           <sprite>sprites\spr_hud_stars</sprite>
@@ -2264,8 +2271,9 @@
         <objects name="Chucks">
           <object>objects\obj_charginchuck</object>
           <object>objects\obj_clappinchuck</object>
-          <object>objects\obj_splittinchuck</object>
           <object>objects\obj_bouncinchuck</object>
+          <object>objects\obj_splittinchuck</object>
+          <object>objects\obj_passinchuck</object>
         </objects>
         <object>objects\obj_dinotorch</object>
         <object>objects\obj_dinorhino</object>
@@ -2708,6 +2716,9 @@
               <object>objects\obj_sumobro_flame</object>
               <object>objects\obj_sumobro_lightning</object>
             </objects>
+            <objects name="Chucks">
+              <object>objects\obj_football</object>
+            </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>
           </objects>
@@ -2834,6 +2845,7 @@
           <objects name="Dialogues">
             <object>objects\obj_dialog</object>
             <object>objects\obj_message</object>
+            <object>objects\obj_message_new</object>
           </objects>
           <objects name="Title / Credits">
             <object>objects\obj_credits</object>
@@ -2845,7 +2857,6 @@
           <object>objects\obj_fish</object>
           <object>objects\obj_hud</object>
           <object>objects\obj_hud_map</object>
-          <object>objects\obj_message_new</object>
           <object>objects\obj_pause</object>
         </objects>
         <object>objects\obj_blockbumper</object>

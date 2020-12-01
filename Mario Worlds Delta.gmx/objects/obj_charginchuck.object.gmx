@@ -207,8 +207,9 @@ else
 //Repeat the process
 alarm[0] = 6;
 
-//If the chuck is on lockout mode
-if (lookout == 1) {
+//If the chuck is on lookout mode
+if (lookout == 1) 
+&amp;&amp; (gravity == 0) {
     
     //If chargin, play 'Bump' sound
     if (sprite_index == spr_charginchuck_walk)
