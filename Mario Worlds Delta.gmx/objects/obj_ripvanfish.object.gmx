@@ -157,7 +157,7 @@ else {
             //Set horizontal speed depending of the player's position
             if (obj_playerparent.x &lt; x) {
             
-                hspeed += 0.01;
+                hspeed += 0.0125;
                 if (hspeed &gt; 1.5)
                     hspeed = 1.5;
             }
@@ -165,15 +165,15 @@ else {
             //Otherwise, if the player is at the right
             else if (obj_playerparent.x &gt; x) {
             
-                hspeed -= 0.01;
+                hspeed -= 0.0125;
                 if (hspeed &lt; -1.5)
                     hspeed = -1.5;
             }
             
-            //Set horizontal speed depending of the player's position
+            //Set vertical speed depending of the player's position
             if (obj_playerparent.y &lt; y) {
             
-                vspeed += 0.01;
+                vspeed += 0.0125;
                 if (vspeed &gt; 1.5)
                     vspeed = 1.5;
             }
@@ -181,7 +181,7 @@ else {
             //Otherwise, if the player is at the right
             else if (obj_playerparent.y &gt; y) {
             
-                vspeed -= 0.01;
+                vspeed -= 0.0125;
                 if (vspeed &lt; -1.5)
                     vspeed = -1.5;
             }
@@ -193,7 +193,7 @@ else {
             //Set horizontal speed depending of the player's position
             if (obj_playerparent.x &lt; x) {
             
-                hspeed -= 0.01;
+                hspeed -= 0.0125;
                 if (hspeed &lt; -1.5)
                     hspeed = -1.5;
             }
@@ -201,15 +201,15 @@ else {
             //Otherwise, if the player is at the right
             else if (obj_playerparent.x &gt; x) {
             
-                hspeed += 0.01;
+                hspeed += 0.0125;
                 if (hspeed &gt; 1.5)
                     hspeed = 1.5;
             }
             
-            //Set horizontal speed depending of the player's position
+            //Set vertical speed depending of the player's position
             if (obj_playerparent.y &lt; y) {
             
-                vspeed -= 0.01;
+                vspeed -= 0.0125;
                 if (vspeed &lt; -1.5)
                     vspeed = -1.5;
             }
@@ -217,7 +217,7 @@ else {
             //Otherwise, if the player is at the right
             else if (obj_playerparent.y &gt; y) {
             
-                vspeed += 0.01;
+                vspeed += 0.0125;
                 if (vspeed &gt; 1.5)
                     vspeed = 1.5;
             }        

@@ -1040,16 +1040,25 @@
           <sprite>sprites\spr_rex2_dead</sprite>
         </sprites>
         <sprites name="Chucks">
+          <sprites name="Bouncin' Chuck">
+            <sprite>sprites\spr_bouncinchuck</sprite>
+          </sprites>
           <sprites name="Clappin' Chuck">
             <sprite>sprites\spr_clappinchuck</sprite>
             <sprite>sprites\spr_clappinchuck_jump</sprite>
           </sprites>
-          <sprites name="Bouncin' Chuck">
-            <sprite>sprites\spr_bouncinchuck</sprite>
+          <sprites name="Diggin' Chuck">
+            <sprite>sprites\spr_digginchuck</sprite>
+            <sprite>sprites\spr_digginchuck_dig</sprite>
+            <sprite>sprites\spr_mudball</sprite>
+            <sprite>sprites\spr_mudball_dig</sprite>
           </sprites>
           <sprites name="Passin' Chuck">
             <sprite>sprites\spr_passinchuck</sprite>
             <sprite>sprites\spr_football</sprite>
+          </sprites>
+          <sprites name="Whistlin' Chuck">
+            <sprite>sprites\spr_whistlinchuck</sprite>
           </sprites>
           <sprite>sprites\spr_charginchuck</sprite>
           <sprite>sprites\spr_charginchuck_walk</sprite>
@@ -1130,8 +1139,10 @@
       <sprites name="Forest / Desert">
         <sprites name="Wiggler">
           <sprite>sprites\spr_wiggler</sprite>
+          <sprite>sprites\spr_wiggler_alt</sprite>
           <sprite>sprites\spr_wiggler_body</sprite>
           <sprite>sprites\spr_wiggler_mad</sprite>
+          <sprite>sprites\spr_wiggler_mad_alt</sprite>
           <sprite>sprites\spr_wiggler_mad_body</sprite>
           <sprite>sprites\spr_wiggler_flower</sprite>
         </sprites>
@@ -2273,7 +2284,9 @@
           <object>objects\obj_clappinchuck</object>
           <object>objects\obj_bouncinchuck</object>
           <object>objects\obj_splittinchuck</object>
+          <object>objects\obj_digginchuck</object>
           <object>objects\obj_passinchuck</object>
+          <object>objects\obj_whistlinchuck</object>
         </objects>
         <object>objects\obj_dinotorch</object>
         <object>objects\obj_dinorhino</object>
@@ -2718,6 +2731,7 @@
             </objects>
             <objects name="Chucks">
               <object>objects\obj_football</object>
+              <object>objects\obj_mudball</object>
             </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>

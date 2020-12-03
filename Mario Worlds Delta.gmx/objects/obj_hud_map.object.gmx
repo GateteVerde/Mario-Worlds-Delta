@@ -100,7 +100,7 @@ draw_sprite_ext(player_walk(), anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 
 pal_swap_reset();
 
 //Set up the font
-draw_set_font(global.fontnumb);
+draw_set_font(global.font);
 
 //Draw lives
 draw_text(view_xview[0]+56, view_yview[0]+31, string("*") + string(lives));
