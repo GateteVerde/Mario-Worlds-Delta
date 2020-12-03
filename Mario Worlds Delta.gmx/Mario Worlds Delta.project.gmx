@@ -1047,6 +1047,11 @@
             <sprite>sprites\spr_clappinchuck</sprite>
             <sprite>sprites\spr_clappinchuck_jump</sprite>
           </sprites>
+          <sprites name="Confused Chuck">
+            <sprite>sprites\spr_confusedchuck</sprite>
+            <sprite>sprites\spr_confusedchuck_jump</sprite>
+            <sprite>sprites\spr_baseball</sprite>
+          </sprites>
           <sprites name="Diggin' Chuck">
             <sprite>sprites\spr_digginchuck</sprite>
             <sprite>sprites\spr_digginchuck_dig</sprite>
@@ -2282,10 +2287,11 @@
         <objects name="Chucks">
           <object>objects\obj_charginchuck</object>
           <object>objects\obj_clappinchuck</object>
+          <object>objects\obj_confusedchuck</object>
           <object>objects\obj_bouncinchuck</object>
-          <object>objects\obj_splittinchuck</object>
           <object>objects\obj_digginchuck</object>
           <object>objects\obj_passinchuck</object>
+          <object>objects\obj_splittinchuck</object>
           <object>objects\obj_whistlinchuck</object>
         </objects>
         <object>objects\obj_dinotorch</object>
@@ -2732,6 +2738,7 @@
             <objects name="Chucks">
               <object>objects\obj_football</object>
               <object>objects\obj_mudball</object>
+              <object>objects\obj_baseball</object>
             </objects>
             <object>objects\obj_dinotorch_flame</object>
             <object>objects\obj_spike_ball</object>

@@ -4,7 +4,7 @@
   <width>992</width>
   <height>768</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -95,10 +95,10 @@
     <instance objName="obj_enemybubble" x="288" y="400" name="inst_83C788F0" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemybubble" x="624" y="368" name="inst_EBCD64FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemybubble" x="672" y="400" name="inst_35A3BD94" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_digginchuck" x="200" y="656" name="inst_43B2B07F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_digginchuck" x="136" y="608" name="inst_670F5802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="96" y="624" name="inst_A6B0F3FE" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="496" y="624" name="inst_17DF778B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_confusedchuck" x="136" y="608" name="inst_B23FD7F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_confusedchuck" x="200" y="656" name="inst_9987C73C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="400" y="656" w="16" h="32" xo="48" yo="160" id="10045123" name="inst_B1A77F1B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
