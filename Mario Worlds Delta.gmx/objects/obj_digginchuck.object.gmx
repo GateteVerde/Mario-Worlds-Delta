@@ -39,6 +39,9 @@ alarm[0] = 60;
 //Animate
 image_speed = 0;
 
+//Mud balls to dig
+balls = 3;
+
 //Whether the chuck is about to dig
 ready = 0;
 </string>
@@ -96,7 +99,7 @@ image_index = 0;
 if (hp == 3) {
     
     //Set kicking frame
-    image_speed = 0.15;
+    image_speed = 0.2;
     
     //Do not show ball
     ready = 2;
@@ -263,11 +266,20 @@ if (hp == 3) {
         //Ready
         ready = 0;
         
-        //Dig again
-        alarm[0] = 180;
+        //Decrement balls
+        balls--;
         
         //Set normal sprite
         alarm[2] = 30;
+        
+        //Dig again
+        if (balls &gt; 0)
+            alarm[0] = 90;        
+        else {
+        
+            balls = 3;
+            alarm[0] = 180;
+        }        
     }
 }
 else

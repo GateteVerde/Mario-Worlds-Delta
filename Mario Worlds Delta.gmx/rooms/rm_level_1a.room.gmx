@@ -4,7 +4,7 @@
   <width>5232</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -92,7 +92,6 @@
     <instance objName="obj_water_cave" x="0" y="352" name="inst_709CC0F1" locked="0" code="" scaleX="20" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="obj_cheepcheep" x="920" y="320" name="inst_61F1A639" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cheepcheep_v" x="712" y="336" name="inst_979B3795" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_buzzybeetle" x="552" y="240" name="inst_58237928" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_085FA9A0" locked="0" code="inisection = &quot;Underground&quot;;&#xA;leveltime = 400;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_3F9978B9" locked="0" code="bg_frame[0] = bgr_cave_b;&#xA;bg_frame[1] = bgr_cave_c;&#xA;bg_frame[2] = bgr_cave_b;&#xA;bg_frame[3] = bgr_cave;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_beanstalk" x="944" y="256" name="inst_18026C24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -543,6 +542,7 @@
     <instance objName="obj_slope_l" x="368" y="272" name="inst_4EA6CF9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="1208" y="64" name="inst_EBD2741F" locked="0" code="varmsg = &quot;Man, I wish I could get out of this cave here...&quot;;&#xA;mugshot = spr_mugshot_gatete;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_splittinchuck" x="4536" y="304" name="inst_30EB2A2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_digginchuck" x="536" y="240" name="inst_5B416085" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="1232" y="80" w="16" h="16" xo="144" yo="208" id="10017583" name="inst_2DB35E20" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

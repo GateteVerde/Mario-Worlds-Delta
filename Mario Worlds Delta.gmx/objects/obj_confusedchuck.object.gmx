@@ -38,7 +38,7 @@ image_speed = 0;
 image_index = 0;
 
 //Number of balls to throw
-balls = 5;
+balls = round(random_range(2, 5));
 
 //Whether the chuck is jumping
 jumping = 0;
@@ -181,8 +181,8 @@ if (hp == 3) {
             if (balls &gt; 0)
                 alarm[0] = 15;
             else {
-            
-                balls = 5;
+
+                balls = choose(2, 3, 4, 5);
                 alarm[0] = 60;
             }
         }
@@ -241,7 +241,7 @@ if (sprite_index == spr_confusedchuck) {
         alarm[0] = 15;
     else {
     
-        balls = 5;
+        balls = choose(2, 3, 4, 5);
         alarm[0] = 60;
     }
 }
