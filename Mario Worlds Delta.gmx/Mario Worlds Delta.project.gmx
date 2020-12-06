@@ -350,6 +350,8 @@
     <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_hurt</sound>
+    <sound>sound\snd_icicle_break</sound>
+    <sound>sound\snd_icicle_fall</sound>
     <sound>sound\snd_jump</sound>
     <sound>sound\snd_key</sound>
     <sound>sound\snd_keyhole</sound>
@@ -377,7 +379,6 @@
     <sound>sound\snd_reserve</sound>
     <sound>sound\snd_reservedrop</sound>
     <sound>sound\snd_scuttle</sound>
-    <sound>sound\snd_shatter</sound>
     <sound>sound\snd_spikes</sound>
     <sound>sound\snd_spikes_appear</sound>
     <sound>sound\snd_spikes_end</sound>
@@ -1981,9 +1982,7 @@
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
       <script>scripts\instance_nearest_below.gml</script>
     </scripts>
-    <script>scripts\grab_pivots.gml</script>
     <script>scripts\move_contact_object.gml</script>
-    <script>scripts\pivot_set.gml</script>
     <script>scripts\shard_create.gml</script>
   </scripts>
   <shaders name="shaders">
@@ -2134,10 +2133,6 @@
             <object>objects\obj_escalator_down_r</object>
             <object>objects\obj_escalator_down_l</object>
             <object>objects\obj_escalator_joint</object>
-          </objects>
-          <objects name="Paths">
-            <object>objects\obj_path_limit</object>
-            <object>objects\obj_path_changer</object>
           </objects>
           <object>objects\obj_platform</object>
           <object>objects\obj_platform_falling</object>
@@ -2686,15 +2681,6 @@
           </objects>
           <objects name="Gizmos">
             <objects name="Platforms">
-              <objects name="Platform Paths">
-                <object>objects\obj_path_mask</object>
-              </objects>
-              <objects name="Engine">
-                <object>objects\obj_engine_rope</object>
-                <object>objects\obj_engine_blade</object>
-                <object>objects\obj_engine_platform</object>
-                <object>objects\obj_engine_grinder</object>
-              </objects>
               <object>objects\obj_platform_pulley_right</object>
               <object>objects\obj_platform_pulley_rope</object>
               <object>objects\obj_platform_ferris_chain</object>

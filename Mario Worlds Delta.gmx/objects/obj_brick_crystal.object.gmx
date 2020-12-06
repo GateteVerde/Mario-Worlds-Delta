@@ -66,8 +66,8 @@ if (sprite_index == spr_brick_crystal) {
 
 else {
 
-    //Play 'Shatter' sound
-    audio_stop_play_sound(snd_shatter, 0, false);
+    //Play 'Icicle Break' sound
+    audio_stop_play_sound(snd_icicle_break, 0, false);
     
     //Get 50 coins
     score += 50;
@@ -118,8 +118,8 @@ if (global.powerup &gt; cs_pow_small) {
     
     else {
     
-        //Play 'Shatter' sound
-        audio_stop_play_sound(snd_shatter, 0, false);
+        //Play 'Icicle Break' sound
+        audio_stop_play_sound(snd_icicle_break, 0, false);
         
         //Get 50 coins
         score += 50;
@@ -190,8 +190,8 @@ if (sprite_index != spr_brick_crystal_hit) {
 //If this block can be shattered with a explosion
 if (shardsprite != noone) {
     
-    //Play 'Break' sound
-    audio_stop_play_sound(snd_shatter, 0, false);
+    //Play 'Icicle Break' sound
+    audio_stop_play_sound(snd_icicle_break, 0, false);
     
     //Create shards    
     shard_create(x+8, y+8, shardsprite, 3, 6, 45);
