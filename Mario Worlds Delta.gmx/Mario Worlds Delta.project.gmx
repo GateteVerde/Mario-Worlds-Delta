@@ -1199,6 +1199,7 @@
         <sprite>sprites\spr_craterlotus_shoot</sprite>
         <sprite>sprites\spr_lotusball</sprite>
         <sprite>sprites\spr_lotusball_homing</sprite>
+        <sprite>sprites\spr_fuzzy</sprite>
         <sprite>sprites\spr_firesnake</sprite>
         <sprite>sprites\spr_firesnake_trail</sprite>
       </sprites>
@@ -2366,6 +2367,7 @@
         <object>objects\obj_anttrooper</object>
         <object>objects\obj_volcanolotus</object>
         <object>objects\obj_craterlotus</object>
+        <object>objects\obj_fuzzy</object>
         <object>objects\obj_wiggler</object>
         <object>objects\obj_wiggler_long</object>
         <object>objects\obj_firesnake</object>
@@ -2955,6 +2957,7 @@
       </rooms>
       <rooms name="Level 7">
         <room>rooms\rm_level_7a</room>
+        <room>rooms\rm_level_7b</room>
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
         </rooms>
