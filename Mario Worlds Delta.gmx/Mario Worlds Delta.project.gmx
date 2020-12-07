@@ -758,20 +758,27 @@
         </sprites>
         <sprites name="Platforms">
           <sprites name="Platform Parts">
-            <sprites name="Engine">
-              <sprite>sprites\spr_engine_saw</sprite>
-              <sprite>sprites\spr_engine_rope</sprite>
-              <sprite>sprites\spr_engine_platform_48</sprite>
-              <sprite>sprites\spr_engine_platform_64</sprite>
-              <sprite>sprites\spr_engine_platform_80</sprite>
-              <sprite>sprites\spr_engine_grinder</sprite>
-            </sprites>
             <sprite>sprites\spr_pulley_rope</sprite>
+            <sprite>sprites\spr_saw</sprite>
+            <sprite>sprites\spr_rope</sprite>
             <sprite>sprites\spr_ferris</sprite>
             <sprite>sprites\spr_ferris_chain</sprite>
           </sprites>
-          <sprites name="Platform Path">
-            <sprite>sprites\spr_path_limit</sprite>
+          <sprites name="Platform Tracks">
+            <sprites name="On / Off Tracks">
+              <sprite>sprites\spr_track_dia_r_on</sprite>
+              <sprite>sprites\spr_track_dia_r_off</sprite>
+              <sprite>sprites\spr_track_dia_l_on</sprite>
+              <sprite>sprites\spr_track_dia_l_off</sprite>
+            </sprites>
+            <sprite>sprites\spr_track_modifier</sprite>
+            <sprite>sprites\spr_track_limit</sprite>
+            <sprite>sprites\spr_track_h</sprite>
+            <sprite>sprites\spr_track_v</sprite>
+            <sprite>sprites\spr_track_dia_r</sprite>
+            <sprite>sprites\spr_track_dia_l</sprite>
+            <sprite>sprites\spr_track_circle</sprite>
+            <sprite>sprites\spr_track_circle_2x</sprite>
           </sprites>
           <sprites name="Belts">
             <sprite>sprites\spr_conveyor</sprite>
@@ -785,6 +792,9 @@
           <sprite>sprites\spr_platform_48</sprite>
           <sprite>sprites\spr_platform_64</sprite>
           <sprite>sprites\spr_platform_80</sprite>
+          <sprite>sprites\spr_platform_path_48</sprite>
+          <sprite>sprites\spr_platform_path_64</sprite>
+          <sprite>sprites\spr_platform_path_80</sprite>
           <sprite>sprites\spr_platform_falling_48</sprite>
           <sprite>sprites\spr_platform_falling_64</sprite>
           <sprite>sprites\spr_platform_falling_80</sprite>
@@ -2134,7 +2144,24 @@
             <object>objects\obj_escalator_down_l</object>
             <object>objects\obj_escalator_joint</object>
           </objects>
+          <objects name="Tracks">
+            <objects name="Toogleable Tracks">
+              <object>objects\obj_track_dia_r_on</object>
+              <object>objects\obj_track_dia_r_off</object>
+              <object>objects\obj_track_dia_l_on</object>
+              <object>objects\obj_track_dia_l_off</object>
+            </objects>
+            <object>objects\obj_track_modifier</object>
+            <object>objects\obj_track_limit</object>
+            <object>objects\obj_track_h</object>
+            <object>objects\obj_track_v</object>
+            <object>objects\obj_track_dia_r</object>
+            <object>objects\obj_track_dia_l</object>
+            <object>objects\obj_track_circle</object>
+            <object>objects\obj_track_circle_2x</object>
+          </objects>
           <object>objects\obj_platform</object>
+          <object>objects\obj_platform_path</object>
           <object>objects\obj_platform_falling</object>
           <object>objects\obj_platform_pulley</object>
           <object>objects\obj_platform_seesaw</object>
@@ -2151,7 +2178,6 @@
           <object>objects\obj_platform_timed</object>
           <object>objects\obj_movingpipe</object>
           <object>objects\obj_skullraft</object>
-          <object>objects\obj_engine</object>
           <object>objects\obj_donut</object>
           <object>objects\obj_donut_triple</object>
           <object>objects\obj_donut_red</object>
@@ -2597,8 +2623,9 @@
             <object>objects\obj_conveyorparent</object>
             <object>objects\obj_escalatorparent</object>
           </objects>
-          <object>objects\obj_modparent</object>
           <object>objects\obj_blockparent</object>
+          <object>objects\obj_modparent</object>
+          <object>objects\obj_trackparent</object>
         </objects>
         <objects name="In-Map Parents">
           <object>objects\obj_pathparent</object>
@@ -2928,8 +2955,6 @@
       </rooms>
       <rooms name="Level 7">
         <room>rooms\rm_level_7a</room>
-        <room>rooms\rm_level_7b</room>
-        <room>rooms\rm_level_7c</room>
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
         </rooms>
