@@ -329,7 +329,7 @@ else if (ready == 3) {
 if (ready == 4) {
 
     yy += 0.4;
-    if (yy &gt; 2024) {
+    if (yy &gt; 2072) {
     
         alpha += 0.025;
         if (alpha &gt; 1) {

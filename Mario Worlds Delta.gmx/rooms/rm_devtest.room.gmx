@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>global.time = 0;</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -92,7 +92,6 @@
     <instance objName="obj_enemybubble" x="880" y="560" name="inst_7D130C11" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemybubble" x="816" y="576" name="inst_9736E3BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="96" y="624" name="inst_A6B0F3FE" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="496" y="624" name="inst_17DF778B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_confusedchuck" x="136" y="608" name="inst_B23FD7F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_confusedchuck" x="200" y="656" name="inst_9987C73C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_limit" x="352" y="464" name="inst_E7B23185" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

@@ -52,11 +52,11 @@
   </views>
   <instances>
     <instance objName="obj_platform_ferris" x="320" y="336" name="inst_43E99AD2" locked="0" code="spd = 1.5;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="40" y="368" name="inst_AF7AA2E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_semisolid" x="0" y="384" name="inst_5D6A5963" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="72" y="368" name="inst_AF7AA2E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_semisolid" x="48" y="384" name="inst_5D6A5963" locked="0" code="" scaleX="13" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="400" y="288" name="inst_6644AC3E" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_area_g" x="432" y="224" name="inst_9636B2E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_D1ED001B" locked="0" code="inisection = 'Athletic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="16" y="-16" name="inst_D1ED001B" locked="0" code="inisection = 'Athletic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="608" y="368" name="inst_286F8AFB" locked="0" code="" scaleX="1" scaleY="-1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="640" y="368" name="inst_3FF77EBF" locked="0" code="" scaleX="-1" scaleY="-1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="608" y="272" name="inst_7A9FD56A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -273,6 +273,9 @@
     <instance objName="obj_warpnode" x="4336" y="320" name="inst_18F22EFF" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_left" x="600" y="360" name="inst_0F9A1D04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_left" x="2856" y="376" name="inst_B65E8EE7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="352" name="inst_10959DA4" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpright" x="32" y="352" name="inst_17061C19" locked="0" code="destination = rm_devtest;&#xA;exit_dir = cs_warp_up;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_solid" x="0" y="-112" name="inst_15029979" locked="0" code="" scaleX="1" scaleY="29" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_bonus" x="16" y="400" w="16" h="16" xo="112" yo="16" id="10045393" name="inst_458F9D3E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -801,6 +804,31 @@
     <tile bgName="tls_ground_bonus" x="5072" y="384" w="16" h="16" xo="352" yo="0" id="10045882" name="inst_4C75A7BF" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_bonus" x="5088" y="384" w="16" h="16" xo="352" yo="0" id="10045883" name="inst_1176CF2B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_bonus" x="5104" y="384" w="16" h="16" xo="368" yo="0" id="10045884" name="inst_99981319" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="32" y="352" w="16" h="32" xo="208" yo="48" id="10045936" name="inst_C5C5C0BD" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="16" y="352" w="16" h="32" xo="192" yo="48" id="10045937" name="inst_DBE2AABC" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_pipes" x="0" y="352" w="16" h="32" xo="192" yo="48" id="10045938" name="inst_54A743A5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="336" w="16" h="16" xo="32" yo="32" id="10045939" name="inst_F1BA1819" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="320" w="16" h="16" xo="32" yo="16" id="10045940" name="inst_C6CF8ED3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="304" w="16" h="16" xo="32" yo="16" id="10045941" name="inst_234EEF73" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="288" w="16" h="16" xo="32" yo="16" id="10045942" name="inst_F2EC9778" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="272" w="16" h="16" xo="32" yo="16" id="10045943" name="inst_B4FE80DB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="256" w="16" h="16" xo="32" yo="16" id="10045944" name="inst_74B7342E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="240" w="16" h="16" xo="32" yo="16" id="10045945" name="inst_60173A09" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="224" w="16" h="16" xo="32" yo="16" id="10045946" name="inst_A87DD7D3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="208" w="16" h="16" xo="32" yo="16" id="10045947" name="inst_2A2CD551" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="192" w="16" h="16" xo="32" yo="16" id="10045948" name="inst_9C58D613" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="176" w="16" h="16" xo="32" yo="16" id="10045949" name="inst_682F3C87" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="160" w="16" h="16" xo="32" yo="16" id="10045950" name="inst_5FB16569" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="144" w="16" h="16" xo="32" yo="16" id="10045951" name="inst_39571C03" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="128" w="16" h="16" xo="32" yo="16" id="10045952" name="inst_F0842D53" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="112" w="16" h="16" xo="32" yo="16" id="10045953" name="inst_857BE1BE" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="96" w="16" h="16" xo="32" yo="16" id="10045954" name="inst_3DDB2A0B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="80" w="16" h="16" xo="32" yo="16" id="10045955" name="inst_070B97E0" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="64" w="16" h="16" xo="32" yo="16" id="10045956" name="inst_BB22C501" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="48" w="16" h="16" xo="32" yo="16" id="10045957" name="inst_060A8983" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="32" w="16" h="16" xo="32" yo="16" id="10045958" name="inst_9A8A7FC3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="16" w="16" h="16" xo="32" yo="16" id="10045959" name="inst_0FAECFF6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground" x="0" y="0" w="16" h="16" xo="32" yo="16" id="10045960" name="inst_0B67F65F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
