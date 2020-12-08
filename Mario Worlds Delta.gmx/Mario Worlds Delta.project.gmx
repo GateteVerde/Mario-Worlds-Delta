@@ -2994,13 +2994,17 @@
       <room>rooms\rm_testlevel</room>
     </rooms>
   </rooms>
-  <constants number="14">
+  <constants number="18">
     <constant name="c_smwred">$0000f8</constant>
     <constant name="c_smwgreen">$00f800</constant>
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
     <constant name="cs_version">"v0.9.4 - r327"</constant>
+    <constant name="cs_up">1</constant>
+    <constant name="cs_down">2</constant>
+    <constant name="cs_left">3</constant>
+    <constant name="cs_right">4</constant>
     <constant name="cs_pow_small">0</constant>
     <constant name="cs_pow_super">1</constant>
     <constant name="cs_pow_fire">2</constant>
