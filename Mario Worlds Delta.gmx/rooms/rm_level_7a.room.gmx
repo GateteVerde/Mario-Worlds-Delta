@@ -63,7 +63,7 @@
     <instance objName="obj_track_circle" x="640" y="272" name="inst_D3FFB424" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_v" x="608" y="288" name="inst_28B4246A" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_v" x="639" y="288" name="inst_41E3A001" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_path" x="600" y="360" name="inst_80ADAB90" locked="0" code="direct = 180;&#xA;spd = 1;&#xA;state = &quot;IN_LINE&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_path" x="600" y="360" name="inst_80ADAB90" locked="0" code="state = &quot;IN_LINE&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="528" y="368" name="inst_BFE78CFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="544" y="368" name="inst_150E2FEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="512" y="384" name="inst_414DA59A" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
@@ -271,6 +271,8 @@
     <instance objName="obj_coin" x="3920" y="352" name="inst_450262C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warptop" x="3680" y="256" name="inst_F6A1EE57" locked="0" code="destination = rm_level_7b;&#xA;exit_dir = cs_warp_right;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="4336" y="320" name="inst_18F22EFF" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_left" x="600" y="360" name="inst_0F9A1D04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_left" x="2856" y="376" name="inst_B65E8EE7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_bonus" x="16" y="400" w="16" h="16" xo="112" yo="16" id="10045393" name="inst_458F9D3E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

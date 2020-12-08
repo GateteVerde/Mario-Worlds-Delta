@@ -758,11 +758,14 @@
         </sprites>
         <sprites name="Platforms">
           <sprites name="Platform Parts">
+            <sprites name="Ferris">
+              <sprite>sprites\spr_ferris</sprite>
+              <sprite>sprites\spr_ferris_chain</sprite>
+            </sprites>
             <sprite>sprites\spr_pulley_rope</sprite>
-            <sprite>sprites\spr_saw</sprite>
             <sprite>sprites\spr_rope</sprite>
-            <sprite>sprites\spr_ferris</sprite>
-            <sprite>sprites\spr_ferris_chain</sprite>
+            <sprite>sprites\spr_saw</sprite>
+            <sprite>sprites\spr_saw_down</sprite>
           </sprites>
           <sprites name="Platform Tracks">
             <sprites name="On / Off Tracks">
@@ -2178,6 +2181,8 @@
           <object>objects\obj_platform_slope_l</object>
           <object>objects\obj_platform_timed</object>
           <object>objects\obj_movingpipe</object>
+          <object>objects\obj_movingrope</object>
+          <object>objects\obj_movingsaw</object>
           <object>objects\obj_skullraft</object>
           <object>objects\obj_donut</object>
           <object>objects\obj_donut_triple</object>
@@ -2716,6 +2721,8 @@
               <object>objects\obj_platform_ferris_platform</object>
               <object>objects\obj_accordion_block</object>
               <object>objects\obj_donut_ticker</object>
+              <object>objects\obj_engine_rope</object>
+              <object>objects\obj_engine_blade</object>
               <object>objects\obj_blocktrain_front</object>
               <object>objects\obj_blocktrain_back</object>
               <object>objects\obj_blocktrain_middle</object>
