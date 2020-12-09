@@ -4,7 +4,7 @@
   <width>5120</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -276,6 +276,7 @@
     <instance objName="obj_solid" x="0" y="352" name="inst_10959DA4" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpright" x="32" y="352" name="inst_17061C19" locked="0" code="destination = rm_devtest;&#xA;exit_dir = cs_warp_up;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="0" y="-112" name="inst_15029979" locked="0" code="" scaleX="1" scaleY="29" colour="4294967295" rotation="0"/>
+    <instance objName="obj_magikoopa" x="24" y="336" name="inst_B6395A05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_bonus" x="16" y="400" w="16" h="16" xo="112" yo="16" id="10045393" name="inst_458F9D3E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

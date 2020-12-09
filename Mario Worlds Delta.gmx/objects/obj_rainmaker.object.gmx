@@ -46,6 +46,9 @@ pos = 0;
 //Alpha
 alpha = 1;
 
+//Rain force
+force = 3;
+
 //Create lightning
 alarm[0] = 100;
 </string>
@@ -106,7 +109,7 @@ if (lightning == 1)
 if (raining == true) 
 &amp;&amp; (!instance_exists(obj_player_dead)) {
 
-    repeat (1) {
+    repeat (force) {
         
         with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), view_yview[view_current]-5, obj_rain))
             depth = round(random_range(-6,9));
