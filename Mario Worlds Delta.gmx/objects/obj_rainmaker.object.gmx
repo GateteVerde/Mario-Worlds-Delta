@@ -33,11 +33,13 @@
 //      lightning   = Create lightning effect?
 //      smog        = Show smog?
 //      raining     = Make rain? Used for when you only want smog/lightning
+//      force       = Rain strange (Only if raining is set to 1)
 */
 
 //Default values
 lightning = 1;
 smog = false;
+force = 5;
 raining = true;
 
 //Smog pos
@@ -45,9 +47,6 @@ pos = 0;
 
 //Alpha
 alpha = 1;
-
-//Rain force
-force = 3;
 
 //Create lightning
 alarm[0] = 100;
