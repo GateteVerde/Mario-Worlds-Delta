@@ -387,12 +387,12 @@ else if (ready == 1) &amp;&amp; (state == "FALLING") {
 }
 
 //If the platform is outside the view
-if (x &lt; view_xview[view_current]-sprite_width)
-|| (x &gt; view_xview[view_current]+view_wview[view_current]) {
+if (x &lt; view_xview[view_current]-40)
+|| (x &gt; view_xview[view_current]+view_wview[view_current]+40) {
 
     //If the rope start point is outside the view
-    if (xstart &lt; view_xview[view_current]-sprite_width)
-    || (xstart &gt; view_xview[view_current]+view_wview[view_current]) {
+    if (xstart &lt; view_xview[view_current]-40)
+    || (xstart &gt; view_xview[view_current]+view_wview[view_current]+40) {
     
         with (instance_create(xstart, ystart, object_index)) {
         

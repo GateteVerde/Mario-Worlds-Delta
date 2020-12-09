@@ -139,6 +139,7 @@ with (instance_create(x+4+(post*8), y, obj_smoke)) {
 //Play 'Engine' sound
 if (state == "IN_LINE")
 &amp;&amp; (!outside_view(16))
+&amp;&amp; (!audio_is_playing(snd_engine))
     audio_stop_play_sound(snd_engine, 0, false);
 </string>
           </argument>

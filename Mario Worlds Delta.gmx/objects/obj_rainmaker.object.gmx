@@ -77,7 +77,7 @@ alarm[0] = 100+random(round(200));
 
 //If this object can generate lightning
 if (lightning == 1)
-&amp;&amp; (instance_exists(obj_playerparent))
+&amp;&amp; (!instance_exists(obj_player_dead))
     instance_create(0, 0, obj_lightningsheet);
 </string>
           </argument>
@@ -103,14 +103,14 @@ if (lightning == 1)
             <kind>1</kind>
             <string>///Generate rain drops
 
-if (raining == true) {
+if (raining == true) 
+&amp;&amp; (!instance_exists(obj_player_dead)) {
 
     repeat (1) {
         
         with (instance_create(random_range(view_xview[view_current]-global.gw, view_xview[view_current] + view_wview[view_current]+global.gw), view_yview[view_current]-5, obj_rain))
             depth = round(random_range(-6,9));
     }
-
 }
 
 //Update smog position

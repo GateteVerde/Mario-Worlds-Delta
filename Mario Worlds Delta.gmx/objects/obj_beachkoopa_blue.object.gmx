@@ -62,7 +62,7 @@ slide = false;
 alarm[11] = 1;
 
 //Smoke FX
-alarm[0] = 1;
+alarm[1] = 1;
 
 //Move towards the player
 alarm[10] = 2;
@@ -199,7 +199,7 @@ kicky = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="2">
+    <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -225,7 +225,7 @@ if (sprite_index == stompsprite) then exit;
 if (!instance_exists(idd)) {
 
     //Walk as normal
-    alarm[1] = 20;
+    alarm[2] = 20;
     hspeed = 0;
     
     //Set funny sprite
@@ -273,19 +273,19 @@ if (!initem) {
     }
     
     //Go back to normal
-    alarm[1] = 15;
+    alarm[2] = 15;
     
     //Remove kick
     alarm[5] = 2;
 
 }
-else alarm[2] = 5;
+else alarm[3] = 5;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -321,7 +321,7 @@ kicky = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -356,7 +356,7 @@ if (hspeed &lt;&gt; 0)
 }
 
 //Repeat the process
-alarm[0] = 8;
+alarm[1] = 8;
 </string>
           </argument>
         </arguments>
@@ -390,7 +390,7 @@ if ((idd)
     idd = noone;
     
     //Walk as normal
-    alarm[1] = 20;
+    alarm[2] = 20;
     hspeed = 0;
     
     //Set funny sprite
@@ -415,7 +415,7 @@ else if (idd) {
             hspeed = 0;
             
             //Kick
-            alarm[2] = 15;
+            alarm[3] = 15;
             
             //Change kick state 
             kicky = 999;
@@ -560,7 +560,7 @@ if (ready == 2) &amp;&amp; (!slide) {
             image_speed = 0;
             
             //PUNT
-            alarm[2] = 15;
+            alarm[3] = 15;
         }
         
         //Otherwise, accelerate 
