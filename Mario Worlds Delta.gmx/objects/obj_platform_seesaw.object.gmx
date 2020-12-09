@@ -62,32 +62,42 @@ add = 0;
             <kind>1</kind>
             <string>///Player on the platform
 
-with (obj_playerparent) {
+//If player ever exists
+if (instance_exists(obj_playerparent)) {
 
-    //Check for a see
-    var see = collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+4, obj_platform_seesaw, 1, 0);
+    with (obj_playerparent) {
     
-    //If that ground exists and the player is above it...
-    if (see)  
-    &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, see.y-1, obj_solid, 1, 0)) {
-    
-        if (vspeed &gt;= 0) {
+        //Check for a seesaw
+        var see = collision_rectangle(bbox_left, bbox_bottom-2, bbox_right, bbox_bottom+4, obj_platform_seesaw, 1, 0);
         
-            var real_y = -(x-see.x)*dsin(see.degree);
-            var real_x = (x-see.x)*dcos(see.degree);
-            var fake_x = x - see.x;
-            var fake_y = clamp(real_y*fake_x/real_x, -see.sprite_width/2, see.sprite_width/2);
-            y = see.y + fake_y-see.extra;
-            x += see.x-see.xprevious;
+        //If that ground exists and the player is above it...
+        if (see)  
+        &amp;&amp; (!collision_rectangle(bbox_left, bbox_top+4, bbox_right, see.y-1, obj_solid, 1, 0)) {
             
-            //Stop vertical movement
-            vspeed = 0;
-            gravity = 0;
+            //If player is falling down or landed
+            if (vspeed &gt;= 0) {
             
-            //Reset values
-            event_user(15);
-        }
-    }   
+                //Make a theoretical triangle in order to calculate the y position
+                var real_y = -(x-see.x)*dsin(see.degree); 
+                var real_x = (x-see.x)*dcos(see.degree);
+                var fake_x = x - see.x;
+                var fake_y = clamp(real_y*fake_x/real_x, -see.sprite_width/2, see.sprite_width/2);
+                
+                //Adjust players y position
+                y = see.y + fake_y-see.extra;
+                
+                //If platform ever moves horizontally, adjust players x
+                x += see.x-see.xprevious;
+                
+                //Stop vertical movement
+                vspeed = 0;
+                gravity = 0;
+                
+                //Reset values for player
+                event_user(15);
+            }
+        }   
+    }
 }
 </string>
           </argument>
@@ -111,33 +121,38 @@ with (obj_playerparent) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Logic
+            <string>///Seesaw Logic
 
-//If player is on seesaw
-if (obj_playerparent.gravity == 0)
-&amp;&amp; (place_meeting(x, y-8, obj_playerparent)) {
+//If player ever exists
+if (instance_exists(obj_playerparent)) {
 
-    //Rotate seesaw relative to player position
-    image_angle += add;
-    add += -(1/70)*(obj_playerparent.x - x);
+    //If player is on seesaw
+    if (obj_playerparent.gravity == 0)
+    &amp;&amp; (place_meeting(x, y-8, obj_playerparent)) {
     
-    //Limit speed
-    if (abs(add) &gt; 1.5) {
+        //Rotate seesaw relative to player position
+        image_angle += add;
+        add += -(1/70)*(obj_playerparent.x - x);
+        
+        //Limit speed
+        if (abs(add) &gt; 1.3) 
+            add = 1.3 * sign(x-obj_playerparent.x);
     
-        add = 1.5 * sign(x-obj_playerparent.x);
+        //Set player horizontal speed 
+        obj_playerparent.hspeed -= (0.05+(abs(image_angle)/360))*sign(image_angle);
     }
+    else {
     
-    //Set player horizontal speed (Comment to disable)
-    obj_playerparent.hspeed -= (0.05+(abs(image_angle)/360))*sign(image_angle);
-}
-else {
-
-    add = max(0,abs(add)-0.04)*sign(add);
-    image_angle += add;
+        //Otherwise slow down the rotation
+        add = max(0,abs(add)-0.04)*sign(add);
+        image_angle += add;
+    }
 }
 
-//Set value calculation
+//Set angle value calculation
 degree = image_angle;
+
+//Player elavation to not embed deep into platform
 extra = 20+(abs(image_angle)/20);
 
 //Limit angle 
@@ -172,7 +187,8 @@ else if (image_angle &lt;= -45)
 draw_sprite_ext(sprite_index, 0, x, y, 1, 1, image_angle, c_white, 1);
 
 //Render gear 
-draw_sprite_ext(sprite_index, 1, x, y+4, 1, 1, 0, c_white, 1);
+if (!place_meeting(x,y,obj_movingseesaw))
+    draw_sprite_ext(sprite_index, 1, x, y+4, 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

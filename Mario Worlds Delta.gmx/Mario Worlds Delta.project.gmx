@@ -1256,6 +1256,8 @@
         <sprite>sprites\spr_magikoopa_magic_mask</sprite>
         <sprite>sprites\spr_ninji</sprite>
         <sprite>sprites\spr_ninji_dead</sprite>
+        <sprite>sprites\spr_grinder</sprite>
+        <sprite>sprites\spr_grinder_line</sprite>
       </sprites>
       <sprites name="Ghost">
         <sprite>sprites\spr_boobuddy</sprite>
@@ -2183,6 +2185,7 @@
           <object>objects\obj_movingpipe</object>
           <object>objects\obj_movingrope</object>
           <object>objects\obj_movingsaw</object>
+          <object>objects\obj_movingseesaw</object>
           <object>objects\obj_skullraft</object>
           <object>objects\obj_donut</object>
           <object>objects\obj_donut_triple</object>
@@ -2396,6 +2399,8 @@
             <object>objects\obj_skewer_left</object>
             <object>objects\obj_skewer_right</object>
           </objects>
+          <object>objects\obj_grinder</object>
+          <object>objects\obj_grinder_line</object>
           <object>objects\obj_firebar</object>
           <object>objects\obj_rotodisc</object>
           <object>objects\obj_ballnchain</object>
@@ -3000,7 +3005,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2020 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9.4 - r327"</constant>
+    <constant name="cs_version">"v0.9.5 - r327"</constant>
     <constant name="cs_up">1</constant>
     <constant name="cs_down">2</constant>
     <constant name="cs_left">3</constant>

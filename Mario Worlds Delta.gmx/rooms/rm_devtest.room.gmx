@@ -72,7 +72,6 @@
     <instance objName="obj_semisolid" x="0" y="720" name="inst_47548EBF" locked="0" code="" scaleX="28" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="544" y="720" name="inst_7AD6724E" locked="0" code="" scaleX="28" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_red" x="384" y="624" name="inst_DE9A9A8D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_koopa_red" x="608" y="624" name="inst_D7508148" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="80" y="672" name="inst_6756E383" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="800" y="624" name="inst_FAE5D84B" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="736" y="672" name="inst_14E835C8" locked="0" code="" scaleX="11" scaleY="1" colour="4294967295" rotation="0"/>
@@ -88,9 +87,6 @@
     <instance objName="obj_solid" x="480" y="464" name="inst_DF6AFF44" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="464" y="480" name="inst_2B23A22B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="448" y="496" name="inst_8C570E0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemybubble" x="944" y="592" name="inst_EBFB8BE2" locked="0" code="sprout = spr_cheepcheep;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemybubble" x="880" y="560" name="inst_7D130C11" locked="0" code="sprout = spr_bobomb_cannon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemybubble" x="816" y="576" name="inst_9736E3BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="96" y="624" name="inst_A6B0F3FE" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_confusedchuck" x="136" y="608" name="inst_B23FD7F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_confusedchuck" x="200" y="656" name="inst_9987C73C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -127,6 +123,20 @@
     <instance objName="obj_left" x="704" y="416" name="inst_EAAF9BE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="384" y="448" name="inst_BB9D193B" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="576" y="448" name="inst_A625D2E6" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beachkoopa_blue" x="608" y="624" name="inst_F4B4E6EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beachkoopa_blue" x="848" y="656" name="inst_C691C7B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_shell" x="656" y="704" name="inst_34C8EF0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_track_v" x="784" y="496" name="inst_29129B6A" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_track_h" x="784" y="496" name="inst_D182C156" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_track_h" x="784" y="592" name="inst_CCBA667D" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_movingseesaw" x="816" y="584" name="inst_5F177526" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grinder_line" x="848" y="480" name="inst_7C6BD18E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_grinder" x="928" y="688" name="inst_3BB374DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="496" y="624" name="inst_2FFE8411" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_track_v" x="896" y="496" name="inst_38367D07" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obj_monty_chase" x="128" y="704" name="inst_C09FEBB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_fireflower" x="496" y="544" name="inst_D1282DC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_trampoline" x="624" y="704" name="inst_AF050BEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="400" y="656" w="16" h="32" xo="48" yo="160" id="10045123" name="inst_B1A77F1B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

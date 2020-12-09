@@ -134,7 +134,8 @@ event_user(8);
 event_user(14);
 
 //If the direction changes...
-if (sign(hspeed) != sign(prevhspeed)) {
+if (sign(hspeed) != sign(prevhspeed))
+&amp;&amp; (!place_meeting(x,y,obj_beachkoopa_blue)) {
 
     //If the item is not outside
     if (!outside_view(sprite_get_width(sprite_index))) {

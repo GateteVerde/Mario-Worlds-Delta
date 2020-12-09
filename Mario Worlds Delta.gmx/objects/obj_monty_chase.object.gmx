@@ -42,6 +42,9 @@ edible = 0;
 //Death Sprite
 deathsprite = spr_montymole_dead;
 
+//Smoke FX
+alarm[0] = 3;
+
 //Stomp sprite
 stompsprite = spr_montymole_dead;
 
@@ -49,7 +52,7 @@ stompsprite = spr_montymole_dead;
 charge = 0;
 
 //Animate
-image_speed = 0.2;
+image_speed = 0.3;
 
 //Start moving
 alarm[10] = 2;
@@ -78,6 +81,44 @@ alarm[10] = 2;
             <string>///Charge towards the player
 
 charge = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate smoke
+
+//If it is gaining acceleration
+if ((hspeed &gt; 0.1) &amp;&amp; (xscale == -1)) || ((hspeed &lt; -0.1) &amp;&amp; (xscale == 1))
+&amp;&amp; (gravity == 0)
+{ 
+    //Generate smoke effect
+    with (instance_create(x-8*xscale, bbox_bottom, obj_smoke)) {
+    
+        sprite_index = spr_smoke;
+        image_speed = 0.15;
+    }
+}
+
+//Repeat the process
+alarm[0] = 8;
 </string>
           </argument>
         </arguments>
@@ -114,7 +155,7 @@ if (hspeed != prevhspeed) {
     hspeed = sign(hspeed)*1.5;
     if (gravity == 0) {
     
-        vspeed = -1.5;
+        vspeed = -1;
         y--;
     }
 }
@@ -129,15 +170,15 @@ if (charge == 1) {
         if (!instance_exists(obj_playerparent))
         || (obj_playerparent.x &lt; x) {
         
-            hspeed -= 0.0324;
-            if (hspeed &lt; -1.5)
+            hspeed -= 0.0524;
+            if (hspeed &lt; -1.8)
                 hspeed = -1.5;
         }
         else {
         
-            hspeed += 0.0324;
-            if (hspeed &gt; 1.5)
-                hspeed = 1.5;
+            hspeed += 0.0524;
+            if (hspeed &gt; 1.8)
+                hspeed = 1.8;
         }
     }
 }

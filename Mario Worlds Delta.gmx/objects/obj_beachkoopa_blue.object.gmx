@@ -61,6 +61,9 @@ image_speed = 0.15;
 slide = false;
 alarm[11] = 1;
 
+//Smoke FX
+alarm[0] = 1;
+
 //Move towards the player
 alarm[10] = 2;
     
@@ -68,7 +71,7 @@ alarm[10] = 2;
 boxl = -1;
 boxr = 8;
 boxt = -1;
-boxb = -1;
+boxb = 12;
 
 //If the item is overlapping the koopa
 initem = false;
@@ -218,10 +221,24 @@ kicky = 0;
 //Deny, if stomped
 if (sprite_index == stompsprite) then exit;
 
-if (!initem) {
+//If object is somehow gone
+if (!instance_exists(idd)) {
+
+    //Walk as normal
+    alarm[1] = 20;
+    hspeed = 0;
     
-    //If idd isn't dectected as nothing
-    if (idd != noone) {
+    //Set funny sprite
+    sprite_index = spr_beachkoopa_blue;
+    
+    //Exit event
+    exit;
+}
+
+if (!initem) {
+
+    //If idd is dectected 
+    if (idd) {
     
         //Set the kick sprite
         sprite_index = spr_beachkoopa_blue_kick;
@@ -232,15 +249,24 @@ if (!initem) {
         //Kick the special object
         if (idd.object_index == obj_shell || idd.object_index == obj_shell_kicked) {
         
+            //Account for the no longer used shell
+            oldidd = idd;
+            
+            //Remove ID 
+            idd = noone;
+            
             //Set shell parameters
-            with (instance_create(idd.x, idd.y, obj_shell_kicked)) {
+            with (instance_create(oldidd.x, oldidd.y, obj_shell_kicked)) {
             
                 hspeed = (1*other.xscale)*(2.7+(abs(other.hspeed)/4));
-                sprite_index = other.idd.sprite_index;
-                koopainside = other.idd.koopainside;
-                flip =  other.idd.flip;
+                sprite_index = other.oldidd.sprite_index;
+                koopainside = other.oldidd.koopainside;
+                flip = other.oldidd.flip;
             }
-            with (idd) instance_destroy();
+            
+            //Destroy the shell
+            with (oldidd) instance_destroy();
+            
         }
         //Otherwise if it's a normal object
         else event_user(8); //Kick event (long code)
@@ -251,6 +277,7 @@ if (!initem) {
     
     //Remove kick
     alarm[5] = 2;
+
 }
 else alarm[2] = 5;
 </string>
@@ -294,6 +321,47 @@ kicky = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Generate smoke
+
+//If it is moving first of all
+if (hspeed &lt;&gt; 0)
+{
+    //If sliding or kicking
+    if (slide) || (kicky &gt; 1) {
+    
+        //Generate smoke effect
+        with (instance_create(x-8*xscale, bbox_bottom, obj_smoke)) {
+        
+            sprite_index = spr_smoke;
+            image_speed = 0.15;
+        }
+    }
+}
+
+//Repeat the process
+alarm[0] = 8;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -313,17 +381,17 @@ kicky = 0;
             <kind>1</kind>
             <string>///Holding logic
 
-//If it lost track of the object
-if ((!collision_rectangle(bbox_left-21, bbox_top-8, bbox_right+21, bbox_bottom+17, idd, 1, 0)) 
-|| (idd.held == 1))
-&amp;&amp; (idd)
-&amp;&amp; (sprite_index != spr_beachkoopa_blue_kick) {
+//If the kicked object does not exist or left the kicker away
+if ((idd) 
+&amp;&amp; ((!collision_rectangle(bbox_left-21, bbox_top-8, bbox_right+21, bbox_bottom+21, idd, 1, 0)) || (idd.held == 1))
+&amp;&amp; (sprite_index != spr_beachkoopa_blue_kick)) {
 
     //Remove ID
     idd = noone;
     
     //Walk as normal
-    alarm[1] = 23;
+    alarm[1] = 20;
+    hspeed = 0;
     
     //Set funny sprite
     sprite_index = spr_beachkoopa_blue;
@@ -331,19 +399,17 @@ if ((!collision_rectangle(bbox_left-21, bbox_top-8, bbox_right+21, bbox_bottom+1
     //Exit event
     exit;
 }
+else if (idd) {
 
-//Otherwise
-else if (idd != noone) {
-
-    if (kicky == 2) {
+    if (kicky &gt; 1 &amp;&amp; kicky &lt; 4) {
         
         //Accelerate, if there is no gravity
         if (gravity == 0)
-            hspeed += 0.13*xscale;
+            hspeed += 0.11*xscale;
     
         //If it hits max speed
-         if ((hspeed &gt; random_range(1.1, 1.4) &amp;&amp; xscale == 1)
-         || (hspeed &lt; -random_range(1.1, 1.4) &amp;&amp; xscale == -1)) {
+        if (hspeed &gt; 0.8 &amp;&amp; xscale == 1) 
+        || (hspeed &lt; -0.8 &amp;&amp; xscale == -1) {
         
             //Stop
             hspeed = 0;
@@ -355,49 +421,27 @@ else if (idd != noone) {
             kicky = 999;
         } 
         
-        //Dribble item
-        if ((hspeed &gt;= 0 &amp;&amp; xscale == 1)
-        || (hspeed &lt;= 0 &amp;&amp; xscale == -1)) &amp;&amp; (idd.gravity == 0)
+        //Dribble item 
+        if ((idd.gravity == 0))
+        &amp;&amp; ((hspeed &gt;= 0 &amp;&amp; xscale == 1) || (hspeed &lt;= 0 &amp;&amp; xscale == -1)) 
         &amp;&amp; (gravity == 0)
-           idd.vspeed = -1;
+           idd.vspeed = -0.7;
         
         //Drag shell
         idd.hspeed = hspeed;
         
-        //Stop shell animation
-        idd.image_speed = 0;
-        idd.image_index = 0;
     }
     
-    //Gentle item handling
-    if (kicky == 3) {
-        
-        //Accelerate, if there is no gravity
-        if (gravity == 0)
-            hspeed += 0.12*xscale;
+    //Stop or slow shell animation
+    if (idd.object_index == obj_shell_kicked) {
     
-        //If it hits max speed
-         if ((hspeed &gt; random_range(0.9, 1.1) &amp;&amp; xscale == 1)
-         || (hspeed &lt; -random_range(1.1, 1.1) &amp;&amp; xscale == -1)) {
-        
-            //Stop
-            hspeed = 0;
-            
-            //Kick
-            alarm[2] = 15;
-            
-            //Change kick state 
-            kicky = 999;
-        } 
-        
-        //Dribble item
-        if ((hspeed &gt;= 0 &amp;&amp; xscale == 1)
-        || (hspeed &lt;= 0 &amp;&amp; xscale == -1)) &amp;&amp; (idd.gravity == 0)
-        &amp;&amp; (gravity == 0)
-           idd.vspeed = -1;
-        
-        //Drag shell
-        idd.hspeed = hspeed;
+        //slow image speed animation
+        idd.image_speed = max(0, abs(idd.image_speed)-0.007)*sign(idd.image_speed);
+    }
+    else {
+    
+        idd.image_speed = 0;
+        idd.image_index = 0;
     }
     
     //Move away from item
@@ -570,8 +614,8 @@ if (ready == 2) &amp;&amp; (!slide) {
         
         //Stop
         hspeed = idd.hspeed;
-        image_index = 1;
         image_speed = 0; 
+        image_index = 1;
         
         //Kick state
         kicky = 2; //type 2, force push
@@ -707,7 +751,7 @@ if (slide) {
             <kind>1</kind>
             <string>///Collision with kicked shells
 
-//Deny
+//Deny getting killed
 if (collision_rectangle(x+(boxl*sign(xscale)), bbox_top+boxt, x+(boxr*sign(xscale)), bbox_bottom+boxb, other, 0, 0))
     exit;
 

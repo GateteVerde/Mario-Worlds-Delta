@@ -361,7 +361,7 @@ else {
                     with (instance_create(x, y, obj_shell_kicked)) {
                     
                         //Set the horizontal speed
-                        hspeed = (2.7+(abs(obj_playerparent.hspeed)/4));
+                        hspeed = (3.2+(abs(obj_playerparent.hspeed)/4));
                         
                         //Hereby old shell variables
                         sprite_index = other.sprite_index;
@@ -380,7 +380,7 @@ else {
                     with (instance_create(x, y, obj_shell_kicked)) {
                     
                         //Set the horizontal speed
-                        hspeed = -(2.7+(abs(obj_playerparent.hspeed)/4));
+                        hspeed = -(3.2+(abs(obj_playerparent.hspeed)/4));
                         
                         //Hereby old shell variables
                         sprite_index = other.sprite_index;

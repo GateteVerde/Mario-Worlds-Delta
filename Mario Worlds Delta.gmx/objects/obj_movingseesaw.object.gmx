@@ -25,20 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Track Sawblade Engine
+            <string>///Track Seesaw Engine
 
 //Default value
-down = false;
 state_reset = 0;
 
 //Animate
-image_speed = 0.3;
+image_speed = 0.15;
 
 //State
-state = "IN_LINE";
+state = "IDLE"
 
 //Speed
-spd = 1.5;
+spd = 1;
 
 //Origin
 xorig = sprite_width/2-1;
@@ -47,8 +46,8 @@ yorig = sprite_height/2-1;
 //Steps to take per steps
 step = 0;
 
-//Whether this engine has a rope
-myblade = noone;
+//Whether this engine has a platform
+myplat = noone;
 
 //Whether the engine jumped from a track
 ready = 0;
@@ -56,14 +55,8 @@ ready = 0;
 //Direction
 direct = 270;
 
-//Create a blade
+//Create its platform
 alarm[1] = 2;
-
-//Play 'Engine' sound
-alarm[2] = 7;
-
-//Smoke position
-post = 0;
 
 //Set up direction based on modifier
 if (place_meeting(x, y, obj_up))
@@ -94,51 +87,10 @@ else if (place_meeting(x, y, obj_right))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy the blade
+            <string>///Destroy the platform
 
-if (myblade != noone)
-    with (myblade) instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Play 'Engine' sound
-
-//Repeat the process
-alarm[2] = 4;
-
-//Set smoke position
-post = !post;
-
-//Generate smoke effect
-with (instance_create(x+4+(post*8), y, obj_smoke)) {
-
-    sprite_index = spr_smoke;
-    image_speed = 0.15;
-}
-
-//Play 'Engine' sound
-if (state == "IN_LINE")
-&amp;&amp; (!outside_view(16))
-    audio_stop_play_sound(snd_engine, 0, false);
+if (myplat != noone)
+    with (myplat) instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -161,11 +113,9 @@ if (state == "IN_LINE")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create a blade
+            <string>///Create the platform
 
-myblade = instance_create(x, y-30, obj_engine_blade);
-if (down == 1)
-    myblade.sprite_index = spr_saw_down;
+myplat = instance_create(x, y-30, obj_platform_seesaw);
 </string>
           </argument>
         </arguments>
@@ -213,16 +163,26 @@ ready = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make the blade move within the engine
+            <string>///Make the platform move within the engine
 
-if (myblade != noone) {
+if (myplat != noone) {
     
     //Keep the rope in position
-    myblade.x = self.x;
-    if (down == 0)
-        myblade.y = self.y-28;
-    else
-        myblade.y = self.y+14;
+    myplat.x = self.x+xorig;
+    myplat.y = self.y+6;
+    
+    //If a player exists
+    if (instance_exists(obj_playerparent)) {
+    
+        //The engine's platform collision detection
+        var detect = collision_rectangle(obj_playerparent.bbox_left, obj_playerparent.bbox_bottom-2, obj_playerparent.bbox_right, obj_playerparent.bbox_bottom+4, myplat, 1, 0);
+        
+        //Move if player lands on the seesaw
+        if (detect)
+        &amp;&amp; (obj_playerparent.gravity == 0)
+        &amp;&amp; (state == "IDLE")
+            state = "IN_LINE";
+    }
 }
 </string>
           </argument>
@@ -437,7 +397,6 @@ if (x &lt; view_xview[view_current]-sprite_width)
         with (instance_create(xstart, ystart, object_index)) {
         
             spd = other.spd;
-            down = other.down;
             if (other.state_reset == 1)
                 state = other.state;            
         }
