@@ -20,6 +20,18 @@ flying = 0;
 //If controls are enabled
 if (control_enable == true) {
 
+    //Punch the net
+    if (netsmack < 4)
+    && (input_check_pressed(input.action1)) 
+    && (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_climb_net, 0, 0)) {
+
+        //Play 'Bump' sound
+        audio_stop_play_sound(snd_bump, 0, false);
+        
+        //Smack the net
+        netsmack = 4;
+    }
+
     //If the 'Right' key is pressed and the 'Left' key is not pressed
     if (input_check(input.right)) && (!input_check(input.left)) {
     
@@ -105,8 +117,7 @@ if (control_enable == true) {
         vspeed = 0;
         
     //If 'Action 1' is pressed, make the player jump
-    if ((input_check_pressed(input.action0))
-    || (input_check_pressed(input.action2))) {
+    if ((input_check_pressed(input.action0)) || (input_check_pressed(input.action2))) {
     
         //Set the vertical speed
         vspeed = -jumpstrength;

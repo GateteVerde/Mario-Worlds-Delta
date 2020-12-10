@@ -135,6 +135,9 @@ squat_ready = 0;
 floatnow = 0;
 floating = 0;
 
+//Net smack
+netsmack = 0;
+
 //Bonus Game Clear
 cleared = 0;
 timer = 0;
@@ -643,6 +646,9 @@ invulnerable = false;
 
 //Check if above a slope
 slope = player_inslope();
+
+//Decrement netsmack
+netsmack--;
 
 //If moving down
 if (vspeed &gt;= 0) {
@@ -1364,6 +1370,10 @@ alarm[9] = 10;
           <argument>
             <kind>1</kind>
             <string>///Hop when stomping a enemy
+
+//Ignore if climbing
+if (state == statetype.climb)
+exit;
 
 //Set the vertical speed
 vspeed = -jumpstrength_bounce;

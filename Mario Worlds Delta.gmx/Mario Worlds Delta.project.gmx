@@ -1254,6 +1254,12 @@
         <sprite>sprites\spr_magikoopa_dead</sprite>
         <sprite>sprites\spr_magikoopa_magic</sprite>
         <sprite>sprites\spr_magikoopa_magic_mask</sprite>
+        <sprite>sprites\spr_netkoopa</sprite>
+        <sprite>sprites\spr_netkoopa_b</sprite>
+        <sprite>sprites\spr_netkoopa_turn</sprite>
+        <sprite>sprites\spr_netkoopa_red</sprite>
+        <sprite>sprites\spr_netkoopa_red_b</sprite>
+        <sprite>sprites\spr_netkoopa_red_turn</sprite>
         <sprite>sprites\spr_ninji</sprite>
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprite>sprites\spr_grinder</sprite>
@@ -1729,6 +1735,7 @@
           <sprite>sprites\spr_square_b2</sprite>
           <sprite>sprites\spr_square_c</sprite>
           <sprite>sprites\spr_square_d</sprite>
+          <sprite>sprites\spr_square_e</sprite>
           <sprites name="Slopes">
             <sprites name="Ceiling">
               <sprite>sprites\spr_ceiling_slope_r</sprite>
@@ -2049,6 +2056,7 @@
       <object>objects\obj_solid</object>
       <object>objects\obj_semisolid</object>
       <object>objects\obj_climb</object>
+      <object>objects\obj_climb_net</object>
       <object>objects\obj_swim</object>
       <objects name="Slopes">
         <objects name="Ceiling Slopes">
@@ -2413,6 +2421,8 @@
         <object>objects\obj_thwomp_right</object>
         <object>objects\obj_thwomp_mega</object>
         <object>objects\obj_magikoopa</object>
+        <object>objects\obj_netkoopa</object>
+        <object>objects\obj_netkoopa_red</object>
         <object>objects\obj_ninji</object>
       </objects>
       <objects name="Ghost">
