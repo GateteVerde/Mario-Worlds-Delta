@@ -27,11 +27,6 @@
             <kind>1</kind>
             <string>///Track Platform
 
-//Reset state (When outside)
-//0: No
-//1: Yes
-state_reset = 1;
-
 //Animate
 image_speed = 0.15;
 
@@ -55,12 +50,26 @@ ready = 0;
 direct = 270;
 
 //Set up direction based on modifier
-if (place_meeting(x, y, obj_up))
+if (place_meeting(x, y, obj_up)) {
+
     direct = 90;
-else if (place_meeting(x, y, obj_left))
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_down)) {
+
+    direct = 270;
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_left)) {
+
     direct = 180;
-else if (place_meeting(x, y, obj_right))
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_right)) {
+
     direct = 0;
+    state = "IN_LINE";
+}
 </string>
           </argument>
         </arguments>
@@ -348,9 +357,7 @@ if (outside_view(sprite_width)) {
     
         with (instance_create(xstart, ystart, object_index)) {
         
-            spd = other.spd;
-            if (other.state_reset == 1)
-                state = other.state;            
+            spd = other.spd;       
         }
         instance_destroy();
     }        

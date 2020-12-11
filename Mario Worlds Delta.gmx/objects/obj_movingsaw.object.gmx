@@ -29,7 +29,6 @@
 
 //Default value
 down = false;
-state_reset = 0;
 
 //Animate
 image_speed = 0.3;
@@ -66,12 +65,26 @@ alarm[2] = 7;
 post = 0;
 
 //Set up direction based on modifier
-if (place_meeting(x, y, obj_up))
+if (place_meeting(x, y, obj_up)) {
+
     direct = 90;
-else if (place_meeting(x, y, obj_left))
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_down)) {
+
+    direct = 270;
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_left)) {
+
     direct = 180;
-else if (place_meeting(x, y, obj_right))
+    state = "IN_LINE";
+}
+else if (place_meeting(x, y, obj_right)) {
+
     direct = 0;
+    state = "IN_LINE";
+}
 </string>
           </argument>
         </arguments>
@@ -438,9 +451,7 @@ if (x &lt; view_xview[view_current]-sprite_width)
         with (instance_create(xstart, ystart, object_index)) {
         
             spd = other.spd;
-            down = other.down;
-            if (other.state_reset == 1)
-                state = other.state;            
+            down = other.down;        
         }
         instance_destroy();
     }        

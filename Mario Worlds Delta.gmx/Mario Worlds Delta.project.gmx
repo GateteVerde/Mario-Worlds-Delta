@@ -937,6 +937,7 @@
           <sprite>sprites\spr_supergoomba</sprite>
           <sprite>sprites\spr_supergoomba_flip</sprite>
           <sprite>sprites\spr_supergoomba_dead</sprite>
+          <sprite>sprites\spr_trolloomba</sprite>
         </sprites>
         <sprites name="Koopas">
           <sprites name="Green">
@@ -1260,6 +1261,8 @@
         <sprite>sprites\spr_netkoopa_red</sprite>
         <sprite>sprites\spr_netkoopa_red_b</sprite>
         <sprite>sprites\spr_netkoopa_red_turn</sprite>
+        <sprite>sprites\spr_netkoopa_blue</sprite>
+        <sprite>sprites\spr_netkoopa_yellow</sprite>
         <sprite>sprites\spr_ninji</sprite>
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprite>sprites\spr_grinder</sprite>
@@ -2267,6 +2270,7 @@
           <object>objects\obj_galoomba_red</object>
           <object>objects\obj_goombud</object>
           <object>objects\obj_supergoomba</object>
+          <object>objects\obj_trolloomba</object>
         </objects>
         <objects name="Koopas">
           <objects name="Green">
@@ -2423,6 +2427,8 @@
         <object>objects\obj_magikoopa</object>
         <object>objects\obj_netkoopa</object>
         <object>objects\obj_netkoopa_red</object>
+        <object>objects\obj_netkoopa_blue</object>
+        <object>objects\obj_netkoopa_yellow</object>
         <object>objects\obj_ninji</object>
       </objects>
       <objects name="Ghost">

@@ -627,33 +627,65 @@ else if (keyboard_check_pressed(ord('F')))
 //Set default window size
 else if (keyboard_check_pressed(ord('1'))) {
 
-    filter = 0;
-    message = "1X WINDOW SIZE";
-    event_user(1);
+    //If fullscreen is set, deny
+    if (fullscreen)    
+        audio_stop_play_sound(snd_wrong, 0, false);
+    
+    //Otherwise
+    else {
+    
+        filter = 0;
+        message = "1X WINDOW SIZE";
+        event_user(1);
+    }
 }
 
 //Set 2x window size
 else if (keyboard_check_pressed(ord('2'))) {
 
-    filter = 1;
-    message = "2X WINDOW SIZE";
-    event_user(1);
+    //If fullscreen is set, deny
+    if (fullscreen)    
+        audio_stop_play_sound(snd_wrong, 0, false);
+    
+    //Otherwise
+    else {
+    
+        filter = 1;
+        message = "2X WINDOW SIZE";
+        event_user(1);
+    }
 }
 
 //Set 3x window size
 else if (keyboard_check_pressed(ord('3'))) {
 
-    filter = 2
-    message = "3X WINDOW SIZE";
-    event_user(1);
+    //If fullscreen is set, deny
+    if (fullscreen)    
+        audio_stop_play_sound(snd_wrong, 0, false);
+    
+    //Otherwise
+    else {
+    
+        filter = 2;
+        message = "3X WINDOW SIZE";
+        event_user(1);
+    }
 }
 
 //Set 4x window size
 else if (keyboard_check_pressed(ord('4'))) {
 
-    filter = 3
-    message = "4X WINDOW SIZE";
-    event_user(1);
+    //If fullscreen is set, deny
+    if (fullscreen)    
+        audio_stop_play_sound(snd_wrong, 0, false);
+    
+    //Otherwise
+    else {
+    
+        filter = 3;
+        message = "4X WINDOW SIZE";
+        event_user(1);
+    }
 }
 
 //Reset the settings, in case it becomes necessary.
@@ -721,20 +753,31 @@ alarm[6] = 60;
             <kind>1</kind>
             <string>///Set up the screen to be displayed
 
-//Set up filter
-var s = filter+1;
+//If fullscreen is activated
+if (fullscreen)
+    window_set_fullscreen(fullscreen);
 
-//Reset display
-display_reset(0, vsync);
+//Otherwise
+else {
 
-//Set up the window
-window_set_size(global.gw*s, global.gh*s);
-
-//Set up the display
-display_set_gui_size(global.gw*s, global.gh*s);
-
-//Center the window
-alarm[2] = 1;
+    //Set windowed mode
+    window_set_fullscreen(0);
+    
+    //Set up filter
+    var s = filter+1;
+    
+    //Reset display
+    display_reset(0, vsync);
+    
+    //Set up the window
+    window_set_size(global.gw*s, global.gh*s);
+    
+    //Set up the display
+    display_set_gui_size(global.gw*s, global.gh*s);
+    
+    //Center the window
+    alarm[2] = 1;
+}
 </string>
           </argument>
         </arguments>

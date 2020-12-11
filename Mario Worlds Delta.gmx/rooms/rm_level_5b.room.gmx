@@ -110,8 +110,6 @@
     <instance objName="obj_solid" x="288" y="96" name="inst_D98C681B" locked="0" code="" scaleX="7" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="96" y="144" name="inst_207C1106" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="208" y="128" name="inst_D9439A40" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_thwimp" x="152" y="176" name="inst_5BED3871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_thwimp" x="264" y="160" name="inst_942ED2BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="352" y="288" name="inst_BD0A4058" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="448" y="192" name="inst_51931E41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_brick_stone" x="544" y="96" name="inst_0DB2277F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -120,6 +118,8 @@
     <instance objName="obj_warpleft" x="352" y="64" name="inst_E96C9361" locked="0" code="destination = rm_level_5c;&#xA;exit_dir = cs_warp_right;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_area_y" x="480" y="192" name="inst_CCBE7C96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="40" y="368" name="inst_21A81726" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_feather" x="304" y="368" name="inst_80FC85B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_feather" x="320" y="368" name="inst_FADB6AC7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="400" y="400" w="16" h="16" xo="16" yo="432" id="10033520" name="inst_6E5B77D5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

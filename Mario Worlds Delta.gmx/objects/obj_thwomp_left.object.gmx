@@ -177,7 +177,8 @@ if (ready == 0)
 else if (ready == 1) {
     
     //Check for a solid
-    mysolid = collision_rectangle(bbox_left+hspeed, bbox_top+4, bbox_left+hspeed, bbox_bottom-1, obj_solid, 0, 0);
+    mysolid = collision_rectangle(bbox_left+hspeed, bbox_top+4, bbox_left, bbox_bottom-1, obj_solid, 0, 0);
+    mylimit = collision_rectangle(bbox_left+hspeed, bbox_top+4, bbox_left, bbox_bottom-1, obj_endmarker, 0, 0);
     
     //If there's a solid
     if (mysolid) {
@@ -206,6 +207,20 @@ else if (ready == 1) {
         
         //Move to start
         alarm[0] = 60;
+    }
+    else if (mylimit) {
+    
+        //Stop horizontal speed
+        hspeed = 0;
+        
+        //Stop gravity
+        gravity = 0;
+        
+        //Snap to the right of the solid
+        x = mylimit.bbox_right+13;
+        
+        //Move to start
+        alarm[0] = 60;        
     }
 }
 

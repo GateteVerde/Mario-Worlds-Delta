@@ -169,7 +169,7 @@ if (inwall == false)
         && (global.powerup >= cs_pow_cape) {
         
             //Set vertical speed
-            vspeed = -jumpstrength*1.5-abs(hspeed)/hspeed_run_full/3-run/12;
+            vspeed = -jumpstrength*1.65-abs(hspeed)/hspeed_run_full/3-run/12;
             
             //Initialize fly
             if (flying == 0)
