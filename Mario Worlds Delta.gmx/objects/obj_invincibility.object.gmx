@@ -76,8 +76,8 @@ if (instance_exists(obj_playerparent)) {
     
         with (instance_create(x-8+random(round(16)), y+random_range(0,16), obj_smoke)) {
         
-            image_speed = 0.1;
-            sprite_index = spr_sparkle_small_blue;
+            image_speed = 0.3;
+            sprite_index = spr_sparkle_big;
         }
     }
     
@@ -86,8 +86,8 @@ if (instance_exists(obj_playerparent)) {
     
         with (instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_smoke)) {
         
-            image_speed = 0.1;
-            sprite_index = spr_sparkle_small_blue;
+            image_speed = 0.3;
+            sprite_index = spr_sparkle_big;
         }
     }
 }
@@ -104,8 +104,8 @@ else {
         with (instance_create(x-8+random(round(16)), y+random_range(0,16), obj_smoke)) {
         
             depth = other.follow.depth-1;
-            image_speed = 0.1;
-            sprite_index = spr_sparkle_small_blue;
+            image_speed = 0.3;
+            sprite_index = spr_sparkle_big;
         }
     }
     
@@ -115,17 +115,17 @@ else {
         with (instance_create(x-8+random(round(16)), y+random_range(-6,16), obj_smoke)) {
         
             depth = other.follow.depth-1;
-            image_speed = 0.1;
-            sprite_index = spr_sparkle_small_blue;
+            image_speed = 0.3;
+            sprite_index = spr_sparkle_big;
         }
     }
 }
 
 //Repeat
 if (obj_invincibility.alarm[0] &gt; 120)
-    alarm[3] = 4;
+    alarm[3] = 2;
 else
-    alarm[3] = 8;
+    alarm[3] = 4;
 </string>
           </argument>
         </arguments>

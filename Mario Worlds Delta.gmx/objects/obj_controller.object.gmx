@@ -104,6 +104,9 @@ global.fontdialog = font_add_sprite(spr_font_dialogue, ord('!'), 1, 0);
 //In-Message Font
 global.fontmsg = font_add_sprite(spr_font_message, ord('!'), 0, 0);
 
+//SMA4 In-Message Font
+global.fontmsg_alt = font_add_sprite(spr_font_message_alt, ord('!'), 0, 0);
+
 //Disable application surface automatic drawing
 application_surface_draw_enable(0)
 

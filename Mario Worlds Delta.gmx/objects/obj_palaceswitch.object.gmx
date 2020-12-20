@@ -58,7 +58,7 @@ mysolid = instance_create(x, y, obj_solid);
             <kind>1</kind>
             <string>///Create message
 
-with (instance_create(0, 0, obj_message_new)) {
+with (instance_create(0, 0, obj_message)) {
     
     //Exit automatically
     switchmsg = 1;
@@ -136,7 +136,7 @@ if (player)
     audio_stop_play_sound(snd_explosion, 0, false);
     
     //Shake screen
-    init_shake(snd_explosion);
+    init_shake(25);
     
     //Play 'Palace Clear' fanfare
     audio_stop_play_sound(snd_palaceclear, 0, false);

@@ -1149,6 +1149,8 @@
         <sprite>sprites\spr_porchupuffer</sprite>
         <sprite>sprites\spr_urchin</sprite>
         <sprite>sprites\spr_urchin_dead</sprite>
+        <sprite>sprites\spr_torpedobox</sprite>
+        <sprite>sprites\spr_torpedoted</sprite>
         <sprite>sprites\spr_blooper</sprite>
         <sprite>sprites\spr_blooper_dead</sprite>
         <sprite>sprites\spr_huckitcrab</sprite>
@@ -1492,6 +1494,9 @@
       </sprites>
       <sprite>sprites\spr_muncher</sprite>
       <sprite>sprites\spr_muncher_ee</sprite>
+      <sprite>sprites\spr_seaweed</sprite>
+      <sprite>sprites\spr_seaweed_top</sprite>
+      <sprite>sprites\spr_seaweed_bottom</sprite>
     </sprites>
     <sprites name="Modifiers">
       <sprites name="Blocks">
@@ -1628,6 +1633,7 @@
         <sprite>sprites\spr_sparkle_small_blue</sprite>
         <sprite>sprites\spr_sparkle_small_pink</sprite>
         <sprite>sprites\spr_sparkle_small_green</sprite>
+        <sprite>sprites\spr_sparkle_big</sprite>
         <sprite>sprites\spr_spinstar</sprite>
         <sprite>sprites\spr_spinstar2</sprite>
         <sprite>sprites\spr_spinthump</sprite>
@@ -1722,6 +1728,7 @@
         <sprite>sprites\spr_font_numb_large</sprite>
         <sprite>sprites\spr_font_dialogue</sprite>
         <sprite>sprites\spr_font_message</sprite>
+        <sprite>sprites\spr_font_message_alt</sprite>
       </sprites>
       <sprites name="Masks">
         <sprites name="Player">
@@ -2374,6 +2381,7 @@
         <object>objects\obj_porchupuffer</object>
         <object>objects\obj_urchin</object>
         <object>objects\obj_urchin_wall</object>
+        <object>objects\obj_torpedobox</object>
         <object>objects\obj_blooper</object>
         <object>objects\obj_huckitcrab</object>
       </objects>
@@ -2539,6 +2547,7 @@
         <object>objects\obj_waterfall</object>
       </objects>
       <object>objects\obj_muncher</object>
+      <object>objects\obj_seaweed</object>
     </objects>
     <objects name="Modifiers">
       <objects name="Blocks">
@@ -2798,6 +2807,7 @@
             <object>objects\obj_busterpickup</object>
           </objects>
           <objects name="Underwater">
+            <object>objects\obj_torpedoted</object>
             <object>objects\obj_huckitcrab_rock</object>
           </objects>
           <objects name="Forest / Desert">
@@ -2909,7 +2919,6 @@
           <objects name="Dialogues">
             <object>objects\obj_dialog</object>
             <object>objects\obj_message</object>
-            <object>objects\obj_message_new</object>
           </objects>
           <objects name="Title / Credits">
             <object>objects\obj_credits</object>

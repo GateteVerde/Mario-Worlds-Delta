@@ -249,7 +249,7 @@ if (background_exists(back)) {
 }
 
 //Draw the message box
-draw_sprite_ext(spr_dialog, 0, x, y, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_dialog, obj_controller.hud_type, x, y, 1, 1, 0, c_white, 1);
 
 //If the text should be displayed
 if (showing) {   

@@ -3,8 +3,8 @@
   <caption></caption>
   <width>5120</width>
   <height>432</height>
-  <vsnap>8</vsnap>
-  <hsnap>8</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -56,7 +56,7 @@
     <instance objName="obj_semisolid" x="0" y="384" name="inst_5D6A5963" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="400" y="288" name="inst_6644AC3E" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_area_g" x="432" y="224" name="inst_9636B2E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="16" y="-16" name="inst_D1ED001B" locked="0" code="inisection = 'Athletic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_D1ED001B" locked="0" code="inisection = 'Athletic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="608" y="368" name="inst_286F8AFB" locked="0" code="" scaleX="1" scaleY="-1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="640" y="368" name="inst_3FF77EBF" locked="0" code="" scaleX="-1" scaleY="-1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_circle" x="608" y="272" name="inst_7A9FD56A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
