@@ -34,6 +34,7 @@
 **      spr_galoomba
 **      spr_bobomb_cannon
 **      spr_cheepcheep
+**      spr_mushroom
 */
 
 //Default value
@@ -99,6 +100,10 @@ switch (sprout) {
     //Cheep-Cheep
     case (spr_cheepcheep):
         instance_create(x+8+(sprite_get_xoffset(sprout)), y+10, obj_cheepcheep); break;
+        
+    //Mushroom
+    case (spr_mushroom):
+        instance_create(x+8+(sprite_get_xoffset(sprout)), y+10, obj_mushroom); break;
 }
 
 //Create 'Pop' effect

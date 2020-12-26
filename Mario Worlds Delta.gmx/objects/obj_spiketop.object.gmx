@@ -57,7 +57,7 @@ alarm[10] = 2;
 //This prevents a bug that causes it to not work if it starts on a certain wall.
 if (place_meeting(x, y+1, obj_solid))
     y++;
-if (place_meeting(x-1, y, obj_solid) = false)
+if (!place_meeting(x-1, y, obj_solid))
     direction = 180;
 </string>
           </argument>
@@ -191,7 +191,7 @@ if (speed &lt; 0) {
         //Set a turning pose
         if (turn == 0) {
         
-            turn = 1;
+            turn = -1;
             alarm[1] = 6;
         }
     
@@ -207,12 +207,12 @@ if (speed &lt; 0) {
     }
     
     //Otherwise, check if he ran into a wall.
-    else if (place_meeting(x + lengthdir_x(speed,direction), y + lengthdir_y(speed,direction), obj_solid)) {
+    else if (place_meeting(x + lengthdir_x(speed, direction), y + lengthdir_y(speed, direction), obj_solid)) {
 
         //Set a turning pose
         if (turn == 0) {
         
-            turn = 2;
+            turn = -2;
             alarm[1] = 6;
         }
              

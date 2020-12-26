@@ -57,7 +57,7 @@ alarm[10] = 2;
 //This prevents a bug that causes it to not work if it starts on a certain wall.
 if (place_meeting(x, y+1, obj_solid))
     y++;
-if (place_meeting(x-1, y, obj_solid) = false)
+if (!place_meeting(x-1, y, obj_solid))
     direction = 180;
 </string>
           </argument>
@@ -85,9 +85,9 @@ if (place_meeting(x-1, y, obj_solid) = false)
 
 if (!instance_exists(obj_playerparent))
 || (obj_playerparent.x &lt; x)
-    speed = -0.5;
+    hspeed = -0.5;
 else
-    speed = 0.5;
+    hspeed = 0.5;
 </string>
           </argument>
         </arguments>
@@ -162,12 +162,12 @@ alarm[1] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Wall Urchin logic
+            <string>///Spiketop logic
 
 if (speed &gt; 0) {
 
     //Check if there's no floor on the way.
-    if (place_meeting(x + lengthdir_x(speed + 4, direction - 90), y + lengthdir_y(speed + 4, direction - 90), obj_solid) == false) {
+    if (place_meeting(x + lengthdir_x(speed + 1, direction - 90), y + lengthdir_y(speed + 1, direction - 90), obj_solid) == false) {
     
         //Rotate
         direction -= 90;
@@ -181,7 +181,7 @@ if (speed &gt; 0) {
     }
     
     //Otherwise, check if he ran into a wall.
-    else if (place_meeting(x + lengthdir_x(speed,direction), y + lengthdir_y(speed,direction), obj_solid)) {
+    else if (place_meeting(x + lengthdir_x(speed, direction), y + lengthdir_y(speed, direction), obj_solid)) {
             
         //Rotate it so it's moving up the wall.
         direction += 90;
@@ -195,7 +195,7 @@ if (speed &gt; 0) {
 if (speed &lt; 0) {
 
     //This checks *below* the spiny since you're double negating the direction... It's confusing but it works.
-    if (place_meeting(x + lengthdir_x(speed - 4, direction + 90), y + lengthdir_y(speed - 4, direction + 90), obj_solid) == false) {
+    if (place_meeting(x + lengthdir_x(speed - 1, direction + 90), y + lengthdir_y(speed - 1, direction + 90), obj_solid) == false) {
     
         //Rotate
         direction += 90;
@@ -209,7 +209,7 @@ if (speed &lt; 0) {
     }
     
     //Otherwise, check if he ran into a wall.
-    else if (place_meeting(x + lengthdir_x(speed,direction), y + lengthdir_y(speed, direction), obj_solid)) {
+    else if (place_meeting(x + lengthdir_x(speed, direction), y + lengthdir_y(speed, direction), obj_solid)) {
              
         //Rotate it so it's moving up the wall.
         direction -= 90;
@@ -218,6 +218,9 @@ if (speed &lt; 0) {
         move_contact_object(direction + 90, speed, obj_solid);
     }
 }
+
+//Turn at enemies script
+event_user(2);
 </string>
           </argument>
         </arguments>
