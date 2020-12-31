@@ -72,7 +72,8 @@ if (player)
 &amp;&amp; (player.state != statetype.climb) {
 
     //If the player presses the 'Up' key, make the NPC talk
-    if (input_check_pressed(input.up)) {
+    if (input_check_pressed(input.up)) 
+    &amp;&amp; (varmsg != "No message was set") {
     
         //Play 'Message' sound
         audio_stop_play_sound(snd_message, 0, false);
@@ -175,6 +176,7 @@ draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, 1
 
 //Draw Talk icon
 if (player)
+&amp;&amp; (varmsg != "No message was set") 
     draw_sprite_ext(spr_talk, -1, round(x)-8, round(bbox_top-16), 1, 1, 0, c_white, 1);
 </string>
           </argument>

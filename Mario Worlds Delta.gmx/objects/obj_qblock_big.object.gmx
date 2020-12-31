@@ -93,6 +93,11 @@ timer = 2;
 with (instance_create(xstart, ystart, obj_emptyblock)) {
 
     sprite_index = spr_qblock_big_empty;
+    if (other.sprout == itemtype.lifeup) {
+    
+        alarm[0] = 72;
+        alarm[1] = 144;
+    }
 }
 
 //Destroy
@@ -138,8 +143,11 @@ if (sprout == itemtype.coin_multi)
         &amp;&amp; (sprout == itemtype.coin_multi_shroom) {
         
             //Sprout out a mushroom
-            with (instance_create(x+16, y, obj_powerup_sprout))
+            with (instance_create(x+16, y, obj_powerup_sprout)) {
+            
                 sprite_index = enum_get_sprite(itemtype.mushroom);
+                big = 1;
+            }
         }
     
         //Inherit event from parent
@@ -168,8 +176,11 @@ else {
     if (sprout != itemtype.coin) {
     
         //If the player is small
-        with (instance_create(x+16, y, obj_powerup_sprout))    
+        with (instance_create(x+16, y, obj_powerup_sprout)) {
+           
             sprite_index = enum_get_sprite(other.sprout);
+            big = 1;   
+        }
     }
 
     //Inherit event from parent

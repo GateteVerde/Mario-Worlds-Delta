@@ -831,6 +831,8 @@
           <sprite>sprites\spr_donut_triple</sprite>
           <sprite>sprites\spr_donut_red</sprite>
           <sprite>sprites\spr_donut_red_triple</sprite>
+          <sprite>sprites\spr_donut_ice</sprite>
+          <sprite>sprites\spr_donut_ice_triple</sprite>
           <sprite>sprites\spr_donut_appear</sprite>
           <sprite>sprites\spr_blocktrain</sprite>
         </sprites>
@@ -1269,6 +1271,7 @@
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprite>sprites\spr_grinder</sprite>
         <sprite>sprites\spr_grinder_line</sprite>
+        <sprite>sprites\spr_fallingspike</sprite>
       </sprites>
       <sprites name="Ghost">
         <sprite>sprites\spr_boobuddy</sprite>
@@ -1319,6 +1322,9 @@
         <sprite>sprites\spr_cannon</sprite>
         <sprite>sprites\spr_cannon_ball</sprite>
         <sprite>sprites\spr_cannon_quad</sprite>
+        <sprite>sprites\spr_rengine</sprite>
+        <sprite>sprites\spr_rengine_st</sprite>
+        <sprite>sprites\spr_rengine_alt</sprite>
       </sprites>
       <sprite>sprites\spr_walrus</sprite>
       <sprite>sprites\spr_walrus_turn</sprite>
@@ -1573,6 +1579,7 @@
           <sprites name="Lighting">
             <sprite>sprites\spr_light_lava_top</sprite>
             <sprite>sprites\spr_light_lava_bottom</sprite>
+            <sprite>sprites\spr_light_rengine</sprite>
           </sprites>
           <sprite>sprites\spr_ring</sprite>
           <sprite>sprites\spr_ring_b</sprite>
@@ -2209,6 +2216,8 @@
           <object>objects\obj_donut_triple</object>
           <object>objects\obj_donut_red</object>
           <object>objects\obj_donut_red_triple</object>
+          <object>objects\obj_donut_ice</object>
+          <object>objects\obj_donut_ice_triple</object>
           <object>objects\obj_blocktrain</object>
         </objects>
         <object>objects\obj_pswitch</object>
@@ -2437,6 +2446,7 @@
         <object>objects\obj_netkoopa_red</object>
         <object>objects\obj_netkoopa_blue</object>
         <object>objects\obj_netkoopa_yellow</object>
+        <object>objects\obj_fallingspike</object>
         <object>objects\obj_ninji</object>
       </objects>
       <objects name="Ghost">
@@ -2468,6 +2478,8 @@
         <object>objects\obj_cannon</object>
         <object>objects\obj_cannon_bomb</object>
         <object>objects\obj_cannon_quad</object>
+        <object>objects\obj_rengine</object>
+        <object>objects\obj_rengine_alt</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
@@ -2887,6 +2899,7 @@
           <objects name="Blend">
             <object>objects\obj_ring</object>
             <object>objects\obj_ring_pow</object>
+            <object>objects\obj_light_rengine</object>
             <object>objects\obj_light_disco_gen</object>
           </objects>
           <objects name="Score">
@@ -2998,6 +3011,7 @@
         <room>rooms\rm_level_7b</room>
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
+          <room>rooms\rm_devtest_b</room>
         </rooms>
       </rooms>
     </rooms>

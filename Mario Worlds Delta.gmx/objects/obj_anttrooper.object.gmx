@@ -81,7 +81,9 @@ if (place_meeting(x-1, y, obj_solid) = false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///UNUSED ON THIS OBJECT
+            <string>///Play 'Stomp' sound
+
+audio_stop_play_sound(snd_stomp, 0, false);
 </string>
           </argument>
         </arguments>

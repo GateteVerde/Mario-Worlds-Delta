@@ -30,6 +30,9 @@
 //Does this object bounce outta the block
 bouncy = 0;
 
+//Does this object come from a big block
+big = 0;
+
 //Do not animate
 image_speed = 0;
 
@@ -259,8 +262,15 @@ if (ready == 1)
         //If moving up
         if (other.vspeed &lt; 0) {
         
+            //Make the item bounce
             alarm[10] = 1;
-            if (other.bouncy == 1)
+            
+            //If the item came from a big block
+            if (other.big == 1)
+                vspeed = -3;
+            
+            //If the item is a holdable item or the item came out from a big block
+            else if (other.bouncy == 1)
                 vspeed = -2.5;
         }
             

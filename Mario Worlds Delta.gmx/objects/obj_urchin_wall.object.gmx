@@ -48,6 +48,9 @@ image_speed = 0.09;
 //Death Sprite
 deathsprite = spr_urchin_dead;
 
+//Mark as not swimming
+swimming = 1;
+
 //Blink
 alarm[0] = 60;
 
@@ -162,7 +165,7 @@ alarm[1] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Spiketop logic
+            <string>///Urchin Logic
 
 if (speed &gt; 0) {
 
@@ -218,9 +221,6 @@ if (speed &lt; 0) {
         move_contact_object(direction + 90, speed, obj_solid);
     }
 }
-
-//Turn at enemies script
-event_user(2);
 </string>
           </argument>
         </arguments>

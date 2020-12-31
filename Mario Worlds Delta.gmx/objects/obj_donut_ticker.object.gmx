@@ -113,6 +113,12 @@ if (ready == 1) {
     
                 //3x1 Red Donut
                 case (3): instance_create(xstart-24, ystart-8, obj_donut_red_triple); break;
+                                        
+                //1x1 Frozen Donut
+                case (4): instance_create(xstart-8, ystart-8, obj_donut_ice); break;
+    
+                //3x1 Frozen Donut
+                case (5): instance_create(xstart-24, ystart-8, obj_donut_ice_triple); break;
             }
         }
         
