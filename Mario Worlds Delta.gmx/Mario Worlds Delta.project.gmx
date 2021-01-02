@@ -1177,6 +1177,7 @@
           <sprite>sprites\spr_lakitu_dead</sprite>
           <sprite>sprites\spr_lakitu_cloud</sprite>
           <sprite>sprites\spr_lakitu_cloud_front</sprite>
+          <sprite>sprites\spr_lakitu_cloud_destroy</sprite>
           <sprite>sprites\spr_lakitu_reel</sprite>
         </sprites>
         <sprites name="Pokey">
@@ -2245,6 +2246,7 @@
         <object>objects\obj_icicle_static</object>
         <object>objects\obj_detonator</object>
         <object>objects\obj_beanstalk_vine</object>
+        <object>objects\obj_lakitucloud</object>
         <object>objects\obj_bumper</object>
         <object>objects\obj_key</object>
       </objects>

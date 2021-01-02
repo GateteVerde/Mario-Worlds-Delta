@@ -22,12 +22,20 @@ if (gravity == 0)
     
         //Reset state delay
         delay = 0;
-    
-        //Figure out if the player is idle or walking
-        if (hspeed == 0)
-            state = statetype.idle;
-        else
-            state = statetype.walk;
+        
+        //If the player is in a cloud
+        if (oncloud)
+            state = statetype.idle
+            
+        //Otherwise
+        else {
+        
+            //Figure out if the player is idle or walking
+            if (hspeed == 0)
+                state = statetype.idle;
+            else
+                state = statetype.walk;
+        }
     }
     
     //Otherwise, if the player is moving up

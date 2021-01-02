@@ -182,6 +182,9 @@ alarm[0] = irandom_range(50, 300);
             <kind>1</kind>
             <string>///Throw spiny
 
+//Play 'Hammer' sound
+audio_stop_play_sound(snd_hammer, 0, false);
+
 //Set the frame
 image_index = 1;
 
@@ -415,10 +418,45 @@ with (instance_create(round(bbox_left+bbox_right)/2, round(bbox_top+bbox_bottom)
     image_xscale = other.xscale;
 }
 
-with (instance_create(x, y+8, obj_smoke)) sprite_index = spr_smoke_16;
+//Create poof of smoke
+with (instance_create(x, y, obj_smoke)) {
+
+    sprite_index = spr_lakitu_cloud_destroy;
+    image_speed = 0.1;
+    image_index = 0;
+}
 
 //Destroy
 instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Perform default event but leave a cloud
+
+//Inherit event
+event_inherited();
+
+//Create a rideable cloud
+instance_create(x, y, obj_lakitucloud);
 </string>
           </argument>
         </arguments>
