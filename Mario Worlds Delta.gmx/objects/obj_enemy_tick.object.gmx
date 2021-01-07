@@ -69,7 +69,21 @@ switch (sprite_index) {
     //Lakitu
     case (spr_lakitu): {
     
-        instance_create(view_xview[view_current] + view_wview[view_current] + 64, y, obj_lakitu);
+        with (instance_create(view_xview[view_current] + view_wview[view_current] + 64, y, obj_lakitu)) {
+        
+            activated = 1;
+            canthrow = 1;
+        }
+    } break;
+    
+    //Green Lakitu
+    case (spr_lakitu_green): {
+    
+        with (instance_create(view_xview[view_current] + view_wview[view_current] + 64, y, obj_lakitugreen)) {
+        
+            activated = 1;
+            canthrow = 1;
+        }
     } break;
     
     //Magikoopa

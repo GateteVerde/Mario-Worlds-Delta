@@ -1108,6 +1108,7 @@
         <sprite>sprites\spr_spiny</sprite>
         <sprite>sprites\spr_spiny_dead</sprite>
         <sprite>sprites\spr_spiny_thrown</sprite>
+        <sprite>sprites\spr_spiny_thrown_green</sprite>
         <sprite>sprites\spr_shell_spiny</sprite>
         <sprites name="Piranha Plants">
           <sprites name="Gargantua">
@@ -1171,10 +1172,17 @@
           <sprite>sprites\spr_wiggler_flower</sprite>
         </sprites>
         <sprites name="Lakitu">
-          <sprite>sprites\spr_lakitu_object</sprite>
-          <sprite>sprites\spr_lakitu</sprite>
-          <sprite>sprites\spr_lakitu_fish</sprite>
-          <sprite>sprites\spr_lakitu_dead</sprite>
+          <sprites name="Red">
+            <sprite>sprites\spr_lakitu_object</sprite>
+            <sprite>sprites\spr_lakitu</sprite>
+            <sprite>sprites\spr_lakitu_fish</sprite>
+            <sprite>sprites\spr_lakitu_dead</sprite>
+          </sprites>
+          <sprites name="Green">
+            <sprite>sprites\spr_lakitu_green_object</sprite>
+            <sprite>sprites\spr_lakitu_green</sprite>
+            <sprite>sprites\spr_lakitu_green_dead</sprite>
+          </sprites>
           <sprite>sprites\spr_lakitu_cloud</sprite>
           <sprite>sprites\spr_lakitu_cloud_front</sprite>
           <sprite>sprites\spr_lakitu_cloud_destroy</sprite>
@@ -1649,7 +1657,6 @@
         <sprite>sprites\spr_splash_choco</sprite>
         <sprite>sprites\spr_splash_lava</sprite>
         <sprite>sprites\spr_splash_poison</sprite>
-        <sprite>sprites\spr_sweat</sprite>
         <sprite>sprites\spr_switcheff</sprite>
       </sprites>
       <sprites name="Palettes">
@@ -1815,6 +1822,7 @@
       <sprite>sprites\spr_palaceswitch_b</sprite>
       <sprite>sprites\spr_bonusblock</sprite>
       <sprite>sprites\spr_discoball</sprite>
+      <sprite>sprites\spr_discoball_active</sprite>
       <sprite>sprites\spr_lock</sprite>
       <sprite>sprites\spr_castledoor_frame</sprite>
       <sprite>sprites\spr_castledoor</sprite>
@@ -2362,6 +2370,7 @@
         <object>objects\obj_buzzybeetle</object>
         <object>objects\obj_buzzybeetle_ceiling</object>
         <object>objects\obj_spiny</object>
+        <object>objects\obj_spiny_alt</object>
         <object>objects\obj_spiny_ceiling</object>
         <objects name="Piranha Plants">
           <objects name="Gargantua">
@@ -2398,6 +2407,7 @@
       </objects>
       <objects name="Forest / Desert">
         <object>objects\obj_lakitu</object>
+        <object>objects\obj_lakitugreen</object>
         <object>objects\obj_fishinglakitu</object>
         <object>objects\obj_monty</object>
         <object>objects\obj_monty_chase</object>
@@ -2776,6 +2786,7 @@
             <object>objects\obj_powblock_active</object>
             <object>objects\obj_powblock_killer</object>
             <object>objects\obj_icicle_shard</object>
+            <object>objects\obj_lakitucloud_front</object>
           </objects>
           <object>objects\obj_coin_alt</object>
           <object>objects\obj_coin_silver</object>
@@ -2812,6 +2823,7 @@
           </objects>
           <objects name="Underground">
             <object>objects\obj_spiny_thrown</object>
+            <object>objects\obj_spiny_green</object>
             <objects name="Piranha Plants">
               <object>objects\obj_plantfire</object>
               <object>objects\obj_plantfire2</object>

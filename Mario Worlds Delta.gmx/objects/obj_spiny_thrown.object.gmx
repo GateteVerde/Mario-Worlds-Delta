@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
-  <parentName>obj_spiny</parentName>
+  <parentName>obj_spiny_alt</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="3" enumb="0">
@@ -37,8 +37,7 @@ if gravity != 0 {
     if vspeed &lt; -2.2
         gravity = 0.3;
     else
-        gravity = 0.15;
-    
+        gravity = 0.15;    
 }
 
 //If on the ground
@@ -50,9 +49,8 @@ if gravity != 0 {
 } else {
 
     //Create actual spiny on the ground
-    instance_create(x,y,obj_spiny);
-    instance_destroy();
-    
+    instance_create(x, y, obj_spiny_alt);
+    instance_destroy();    
 }
 </string>
           </argument>

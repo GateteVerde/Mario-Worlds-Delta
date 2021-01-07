@@ -31,7 +31,7 @@
 event_inherited();
 
 //Animate
-image_speed = 0.5;
+image_speed = 1;
 
 //Whether the object is being held
 held = 0;
@@ -106,7 +106,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Slowdown animation
 
-image_speed = 0.2;
+image_speed = 0.25;
 </string>
           </argument>
         </arguments>
@@ -582,7 +582,7 @@ else {
             //Reset alarms
             alarm[0] = -1;
             alarm[1] = -1;
-            image_speed = 0.5;
+            image_speed = 1;
             
             //If the player is at the left of the block
             if (obj_playerparent.x &lt; x)
@@ -693,13 +693,13 @@ instance_destroy();
 
 //If this is a regular throw block
 if (sprite_index == spr_brick_throw_th)
-    event_inherited();
+    draw_sprite_ext(sprite_index, -1, round(x), round(y), dir, 1, 0, c_white, 1);
     
 //Otherwise, draw the indicated sprite
 else {
 
     if (sprite_index == spr_pokey_snowball)
-        draw_sprite_ext(spr_pokey_snowball_angle, -1, round(x), round(y)+8, 1, 1, angle, c_white, 1);
+        draw_sprite_ext(spr_pokey_snowball_angle, -1, round(x), round(y)+8, dir, 1, angle, c_white, 1);
 }
 </string>
           </argument>

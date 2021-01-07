@@ -3,7 +3,7 @@
   <spriteName>spr_lakitu_cloud</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-6</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>obj_physicsparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -48,6 +48,11 @@ can_on = true;
 //Set destroy timers
 set = false;
 
+//Cloud front
+myfront = instance_create(x, y, obj_lakitucloud_front);
+with (myfront)
+    parent = other.id;
+
 //Create a fake semisolid
 mytop = instance_create(x-8, y+10, obj_semisolid_moving);
 with (mytop)
@@ -87,12 +92,13 @@ with (obj_playerparent) {
 }
 
 with (mytop) instance_destroy();
+with (myfront) instance_destroy(); 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="2">
+    <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -126,6 +132,32 @@ instance_destroy();
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blink
+
+alarm[1] = 12;
+image_alpha = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -145,8 +177,8 @@ instance_destroy();
             <kind>1</kind>
             <string>///Blink
 
-alarm[1] = 1;
-image_alpha = !image_alpha;
+alarm[2] = 6;
+image_alpha = 0;
 </string>
           </argument>
         </arguments>
@@ -274,7 +306,7 @@ if (instance_exists(obj_playerparent)) {
                 set = true;
                 alarm[0] = 30;
                 alarm[1] = 540;
-                alarm[2] = 720;
+                alarm[3] = 720;
             }
         }
     }
