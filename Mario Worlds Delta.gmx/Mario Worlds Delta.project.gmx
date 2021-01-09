@@ -1139,6 +1139,10 @@
         <sprite>sprites\spr_busterbeetle</sprite>
         <sprite>sprites\spr_busterbeetle_hold</sprite>
         <sprite>sprites\spr_busterbeetle_dead</sprite>
+        <sprite>sprites\spr_nokobombette</sprite>
+        <sprite>sprites\spr_nokobombette_down</sprite>
+        <sprite>sprites\spr_nokobombette_down_th</sprite>
+        <sprite>sprites\spr_nokobombette_dead</sprite>
       </sprites>
       <sprites name="Underwater">
         <sprite>sprites\spr_cheepcheep</sprite>
@@ -2392,6 +2396,8 @@
         <object>objects\obj_swoop</object>
         <object>objects\obj_blargg</object>
         <object>objects\obj_busterbeetle</object>
+        <object>objects\obj_nokobombette</object>
+        <object>objects\obj_nokobombette_ceiling</object>
       </objects>
       <objects name="Underwater">
         <object>objects\obj_cheepcheep</object>
