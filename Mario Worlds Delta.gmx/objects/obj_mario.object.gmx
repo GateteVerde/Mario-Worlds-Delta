@@ -426,6 +426,8 @@ else {
                             
                             //Otherwise
                             else {
+                            
+                                prejump_scuttle = abs(hspeed) * 3;
                                 
                                 //Animate
                                 image_speed = (0.065*(inice*4))+abs(hspeed)/7.5;
@@ -548,28 +550,77 @@ else {
                                         //If Mario is running
                                         if (run == true) {
                                         
-                                            //Set the sprite
-                                            sprite_index = player_runjump();
+                                            if (prejump_scuttle &lt;= 0) {
+                                        
+                                                //Set the sprite
+                                                sprite_index = player_runjump();
+                                                
+                                                //Do not animate
+                                                image_speed = 0;
+                                                image_index = 0;
+                                                
+                                            } else {
                                             
-                                            //Do not animate
-                                            image_speed = 0;
-                                            image_index = 0;
+                                                //Set the sprite
+                                                sprite_index = player_walk();
+                                            
+                                                //Set the image speed
+                                                if (abs(hspeed) / 8 &gt; .1)
+                                                                                    
+                                                    image_speed = abs(hspeed) / 8;
+                                                                                        
+                                                else image_speed = .1;
+                                                    
+                                                //Subtract the scuttle
+                                                prejump_scuttle --;
+                                                
+                                                //Set the scuttle to 0
+                                                if (prejump_scuttle &lt; 0)
+                                                
+                                                    prejump_scuttle = 0;
+                                                
+                                            }  
                                         }
                                         
                                         //Otherwise, if Mario is not running
                                         else if (run == false) {
                                         
-                                            //Set the sprite
-                                            sprite_index = player_jump();
+                                            //If the player has depleated all of their scuttle...
+                                            if (prejump_scuttle &lt;= 0) {
+                                        
+                                                //Set the sprite
+                                                sprite_index = player_jump();
+                                                
+                                                //Do not animate
+                                                image_speed = 0;
+                                                
+                                                //But set the appropiate frame
+                                                if (vspeed &lt; 0)
+                                                    image_index = 0;
+                                                else
+                                                    image_index = 1;
+                                                
+                                            } else {
                                             
-                                            //Do not animate
-                                            image_speed = 0;
+                                                //Set the sprite
+                                                sprite_index = player_walk();
                                             
-                                            //But set the appropiate frame
-                                            if (vspeed &lt; 0)
-                                                image_index = 0;
-                                            else
-                                                image_index = 1;
+                                                //Set the image speed
+                                                if (abs(hspeed) / 8 &gt; .1)
+                                                                                    
+                                                    image_speed = abs(hspeed) / 8;
+                                                                                        
+                                                else image_speed = .1;
+                                                    
+                                                //Subtract the scuttle
+                                                prejump_scuttle --;
+                                                
+                                                //Set the scuttle to 0
+                                                if (prejump_scuttle &lt; 0)
+                                                
+                                                    prejump_scuttle = 0;
+                                                
+                                            }
                                         }
                                     }
                                 }

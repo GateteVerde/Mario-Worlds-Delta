@@ -37,7 +37,7 @@ vulnerable = 0;
 stomp = 0;
 
 //Whether the fire bro is about to throw a fireball
-throw = 0;
+_throw = 0;
 
 //Previous hspeed
 prevhsp = 0;
@@ -94,7 +94,7 @@ hspeed = prevhsp;
 alarm[1] = prevalm;
 
 //Set default sprite
-throw = 0;
+_throw = 0;
 </string>
           </argument>
         </arguments>
@@ -160,7 +160,7 @@ if (gravity == 0) {
     alarm[5] = 30;
     
     //Set the throwing pose
-    throw = 1;
+    _throw = 1;
 }
 </string>
           </argument>
@@ -227,7 +227,7 @@ if (gravity == 0) {
     alarm[4] = 30;
     
     //Set the default sprite.
-    throw = 1;
+    _throw = 1;
     
     //Stop horizontal speed
     prevhsp = hspeed;
@@ -301,7 +301,7 @@ else
             <string>///Fire bro animation
 
 //If not jumping
-if (throw == 0) {
+if (_throw == 0) {
 
     //Animate
     image_speed = 0.15;
@@ -311,14 +311,14 @@ if (throw == 0) {
 }
 
 //Otherwise, if jumping
-else if (throw) {
+else if (_throw) {
 
     //Set sprite
     sprite_index = spr_firebro_throw;
     
     //Do not animate
     image_speed = 0;
-    image_index = throw-1;
+    image_index = _throw-1;
 }
 
 //Update deathsprite / stompsprite

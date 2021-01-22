@@ -34,7 +34,7 @@
 */
 
 //Default variables
-static = 0;
+_static = 0;
 
 //Inherit event from parent
 event_inherited();
@@ -128,7 +128,7 @@ alarm[11] = 60+round(random_range(60,120));
             <string>///Move towards the player
 
 //If the spike can move
-if (static == 0) {
+if (_static == 0) {
 
     //Inherit event
     event_inherited();
@@ -255,7 +255,7 @@ hspeed = 0;
 event_inherited();
 
 //If the spike does not move
-if (static == 1) {
+if (_static == 1) {
 
     //If the player does not exist or is at the left
     if (!instance_exists(obj_playerparent))

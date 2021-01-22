@@ -27,6 +27,12 @@
             <kind>1</kind>
             <string>///Sunken Ghost Ship Orb
 
+//Save an image of the screen
+surface_save(application_surface,"prefreeze.png");
+
+//Set the pre-freeze image
+global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
+
 //Generate sparkles
 alarm[0] = 30;
 
@@ -150,11 +156,17 @@ else {
             <kind>1</kind>
             <string>///Begin deactivation sequence
 
+//Delete the pre-freeze
+file_delete("prefreeze.png");
+
 //Create a screenshot
 back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);
 
 //Deactivate all instances
 instance_deactivate_all(1);
+
+//Activate the HUD
+instance_activate_object(obj_hud);
 
 //Activate HUD
 instance_activate_object(obj_hud);

@@ -29,10 +29,176 @@
 
 //Display "Press Start"
 display = 0;
-alarm[0] = 62;
+alarm[0] = 2;
 
 //Loop 'Title' theme
-alarm[1] = 32;
+alarm[1] = 2;
+
+//Confirmed to go to the world map
+confirmed_selection = false;
+
+//Create the spotlight
+spotlight = surface_create(room_width,room_height);
+
+//The spotlight's starting position (negative doesn't draw so it acts as a timer)
+scale = -25;
+
+//Menu mode
+//1: Activating...
+//2: Active
+//3: Key
+mode = 1;
+
+//Page
+page = 0;
+
+//Current selection on page
+current = 0;
+
+//Menu 1 - Main Menu
+menu[0,0] = "START GAME";
+menu[0,1] = "OPTIONS";
+menu[0,2] = "EXIT";
+
+//Menu 2 - Future File Select[?]
+menu[1,0] = "FILE A";
+menu[1,1] = "FILE B";
+menu[1,2] = "FILE C";
+menu[1,3] = "BACK";
+
+//Menu 3 - Options
+menu[2,0] = "KEYBOARD CONFIG";
+menu[2,1] = "SET WINDOW SIZE";
+menu[2,2] = "V-SYNC: ON";
+menu[2,3] = "FPS: ON";
+menu[2,4] = "HUD TYPE: DEFAULT";
+menu[2,5] = "VIEW CREDITS";
+menu[2,6] = "BACK";
+
+//Menu 4: Keys 1 / 2
+menu[3,0] = "RUN/SHOOT: " + string(key_to_string(global.key[input.action1]));
+menu[3,1] = "JUMP: " + string(key_to_string(global.key[input.action0]));
+menu[3,2] = "SPIN: " + string(key_to_string(global.key[input.action2]));
+menu[3,3] = "RESERVE   : " + string(key_to_string(global.key[input.select]));
+menu[3,4] = "PAUSE     : " + string(key_to_string(global.key[input.start]));
+menu[3,5] = "RESET KEYS TO DEFAULT"
+menu[3,6] = "NEXT PAGE"
+menu[3,7] = "BACK"
+
+//Menu 5: Keys 2 / 2
+menu[4,0] = "Up        : " + string(key_to_string(global.key[input.up]));
+menu[4,1] = "Down      : " + string(key_to_string(global.key[input.down]));
+menu[4,2] = "Left      : " + string(key_to_string(global.key[input.left]));
+menu[4,3] = "Right     : " + string(key_to_string(global.key[input.right]));
+menu[4,4] = "RESET KEYS TO DEFAULT"
+menu[4,5] = "PREVIOUS PAGE";
+menu[4,6] = "BACK";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset keys
+
+//Action 0
+global.key[input.action0] = vk_shift;
+
+//Action 1
+global.key[input.action1] = vk_control;
+
+//Action 2
+global.key[input.action2] = vk_space;
+
+//Select
+global.key[input.start] = vk_backspace;
+
+//Start
+global.key[input.start] = vk_enter;
+
+//Up
+global.key[input.up] = vk_up;
+
+//Down
+global.key[input.down] = vk_down;
+
+//Left
+global.key[input.left] = vk_left;
+
+//Right
+global.key[input.right] = vk_right;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set active mode
+mode = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Go to the next room
+
+//Disable pixelation
+with (obj_controller) {
+
+    pixelate = 60;
+}
+
+//Go to the engine test
+room_goto(rm_worldmap);
 </string>
           </argument>
         </arguments>
@@ -99,7 +265,20 @@ audio_loop_sound(global.stream, loop_s, loop_e, sample_rate, 1);
             <string>///Display / No Display "Press Start!
 
 display = !display;
-alarm[0] = 30;
+
+if (mode &gt; 1) {
+
+    if (display == false)
+    
+        alarm[0] = 10;
+        
+    else
+    
+        alarm[0] = 20;
+        
+}
+
+    alarm[0] = 30;
 </string>
           </argument>
         </arguments>
@@ -122,29 +301,43 @@ alarm[0] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Manage background position and start the game if "input.start" is pressed.
+            <string>///Manage background position, spotlight, and open the menu if certain inputs are pressed.
 
-//If 'Action 4' is pressed
-if (input_check_pressed(input.start)) {
+//Scale out the spotlight
+if (scale &lt; 300)
 
-    //Play 'Correct' sound
-    audio_stop_play_sound(snd_correct, 0, false);    
+    scale += 3;
     
-    //Stop the stream...
-    audio_stop_sound(global.stream);
+if (scale &gt;= 0) {
     
-    //...and free it from memory
-    audio_destroy_stream(global.stream);
-    global.stream = noone;
+    //Open menu initially
+    if ((input_check_pressed(input.start))
+    || (input_check_pressed(input.action0))
+    || (input_check_pressed(input.action2)))
+    &amp;&amp; (!confirmed_selection) {
     
-    //Disable pixelation
-    with (obj_controller) {
+        if (scale &gt;= 100) {
     
-        pixelate = 60;
+            //Play 'Menu' sound
+            audio_play_sound(snd_fireball, 0, false);
+            
+        }
+    
+        //Set active mode
+        alarm[3] = 2;
+    
+        //Confirm selection so that you cannot press the button again
+        confirmed_selection = true;
+    
+        //Set spotlight scale to maximum
+        scale = 300;
+        
+        //Make cursor visible
+        display = true;
+        alarm[0] = 20;
+    
     }
 
-    //Go to the engine test
-    room_goto(rm_worldmap);
 }
 
 //Set background 0 position
@@ -156,8 +349,569 @@ background_x[1] -= 2;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Manage menus
+
+//If the menu is not on key change mode
+if (mode == 2) {
+
+    //If the player presses the 'Up' key
+    if (input_check_pressed(input.up)) {
+    
+        //Make cursor visible
+        display = true;
+        alarm[0] = 20;
+    
+        //Play 'Menu' sound
+        audio_stop_play_sound(snd_fireball, 0, false);
+    
+        //Cycle between options
+        if (current == 0)
+        
+            current = array_length_2d(menu,page)-1;
+        else
+        
+            current --;
+    }
+    
+    //Otherwise, if the player presses the 'Down' key
+    else if ((input_check_pressed(input.down))
+    || (input_check_pressed(input.select))) {
+    
+        //Make cursor visible
+        display = true;
+        alarm[0] = 20;
+    
+        //Play 'Menu' sound
+        audio_stop_play_sound(snd_fireball, 0, false);
+    
+        //Cycle between options        
+        if (current == array_length_2d(menu,page)-1)
+        
+            current = 0;
+            
+        else
+        
+            current ++;
+    }
+    
+    //Otherwise, if the player presses 'Action 0'
+    else if ((input_check_pressed(input.start))
+    || (input_check_pressed(input.action0))
+    || (input_check_pressed(input.action2))) {
+    
+        //Page 0: Main
+        if (page == 0) {
+        
+            //Option 1: Start Game (Will need to change once saving is added)
+            if (current == 0) {
+                
+                //Play 'Correct' sound
+                audio_stop_play_sound(snd_correct, 0, false);    
+                
+                //Stop the stream...
+                audio_stop_sound(global.stream);
+                
+                //...and free it from memory
+                audio_destroy_stream(global.stream);
+                global.stream = noone;
+                
+                //Prepare to go to the next room
+                alarm[2] = 2;
+        
+            }
+            
+            //Option 2: Options
+            else if (current == 1) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 2
+                page = 2;
+                
+                //Reset option to top
+                current = 0;
+            }
+            
+            //Option 3: Exit
+            else if (current == 2) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Exit the game
+                game_end();
+            }
+        }
+        
+        /*
+        //Page 1: File selection
+        else if (page == 1) {
+        
+            //Options 1 to 3: File selection
+            if (current != 4) {
+        
+                //Stop stream if it's playing
+                audio_stop_sound(bgm_title);
+                
+                //Check what file is selected
+                switch (current) {
+                
+                    //File A
+                    case (1): global.file = "GMEASaveA.sav"; break;
+                    
+                    //File B
+                    case (2): global.file = "GMEASaveB.sav"; break;
+                    
+                    //File C
+                    case (3): global.file = "GMEASaveC.sav"; break;
+                }
+                
+                //If the file exists
+                if (file_exists(global.file)) {
+                
+                    load(global.file);
+                    if (instance_number(obj_curtainout) == 0) {
+                    
+                        audio_play_sound(snd_enterstage, 0, false);     
+                        with (instance_create(view_xview[0]+global.gw/2,view_yview[0]+global.gh/2,obj_curtainout))                        
+                            target = rm_map;                        
+                    }
+                }
+                
+                //Otherwise, go to the intro screen
+                else {
+
+                    if (instance_number(obj_curtainout) == 0) {
+                    
+                        audio_play_sound(snd_enterstage, 0, false);     
+                        with (instance_create(view_xview[0]+global.gw/2,view_yview[0]+global.gh/2,obj_curtainout))
+                            target = rm_intro;
+                    }                    
+                }
+            }
+            
+            //Choice 3: Back
+            else if (current == 4) {
+                                
+                //Play 'Correct' sound
+                audio_play_sound(snd_correct, 0, false);
+            
+                //Go to page 0
+                page = 0;
+                
+                //Set the choice
+                current = 0;       
+            }            
+        }
+        */
+        
+        //Page 2: Options
+        else if (page == 2) {
+        
+            //Option 1: Keyboard configuration
+            if (current == 0) {
+                
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 3
+                page = 3;
+                
+                //Set the choice
+                current = 0;
+                
+            }
+            
+            //Option 2: Window size
+            else if (current == 1) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+            
+                //Switch filter
+                with (obj_controller) {
+                
+                    if (filter &gt;= 0) &amp;&amp; (filter &lt; 3) {
+                    
+                        filter ++;
+                        fullscreen = false;
+                        
+                    } else if (filter == 3) {
+                    
+                        fullscreen = !fullscreen;
+                        
+                        if (!fullscreen)
+                        
+                            filter = 0;
+                            
+                    }
+                    
+                    //Apply settings
+                    event_user(1);
+                      
+                }
+            }
+            
+            //Option 3: V-Sync
+            else if (current == 2) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Enable V-Sync
+                with (obj_controller) {
+                
+                    //Toggle vertical syncronization
+                    vsync = !vsync;
+                    
+                    //Apply settings
+                    event_user(1);
+                    
+                }
+            }
+            
+            //Option 4: FPS
+            else if (current == 3) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Enable FPS on screen
+                with (obj_controller) {
+                
+                    //Toggle FPS
+                    showfps = !showfps;
+                }
+            }
+            
+            //Option 5: HUD Style
+            else if (current == 4) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Enable FPS on screen
+                with (obj_controller) {
+                
+                    hud_type++;
+                    if (hud_type &gt; 5)
+                        hud_type = 0;
+                        
+                }
+                
+            }
+            
+            //Option 6: Credits
+            else if (current == 5) {
+            
+                //Stop the stream...
+                audio_stop_sound(global.stream);
+                
+                //...and free it from memory
+                audio_destroy_stream(global.stream);
+                global.stream = noone;
+                
+                //Disable pixelation
+                with (obj_controller) {
+                
+                    pixelate = 60;
+                }
+            
+                audio_play_sound(snd_enterstage, 0, false);     
+                room_goto(rm_credits);
+
+            }
+            
+            //Option 7: Back
+            else if (current == 6) {
+                            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 3
+                page = 0;
+                
+                //Set the choice
+                current = 0;                    
+            }
+        }
+        
+        //Page 3: Keys 1/2
+        else if (page == 3) {
+        
+            //Options 1 to 5
+            if (current &lt; 5) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Set 'Key' mode
+                mode = 3;
+                
+                //Switch current
+                switch (current) {
+                
+                    case (0): set_keys(0, "PRESS NEW 'RUN/SHOOT' KEY...", vk_control); break;
+                    case (1): set_keys(1, "PRESS NEW 'JUMP' KEY...", vk_shift); break;
+                    case (2): set_keys(2, "PRESS NEW 'SPIN' KEY...", vk_space); break;
+                    case (3): set_keys(3, "PRESS NEW 'RESERVE' KEY...", vk_backspace); break;
+                    case (4): set_keys(4, "PRESS NEW 'PAUSE' KEY...", vk_enter); break;
+                }                    
+                
+                //Set 'Active' mode
+                alarm[3] = 3;
+            }
+        
+            //Option 6: Reset keys
+            else if (current == 5) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Reset all keys
+                alarm[4] = 1;
+            }
+            
+            //Option 7: Page 2 / 2
+            else if (current == 6) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 4
+                page = 4;
+                
+                //Move pointer selection down 1
+                current --;
+                
+            }
+            
+            //Option 8: Back
+            else if (current == 7) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 2
+                page = 2;
+                
+                //Set the choice
+                current = 0;
+            }
+            
+        }
+        
+        //Page 2: Keys 2/2
+        else if (page == 4) {
+            
+    
+            //Options 1 to 4
+            if (current &lt; 4) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Set 'Key' mode
+                mode = 3;
+                
+                //Switch current
+                switch (current) {
+                
+                    case (0): set_keys(5, "PRESS NEW 'UP' KEY..", vk_up); break;
+                    case (1): set_keys(6, "PRESS NEW 'DOWN' KEY...", vk_down); break;
+                    case (2): set_keys(7, "PRESS NEW 'LEFT' KEY...", vk_left); break;
+                    case (3): set_keys(8, "PRESS NEW 'RIGHT' KEY...", vk_right); break;
+                }                    
+                
+                //Set 'Active' mode
+                alarm[3] = 3;
+            }
+        
+            //Option 5: Reset keys
+            else if (current == 4) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Reset all keys
+                alarm[4] = 1;
+            }
+            
+            //Option 6: Page 2 / 2
+            else if (current == 5) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 4
+                page = 3;
+                
+                //Bring the pointer selection 1 up
+                current ++;
+                
+            }
+                            
+            //Option 7: Back
+            else if (current == 6) {
+            
+                //Play 'Menu' sound
+                audio_stop_play_sound(snd_fireball, 0, false);
+                
+                //Go to page 2
+                page = 2;
+                
+                //Set the choice
+                current = 0;
+            }
+        }
+    }
+}
+
+//Update HUD message
+with (obj_controller) {
+
+   switch (hud_type) {
+    
+        //SMA2
+        case (1): other.menu[2,4] = "HUD TYPE: SMA2"; break;
+        
+        //SMA4
+        case (2): other.menu[2,4] = "HUD TYPE: SMA4"; break;
+        
+        //Minimalist
+        case (3): other.menu[2,4] = "HUD TYPE: MINI/SCORE"; break;
+        
+        //Minimalist (No Score)
+        case (4): other.menu[2,4] = "HUD TYPE: MINI/NO SCORE"; break;
+        
+        //Hello Engine
+        case (5): other.menu[2,4] = "HUD TYPE: HELLO ENGINE"; break;
+        
+        //Default
+        default: other.menu[2,4] = "HUD TYPE: DEFAULT"; break;
+    }
+        
+}
+
+//Update V-Sync text
+if (obj_controller.vsync)
+    menu[2,2] = "V-Sync: ON";
+else
+    menu[2,2] = "V-Sync: OFF";
+    
+//Update FPS text
+if (obj_controller.showfps)
+    menu[2,3] = "FPS: ON";
+else
+    menu[2,3] = "FPS: OFF";
+    
+//Update Key Text
+menu[3,0] = "RUN/SHOOT ... " + string(key_to_string(global.key[input.action1]));
+menu[3,1] = "JUMP      ... " + string(key_to_string(global.key[input.action0]));
+menu[3,2] = "SPIN      ... " + string(key_to_string(global.key[input.action2]));
+menu[3,3] = "RESERVE   ... " + string(key_to_string(global.key[input.select]));
+menu[3,4] = "PAUSE     ... " + string(key_to_string(global.key[input.start]));
+menu[4,0] = "Up        ... " + string(key_to_string(global.key[input.up]));
+menu[4,1] = "Down      ... " + string(key_to_string(global.key[input.down]));
+menu[4,2] = "Left      ... " + string(key_to_string(global.key[input.left]));
+menu[4,3] = "Right     ... " + string(key_to_string(global.key[input.right]));
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spotlight
+
+//Don't continue to draw the spotlight if it has reached a certain size
+if (scale &lt; 300) {
+
+    //Check if the spotlight still exists, and create a new one if not
+    if (!surface_exists(spotlight)) {
+    
+        spotlight = surface_create(view_wview[0],view_hview[0]);
+        
+    }
+    
+    //Otherwise, draw the iris-out effect.
+    else {
+    
+        //Set the target surface.
+        surface_set_target(spotlight);
+        
+        //Set circle color
+        draw_set_color(c_black);
+        
+        //Draw a rectangle
+        draw_rectangle(view_xview[0],view_yview[0],view_xview[0]+view_wview[0],view_yview[0]+view_hview[0],false);
+        
+        if (scale &gt; 0.01) {
+        
+            //Set the blending mode
+            draw_set_blend_mode(bm_subtract);
+            
+            //Draw the transition image.
+            draw_set_circle_precision(64);
+            
+            //Draw the circle
+            draw_circle(view_xview[0] + (view_wview[0]/2), view_yview[0] + (view_hview[0]/2), scale, false);
+            
+            //Set the blending end mode
+            draw_set_blend_mode(bm_normal);
+        
+        }
+        
+        //Reset color
+        draw_set_color(c_white);
+        
+        //Reset the surface target
+        surface_reset_target();
+        
+        //Draw the spotlight
+        draw_surface(spotlight,view_xview[0],view_yview[0]);
+        
+    }
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -184,22 +938,76 @@ draw_set_colour(c_white);
 
 //Version
 draw_text(view_xview[0]+18, view_yview[0]+18, string(cs_version));
+    
+//Draw option text
+if (mode &gt; 1) {
+    
+    for (var i = 0; i &lt; array_length_2d(menu,page); i ++;) {
+    
+        //Spacing between lines
+        var spacing = 16;
+        
+        //X offset of the text
+        var text_xoffset = 90;
+        
+        //Y offset of the text from the center
+        var text_yoffset = 16;
+        
+        //Slight line scale change if the row length is too large
+        if (array_length_2d(menu,page) &gt; 4)
+        
+            var spacing = 12;
+            
+        //Bump the text to the left slightly for more room
+        if (page == 3)
+        || (page == 4) {
+        
+            text_xoffset = 40;
+            text_yoffset = 0;
+            
+        }
+        
+        //Bump the text to the left slightly for more room
+        if (page == 2) {
+        
+            text_xoffset = 50;
+            text_yoffset = 8;
+            
+        }
+    
+        //Draw the text
+        draw_text(view_xview[0]+text_xoffset, view_yview[0]+(view_hview[0]/2)+text_yoffset+(spacing*(i)), menu[page,i]);
+            
+        //Draw the cursor
+        if (i == current) &amp;&amp; (display == 1)
+        
+            draw_sprite_ext(spr_cursor_title, -1, view_xview[0]+(text_xoffset-18), view_yview[0]+(view_hview[0]/2)+text_yoffset+(spacing*(i)), 1, 1, 0, c_white, 1);
+    
+    }
+
+} else if (scale &gt;= 100) &amp;&amp; (display == 1) {
+
+    //Set horizontal alignment to the center
+    draw_set_halign(fa_center);
+
+    //Draw the text
+    draw_text(view_xview[0]+(global.gw/2), view_yview[0]+(global.gh/2)+16, "PRESS START!");
+    
+    //Reset horizontal text alignment
+    draw_set_halign(fa_left);
+
+}
 
 //Center the text
 draw_set_halign(fa_center);
-
-//Display text
-if (display == 1) {
-    
-    //Draw text
-    draw_text(view_xview[0]+view_wview[0]/2, view_yview[0]+view_hview[0]-80, "PRESS START!");
-}
 
 //Set the disclaimer colour
 draw_set_colour(make_colour_rgb(0, 216, 248));
 
 //Disclaimer
-draw_text(view_xview[0]+view_wview[0]/2, view_yview[0]+view_hview[0]-40, string(cs_disclaimer));
+if (page == 0)
+
+    draw_text(view_xview[0]+view_wview[0]/2, view_yview[0]+view_hview[0]-40, string(cs_disclaimer));
 
 //Set the default colour
 draw_set_colour(c_white);

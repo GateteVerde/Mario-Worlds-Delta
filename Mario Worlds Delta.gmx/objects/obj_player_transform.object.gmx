@@ -27,6 +27,12 @@
             <kind>1</kind>
             <string>///The player is evolving, ok no :)
 
+//Save an image of the screen
+surface_save(application_surface,"prefreeze.png");
+
+//Set the pre-freeze image
+global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
+
 //Destroy some objects first
 with (obj_cape_fly) instance_destroy();
 with (obj_spinner) instance_destroy();
@@ -278,6 +284,9 @@ else {
           <argument>
             <kind>1</kind>
             <string>///Freeze all object and begin animation
+
+//Delete the pre-freeze
+file_delete("prefreeze.png");
 
 //Create a screenshot
 back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);

@@ -41,21 +41,21 @@ else {
     if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_swim, 0, 0)) 
     || (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_lava, 0, 0)) {
     
-        //Set the vertical speed
-        vspeed -= 0.1;
-        
         //Stop gravity
-        gravity = 0;
+        gravity = -0.01;
         
         //Cap vertical speed
-        if (vspeed &lt; -0.6)
-            vspeed = -0.6;
+        if (vspeed &gt; 0.25)
+            vspeed = 0.25;
     }
     else {
     
-        gravity = 0.2;
-        if (vspeed &gt; 4)
-            vspeed = 4;
+        //Set gravity
+        gravity = 0.1;
+        
+        //Cap vertical speed
+        if (vspeed &lt; -0.25)
+            vspeed = 0.25;
     }
 }
 

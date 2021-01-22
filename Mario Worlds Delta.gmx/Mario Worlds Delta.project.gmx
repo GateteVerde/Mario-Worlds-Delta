@@ -1741,6 +1741,7 @@
         <sprites name="Map">
           <sprite>sprites\spr_hud_map</sprite>
         </sprites>
+        <sprite>sprites\spr_cursor_title</sprite>
         <sprite>sprites\spr_font</sprite>
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
@@ -1977,6 +1978,10 @@
       <script>scripts\player_set_palette.gml</script>
     </scripts>
     <scripts name="Input">
+      <scripts name="Key Mapping">
+        <script>scripts\set_keys.gml</script>
+        <script>scripts\key_to_string.gml</script>
+      </scripts>
       <script>scripts\input_check.gml</script>
       <script>scripts\input_check_pressed.gml</script>
       <script>scripts\input_check_released.gml</script>
@@ -2956,8 +2961,8 @@
           </objects>
           <objects name="Title / Credits">
             <object>objects\obj_credits</object>
+            <object>objects\obj_title_menu_key</object>
             <object>objects\obj_title</object>
-            <object>objects\obj_title_menu</object>
             <object>objects\obj_title_player</object>
           </objects>
           <object>objects\obj_audio_loop_sound</object>

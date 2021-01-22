@@ -86,6 +86,32 @@ if (global.clear &gt; 0) {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset player position
+if (status == 'PREIDLE')
+
+    status = 'IDLE';
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -430,6 +456,7 @@ image_speed = 0.125;
 
 //If the player is not moving
 if (status == 'IDLE') 
+|| (status == 'PREIDLE')
 || (status == 'WAIT') {
 
     //Check for a panel
@@ -511,7 +538,8 @@ if (status == 'IDLE')
         //If there's a panel and this panel is available        
         if (panel)
         &amp;&amp; (panel.beaten &lt; 2)
-        &amp;&amp; (status == 'IDLE')
+        &amp;&amp; ((status == 'IDLE')
+        || (status == 'PREIDLE'))
         &amp;&amp; ((input_check_pressed(input.action0))
         || (input_check_pressed(input.action2))) {
         
@@ -535,11 +563,16 @@ if (status == 'IDLE')
         */
     }
     
-    //If there's a panel, print the name on the HUD
-    if (panel)
-        obj_hud_map.levelname = string(panel.levelname);
-    else
-        obj_hud_map.levelname = "";
+    //If the map HUD exists
+    if (instance_exists(obj_hud_map)) {
+    
+        //If there's a panel, print the name on the HUD
+        if (panel)
+            obj_hud_map.levelname = string(panel.levelname);
+        else
+            obj_hud_map.levelname = "";
+            
+    }
 }
 
 //Otherwise, if the player is moving
@@ -598,7 +631,10 @@ else if (status == 'WALK') {
                 audio_stop_play_sound(snd_move, 0, false);
             
                 //Set stop state
-                status = 'IDLE';
+                status = 'PREIDLE';
+                
+                //Wait to be able to walk again
+                alarm[2] = 20;
                 
                 //Reset steps
                 step = 0;

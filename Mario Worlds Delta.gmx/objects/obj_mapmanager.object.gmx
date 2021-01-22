@@ -41,6 +41,9 @@ mapmusic = bgm_map1;
 //Play music
 alarm[0] = 30;
 
+///Create map HUD
+alarm[2] = 2;
+
 //Handles water animation
 anim = 0;
 
@@ -85,6 +88,30 @@ if (choose(0,1) == 1)
     instance_create(view_xview[0]-16, view_yview[0]-16, obj_mapcloud);
 else
     instance_create(view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], obj_mapcloud);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create map HUD
+instance_create(0, 0, obj_hud_map);
 </string>
           </argument>
         </arguments>
@@ -140,6 +167,35 @@ audio_stop_play_sound(mapmusic, 0, true);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move towards the player
+
+if (instance_exists(obj_mapplayer)) {
+
+    x = obj_mapplayer.x+8;
+    y = obj_mapplayer.y+8;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -161,13 +217,6 @@ audio_stop_play_sound(mapmusic, 0, true);
 
 //Update water animation
 anim += 0.125;
-
-//Move towards the player
-if (instance_exists(obj_mapplayer)) {
-
-    x = obj_mapplayer.x+8;
-    y = obj_mapplayer.y+8;
-}
 
 //Round position variables
 x = round(x);

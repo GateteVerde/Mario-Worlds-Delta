@@ -50,6 +50,9 @@ instance_deactivate_all(true);
 
 //Activate controller
 instance_activate_object(obj_controller);
+
+//Activate the HUD
+instance_activate_object(obj_hud);
 </string>
           </argument>
         </arguments>

@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_mapmanager" x="0" y="0" name="inst_1B623F2C" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mapmanager" x="0" y="0" name="inst_1B623F2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mapplayer" x="240" y="248" name="inst_427AF0DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_node" x="240" y="248" name="inst_D9D9148C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_node" x="304" y="264" name="inst_8396E661" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -84,7 +84,6 @@
     <instance objName="obj_modifier" x="204" y="268" name="inst_FC66BB0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="176" y="264" name="inst_4730D173" locked="0" code="levelname = &quot;VANILLA DOME 2&quot;;&#xA;normalexit = cs_down;&#xA;secretexit = cs_left;&#xA;target = rm_level_1a;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpanel" x="304" y="264" name="inst_6906F4A9" locked="0" code="levelname = &quot;VIA NOSTALGICA&quot;;&#xA;normalexit = cs_right;&#xA;target = rm_level_3a;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hud_map" x="16" y="0" name="inst_9BE2924D" locked="-1" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpalace_y" x="304" y="232" name="inst_D370C3B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpalace_g" x="336" y="200" name="inst_FEC74A8B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelpalace_r" x="176" y="232" name="inst_A7C41BDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -117,7 +116,6 @@
     <instance objName="obj_path_corner_dr" x="208" y="200" name="inst_07B4D420" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_corner_ul" x="272" y="200" name="inst_1509FB97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_v" x="272" y="216" name="inst_D1F9DB3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_path_v" x="272" y="224" name="inst_96C2EDD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_v" x="208" y="216" name="inst_6662F44B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_v" x="208" y="224" name="inst_5F9AD2C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_corner_dl" x="336" y="264" name="inst_FA5F8E12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -192,6 +190,7 @@
     <instance objName="obj_levelpanel" x="240" y="168" name="inst_B7322480" locked="0" code="levelname = &quot;DEV TEST&quot;;&#xA;target = rm_devtest;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_h" x="248" y="296" name="inst_B60268E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_path_h" x="240" y="296" name="inst_8F80B992" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_path_v" x="272" y="224" name="inst_04F02EEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

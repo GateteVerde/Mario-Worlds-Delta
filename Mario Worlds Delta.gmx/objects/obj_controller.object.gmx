@@ -170,9 +170,9 @@ if (shake == true) {
     
     //Set the position of the view
     if (shake_anim % 2)
-        yport = ((choose(2,4)) * (window_get_height() / view_hview));
+        yport = ((choose(2,4))/* * (window_get_height() / view_hview)*/);
     else
-        yport = ((-choose(2,4)) * (window_get_height() / view_hview));
+        yport = ((-choose(2,4))/* * (window_get_height() / view_hview)*/);
 }
 else
     shake_anim = 0;
@@ -404,11 +404,13 @@ window_center();
           <argument>
             <kind>1</kind>
             <string>///Deactivate objects
-
 instance_deactivate_all(1);
 
 //Activate 'Mario Start!' text
 instance_activate_object(obj_mariostart);
+
+//Activate HUD
+instance_activate_object(obj_hud);
 </string>
           </argument>
         </arguments>
@@ -435,6 +437,16 @@ instance_activate_object(obj_mariostart);
 
 //Set mode to fade from black
 mode = 0;
+
+//Destroy the HUD
+with (obj_hud)
+
+    instance_destroy();
+    
+//Destroy the map HUD
+with (obj_hud)
+
+    instance_destroy();
 
 //If Mario Start! does not exist
 if (!instance_exists(obj_mariostart)) {
@@ -816,6 +828,7 @@ if (mode == 0) {
 
     //Deactivate everything
     instance_deactivate_all(1);
+    
 }
 
 //Start fading
@@ -1177,6 +1190,7 @@ if (file_exists("settings.dat")) {
 
     //Close the file
     file_text_close(file);
+    
 }
 else {
 
@@ -1311,13 +1325,47 @@ if (fade &lt; 1)
 draw_rectangle_colour(0, 0, global.gw*(filter+1), global.gh*(filter+1), c_black, c_black, c_black, c_black, 0);
 
 //Draw the application surface
-draw_surface_stretched(application_surface, 0, yport, global.gw*(filter+1), global.gh*(filter+1));
+draw_surface_stretched(application_surface, 0, yport, global.gw, global.gh);
+
+//Draw the pre-freeze if it exists
+if (file_exists("prefreeze.png"))
+
+    draw_sprite_stretched(global.prefreeze, 0, 0, yport, global.gw, global.gh);
 
 //Reset the shader
 shader_reset();
 
 //Enable alpha blending
 draw_enable_alphablend(1);
+
+//Set GUI scale
+display_set_gui_maximise(filter+1, filter+1);
+display_set_gui_size(global.gw, global.gh);
+
+//Draw the level HUD
+if (instance_exists(obj_hud)) {
+
+    with (obj_hud)
+    
+        if (object_index == obj_hud)
+
+            event_user(obj_controller.hud_type);
+            
+}
+
+//Draw the map HUD
+if (instance_exists(obj_hud_map)) {
+
+    with (obj_hud_map)
+    
+        if (object_index == obj_hud_map)
+
+            event_user(0);
+            
+}
+
+//Reset the font
+draw_set_font(global.font);
 
 //Fades the screen to and from black
 if (fade &lt; 1) {
@@ -1337,6 +1385,7 @@ if (fade &lt; 1) {
     
         draw_set_alpha(fade);
         size += 0.75;
+        
     }
 
     //Draw the fade
@@ -1359,6 +1408,21 @@ if (showfps) {
             draw_text_colour(2, 2, string(fps) + " FPS", c_red, c_red, c_red, c_red, 1);            
     }   
 }
+
+//Set the font
+draw_set_font(global.font);
+
+//Align the font
+draw_set_halign(fa_right);
+
+//Display settings message
+if (message != "") {
+
+    draw_text_colour(display_get_gui_width() - 2, display_get_gui_height() - 10, string(message), c_white, c_white, c_white, c_white, 1);
+}
+
+//Re-align the font
+draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>
@@ -1390,21 +1454,6 @@ if (background_exists(back)) {
     draw_background_ext(back, view_xview[0], view_yview[0], 1, 1, 0, c_white, 1);
     draw_enable_alphablend(1);
 }
-
-//Set the font
-draw_set_font(global.font);
-
-//Align the font
-draw_set_halign(fa_right);
-
-//Display settings message
-if (message != "") {
-
-    draw_text_colour(view_xview[0] + view_wview[0]-2, view_yview[0] + view_hview[0] - 10, string(message), c_white, c_white, c_white, c_white, 1);
-}
-
-//Re-align the font
-draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

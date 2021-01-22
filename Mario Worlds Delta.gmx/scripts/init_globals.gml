@@ -50,8 +50,14 @@ enum input {
     down,
     left,
     right,
+    
+    //Jump
     action0,
+    
+    //Run
     action1,
+    
+    //Spin
     action2,
     select,
     start
@@ -106,6 +112,13 @@ global.clear = 0;
 
 //Target Room
 global.targetroom = noone;
+
+//Pre-freeze screenshot
+if (file_exists("prefreeze.png"))
+
+    file_delete("prefreeze.png");
+
+global.prefreeze = -1;
 
 //Start
 global.mariostart = 0;

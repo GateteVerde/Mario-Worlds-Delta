@@ -37,7 +37,7 @@ vulnerable = 0;
 stomp = 0;
 
 //Whether the boomerang bro is throwing a hammer
-throw = 0;
+_throw = 0;
 
 //Reduces delay between boomerang throw
 throw2 = 0;
@@ -145,7 +145,7 @@ else {
 }
 
 //Set throw pose
-throw = 2;
+_throw = 2;
 
 //Set default pose
 alarm[5] = 7;
@@ -186,7 +186,7 @@ else if (throw2 == 1) {
             <string>///Prepare a boomerang to throw
     
 //Set the throwing pose
-throw = true;
+_throw = true;
 
 //Throw a boomerang
 alarm[4] = 15;
@@ -215,7 +215,7 @@ alarm[4] = 15;
             <string>///Jump
 
 //If the boomerang bro is not throwing a boomerang
-if (throw == 0) {
+if (_throw == 0) {
     
     //Set vertical speed
     vspeed = -2.5;
@@ -280,7 +280,7 @@ alarm[1] = 60;
             <string>///Boomerang bro animation
 
 //If not jumping
-if (throw == 0) {
+if (_throw == 0) {
 
     //Animate
     image_speed = 0.15;
@@ -290,14 +290,14 @@ if (throw == 0) {
 }
 
 //Otherwise, if jumping
-else if (throw) {
+else if (_throw) {
 
     //Set sprite
     sprite_index = spr_boomerangbro_throw;
     
     //Do not animate
     image_speed = 0;
-    image_index = throw-1;
+    image_index = _throw-1;
 }
 
 //Update deathsprite / stompsprite

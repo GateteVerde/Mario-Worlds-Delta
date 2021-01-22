@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///An heroic death
+            <string>///A heroic death
+
+//Save an image of the screen
+surface_save(application_surface,"prefreeze.png");
+
+//Set the pre-freeze image
+global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
 
 //Set up sprite based on player
 switch (global.player) {
@@ -89,7 +95,7 @@ with (obj_rainmaker) visible = 0;
 alarm[0] = 2;
 
 //Move up if not outside the view
-alarm[1] = 62;
+alarm[1] = 40;
 
 //Return to retry screen
 alarm[2] = 202;
@@ -149,11 +155,11 @@ wmap_return();
             <kind>1</kind>
             <string>///Move up if inside the view
 
-image_speed = 0.2;
+image_speed = 0.325;
 if (y &lt; view_yview[0] + global.gh) {
 
-    vspeed = -6;
-    gravity = 0.2;
+    vspeed = -7;
+    gravity = 0.35;
 }
 </string>
           </argument>
@@ -178,6 +184,9 @@ if (y &lt; view_yview[0] + global.gh) {
           <argument>
             <kind>1</kind>
             <string>///Freeze all object and begin animation
+
+//Delete the pre-freeze
+file_delete("prefreeze.png");
 
 //Create a screenshot
 back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);

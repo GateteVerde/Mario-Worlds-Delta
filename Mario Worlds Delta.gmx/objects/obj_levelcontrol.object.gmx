@@ -82,9 +82,6 @@ floorY = 0;
 //Underwater init
 alarm[8] = 2;
 
-//Create HUD
-instance_create(0, 0, obj_hud);
-
 //Initialize tile animation system
 animated_tile_init();
 
@@ -155,6 +152,9 @@ if (makeswim == true) {
     //Create fish foreground
     instance_create(0, 0, obj_fish);
 }
+
+//Create HUD
+instance_create(0, 0, obj_hud);
 </string>
           </argument>
         </arguments>
