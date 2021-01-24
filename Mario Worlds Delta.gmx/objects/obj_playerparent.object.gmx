@@ -990,11 +990,14 @@ if (vspeed &lt; 0)
 if (vspeed &lt; 0)
 &amp;&amp; (flying &gt; 0) {
 
+    //Hitbox
+    var hbox = 1;
+    
     //If there's a solid
-    while (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_solid, 1, 0))
-    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_solid_moving, 1, 0))
-    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-0.9, obj_slopeparent_ceiling, 1, 0))
-        y += 0.9;
+    while (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-hbox, obj_solid, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-hbox, obj_solid_moving, 1, 0))
+    || (collision_rectangle(bbox_left, bbox_top-vspeed, bbox_right, bbox_top-hbox, obj_slopeparent_ceiling, 1, 0))
+        y += hbox;
 }
 
 //If the player is jumping

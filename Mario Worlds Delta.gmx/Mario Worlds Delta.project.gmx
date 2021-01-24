@@ -316,6 +316,8 @@
     <sound>sound\snd_bonusend</sound>
     <sound>sound\snd_boost</sound>
     <sound>sound\snd_bossclear</sound>
+    <sound>sound\snd_boss_shrink</sound>
+    <sound>sound\snd_boss_pop</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_burn</sound>
@@ -776,6 +778,8 @@
             </sprites>
             <sprite>sprites\spr_track_modifier</sprite>
             <sprite>sprites\spr_track_limit</sprite>
+            <sprite>sprites\spr_track_v_b</sprite>
+            <sprite>sprites\spr_track_h_b</sprite>
             <sprite>sprites\spr_track_h</sprite>
             <sprite>sprites\spr_track_v</sprite>
             <sprite>sprites\spr_track_dia_r</sprite>
@@ -911,6 +915,7 @@
           <sprites name="Normal">
             <sprites name="Gargantua">
               <sprite>sprites\spr_goomba_hefty</sprite>
+              <sprite>sprites\spr_goomba_hefty_hurt</sprite>
               <sprite>sprites\spr_goomba_hefty_dead</sprite>
               <sprite>sprites\spr_goomba_big</sprite>
               <sprite>sprites\spr_goomba_big_dead</sprite>
@@ -2042,6 +2047,7 @@
     </scripts>
     <script>scripts\move_contact_object.gml</script>
     <script>scripts\shard_create.gml</script>
+    <script>scripts\draw_sprite_stretched_origin.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
@@ -2508,6 +2514,9 @@
         <object>objects\obj_generator_galoomba</object>
         <object>objects\obj_generator_bobomb</object>
       </objects>
+      <objects name="Boss">
+        <object>objects\obj_goomba_the_terrible</object>
+      </objects>
       <object>objects\obj_walrus</object>
       <object>objects\obj_grayrus</object>
       <object>objects\obj_chainchomp</object>
@@ -2674,6 +2683,7 @@
             </objects>
             <object>objects\obj_enemyparent</object>
             <object>objects\obj_deactenemyparent</object>
+            <object>objects\obj_bossparent</object>
             <object>objects\obj_solidenemyparent</object>
           </objects>
           <object>objects\obj_killparent</object>
@@ -3061,6 +3071,7 @@
         <room>rooms\rm_palaceswitch_b</room>
         <room>rooms\rm_palaceswitch_switch</room>
       </rooms>
+      <room>rooms\rm_bossroom</room>
       <room>rooms\rm_testlevel</room>
     </rooms>
   </rooms>

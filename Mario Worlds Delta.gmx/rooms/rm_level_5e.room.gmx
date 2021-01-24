@@ -318,7 +318,7 @@
     <instance objName="obj_area_g" x="144" y="96" name="inst_1842D9AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_drybones" x="176" y="144" name="inst_35A05CEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="40" y="1952" name="inst_B86E0158" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_boss" x="192" y="144" name="inst_3BAD7245" locked="0" code="destination = rm_level_5f;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_boss" x="192" y="144" name="inst_3BAD7245" locked="0" code="destination = rm_level_5f;&#xA;exit_id = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="0" y="208" w="16" h="16" xo="144" yo="416" id="10036185" name="inst_90FA69A7" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

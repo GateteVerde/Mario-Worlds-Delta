@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>8</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_physicsparent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,11 +27,8 @@
             <kind>1</kind>
             <string>///Sunken Ghost Ship Orb
 
-//Save an image of the screen
-surface_save(application_surface,"prefreeze.png");
-
 //Set the pre-freeze image
-global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
+global.prefreeze = 0;
 
 //Generate sparkles
 alarm[0] = 30;
@@ -45,6 +42,12 @@ ready2 = 0;
 
 //Screenshot
 back = -1;
+
+//Dynamic orb
+bouncy = 1;
+
+//Inherit event from parent
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -318,6 +321,9 @@ else if ((global.time &lt; 1) &amp;&amp; (ready == 2)) {
     audio_stop_sound(snd_count2);
     audio_stop_play_sound(snd_count3, 0, false);
 }    
+
+//Inherit event from parent
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -342,10 +348,17 @@ else if ((global.time &lt; 1) &amp;&amp; (ready == 2)) {
             <kind>1</kind>
             <string>///Begin goal sequence
 
-if (image_alpha == 1) {
+if (image_alpha == 1) 
+&amp;&amp; (gravity == 0) {
 
     //Make invisible
     image_alpha = 0;
+    
+    //Save an image of the screen
+    surface_save(application_surface,"prefreeze.png");
+    
+    //Set the pre-freeze image
+    global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
 
     //Play 'Boss Clear' theme
     audio_stop_play_sound(snd_bossclear, 0, false);

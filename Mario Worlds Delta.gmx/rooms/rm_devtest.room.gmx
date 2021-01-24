@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_058EBD89" locked="0" code="inisection = 'Castle';&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="152" y="176" name="inst_72B2976A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="256" y="144" name="inst_72B2976A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="80" y="192" name="inst_32EE4D7B" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="32" y="64" name="inst_C76A5F1D" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_slope_steep_r" x="192" y="160" name="inst_F29DF117" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -92,6 +92,10 @@
     <instance objName="obj_warpbottom" x="240" y="96" name="inst_1BC4C35E" locked="0" code="destination = rm_devtest_b;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="448" y="80" name="inst_5E700E90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower" x="448" y="80" name="inst_112A4131" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_blue" x="416" y="128" name="inst_E27A5404" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_koopa_blue" x="400" y="176" name="inst_066919F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_boss" x="400" y="128" name="inst_AB1CEAED" locked="0" code="destination = rm_bossroom;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_confusedchuck" x="96" y="176" name="inst_0507E695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="368" y="144" w="16" h="16" xo="240" yo="416" id="10047614" name="inst_141A2DB9" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
