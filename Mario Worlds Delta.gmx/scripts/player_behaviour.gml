@@ -177,7 +177,7 @@ if (inwall == false)
         && (global.powerup >= cs_pow_cape) {
         
             //Set vertical speed
-            vspeed = -jumpstrength*1.65-abs(hspeed)/hspeed_run_full/3-run/12;
+            vspeed = -jumpstrength;
             
             //Initialize fly
             if (flying == 0)
@@ -456,8 +456,14 @@ if (global.powerup == cs_pow_cape) {
         //Increment fly timer
         fly++;
         
+        //Set gravity
+        
+        if (fly > 10) && (vspeed > -flystrength) && (fly < 50)
+        
+            vspeed -= 0.275;
+        
         //If moving down and the player is not holding anything or it is not spin-jumping
-        if (fly > 25) 
+        if (fly > 50) 
         && (vspeed > 0)
         && (crouch == 0)
         && (holding == 0) 
@@ -466,6 +472,7 @@ if (global.powerup == cs_pow_cape) {
             //Create flying object
             if (instance_number(obj_cape_fly) == 0) {
                 
+                fly = 0;
                 flying = 2;
                 imflying = instance_create(x, y, obj_cape_fly);
                     imflying.vspeed = self.vspeed/2;
