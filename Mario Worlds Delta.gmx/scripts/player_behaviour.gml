@@ -185,9 +185,21 @@ if (inwall == false)
         }
         else {
                 
-            //Jump high if you have the frog powerup, and you are not riding anything
-            if (jumpstyle == true)        
-                vspeed = -jumpstrength_spin-abs(hspeed)/hspeed_run_full/3-run/12;
+            //Jump less if you are doing a spin jump
+            if (jumpstyle == true) {
+            
+                //Temporary variable
+                var temprun;
+                
+                //Set temprun
+                if (abs(hspeed) < hspeed_run)
+                    temprun = 0;
+                else
+                    temprun = 1;
+            
+                //Set the vertical speed
+                vspeed = -jumpstrength_spin-(abs(hspeed)/3.2/((2-temprun)/6)/7);
+            }
         
             //Jump depending of the horizontal speed.
             else {
@@ -207,8 +219,20 @@ if (inwall == false)
                     //Set vertical speed
                     vspeed = -note_boost;
                 }
-                else
-                    vspeed = -jumpstrength-abs(hspeed)/hspeed_run_full/3-run/12;
+                else {
+                
+                    //Temporary variable
+                    var temprun;
+                    
+                    //Set temprun
+                    if (abs(hspeed) < hspeed_run)
+                        temprun = 0;
+                    else
+                        temprun = 1;
+                
+                    //Set the vertical speed
+                    vspeed = -jumpstrength-(abs(hspeed)/3.2/((2-temprun)/6)/7);
+                }
             }
         }
     }

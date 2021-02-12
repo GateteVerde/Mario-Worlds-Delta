@@ -3,8 +3,8 @@
   <caption></caption>
   <width>256</width>
   <height>240</height>
-  <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <vsnap>8</vsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -52,7 +52,6 @@
   </views>
   <instances>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_058EBD89" locked="0" code="inisection = 'Boss';&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="48" y="80" name="inst_72B2976A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="32" y="16" name="inst_97F2C14D" locked="0" code="" scaleX="12" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="16" y="16" name="inst_24A77FD1" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="16" y="192" name="inst_133C7B1C" locked="0" code="" scaleX="13" scaleY="1" colour="4294967295" rotation="0"/>
@@ -83,7 +82,7 @@
     <instance objName="obj_track_h" x="160" y="144" name="inst_F924C585" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_track_h" x="176" y="144" name="inst_2FBE0696" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_grinder_line" x="144" y="64" name="inst_7B61CB56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_warpnode" x="48" y="176" name="inst_B93A2A72" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpnode" x="56" y="176" name="inst_B93A2A72" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba_the_terrible" x="192" y="176" name="inst_33C7B9AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
