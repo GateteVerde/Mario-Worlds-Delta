@@ -4,7 +4,7 @@
   <width>3584</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -111,7 +111,6 @@
     <instance objName="obj_qblock" x="1744" y="272" name="inst_C6B88994" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="1792" y="336" name="inst_146E39CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_fireflower_alt" x="1744" y="272" name="inst_B89ADCB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_koopa" x="1720" y="384" name="inst_DBD60E37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1560" y="384" name="inst_8C26D8F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1584" y="384" name="inst_484C39B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="1832" y="384" name="inst_72C2FC0C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -179,7 +178,7 @@
     <instance objName="obj_npc" x="984" y="384" name="inst_A053917B" locked="0" code="sprite_index = spr_sammu;&#xA;varmsg = &quot;There is a 1-UP mushroom hidden somewhere on this area, can you find it?.&quot;;&#xA;mugshot = spr_mugshot_sammu;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="3032" y="256" name="inst_7D74794A" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;The more high you break the tape there, the more bonus stars you will earn.&quot;;&#xA;mugshot = spr_mugshot_leanne;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_ABD16E4C" locked="0" code="bg_index = 0;&#xA;bg_frame[0] = bgr_nightsky_b;&#xA;bg_frame[1] = bgr_nightsky_c;&#xA;bg_frame[2] = bgr_nightsky_b;&#xA;bg_frame[3] = bgr_nightsky;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rainmaker" x="32" y="-16" name="inst_AC52D93E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_classickoopa" x="1720" y="384" name="inst_D8AF480D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="144" y="336" w="96" h="64" xo="464" yo="0" id="10029554" name="inst_6A4CE170" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

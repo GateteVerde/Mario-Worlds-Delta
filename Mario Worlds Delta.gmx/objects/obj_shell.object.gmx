@@ -118,6 +118,20 @@ else if (koopainside == -1) {
 
     switch (sprite_index) {
     
+        //Classic Green Koopa
+        case (spr_shell_classic): {
+        
+            instance_create(x, y, obj_classickoopa);
+            instance_destroy();
+        } break;
+        
+        //Classic Red Green Koopa
+        case (spr_shell_classic_red): {
+        
+            instance_create(x, y, obj_classickoopa_red);
+            instance_destroy();
+        } break;
+    
         //Buzzy Beetle
         case (spr_shell_buzzy): {
         
@@ -448,6 +462,14 @@ else if (sprite_index == spr_shell_big_red) {
     deathsprite = spr_bigkoopa_red_dead;
     edible = 2;
 }
+
+//Classic Green Koopa
+else if (sprite_index == spr_shell_classic)
+    deathsprite = spr_classickoopa_dead;
+
+//Classic Red Koopa
+else if (sprite_index == spr_shell_classic_red)
+    deathsprite = spr_classickoopa_red_dead;
 
 //Buzzy Beetle
 else if (sprite_index == spr_shell_buzzy) {

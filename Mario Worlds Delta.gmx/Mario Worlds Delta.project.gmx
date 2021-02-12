@@ -957,9 +957,14 @@
               <sprite>sprites\spr_bigbeachkoopa_sq</sprite>
               <sprite>sprites\spr_bigbeachkoopa_dead</sprite>
             </sprites>
+            <sprites name="Classic">
+              <sprite>sprites\spr_classickoopa</sprite>
+              <sprite>sprites\spr_classickoopa_dead</sprite>
+            </sprites>
             <sprites name="Shells">
               <sprite>sprites\spr_shell</sprite>
               <sprite>sprites\spr_shell_big</sprite>
+              <sprite>sprites\spr_shell_classic</sprite>
             </sprites>
             <sprite>sprites\spr_koopa</sprite>
             <sprite>sprites\spr_koopa_turn</sprite>
@@ -979,9 +984,14 @@
               <sprite>sprites\spr_bigbeachkoopa_red_sq</sprite>
               <sprite>sprites\spr_bigbeachkoopa_red_dead</sprite>
             </sprites>
+            <sprites name="Classic">
+              <sprite>sprites\spr_classickoopa_red</sprite>
+              <sprite>sprites\spr_classickoopa_red_dead</sprite>
+            </sprites>
             <sprites name="Shells">
               <sprite>sprites\spr_shell_red</sprite>
               <sprite>sprites\spr_shell_big_red</sprite>
+              <sprite>sprites\spr_shell_classic_red</sprite>
             </sprites>
             <sprite>sprites\spr_koopa_red</sprite>
             <sprite>sprites\spr_koopa_red_turn</sprite>
@@ -2322,6 +2332,11 @@
               <object>objects\obj_bigparakoopa_fly</object>
               <object>objects\obj_bigbeachkoopa</object>
             </objects>
+            <objects name="Classic">
+              <object>objects\obj_classickoopa</object>
+              <object>objects\obj_classicparakoopa</object>
+              <object>objects\obj_classicparakoopa_fly</object>
+            </objects>
             <object>objects\obj_koopa</object>
             <object>objects\obj_parakoopa</object>
             <object>objects\obj_parakoopa_super</object>
@@ -2332,6 +2347,11 @@
             <objects name="Gargantua">
               <object>objects\obj_bigkoopa_red</object>
               <object>objects\obj_bigbeachkoopa_red</object>
+            </objects>
+            <objects name="Classic">
+              <object>objects\obj_classickoopa_red</object>
+              <object>objects\obj_classicparakoopa_red</object>
+              <object>objects\obj_classicparakoopa_red_hor</object>
             </objects>
             <object>objects\obj_koopa_red</object>
             <object>objects\obj_parakoopa_red</object>

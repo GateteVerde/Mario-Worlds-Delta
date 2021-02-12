@@ -223,6 +223,14 @@ else if (sprite_index == spr_shell_big_red) {
     edible = 2;
 }
 
+//Classic Green Koopa
+else if (sprite_index == spr_shell_classic)
+    deathsprite = spr_classickoopa_dead;
+
+//Classic Red Koopa
+else if (sprite_index == spr_shell_classic_red)
+    deathsprite = spr_classickoopa_red_dead;
+
 //Buzzy Beetle
 else if (sprite_index == spr_shell_buzzy) {
 
