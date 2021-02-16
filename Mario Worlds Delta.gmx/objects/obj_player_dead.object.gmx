@@ -63,6 +63,10 @@ lives--;
 //Back
 back = -1;
 
+//Reset mount
+global.mount = 0;
+global.mountcolour = 0;
+
 //Reset powerup
 global.powerup = cs_pow_small;
 

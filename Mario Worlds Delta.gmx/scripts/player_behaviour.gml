@@ -481,9 +481,7 @@ if (global.powerup == cs_pow_cape) {
         fly++;
         
         //Set gravity
-        
-        if (fly > 10) && (vspeed > -flystrength) && (fly < 50)
-        
+        if (fly > 10) && (vspeed > -flystrength) && (fly < 50)        
             vspeed -= 0.275;
         
         //If moving down and the player is not holding anything or it is not spin-jumping

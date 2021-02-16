@@ -31,33 +31,33 @@
 event_inherited();
 
 //Jump Strength
-jumpstrength = 3.30075; //3.6675
-jumpstrength_spin = 3.065625; //3.40625
-jumpstrength_bounce = 3.49875; //3.8875
+jumpstrength = 3.9465625;
+jumpstrength_spin = 3.5921875;
+jumpstrength_bounce = 4.29375;
 
 //Trampoline boost
-trampoline_boost = 4.4325; //4.925 
+trampoline_boost = 7.5;
 
 //Note boost
-note_boost = 3.7125; //4.125
+note_boost = 6;
 
 //Acceleration
-acc = 0.07;
+acc = 0.09375;
 
 //Acceleration (when turning)
-acc_turn = 0.17;
+acc_turn = 0.15625;
 
 //Deceleration
-dec = 0.07;
+dec = 0.0625;
 
 //Gravity
-grav = 0.27; //0.3125
+grav = 0.225;
 
 //Gravity (when jumping)
-grav_alt = 0.053; //0.0625
+grav_alt = 0.1125;
 
 //Gravity (when holding the jump button while falling)
-grav_hold = 0.225; //0.25
+grav_hold = 0.1125;
 
 //In water acceleration
 acc_swim = 0.025;
@@ -72,13 +72,13 @@ dec_swim = 0.025;
 grav_swim = 0.025;
 
 //Minimum horizontal speed
-hspeed_walk = 1.25;
+hspeed_walk = 1.15;
 
 //Maximum horizontal speed
-hspeed_run = 2.5;
+hspeed_run = 2.15;
 
 //Maximum horizontal speed (Full Meter)
-hspeed_run_full = 3;
+hspeed_run_full = 2.9;
 
 //Max falling speed
 vspeedmax = 3.5;
@@ -955,27 +955,54 @@ if (firing &gt; 0)
 if (global.mount == 1) {
 
     //Jump Strength
-    jumpstrength = 3.41250;
-    jumpstrength_spin = 3.21875;
-    jumpstrength_bounce = 3.6875;
+    jumpstrength = 4.9675;
+    jumpstrength_spin = 4.5625;
+    jumpstrength_bounce = 5.725;
+    
+    //Trampoline boost
+    trampoline_boost = 7.5;
+    
+    //Note boost
+    note_boost = 6;
     
     //Acceleration
-    acc = 0.078125;
+    acc = 0.09375;
     
     //Acceleration (when turning)
-    acc_turn = 0.25;
+    acc_turn = 0.15625;
     
     //Deceleration
-    dec = 0.046875;
+    dec = 0.0625;
     
     //Gravity
-    grav = 0.3125;
+    grav = 0.375;
     
     //Gravity (when jumping)
-    grav_alt = 0.0625;
+    grav_alt = 0.1875;
     
     //Gravity (when holding the jump button while falling)
-    grav_hold = 0.25;
+    grav_hold = 0.1875;
+    
+    //In water acceleration
+    acc_swim = 0.025;
+    
+    //In water acceleration (when turning)
+    acc_turn_swim = 0.05;
+    
+    //In water deceleration
+    dec_swim = 0.025;
+    
+    //Gravity (Underwater)
+    grav_swim = 0.025;
+    
+    //Minimum horizontal speed
+    hspeed_walk = 1.25;
+    
+    //Maximum horizontal speed
+    hspeed_run = 2.25;
+    
+    //Maximum horizontal speed (Full Meter)
+    hspeed_run_full = 3;
     
     //Max falling speed
     vspeedmax = 4;
@@ -985,27 +1012,54 @@ if (global.mount == 1) {
 else {
 
     //Jump Strength
-    jumpstrength = 3.30075; //3.6675
-    jumpstrength_spin = 3.065625; //3.40625
-    jumpstrength_bounce = 3.49875; //3.8875
+    jumpstrength = 3.9465625;
+    jumpstrength_spin = 3.5921875;
+    jumpstrength_bounce = 4.29375;
+    
+    //Trampoline boost
+    trampoline_boost = 7.5;
+    
+    //Note boost
+    note_boost = 6;
     
     //Acceleration
-    acc = 0.07;
+    acc = 0.09375;
     
     //Acceleration (when turning)
-    acc_turn = 0.17;
+    acc_turn = 0.15625;
     
     //Deceleration
-    dec = 0.07;
+    dec = 0.0625;
     
     //Gravity
-    grav = 0.27; //0.3125
+    grav = 0.225;
     
     //Gravity (when jumping)
-    grav_alt = 0.053; //0.0625
+    grav_alt = 0.1125;
     
     //Gravity (when holding the jump button while falling)
-    grav_hold = 0.225; //0.25
+    grav_hold = 0.1125;
+    
+    //In water acceleration
+    acc_swim = 0.025;
+    
+    //In water acceleration (when turning)
+    acc_turn_swim = 0.05;
+    
+    //In water deceleration
+    dec_swim = 0.025;
+    
+    //Gravity (Underwater)
+    grav_swim = 0.025;
+    
+    //Minimum horizontal speed
+    hspeed_walk = 1.15;
+    
+    //Maximum horizontal speed
+    hspeed_run = 2.15;
+    
+    //Maximum horizontal speed (Full Meter)
+    hspeed_run_full = 2.9;
     
     //Max falling speed
     vspeedmax = 3.5;

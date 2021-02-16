@@ -444,7 +444,7 @@ with (obj_hud)
     instance_destroy();
     
 //Destroy the map HUD
-with (obj_hud)
+with (obj_hud_map)
 
     instance_destroy();
 

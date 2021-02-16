@@ -8,6 +8,11 @@
 **      Manages movement of the player when swimming
 */
 
+//Stop floating if Peach is controlled
+if (global.player == 3)
+&& (floatnow = 1)
+    floatnow = 0;
+
 //Stop spin jump
 jumpstyle = false;
 

@@ -676,6 +676,7 @@
       <sprite>sprites\spr_noteblock_hidden</sprite>
       <sprite>sprites\spr_noteblock_diagonal_r</sprite>
       <sprite>sprites\spr_noteblock_diagonal_l</sprite>
+      <sprite>sprites\spr_playerblock</sprite>
       <sprite>sprites\spr_guessblock</sprite>
       <sprite>sprites\spr_woodblock</sprite>
       <sprite>sprites\spr_yblock</sprite>
@@ -812,6 +813,8 @@
           <sprite>sprites\spr_platform_seesaw_64</sprite>
           <sprite>sprites\spr_platform_seesaw_80</sprite>
           <sprite>sprites\spr_platform_seesaw_96</sprite>
+          <sprite>sprites\spr_platform_crate_48x48</sprite>
+          <sprite>sprites\spr_platform_crate_80x48</sprite>
           <sprite>sprites\spr_platform_island_48</sprite>
           <sprite>sprites\spr_platform_island_64</sprite>
           <sprite>sprites\spr_platform_island_80</sprite>
@@ -877,7 +880,6 @@
         <sprite>sprites\spr_door_p</sprite>
         <sprite>sprites\spr_door_boss</sprite>
         <sprite>sprites\spr_door_p_outline</sprite>
-        <sprite>sprites\spr_door_player</sprite>
         <sprite>sprites\spr_door_lock</sprite>
         <sprite>sprites\spr_door_lock_unlocked</sprite>
         <sprite>sprites\spr_beanstalk</sprite>
@@ -1236,6 +1238,7 @@
         <sprite>sprites\spr_lotusball</sprite>
         <sprite>sprites\spr_lotusball_homing</sprite>
         <sprite>sprites\spr_fuzzy</sprite>
+        <sprite>sprites\spr_fuzzy_wall</sprite>
         <sprite>sprites\spr_firesnake</sprite>
         <sprite>sprites\spr_firesnake_trail</sprite>
       </sprites>
@@ -1688,7 +1691,6 @@
         </sprites>
         <sprite>sprites\spr_palette_brick_blue</sprite>
         <sprite>sprites\spr_palette_conveyor</sprite>
-        <sprite>sprites\spr_palette_door</sprite>
         <sprite>sprites\spr_palette_platform_yoshi</sprite>
       </sprites>
       <sprites name="GUI">
@@ -2164,6 +2166,7 @@
           <object>objects\obj_qblock_hidden</object>
         </objects>
         <object>objects\obj_qblock</object>
+        <object>objects\obj_qblock_scatter</object>
         <object>objects\obj_qblock_winged</object>
         <object>objects\obj_emptyblock</object>
       </objects>
@@ -2184,6 +2187,7 @@
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_noteblock_diagonal_r</object>
       <object>objects\obj_noteblock_diagonal_l</object>
+      <object>objects\obj_playerblock</object>
       <object>objects\obj_woodblock</object>
       <object>objects\obj_yblock</object>
       <object>objects\obj_iceblock</object>
@@ -2231,6 +2235,7 @@
           <object>objects\obj_platform_pulley</object>
           <object>objects\obj_platform_seesaw</object>
           <object>objects\obj_platform_island</object>
+          <object>objects\obj_platform_crate</object>
           <object>objects\obj_platform_ferris</object>
           <object>objects\obj_platform_yoshi</object>
           <object>objects\obj_platform_track</object>
@@ -2454,6 +2459,7 @@
         <object>objects\obj_volcanolotus</object>
         <object>objects\obj_craterlotus</object>
         <object>objects\obj_fuzzy</object>
+        <object>objects\obj_fuzzy_wall</object>
         <object>objects\obj_wiggler</object>
         <object>objects\obj_wiggler_long</object>
         <object>objects\obj_firesnake</object>
@@ -2671,7 +2677,6 @@
         <object>objects\obj_door</object>
         <object>objects\obj_door_s</object>
         <object>objects\obj_door_p</object>
-        <object>objects\obj_door_player</object>
         <object>objects\obj_door_boss</object>
       </objects>
       <objects name="Pipes">
@@ -3067,6 +3072,7 @@
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
           <room>rooms\rm_devtest_b</room>
+          <room>rooms\rm_devtest_c</room>
         </rooms>
       </rooms>
     </rooms>

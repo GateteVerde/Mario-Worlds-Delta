@@ -4,7 +4,7 @@
   <width>3584</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -179,6 +179,12 @@
     <instance objName="obj_npc" x="3032" y="256" name="inst_7D74794A" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;The more high you break the tape there, the more bonus stars you will earn.&quot;;&#xA;mugshot = spr_mugshot_leanne;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_ABD16E4C" locked="0" code="bg_index = 0;&#xA;bg_frame[0] = bgr_nightsky_b;&#xA;bg_frame[1] = bgr_nightsky_c;&#xA;bg_frame[2] = bgr_nightsky_b;&#xA;bg_frame[3] = bgr_nightsky;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa" x="1720" y="384" name="inst_D8AF480D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="720" y="384" name="inst_E8B34493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="768" y="384" name="inst_00B949E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="896" y="384" name="inst_4D6906B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="944" y="384" name="inst_B4964B15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="2208" y="384" name="inst_53F3B1E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_block_toad" x="2224" y="384" name="inst_69F11ECC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="144" y="336" w="96" h="64" xo="464" yo="0" id="10029554" name="inst_6A4CE170" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -51,7 +51,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_levelcontrol" x="0" y="-32" name="inst_4CAC5A68" locked="0" code="inisection = 'Forest';&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-32" name="inst_4CAC5A68" locked="0" code="inisection = 'Forest';" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="32" y="-128" name="inst_3C84CD3E" locked="0" code="" scaleX="2" scaleY="14" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpnode" x="48" y="80" name="inst_80A2F28C" locked="0" code="myid = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_poison_tides" x="0" y="224" name="inst_F2425450" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -73,7 +73,6 @@
     <instance objName="obj_qblock" x="368" y="128" name="inst_FFB695E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_brick" x="368" y="128" name="inst_A89FBA3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_coin_multi" x="368" y="128" name="inst_3AE289E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="448" y="216" name="inst_C8BA660E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="456" y="160" name="inst_6173ED3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="456" y="144" name="inst_8ECE3B8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="472" y="144" name="inst_EBCB9989" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -94,10 +93,6 @@
     <instance objName="obj_modifier_feather_alt" x="640" y="80" name="inst_81F9062C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_feather_alt" x="320" y="128" name="inst_E50FB88D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin_ace" x="336" y="80" name="inst_70773DF4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="896" y="216" name="inst_F9A10C21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="992" y="216" name="inst_4D302E19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="1184" y="216" name="inst_48CF018B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="1280" y="216" name="inst_785DFC25" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="928" y="144" name="inst_C72359B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="944" y="128" name="inst_F6FC7048" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="960" y="128" name="inst_2B46197B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -123,7 +118,6 @@
     <instance objName="obj_semisolid" x="1504" y="144" name="inst_F06BEF89" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1552" y="160" name="inst_10B91DFB" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="1600" y="192" name="inst_8548D85B" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="1688" y="216" name="inst_F5E9D6E8" locked="0" code="sprite_index = spr_platform_island_80;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1808" y="208" name="inst_0570B8A6" locked="0" code="" scaleX="1" scaleY="9" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1984" y="192" name="inst_CA8EA68F" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
     <instance objName="obj_solid" x="1872" y="144" name="inst_0C891772" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
@@ -171,15 +165,22 @@
     <instance objName="obj_solid" x="2560" y="176" name="inst_9421CF57" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="2496" y="208" name="inst_23B75BF0" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fireplant_long_down" x="2400" y="80" name="inst_DA8B5437" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="2144" y="216" name="inst_B276578B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="2400" y="216" name="inst_E84C59CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_platform_island" x="2256" y="216" name="inst_F166BF09" locked="0" code="sprite_index = spr_platform_island_80;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_podoboo" x="2232" y="128" name="inst_13B2B7B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_podoboo" x="2360" y="160" name="inst_8473F244" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa_red" x="728" y="160" name="inst_7715DDD6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa_red" x="1416" y="144" name="inst_FAE876C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa_red" x="1592" y="144" name="inst_B149FA67" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa_red" x="2088" y="192" name="inst_6768D55E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warpleft" x="2560" y="176" name="inst_A5A1198F" locked="0" code="destination = rm_devtest_c;&#xA;exit_dir = cs_warp_right;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="448" y="208" name="inst_CAE0FDAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="896" y="208" name="inst_FE74A4CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="992" y="208" name="inst_A023DEAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="1184" y="208" name="inst_92411BE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="1280" y="208" name="inst_388B43CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="1688" y="208" name="inst_5A1227F3" locked="0" code="sprite_index = spr_platform_crate_80x48;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="2144" y="208" name="inst_71C7C2D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="2400" y="208" name="inst_1C25A2E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_platform_crate" x="2256" y="208" name="inst_0B70E58B" locked="0" code="sprite_index = spr_platform_crate_80x48;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="0" y="16" w="192" h="96" xo="272" yo="144" id="10049695" name="inst_A5808D62" depth="20" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

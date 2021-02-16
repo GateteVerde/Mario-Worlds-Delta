@@ -159,6 +159,13 @@ xx--;
 //If the water is changing it's position.
 if (vspeed != 0) {
 
+    //Stop if the player has died
+    if (instance_exists(obj_player_dead)) {
+    
+        vspeed = 0;
+        exit;
+    }
+
     //If the water collides with a 'End' modifier.
     if (collision_rectangle(bbox_left, y, bbox_right, y+15, obj_endmarker, 0, 1)) {
     

@@ -121,7 +121,8 @@ alarm[0] = 1;
             <kind>1</kind>
             <string>///Collect the coin
 
-if (other.vspeed != 0) {
+if (vspeed &gt;= 0)
+&amp;&amp; (other.vspeed != 0) {
 
     instance_create(x, y, obj_blockcoin);
     instance_destroy();

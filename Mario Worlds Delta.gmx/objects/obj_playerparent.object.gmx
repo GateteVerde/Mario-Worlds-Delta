@@ -1252,6 +1252,9 @@ else {
 //Allow the player to jump again
 jumping = 0;
 
+//End cape flight
+flying = 0;
+
 //End spin jump
 jumpstyle = 0;
 

@@ -34,33 +34,33 @@ event_inherited();
 alarm[5] = 1;
 
 //Jump Strength
-jumpstrength = 3.23375;
-jumpstrength_spin = 3.0584375;
-jumpstrength_bounce = 3.34375;
+jumpstrength = 4.0675;
+jumpstrength_spin = 3.6625;
+jumpstrength_bounce = 4.825;
 
 //Trampoline boost
-trampoline_boost = 4.925;
+trampoline_boost = 7.5;
 
 //Note boost
-note_boost = 4.125;
+note_boost = 6;
 
 //Acceleration
-acc = 0.1;
+acc = 0.09375;
 
 //Acceleration (when turning)
-acc_turn = 0.2;
+acc_turn = 0.15625;
 
 //Deceleration
-dec = 0.05;
+dec = 0.0625;
 
 //Gravity
-grav = 0.3625;
+grav = 0.375;
 
 //Gravity (when jumping)
-grav_alt = 0.0625;
+grav_alt = 0.1875;
 
 //Gravity (when holding the jump button while falling)
-grav_hold = 0.25;
+grav_hold = 0.1875;
 
 //In water acceleration
 acc_swim = 0.025;
@@ -72,16 +72,16 @@ acc_turn_swim = 0.05;
 dec_swim = 0.025;
 
 //Gravity (Underwater)
-grav_swim = 0.03;
+grav_swim = 0.025;
 
 //Minimum horizontal speed
-hspeed_walk = 1.5;
+hspeed_walk = 1.55;
 
 //Maximum horizontal speed
-hspeed_run = 3;
+hspeed_run = 2.55;
 
 //Maximum horizontal speed (Full Meter)
-hspeed_run_full = 3.5;
+hspeed_run_full = 3.3;
 
 //Max falling speed
 vspeedmax = 4;
@@ -1042,39 +1042,57 @@ if (firing &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set up different physics for Luigi when it is or not riding a yoshi
+            <string>///Set up different physics for Toad when it is or not riding a yoshi
 
 //If the player is riding a yoshi
 if (global.mount == 1) {
 
     //Jump Strength
-    jumpstrength = 3.41250;
-    jumpstrength_spin = 3.21875;
-    jumpstrength_bounce = 3.6875;
+    jumpstrength = 4.9675;
+    jumpstrength_spin = 4.5625;
+    jumpstrength_bounce = 5.725;
+    
+    //Trampoline boost
+    trampoline_boost = 7.5;
+    
+    //Note boost
+    note_boost = 6;
     
     //Acceleration
-    acc = 0.078125;
+    acc = 0.09375;
     
     //Acceleration (when turning)
-    acc_turn = 0.25;
+    acc_turn = 0.15625;
     
     //Deceleration
-    dec = 0.046875;
+    dec = 0.0625;
     
     //Gravity
-    grav = 0.3125;
+    grav = 0.375;
     
     //Gravity (when jumping)
-    grav_alt = 0.0625;
+    grav_alt = 0.1875;
     
     //Gravity (when holding the jump button while falling)
-    grav_hold = 0.25;
+    grav_hold = 0.1875;
+    
+    //In water acceleration
+    acc_swim = 0.025;
+    
+    //In water acceleration (when turning)
+    acc_turn_swim = 0.05;
+    
+    //In water deceleration
+    dec_swim = 0.025;
+    
+    //Gravity (Underwater)
+    grav_swim = 0.025;
     
     //Minimum horizontal speed
-    hspeed_walk = 1.3;
+    hspeed_walk = 1.25;
     
     //Maximum horizontal speed
-    hspeed_run = 2.7;
+    hspeed_run = 2.25;
     
     //Maximum horizontal speed (Full Meter)
     hspeed_run_full = 3;
@@ -1087,33 +1105,54 @@ if (global.mount == 1) {
 else {
 
     //Jump Strength
-    jumpstrength = 3.23375;
-    jumpstrength_spin = 3.0584375;
-    jumpstrength_bounce = 3.34375;
+    jumpstrength = 4.0675;
+    jumpstrength_spin = 3.6625;
+    jumpstrength_bounce = 4.825;
+    
+    //Trampoline boost
+    trampoline_boost = 7.5;
+    
+    //Note boost
+    note_boost = 6;
     
     //Acceleration
-    acc = 0.1;
+    acc = 0.09375;
     
     //Acceleration (when turning)
-    acc_turn = 0.2;
+    acc_turn = 0.15625;
     
     //Deceleration
-    dec = 0.05;
+    dec = 0.0625;
     
     //Gravity
-    grav = 0.3625;
+    grav = 0.375;
     
     //Gravity (when jumping)
-    grav_alt = 0.0625;
+    grav_alt = 0.1875;
+    
+    //Gravity (when holding the jump button while falling)
+    grav_hold = 0.1875;
+    
+    //In water acceleration
+    acc_swim = 0.025;
+    
+    //In water acceleration (when turning)
+    acc_turn_swim = 0.05;
+    
+    //In water deceleration
+    dec_swim = 0.025;
+    
+    //Gravity (Underwater)
+    grav_swim = 0.025;
     
     //Minimum horizontal speed
-    hspeed_walk = 1.5;
+    hspeed_walk = 1.55;
     
     //Maximum horizontal speed
-    hspeed_run = 3;
+    hspeed_run = 2.55;
     
     //Maximum horizontal speed (Full Meter)
-    hspeed_run_full = 3.5;
+    hspeed_run_full = 3.3;
     
     //Max falling speed
     vspeedmax = 4;
