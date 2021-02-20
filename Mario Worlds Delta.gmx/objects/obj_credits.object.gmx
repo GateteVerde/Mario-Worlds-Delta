@@ -82,6 +82,7 @@ text = "CREATED BY#
 #- AUDIO -
 #
 #BEBN LEGG
+#LADIESMAN217
 #MFGG
 #MRDOUBLEA
 #PINCI
@@ -329,7 +330,7 @@ else if (ready == 3) {
 if (ready == 4) {
 
     yy += 0.4;
-    if (yy &gt; 2072) {
+    if (yy &gt; 2080) {
     
         alpha += 0.025;
         if (alpha &gt; 1) {

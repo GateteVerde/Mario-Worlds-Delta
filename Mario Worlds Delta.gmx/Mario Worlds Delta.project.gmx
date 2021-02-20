@@ -310,14 +310,16 @@
     <sound>sound\snd_1up</sound>
     <sound>sound\snd_beam</sound>
     <sound>sound\snd_beep</sound>
+    <sound>sound\snd_bigboo</sound>
     <sound>sound\snd_blargg</sound>
     <sound>sound\snd_blastakoopa_fire</sound>
     <sound>sound\snd_blastakoopa_prepare</sound>
     <sound>sound\snd_bonusend</sound>
+    <sound>sound\snd_boo</sound>
     <sound>sound\snd_boost</sound>
-    <sound>sound\snd_bossclear</sound>
-    <sound>sound\snd_boss_shrink</sound>
     <sound>sound\snd_boss_pop</sound>
+    <sound>sound\snd_boss_shrink</sound>
+    <sound>sound\snd_bossclear</sound>
     <sound>sound\snd_break</sound>
     <sound>sound\snd_bump</sound>
     <sound>sound\snd_burn</sound>
@@ -744,21 +746,6 @@
         <sprite>sprites\spr_fireballmask</sprite>
       </sprites>
       <sprites name="Gizmos">
-        <sprites name="Obstacles">
-          <sprites name="Skewers">
-            <sprites name="Bases">
-              <sprite>sprites\spr_skewerbase</sprite>
-              <sprite>sprites\spr_skewerbase_side</sprite>
-            </sprites>
-            <sprite>sprites\spr_skewer</sprite>
-            <sprite>sprites\spr_skewer_down</sprite>
-            <sprite>sprites\spr_skewer_left</sprite>
-            <sprite>sprites\spr_skewer_right</sprite>
-          </sprites>
-          <sprite>sprites\spr_firebar</sprite>
-          <sprite>sprites\spr_rotodisc</sprite>
-          <sprite>sprites\spr_ballnchain</sprite>
-        </sprites>
         <sprites name="Platforms">
           <sprites name="Platform Parts">
             <sprites name="Ferris">
@@ -1277,6 +1264,21 @@
           <sprite>sprites\spr_mechakoopa_sq2</sprite>
           <sprite>sprites\spr_mechakoopa_dead</sprite>
         </sprites>
+        <sprites name="Obstacles">
+          <sprites name="Skewers">
+            <sprites name="Bases">
+              <sprite>sprites\spr_skewerbase</sprite>
+              <sprite>sprites\spr_skewerbase_side</sprite>
+            </sprites>
+            <sprite>sprites\spr_skewer</sprite>
+            <sprite>sprites\spr_skewer_down</sprite>
+            <sprite>sprites\spr_skewer_left</sprite>
+            <sprite>sprites\spr_skewer_right</sprite>
+          </sprites>
+          <sprite>sprites\spr_firebar</sprite>
+          <sprite>sprites\spr_rotodisc</sprite>
+          <sprite>sprites\spr_ballnchain</sprite>
+        </sprites>
         <sprite>sprites\spr_podoboo</sprite>
         <sprite>sprites\spr_podoboo_choco</sprite>
         <sprite>sprites\spr_podoboo_poison</sprite>
@@ -1306,6 +1308,7 @@
       </sprites>
       <sprites name="Ghost">
         <sprite>sprites\spr_boobuddy</sprite>
+        <sprite>sprites\spr_boobuddy_trail</sprite>
         <sprite>sprites\spr_boobuddy_taunt</sprite>
         <sprite>sprites\spr_boobuddy_stretch</sprite>
         <sprite>sprites\spr_boobuddy_stretch_ceiling</sprite>
@@ -2166,7 +2169,6 @@
           <object>objects\obj_qblock_hidden</object>
         </objects>
         <object>objects\obj_qblock</object>
-        <object>objects\obj_qblock_scatter</object>
         <object>objects\obj_qblock_winged</object>
         <object>objects\obj_emptyblock</object>
       </objects>
@@ -2487,6 +2489,7 @@
           <object>objects\obj_grinder_line</object>
           <object>objects\obj_firebar</object>
           <object>objects\obj_rotodisc</object>
+          <object>objects\obj_rotodisc_flower</object>
           <object>objects\obj_ballnchain</object>
         </objects>
         <object>objects\obj_podoboo</object>
@@ -2511,8 +2514,8 @@
         <object>objects\obj_boostretch</object>
         <object>objects\obj_boostretch_ceiling</object>
         <object>objects\obj_booring</object>
-        <object>objects\obj_fishinboo</object>
         <object>objects\obj_bigboo</object>
+        <object>objects\obj_fishinboo</object>
         <object>objects\obj_eerie</object>
         <object>objects\obj_eerie_wave</object>
         <object>objects\obj_slimebubble</object>
@@ -2770,6 +2773,9 @@
           <object>objects\obj_boundary_right</object>
         </objects>
         <objects name="Blocks">
+          <objects name="Item Blocks">
+            <object>objects\obj_qblock_scatter</object>
+          </objects>
           <objects name="Bricks">
             <object>objects\obj_brick_flip_b</object>
             <object>objects\obj_brick_throw_th</object>
@@ -2919,6 +2925,7 @@
               </objects>
               <object>objects\obj_firebar_ball</object>
               <object>objects\obj_rotodisc_disc</object>
+              <object>objects\obj_rotodisc_flower_disc</object>
               <object>objects\obj_rotodisc_trail</object>
               <object>objects\obj_ballnchain_ball</object>
               <object>objects\obj_ballnchain_chain</object>
@@ -2926,7 +2933,8 @@
             <object>objects\obj_magic</object>
           </objects>
           <objects name="Ghost">
-            <object>objects\obj_ringboo</object>
+            <object>objects\obj_boo_trail</object>
+            <object>objects\obj_booring_boo</object>
           </objects>
           <objects name="Airship">
             <objects name="Bullet Bill">

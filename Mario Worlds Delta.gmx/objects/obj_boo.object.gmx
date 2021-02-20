@@ -47,13 +47,51 @@ stompsprite = sprite_index;
 
 //Movement
 movenow = 0;
+movenowprev = 0;
 
 //Taunt
 taunt = 0;
 alarm[0] = 256;
 
+//Trail
+alarm[2] = 1;
+
 //Animate
 image_speed = 0.2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Leave a trail if moving
+
+alarm[2] = 2;
+if (speed &gt; 0) {
+
+    with (instance_create(x, y, obj_boo_trail)) {
+    
+        image_index = other.image_index;
+        depth = -1;
+        image_xscale = other.xscale;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -104,6 +142,7 @@ alarm[0] = 256;
             <kind>1</kind>
             <string>///If not moving, taunt
 
+audio_stop_play_sound(snd_boo, 0, false);
 taunt = 1;
 alarm[1] = 60;
 </string>
@@ -159,6 +198,9 @@ if (movenow == 1) {
           <argument>
             <kind>1</kind>
             <string>///Boo "Buddy" logic
+
+//Remember state
+movenowprev = movenow;
 
 //If the player does exist and it's not looking at him.
 if (movenow == 1)
@@ -237,8 +279,12 @@ else
 movenow = 0;
 
 //Cap speed
-if (speed &gt; 0.6) 
-    speed = 0.6;
+if (speed &gt; 0.6) then speed = 0.6;
+    
+//Play 'Boo' sound if it was not moving
+if (movenow == 1)
+&amp;&amp; (movenowprev == 0)
+    audio_stop_play_sound(snd_boo, 0, false);
 </string>
           </argument>
         </arguments>

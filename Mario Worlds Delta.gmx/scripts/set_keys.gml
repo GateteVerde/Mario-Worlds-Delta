@@ -10,7 +10,7 @@
 **      keydefault  Default key to set
 */
 
-ID = instance_create(0,0,obj_title_menu_key);
+ID = instance_create(0, 0, obj_title_menu_key);
     ID.key          = argument[0];
     ID.keyText      = argument[1];
     ID.keyDefault   = argument[2];

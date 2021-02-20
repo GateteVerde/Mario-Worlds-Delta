@@ -96,19 +96,16 @@ if (!isparent) exit;
 
 if (streamsize &gt; 0) {
 
-    with (instance_create(x,y,obj_boostream)) {
+    with (instance_create(x, y, obj_boostream)) {
     
         parent = other;
         type = irandom_range(0,2);
         isparent = false;
         depth = other.depth + 1;
         image_xscale = other.image_xscale;
-        streamsize = other.streamsize;
-        
-    }
-    
+        streamsize = other.streamsize;        
+    }    
     alarm[0] = boodistance;
-    
 }
 
 with (obj_boostream) {
@@ -118,12 +115,10 @@ with (obj_boostream) {
         if (parent = other.id) {
         
             age ++;
-            if (age &gt; streamsize) instance_destroy()
-            
-        }
-        
-    }
-    
+            if (age &gt; streamsize) 
+                instance_destroy()            
+        }        
+    }    
 }
 </string>
           </argument>
@@ -151,7 +146,6 @@ with (obj_boostream) {
 
 //Animation
 animframe += 0.125;
-
 if (animframe &gt;= 2)
     animframe = 0;
 

@@ -73,7 +73,7 @@ alarm[0] = 2;
 var offset = 0;
 repeat (boocount) {
 
-    with instance_create(x+8, y, obj_ringboo) {
+    with instance_create(x+8, y, obj_booring_boo) {
     
         timer = offset;
         offset += ( ((2 * pi) / other.ringspeed ) / ((other.boocount) + other.gapsize));

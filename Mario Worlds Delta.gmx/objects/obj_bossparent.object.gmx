@@ -88,12 +88,12 @@ hp = 3;
             <kind>1</kind>
             <string>///Emit an orb
 
-var orb = instance_create(x - 8,y - 8,obj_orb);
+var orb = instance_create(x - 8, y - 16, obj_orb);
 orb.vspeed = -3;
 
 //Destroy boss support
-if (instance_exists(obj_grinder_line))
-{
+if (instance_exists(obj_grinder_line)) {
+
     with (obj_grinder_line) {
     
         //Give points

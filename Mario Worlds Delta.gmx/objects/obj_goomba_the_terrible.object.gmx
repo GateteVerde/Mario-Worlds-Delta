@@ -71,6 +71,7 @@ if (hp &lt; 1) {
     //Die
     state = 4;
 }
+
 //Otherwise...
 else {
 
@@ -168,7 +169,8 @@ if (state == 2) {
     //Distort up
     if (yscale &gt;= 1) 
         yscale = 1;
-    else yscale += 0.06;
+    else
+        yscale += 0.06;
 }
 if (state == 4) {
 
@@ -197,12 +199,12 @@ if (state == 5) {
     //Shrink
     if (xscale &lt;= 0) {
     
+        //Play 'Pop' sound
+        audio_stop_play_sound(snd_boss_pop, 0, false);        
+        
         //Create smoke effect
         with (instance_create(x, y, obj_smoke)) sprite_index = spr_smoke_16;
-        
-        //Play 'Pop' sound
-        audio_stop_play_sound(snd_boss_pop, 0, false);
-        
+                
         //Destroy~!
         instance_destroy();
     }
