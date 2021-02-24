@@ -183,7 +183,7 @@ alarm[1] = 32;
             <string>///Downward skewer logic
 
 //Check for a floor object
-var semisolid = collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+2, obj_semisolid, 0, 0);
+var semisolid = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom, obj_semisolid, 0, 0);
 
 //If the skewer is not on the ground.
 if (ready == 0) {
@@ -199,7 +199,7 @@ if (ready == 0) {
     }
     
     //Check for floor objects
-    if ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, semisolid, 0, 0)) &amp;&amp; (semisolid.y &gt; ystart)) {
+    if ((collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+1, semisolid, 0, 0)) &amp;&amp; (semisolid.y &gt; ystart)) {
     
         //Play 'Thud' sound
         audio_stop_play_sound(snd_thud, 0, false);

@@ -95,7 +95,12 @@
     <instance objName="obj_koopa_blue" x="416" y="128" name="inst_E27A5404" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_koopa_blue" x="400" y="176" name="inst_066919F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door_boss" x="400" y="128" name="inst_AB1CEAED" locked="0" code="destination = rm_bossroom;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_confusedchuck" x="96" y="176" name="inst_0507E695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick" x="272" y="128" name="inst_4FF0E919" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick" x="272" y="144" name="inst_78E6353C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_throw" x="128" y="176" name="inst_1A426BAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_throw" x="144" y="176" name="inst_417D4DBA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_throw" x="160" y="176" name="inst_B0D7A207" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_brick_throw" x="144" y="160" name="inst_15D06838" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground" x="368" y="144" w="16" h="16" xo="240" yo="416" id="10047614" name="inst_141A2DB9" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -116,6 +121,7 @@
     <tile bgName="tls_ground" x="416" y="176" w="16" h="16" xo="256" yo="432" id="10047629" name="inst_36A2EC5B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="400" y="176" w="16" h="16" xo="256" yo="432" id="10047630" name="inst_64DB1128" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="384" y="176" w="16" h="16" xo="256" yo="432" id="10047631" name="inst_FB80CCD6" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="112" w="16" h="16" xo="144" yo="128" id="10051276" name="inst_037C97BD" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="160" y="192" w="16" h="16" xo="16" yo="416" id="10047265" name="inst_B99118EA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="144" y="192" w="16" h="16" xo="16" yo="416" id="10047266" name="inst_3C9FCA63" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="80" y="192" w="16" h="16" xo="16" yo="416" id="10047270" name="inst_E79ED9DA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -227,8 +233,6 @@
     <tile bgName="tls_ground" x="16" y="112" w="16" h="16" xo="0" yo="480" id="10047417" name="inst_39E94D57" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="16" y="96" w="16" h="16" xo="32" yo="432" id="10047418" name="inst_2D320D8A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="16" y="80" w="16" h="16" xo="0" yo="464" id="10047419" name="inst_C58DFEE2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_pipes" x="32" y="96" w="16" h="16" xo="736" yo="80" id="10047424" name="inst_E56C4FB2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_pipes" x="208" y="112" w="16" h="16" xo="704" yo="80" id="10047425" name="inst_A1B977D7" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="96" y="192" w="16" h="16" xo="32" yo="416" id="10047426" name="inst_02181225" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="128" y="192" w="16" h="16" xo="0" yo="416" id="10047427" name="inst_744FB3E3" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="112" y="208" w="16" h="16" xo="16" yo="416" id="10047428" name="inst_2B192BDE" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -239,8 +243,6 @@
     <tile bgName="tls_ground" x="128" y="0" w="16" h="16" xo="16" yo="448" id="10047433" name="inst_ACB5837C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="144" y="0" w="16" h="16" xo="16" yo="464" id="10047434" name="inst_44652267" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="112" y="0" w="16" h="16" xo="0" yo="464" id="10047435" name="inst_69385393" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_pipes" x="128" y="16" w="16" h="16" xo="736" yo="32" id="10047436" name="inst_936762BD" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_pipes" x="112" y="192" w="16" h="16" xo="736" yo="0" id="10047437" name="inst_AB0B2C34" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="224" y="112" w="16" h="16" xo="720" yo="80" id="10047439" name="inst_F737F70C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="208" y="160" w="16" h="16" xo="16" yo="416" id="10047442" name="inst_6B784BB5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="224" y="160" w="16" h="16" xo="16" yo="416" id="10047443" name="inst_9D5A092F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -392,6 +394,10 @@
     <tile bgName="tls_ground_pipes" x="240" y="96" w="32" h="16" xo="704" yo="128" id="10047895" name="inst_5D56A839" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="240" y="64" w="32" h="16" xo="704" yo="112" id="10047896" name="inst_D0C5545A" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_pipes" x="240" y="80" w="32" h="16" xo="704" yo="112" id="10047897" name="inst_7685B728" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="112" w="16" h="16" xo="144" yo="128" id="10051277" name="inst_3FC12848" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="32" y="96" w="16" h="16" xo="144" yo="112" id="10051278" name="inst_138EDC78" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="16" w="16" h="16" xo="128" yo="128" id="10051279" name="inst_A6CCCEB4" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="192" w="16" h="16" xo="128" yo="112" id="10051280" name="inst_2BAC0208" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

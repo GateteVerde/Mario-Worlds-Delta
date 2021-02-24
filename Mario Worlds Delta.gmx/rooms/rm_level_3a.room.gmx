@@ -179,15 +179,79 @@
     <instance objName="obj_npc" x="3032" y="256" name="inst_7D74794A" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;The more high you break the tape there, the more bonus stars you will earn.&quot;;&#xA;mugshot = spr_mugshot_leanne;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bganimator" x="16" y="-16" name="inst_ABD16E4C" locked="0" code="bg_index = 0;&#xA;bg_frame[0] = bgr_nightsky_b;&#xA;bg_frame[1] = bgr_nightsky_c;&#xA;bg_frame[2] = bgr_nightsky_b;&#xA;bg_frame[3] = bgr_nightsky;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa" x="1720" y="384" name="inst_D8AF480D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="720" y="384" name="inst_E8B34493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="768" y="384" name="inst_00B949E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="896" y="384" name="inst_4D6906B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="944" y="384" name="inst_B4964B15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_toad" x="2208" y="384" name="inst_53F3B1E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_toad" x="2224" y="384" name="inst_69F11ECC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_walltriangle_r" x="720" y="384" name="inst_1130E294" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_walltriangle_r" x="896" y="384" name="inst_BCE8FA4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_walltriangle_l" x="944" y="384" name="inst_5B29987D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_walltriangle_l" x="768" y="384" name="inst_CD83AFDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_semisolid" x="112" y="288" name="inst_2ABA2124" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_side" x="144" y="320" name="inst_053A8A22" locked="0" code="direct = 225;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_side" x="208" y="320" name="inst_FD949B99" locked="0" code="direct = 315;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_red" x="480" y="384" name="inst_2E7556AE" locked="0" code="direct = 45;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_cannon_red" x="592" y="384" name="inst_92D09E0C" locked="0" code="direct = 135;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="tls_ground_forest" x="144" y="336" w="96" h="64" xo="464" yo="0" id="10029554" name="inst_6A4CE170" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="288" w="16" h="16" xo="256" yo="64" id="10051203" name="inst_2E158F9F" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="288" w="16" h="16" xo="224" yo="64" id="10051204" name="inst_CE3594ED" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="288" w="16" h="16" xo="240" yo="64" id="10051205" name="inst_5389AD1E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="288" w="16" h="16" xo="240" yo="64" id="10051206" name="inst_A758DBC7" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="288" w="16" h="16" xo="240" yo="64" id="10051207" name="inst_976C1F60" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="288" w="16" h="16" xo="240" yo="64" id="10051208" name="inst_3C53178A" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="288" w="16" h="16" xo="240" yo="64" id="10051209" name="inst_7509C2B9" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="288" w="16" h="16" xo="240" yo="64" id="10051210" name="inst_470AF116" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="304" w="16" h="16" xo="224" yo="80" id="10051211" name="inst_169D8294" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="320" w="16" h="16" xo="224" yo="80" id="10051212" name="inst_843D509C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="336" w="16" h="16" xo="224" yo="80" id="10051213" name="inst_F53422F8" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="352" w="16" h="16" xo="224" yo="80" id="10051214" name="inst_4E7ADFD6" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="368" w="16" h="16" xo="224" yo="80" id="10051215" name="inst_B9BAB39F" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="112" y="384" w="16" h="16" xo="224" yo="80" id="10051216" name="inst_F30FE315" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="304" w="16" h="16" xo="256" yo="80" id="10051217" name="inst_98C34A7C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="320" w="16" h="16" xo="256" yo="80" id="10051218" name="inst_3550D78C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="336" w="16" h="16" xo="256" yo="80" id="10051219" name="inst_07B1EE93" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="352" w="16" h="16" xo="256" yo="80" id="10051220" name="inst_65C0E226" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="368" w="16" h="16" xo="256" yo="80" id="10051221" name="inst_FB46600C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="384" w="16" h="16" xo="256" yo="80" id="10051222" name="inst_AE32C4D5" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="304" w="16" h="16" xo="240" yo="80" id="10051233" name="inst_0006A52E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="304" w="16" h="16" xo="240" yo="80" id="10051235" name="inst_4B6E7A74" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="320" w="16" h="16" xo="240" yo="80" id="10051236" name="inst_15651BC3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="320" w="16" h="16" xo="240" yo="80" id="10051237" name="inst_D13A2871" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="336" w="16" h="16" xo="240" yo="80" id="10051238" name="inst_01866F98" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="336" w="16" h="16" xo="240" yo="80" id="10051239" name="inst_BAE66FFF" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="336" w="16" h="16" xo="240" yo="80" id="10051240" name="inst_2A14F17B" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="336" w="16" h="16" xo="240" yo="80" id="10051241" name="inst_66482DC3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="336" w="16" h="16" xo="240" yo="80" id="10051242" name="inst_C4BDDA53" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="336" w="16" h="16" xo="240" yo="80" id="10051243" name="inst_2379C442" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="352" w="16" h="16" xo="240" yo="80" id="10051244" name="inst_1F9D3BD7" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="352" w="16" h="16" xo="240" yo="80" id="10051245" name="inst_979F853C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="352" w="16" h="16" xo="240" yo="80" id="10051246" name="inst_509D06C2" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="352" w="16" h="16" xo="240" yo="80" id="10051247" name="inst_CC1FCE03" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="352" w="16" h="16" xo="240" yo="80" id="10051248" name="inst_87FC076E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="352" w="16" h="16" xo="240" yo="80" id="10051249" name="inst_1FD0E5F0" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="368" w="16" h="16" xo="240" yo="80" id="10051250" name="inst_ACEDAC67" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="368" w="16" h="16" xo="240" yo="80" id="10051251" name="inst_C919A4E8" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="368" w="16" h="16" xo="240" yo="80" id="10051252" name="inst_926E2689" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="368" w="16" h="16" xo="240" yo="80" id="10051253" name="inst_88509A0C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="368" w="16" h="16" xo="240" yo="80" id="10051254" name="inst_145795F8" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="368" w="16" h="16" xo="240" yo="80" id="10051255" name="inst_262CAAE1" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="384" w="16" h="16" xo="240" yo="80" id="10051256" name="inst_1BC1F6B8" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="384" w="16" h="16" xo="240" yo="80" id="10051257" name="inst_ED113589" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="384" w="16" h="16" xo="240" yo="80" id="10051258" name="inst_23A86CCA" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="176" y="384" w="16" h="16" xo="240" yo="80" id="10051259" name="inst_2D359A96" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="384" w="16" h="16" xo="240" yo="80" id="10051260" name="inst_7D4A5E1E" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="384" w="16" h="16" xo="240" yo="80" id="10051261" name="inst_539223C3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="304" w="32" h="32" xo="176" yo="64" id="10051263" name="inst_BA6C9779" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="304" w="32" h="32" xo="176" yo="64" id="10051264" name="inst_8F9E9176" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="304" w="16" h="16" xo="208" yo="64" id="10051266" name="inst_A9EFD241" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="320" w="16" h="16" xo="208" yo="80" id="10051267" name="inst_B6DA37C3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="320" w="16" h="16" xo="208" yo="80" id="10051268" name="inst_94F9CBA3" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="304" w="16" h="16" xo="208" yo="64" id="10051269" name="inst_AEA47FC6" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="224" y="336" w="16" h="16" xo="208" yo="96" id="10051270" name="inst_196FBB2C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="208" y="336" w="16" h="16" xo="192" yo="96" id="10051271" name="inst_8F628DF9" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="192" y="336" w="16" h="16" xo="176" yo="96" id="10051272" name="inst_8AE3E7A2" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="128" y="336" w="16" h="16" xo="176" yo="96" id="10051273" name="inst_8F7671C0" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="144" y="336" w="16" h="16" xo="192" yo="96" id="10051274" name="inst_23F40C7C" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="160" y="336" w="16" h="16" xo="208" yo="96" id="10051275" name="inst_BD329063" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_forest" x="528" y="320" w="144" h="80" xo="464" yo="64" id="10029576" name="inst_289EF64A" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_forest" x="992" y="336" w="96" h="64" xo="464" yo="0" id="10029577" name="inst_AF726CAF" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_forest" x="736" y="336" w="96" h="64" xo="464" yo="0" id="10029578" name="inst_EB7689EF" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

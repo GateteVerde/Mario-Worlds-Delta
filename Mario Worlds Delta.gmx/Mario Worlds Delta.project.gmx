@@ -678,6 +678,7 @@
       <sprite>sprites\spr_noteblock_hidden</sprite>
       <sprite>sprites\spr_noteblock_diagonal_r</sprite>
       <sprite>sprites\spr_noteblock_diagonal_l</sprite>
+      <sprite>sprites\spr_quaverblock</sprite>
       <sprite>sprites\spr_playerblock</sprite>
       <sprite>sprites\spr_guessblock</sprite>
       <sprite>sprites\spr_woodblock</sprite>
@@ -842,6 +843,8 @@
         <sprite>sprites\spr_powblock_blue_th</sprite>
         <sprite>sprites\spr_walltrampoline</sprite>
         <sprite>sprites\spr_walltrampoline_end</sprite>
+        <sprite>sprites\spr_walltriangle_r</sprite>
+        <sprite>sprites\spr_walltriangle_l</sprite>
         <sprite>sprites\spr_glowblock</sprite>
         <sprite>sprites\spr_crate</sprite>
         <sprite>sprites\spr_pblock</sprite>
@@ -1355,6 +1358,9 @@
         <sprite>sprites\spr_bobomb_parachute_land</sprite>
         <sprite>sprites\spr_cannon</sprite>
         <sprite>sprites\spr_cannon_ball</sprite>
+        <sprite>sprites\spr_cannon_red</sprite>
+        <sprite>sprites\spr_cannon_red_ball</sprite>
+        <sprite>sprites\spr_cannon_side</sprite>
         <sprite>sprites\spr_cannon_quad</sprite>
         <sprite>sprites\spr_rengine</sprite>
         <sprite>sprites\spr_rengine_st</sprite>
@@ -1689,6 +1695,7 @@
           <sprites name="Enemies">
             <sprite>sprites\spr_palette_beachkoopa_cape</sprite>
             <sprite>sprites\spr_palette_wiggler</sprite>
+            <sprite>sprites\spr_palette_rotodisc</sprite>
           </sprites>
           <sprite>sprites\spr_palette_yoshi</sprite>
         </sprites>
@@ -1917,15 +1924,16 @@
         <background>background\tls_lava_animate_4</background>
       </backgrounds>
       <background>background\tls_ground</background>
+      <background>background\tls_ground_airship</background>
       <background>background\tls_ground_bonus</background>
       <background>background\tls_ground_clouds</background>
       <background>background\tls_ground_desert</background>
       <background>background\tls_ground_forest</background>
       <background>background\tls_ground_ghosthouse</background>
+      <background>background\tls_ground_giant</background>
       <background>background\tls_ground_pipes</background>
       <background>background\tls_ground_sewer</background>
       <background>background\tls_ground_swampland</background>
-      <background>background\tls_ground_giant</background>
       <background>background\tls_lava</background>
     </backgrounds>
     <backgrounds name="Map Tilesets">
@@ -2189,6 +2197,7 @@
       <object>objects\obj_noteblock_hidden</object>
       <object>objects\obj_noteblock_diagonal_r</object>
       <object>objects\obj_noteblock_diagonal_l</object>
+      <object>objects\obj_quaverblock</object>
       <object>objects\obj_playerblock</object>
       <object>objects\obj_woodblock</object>
       <object>objects\obj_yblock</object>
@@ -2269,6 +2278,8 @@
         <object>objects\obj_pblock_on</object>
         <object>objects\obj_pblock_off</object>
         <object>objects\obj_walltrampoline</object>
+        <object>objects\obj_walltriangle_r</object>
+        <object>objects\obj_walltriangle_l</object>
         <object>objects\obj_glowblock</object>
         <object>objects\obj_crate</object>
         <object>objects\obj_spikeblock</object>
@@ -2534,8 +2545,10 @@
         <object>objects\obj_bobomb_cannon</object>
         <object>objects\obj_bobomb_parachute</object>
         <object>objects\obj_cannon</object>
+        <object>objects\obj_cannon_red</object>
         <object>objects\obj_cannon_bomb</object>
         <object>objects\obj_cannon_quad</object>
+        <object>objects\obj_cannon_side</object>
         <object>objects\obj_rengine</object>
         <object>objects\obj_rengine_alt</object>
       </objects>
