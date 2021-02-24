@@ -1365,6 +1365,9 @@
         <sprite>sprites\spr_rengine</sprite>
         <sprite>sprites\spr_rengine_st</sprite>
         <sprite>sprites\spr_rengine_alt</sprite>
+        <sprite>sprites\spr_rockywrench</sprite>
+        <sprite>sprites\spr_rockywrench_dead</sprite>
+        <sprite>sprites\spr_rockywrench_wrench</sprite>
       </sprites>
       <sprite>sprites\spr_walrus</sprite>
       <sprite>sprites\spr_walrus_turn</sprite>
@@ -1543,6 +1546,7 @@
       <sprite>sprites\spr_seaweed</sprite>
       <sprite>sprites\spr_seaweed_top</sprite>
       <sprite>sprites\spr_seaweed_bottom</sprite>
+      <sprite>sprites\spr_propeller</sprite>
     </sprites>
     <sprites name="Modifiers">
       <sprites name="Blocks">
@@ -2551,6 +2555,8 @@
         <object>objects\obj_cannon_side</object>
         <object>objects\obj_rengine</object>
         <object>objects\obj_rengine_alt</object>
+        <object>objects\obj_rockywrench</object>
+        <object>objects\obj_rockywrench_infinite</object>
       </objects>
       <objects name="Generators">
         <object>objects\obj_generator_galoomba</object>
@@ -2634,6 +2640,7 @@
       </objects>
       <object>objects\obj_muncher</object>
       <object>objects\obj_seaweed</object>
+      <object>objects\obj_propeller</object>
     </objects>
     <objects name="Modifiers">
       <objects name="Blocks">
@@ -2960,6 +2967,7 @@
             </objects>
             <object>objects\obj_bobomb_held</object>
             <object>objects\obj_cannon_ball</object>
+            <object>objects\obj_rockywrench_wrench</object>
           </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_chomp</object>
