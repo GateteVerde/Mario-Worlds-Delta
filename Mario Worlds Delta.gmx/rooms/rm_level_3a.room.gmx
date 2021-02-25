@@ -4,7 +4,7 @@
   <width>3584</width>
   <height>432</height>
   <vsnap>16</vsnap>
-  <hsnap>8</hsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_player" x="40" y="384" name="inst_CDAC17C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_35D7E805" locked="0" code="inisection = 'Classic'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_35D7E805" locked="0" code="inisection = 'Classic'&#xA;leveltime = 400;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="256" y="336" name="inst_9C489853" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="336" y="336" name="inst_A86FD696" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="368" y="336" name="inst_04EE245A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -181,29 +181,7 @@
     <instance objName="obj_classickoopa" x="1720" y="384" name="inst_D8AF480D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_toad" x="2208" y="384" name="inst_53F3B1E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block_toad" x="2224" y="384" name="inst_69F11ECC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_walltriangle_r" x="720" y="384" name="inst_1130E294" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_walltriangle_r" x="896" y="384" name="inst_BCE8FA4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_walltriangle_l" x="944" y="384" name="inst_5B29987D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_walltriangle_l" x="768" y="384" name="inst_CD83AFDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_propeller" x="208" y="312" name="inst_6FC07205" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="96" y="288" name="inst_BBBB4BD9" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="112" y="304" name="inst_64B5AEB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="128" y="320" name="inst_A9598BC6" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="192" y="288" name="inst_EDA2F4E1" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="160" y="256" name="inst_FA455719" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_semisolid" x="112" y="288" name="inst_C75B8F01" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rockywrench" x="136" y="288" name="inst_565E26F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rockywrench" x="752" y="336" name="inst_70E466E2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_propeller" x="352" y="216" name="inst_EC779852" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_semisolid" x="256" y="192" name="inst_304A43EB" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="240" y="192" name="inst_7B4D74F3" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="256" y="208" name="inst_33C2A7FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="272" y="224" name="inst_C0C2FD6C" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="336" y="192" name="inst_69A2167A" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_solid" x="304" y="160" name="inst_338CF54B" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rockywrench_infinite" x="280" y="192" name="inst_4C3E4AB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fireflower" x="120" y="384" name="inst_87B8B671" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fireflower" x="184" y="384" name="inst_48643CD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_modifier_gswitch" x="368" y="336" name="inst_85584F72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="528" y="320" w="144" h="80" xo="464" yo="64" id="10029576" name="inst_289EF64A" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -760,43 +738,6 @@
     <tile bgName="tls_ground" x="3552" y="416" w="16" h="16" xo="16" yo="16" id="10030025" name="inst_C0E98657" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="3568" y="416" w="16" h="16" xo="16" yo="16" id="10030026" name="inst_77382EFD" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="0" y="400" w="16" h="32" xo="16" yo="0" id="10030191" name="inst_670083FB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="96" y="288" w="16" h="16" xo="32" yo="32" id="10051289" name="inst_C539FDFA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="112" y="288" w="16" h="16" xo="80" yo="32" id="10051290" name="inst_A1483F33" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="128" y="288" w="16" h="16" xo="80" yo="32" id="10051291" name="inst_5BC3CD56" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="144" y="288" w="16" h="16" xo="80" yo="32" id="10051292" name="inst_3332B80C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="160" y="288" w="16" h="16" xo="80" yo="32" id="10051293" name="inst_C20BC213" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="176" y="288" w="16" h="16" xo="80" yo="32" id="10051294" name="inst_4BA6D8AA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="192" y="288" w="16" h="16" xo="96" yo="32" id="10051295" name="inst_22A51114" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="128" y="304" w="16" h="16" xo="96" yo="80" id="10051303" name="inst_733E70B2" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="144" y="304" w="16" h="16" xo="96" yo="80" id="10051304" name="inst_5D8D276B" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="160" y="304" w="16" h="16" xo="96" yo="80" id="10051305" name="inst_0B4EF793" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="176" y="304" w="16" h="16" xo="96" yo="80" id="10051306" name="inst_1F08F2F4" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="160" y="320" w="16" h="16" xo="96" yo="80" id="10051309" name="inst_7DAB3CE8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="176" y="320" w="16" h="16" xo="64" yo="80" id="10051310" name="inst_D20904D7" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="96" y="304" w="32" h="16" xo="32" yo="48" id="10051312" name="inst_4D873EDE" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="128" y="320" w="32" h="16" xo="32" yo="48" id="10051313" name="inst_0A039916" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="192" y="304" w="16" h="16" xo="64" yo="48" id="10051314" name="inst_B2B33871" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="160" y="256" w="32" h="32" xo="0" yo="48" id="10051315" name="inst_332003EE" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="128" y="272" w="16" h="16" xo="128" yo="64" id="10051316" name="inst_4F6F2DC6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="240" y="192" w="16" h="16" xo="32" yo="32" id="10051327" name="inst_3D671FAC" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="240" y="208" w="32" h="16" xo="32" yo="48" id="10051328" name="inst_5C1E256C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="272" y="224" w="16" h="16" xo="32" yo="80" id="10051329" name="inst_FC31C6B6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="288" y="224" w="16" h="16" xo="96" yo="80" id="10051330" name="inst_D70B0004" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="304" y="224" w="16" h="16" xo="96" yo="80" id="10051331" name="inst_43B1D639" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="320" y="224" w="16" h="16" xo="64" yo="80" id="10051332" name="inst_C102D60E" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="336" y="208" w="16" h="16" xo="64" yo="48" id="10051333" name="inst_B7E4F697" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="336" y="192" w="16" h="16" xo="96" yo="32" id="10051334" name="inst_82D7F4EB" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="256" y="192" w="16" h="16" xo="80" yo="32" id="10051335" name="inst_9708E998" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="272" y="192" w="16" h="16" xo="80" yo="32" id="10051336" name="inst_02FEF472" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="288" y="192" w="16" h="16" xo="80" yo="32" id="10051337" name="inst_BED3051C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="304" y="192" w="16" h="16" xo="80" yo="32" id="10051338" name="inst_D08B7DD6" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="320" y="192" w="16" h="16" xo="80" yo="32" id="10051339" name="inst_2162D522" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="304" y="160" w="32" h="32" xo="0" yo="48" id="10051340" name="inst_98DF4C64" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="272" y="208" w="16" h="16" xo="96" yo="80" id="10051341" name="inst_04264C76" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="288" y="208" w="16" h="16" xo="96" yo="80" id="10051342" name="inst_AACC227C" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="304" y="208" w="16" h="16" xo="96" yo="80" id="10051343" name="inst_B9A765D5" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="320" y="208" w="16" h="16" xo="96" yo="80" id="10051344" name="inst_E4E4C631" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="tls_ground_airship" x="272" y="176" w="16" h="16" xo="128" yo="64" id="10051345" name="inst_98D54249" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

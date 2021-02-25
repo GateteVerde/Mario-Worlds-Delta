@@ -71,12 +71,13 @@ if (instance_exists(obj_playerparent)) {
 
     //With the player
     with (obj_playerparent) {
-    
-        //Stop vertical speed
-        vspeed = 0;
         
         //Create player
         with (player_create(x, y)) {
+        
+            //Hereby speed
+            hspeed = other.hspeed;
+            vspeed = other.vspeed;
         
             //Make invulnerable for 1.5 seconds
             invulnerable = 1;

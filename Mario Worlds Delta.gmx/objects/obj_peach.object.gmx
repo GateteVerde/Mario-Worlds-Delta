@@ -36,9 +36,9 @@ offset = 0;
 offsetnext = 0;
 
 //Jump Strength
-jumpstrength = 4.4675;
-jumpstrength_spin = 4.0625;
-jumpstrength_bounce = 5.225;
+jumpstrength = 4.6675;
+jumpstrength_spin = 4.2625;
+jumpstrength_bounce = 5.425;
 
 //Trampoline boost
 trampoline_boost = 7.5;
@@ -1087,9 +1087,9 @@ if (global.mount == 1) {
 else {
 
     //Jump Strength
-    jumpstrength = 4.4675;
-    jumpstrength_spin = 4.0625;
-    jumpstrength_bounce = 5.225;
+    jumpstrength = 4.6675;
+    jumpstrength_spin = 4.2625;
+    jumpstrength_bounce = 5.425;
     
     //Trampoline boost
     trampoline_boost = 7.5;
@@ -1288,7 +1288,7 @@ stun_anim += 0.5;
 player_set_palette(id);
     
 //Draw the player
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+offset, xscale, 1, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+offset, xscale, 1, angle, c_white, image_alpha);
 
 //Draw stun
 if (stun &gt; 0) {
