@@ -158,6 +158,13 @@ while (step &gt;= 1) {
                 
                 //...and remember it
                 ds_map_replace(global.worldmap, panel, 1);
+                
+            }
+            
+            with (obj_mapplayer) {
+            
+                status = 'IDLE';
+                
             }
         
             //Destroy

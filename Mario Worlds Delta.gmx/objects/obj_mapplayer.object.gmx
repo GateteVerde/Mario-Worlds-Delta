@@ -80,6 +80,7 @@ if (global.clear &gt; 0) {
 
     alarm[0] = 30;
     status = 'WAIT';
+    
 }
 </string>
           </argument>
@@ -310,6 +311,18 @@ else if (global.clear == 3) {
 //Reset clear variable
 global.clear = 0;
 
+if (instance_exists(check)) {
+
+    //If no map openers were made...
+    if ((instance_number(obj_mapopener) == 0) &amp;&amp; (check.paneltype == 0)) {
+    
+        //Be able to move again
+        status = 'IDLE';
+    
+    }
+    
+} else status = 'IDLE';
+
 //Mark level as beaten
 with (check) {
 
@@ -452,107 +465,6 @@ if (status == 'IDLE')
     //Check for a panel
     panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
     
-    //Do not allow movement if there's paths opening
-    if (is_ready == 0)
-    &amp;&amp; (obj_controller.fade == 1)
-    &amp;&amp; (instance_number(obj_mapopener) == 0) {
-
-        //Moving upwards
-        if (input_check(input.up)) {
-        
-            //Check for a path above
-            var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
-        
-            //If there's a path above and it is visible
-            if (pathU) 
-            &amp;&amp; (pathU.image_alpha == 1) {
-            
-                direct = 90;
-                status = 'WALK';
-            }
-        }
-        
-        //Moving downwards
-        else if (input_check(input.down)) {
-        
-            //Check for a path above
-            var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
-        
-            //If there's a path above and it is visible
-            if (pathD) 
-            &amp;&amp; (pathD.image_alpha == 1) {
-            
-                direct = 270;
-                status = 'WALK';
-            }
-        }
-        
-        //Moving to the left
-        else if (input_check(input.left)) {
-        
-            //Check for a path above
-            var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
-        
-            //If there's a path above and it is visible
-            if (pathL) 
-            &amp;&amp; (pathL.image_alpha == 1) {
-            
-                direct = 180;
-                status = 'WALK';
-            }
-        }
-        
-        //Moving to the right
-        else if (input_check(input.right)) {
-        
-            //Check for a path above
-            var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
-        
-            //If there's a path above and it is visible
-            if (pathR) 
-            &amp;&amp; (pathR.image_alpha == 1) {
-            
-                direct = 0;
-                status = 'WALK';
-            }
-        }
-            
-        //Change player
-        if (input_check_pressed(input.select)) {
-        
-            global.player++;
-            if (global.player &gt; 3)
-                global.player = 0;
-        }
-        
-        //If there's a panel and this panel is available        
-        if (panel)
-        &amp;&amp; (panel.beaten &lt; 2)
-        &amp;&amp; ((status == 'IDLE')
-        || (status == 'PREIDLE'))
-        &amp;&amp; ((input_check_pressed(input.action0))
-        || (input_check_pressed(input.action2))) {
-        
-            //Play 'Enter Stage' sound
-            audio_stop_play_sound(snd_enterstage, 0, false);
-        
-            //The player is ready
-            is_ready = 1;
-            
-            //Stop music
-            obj_mapmanager.alarm[1] = 1;
-            
-            //Go to the stage
-            panel.alarm[1] = 60;
-        }
-        
-        /*Open adyancent paths on map if debug mode is enabled.
-        if (node)
-        &amp;&amp; (input_check_pressed(input.select))
-            event_user(15);
-        */
-    }
-    
     //If the map HUD exists
     if (instance_exists(obj_hud_map)) {
     
@@ -560,8 +472,115 @@ if (status == 'IDLE')
         if (panel)
             obj_hud_map.levelname = string(panel.levelname);
         else
-            obj_hud_map.levelname = "";            
+            obj_hud_map.levelname = "";   
+                     
     }
+    
+    if (status != 'WAIT') {
+    
+        //Do not allow movement if there's paths opening
+        if (is_ready == 0)
+        &amp;&amp; (obj_controller.fade == 1)
+        &amp;&amp; (instance_number(obj_mapopener) == 0) {
+    
+            //Moving upwards
+            if (input_check(input.up)) {
+            
+                //Check for a path above
+                var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);
+            
+                //If there's a path above and it is visible
+                if (pathU) 
+                &amp;&amp; (pathU.image_alpha == 1) {
+                
+                    direct = 90;
+                    status = 'WALK';
+                }
+            }
+            
+            //Moving downwards
+            else if (input_check(input.down)) {
+            
+                //Check for a path above
+                var pathD = collision_point(x+xorig, y+yorig+9, obj_pathparent, 0, 0);
+            
+                //If there's a path above and it is visible
+                if (pathD) 
+                &amp;&amp; (pathD.image_alpha == 1) {
+                
+                    direct = 270;
+                    status = 'WALK';
+                }
+            }
+            
+            //Moving to the left
+            else if (input_check(input.left)) {
+            
+                //Check for a path above
+                var pathL = collision_point(x+xorig-8, y+yorig, obj_pathparent, 0, 0);
+            
+                //If there's a path above and it is visible
+                if (pathL) 
+                &amp;&amp; (pathL.image_alpha == 1) {
+                
+                    direct = 180;
+                    status = 'WALK';
+                }
+            }
+            
+            //Moving to the right
+            else if (input_check(input.right)) {
+            
+                //Check for a path above
+                var pathR = collision_point(x+xorig+9, y+yorig, obj_pathparent, 0, 0);
+            
+                //If there's a path above and it is visible
+                if (pathR) 
+                &amp;&amp; (pathR.image_alpha == 1) {
+                
+                    direct = 0;
+                    status = 'WALK';
+                }
+            }
+                
+            //Change player
+            if (input_check_pressed(input.select)) {
+            
+                global.player++;
+                if (global.player &gt; 3)
+                    global.player = 0;
+            }
+            
+            //If there's a panel and this panel is available        
+            if (panel)
+            &amp;&amp; (panel.beaten &lt; 2)
+            &amp;&amp; ((status == 'IDLE')
+            || (status == 'PREIDLE'))
+            &amp;&amp; ((input_check_pressed(input.action0))
+            || (input_check_pressed(input.action2))) {
+            
+                //Play 'Enter Stage' sound
+                audio_stop_play_sound(snd_enterstage, 0, false);
+            
+                //The player is ready
+                is_ready = 1;
+                
+                //Stop music
+                obj_mapmanager.alarm[1] = 1;
+                
+                //Go to the stage
+                panel.alarm[1] = 60;
+            }
+            
+            /*Open adyancent paths on map if debug mode is enabled.
+            if (node)
+            &amp;&amp; (input_check_pressed(input.select))
+                event_user(15);
+            */
+        
+        }
+    }
+    
 }
 
 //Otherwise, if the player is moving
