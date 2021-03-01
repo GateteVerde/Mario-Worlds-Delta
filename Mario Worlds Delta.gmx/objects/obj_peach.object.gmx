@@ -36,9 +36,9 @@ offset = 0;
 offsetnext = 0;
 
 //Jump Strength
-jumpstrength = 4.6675;
-jumpstrength_spin = 4.2625;
-jumpstrength_bounce = 5.425;
+jumpstrength = 4.9675;
+jumpstrength_spin = 4.5625;
+jumpstrength_bounce = 5.725;
 
 //Trampoline boost
 trampoline_boost = 7.5;
@@ -1087,9 +1087,9 @@ if (global.mount == 1) {
 else {
 
     //Jump Strength
-    jumpstrength = 4.6675;
-    jumpstrength_spin = 4.2625;
-    jumpstrength_bounce = 5.425;
+    jumpstrength = 4.9675;
+    jumpstrength_spin = 4.5625;
+    jumpstrength_bounce = 5.725;
     
     //Trampoline boost
     trampoline_boost = 7.5;

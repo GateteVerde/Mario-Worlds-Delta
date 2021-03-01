@@ -81,7 +81,7 @@ if (instance_exists(obj_playerparent))
             <string>///Unleash the noise
 
 if (ready == 0) 
-&amp;&amp; (!place_empty(x, y)) {
+&amp;&amp; (!position_meeting(x, y, obj_qblock_hidden)) {
 
     //Unleash the pig
     instance_create(x+8, y+12, obj_sound_oink_b);

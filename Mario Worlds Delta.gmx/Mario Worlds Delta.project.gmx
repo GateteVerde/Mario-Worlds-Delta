@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="43" name="datafiles">
-    <datafiles number="43" name="music">
+  <datafiles number="44" name="datafiles">
+    <datafiles number="44" name="music">
       <datafile>
         <name>bgm_athletic.ogg</name>
         <exists>-1</exists>
@@ -76,7 +76,7 @@
       <datafile>
         <name>bgm_classic.ogg</name>
         <exists>-1</exists>
-        <size>703626</size>
+        <size>1137574</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -1290,6 +1290,7 @@
         <sprite>sprites\spr_thwomp</sprite>
         <sprite>sprites\spr_thwomp_side</sprite>
         <sprite>sprites\spr_thwomp_big</sprite>
+        <sprite>sprites\spr_thwomp_roll</sprite>
         <sprite>sprites\spr_magikoopa</sprite>
         <sprite>sprites\spr_magikoopa_alt</sprite>
         <sprite>sprites\spr_magikoopa_dead</sprite>
@@ -2510,10 +2511,12 @@
         <object>objects\obj_podoboo</object>
         <object>objects\obj_podoboo_diagonal</object>
         <object>objects\obj_thwimp</object>
+        <object>objects\obj_thwimp_alt</object>
         <object>objects\obj_thwomp</object>
         <object>objects\obj_thwomp_left</object>
         <object>objects\obj_thwomp_right</object>
         <object>objects\obj_thwomp_mega</object>
+        <object>objects\obj_thwomp_roll</object>
         <object>objects\obj_magikoopa</object>
         <object>objects\obj_netkoopa</object>
         <object>objects\obj_netkoopa_red</object>
@@ -2600,13 +2603,13 @@
       <objects name="Panels">
         <objects name="Special">
           <object>objects\obj_levelpipe</object>
+          <object>objects\obj_levelpalace_y</object>
+          <object>objects\obj_levelpalace_g</object>
+          <object>objects\obj_levelpalace_r</object>
+          <object>objects\obj_levelpalace_b</object>
         </objects>
         <object>objects\obj_levelpanel</object>
         <object>objects\obj_levelpanel_castle</object>
-        <object>objects\obj_levelpalace_y</object>
-        <object>objects\obj_levelpalace_g</object>
-        <object>objects\obj_levelpalace_r</object>
-        <object>objects\obj_levelpalace_b</object>
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">
@@ -3102,7 +3105,6 @@
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
           <room>rooms\rm_devtest_b</room>
-          <room>rooms\rm_devtest_c</room>
         </rooms>
       </rooms>
     </rooms>

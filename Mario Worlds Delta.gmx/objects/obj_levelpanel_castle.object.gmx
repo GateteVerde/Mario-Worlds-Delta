@@ -49,6 +49,7 @@ if (ds_map_exists(global.worldmap, id))
         
         //If this switch has been pressed before, make it visible for the player
         if (ds_map_find_value(global.worldmap, id) == 2) {
+        
             //Set sprite
             alarm[3] = 1;
             image_speed = 0;
@@ -103,7 +104,9 @@ sprite_index = spr_levelpanel_castle_destroyed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Play 'Destroy' sound
+            <string>///Turn into a destroyed castle
+
+//Play 'Destroy' sound
 audio_stop_play_sound(snd_destroy, 0, false);
 
 //Turn into a stomped switch
@@ -114,12 +117,12 @@ beaten = 2;
 
 //Create smoke effect
 with (instance_create(x+8, y+8, obj_smoke)) {
+
     sprite_index = spr_smoke_32;
     depth = other.depth - 1;
 }
 
-with obj_mapplayer
-    alarm[0] = 45;
+with (obj_mapplayer) alarm[1] = 60;
 </string>
           </argument>
         </arguments>

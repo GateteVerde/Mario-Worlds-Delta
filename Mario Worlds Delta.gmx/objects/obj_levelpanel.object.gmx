@@ -96,11 +96,10 @@ if (ds_map_exists(global.worldmap, id))
             <kind>1</kind>
             <string>///Set up custom level panels
 
-if sprite_index = spr_levelpanel_ghost {
+if (sprite_index == spr_levelpanel_ghost) {
 
     image_alpha = 1;
-    instance_create(x+8, y, obj_mapboo);
-    
+    instance_create(x+8, y, obj_mapboo);    
 }
 </string>
           </argument>

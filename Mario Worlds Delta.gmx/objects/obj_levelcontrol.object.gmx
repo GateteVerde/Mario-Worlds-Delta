@@ -620,8 +620,8 @@ if (follow != noone) {
                     view_vspeed[view_current] = 6;
             }
                 
-            //Otherwise, if the player is climbing
-            else if (obj_playerparent.state == statetype.climb) {
+            //Otherwise, if the player is climbing or wall running
+            else if ((obj_playerparent.state == statetype.climb) || (instance_exists(obj_player_wallrunning))) {
             
                 y = obj_playerparent.y;
                 if (view_vspeed[view_current] != 6)

@@ -34,9 +34,9 @@ event_inherited();
 alarm[5] = 1;
 
 //Jump Strength
-jumpstrength = 4.0675;
-jumpstrength_spin = 3.6625;
-jumpstrength_bounce = 4.825;
+jumpstrength = 4.9675;
+jumpstrength_spin = 4.5625;
+jumpstrength_bounce = 5.725;
 
 //Trampoline boost
 trampoline_boost = 7.5;
@@ -81,7 +81,7 @@ hspeed_walk = 1.55;
 hspeed_run = 2.55;
 
 //Maximum horizontal speed (Full Meter)
-hspeed_run_full = 3.3;
+hspeed_run_full = 3.35;
 
 //Max falling speed
 vspeedmax = 4;
@@ -1105,9 +1105,9 @@ if (global.mount == 1) {
 else {
 
     //Jump Strength
-    jumpstrength = 4.0675;
-    jumpstrength_spin = 3.6625;
-    jumpstrength_bounce = 4.825;
+    jumpstrength = 4.9675;
+    jumpstrength_spin = 4.5625;
+    jumpstrength_bounce = 5.725;
     
     //Trampoline boost
     trampoline_boost = 7.5;
@@ -1152,7 +1152,7 @@ else {
     hspeed_run = 2.55;
     
     //Maximum horizontal speed (Full Meter)
-    hspeed_run_full = 3.3;
+    hspeed_run_full = 3.35;
     
     //Max falling speed
     vspeedmax = 4;

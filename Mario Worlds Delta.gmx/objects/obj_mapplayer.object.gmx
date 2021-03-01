@@ -103,9 +103,9 @@ if (global.clear &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Reset player position
-if (status == 'PREIDLE')
+            <string>///Set up 'IDLE' status if in 'PREIDLE' state
 
+if (status == 'PREIDLE')
     status = 'IDLE';
 </string>
           </argument>
@@ -164,19 +164,14 @@ if (global.clear == 1) {
 
     //If this panel is a switch palace, do not open paths
     if (check.paneltype == 2) {
-    
-        //Reset clear variable
-        global.clear = 0;
         
         //Mark panel as beaten
         with (check) {
         
             ds_map_replace(global.worldmap, id, 2);
             alarm[2] = 1;
-        }
-        
-        //Exit
-        exit;            
+            exit;
+        }           
     }
     
     //Otherwise
@@ -185,18 +180,15 @@ if (global.clear == 1) {
         //If this panel is a castle
         if (check.paneltype == 1) {
         
-            if (check.beaten) != 2 {
+            if (check.beaten != 2) {
             
                 with (check) {
                 
                     ds_map_replace(global.worldmap, id, 2);
                     alarm[2] = 1;
-                    exit;
-                    
-                }
-                
-            }
-            
+                    exit;                    
+                }         
+            }            
         }
     
         //Check what exit was set in the panel
@@ -319,17 +311,15 @@ else if (global.clear == 3) {
 global.clear = 0;
 
 //Mark level as beaten
-with (check)
-    if paneltype != 1 ds_map_replace(global.worldmap_beaten, id, 1);
+with (check) {
 
-//Do not remember checkpoint for this level
-if (variable_instance_exists(check, "checkpoint")) {
-
-    with (check) checkpoint = noone;
+    if (paneltype != 1) 
+        ds_map_replace(global.worldmap_beaten, id, 1);
 }
 
-//Reset status
-status = 'IDLE'
+//Do not remember checkpoint for this level
+if (variable_instance_exists(check, "checkpoint"))
+    with (check) checkpoint = noone;
 </string>
           </argument>
         </arguments>
@@ -456,8 +446,8 @@ image_speed = 0.125;
 
 //If the player is not moving
 if (status == 'IDLE') 
-|| (status == 'PREIDLE')
-|| (status == 'WAIT') {
+|| (status == 'WAIT') 
+|| (status == 'PREIDLE') {
 
     //Check for a panel
     panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
@@ -570,8 +560,7 @@ if (status == 'IDLE')
         if (panel)
             obj_hud_map.levelname = string(panel.levelname);
         else
-            obj_hud_map.levelname = "";
-            
+            obj_hud_map.levelname = "";            
     }
 }
 
@@ -688,7 +677,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DEBUG FUNCTION: Open adyacent paths
+            <string>///Open adyacent paths
 
 //Check for a path above and open it if it is not visible
 var pathU = collision_point(x+xorig, y+yorig-8, obj_pathparent, 0, 0);

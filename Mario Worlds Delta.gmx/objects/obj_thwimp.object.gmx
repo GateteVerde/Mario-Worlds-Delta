@@ -90,6 +90,31 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset stomp
+
+stomp = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -221,10 +246,8 @@ if (other.bbox_bottom &lt; bbox_top-vspeed+5) {
     if ((other.jumpstyle == 1) || (global.mount &gt; 0)) {
     
         alarm[1] = 10;
-        stomp = -1;
-    
-    }
-    
+        stomp = -1;    
+    }    
 }
 </string>
           </argument>
