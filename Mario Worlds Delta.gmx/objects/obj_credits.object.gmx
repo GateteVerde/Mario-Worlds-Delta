@@ -83,7 +83,9 @@ text = "CREATED BY#
 #
 #BEBN LEGG
 #LADIESMAN217
+#MADNYLE
 #MFGG
+#MIDIGUY
 #MRDOUBLEA
 #PINCI
 #SMWCENTRAL
@@ -330,7 +332,7 @@ else if (ready == 3) {
 if (ready == 4) {
 
     yy += 0.4;
-    if (yy &gt; 2080) {
+    if (yy &gt; 2112) {
     
         alpha += 0.025;
         if (alpha &gt; 1) {
