@@ -98,7 +98,7 @@ wmap_return();
             <string>///Take points off time and add it to score
 
 //If the HUD is not "Minimalist / No Score"
-if (obj_controller.hud_type != 3) {
+if (obj_controller.hud_type != 4) {
        
     //If the time is greater than 4, decrement 5 seconds from timer
     if (global.time &gt; 4) {

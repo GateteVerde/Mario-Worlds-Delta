@@ -211,11 +211,11 @@ if (instance_exists(obj_levelcontrol)) {
           <argument>
             <kind>1</kind>
             <string>///Keep track of the time
+
 if (instance_exists(obj_levelcontrol)) {
 
     displaytime = global.time;
-    displaydragoncoins = global.dcoins;
-    
+    displaydragoncoins = global.dcoins;    
 }
 </string>
           </argument>
