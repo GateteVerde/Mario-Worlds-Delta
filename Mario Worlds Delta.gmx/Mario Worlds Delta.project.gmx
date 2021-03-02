@@ -829,6 +829,7 @@
           <sprite>sprites\spr_donut_ice</sprite>
           <sprite>sprites\spr_donut_ice_triple</sprite>
           <sprite>sprites\spr_donut_appear</sprite>
+          <sprite>sprites\spr_boltlift</sprite>
           <sprite>sprites\spr_blocktrain</sprite>
         </sprites>
         <sprite>sprites\spr_pswitch</sprite>
@@ -1829,6 +1830,7 @@
         </sprites>
         <sprite>sprites\spr_24mask</sprite>
         <sprite>sprites\spr_blowmask</sprite>
+        <sprite>sprites\spr_liftmask</sprite>
         <sprite>sprites\spr_path</sprite>
         <sprite>sprites\spr_powkiller</sprite>
         <sprite>sprites\spr_shellmask</sprite>
@@ -2273,6 +2275,7 @@
           <object>objects\obj_donut_red_triple</object>
           <object>objects\obj_donut_ice</object>
           <object>objects\obj_donut_ice_triple</object>
+          <object>objects\obj_boltlift</object>
           <object>objects\obj_blocktrain</object>
         </objects>
         <object>objects\obj_pswitch</object>
@@ -2854,6 +2857,8 @@
               <object>objects\obj_donut_ticker</object>
               <object>objects\obj_engine_rope</object>
               <object>objects\obj_engine_blade</object>
+              <object>objects\obj_boltlift_fall</object>
+              <object>objects\obj_boltlift_top</object>
               <object>objects\obj_blocktrain_front</object>
               <object>objects\obj_blocktrain_back</object>
               <object>objects\obj_blocktrain_middle</object>
