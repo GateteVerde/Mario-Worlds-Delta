@@ -53,7 +53,7 @@
   <instances>
     <instance objName="obj_semisolid" x="0" y="208" name="inst_0F1BA618" locked="0" code="" scaleX="16" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_F7DA1E0F" locked="0" code="inisection = &quot;GhostHouse&quot;;&#xA;leveltime = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_rainmaker" x="16" y="-16" name="inst_1ED2C418" locked="0" code="raining = false;&#xA;smog = true;&#xA;lightning = false;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rainmaker" x="16" y="-16" name="inst_1ED2C418" locked="0" code="raining = false;&#xA;smog = 2;&#xA;lightning = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_noyoshi_cutscene" x="48" y="192" name="inst_67E52FA3" locked="0" code="//Level start&#xA;destination = rm_level_6b;&#xA;&#xA;//0: Castle&#xA;//1: Ghost House&#xA;//2: Unused from SMW&#xA;doortype = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

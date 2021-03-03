@@ -596,43 +596,47 @@ if (barrier == true) {
     }
 }
 
-//Follow
-if (follow != noone) {
+//If the autoscroll object does exist
+if (instance_number(obj_autoscroll) &gt; 0) 
+&amp;&amp; (instance_number(obj_player_clear) == 0) {
 
-    //Pan instantly if the barrier is deactivated
-    if (barrier == false) {
+    //Snap into position
+    x = obj_autoscroll.x;
+    y = obj_autoscroll.y;
     
-        x = follow.x;
-        y = follow.y;
-    }
-    
-    //Otherwise, perform movement depending of the given conditions
-    else { 
+    //Set vertical view speed
+    view_vspeed[view_current] = -1;
+}
 
-        //Stay relative to the player's y position
-        if (instance_exists(obj_playerparent)) {
+//Otherwise
+else {
+
+    //Follow
+    if (follow != noone) {
         
-            //If the player is running
-            if (obj_playerparent.run == true) {
+        //Pan instantly if the barrier is deactivated
+        if (barrier == false) {
+        
+            x = follow.x;
+            y = follow.y;
+        }
+        
+        //Otherwise, perform movement depending of the given conditions
+        else {
+        
+            //Stay relative to the player's y position
+            if (instance_exists(obj_playerparent)) {
             
-                y = obj_playerparent.y;
-                if (view_vspeed[view_current] != 6)
-                    view_vspeed[view_current] = 6;
-            }
+                //If the player is running
+                if (obj_playerparent.run == true) {
                 
-            //Otherwise, if the player is climbing or wall running
-            else if ((obj_playerparent.state == statetype.climb) || (instance_exists(obj_player_wallrunning))) {
-            
-                y = obj_playerparent.y;
-                if (view_vspeed[view_current] != 6)
-                    view_vspeed[view_current] = 6;
-            }
-                
-            //Otherwise
-            else {
-            
-                //If the player is swimming
-                if (obj_playerparent.swimming == true) {
+                    y = obj_playerparent.y;
+                    if (view_vspeed[view_current] != 6)
+                        view_vspeed[view_current] = 6;
+                }
+                    
+                //Otherwise, if the player is climbing or wall running
+                else if ((obj_playerparent.state == statetype.climb) || (instance_exists(obj_player_wallrunning))) {
                 
                     y = obj_playerparent.y;
                     if (view_vspeed[view_current] != 6)
@@ -640,100 +644,112 @@ if (follow != noone) {
                 }
                     
                 //Otherwise
-                else if (obj_playerparent.swimming == false) {
+                else {
                 
-                    //If the player is idle or walking
-                    if (obj_playerparent.state == statetype.idle) 
-                    || (obj_playerparent.state == statetype.walk) {
-                    
-                        //Position player just reached
-                        if (camlock == false) then { floorY = obj_playerparent.y; }
-                    
-                        //If the player is above the camera
-                        if (obj_playerparent.y &lt; y) {
-                        
-                            //If the camera is 4 pixels below the player y position, move 4 pixels upwards until the camera catches the player.
-                            if (y &gt; obj_playerparent.y+4)
-                                y -= 4;
-                                
-                            //Otherwise
-                            else {
-                            
-                                y = obj_playerparent.y;
-                                if (view_vspeed[view_current] != 6)
-                                    view_vspeed[view_current] = 6;
-                            }
-                        }
-                    } 
-                    else {
-                    
-                        //If player didn't reach Y position on the ground, catch the player (only applies going up)
-                        if (round(y) &gt; floorY)
-                            y -= 4;
-                    }
-                    
-                    //If the player is below the camera, catch him instantly
-                    if (obj_playerparent.y &gt; y) {
+                    //If the player is swimming
+                    if (obj_playerparent.swimming == true) {
                     
                         y = obj_playerparent.y;
-                        if (view_vspeed[view_current] != -1)
-                            view_vspeed[view_current] = -1;
+                        if (view_vspeed[view_current] != 6)
+                            view_vspeed[view_current] = 6;
+                    }
+                        
+                    //Otherwise
+                    else if (obj_playerparent.swimming == false) {
+                    
+                        //If the player is idle or walking
+                        if (obj_playerparent.state == statetype.idle) 
+                        || (obj_playerparent.state == statetype.walk) {
+                        
+                            //Position player just reached
+                            if (camlock == false) then { floorY = obj_playerparent.y; }
+                        
+                            //If the player is above the camera
+                            if (obj_playerparent.y &lt; y) {
+                            
+                                //If the camera is 4 pixels below the player y position, move 4 pixels upwards until the camera catches the player.
+                                if (y &gt; obj_playerparent.y+4)
+                                    y -= 4;
+                                    
+                                //Otherwise
+                                else {
+                                
+                                    y = obj_playerparent.y;
+                                    if (view_vspeed[view_current] != 6)
+                                        view_vspeed[view_current] = 6;
+                                }
+                            }
+                        } 
+                        else {
+                        
+                            //If player didn't reach Y position on the ground, catch the player (only applies going up)
+                            if (round(y) &gt; floorY)
+                                y -= 4;
+                        }
+                        
+                        //If the player is below the camera, catch him instantly
+                        if (obj_playerparent.y &gt; y) {
+                        
+                            y = obj_playerparent.y;
+                            if (view_vspeed[view_current] != -1)
+                                view_vspeed[view_current] = -1;
+                        }
                     }
                 }
             }
-        }
-        else {
-        
-            y = follow.y;
-            if (view_vspeed[view_current] != 4)
-                view_vspeed[view_current] = 4;
-        }
-        
-        //If the camera is to the right and the player is from a certain distance from the camera
-        if ((orientation == 1) &amp;&amp; (follow.x &gt; x-16)) {
-    
-            //If the player has ended a level
-            if (follow == obj_player_clear) {
+            else {
             
-                //If the player did not stopped yet...
-                if (obj_player_clear.ready3 == 0) {
+                y = follow.y;
+                if (view_vspeed[view_current] != 4)
+                    view_vspeed[view_current] = 4;
+            }
+            
+            //If the camera is to the right and the player is from a certain distance from the camera
+            if ((orientation == 1) &amp;&amp; (follow.x &gt; x-16)) {
+        
+                //If the player has ended a level
+                if (follow == obj_player_clear) {
+                
+                    //If the player did not stopped yet...
+                    if (obj_player_clear.ready3 == 0) {
+                    
+                        //Scroll the camera at a certain speed until the camera catches up.
+                        if (follow.x &gt; x-12)
+                            x += 2+follow.hspeed;
+                        else
+                            x = follow.x+16;                           
+                    }
+                }
+                
+                //Otherwise
+                else {
                 
                     //Scroll the camera at a certain speed until the camera catches up.
                     if (follow.x &gt; x-12)
                         x += 2+follow.hspeed;
                     else
-                        x = follow.x+16;                           
+                        x = follow.x+16;
                 }
             }
             
-            //Otherwise
-            else {
+            //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
+            else if ((orientation == -1) &amp;&amp; (follow.x &lt; x+16)) {
             
                 //Scroll the camera at a certain speed until the camera catches up.
-                if (follow.x &gt; x-12)
-                    x += 2+follow.hspeed;
+                if (follow.x &lt; x+12)
+                    x -= 2-follow.hspeed;
                 else
-                    x = follow.x+16;
+                    x = follow.x-16;    
             }
+            
+            //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
+            if ((follow.x-xprevious &lt; 0) &amp;&amp; (follow.x &lt; x-40))
+                orientation = -1;
+            
+            //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
+            else if ((follow.x-xprevious &gt; 0) &amp;&amp; (follow.x &gt; x+40))
+                orientation = 1;
         }
-        
-        //Otherwise, if the camera is to the left and the player is from a certain distance from the camera
-        else if ((orientation == -1) &amp;&amp; (follow.x &lt; x+16)) {
-        
-            //Scroll the camera at a certain speed until the camera catches up.
-            if (follow.x &lt; x+12)
-                x -= 2-follow.hspeed;
-            else
-                x = follow.x-16;    
-        }
-        
-        //If the player is moving to the left and the camera is panning to the right, make the camera pan to the left
-        if ((follow.x-xprevious &lt; 0) &amp;&amp; (follow.x &lt; x-40))
-            orientation = -1;
-        
-        //Otherwise, if the player is moving to the right and the camera is panning to the left, make the camera pan to the right.
-        else if ((follow.x-xprevious &gt; 0) &amp;&amp; (follow.x &gt; x+40))
-            orientation = 1;
     }
 }
 
@@ -1329,12 +1345,27 @@ else if (global.carrieditem != noone) {
             <kind>1</kind>
             <string>///Deals with parallax backgrounds.
 
-//Draw background
-if (background_height[0] &lt; room_height)
-&amp;&amp; (background_height[0] &gt; view_hview[0])
-    draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
-else
-    draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
+//If the autoscroll object does not exist
+if (instance_number(obj_autoscroll) == 0) {
+
+    //Draw background
+    if (background_height[0] &lt; room_height)
+    &amp;&amp; (background_height[0] &gt; view_hview[0])
+        draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
+    else
+        draw_background_tiled_horizontal_ext(background_index[0], round(view_xview[0]/2+(background_x[0]+background_hspeed[0])), background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
+}
+
+//Otherwise, if it exists
+else {
+
+    //Draw background
+    if (background_height[0] &lt; room_height)
+    &amp;&amp; (background_height[0] &gt; view_hview[0])
+        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0], background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
+    else
+        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0], background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
+}
 
 //Draw pit marker
 draw_background_ext(bgr_pit, 0, room_height-32, room_width/16, 1, 0, background_blend[0], 1);

@@ -31,14 +31,14 @@
 //  This object uses creation code
 //
 //      lightning   = Create lightning effect?
-//      smog        = Show smog?
+//      smog        = Show smog? (1 for clouds, 2 for smog)
 //      raining     = Make rain? Used for when you only want smog/lightning
 //      force       = Rain strength (Only if raining is set to 1)
 */
 
 //Default values
 lightning = 1;
-smog = false;
+smog = 0;
 force = 5;
 raining = true;
 
@@ -139,9 +139,14 @@ pos -= 0.25;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw smog if required
+            <string>///Draw clouds or smog if required
 
-if (smog == true) {
+//Clouds
+if (smog == 1)
+    draw_background_tiled_horizontal_ext(fgr_clouds, round(view_xview[0]/2+pos), view_yview[0], 1, 1, 0, c_white, alpha/4);
+
+//Smog
+else if (smog == 2) {
 
     //Set blending mode
     draw_set_blend_mode(bm_add);
@@ -151,8 +156,8 @@ if (smog == true) {
     &amp;&amp; (background_get_height(fgr_smog) &gt; view_hview[0])
         draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), y+view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0]), 1, 1, 0, c_white, alpha);
     else
-        draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), y, 1, 1, 0, background_blend[0], background_alpha[0]);
-
+        draw_background_tiled_horizontal_ext(fgr_smog, round(view_xview[0]/2+pos), y, 1, 1, 0, c_white, alpha);
+        
     //Set blending mode to normal
     draw_set_blend_mode(bm_normal);
 }
