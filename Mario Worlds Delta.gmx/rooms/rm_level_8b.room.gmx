@@ -42,13 +42,13 @@
   </backgrounds>
   <views>
     <view visible="0" objName="obj_levelcontrol" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
     <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_6F7195F5" locked="0" code="inisection = 'Airship'&#xA;leveltime = 400;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -156,6 +156,8 @@
     <instance objName="obj_autoscroll" x="128" y="192" name="inst_721D744B" locked="0" code="mypath = pth_autoscroll_lv8;&#xA;airship = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_qblock" x="1904" y="112" name="inst_48F60B94" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_modifier_feather_alt" x="1904" y="112" name="inst_06E4CC0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockywrench" x="536" y="176" name="inst_D5CA47B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_warptop" x="1808" y="144" name="inst_2FBA4767" locked="0" code="destination = rm_level_8c;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_airship" x="608" y="144" w="16" h="16" xo="160" yo="128" id="10051751" name="inst_72756525" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -675,6 +677,10 @@
     <tile bgName="tls_ground_airship" x="1792" y="192" w="16" h="16" xo="96" yo="80" id="10052176" name="inst_2407BFA8" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_airship" x="1776" y="192" w="16" h="16" xo="96" yo="80" id="10052177" name="inst_553C950F" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_airship" x="1760" y="192" w="16" h="16" xo="96" yo="80" id="10052178" name="inst_29FAF572" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="528" y="160" w="16" h="16" xo="128" yo="64" id="10052192" name="inst_1FF65ECC" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="352" y="128" w="16" h="16" xo="144" yo="64" id="10052193" name="inst_163A40DA" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="352" y="144" w="16" h="16" xo="144" yo="80" id="10052194" name="inst_4C7CAB96" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_airship" x="352" y="160" w="16" h="16" xo="144" yo="96" id="10052195" name="inst_D5EB7A86" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
