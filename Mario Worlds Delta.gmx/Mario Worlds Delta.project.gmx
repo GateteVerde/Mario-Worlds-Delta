@@ -1977,7 +1977,7 @@
   </backgrounds>
   <paths name="paths">
     <paths name="Autoscroll Paths">
-      <path>paths\pth_autoscroll_lv3</path>
+      <path>paths\pth_autoscroll_lv8</path>
     </paths>
     <path>paths\pth_balloon</path>
     <path>paths\pth_bubble</path>
@@ -3137,6 +3137,10 @@
           <room>rooms\rm_devtest</room>
           <room>rooms\rm_devtest_b</room>
         </rooms>
+      </rooms>
+      <rooms name="Level 8">
+        <room>rooms\rm_level_8a</room>
+        <room>rooms\rm_level_8b</room>
       </rooms>
     </rooms>
     <rooms name="Special Rooms">

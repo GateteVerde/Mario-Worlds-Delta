@@ -79,6 +79,9 @@ swarning = 0;
 //Reach last ground Y
 floorY = 0;
 
+//Parallax values for autoscroll
+pos = 0;
+
 //Underwater init
 alarm[8] = 2;
 
@@ -551,6 +554,9 @@ else {
             <kind>1</kind>
             <string>///Deals with the camera position
 
+//Increment background position
+pos -= 0.25;
+
 //Set up object to follow
 event_user(15);
 
@@ -600,12 +606,12 @@ if (barrier == true) {
 if (instance_number(obj_autoscroll) &gt; 0) 
 &amp;&amp; (instance_number(obj_player_clear) == 0) {
 
+    //Set vertical view speed
+    view_vspeed[view_current] = -1;    
+    
     //Snap into position
     x = obj_autoscroll.x;
-    y = obj_autoscroll.y;
-    
-    //Set vertical view speed
-    view_vspeed[view_current] = -1;
+    y = obj_autoscroll.y+obj_autoscroll.airshipoffset;
 }
 
 //Otherwise
@@ -1362,9 +1368,9 @@ else {
     //Draw background
     if (background_height[0] &lt; room_height)
     &amp;&amp; (background_height[0] &gt; view_hview[0])
-        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0], background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
+        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0]+pos, background_y[0]+(view_yview[0]*(room_height-background_height[0])/(room_height-view_hview[0])), 1, 1, 0, background_blend[0], background_alpha[0]);
     else
-        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0], background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
+        draw_background_tiled_horizontal_ext(background_index[0], view_xview[0]+pos, background_y[0], 1, 1, 0, background_blend[0], background_alpha[0]);
 }
 
 //Draw pit marker

@@ -201,6 +201,11 @@ if (!tile_layer_find(15, x, y))
             <kind>1</kind>
             <string>///This collision happens if the player walks onto the platform as opposed to jumping on it.
 
+//If the player does not exist...
+if (!instance_exists(obj_playerparent))
+exit;
+
+//...or the player is in the bolt lift, exit.
 if (place_meeting(x, y, obj_playerparent))
 exit;
 

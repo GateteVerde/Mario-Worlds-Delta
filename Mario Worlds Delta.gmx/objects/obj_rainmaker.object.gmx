@@ -143,7 +143,7 @@ pos -= 0.25;
 
 //Clouds
 if (smog == 1)
-    draw_background_tiled_horizontal_ext(fgr_clouds, round(view_xview[0]/2+pos), view_yview[0], 1, 1, 0, c_white, alpha/4);
+    draw_background_tiled_horizontal_ext(fgr_clouds, round(view_xview[0]/2+pos*2), view_yview[0], 1, 1, 0, c_white, alpha/4);
 
 //Smog
 else if (smog == 2) {
