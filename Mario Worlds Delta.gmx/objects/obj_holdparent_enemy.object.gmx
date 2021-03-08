@@ -87,6 +87,56 @@ event_perform_object(obj_enemyparent, ev_collision, obj_shell_kicked);
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_iceball">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with ice balls
+
+//If the player is vulnerable to ice balls
+if (vulnerable &lt; 2) {
+    
+    //Play 'Transform' sound
+    audio_play_sound(snd_freeze, 0, false);
+    
+    //Turn into a ice cube
+    imiced = instance_create(x, y, obj_enemy_frozen);
+    
+    //Set parameters
+    with (imiced) {
+        
+        //Set the sprite
+        sprite_index = other.sprite_index;
+        
+        //Change size
+        event_user(14);
+    }
+    
+    //Destroy
+    instance_destroy();
+}
+
+//Destroy the projectile
+if (vulnerable &lt; 100)
+    with (other) event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_stomp">
       <action>
         <libid>1</libid>

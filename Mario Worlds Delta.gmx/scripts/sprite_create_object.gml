@@ -21,6 +21,9 @@ switch (argument[2]) {
     //Fireflower
     case (spr_fireflower): return instance_create(argument[0], argument[1], obj_fireflower);
     
+    //Iceflower
+    case (spr_iceflower): return instance_create(argument[0], argument[1], obj_iceflower);
+    
     //Star
     case (spr_star): return instance_create(argument[0], argument[1], obj_star);
     

@@ -597,7 +597,7 @@ if allowskip = true {
 player_set_palette(id);
 
 //Draw the cape behind
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
     if (vspeed != 0) {
         if (vspeed &lt; 0)
             draw_sprite_ext(spr_cape, 1, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
@@ -615,7 +615,7 @@ if (global.powerup &gt;= cs_pow_cape) {
 draw_sprite_ext(m, 0, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
 
 //Draw the cape in front
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
     if (hspeed == 0)
         draw_sprite_ext(spr_cape, 1, round(x)-4, round(y)-8, 1, 1, 0, c_white, 1);
 }
@@ -648,7 +648,7 @@ pal_swap_reset();
 
 if (pseudomount == 0) {
 
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
 
     //If not moving vertically
     if (vspeed == 0) {
@@ -680,6 +680,7 @@ pal_swap_reset();
 }
 
 if (pseudomount == 1) {
+
     //Set the shader
     pal_swap_set(spr_palette_yoshi, pseudomountcolour);
     

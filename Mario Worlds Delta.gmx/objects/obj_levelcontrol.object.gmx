@@ -1117,6 +1117,10 @@ if (global.reserveitem != cs_pow_small) {
         //Cape Feather
         else if (global.reserveitem == cs_pow_cape)
             sprite_index = spr_feather;
+            
+        //Cape Feather
+        else if (global.reserveitem == cs_pow_ice)
+            sprite_index = spr_iceflower;
     }
     
     //Empty the box

@@ -46,6 +46,21 @@ switch (argument[0]) {
             return spr_feather;
     } break;
     
+    //Iceflower
+    case (itemtype.iceflower): return spr_iceflower; break;
+    
+    //Iceflower (Mushroom)
+    case (itemtype.iceflower_plus): {
+    
+        //If the player is small, return a mushroom sprite
+        if (global.powerup == cs_pow_small)
+            return spr_mushroom;
+            
+        //Otherwise, return a fireflower sprite
+        else
+            return spr_iceflower;
+    } break;
+    
     //Star
     case (itemtype.star): return spr_star; break;
     

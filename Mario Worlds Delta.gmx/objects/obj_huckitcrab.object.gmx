@@ -177,9 +177,6 @@ else if (jump) &amp;&amp; (vspeed &gt; 0){
     //Stop jump
     jump = 0;
     
-    //Set horizontal speed
-    hspeed = 0.5*sign(xscale)*-1;
-    
     //Throw the previously created ball
     with (instance_create(x+11*sign(xscale), y-7, obj_huckitcrab_rock)) {
     
@@ -190,11 +187,6 @@ else if (jump) &amp;&amp; (vspeed &gt; 0){
     //Prepare another rock
     alarm[0] = 60+round(random(120));
 }
-
-//Stop if there's no gravity
-if (gravity == 0)
-    if (hspeed &lt;&gt; 0)
-        hspeed = 0;
 </string>
           </argument>
         </arguments>

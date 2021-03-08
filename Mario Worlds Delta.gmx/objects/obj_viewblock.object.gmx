@@ -77,8 +77,11 @@ if (ready == 0) {
         //Fireflower -&gt; Feather
         case (spr_fireflower): swap = spr_feather; break;
         
-        //Feather -&gt; Starman
-        case (spr_feather): swap = spr_star; break;
+        //Feather -&gt; Iceflower
+        case (spr_feather): swap = spr_iceflower; break;
+        
+        //Iceflower -&gt; Starman
+        case (spr_iceflower): swap = spr_star; break;
         
         //Starman -&gt; Mushroom
         case (spr_star): swap = spr_mushroom; break;

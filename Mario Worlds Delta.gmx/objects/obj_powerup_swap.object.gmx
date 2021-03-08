@@ -86,8 +86,17 @@ switch (sprite_index) {
         break;
     }
     
-    //Leaf -&gt; Starman
+    //Leaf -&gt; Iceflower
     case (spr_feather): {
+    
+        sprite_index = spr_iceflower;
+        image_speed = 0;
+        image_index = 0;
+        break;
+    }
+    
+    //Iceflower -&gt; Starman
+    case (spr_iceflower): {
     
         sprite_index = spr_star;
         image_speed = 0.5;
@@ -220,6 +229,13 @@ if (ready == true) {
         case (spr_feather): {
         
             instance_create(x, y, obj_feather);
+            instance_destroy();
+        } break;
+        
+        //Iceflower
+        case (spr_iceflower): {
+        
+            instance_create(x, y, obj_iceflower);
             instance_destroy();
         } break;
     

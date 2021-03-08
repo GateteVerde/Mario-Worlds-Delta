@@ -340,6 +340,18 @@ if (control_enable == true)
             else            
                 instance_create(x, y, obj_spinner);
         }
+        
+        //If the player has the fire powerup
+        else if (global.powerup == cs_pow_ice) {
+        
+            //If there's less than 2 fireballs in view
+            if (instance_number(obj_iceball) &lt; 2) {
+            
+                firing = 9;
+                with (instance_create(x, y, obj_iceball)) 
+                    hspeed = other.hspeed+(1.2*sign(other.xscale));
+            }
+        }
     }
 }
 </string>
@@ -534,6 +546,13 @@ if (jumpstyle == 1)
             else
                 hspeed = 3*sign(other.dir);
         }
+    }
+    
+    //Iceball
+    else if (global.powerup == cs_pow_ice) {
+    
+        with (instance_create(x, y, obj_iceball))
+            hspeed = 1.2*sign(other.dir);
     }
     
     //Change the facing direction

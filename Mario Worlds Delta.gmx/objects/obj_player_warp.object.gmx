@@ -316,7 +316,7 @@ player_set_palette(id);
 //Draw cape
 if (vspeed != 0)
 &amp;&amp; (canmove == 1)
-&amp;&amp; (global.powerup &gt;= cs_pow_cape) {
+&amp;&amp; (global.powerup == cs_pow_cape) {
 
     draw_sprite_ext(spr_cape_climb, 1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 }
@@ -327,7 +327,7 @@ draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, 0, c_whit
 //Draw cape
 if (vspeed == 0)
 &amp;&amp; (canmove == 1)
-&amp;&amp; (global.powerup &gt;= cs_pow_cape) {
+&amp;&amp; (global.powerup == cs_pow_cape) {
 
     draw_sprite_ext(spr_cape_walk, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 }

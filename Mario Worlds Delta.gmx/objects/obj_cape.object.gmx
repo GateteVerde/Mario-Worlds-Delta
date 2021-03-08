@@ -300,7 +300,7 @@ if (instance_exists(obj_playerparent)) {
     player_set_palette(obj_playerparent);
     
     //Only draw if the player has a cape
-    if (global.powerup &gt; cs_pow_fire)
+    if (global.powerup == cs_pow_cape)
     &amp;&amp; (instance_number(obj_spinner) == 0)
     &amp;&amp; (instance_number(obj_cape_fly) == 0) 
     &amp;&amp; (instance_number(obj_player_wallrunning) == 0) {

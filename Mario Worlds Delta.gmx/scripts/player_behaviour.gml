@@ -174,7 +174,7 @@ if (inwall == false)
         
         //If the player is running and has the cape powerup
         if (run)
-        && (global.powerup >= cs_pow_cape) {
+        && (global.powerup == cs_pow_cape) {
         
             //Set vertical speed
             vspeed = -jumpstrength;

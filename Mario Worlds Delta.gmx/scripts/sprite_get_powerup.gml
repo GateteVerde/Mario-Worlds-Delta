@@ -21,4 +21,7 @@ switch (argument[0]) {
     
     //Feather
     case (spr_feather): return cs_pow_cape; break;
+    
+    //Iceflower
+    case (spr_iceflower): return cs_pow_ice; break;
 }

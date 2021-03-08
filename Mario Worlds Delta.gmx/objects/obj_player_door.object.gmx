@@ -235,7 +235,7 @@ if (holding == 1) &amp;&amp; (vspeed == 0) {
 player_set_palette(id);
 
 //Draw cape
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
 
     draw_sprite_ext(spr_cape, 0, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
 }

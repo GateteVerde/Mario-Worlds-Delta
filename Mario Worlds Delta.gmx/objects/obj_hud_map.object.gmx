@@ -93,7 +93,7 @@ draw_sprite_ext(spr_hud_map, 0, _xx, _yy, 1, 1, 0, c_white, 1);
 player_set_palette(id);
 
 //If the player has a cape, draw it first...
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
 
     draw_sprite_ext(spr_cape_walk, anim, _xx+38, _yy+23, -1, 1, 0, c_white, 1); 
 }
@@ -156,7 +156,7 @@ draw_sprite_ext(spr_hud_map, 0, view_xview[0], view_yview[0], 1, 1, 0, c_white, 
 player_set_palette(id);
 
 //If the player has a cape, draw it first...
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
 
     draw_sprite_ext(spr_cape_walk, anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 0, c_white, 1); 
 }

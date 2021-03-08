@@ -363,6 +363,7 @@
     <sound>sound\snd_firework</sound>
     <sound>sound\snd_flames</sound>
     <sound>sound\snd_fly</sound>
+    <sound>sound\snd_freeze</sound>
     <sound>sound\snd_goalgate</sound>
     <sound>sound\snd_goalgate_2</sound>
     <sound>sound\snd_goalgate_3</sound>
@@ -371,6 +372,7 @@
     <sound>sound\snd_hatch</sound>
     <sound>sound\snd_hurry</sound>
     <sound>sound\snd_hurt</sound>
+    <sound>sound\snd_iceball</sound>
     <sound>sound\snd_icicle_break</sound>
     <sound>sound\snd_icicle_fall</sound>
     <sound>sound\snd_jump</sound>
@@ -760,8 +762,11 @@
         <sprite>sprites\spr_keyhole_anim</sprite>
       </sprites>
       <sprites name="Projectiles">
+        <sprites name="Masks">
+          <sprite>sprites\spr_fireballmask</sprite>
+        </sprites>
         <sprite>sprites\spr_fireball</sprite>
-        <sprite>sprites\spr_fireballmask</sprite>
+        <sprite>sprites\spr_snowball</sprite>
       </sprites>
       <sprites name="Gizmos">
         <sprites name="Platforms">
@@ -906,6 +911,7 @@
       <sprite>sprites\spr_coin_gold</sprite>
       <sprite>sprites\spr_mushroom</sprite>
       <sprite>sprites\spr_fireflower</sprite>
+      <sprite>sprites\spr_iceflower</sprite>
       <sprite>sprites\spr_feather</sprite>
       <sprite>sprites\spr_star</sprite>
       <sprite>sprites\spr_1up</sprite>
@@ -1406,6 +1412,10 @@
       <sprite>sprites\spr_chainchomp_chain</sprite>
       <sprite>sprites\spr_chainchomp_chainpost</sprite>
       <sprite>sprites\spr_enemybubble</sprite>
+      <sprite>sprites\spr_enemyice</sprite>
+      <sprite>sprites\spr_enemyice_16x32</sprite>
+      <sprite>sprites\spr_enemyice_32x16</sprite>
+      <sprite>sprites\spr_enemyice_32x32</sprite>
     </sprites>
     <sprites name="World Map">
       <sprites name="Playable Characters">
@@ -1594,6 +1604,8 @@
           <sprite>sprites\spr_modifier_fireflower_alt</sprite>
           <sprite>sprites\spr_modifier_feather</sprite>
           <sprite>sprites\spr_modifier_feather_alt</sprite>
+          <sprite>sprites\spr_modifier_iceflower</sprite>
+          <sprite>sprites\spr_modifier_iceflower_alt</sprite>
           <sprite>sprites\spr_modifier_star</sprite>
           <sprite>sprites\spr_modifier_1up</sprite>
           <sprite>sprites\spr_modifier_poison</sprite>
@@ -2355,6 +2367,7 @@
       <object>objects\obj_mushroom</object>
       <object>objects\obj_fireflower</object>
       <object>objects\obj_feather</object>
+      <object>objects\obj_iceflower</object>
       <object>objects\obj_star</object>
       <object>objects\obj_1up</object>
       <object>objects\obj_1up_h1</object>
@@ -2710,6 +2723,8 @@
           <object>objects\obj_modifier_fireflower_alt</object>
           <object>objects\obj_modifier_feather</object>
           <object>objects\obj_modifier_feather_alt</object>
+          <object>objects\obj_modifier_iceflower</object>
+          <object>objects\obj_modifier_iceflower_alt</object>
           <object>objects\obj_modifier_star</object>
           <object>objects\obj_modifier_1up</object>
           <object>objects\obj_modifier_poison</object>
@@ -2875,6 +2890,7 @@
             </objects>
             <objects name="Projectiles">
               <object>objects\obj_fireball</object>
+              <object>objects\obj_iceball</object>
               <object>objects\obj_invincibility</object>
             </objects>
             <object>objects\obj_powerup_sprout</object>
@@ -2924,6 +2940,7 @@
           <object>objects\obj_enemy_multidead</object>
           <object>objects\obj_enemy_stomped</object>
           <object>objects\obj_enemy_score</object>
+          <object>objects\obj_enemy_frozen</object>
           <object>objects\obj_enemy_tick</object>
           <objects name="Land">
             <objects name="Goombas">
@@ -3186,7 +3203,7 @@
       <room>rooms\rm_testlevel</room>
     </rooms>
   </rooms>
-  <constants number="18">
+  <constants number="19">
     <constant name="c_smwred">$0000f8</constant>
     <constant name="c_smwgreen">$00f800</constant>
     <constant name="c_smwyellow">$00f8f8</constant>
@@ -3201,6 +3218,7 @@
     <constant name="cs_pow_super">1</constant>
     <constant name="cs_pow_fire">2</constant>
     <constant name="cs_pow_cape">3</constant>
+    <constant name="cs_pow_ice">4</constant>
     <constant name="cs_warp_right">0</constant>
     <constant name="cs_warp_up">90</constant>
     <constant name="cs_warp_left">180</constant>

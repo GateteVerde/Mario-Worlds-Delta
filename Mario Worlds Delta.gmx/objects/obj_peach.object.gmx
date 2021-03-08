@@ -438,7 +438,7 @@ else {
                         
                             //If Peach is firing up a projectile
                             if (firing &gt; 0)
-                            &amp;&amp; (global.powerup == cs_pow_fire) {
+                            &amp;&amp; ((global.powerup == cs_pow_fire) || (global.powerup == cs_pow_ice)) {
                             
                                 //Set the sprite
                                 sprite_index = player_shoot();

@@ -25,6 +25,8 @@ enum itemtype {
     fireflower_plus,
     feather,
     feather_plus,
+    iceflower,
+    iceflower_plus,
     star,
     lifeup,
     poison,

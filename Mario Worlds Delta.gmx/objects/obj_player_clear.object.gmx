@@ -728,7 +728,7 @@ else
             <string>///Draw the player
 
 //Draw the cape
-if (global.powerup &gt;= cs_pow_cape) {
+if (global.powerup == cs_pow_cape) {
 
     //If not moving vertically
     if (vspeed == 0) {

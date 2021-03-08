@@ -193,7 +193,10 @@ if (stomp != -1)
                     event_user(10);
                     
                     //Final HP
-                    hp = 0;  
+                    hp = 0;
+                    
+                    //Play 'Stun' sound
+                    audio_play_sound(snd_stun, 0, false);  
                 }
             }
 
