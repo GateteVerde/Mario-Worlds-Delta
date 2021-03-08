@@ -976,6 +976,10 @@
               <sprite>sprites\spr_shell_big</sprite>
               <sprite>sprites\spr_shell_classic</sprite>
             </sprites>
+            <sprites name="Super Koopas">
+              <sprite>sprites\spr_superkoopa_green_fly</sprite>
+              <sprite>sprites\spr_superkoopa_green_dead</sprite>
+            </sprites>
             <sprite>sprites\spr_koopa</sprite>
             <sprite>sprites\spr_koopa_turn</sprite>
             <sprite>sprites\spr_koopa_dead</sprite>
@@ -1002,6 +1006,10 @@
               <sprite>sprites\spr_shell_red</sprite>
               <sprite>sprites\spr_shell_big_red</sprite>
               <sprite>sprites\spr_shell_classic_red</sprite>
+            </sprites>
+            <sprites name="Super Koopas">
+              <sprite>sprites\spr_superkoopa_red_fly</sprite>
+              <sprite>sprites\spr_superkoopa_red_dead</sprite>
             </sprites>
             <sprite>sprites\spr_koopa_red</sprite>
             <sprite>sprites\spr_koopa_red_turn</sprite>
@@ -2391,6 +2399,9 @@
               <object>objects\obj_classicparakoopa</object>
               <object>objects\obj_classicparakoopa_fly</object>
             </objects>
+            <objects name="Super Koopas">
+              <object>objects\obj_superkoopa_green</object>
+            </objects>
             <object>objects\obj_koopa</object>
             <object>objects\obj_parakoopa</object>
             <object>objects\obj_parakoopa_super</object>
@@ -2406,6 +2417,9 @@
               <object>objects\obj_classickoopa_red</object>
               <object>objects\obj_classicparakoopa_red</object>
               <object>objects\obj_classicparakoopa_red_hor</object>
+            </objects>
+            <objects name="Super Koopas">
+              <object>objects\obj_superkoopa_red</object>
             </objects>
             <object>objects\obj_koopa_red</object>
             <object>objects\obj_parakoopa_red</object>
