@@ -86,6 +86,10 @@ else if (sprite_index == spr_feather) {
     //Destroy
     instance_destroy();
 }
+
+//Otherwise, if this is a ice flower
+else if (sprite_index == spr_iceflower)
+    image_speed = 0.15;
 </string>
           </argument>
         </arguments>
@@ -108,7 +112,7 @@ else if (sprite_index == spr_feather) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Make it invisible
+            <string>///Make it visible
 
 visible = true;
 alarm[0] = 12;

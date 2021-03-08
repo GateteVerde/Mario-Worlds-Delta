@@ -33,6 +33,9 @@ event_perform_object(obj_physicsparent, ev_create, 0);
 //Play 'Iceball' sound
 audio_stop_play_sound(snd_iceball, 0, false);
 
+//Stop 'Fireball' sound
+audio_stop_sound(snd_fireball);
+
 //Animate
 image_speed = 0.2;
 

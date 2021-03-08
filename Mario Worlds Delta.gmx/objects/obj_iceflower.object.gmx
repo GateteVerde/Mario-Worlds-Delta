@@ -32,6 +32,10 @@ event_inherited();
 
 //Powerup
 powerup = cs_pow_ice;
+
+//UWU
+if (floor(random(100) &gt;= 95))
+    sprite_index = spr_iceflower_uwu;
 </string>
           </argument>
         </arguments>
