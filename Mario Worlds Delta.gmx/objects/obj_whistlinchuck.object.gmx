@@ -78,6 +78,20 @@ global.whistle = 1;
 
 //Repeat
 alarm[0] = 90;
+
+//Spawn in a super koopa
+if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0)) {
+
+    //Choose a side to spawn from
+    var spawn_x = choose(view_xview[view_current]-16,view_xview[view_current]+view_wview[view_current]+16);
+    
+    //Choose a random Y position to spawn in at
+    var spawn_y = irandom_range(view_yview[view_current]+16,view_yview[view_current]+view_hview[view_current]-96);
+    
+    //Create the koopa
+    instance_create(spawn_x,spawn_y,obj_superkoopa_green);
+
+}
 </string>
           </argument>
         </arguments>
@@ -167,6 +181,21 @@ if (instance_exists(obj_playerparent)) {
             
             //Set the sprite
             sprite_index = spr_whistlinchuck;
+            
+            //Spawn in a super koopa
+            if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0)) {
+            
+                //Choose a side to spawn from
+                var spawn_x = choose(view_xview[view_current]-16,view_xview[view_current]+view_wview[view_current]+16);
+                
+                //Choose a random Y position to spawn in at
+                var spawn_y = irandom_range(view_yview[view_current]+16,view_yview[view_current]+view_hview[view_current]-96);
+                
+                //Create the koopa
+                instance_create(spawn_x,spawn_y,obj_superkoopa_green);
+            
+            }
+            
         }
     }
 }
