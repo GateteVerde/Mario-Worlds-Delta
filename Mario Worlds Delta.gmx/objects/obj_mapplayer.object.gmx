@@ -79,8 +79,7 @@ variable_global_reset();
 if (global.clear &gt; 0) {
 
     alarm[0] = 30;
-    status = mapstate.wait;
-    
+    status = mapstate.wait;   
 }
 </string>
           </argument>
