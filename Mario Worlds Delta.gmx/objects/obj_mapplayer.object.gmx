@@ -45,7 +45,7 @@ else {
 image_speed = 0.125;
 
 //Whether the object is moving
-status = 'IDLE';
+status = mapstate.idle;
 
 //Speed
 spd = 1;
@@ -79,7 +79,7 @@ variable_global_reset();
 if (global.clear &gt; 0) {
 
     alarm[0] = 30;
-    status = 'WAIT';
+    status = mapstate.wait;
     
 }
 </string>
@@ -104,10 +104,10 @@ if (global.clear &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set up 'IDLE' status if in 'PREIDLE' state
+            <string>///Set up 'mapstate.idle' status if in 'mapstate.preidle' state
 
-if (status == 'PREIDLE')
-    status = 'IDLE';
+if (status == mapstate.preidle)
+    status = mapstate.idle;
 </string>
           </argument>
         </arguments>
@@ -132,7 +132,7 @@ if (status == 'PREIDLE')
             <kind>1</kind>
             <string>///Ask to save the game
 
-status = 'IDLE';
+status = mapstate.idle;
 </string>
           </argument>
         </arguments>
@@ -317,11 +317,11 @@ if (instance_exists(check)) {
     if ((instance_number(obj_mapopener) == 0) &amp;&amp; (check.paneltype == 0)) {
     
         //Be able to move again
-        status = 'IDLE';
+        status = mapstate.idle;
     
     }
     
-} else status = 'IDLE';
+} else status = mapstate.idle;
 
 //Mark level as beaten
 with (check) {
@@ -392,7 +392,7 @@ else {
     
         //If moving down or stopped
         if (direct == 270)
-        || (status == 'IDLE') {
+        || (status == mapstate.idle) {
         
             //Set up the sprite
             sprite_index = player_map();
@@ -458,9 +458,9 @@ node = collision_point(x+xorig, y+yorig, obj_node, 0, 0);
 image_speed = 0.125;
 
 //If the player is not moving
-if (status == 'IDLE') 
-|| (status == 'WAIT') 
-|| (status == 'PREIDLE') {
+if (status == mapstate.idle) 
+|| (status == mapstate.wait) 
+|| (status == mapstate.preidle) {
 
     //Check for a panel
     panel = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
@@ -476,7 +476,7 @@ if (status == 'IDLE')
                      
     }
     
-    if (status != 'WAIT') {
+    if (status != mapstate.wait) {
     
         //Do not allow movement if there's paths opening
         if (is_ready == 0)
@@ -494,7 +494,7 @@ if (status == 'IDLE')
                 &amp;&amp; (pathU.image_alpha == 1) {
                 
                     direct = 90;
-                    status = 'WALK';
+                    status = mapstate.walk;
                 }
             }
             
@@ -509,7 +509,7 @@ if (status == 'IDLE')
                 &amp;&amp; (pathD.image_alpha == 1) {
                 
                     direct = 270;
-                    status = 'WALK';
+                    status = mapstate.walk;
                 }
             }
             
@@ -524,7 +524,7 @@ if (status == 'IDLE')
                 &amp;&amp; (pathL.image_alpha == 1) {
                 
                     direct = 180;
-                    status = 'WALK';
+                    status = mapstate.walk;
                 }
             }
             
@@ -539,7 +539,7 @@ if (status == 'IDLE')
                 &amp;&amp; (pathR.image_alpha == 1) {
                 
                     direct = 0;
-                    status = 'WALK';
+                    status = mapstate.walk;
                 }
             }
                 
@@ -554,8 +554,8 @@ if (status == 'IDLE')
             //If there's a panel and this panel is available        
             if (panel)
             &amp;&amp; (panel.beaten &lt; 2)
-            &amp;&amp; ((status == 'IDLE')
-            || (status == 'PREIDLE'))
+            &amp;&amp; ((status == mapstate.idle)
+            || (status == mapstate.preidle))
             &amp;&amp; ((input_check_pressed(input.action0))
             || (input_check_pressed(input.action2))) {
             
@@ -584,7 +584,7 @@ if (status == 'IDLE')
 }
 
 //Otherwise, if the player is moving
-else if (status == 'WALK') {
+else if (status == mapstate.walk) {
 
     //Update steps
     step += spd;
@@ -639,7 +639,7 @@ else if (status == 'WALK') {
                 audio_stop_play_sound(snd_move, 0, false);
             
                 //Set stop state
-                status = 'PREIDLE';
+                status = mapstate.preidle;
                 
                 //Wait to be able to walk again
                 alarm[2] = 20;

@@ -12,7 +12,7 @@
 global.Pal_Shader = shd_palette_swapper;
 pal_swap_init_system(global.Pal_Shader);
 
-//Item Enumerators
+//Item enum
 enum itemtype {
 
     coin,
@@ -45,9 +45,10 @@ enum itemtype {
     beanstalk
 }
 
-//Input Enumerators
+//Input enum
 enum input {
 
+//Directions
     up,
     down,
     left,
@@ -61,8 +62,18 @@ enum input {
     
     //Spin
     action2,
+    
+    //Start and Select
     select,
     start
+}
+
+//Map player state enum
+enum mapstate {
+    preidle,
+    idle,
+    wait,
+    walk
 }
 
 //Remember music from rooms

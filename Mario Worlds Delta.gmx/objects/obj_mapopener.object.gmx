@@ -163,7 +163,7 @@ while (step &gt;= 1) {
             
             with (obj_mapplayer) {
             
-                status = 'IDLE';
+                status = mapstate.idle;
                 
             }
         

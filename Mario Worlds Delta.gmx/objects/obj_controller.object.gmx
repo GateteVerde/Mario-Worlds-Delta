@@ -1104,8 +1104,8 @@ else {
     //Action 2 (X)
     global.button[input.action1] = gp_face3;
     
-    //Action 3 (Right Shoulder)
-    global.button[input.action2] = gp_shoulderr;
+    //Action 3 (B)
+    global.button[input.action2] = gp_face2;
     
     //Select (Select)
     global.button[input.select] = gp_select;
@@ -1173,15 +1173,12 @@ if (fade &lt; 1)
     shader_set_uniform_f(pixel, global.gw, global.gh, size, size);
 }
 
-//Draw a rectangle
-draw_rectangle_colour(0, 0, global.gw*(filter+1), global.gh*(filter+1), c_black, c_black, c_black, c_black, 0);
-
 //Draw the application surface
 draw_surface_stretched(application_surface, 0, yport, global.gw, global.gh);
 
-//Draw the pre-freeze if it exists
+//Draw the pre-freeze surface if it exists
 if (surface_exists(global.prefreeze))
-   draw_surface_stretched(global.prefreeze, 0, yport, global.gw, global.gh);
+    draw_surface_stretched(global.prefreeze, 0, yport, global.gw, global.gh);
 
 //Reset the shader
 shader_reset();
@@ -1193,26 +1190,16 @@ draw_enable_alphablend(1);
 display_set_gui_maximise(filter+1, filter+1);
 display_set_gui_size(global.gw, global.gh);
 
-//Draw the level HUD
+//Draw the level or map HUD
 if (instance_exists(obj_hud)) {
 
-    with (obj_hud)
+    with (obj_hud) {
     
         if (object_index == obj_hud)
-
             event_user(obj_controller.hud_type);
-            
-}
-
-//Draw the map HUD
-if (instance_exists(obj_hud_map)) {
-
-    with (obj_hud_map)
-    
-        if (object_index == obj_hud_map)
-
+        else
             event_user(0);
-            
+    }
 }
 
 //Reset the font
@@ -1236,28 +1223,28 @@ if (fade &lt; 1) {
     
         draw_set_alpha(fade);
         size += 0.75;
-        
     }
 
     //Draw the fade
-    draw_set_color(c_black)
+    draw_set_colour(c_black)
     draw_rectangle(0, 0, 5000, 5000, 0)
     draw_set_alpha(1)
-    draw_set_color(c_white)
+    draw_set_colour(c_white)
 }
 
 //Display FPS
 if (showfps) {
 
-    if (fps &gt;= 60)
-        draw_text_colour(2, 2, string(fps) + " FPS", c_lime, c_lime, c_lime, c_lime, 1);
-    else {
-    
-        if (fps &lt; 60)
-            draw_text_colour(2, 2, string(fps) + " FPS", c_yellow, c_yellow, c_yellow, c_yellow, 1);
-        else if (fps &lt; 30)
-            draw_text_colour(2, 2, string(fps) + " FPS", c_red, c_red, c_red, c_red, 1);            
-    }   
+    if (fps &lt; 30)
+       draw_set_colour(c_red);
+    else if (fps &lt; 60)
+       draw_set_colour(c_yellow);   
+    else
+        draw_set_colour(c_lime);
+             
+     draw_text(2, 2, string(fps) + " FPS");
+     
+     draw_set_colour(c_white);
 }
 
 //Set the font
@@ -1269,7 +1256,7 @@ draw_set_halign(fa_right);
 //Display settings message
 if (message != "") {
 
-    draw_text_colour(display_get_gui_width() - 2, display_get_gui_height() - 10, string(message), c_white, c_white, c_white, c_white, 1);
+    draw_text(display_get_gui_width() - 2, display_get_gui_height() - 10, string(message));
 }
 
 //Re-align the font

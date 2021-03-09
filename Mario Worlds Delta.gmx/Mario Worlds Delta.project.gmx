@@ -2120,13 +2120,13 @@
       <script>scripts\sprite_get_powerup.gml</script>
       <script>scripts\turn_towards_direction.gml</script>
       <script>scripts\draw_sprite_tiled_area_ext.gml</script>
+      <script>scripts\draw_sprite_stretched_origin.gml</script>
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
       <script>scripts\instance_nearest_below.gml</script>
       <script>scripts\create_prefreeze_surface.gml</script>
     </scripts>
     <script>scripts\move_contact_object.gml</script>
     <script>scripts\shard_create.gml</script>
-    <script>scripts\draw_sprite_stretched_origin.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
