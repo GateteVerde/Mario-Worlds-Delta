@@ -305,9 +305,9 @@ else if (hspeed &lt; 0)
 if (holding == 1) &amp;&amp; (vspeed == 0) {
 
     if (global.powerup == cs_pow_small)
-        draw_sprite_ext(myitem, myframe, round(x)+(10*image_xscale), round(y)-2, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(myitem, myframe, x+(10*image_xscale), y-2, 1, 1, 0, c_white, 1);
     else
-        draw_sprite_ext(myitem, myframe, round(x)+(10*image_xscale), round(y)-4, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(myitem, myframe, x+(10*image_xscale), y-4, 1, 1, 0, c_white, 1);
 }
 
 //Set the palette
@@ -318,18 +318,18 @@ if (vspeed != 0)
 &amp;&amp; (canmove == 1)
 &amp;&amp; (global.powerup == cs_pow_cape) {
 
-    draw_sprite_ext(spr_cape_climb, 1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_cape_climb, 1, x, y, image_xscale, 1, 0, c_white, 1);
 }
 
 //Draw the player
-draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, 1);
 
 //Draw cape
 if (vspeed == 0)
 &amp;&amp; (canmove == 1)
 &amp;&amp; (global.powerup == cs_pow_cape) {
 
-    draw_sprite_ext(spr_cape_walk, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_cape_walk, image_index, x, y, image_xscale, 1, 0, c_white, 1);
 }
 
 //Reset shader
@@ -339,9 +339,9 @@ pal_swap_reset();
 if (holding == 1) &amp;&amp; (vspeed != 0) {
 
     if (global.powerup == cs_pow_small)
-        draw_sprite_ext(myitem, myframe, round(x), round(y)-2, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(myitem, myframe, x, y-2, 1, 1, 0, c_white, 1);
     else
-        draw_sprite_ext(myitem, myframe, round(x), round(y)-4, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(myitem, myframe, x, y-4, 1, 1, 0, c_white, 1);
 }
 </string>
           </argument>

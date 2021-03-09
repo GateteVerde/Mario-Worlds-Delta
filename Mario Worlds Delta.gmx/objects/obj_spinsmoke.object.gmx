@@ -121,15 +121,15 @@ if (starstop == 0)
             <string>///Draw smoke and stars
 
 //Draw smoke
-draw_sprite(sprite_index, -1, round(x), round(y));
+draw_sprite(sprite_index, image_index, x, y);
 
 //Draw stars
 if (starstop == 0) {
 
-    draw_sprite(spr_spinstar2, 0, round(x)+starx, round(y)+stary)
-    draw_sprite(spr_spinstar2, 0, round(x)+starx, round(y)-stary)
-    draw_sprite(spr_spinstar2, 0, round(x)-starx, round(y)+stary)
-    draw_sprite(spr_spinstar2, 0, round(x)-starx, round(y)-stary)
+    draw_sprite(spr_spinstar2, 0, x+starx, y+stary)
+    draw_sprite(spr_spinstar2, 0, x+starx, y-stary)
+    draw_sprite(spr_spinstar2, 0, x-starx, y+stary)
+    draw_sprite(spr_spinstar2, 0, x-starx, y-stary)
 }
 </string>
           </argument>

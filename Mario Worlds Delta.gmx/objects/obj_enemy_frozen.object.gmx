@@ -349,7 +349,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw NPC
 
-draw_sprite_ext(sprite_index, -1, x, y+1, 1, 1, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y+1, 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

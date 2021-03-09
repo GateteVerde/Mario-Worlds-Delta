@@ -156,7 +156,7 @@ if (x &lt; view_xview[0]-32)
             <kind>1</kind>
             <string>///Draw fire
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

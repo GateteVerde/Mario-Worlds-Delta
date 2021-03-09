@@ -600,24 +600,24 @@ player_set_palette(id);
 if (global.powerup == cs_pow_cape) {
     if (vspeed != 0) {
         if (vspeed &lt; 0)
-            draw_sprite_ext(spr_cape, 1, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape, 1, x-(4*sign(image_xscale)), y-8+m_ypos, image_xscale, 1, 0, c_white, 1);
         else
-            draw_sprite_ext(spr_cape_fall, anim2, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape_fall, anim2, x-(4*sign(image_xscale)), y-8+m_ypos, image_xscale, 1, 0, c_white, 1);
     } else {
         if (hspeed == 0)
-            draw_sprite_ext(spr_cape, 1, round(x)-4, round(y)-8, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape, 1, x-4, y-8, 1, 1, 0, c_white, 1);
         else
-            draw_sprite_ext(spr_cape_walk, anim2, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_cape_walk, anim2, x-(4*sign(image_xscale)), y-8+m_ypos, image_xscale, 1, 0, c_white, 1);
     }
 }
 
 //Draw the player
-draw_sprite_ext(m, 0, round(x)-(4*sign(image_xscale)), round(y)-8+m_ypos, image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(m, 0, x-(4*sign(image_xscale)), y-8+m_ypos, image_xscale, 1, 0, c_white, 1);
 
 //Draw the cape in front
 if (global.powerup == cs_pow_cape) {
     if (hspeed == 0)
-        draw_sprite_ext(spr_cape, 1, round(x)-4, round(y)-8, 1, 1, 0, c_white, 1);
+        draw_sprite_ext(spr_cape, 1, x-4, y-8, 1, 1, 0, c_white, 1);
 }
 
 //Reset shader
@@ -654,7 +654,7 @@ if (global.powerup == cs_pow_cape) {
     if (vspeed == 0) {
     
         //If not moving horizontally
-        draw_sprite_ext(capespr, anim2, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(capespr, anim2, x, y+1, image_xscale, 1, 0, c_white, 1);
     }
     
     //Otherwise
@@ -662,9 +662,9 @@ if (global.powerup == cs_pow_cape) {
     
         //If moving up
         if (vspeed &lt; 0)
-            draw_sprite_ext(spr_cape_spin, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(spr_cape_spin, image_index, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
         else
-            draw_sprite_ext(spr_cape_spin, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(spr_cape_spin, image_index, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
     }
 }
 
@@ -672,7 +672,7 @@ if (global.powerup == cs_pow_cape) {
 player_set_palette(id);
 
 //Draw the player
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
 
 //Reset shader
 pal_swap_reset();
@@ -685,7 +685,7 @@ if (pseudomount == 1) {
     pal_swap_set(spr_palette_yoshi, pseudomountcolour);
     
     //Draw Yoshi
-    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
         
     //Reset shader
     pal_swap_reset();

@@ -95,7 +95,7 @@ if (x &lt; view_xview[0]-16)
             <kind>1</kind>
             <string>///Draw debris
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1*sign(hspeed), 1, angle, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, x, y, 1*sign(hspeed), 1, angle, c_white, 1);
 </string>
           </argument>
         </arguments>

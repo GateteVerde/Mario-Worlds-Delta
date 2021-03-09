@@ -437,9 +437,9 @@ if (overlap2)
 if (owo == 1)
 &amp;&amp; (mebelow != noone)
 &amp;&amp; (sprite_index != stompsprite)
-    draw_sprite_ext(spr_goomba_stack_owo, 1, round(x)+offset, round(y)+1, xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_goomba_stack_owo, 1, x+offset, y+1, xscale, 1, 0, c_white, 1);
 else
-    draw_sprite_ext(sprite_index, -1, round(x)+offset, round(y)+1, xscale, 1, 0, c_white, 1);    
+    draw_sprite_ext(sprite_index, image_index, x+offset, y+1, xscale, 1, 0, c_white, 1);    
 </string>
           </argument>
         </arguments>

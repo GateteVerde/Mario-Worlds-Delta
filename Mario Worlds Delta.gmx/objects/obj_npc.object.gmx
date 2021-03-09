@@ -172,12 +172,12 @@ exit;
             <string>///Draw NPC
 
 //Draw NPC
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, x, y+1, xscale, 1, 0, c_white, 1);
 
 //Draw Talk icon
 if (player)
 &amp;&amp; (varmsg != "No message was set") 
-    draw_sprite_ext(spr_talk, -1, round(x)-8, round(bbox_top-16), 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_talk, image_index, x-8, round(bbox_top-16), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

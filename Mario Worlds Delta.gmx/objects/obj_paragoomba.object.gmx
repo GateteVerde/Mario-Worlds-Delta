@@ -262,10 +262,10 @@ instance_destroy();
             <string>///Draw Para Goomba
 
 //Wings
-draw_sprite_ext(spr_goomba_wings, wing_anim, round(x), round(y)+1, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_goomba_wings, wing_anim, x, y+1, 1, 1, 0, c_white, 1);
 
 //Goomba
-draw_sprite_ext(spr_goomba, -1, round(x), round(y), xscale, 1, 0, c_white, 1);
+draw_sprite_ext(spr_goomba, image_index, x, y, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

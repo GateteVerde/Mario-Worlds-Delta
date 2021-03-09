@@ -296,9 +296,9 @@ if ((vspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left, bbox_top-vspeed*2
             <string>///Draw spiketop
 
 if (turn == 0)
-    draw_sprite_ext(spr_spiketop, -1, round(x), round(y)+8, xscale, 1, direction, c_white, 1);
+    draw_sprite_ext(spr_spiketop, image_index, x, y+8, xscale, 1, direction, c_white, 1);
 else
-    draw_sprite_ext(spr_spiketop_turn, turn-1, round(x), round(y)+8, xscale, 1, direction, c_white, 1);
+    draw_sprite_ext(spr_spiketop_turn, turn-1, x, y+8, xscale, 1, direction, c_white, 1);
 </string>
           </argument>
         </arguments>

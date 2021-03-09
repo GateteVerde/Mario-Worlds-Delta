@@ -124,7 +124,7 @@ if (ready == 0) {
             <kind>1</kind>
             <string>///Draw the stack
 
-draw_sprite(sprite_index, -1, round(x), y+1);
+draw_sprite(sprite_index, image_index, x, y+1);
 </string>
           </argument>
         </arguments>

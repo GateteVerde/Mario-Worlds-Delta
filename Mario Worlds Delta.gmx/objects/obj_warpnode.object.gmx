@@ -253,7 +253,7 @@ if (global.exit_id == myid) {
             <kind>1</kind>
             <string>///Draw ID
 
-draw_sprite(sprite_index, -1, round(x), round(y));
+draw_sprite(sprite_index, image_index, x, y);
 draw_text(x, y, myid);
 </string>
           </argument>

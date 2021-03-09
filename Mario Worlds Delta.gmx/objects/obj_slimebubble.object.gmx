@@ -138,7 +138,7 @@ imdead.image_alpha = 0.7;
             <kind>1</kind>
             <string>///Draw slime bubble
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 0.7);
+draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, c_white, 0.7);
 </string>
           </argument>
         </arguments>
