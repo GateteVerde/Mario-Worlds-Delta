@@ -113,13 +113,9 @@ global.powerup = cs_pow_small;
 global.clear = 0;
 
 //Target Room
-global.targetroom = noone;
+global.targetroom = -1;
 
-//Pre-freeze screenshot
-if (file_exists("prefreeze.png"))
-
-    file_delete("prefreeze.png");
-
+//Pre-freeze surface
 global.prefreeze = -1;
 
 //Start
@@ -129,7 +125,7 @@ global.mariostart = 0;
 global.checkpoint = noone;
 
 //Checkpoint Room
-global.checkpointroom = noone;
+global.checkpointroom = -1;
 
 //Position change object type
 global.postchange = -1;

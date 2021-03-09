@@ -61,7 +61,7 @@ hspeed = 0.324;
 
 //Forget check points
 global.checkpoint = noone;
-global.checkpointroom = noone;
+global.checkpointroom = -1;
 
 //Allow Mario Start! text
 global.mariostart = 0;

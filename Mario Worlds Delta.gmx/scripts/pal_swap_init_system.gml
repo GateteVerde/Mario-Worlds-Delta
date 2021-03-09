@@ -11,6 +11,9 @@
 **      Initiates the palette swapping system.
 */
 
+//Telling the compiler to compile this script inline
+gml_pragma("forceinline");
+
 globalvar Pal_Shader, Pal_Texel_Size, Pal_UVs, Pal_Index, Pal_Texture;
 
 Pal_Shader = argument[0];

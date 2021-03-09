@@ -8,8 +8,10 @@
 **      Initializes the variables needed for the shockwave shader to work properly
 */
 
-draw_set_color(c_white);
+//Telling the compiler to compile this script inline
+gml_pragma("forceinline");
 
+//Getting the shader uniforms and setting the necessary variables
 uni_time = shader_get_uniform(shd_shockwave,"time");
 var_time_var = 0;
 

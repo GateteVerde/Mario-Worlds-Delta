@@ -27,11 +27,8 @@
             <kind>1</kind>
             <string>///A heroic death
 
-//Save an image of the screen
-surface_save(application_surface,"prefreeze.png");
-
 //Set the pre-freeze image
-global.prefreeze = sprite_add("prefreeze.png",0,false,false,0,0);
+create_prefreeze_surface();
 
 //Set up sprite based on player
 switch (global.player) {
@@ -190,7 +187,7 @@ if (y &lt; view_yview[0] + global.gh) {
             <string>///Freeze all object and begin animation
 
 //Delete the pre-freeze
-file_delete("prefreeze.png");
+surface_free(global.prefreeze);
 
 //Create a screenshot
 back = background_create_from_surface(application_surface, 0, 0, global.gw*2, global.gh*2, 0, 0);

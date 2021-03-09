@@ -11,8 +11,7 @@
 **      Makes the screen shake for the time the sound plays given in argument0
 */
 
-var len;
-len = audio_sound_length(argument[0]);
+var len = audio_sound_length(argument[0]);
 
 //Make the screen shake
 obj_controller.shake = true;

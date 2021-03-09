@@ -1180,9 +1180,8 @@ draw_rectangle_colour(0, 0, global.gw*(filter+1), global.gh*(filter+1), c_black,
 draw_surface_stretched(application_surface, 0, yport, global.gw, global.gh);
 
 //Draw the pre-freeze if it exists
-if (file_exists("prefreeze.png"))
-
-    draw_sprite_stretched(global.prefreeze, 0, 0, yport, global.gw, global.gh);
+if (surface_exists(global.prefreeze))
+   draw_surface_stretched(global.prefreeze, 0, yport, global.gw, global.gh);
 
 //Reset the shader
 shader_reset();
