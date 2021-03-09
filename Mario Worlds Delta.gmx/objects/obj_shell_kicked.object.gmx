@@ -549,20 +549,20 @@ if (sprite_height &lt; 17) {
     if (flip == 0) {
     
         //Draw shell
-        draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
         
         //If there's a koopa inside
         if (koopainside == 1)
-            draw_sprite_ext(spr_koopa_inside, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_koopa_inside, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
     }
     else {
     
         //Draw shell
-        draw_sprite_ext(sprite_index, image_index, x, y+17, image_xscale, -1, 0, c_white, 1);
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+17, image_xscale, -1, 0, c_white, 1);
         
         //If there's a koopa inside
         if (koopainside == 1)
-            draw_sprite_ext(spr_koopa_inside, image_index, x, y+17, image_xscale, -1, 0, c_white, 1);
+            draw_sprite_ext(spr_koopa_inside, -1, round(x), round(y)+17, image_xscale, -1, 0, c_white, 1);
     }
 }
 
@@ -572,20 +572,20 @@ else {
     if (flip == 0) {
     
         //Draw shell
-        draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
         
         //If there's a koopa inside
         if (koopainside == 1)
-            draw_sprite_ext(spr_koopa_inside_big, image_index, x, y+1, image_xscale, 1, 0, c_white, 1);
+            draw_sprite_ext(spr_koopa_inside_big, -1, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
     }
     else {
     
         //Draw shell
-        draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, -1, 0, c_white, 1);
+        draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, image_xscale, -1, 0, c_white, 1);
         
         //If there's a koopa inside
         if (koopainside == 1)
-            draw_sprite_ext(spr_koopa_inside_big, image_index, x, y+1, image_xscale, -1, 0, c_white, 1);
+            draw_sprite_ext(spr_koopa_inside_big, -1, round(x), round(y)+1, image_xscale, -1, 0, c_white, 1);
     }    
 }
 </string>

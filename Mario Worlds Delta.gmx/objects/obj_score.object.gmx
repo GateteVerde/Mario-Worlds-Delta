@@ -506,9 +506,9 @@ score += 10;
             <string>///Draw it
 
 if (y &lt;= view_yview[0]+40)
-    draw_sprite_ext(sprite_index, image_index, x, view_yview[0]+40, 1, 1, 0, c_white, image_alpha);
+    draw_sprite_ext(sprite_index, -1, round(x), view_yview[0]+40, 1, 1, 0, c_white, image_alpha);
 else
-    draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, c_white, image_alpha);
+    draw_sprite_ext(sprite_index, -1, round(x), y, 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

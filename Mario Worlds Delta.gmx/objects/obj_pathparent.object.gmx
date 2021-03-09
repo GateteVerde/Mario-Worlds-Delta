@@ -156,7 +156,7 @@ in_water = 1;
             <kind>1</kind>
             <string>///Draw if visible
 
-draw_sprite_ext(sprite_index, in_water, x, y, image_xscale, image_yscale, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, in_water, round(x), round(y), image_xscale, image_yscale, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

@@ -146,7 +146,7 @@ if (global.mount == 1)
 }
 
 //Draw it
-draw_sprite(sprite_index, image_index, x, y);
+draw_sprite(sprite_index, -1, round(x), round(y));
 
 //Reset shader
 pal_swap_reset();

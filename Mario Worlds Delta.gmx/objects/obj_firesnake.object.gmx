@@ -194,7 +194,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw snake
 
-draw_sprite_ext(sprite_index, image_index, x, y+1, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), y+1, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

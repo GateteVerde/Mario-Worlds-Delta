@@ -504,7 +504,7 @@ while (a &gt; 0) {
 }
 
 //Draw the engine
-draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, 0, image_blend, 1);
+draw_sprite_ext(sprite_index, -1, x, y, 1, 1, 0, image_blend, 1);
 </string>
           </argument>
         </arguments>

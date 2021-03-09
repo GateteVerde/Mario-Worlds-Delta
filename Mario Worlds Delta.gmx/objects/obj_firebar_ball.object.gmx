@@ -127,7 +127,7 @@ with (other) event_user(0);
             <kind>1</kind>
             <string>///Draw the sprite
 
-draw_sprite_ext(spr_fireball, mom.frame, x, y, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_fireball, mom.frame, round(x), round(y), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

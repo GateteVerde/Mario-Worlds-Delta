@@ -230,7 +230,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw donut
 
-draw_sprite(sprite_index, shake, x+offset, y);
+draw_sprite(sprite_index, shake, round(x)+offset, y);
 </string>
           </argument>
         </arguments>

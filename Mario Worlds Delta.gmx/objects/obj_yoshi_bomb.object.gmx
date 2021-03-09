@@ -190,7 +190,7 @@ exit;
             <kind>1</kind>
             <string>///Draw egg
 
-draw_sprite_ext(spr_eggbomb_angle, image_index, x, y+8, 1, 1, angle, c_white, 1);
+draw_sprite_ext(spr_eggbomb_angle, -1, round(x), round(y)+8, 1, 1, angle, c_white, 1);
 </string>
           </argument>
         </arguments>

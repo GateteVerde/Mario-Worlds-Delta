@@ -128,7 +128,7 @@ if (object_index != obj_slimebubble)
             <kind>1</kind>
             <string>///Draw Eerie
 
-draw_sprite_ext(sprite_index, image_index, x, y, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y), xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

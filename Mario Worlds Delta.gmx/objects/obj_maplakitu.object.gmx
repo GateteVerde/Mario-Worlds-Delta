@@ -112,8 +112,8 @@ else if (obj_mapplayer.y+8 &gt; y+8) {
             <kind>1</kind>
             <string>///Draw lakitu
 
-draw_sprite_ext(sprite_index, image_index, x, y-80, 1, 1, 0, c_white, 1);
-draw_sprite_ext(spr_maplakitu_shadow, image_index, x, y, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, -1, round(x), round(y)-80, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_maplakitu_shadow, -1, round(x), round(y), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

@@ -202,7 +202,7 @@ else if (image_speed == -0.3) {
             <kind>1</kind>
             <string>///Draw flame
 
-draw_sprite_ext(sprite_index, image_index, x, y, 1, 1, image_angle, c_white, 1)
+draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, image_angle, c_white, 1)
 </string>
           </argument>
         </arguments>

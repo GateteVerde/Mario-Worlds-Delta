@@ -231,7 +231,7 @@ if (x &lt; view_xview[0]-16)
             <kind>1</kind>
             <string>///Draw iceball
 
-draw_sprite_ext(spr_snowball, image_index, x, y+1, 1*sign(hspeed), 1, 0, c_white, 1);
+draw_sprite_ext(spr_snowball, -1, round(x), round(y)+1, 1*sign(hspeed), 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

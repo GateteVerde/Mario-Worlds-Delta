@@ -171,7 +171,7 @@ with (mysolid) instance_destroy();
             <string>///Draw the muncher
 
 //Draw it
-draw_sprite(sprite_index, image_index, x, y);
+draw_sprite(sprite_index, -1, round(x), round(y));
 
 //Update frame
 frame += 0.075;
@@ -179,7 +179,7 @@ frame += 0.075;
 //Draw 'Omnom' if permitted
 if (nom == 1)
 &amp;&amp; (sprite_index != spr_coin)
-    draw_sprite(spr_muncher_ee, frame, x+8, y-8);
+    draw_sprite(spr_muncher_ee, frame, round(x)+8, round(y)-8);
 </string>
           </argument>
         </arguments>

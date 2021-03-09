@@ -448,13 +448,13 @@ if (background_exists(back)) {
 if (global.powerup == cs_pow_cape) {
 
     if (global.mount == 0)
-        draw_sprite_ext(capesprite, capeframe, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
+        draw_sprite_ext(capesprite, capeframe, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
     else {
 
         if (riderframe == 0)
-            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), y-8, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), round(y)-8, image_xscale, 1, 0, c_white, image_alpha);
         else
-            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), y-6, image_xscale, 1, 0, c_white, image_alpha);    
+            draw_sprite_ext(capesprite, capeframe, round(x-6*sign(image_xscale)), round(y)-6, image_xscale, 1, 0, c_white, image_alpha);    
     }        
 }
 
@@ -465,12 +465,12 @@ player_set_palette(id);
 if (global.mount == 1) {
 
     if (image_speed == 0)
-        draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), y-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+        draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
     else
-        draw_sprite_ext(sprite_index, -1, round(x-6*sign(image_xscale)), y-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+        draw_sprite_ext(sprite_index, -1, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
 }
 else
-    draw_sprite_ext(sprite_index, image_index, x, y+1, image_xscale, 1, 0, c_white, image_alpha);
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);
     
 //Reset palette shader
 pal_swap_reset();

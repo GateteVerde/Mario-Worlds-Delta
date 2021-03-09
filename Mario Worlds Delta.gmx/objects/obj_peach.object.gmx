@@ -1288,7 +1288,7 @@ stun_anim += 0.5;
 player_set_palette(id);
     
 //Draw the player
-draw_sprite_ext(sprite_index, image_index, x, y+1+offset, xscale, 1, angle, c_white, image_alpha);
+draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+offset, xscale, 1, angle, c_white, image_alpha);
 
 //Draw stun
 if (stun &gt; 0) {
