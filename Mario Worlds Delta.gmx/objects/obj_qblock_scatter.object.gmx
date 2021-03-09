@@ -106,7 +106,9 @@ if (sprout == itemtype.coin) {
     if (global.player == 1)
     &amp;&amp; (sprout == itemtype.coin_multi) {
     
-        instance_create(x, y, obj_qblock_10coin);
+        with (instance_create(x, y, obj_qblock)) {
+             sprout = itemtype.coin_multi;
+        }
         instance_destroy();
     }
     
