@@ -467,7 +467,7 @@ if (global.mount == 1) {
     if (image_speed == 0)
         draw_sprite_ext(player_ride(), riderframe, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
     else
-        draw_sprite_ext(sprite_index, -1, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
+        draw_sprite_ext(sprite_index, image_index, round(x-6*sign(image_xscale)), round(y)-7+m_ypos, image_xscale, 1, 0, c_white, image_alpha);
 }
 else
     draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, image_alpha);

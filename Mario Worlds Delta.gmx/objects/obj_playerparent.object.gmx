@@ -1612,11 +1612,11 @@ if (squat_ready == 1)
 &amp;&amp; (instance_number(obj_invincibility) == 0) {
 
     //Draw sprite
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);     
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);     
     
     //Draw blended sprite
     draw_set_blend_mode(bm_add);
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, image_alpha);
     draw_set_blend_mode(bm_normal);      
 }
 
@@ -1627,7 +1627,7 @@ else {
     player_set_palette(id);
         
     //Draw the player
-    draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, angle, c_white, image_alpha);
+    draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, angle, c_white, image_alpha);
     
     //Draw stun
     if (stun &gt; 0) {

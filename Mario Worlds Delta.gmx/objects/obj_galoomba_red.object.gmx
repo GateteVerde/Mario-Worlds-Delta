@@ -320,7 +320,7 @@ if (sprite_index == spr_galoomba_red_sleep) {
             <kind>1</kind>
             <string>///Draw Galoomba
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

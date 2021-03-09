@@ -209,7 +209,7 @@ if (vspeed &gt; 0) &amp;&amp; (place_meeting(x, y, obj_semisolid))
             <kind>1</kind>
             <string>///Draw Urchin
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y), 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

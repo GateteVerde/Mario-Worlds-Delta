@@ -148,7 +148,7 @@ for (var i = 0; i &lt; array_length_1d(tiles); i++) {
             <kind>1</kind>
             <string>///Draw fade
 
-draw_sprite_ext(spr_stompmask_cape, -1, view_xview[0]+view_wview[0]/2, view_yview[0], 1, 1, 0, c_white, image_alpha);
+draw_sprite_ext(spr_stompmask_cape, image_index, view_xview[0]+view_wview[0]/2, view_yview[0], 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

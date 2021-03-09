@@ -86,7 +86,7 @@ else
             <kind>1</kind>
             <string>///Set star position
 
-draw_sprite(sprite_index, -1, xstart+lengthdir_x(pos, dir), ystart+lengthdir_y(pos, dir));
+draw_sprite(sprite_index, image_index, xstart+lengthdir_x(pos, dir), ystart+lengthdir_y(pos, dir));
 </string>
           </argument>
         </arguments>

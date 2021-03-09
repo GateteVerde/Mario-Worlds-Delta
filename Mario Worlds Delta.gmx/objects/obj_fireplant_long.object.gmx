@@ -163,7 +163,7 @@ if (place_meeting(x, y, fire))
             <kind>1</kind>
             <string>///Draw fire piranha plant
 
-draw_sprite_ext(sprite_index, -1, round(x), y, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), y, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

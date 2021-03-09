@@ -260,11 +260,11 @@ with (obj_player_door) alarm[0] = 32;
             <string>///Draw door
 
 //Draw door
-draw_sprite(sprite_index, -1, x, y);
+draw_sprite(sprite_index, image_index, x, y);
 
 //Draw lock
 if (lock == 1)
-    draw_sprite(spr_door_lock, -1, x, y);
+    draw_sprite(spr_door_lock, image_index, x, y);
 </string>
           </argument>
         </arguments>

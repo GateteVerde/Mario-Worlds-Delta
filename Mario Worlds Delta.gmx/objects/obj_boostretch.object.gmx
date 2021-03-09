@@ -278,7 +278,7 @@ alarm[10] = 60;
             <kind>1</kind>
             <string>///Draw stretch boo
 
-draw_sprite_ext(sprite_index, -1, round(x), y, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), y, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

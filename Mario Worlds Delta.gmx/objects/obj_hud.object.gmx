@@ -270,7 +270,7 @@ draw_text(_xx+_ww/2-92, _yy+16-_yp, string_format(lives, 2, 0));
 draw_set_font(global.fontnumbgold);
 
 //Timer
-draw_sprite_ext(spr_hud_sma4_time, -1, _xx+_ww/2-56+shakex, _yy+16+shakey-_yp, 1, 1, 0, c_white, 0.7);
+draw_sprite_ext(spr_hud_sma4_time, image_index, _xx+_ww/2-56+shakex, _yy+16+shakey-_yp, 1, 1, 0, c_white, 0.7);
 
 //Show regular time if the stage is not clear
 if (clear == 0) {
@@ -318,7 +318,7 @@ if (global.reserveitem &gt; cs_pow_small) {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_sma4_coins, -1, _xx+_ww/2+25, _yy+16-_yp, 1, 1, 0, c_white, 0.7);
+draw_sprite_ext(spr_hud_sma4_coins, image_index, _xx+_ww/2+25, _yy+16-_yp, 1, 1, 0, c_white, 0.7);
 draw_text(_xx+_ww/2+33, _yy+16-_yp, string_add_zeros(global.coins, 2));
 
 //Score
@@ -332,7 +332,7 @@ if (display &gt; 0)
 || (global.clear == 1) {
 
     //Bonus
-    draw_sprite_ext(spr_hud_stars, -1, _xx+_ww-56, _yy+_hh-16-_yp, 1, 1, 0, c_white, 0.7);
+    draw_sprite_ext(spr_hud_stars, image_index, _xx+_ww-56, _yy+_hh-16-_yp, 1, 1, 0, c_white, 0.7);
     draw_text(_xx+_ww-32, _yy+_hh-24-_yp, string_format(global.bonus, 2, 0));
 }
 
@@ -387,7 +387,7 @@ draw_sprite_ext(spr_hud_minimalist_mario, global.player, _xx+8, _yy-_yp, 1, 1, 0
 draw_text(_xx+24, _yy-_yp, string_format(lives, 2, 0));
 
 //Bonus
-draw_sprite_ext(spr_hud_stars, -1, _xx+48, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_stars, image_index, _xx+48, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+64, _yy-_yp, string_format(global.bonus, 2, 0));
 
 //Ace Coin Outline
@@ -407,11 +407,11 @@ else
 draw_sprite_ext(spr_hud_sma2_acecoins, 1, _xx+88, _yy-_yp, 1, 1, 0, c_white, 1);
 
 //Reserve Box
-draw_sprite_ext(spr_hud_minimalist_reserve, -1, _xx + _ww/2 + 9, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_minimalist_reserve, image_index, _xx + _ww/2 + 9, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_sprite_ext(spr_hud_minimalist_reserve_item, global.reserveitem, _xx + _ww/2 + 17, _yy-_yp, 1, 1, 0, c_white, 1);
 
 //Timer
-draw_sprite_ext(spr_hud_minimalist_time, -1, _xx+_ww-88+shakex, _yy+shakey-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_minimalist_time, image_index, _xx+_ww-88+shakex, _yy+shakey-_yp, 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumbgold);
@@ -443,7 +443,7 @@ else {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, _xx+_ww-40, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_coins, image_index, _xx+_ww-40, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+_ww-24, _yy-_yp, string_format(global.coins, 2, false));
 </string>
           </argument>
@@ -496,7 +496,7 @@ draw_sprite_ext(spr_hud_minimalist_mario, global.player, _xx+8, _yy-_yp, 1, 1, 0
 draw_text(_xx+24, _yy-_yp, string_format(lives, 2, 0));
 
 //Bonus
-draw_sprite_ext(spr_hud_stars, -1, _xx+48, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_stars, image_index, _xx+48, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+64, _yy-_yp, string_format(global.bonus, 2, 0));
 
 //Ace Coin Outline
@@ -516,11 +516,11 @@ else
 draw_sprite_ext(spr_hud_sma2_acecoins, 1, _xx+88, _yy-_yp, 1, 1, 0, c_white, 1);
 
 //Reserve Box
-draw_sprite_ext(spr_hud_minimalist_reserve, -1, _xx + _ww/2 + 9, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_minimalist_reserve, image_index, _xx + _ww/2 + 9, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_sprite_ext(spr_hud_minimalist_reserve_item, global.reserveitem, _xx + _ww/2 + 17, _yy-_yp, 1, 1, 0, c_white, 1);
 
 //Timer
-draw_sprite_ext(spr_hud_minimalist_time, -1, _xx+_ww-88+shakex, _yy+shakey-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_minimalist_time, image_index, _xx+_ww-88+shakex, _yy+shakey-_yp, 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumbgold);
@@ -552,7 +552,7 @@ else {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, _xx+_ww-40, _yy-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_coins, image_index, _xx+_ww-40, _yy-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+_ww-24, _yy-_yp, string_format(global.coins, 2, false));
 
 //Score
@@ -597,7 +597,7 @@ draw_set_colour(c_white);
 draw_set_font(global.fontnumbgold);
 
 //World
-draw_sprite_ext(spr_hud_sma4_world, -1, _xx+16, _yy+8-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma4_world, image_index, _xx+16, _yy+8-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+48, _yy+8-_yp, string(global.world));
 
 //Ace Coin Outline
@@ -627,7 +627,7 @@ draw_text(_xx+88, _yy+8-_yp, string_format(lives, 2, 0));
 draw_set_font(global.fontnumbgold);
 
 //Timer
-draw_sprite_ext(spr_hud_sma4_time, -1, _xx+_ww/2-16+shakex, _yy+8+shakey-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma4_time, image_index, _xx+_ww/2-16+shakex, _yy+8+shakey-_yp, 1, 1, 0, c_white, 1);
 
 //Show regular time if the stage is not clear
 if (clear == 0) {
@@ -668,7 +668,7 @@ else {
 //Reserve Box
 if (global.reserveitem &gt; cs_pow_small) {
 
-    draw_sprite_ext(spr_hud_sma2_reserve, -1, _xx + _ww/2, _yy + _hh-24-_yp, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_hud_sma2_reserve, image_index, _xx + _ww/2, _yy + _hh-24-_yp, 1, 1, 0, c_white, 1);
     draw_sprite_ext(spr_hud_reserve_item, global.reserveitem, _xx + _ww/2, _yy + _hh-24-_yp, 1, 1, 0, c_white, 1);
 }
 
@@ -676,7 +676,7 @@ if (global.reserveitem &gt; cs_pow_small) {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_sma4_coins, -1, _xx+_ww-104, _yy+8-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma4_coins, image_index, _xx+_ww-104, _yy+8-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+_ww-96, _yy+8-_yp, string_add_zeros(global.coins, 2));
 
 //Score
@@ -690,7 +690,7 @@ if (display &gt; 0)
 || (global.clear == 1) {
 
     //Bonus
-    draw_sprite_ext(spr_hud_stars, -1, _xx+_ww-56, _yy+_hh-16-_yp, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_hud_stars, image_index, _xx+_ww-56, _yy+_hh-16-_yp, 1, 1, 0, c_white, 1);
     draw_text(_xx+_ww-32, _yy+_hh-24-_yp, string_format(global.bonus, 2, 0));
 }
 </string>
@@ -755,18 +755,18 @@ draw_sprite_ext(spr_hud_sma2_acecoins, 1, _xx+8, _yy+16-_yp, 1, 1, 0, c_white, 1
 draw_set_font(global.fontnumblarge);
 
 //Bonus
-draw_sprite_ext(spr_hud_stars, -1, _xx+64, _yy+16-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_stars, image_index, _xx+64, _yy+16-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+88, _yy+8-_yp, string_format(global.bonus, 2, 0));
 
 //Reserve Box
-draw_sprite_ext(spr_hud_sma2_reserve, -1, _xx + _ww/2, _yy+8-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma2_reserve, image_index, _xx + _ww/2, _yy+8-_yp, 1, 1, 0, c_white, 1);
 draw_sprite_ext(spr_hud_reserve_item, global.reserveitem, _xx + _ww/2, _yy+8-_yp, 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumbgold);
 
 //Timer
-draw_sprite_ext(spr_hud_time, -1, _xx+_ww-104+shakex, _yy+8+shakey-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_time, image_index, _xx+_ww-104+shakex, _yy+8+shakey-_yp, 1, 1, 0, c_white, 1);
 
 //Show regular time if the stage is not clear
 if (clear == 0) {
@@ -795,7 +795,7 @@ else {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_sma2_coins, -1, _xx+_ww-48, _yy+8-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_sma2_coins, image_index, _xx+_ww-48, _yy+8-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+_ww-24, _yy+8-_yp, string_format(global.coins, 2, false));
 
 //Score
@@ -859,18 +859,18 @@ draw_sprite_ext(spr_hud_acecoins, 1, _xx+64, _yy+15-_yp, 1, 1, 0, c_white, 1);
 draw_set_font(global.fontnumblarge);
 
 //Bonus
-draw_sprite_ext(spr_hud_stars, -1, _xx+72, _yy+23-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_stars, image_index, _xx+72, _yy+23-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+96, _yy+15-_yp, string_format(global.bonus, 2, 0));
 
 //Reserve Box
-draw_sprite_ext(spr_hud_reserve, -1, _xx + _ww/2, _yy+8-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_reserve, image_index, _xx + _ww/2, _yy+8-_yp, 1, 1, 0, c_white, 1);
 draw_sprite_ext(spr_hud_reserve_item, global.reserveitem, _xx + _ww/2, _yy+14-_yp, 1, 1, 0, c_white, 1);
 
 //Set font
 draw_set_font(global.fontnumbgold);
 
 //Timer
-draw_sprite_ext(spr_hud_time, -1, _xx+_ww-104+shakex, _yy+15+shakey-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_time, image_index, _xx+_ww-104+shakex, _yy+15+shakey-_yp, 1, 1, 0, c_white, 1);
 
 //Show regular time if the stage is not clear
 if (clear == 0) {
@@ -899,7 +899,7 @@ else {
 draw_set_font(global.fontnumb);
 
 //Coins
-draw_sprite_ext(spr_hud_coins, -1, _xx+_ww-56, _yy+15-_yp, 1, 1, 0, c_white, 1);
+draw_sprite_ext(spr_hud_coins, image_index, _xx+_ww-56, _yy+15-_yp, 1, 1, 0, c_white, 1);
 draw_text(_xx+_ww-32, _yy+15-_yp, string_format(global.coins, 2, false));
 
 //Score

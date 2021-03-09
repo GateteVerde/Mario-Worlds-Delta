@@ -334,7 +334,7 @@ if ((hspeed &lt; 0) &amp;&amp; (collision_rectangle(bbox_left-hspeed, bbox_top+4
             <kind>1</kind>
             <string>///Draw Cheep Cheep
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

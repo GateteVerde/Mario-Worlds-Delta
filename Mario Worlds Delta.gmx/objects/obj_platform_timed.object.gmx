@@ -208,7 +208,7 @@ if (bbox_top &gt; room_height+32) {
             <string>///Draw the platform
 
 //Draw platform
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y), 1, 1, 0, c_white, 1);
 
 //Draw timer
 if (time &gt; 0)
