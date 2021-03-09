@@ -256,7 +256,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///Draw fireball
 
-draw_sprite_ext(spr_fireball, -1, round(x), round(y)+1, 1*sign(hspeed), 1, 0, c_white, 1);
+draw_sprite_ext(spr_fireball, image_index, round(x), round(y)+1, 1*sign(hspeed), 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

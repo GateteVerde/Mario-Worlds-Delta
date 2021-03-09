@@ -53,7 +53,7 @@ radius = 0;
             <kind>1</kind>
             <string>///Draw the light
 
-draw_sprite_ext(sprite_index, -1, x, y-16, 1, 1, image_angle, image_blend, 1);
+draw_sprite_ext(sprite_index, image_index, x, y-16, 1, 1, image_angle, image_blend, 1);
 </string>
           </argument>
         </arguments>

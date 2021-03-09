@@ -198,7 +198,7 @@ if (ready2 == 0) {
 }
 
 //Draw block
-draw_sprite(sprite_index, -1, round(x), round(y));
+draw_sprite(sprite_index, image_index, round(x), round(y));
 </string>
           </argument>
         </arguments>

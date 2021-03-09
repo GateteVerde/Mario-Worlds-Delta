@@ -567,7 +567,7 @@ if (sprite_index == stun1) {
             <kind>1</kind>
             <string>///Draw mechakoopa
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y)+1, dir, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1, dir, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

@@ -112,9 +112,9 @@ with (mylight) {
             <string>///Draw Disco ball
 
 if (mylight == noone)
-    draw_sprite_ext(spr_discoball, -1, view_xview[0] + view_wview[0] / 2, view_yview[0] + 48, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_discoball, image_index, view_xview[0] + view_wview[0] / 2, view_yview[0] + 48, 1, 1, 0, c_white, 1);
 else
-    draw_sprite_ext(spr_discoball_active, -1, view_xview[0] + view_wview[0] / 2, view_yview[0] + 48, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_discoball_active, image_index, view_xview[0] + view_wview[0] / 2, view_yview[0] + 48, 1, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

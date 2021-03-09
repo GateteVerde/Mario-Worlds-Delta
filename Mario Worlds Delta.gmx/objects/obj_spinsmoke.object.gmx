@@ -121,7 +121,7 @@ if (starstop == 0)
             <string>///Draw smoke and stars
 
 //Draw smoke
-draw_sprite(sprite_index, -1, round(x), round(y));
+draw_sprite(sprite_index, image_index, round(x), round(y));
 
 //Draw stars
 if (starstop == 0) {

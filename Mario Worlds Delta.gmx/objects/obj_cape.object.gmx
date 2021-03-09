@@ -307,7 +307,7 @@ if (instance_exists(obj_playerparent)) {
     
         //If the player is not riding a yoshi
         if (global.mount == 0)
-            draw_sprite_ext(sprite_index, -1, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
+            draw_sprite_ext(sprite_index, image_index, round(x), round(y)+1+yy, image_xscale, 1, 0, c_white, image_alpha);
             
         //Otherwise, if the player is riding a yoshi
         else {
@@ -315,16 +315,16 @@ if (instance_exists(obj_playerparent)) {
             if (instance_exists(obj_yoshi)) {
                 
                 if (obj_yoshi.f == 1)
-                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
                 else
-                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);
             }
             else if instance_exists(obj_player_transform) {
             
                 if (obj_player_transform.riderframe == 1)
-                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
+                    draw_sprite_ext(sprite_index, image_index, round(x-6*sign(obj_playerparent.xscale)), round(y)-6+yy, image_xscale, 1, 0, c_white, image_alpha);
                 else
-                    draw_sprite_ext(sprite_index, -1, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);            
+                    draw_sprite_ext(sprite_index, image_index, round(x-6*sign(obj_playerparent.xscale)), round(y)-8+yy, image_xscale, 1, 0, c_white, image_alpha);            
             }
         }
     }

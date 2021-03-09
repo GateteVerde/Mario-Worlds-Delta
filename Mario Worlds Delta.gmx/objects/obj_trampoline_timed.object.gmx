@@ -340,7 +340,7 @@ else if (sprite_index == spr_trampoline_timed_end) {
             <kind>1</kind>
             <string>///Draw Timed Trampoline
 
-draw_sprite_ext(sprite_index, -1, round(x), round(y), 1, 1, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, image_index, round(x), round(y), 1, 1, 0, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

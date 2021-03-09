@@ -184,7 +184,7 @@ if (sprite_index != spr_door_p_outline) {
             <kind>1</kind>
             <string>///Draw door
 
-draw_sprite(sprite_index, -1, x, y);
+draw_sprite(sprite_index, image_index, x, y);
 </string>
           </argument>
         </arguments>

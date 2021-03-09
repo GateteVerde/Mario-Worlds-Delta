@@ -91,7 +91,7 @@ instance_destroy();
 draw_set_blend_mode(bm_add);
 
 //Draw the sprite
-draw_sprite_ext(sprite_index, -1, view_xview[view_current], view_yview[view_current], 1.5, 1, 0, c_white, 1);
+draw_sprite_ext(sprite_index, image_index, view_xview[view_current], view_yview[view_current], 1.5, 1, 0, c_white, 1);
 
 //Set blend mode to normal
 draw_set_blend_mode(bm_normal);
