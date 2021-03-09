@@ -39,10 +39,12 @@ image_speed = 0.2;
 //Set up orange light
 if (instance_exists(obj_lightcontrol)) {
     
-    with (instance_create(0, 0, obj_light_npc)) {
+    mylight = instance_create(0, 0, obj_light_npc);
+    with (mylight) {
     
-        sprite_index = spr_light_fireball;
         target = other.id;
+        radius = 16;
+        yoffset = 0;
         image_blend = make_colour_rgb(248, 144, 32);
     }
 }

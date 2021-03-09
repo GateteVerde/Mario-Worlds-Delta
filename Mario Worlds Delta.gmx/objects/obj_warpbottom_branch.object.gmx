@@ -138,7 +138,7 @@ if (input_check(input.up)) {
             
             //Set up warp parameters
             warpme.exit_type = 1;
-            warpme.exit_dir = exit_di_real;
+            warpme.exit_dir = exit_id_real;
             warpme.exit_id = exit_id_real;
             
             //Destroy the player object
