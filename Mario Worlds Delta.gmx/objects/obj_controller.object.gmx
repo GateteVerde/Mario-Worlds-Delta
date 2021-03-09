@@ -561,6 +561,12 @@ if (keyboard_check_pressed(ord('R'))) {
     //Initialize globals
     init_globals();
     
+    //Prevent screen pixelation
+    with (obj_controller) {
+    
+        pixelate = 60;
+    }
+    
     //Go to the title screen
     room_goto(rm_title);
 }
