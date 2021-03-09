@@ -99,7 +99,7 @@ if (ds_map_exists(global.worldmap, id))
 if (sprite_index == spr_levelpanel_ghost) {
 
     image_alpha = 1;
-    instance_create(x+8, y, obj_mapboo);    
+    instance_create(x+8, y-4, obj_mapboo);    
 }
 </string>
           </argument>
