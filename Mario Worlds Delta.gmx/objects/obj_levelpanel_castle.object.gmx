@@ -25,10 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Map Castle Level Panel
 
+//Inherit event
+event_inherited();
+
+//Panel type
 paneltype = 1;
 blownup = false;
+
+//Do not animate
+image_speed = 0;
 
 //Always stay visible regardless of whether it was unlocked
 image_alpha = 1;
@@ -81,7 +88,7 @@ if (ds_map_exists(global.worldmap, id))
             <kind>1</kind>
             <string>///Set destroyed sprite to overwrite custom sprite if level is beaten
 
-sprite_index = spr_levelpanel_castle_destroyed;
+image_index = 1;
 </string>
           </argument>
         </arguments>
@@ -110,7 +117,7 @@ sprite_index = spr_levelpanel_castle_destroyed;
 audio_stop_play_sound(snd_destroy, 0, false);
 
 //Turn into a stomped switch
-sprite_index = spr_levelpanel_castle_destroyed;
+image_index = 1;
 
 //Mark as beaten
 beaten = 2;
