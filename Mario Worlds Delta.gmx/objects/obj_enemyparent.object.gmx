@@ -1534,9 +1534,9 @@ imdead.image_index = image_index;
 //Set up the xscale
 imdead.image_xscale = xscale;
 
-//If the killing object is the cape
+//If the killing object is the cape or the block, jump higher.
 if (other.object_index == obj_spinner) 
-|| (other.object_index == obj_blockparent) {
+|| (object_is_ancestor(other.object_index, obj_blockparent)) {
 
     //Cape / Block kill
     if (variable_instance_exists(id, "swimming")) {

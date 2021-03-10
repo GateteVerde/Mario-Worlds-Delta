@@ -37,6 +37,9 @@ gravity = 0.2;
 //Is swimming
 swimming = 0;
 
+//Angle
+angle = 0;
+
 //If underwater
 if (place_meeting(x, y, obj_swim)) {
 
@@ -96,6 +99,9 @@ alarm[0] = 8;
           <argument>
             <kind>1</kind>
             <string>///Dead enemy logic
+
+//Update angle
+angle -= 10*sign(hspeed)
 
 //Cap vertical speed
 if (swimming == 1) {
@@ -205,7 +211,7 @@ else if (!water)
             <kind>1</kind>
             <string>///Draw the enemy
 
-draw_sprite_ext(sprite_index, image_index, round(x), y, image_xscale, 1, 0, c_white, image_alpha);
+draw_sprite_ext(sprite_index, image_index, round(x), y, image_xscale, 1, angle, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

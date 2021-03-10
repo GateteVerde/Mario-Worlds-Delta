@@ -133,7 +133,10 @@ if (held == true) {
                 depth = obj_playerparent.depth+1;
                 
                 //Snap into player's x position
-                x = obj_playerparent.x+(10*sign(obj_playerparent.xscale));
+                if (obj_playerparent.state == statetype.climb)
+                    x = obj_playerparent.x;
+                else
+                    x = obj_playerparent.x+(10*sign(obj_playerparent.xscale));
             }
             
             //Make the player hold the item

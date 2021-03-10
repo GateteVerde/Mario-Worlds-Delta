@@ -79,8 +79,6 @@
     <instance objName="obj_solid" x="1136" y="400" name="inst_559BDB7B" locked="0" code="" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="360" y="384" name="inst_D5315918" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goomba" x="648" y="384" name="inst_506E99FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goomba" x="824" y="384" name="inst_B8605AF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goomba" x="848" y="384" name="inst_5C23088D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="0" y="400" name="inst_176B51A4" locked="0" code="" scaleX="28" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="480" y="400" name="inst_BD81D743" locked="0" code="" scaleX="8" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_semisolid" x="640" y="400" name="inst_F750D88C" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
@@ -178,13 +176,12 @@
     <instance objName="obj_npc" x="984" y="384" name="inst_A053917B" locked="0" code="sprite_index = spr_sammu;&#xA;varmsg = &quot;There is a 1-UP mushroom hidden somewhere on this area, can you find it?.&quot;;&#xA;mugshot = spr_mugshot_sammu;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_npc" x="3032" y="256" name="inst_7D74794A" locked="0" code="sprite_index = spr_leanne;&#xA;varmsg = &quot;The more high you break the tape there, the more bonus stars you will earn.&quot;;&#xA;mugshot = spr_mugshot_leanne;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_classickoopa" x="1720" y="384" name="inst_D8AF480D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="2208" y="384" name="inst_53F3B1E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_block_toad" x="2224" y="384" name="inst_69F11ECC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_bganimator" x="16" y="-16" name="inst_F1517747" locked="0" code="bg_frame[0] = bgr_clouds_night_b;&#xA;bg_frame[1] = bgr_clouds_night_c;&#xA;bg_frame[2] = bgr_clouds_night_b;&#xA;bg_frame[3] = bgr_clouds_night;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_piranhaplant" x="624" y="368" name="inst_6B0DE8EC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_piranhaplant_long" x="752" y="352" name="inst_A024DEB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_viewblock" x="96" y="336" name="inst_A2CC320C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_viewblock" x="144" y="336" name="inst_7D05836A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_bganimator" x="32" y="-16" name="inst_F1517747" locked="0" code="bg_frame[0] = bgr_clouds_night_b;&#xA;bg_frame[1] = bgr_clouds_night_c;&#xA;bg_frame[2] = bgr_clouds_night_b;&#xA;bg_frame[3] = bgr_clouds_night;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="848" y="384" name="inst_20489D8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goomba" x="824" y="384" name="inst_8103D442" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_mushroom_h" x="1944" y="384" name="inst_8E6A05FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_light" x="-16" y="0" name="inst_7E2A274D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lightcontrol" x="16" y="-16" name="inst_BDED3996" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_forest" x="528" y="320" w="144" h="80" xo="464" yo="64" id="10029576" name="inst_289EF64A" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -205,6 +202,19 @@
     <tile bgName="tls_ground_airship" x="272" y="208" w="16" h="16" xo="48" yo="96" id="10051324" name="inst_87BDFFFF" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_airship" x="288" y="208" w="16" h="16" xo="48" yo="96" id="10051325" name="inst_00E4EFEB" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground_airship" x="304" y="208" w="16" h="16" xo="48" yo="96" id="10051326" name="inst_0B4DC168" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="400" y="384" w="16" h="16" xo="336" yo="96" id="10052338" name="inst_B35EA841" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="416" y="384" w="16" h="16" xo="352" yo="96" id="10052339" name="inst_1E7AD8A3" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="432" y="384" w="16" h="16" xo="352" yo="96" id="10052340" name="inst_779F456E" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="448" y="384" w="16" h="16" xo="352" yo="96" id="10052341" name="inst_10C1EA16" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="464" y="384" w="16" h="16" xo="352" yo="96" id="10052342" name="inst_0905CB76" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="480" y="384" w="16" h="16" xo="352" yo="96" id="10052343" name="inst_1CB25247" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="496" y="384" w="16" h="16" xo="432" yo="96" id="10052344" name="inst_5423B717" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1888" y="384" w="16" h="16" xo="336" yo="96" id="10052345" name="inst_28E732C6" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1904" y="384" w="16" h="16" xo="352" yo="96" id="10052346" name="inst_C36AEC1A" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1920" y="384" w="16" h="16" xo="352" yo="96" id="10052347" name="inst_2AC408E6" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1936" y="384" w="16" h="16" xo="352" yo="96" id="10052348" name="inst_D7FC8CA7" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1952" y="384" w="16" h="16" xo="352" yo="96" id="10052349" name="inst_1ADCA1F9" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tls_ground_forest" x="1968" y="384" w="16" h="16" xo="432" yo="96" id="10052350" name="inst_B4D35AC5" depth="12" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="1536" y="400" w="16" h="16" xo="16" yo="0" id="10029279" name="inst_5070B460" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="1520" y="400" w="16" h="16" xo="16" yo="0" id="10029280" name="inst_70C68669" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tls_ground" x="1504" y="400" w="16" h="16" xo="16" yo="0" id="10029281" name="inst_000E0759" depth="9" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
