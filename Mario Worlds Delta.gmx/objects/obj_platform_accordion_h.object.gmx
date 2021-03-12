@@ -3,7 +3,7 @@
   <spriteName>spr_platform_accordion</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>obj_solid_moving</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -39,6 +39,8 @@ llb = instance_create(x, y, obj_accordion_block);
 lrb = instance_create(x, y, obj_accordion_block);
 rlb = instance_create(x, y, obj_accordion_block);
 rrb = instance_create(x, y, obj_accordion_block);
+with (rrb)
+    image_index = 1;
 </string>
           </argument>
         </arguments>
