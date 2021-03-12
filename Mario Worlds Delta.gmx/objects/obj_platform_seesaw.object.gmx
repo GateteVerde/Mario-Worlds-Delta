@@ -87,7 +87,7 @@ if (instance_exists(obj_playerparent)) {
                 y = see.y + fake_y-see.extra;
                 
                 //If platform ever moves horizontally, adjust players x
-                x += see.x-see.xprevious;
+                x += (see.x-see.xprevious) * dcos(see.degree);
                 
                 //Stop vertical movement
                 vspeed = 0;

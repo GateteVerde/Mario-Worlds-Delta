@@ -440,8 +440,10 @@ else if (idd) {
     }
     else {
     
-        idd.image_speed = 0;
-        idd.image_index = 0;
+        //Throwbrick case exempt
+        if (idd.object_index != obj_brick_throw_th)
+            {idd.image_speed = 0;
+            idd.image_index = 0;}
     }
     
     //Move away from item
@@ -584,7 +586,7 @@ if (ready == 2) &amp;&amp; (!slide) {
             //Stop
             hspeed = idd.hspeed;
             image_index = 1;
-            image_speed = 0; 
+            image_speed = 0;
             
             //Kick state
             kicky = 3; //type 3, weak force push
@@ -762,6 +764,36 @@ event_inherited();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_brick_throw_th">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with kicked brix
+
+//Deny getting killed
+if (collision_rectangle(x+(boxl*sign(xscale)), bbox_top+boxt, x+(boxr*sign(xscale)), bbox_bottom+boxb, other, 0, 0))
+    exit;
+
+//Inherit event
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_holdparent_enemy">
       <action>
         <libid>1</libid>
@@ -891,7 +923,7 @@ with (idd) {
         
         //If the object is not on contact with a slope
         if (!collision_rectangle(x-2, bbox_bottom-4, x-2, bbox_bottom, obj_slopeparent, 1, 0))
-            hspeed = (other.hspeed+3*other.xscale)/1.5;
+            hspeed = (3*other.xscale);
             
         //Otherwise, do not apply horizontal speed
         else

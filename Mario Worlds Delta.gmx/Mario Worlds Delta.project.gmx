@@ -853,6 +853,8 @@
           <sprite>sprites\spr_donut_appear</sprite>
           <sprite>sprites\spr_boltlift</sprite>
           <sprite>sprites\spr_blocktrain</sprite>
+          <sprite>sprites\spr_dolphin</sprite>
+          <sprite>sprites\spr_dolphin_jump</sprite>
         </sprites>
         <sprite>sprites\spr_pswitch</sprite>
         <sprite>sprites\spr_pswitch_press</sprite>
@@ -1270,6 +1272,7 @@
         <sprite>sprites\spr_fuzzy_wall</sprite>
         <sprite>sprites\spr_firesnake</sprite>
         <sprite>sprites\spr_firesnake_trail</sprite>
+        <sprite>sprites\spr_angrysun</sprite>
       </sprites>
       <sprites name="Castle">
         <sprites name="Dry Bones">
@@ -1880,6 +1883,7 @@
         <sprite>sprites\spr_spinnermask</sprite>
         <sprite>sprites\spr_stompmask</sprite>
         <sprite>sprites\spr_stompmask_cape</sprite>
+        <sprite>sprites\spr_sproutmask</sprite>
       </sprites>
       <sprites name="Cameos">
         <sprite>sprites\spr_talk</sprite>
@@ -2013,6 +2017,8 @@
     <path>paths\pth_bubble_h</path>
     <path>paths\pth_lava</path>
     <path>paths\pth_snow</path>
+    <path>paths\pth_angrysun_swoop_l</path>
+    <path>paths\pth_angrysun_swoop_r</path>
   </paths>
   <scripts name="scripts">
     <scripts name="Player">
@@ -2317,6 +2323,7 @@
           <object>objects\obj_platform_accordion_h</object>
           <object>objects\obj_platform_accordion_v</object>
           <object>objects\obj_platform_accordion_hv</object>
+          <object>objects\obj_platform_accordian_diag</object>
           <object>objects\obj_platform_slope_r</object>
           <object>objects\obj_platform_slope_l</object>
           <object>objects\obj_platform_timed</object>
@@ -2333,6 +2340,8 @@
           <object>objects\obj_donut_ice_triple</object>
           <object>objects\obj_boltlift</object>
           <object>objects\obj_blocktrain</object>
+          <object>objects\obj_dolphin</object>
+          <object>objects\obj_dolphin_jump</object>
         </objects>
         <object>objects\obj_pswitch</object>
         <object>objects\obj_gswitch</object>
@@ -2550,6 +2559,7 @@
         <object>objects\obj_wiggler_long</object>
         <object>objects\obj_firesnake</object>
         <object>objects\obj_pokey</object>
+        <object>objects\obj_angrysun</object>
       </objects>
       <objects name="Castle">
         <objects name="Dry Bones">
@@ -2994,6 +3004,7 @@
             <object>objects\obj_wiggler_body</object>
             <object>objects\obj_firesnake_trail</object>
             <object>objects\obj_pokey_dead</object>
+            <object>objects\obj_angrysun_movement</object>
           </objects>
           <objects name="Castle">
             <objects name="Dry Bones">
@@ -3178,6 +3189,7 @@
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
           <room>rooms\rm_devtest_b</room>
+          <room>rooms\rm_devtest_alt</room>
         </rooms>
       </rooms>
       <rooms name="Level 8">
