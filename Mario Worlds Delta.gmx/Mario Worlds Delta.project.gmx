@@ -841,6 +841,9 @@
           <sprite>sprites\spr_platform_slope_l</sprite>
           <sprite>sprites\spr_platform_timed</sprite>
           <sprite>sprites\spr_platform_timed_number</sprite>
+          <sprite>sprites\spr_platform_arrow</sprite>
+          <sprite>sprites\spr_platform_arrow_l</sprite>
+          <sprite>sprites\spr_platform_arrow_r</sprite>
           <sprite>sprites\spr_movingpipe</sprite>
           <sprite>sprites\spr_skullraft</sprite>
           <sprite>sprites\spr_engine</sprite>
@@ -1273,6 +1276,7 @@
         <sprite>sprites\spr_firesnake</sprite>
         <sprite>sprites\spr_firesnake_trail</sprite>
         <sprite>sprites\spr_angrysun</sprite>
+        <sprite>sprites\spr_angrysun_swoop</sprite>
       </sprites>
       <sprites name="Castle">
         <sprites name="Dry Bones">
@@ -1540,6 +1544,8 @@
           <sprite>sprites\spr_levelpanel_ghost</sprite>
           <sprite>sprites\spr_levelpanel_castle</sprite>
           <sprite>sprites\spr_levelpanel_fortress</sprite>
+          <sprite>sprites\spr_levelpanel_airship</sprite>
+          <sprite>sprites\spr_levelpanel_airship_beaten</sprite>
         </sprites>
         <sprite>sprites\spr_levelpanel</sprite>
         <sprite>sprites\spr_levelpanel_secret</sprite>
@@ -2327,6 +2333,9 @@
           <object>objects\obj_platform_slope_r</object>
           <object>objects\obj_platform_slope_l</object>
           <object>objects\obj_platform_timed</object>
+          <object>objects\obj_platform_arrow</object>
+          <object>objects\obj_platform_arrow_l</object>
+          <object>objects\obj_platform_arrow_r</object>
           <object>objects\obj_movingpipe</object>
           <object>objects\obj_movingrope</object>
           <object>objects\obj_movingsaw</object>
@@ -2688,6 +2697,7 @@
         </objects>
         <object>objects\obj_levelpanel</object>
         <object>objects\obj_levelpanel_castle</object>
+        <object>objects\obj_levelpanel_airship</object>
       </objects>
       <objects name="Decoration">
         <objects name="NPCs">

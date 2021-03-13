@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1952</width>
   <height>432</height>
-  <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <vsnap>8</vsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -158,6 +158,7 @@
     <instance objName="obj_modifier_feather_alt" x="1904" y="112" name="inst_06E4CC0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rockywrench" x="536" y="176" name="inst_D5CA47B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warptop" x="1808" y="144" name="inst_2FBA4767" locked="0" code="destination = rm_level_8c;&#xA;exit_dir = cs_warp_down;&#xA;exit_id = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rengine" x="1560" y="312" name="inst_A954D9DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
   </instances>
   <tiles>
     <tile bgName="tls_ground_airship" x="608" y="144" w="16" h="16" xo="160" yo="128" id="10051751" name="inst_72756525" depth="15" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
