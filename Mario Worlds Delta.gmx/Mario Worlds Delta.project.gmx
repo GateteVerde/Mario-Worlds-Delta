@@ -1214,6 +1214,7 @@
         <sprite>sprites\spr_huckitcrab_dead</sprite>
         <sprite>sprites\spr_huckitcrab_rock</sprite>
         <sprite>sprites\spr_letterfish</sprite>
+        <sprite>sprites\spr_letterfish_flop</sprite>
         <sprite>sprites\spr_letterfish_dead</sprite>
       </sprites>
       <sprites name="Forest / Desert">
@@ -1362,6 +1363,7 @@
         <sprite>sprites\spr_boobuddy_taunt</sprite>
         <sprite>sprites\spr_boobuddy_stretch</sprite>
         <sprite>sprites\spr_boobuddy_stretch_ceiling</sprite>
+        <sprite>sprites\spr_boobuddy_dead</sprite>
         <sprite>sprites\spr_booblock</sprite>
         <sprite>sprites\spr_bigboo</sprite>
         <sprite>sprites\spr_bigboo_turn</sprite>
@@ -2550,6 +2552,7 @@
         <object>objects\obj_dolphin</object>
         <object>objects\obj_dolphin_jump</object>
         <object>objects\obj_letterfish</object>
+        <object>objects\obj_letterfish_v</object>
       </objects>
       <objects name="Forest / Desert">
         <object>objects\obj_lakitu</object>

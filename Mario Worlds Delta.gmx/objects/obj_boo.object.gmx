@@ -40,10 +40,7 @@ stomp = 2;
 edible = 2;
 
 //Death Sprite
-deathsprite = sprite_index;
-
-//Stomp sprite
-stompsprite = sprite_index;
+deathsprite = spr_boobuddy_dead;
 
 //Movement
 movenow = 0;

@@ -49,10 +49,7 @@ stomp = -1;
 edible = 2;
 
 //Death Sprite
-deathsprite = sprite_index;
-
-//Stomp sprite
-stompsprite = sprite_index;
+deathsprite = spr_boobuddy_dead;
 
 //Do not swim
 swimming = false;
