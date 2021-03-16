@@ -856,8 +856,6 @@
           <sprite>sprites\spr_donut_appear</sprite>
           <sprite>sprites\spr_boltlift</sprite>
           <sprite>sprites\spr_blocktrain</sprite>
-          <sprite>sprites\spr_dolphin</sprite>
-          <sprite>sprites\spr_dolphin_jump</sprite>
         </sprites>
         <sprite>sprites\spr_pswitch</sprite>
         <sprite>sprites\spr_pswitch_press</sprite>
@@ -1213,6 +1211,8 @@
         <sprite>sprites\spr_huckitcrab_throw</sprite>
         <sprite>sprites\spr_huckitcrab_dead</sprite>
         <sprite>sprites\spr_huckitcrab_rock</sprite>
+        <sprite>sprites\spr_dolphin</sprite>
+        <sprite>sprites\spr_dolphin_jump</sprite>
         <sprite>sprites\spr_letterfish</sprite>
         <sprite>sprites\spr_letterfish_flop</sprite>
         <sprite>sprites\spr_letterfish_dead</sprite>
@@ -1607,6 +1607,14 @@
         <sprite>sprites\spr_modifier_brick</sprite>
         <sprite>sprites\spr_modifier_brick_flip</sprite>
       </sprites>
+      <sprites name="Generators">
+        <sprite>sprites\spr_generator_galoomba</sprite>
+        <sprite>sprites\spr_generator_superkoopa</sprite>
+        <sprite>sprites\spr_generator_bobomb</sprite>
+        <sprite>sprites\spr_generator_cheep</sprite>
+        <sprite>sprites\spr_generator_dolphin</sprite>
+        <sprite>sprites\spr_generator_bulletbill</sprite>
+      </sprites>
       <sprites name="Items">
         <sprites name="Powerups">
           <sprites name="Mounts">
@@ -1651,6 +1659,10 @@
         <sprite>sprites\spr_modifier_beanstalk</sprite>
         <sprite>sprites\spr_modifier_key</sprite>
       </sprites>
+      <sprites name="Sound FX">
+        <sprite>sprites\spr_fx</sprite>
+        <sprite>sprites\spr_fx_oink</sprite>
+      </sprites>
       <sprites name="Warp">
         <sprites name="Pipes">
           <sprites name="Branch Warps">
@@ -1666,12 +1678,7 @@
         </sprites>
         <sprite>sprites\spr_warpnode</sprite>
       </sprites>
-      <sprites name="Sound FX">
-        <sprite>sprites\spr_fx</sprite>
-        <sprite>sprites\spr_fx_oink</sprite>
-      </sprites>
       <sprite>sprites\spr_tilemanager</sprite>
-      <sprite>sprites\spr_generatormarker</sprite>
     </sprites>
     <sprites name="Special">
       <sprites name="Eyecandy">
