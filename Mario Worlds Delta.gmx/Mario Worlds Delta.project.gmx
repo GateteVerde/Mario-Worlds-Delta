@@ -1193,6 +1193,8 @@
         <sprite>sprites\spr_cheepcheep</sprite>
         <sprite>sprites\spr_cheepcheep_flop</sprite>
         <sprite>sprites\spr_cheepcheep_dead</sprite>
+        <sprite>sprites\spr_spinycheep</sprite>
+        <sprite>sprites\spr_spinycheep_dead</sprite>
         <sprite>sprites\spr_blurp</sprite>
         <sprite>sprites\spr_blurp_dead</sprite>
         <sprite>sprites\spr_ripvanfish</sprite>
@@ -1612,6 +1614,7 @@
         <sprite>sprites\spr_generator_superkoopa</sprite>
         <sprite>sprites\spr_generator_bobomb</sprite>
         <sprite>sprites\spr_generator_cheep</sprite>
+        <sprite>sprites\spr_generator_spinycheep</sprite>
         <sprite>sprites\spr_generator_dolphin</sprite>
         <sprite>sprites\spr_generator_bulletbill</sprite>
       </sprites>
@@ -2659,8 +2662,17 @@
         <object>objects\obj_rockywrench_infinite</object>
       </objects>
       <objects name="Generators">
-        <object>objects\obj_generator_galoomba</object>
-        <object>objects\obj_generator_bobomb</object>
+        <objects name="Land">
+          <object>objects\obj_generator_galoomba</object>
+        </objects>
+        <objects name="Underwater">
+          <object>objects\obj_generator_cheep</object>
+          <object>objects\obj_generator_spinycheep</object>
+          <object>objects\obj_generator_spinycheep_alt</object>
+        </objects>
+        <objects name="Airship">
+          <object>objects\obj_generator_bobomb</object>
+        </objects>
       </objects>
       <objects name="Boss">
         <object>objects\obj_goomba_the_terrible</object>
@@ -3077,6 +3089,11 @@
             <object>objects\obj_cannon_ball</object>
             <object>objects\obj_rockywrench_wrench</object>
           </objects>
+          <objects name="Generators">
+            <object>objects\obj_cheepcheep_gen</object>
+            <object>objects\obj_spinycheep</object>
+            <object>objects\obj_spinycheep_swim</object>
+          </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_chomp</object>
           <object>objects\obj_chomp_chain</object>
@@ -3208,8 +3225,6 @@
         <room>rooms\rm_level_7b</room>
         <rooms name="Secret Dev Room">
           <room>rooms\rm_devtest</room>
-          <room>rooms\rm_devtest_b</room>
-          <room>rooms\rm_devtest_alt</room>
         </rooms>
       </rooms>
       <rooms name="Level 8">

@@ -68,7 +68,8 @@ alarm[0] = 40;
 if (instance_exists(obj_playerparent)) {
 
     //If the player is inside the spawn area, proceed
-    if (point_in_rectangle(obj_playerparent.x, obj_playerparent.y, xmin, bbox_top, xmax, bbox_bottom)) {
+    if (obj_levelcontrol.gswitchon == false)
+    &amp;&amp; (point_in_rectangle(obj_playerparent.x, obj_playerparent.y, xmin, 0, xmax, room_height)) {
     
         //Generate a bobomb
         instance_create(view_xview[0]+random_range(32, global.gw-32), view_yview[0]-32, obj_bobomb_parachute);

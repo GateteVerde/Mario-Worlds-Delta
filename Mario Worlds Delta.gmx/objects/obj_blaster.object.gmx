@@ -92,7 +92,7 @@ else {
                 //Create bullet bill
                 with (instance_create(x+8, y, obj_bulletbill)) {
                 
-                    xscale = -1;
+                    image_index = 4;
                     hspeed = -2;
                     with (instance_create(x, y+8, obj_smoke))
                         sprite_index = spr_smoke_16;
@@ -122,7 +122,7 @@ else {
                 //Create bullet bill
                 with (instance_create(x+8, y, obj_bulletbill)) {
                 
-                    xscale = 1;
+                    image_index = 0;
                     hspeed = 2;
                     with (instance_create(x, y+8, obj_smoke))
                         sprite_index = spr_smoke_16;
