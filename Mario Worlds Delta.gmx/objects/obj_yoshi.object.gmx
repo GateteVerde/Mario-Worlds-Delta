@@ -1483,7 +1483,7 @@ if (mouthholder != noone) {
         else if (mouthholder == obj_watermelon_fire) {
         
             //Play 'Flames' sound
-            audio_stop_play_sound(snd_flames, 0, false);
+            audio_stop_play_sound(snd_beam, 0, false);
             
             //If there's ammo left
             if (ammo &gt; 0) {
@@ -1496,6 +1496,27 @@ if (mouthholder != noone) {
                 with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_fire)) 
                     vspeed = 1;
                 with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_fire)) 
+                    vspeed = -1;
+            }              
+        }
+        
+        //If yoshi is holding a ice melon
+        else if (mouthholder == obj_watermelon_ice) {
+        
+            //Play 'Flames' sound
+            audio_stop_play_sound(snd_beam, 0, false);
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi fire
+                instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_ice);
+                with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_ice)) 
+                    vspeed = 1;
+                with (instance_create(x+(10*obj_playerparent.xscale), y-12, obj_yoshi_ice)) 
                     vspeed = -1;
             }              
         }
@@ -1585,6 +1606,27 @@ if (mouthholder != noone) {
                 with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_fire)) 
                     vspeed = 1;
                 with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_fire)) 
+                    vspeed = -1;
+            }              
+        }
+        
+        //If yoshi is holding a fire melon
+        else if (mouthholder == obj_watermelon_ice) {
+        
+            //Play 'Flames' sound
+            audio_stop_play_sound(snd_beam, 0, false);
+            
+            //If there's ammo left
+            if (ammo &gt; 0) {
+            
+                //Decrement ammo
+                ammo--;
+                
+                //Make yoshi fire
+                instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_ice);
+                with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_ice)) 
+                    vspeed = 1;
+                with (instance_create(x+(10*obj_playerparent.xscale), y-16, obj_yoshi_ice)) 
                     vspeed = -1;
             }              
         }

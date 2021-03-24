@@ -31,6 +31,7 @@ enum itemtype {
     lifeup,
     poison,
     watermelon_fire,
+    watermelon_ice,
     watermelon_bomb,
     pswitch,
     gswitch,
@@ -70,6 +71,7 @@ enum input {
 
 //Map player state enum
 enum mapstate {
+
     preidle,
     idle,
     wait,

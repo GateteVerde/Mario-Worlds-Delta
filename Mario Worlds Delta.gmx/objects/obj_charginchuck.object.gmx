@@ -661,6 +661,12 @@ if (sprite_index != spr_charginchuck_damage) {
             //Deny movement
             alarm[10] = -1;
         }
+            
+        //Make the player jump in a direction depending where it is
+        if (obj_playerparent.x &lt; x)
+            obj_playerparent.hspeed = -1.5;
+        else
+            obj_playerparent.hspeed = 1.5;
     }
     
     //Otherwise, get 800 points and kill

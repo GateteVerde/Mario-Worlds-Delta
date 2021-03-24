@@ -309,7 +309,8 @@ else {
 }
 
 //If there's not a goomba below and this goomba is not stomped
-if (sprite_index != stompsprite) {
+if (sprite_index != stompsprite) 
+&amp;&amp; (sprite_index != spr_goomba_red) {
 
     if (mebelow == noone)    
         sprite_index = spr_goomba;

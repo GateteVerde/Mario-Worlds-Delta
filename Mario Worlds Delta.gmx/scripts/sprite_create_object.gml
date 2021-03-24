@@ -36,6 +36,9 @@ switch (argument[2]) {
     //Fire Watermelon
     case (spr_watermelon_fire): return instance_create(argument[0], argument[1], obj_watermelon_fire);
     
+    //Ice Watermelon
+    case (spr_watermelon_ice): return instance_create(argument[0], argument[1], obj_watermelon_ice);
+    
     //Bomb Watermelon
     case (spr_watermelon_bomb): return instance_create(argument[0], argument[1], obj_watermelon_bomb);
     

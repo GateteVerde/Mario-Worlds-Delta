@@ -73,6 +73,9 @@ switch (argument[0]) {
     //Fire Watermelon
     case (itemtype.watermelon_fire): return spr_watermelon_fire; break;
     
+    //Ice Watermelon
+    case (itemtype.watermelon_ice): return spr_watermelon_ice; break;
+    
     //Bomb Watermelon
     case (itemtype.watermelon_bomb): return spr_watermelon_bomb; break;
     
