@@ -36,6 +36,9 @@ image_index = 0;
 
 //Restart
 alarm[0] = 360;
+
+//Text X
+text_x = 192;
 </string>
           </argument>
         </arguments>
@@ -78,6 +81,58 @@ with (obj_controller) {
 
 //Go to the initial screen
 room_goto(rm_init);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set font position
+
+if (text_x &gt; 0)
+    text_x -= 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw text
+
+draw_sprite_part(sprite_index, -1, sprite_width/2, 0, sprite_width/2, sprite_height, x+text_x, y)
+draw_sprite_part(sprite_index, -1, 0, 0, sprite_width/2, sprite_height, x-text_x-sprite_width/2, y)
 </string>
           </argument>
         </arguments>
