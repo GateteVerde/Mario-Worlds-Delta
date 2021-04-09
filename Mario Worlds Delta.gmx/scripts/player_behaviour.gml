@@ -478,7 +478,7 @@ if (global.powerup == cs_pow_cape) {
     if (flying == 1) {
     
         //Increment fly timer
-        fly++;
+        fly ++;
         
         //Set gravity
         if (fly > 10) && (vspeed > -flystrength) && (fly < 50)        
@@ -494,13 +494,20 @@ if (global.powerup == cs_pow_cape) {
             //Create flying object
             if (instance_number(obj_cape_fly) == 0) {
                 
-                fly = 0;
                 flying = 2;
+                fly = 0;
                 imflying = instance_create(x, y, obj_cape_fly);
-                    imflying.vspeed = self.vspeed/2;
-                    imflying.image_xscale = self.xscale;
+                imflying.vspeed = self.vspeed/2;
+                imflying.image_xscale = self.xscale;
+                
             }
+            
         }
+        
+    } else {
+    
+        fly = 0;
+        
     }
     
     //Slowly fall down

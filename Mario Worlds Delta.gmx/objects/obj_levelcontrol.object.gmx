@@ -710,6 +710,14 @@ else {
                     view_vspeed[view_current] = 4;
             }
             
+            var check_hspd = follow.hspeed;
+            
+            if (instance_exists(obj_cape_fly)) {
+            
+                check_hspd = obj_cape_fly.hspeed;
+                
+            }
+            
             //If the camera is to the right and the player is from a certain distance from the camera
             if ((orientation == 1) &amp;&amp; (follow.x &gt; x-16)) {
         
@@ -721,7 +729,7 @@ else {
                     
                         //Scroll the camera at a certain speed until the camera catches up.
                         if (follow.x &gt; x-12)
-                            x += 2+follow.hspeed;
+                            x += 2+check_hspd;
                         else
                             x = follow.x+16;                           
                     }
@@ -732,7 +740,7 @@ else {
                 
                     //Scroll the camera at a certain speed until the camera catches up.
                     if (follow.x &gt; x-12)
-                        x += 2+follow.hspeed;
+                        x += 2+check_hspd;
                     else
                         x = follow.x+16;
                 }
@@ -743,7 +751,7 @@ else {
             
                 //Scroll the camera at a certain speed until the camera catches up.
                 if (follow.x &lt; x+12)
-                    x -= 2-follow.hspeed;
+                    x -= 2-check_hspd;
                 else
                     x = follow.x-16;    
             }

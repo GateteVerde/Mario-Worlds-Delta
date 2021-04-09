@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_player</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -46,9 +46,6 @@ slope = false;
 //Set horizontal speed
 hspeed = obj_playerparent.hspeed;
 
-//Make the player invisible
-obj_playerparent.visible = false;
-
 //Do not animate
 image_speed = 0;
 
@@ -60,6 +57,18 @@ walltouch = false;
 
 //State
 state = obj_playerparent.state;
+
+//Vertical speed destination
+vspeed_goal = -1;
+
+//Fly cooldown
+fly_cooldown = 0;
+
+//Charge amount
+charge_amount = 0;
+
+//Can fly
+can_fly = true;
 
 //Leave trail
 alarm[0] = 4;
@@ -90,17 +99,23 @@ alarm[0] = 4;
 //If the player exists
 if (instance_exists(obj_playerparent)) {
     
-    //Make player visible
-    obj_playerparent.visible = true;
-    
     //Make player able to fly
     obj_playerparent.flying = 0;
     
+    //Make the player stop jumping
+    obj_playerparent.jumping = 0;
+    
+    //Set vertical speed
+    obj_playerparent.vspeed = vspeed;
+    
     //If the object is not smashing the ground
     if (smash == 0)
-        obj_playerparent.hspeed = self.hspeed
+    
+        obj_playerparent.hspeed = hspeed;
+        
     else
-        obj_playerparent.hspeed = self.hspeed/2
+    
+        obj_playerparent.hspeed = hspeed/2;
 }
 </string>
           </argument>
@@ -134,6 +149,40 @@ if (gravity == 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Make the player adhere to the cape sprites
+
+if (instance_exists(obj_playerparent)) {
+
+    if (sprite_index == player_cape()) {
+
+        obj_playerparent.sprite_index = sprite_index;
+        obj_playerparent.image_index = img_index;
+        
+    }
+    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -151,29 +200,15 @@ if (gravity == 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Manage player logic
-
-//If the player does not exist
-if (!instance_exists(obj_playerparent)) {
-
-     instance_destroy();
-     exit;
-}
-else {
-
-    //Stay in the same position
-    obj_playerparent.x = x;
-    obj_playerparent.y = y;
-    
-    //Hereby state
-    state = obj_playerparent.state;
-    
-    //Hereby scale
-    obj_playerparent.xscale = image_xscale;
-}
+            <string>/// Manage cape logic
 
 //Check if above a slope
 slope = player_inslope();
+
+//Kill off early if the player is not alive
+if (!instance_exists(obj_playerparent))
+
+    exit;
 
 //If moving down
 if (vspeed &gt;= 0) {
@@ -222,6 +257,7 @@ if (vspeed &gt;= 0) {
 if (collision_rectangle(x-2, bbox_bottom+4, x+2, bbox_bottom+8, obj_slopeparent, 1, 0))
 &amp;&amp; (!collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom-4, obj_slopeparent, 1, 0))
 &amp;&amp; (gravity == 0)
+
     y += 4;
 
 //Handle collision with slopes
@@ -274,13 +310,38 @@ if (collision_rectangle(x-2, bbox_bottom-4, x+2, bbox_bottom+vspeed, obj_slopepa
 }
 
 //Manage gravity
-if (state == statetype.jump)
-    gravity = 0.1;
+if (state == statetype.jump) {
+
+    //Only have gravity while you are set to go downwards
+    if (vspeed_goal == -1)
+
+        gravity = 0.1;
+        
+    else
+    
+        gravity = 0;
+        
+} else if (gravity == 0) {
+
+    //You're grounded, so look the part
+    dive_index = 2;
+    canfly = false;
+
+}
 
 //Allow diving
-if (input_check_released(input.left))
-|| (input_check_released(input.right))
+if (input_check(input.left))
+|| (input_check(input.right))
+
     candive = 1;
+    
+//Allow the player to fly again
+if (!input_check(input.left))
+&amp;&amp; (!input_check(input.right))
+&amp;&amp; (vspeed_goal == -1)
+&amp;&amp; (state == statetype.jump)
+
+    can_fly = true;
     
 //If diving is allowed
 if (candive == 1) {
@@ -307,8 +368,18 @@ if ((!collision_rectangle(bbox_left, bbox_bottom-4, bbox_right, bbox_bottom+vspe
 || (global.powerup &lt; cs_pow_cape)
 || (!instance_exists(obj_playerparent))
 || (!input_check(input.action1))
-|| (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0))
+|| (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top, obj_swim, 0, 0)) {
+
     instance_destroy();
+    
+    if (instance_exists(obj_playerparent)) {
+    
+        obj_playerparent.flying = 0;
+        obj_playerparent.fly = 0;
+        
+    }
+    
+}
     
 //Wall collision
 event_user(3);
@@ -354,12 +425,106 @@ if (smash == 1)
    
 //If 'Left' or 'Right' is pressed while diving
 if (hspeed != 0)
-&amp;&amp; (dive_index &gt;= 2) 
 &amp;&amp; (state == statetype.jump) {
     
-    if ((input_check_pressed(input.left)) &amp;&amp; (xscale == 1))
-    || ((input_check_pressed(input.right)) &amp;&amp; (xscale == -1))
-        event_user(1);
+    //If the player is facing the proper flight direction,
+    if ((input_check(input.left)) &amp;&amp; (xscale == 1))
+    || ((input_check(input.right)) &amp;&amp; (xscale == -1)) {
+    
+        //And they can fly...
+        if (vspeed_goal == -1)
+        &amp;&amp; (fly_cooldown &lt;= 0)
+        &amp;&amp; (can_fly) {
+        
+            if (dive_index &lt;= 0) {
+        
+                can_fly = false;
+                event_user(1);
+                
+            } else {
+            
+                //Speed modification if smashing
+                var smash_mod = 0;
+                
+                //Add the speed modification if you are currently smashing
+                if (smash)
+                
+                    smash_mod = 0.125;
+            
+                //Change the dive index
+                dive_index -= 0.2+smash_mod;
+                
+                //Limit the dive index
+                if (dive_index &lt;= 0)
+                
+                    dive_index = 0;
+                
+            }
+            
+        }
+    
+    } else {
+    
+        //N-n-n-nose dive!
+        if ((((input_check(input.right)) &amp;&amp; (xscale == 1))
+        || ((input_check(input.left)) &amp;&amp; (xscale == -1)))
+        &amp;&amp; (smash)
+        &amp;&amp; (vspeed_goal == -1)
+        &amp;&amp; (fly_cooldown &lt;= 0)) {
+        
+            dive_index += 0.1725;
+            charge_amount = img_index;
+            
+        }
+    
+        //Return to a normal position if you're not nose diving
+        else if (vspeed &gt;= -1) {
+        
+            if (vspeed_goal &lt;= 3)
+    
+                dive_index += 0.1;
+                
+            else
+            
+                dive_index += 0.25;
+                
+            charge_amount = 0;
+            smash = false;
+            
+        }
+        
+    }
+        
+}
+
+//If the cape has been instructed to take flight
+if (vspeed_goal != -1) {
+
+    //*Insert cool cape sound Sammu did with their mouth*
+    if (vspeed &gt; vspeed_goal) {
+    
+        /*Different cape speeds depending on your goal, SMW uses a timer
+        and disables gravity if I recall correctly*/
+        vspeed -= 0.725+((abs(vspeed_goal)-2)*8);
+    
+    }
+    
+    //Adhere to the speed position and set up for next flight
+    if (vspeed &lt;= vspeed_goal) {
+    
+        vspeed = vspeed_goal;
+        vspeed_goal = -1;
+        fly_cooldown = 8;
+        charge_amount = 0;
+        smash = false;
+        
+    }
+
+} else if (fly_cooldown &gt; 0 &amp;&amp; vspeed &gt;= 0) {
+
+    //Limit next cape flight for anti-spam measures
+    fly_cooldown --;
+    
 }
 
 //Cap vertical speed
@@ -390,7 +555,7 @@ else if (hspeed &lt; -obj_playerparent.hspeed_run_full)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Manage player animation
+            <string>/// Manage player animation
 
 //Set the sprite
 sprite_index = player_cape();
@@ -398,28 +563,69 @@ sprite_index = player_cape();
 //Set image index
 img_index = round(dive_index);
 
-//If moving up
-if (vspeed &lt; 0) {
+//Don't open up too much
+if (dive_index &lt; 0)
 
-    dive_index -= 0.5;
-    if (dive_index &lt; 0)
-        dive_index = 0;
-}
-else if (vspeed &gt;= 0) {
+    dive_index = 0;
     
-    //If smashing the ground
-    if (smash == 1) {
+//Maximum cape index to fall to
+var max_index = 2;
+
+//Modify the maximum index if you're smashing
+if (smash)
+
+    max_index = 5;
+
+//Limit to the maximum index    
+if (dive_index &gt; max_index)
+
+    dive_index = max_index;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Attach player to cape
+
+//If the player does not exist
+if (!instance_exists(obj_playerparent)) {
+
+     instance_destroy();
+     exit;
+     
+} else {
     
-        dive_index += 0.2;
-        if (dive_index &gt; 5)
-            dive_index = 5;
-    }
-    else {
+    //Set the player position
+    obj_playerparent.x = x;
+    obj_playerparent.y = y;
+
+    //Nullify player variables
+    obj_playerparent.vspeed = vspeed;
+    obj_playerparent.hspeed = hspeed;
+    obj_playerparent.gravity = 0;
     
-        dive_index += 0.1;
-        if (dive_index &gt; 2)
-            dive_index = 2;
-    }
+    //Hereby state
+    state = obj_playerparent.state;
+    
+    //Hereby scale
+    obj_playerparent.xscale = image_xscale;
+    obj_playerparent.visible = true;
+    
 }
 </string>
           </argument>
@@ -529,16 +735,18 @@ audio_stop_play_sound(snd_capefly, 0, false);
 
 //If not smashing
 if (smash == 0)
-    vspeed = -3;
+
+    vspeed_goal = -3;
     
 //Otherwise, if smashing
 else if (smash == 1) {
 
-    switch (img_index) {
+    switch (charge_amount) {
     
-        case (3): vspeed = -3; break;
-        case (4): vspeed = -3.5; break;
-        case (5): vspeed = -4.5; break;
+        default: vspeed_goal = -3; break;
+        case (4): vspeed_goal = -3.5; break;
+        case (5): vspeed_goal = -4.5; break;
+        
     }
 }
 
@@ -672,6 +880,7 @@ player_set_palette(obj_playerparent);
 if (global.mount == 0) {
 
     draw_sprite_ext(sprite_index, img_index, round(x), round(y)+1, image_xscale, 1, 0, c_white, 1);
+
 }
 
 //Reset shader

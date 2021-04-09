@@ -419,7 +419,7 @@ else {
                             
                                 //Set cape position and state
                                 state = capestate.cape_idle;
-                                yy = 0;
+                                yy = 1;
                                 
                                 //If Peach is not riding a Yoshi
                                 if (global.mount == 0)

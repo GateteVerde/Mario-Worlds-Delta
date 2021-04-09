@@ -170,14 +170,14 @@ else {
                 //Set cape position and state
                 state = capestate.cape_idle;
                 
-                //If Toad is not riding a Yoshi
+                //If Mario is not riding a Yoshi
                 if (global.mount == 0) {
                 
                     yy = 1;
                     depth = other.depth+1;
                 }
                     
-                //Otherwise, if Toad is riding a yoshi
+                //Otherwise, if Mario is riding a yoshi
                 else {
                 
                     yy = 3;
@@ -351,7 +351,7 @@ else {
                             
                                 //Set cape position and state
                                 state = capestate.cape_idle;
-                                yy = 0;
+                                yy = 1;
                                 
                                 //If Mario is not riding a Yoshi
                                 if (global.mount == 0)
@@ -492,12 +492,12 @@ else {
                                 
                                     //With the cape
                                     with (obj_cape) {
-                                    
-                                        //Set position
-                                        yy = 0;
-                                    
+                                            
                                         //If moving up
                                         if (other.vspeed &lt; 0) {
+                                        
+                                            //Set position
+                                            yy = 1;
                                         
                                             //Set depth
                                             if (global.mount == 1) {
@@ -517,6 +517,9 @@ else {
                                                 state = capestate.cape_jump_up;
                                         }
                                         else {
+                                        
+                                            //Set position
+                                            yy = -3;
                                         
                                             state = capestate.cape_jump_down;
                                             depth = other.depth+1;

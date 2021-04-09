@@ -63,6 +63,9 @@ mouthsprite = noone;
 //Whether Yoshi has ate a powerup
 powerup = noone;
 
+//Crouch for a moment upon mount
+crouch_position = -1;
+
 //Ammo
 ammo = 0;
 
@@ -353,6 +356,7 @@ if (state == yoshistate.idle)
 
     //Inherit event from parent
     event_inherited();
+    crouch_position = -1;
     
     //Set up the depth
     if (depth != -2)
@@ -361,6 +365,16 @@ if (state == yoshistate.idle)
 
 //Otherwise
 else if (state == yoshistate.ridden) {
+
+    if (crouch_position == -1) {
+    
+        crouch_position = 15;
+        
+    } else if (crouch_position &gt; 0) {
+    
+        crouch_position --;
+        
+    }
 
     //Stop swimming
     swimming = false;
@@ -583,7 +597,8 @@ else {
         
             //If the player is crouched down or it is sliding down a slope
             if (obj_playerparent.crouch == true)
-            || (obj_playerparent.sliding == true) {
+            || (obj_playerparent.sliding == true)
+            || (crouch_position &gt; 0) {
             
                 //If Yoshi is holding something on his mouth
                 if (mouthholder != noone) {
@@ -1201,6 +1216,7 @@ else {
     //If the player is crouched down or sliding down a slope
     if (obj_playerparent.crouch == true)
     || (obj_playerparent.sliding == true)
+    || (crouch_position &gt; 0)
         f = 1;
     else
         f = 0;
