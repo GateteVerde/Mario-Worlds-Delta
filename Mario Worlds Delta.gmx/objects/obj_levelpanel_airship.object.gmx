@@ -136,7 +136,7 @@ sprite_index = spr_levelpanel_airship_beaten;
 beaten = 2;
 
 //Create smoke effect
-with (instance_create(x+8, y+8, obj_smoke)) {
+with (instance_create(x, y, obj_smoke)) {
 
     sprite_index = spr_smoke_32;
     depth = other.depth - 1;
@@ -166,6 +166,15 @@ with (obj_mapplayer) alarm[1] = 60;
           <argument>
             <kind>1</kind>
             <string>///Manage offset
+
+//If the level has been beaten, or is about to be cleared, don't move.
+if ((beaten != 0)
+|| (instance_place(x,y,obj_mapplayer)
+&amp;&amp; (global.clear &gt; 0))) {
+
+    exit;
+    
+}
 
 //X Movement
 xsp += 0.05*xscale;
@@ -216,7 +225,7 @@ if (sprite_index == spr_levelpanel_airship) {
     draw_sprite_ext(spr_maplakitu_shadow, -1, x+xoffset-8, y-4, 1, 1, 0, c_white, 1);
 }
 else
-    draw_sprite_ext(spr_levelpanel_airship_beaten, 0, x+offset, y, xscale, 1, 0, c_white, 1);
+    draw_sprite_ext(spr_levelpanel_airship_beaten, 0, x+xoffset, y, xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>

@@ -112,7 +112,7 @@ global.bonusgame = 0;
 global.whistle = 0;
 
 //Lives
-lives = 1;
+lives = 5;
 
 //Score
 score = 0;
