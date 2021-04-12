@@ -1195,9 +1195,11 @@ if (stomp != -1)
                     
                     //Create spin smoke
                     instance_create(other.x, other.bbox_bottom, obj_spinthump);
-                    
+
                     //Bounce
-                    with (other) event_user(1);
+                    if (!collision_rectangle(other.bbox_left, other.bbox_top, other.bbox_right, other.bbox_bottom, obj_solid, 0, 0))
+                    &amp;&amp; (!collision_rectangle(other.bbox_left, other.bbox_top, other.bbox_right, other.bbox_bottom, obj_solid_moving, 0, 0))
+                        with (other) event_user(1);
                 }    
             }
     
@@ -1256,7 +1258,7 @@ if (stomp != -1)
                 instance_create(other.x, other.bbox_bottom, obj_spinthump);
                 
                 //Stomp the enemy
-                event_user(1);                
+                event_user(1);           
             }
         }
     

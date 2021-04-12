@@ -173,11 +173,9 @@ numb = 0;
 //Call cape draw object
 mycape = instance_create(x, y, obj_cape);
 
-//Call collision boundaries
-t = instance_create(x, y, obj_boundary_top);
-b = instance_create(x, y, obj_boundary_bottom);
-l = instance_create(x, y, obj_boundary_left);
-r = instance_create(x, y, obj_boundary_right);
+//Call bolt lift triggers
+instance_create(x, y, obj_boundary_top);
+instance_create(x, y, obj_boundary_bottom);
 
 //find slope
 if (collision_rectangle(x-2, bbox_bottom-3, x+2, bbox_bottom+vspeed, obj_slopeparent, 1, 0)) {
@@ -1234,16 +1232,8 @@ else {
     
     //Otherwise, let's do a special check if the player is not stuck in a solid
     else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
-    
-        //If the boundary checks are overlapping ground, kill the player
-        if ((t.check == 1) &amp;&amp; (b.check == 1) &amp;&amp; (l.check == 0) &amp;&amp; (r.check == 0))
-        || ((t.check == 0) &amp;&amp; (b.check == 0) &amp;&amp; (l.check == 1) &amp;&amp; (r.check == 1))
-        || ((t.check == 1) &amp;&amp; (b.check == 1) &amp;&amp; (l.check == 1) &amp;&amp; (r.check == 1)) {
-         
-            instance_create(x, y, obj_player_dead);
-            instance_destroy();
-            exit;
-        }
+
+        /* UNDER CONSTRUCTION */
     }
 }
 </string>

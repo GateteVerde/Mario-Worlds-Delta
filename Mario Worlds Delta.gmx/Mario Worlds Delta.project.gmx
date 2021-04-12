@@ -1861,8 +1861,6 @@
           <sprite>sprites\spr_mapmask</sprite>
           <sprite>sprites\spr_boundary_top</sprite>
           <sprite>sprites\spr_boundary_bottom</sprite>
-          <sprite>sprites\spr_boundary_left</sprite>
-          <sprite>sprites\spr_boundary_right</sprite>
         </sprites>
         <sprites name="Collision">
           <sprite>sprites\spr_square</sprite>
@@ -2917,8 +2915,6 @@
           <object>objects\obj_spinner</object>
           <object>objects\obj_boundary_top</object>
           <object>objects\obj_boundary_bottom</object>
-          <object>objects\obj_boundary_left</object>
-          <object>objects\obj_boundary_right</object>
         </objects>
         <objects name="Blocks">
           <objects name="Item Blocks">

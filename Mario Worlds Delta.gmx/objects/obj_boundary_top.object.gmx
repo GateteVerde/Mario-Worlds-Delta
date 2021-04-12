@@ -8,31 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Stay on the player's top
-
-check = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -62,20 +37,6 @@ if (!instance_exists(obj_playerparent)) {
 //Stay relative to the player
 x = obj_playerparent.x;
 y = obj_playerparent.bbox_top;
-
-//If the object is overlapping a solid
-if (collision_line(bbox_left, bbox_top, bbox_right, bbox_top, obj_solid, 1, 0))
-    check = true;
-else if (collision_line(bbox_left+1, bbox_top, bbox_right-1, bbox_top, obj_solid_moving, 1, 0)) {
-
-    //If moving platform is heading towards player..
-    if (collision_line(bbox_left+1, bbox_top, bbox_right-1, bbox_top, obj_solid_moving, 1, 0).vspeed &gt; 0)
-        check = true;
-    else
-        check = false;
-
-}else
-    check = false;
 </string>
           </argument>
         </arguments>
