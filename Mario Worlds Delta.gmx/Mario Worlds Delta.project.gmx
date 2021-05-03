@@ -901,6 +901,8 @@
         <sprite>sprites\spr_door_lock_unlocked</sprite>
         <sprite>sprites\spr_beanstalk</sprite>
         <sprite>sprites\spr_beanstalk_vine</sprite>
+        <sprite>sprites\spr_spiketrap</sprite>
+        <sprite>sprites\spr_spiketrap_alt</sprite>
         <sprite>sprites\spr_bumper</sprite>
         <sprite>sprites\spr_key</sprite>
       </sprites>
@@ -2398,6 +2400,7 @@
         <object>objects\obj_detonator</object>
         <object>objects\obj_beanstalk_vine</object>
         <object>objects\obj_lakitucloud</object>
+        <object>objects\obj_spiketrap</object>
         <object>objects\obj_bumper</object>
         <object>objects\obj_key</object>
       </objects>
@@ -2679,6 +2682,7 @@
           <object>objects\obj_generator_cheep</object>
           <object>objects\obj_generator_spinycheep</object>
           <object>objects\obj_generator_spinycheep_alt</object>
+          <object>objects\obj_generator_dolphin</object>
         </objects>
         <objects name="Airship">
           <object>objects\obj_generator_bobomb</object>
@@ -3104,6 +3108,7 @@
             <object>objects\obj_cheepcheep_gen</object>
             <object>objects\obj_spinycheep</object>
             <object>objects\obj_spinycheep_swim</object>
+            <object>objects\obj_dolphin_gen</object>
           </objects>
           <object>objects\obj_shell_kicked</object>
           <object>objects\obj_chomp</object>
