@@ -1368,6 +1368,10 @@
         <sprite>sprites\spr_ninji_dead</sprite>
         <sprite>sprites\spr_grinder</sprite>
         <sprite>sprites\spr_grinder_line</sprite>
+        <sprite>sprites\spr_lilspark</sprite>
+        <sprite>sprites\spr_hothead</sprite>
+        <sprite>sprites\spr_hothead_eyes</sprite>
+        <sprite>sprites\spr_hothead_dead</sprite>
         <sprite>sprites\spr_fallingspike</sprite>
       </sprites>
       <sprites name="Ghost">
@@ -2639,6 +2643,8 @@
         <object>objects\obj_netkoopa_red</object>
         <object>objects\obj_netkoopa_blue</object>
         <object>objects\obj_netkoopa_yellow</object>
+        <object>objects\obj_lilspark</object>
+        <object>objects\obj_hothead</object>
         <object>objects\obj_fallingspike</object>
         <object>objects\obj_ninji</object>
       </objects>
@@ -3203,8 +3209,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_intro</room>
     <room>rooms\rm_title</room>
+    <room>rooms\rm_intro</room>
     <room>rooms\rm_worldmap</room>
     <rooms name="Levels">
       <rooms name="Level 1">
@@ -3288,7 +3294,7 @@
     <constant name="c_smwyellow">$00f8f8</constant>
     <constant name="c_smwblue">$f88888</constant>
     <constant name="cs_disclaimer">"2019-2021 GREEN BARON GAMES#MARIO IS (C) OF NINTENDO"</constant>
-    <constant name="cs_version">"v0.9.6 - r396"</constant>
+    <constant name="cs_version">"v0.9.8 - r400"</constant>
     <constant name="cs_up">1</constant>
     <constant name="cs_down">2</constant>
     <constant name="cs_left">3</constant>

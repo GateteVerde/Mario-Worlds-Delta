@@ -50,7 +50,7 @@ switch (global.mount) {
                 case (2): return spr_maptoad_water_side;
                 
                 //Peach
-                case (3): return spr_maptoad_water_side;
+                case (3): return spr_mappeach_water_side;
             }                    
         }
     } break;
