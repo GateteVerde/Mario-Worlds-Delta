@@ -55,44 +55,104 @@ page = 0;
 //Current selection on page
 current = 0;
 
+enum menupage {
+
+    main = 0,
+    fileselect = 1,
+    options1 = 2,
+    keys1 = 3,
+    keys2 = 4,
+    filedelete = 5,
+    options2 = 6
+
+}
+
 //Menu 1 - Main Menu
-menu[0,0] = "START GAME";
-menu[0,1] = "OPTIONS";
-menu[0,2] = "EXIT";
+menu[menupage.main,0] = "START GAME";
+menu[menupage.main,1] = "OPTIONS";
+menu[menupage.main,2] = "EXIT";
 
-//Menu 2 - Future File Select[?]
-menu[1,0] = "FILE A";
-menu[1,1] = "FILE B";
-menu[1,2] = "FILE C";
-menu[1,3] = "BACK";
+//Menu 2 - File Select
+menu[menupage.fileselect,0] = "FILE A";
+menu[menupage.fileselect,1] = "FILE B";
+menu[menupage.fileselect,2] = "FILE C";
+menu[menupage.fileselect,3] = "ERASE DATA";
+menu[menupage.fileselect,4] = "BACK";
 
-//Menu 3 - Options
-menu[2,0] = "KEYBOARD CONFIG";
-menu[2,1] = "SET WINDOW SIZE";
-menu[2,2] = "V-SYNC: ON";
-menu[2,3] = "FPS: ON";
-menu[2,4] = "HUD TYPE: DEFAULT";
-menu[2,5] = "VIEW CREDITS";
-menu[2,6] = "BACK";
+//Menu 2 - File Delete
+menu[menupage.filedelete,0] = "ERASE FILE A";
+menu[menupage.filedelete,1] = "ERASE FILE B";
+menu[menupage.filedelete,2] = "ERASE FILE C";
+menu[menupage.filedelete,3] = "BACK";
 
-//Menu 4: Keys 1 / 2
-menu[3,0] = "RUN/SHOOT: " + string(key_to_string(global.key[input.action1]));
-menu[3,1] = "JUMP: " + string(key_to_string(global.key[input.action0]));
-menu[3,2] = "SPIN: " + string(key_to_string(global.key[input.action2]));
-menu[3,3] = "RESERVE   : " + string(key_to_string(global.key[input.select]));
-menu[3,4] = "PAUSE     : " + string(key_to_string(global.key[input.start]));
-menu[3,5] = "RESET KEYS TO DEFAULT"
-menu[3,6] = "NEXT PAGE"
-menu[3,7] = "BACK"
+//Menu 3 - Options 1 / 2
+menu[menupage.options1,0] = "KEYBOARD CONFIG";
+menu[menupage.options1,1] = "SET WINDOW SIZE";
+menu[menupage.options1,2] = "AUTO-SAVE: ON";
+menu[menupage.options1,3] = "HUD TYPE: DEFAULT";
+menu[menupage.options1,4] = "NEXT PAGE";
+menu[menupage.options1,5] = "BACK";
 
-//Menu 5: Keys 2 / 2
-menu[4,0] = "Up        : " + string(key_to_string(global.key[input.up]));
-menu[4,1] = "Down      : " + string(key_to_string(global.key[input.down]));
-menu[4,2] = "Left      : " + string(key_to_string(global.key[input.left]));
-menu[4,3] = "Right     : " + string(key_to_string(global.key[input.right]));
-menu[4,4] = "RESET KEYS TO DEFAULT"
-menu[4,5] = "PREVIOUS PAGE";
-menu[4,6] = "BACK";
+//Menu 4 - Options 2 / 2
+menu[menupage.options2,0] = "V-SYNC: ON";
+menu[menupage.options2,1] = "FPS: ON";
+menu[menupage.options2,2] = "VIEW CREDITS";
+menu[menupage.options2,3] = "PREVIOUS PAGE";
+menu[menupage.options2,4] = "BACK";
+
+//Menu 5: Keys 1 / 2
+menu[menupage.keys1,0] = "RUN/SHOOT: " + string(key_to_string(global.key[input.action1]));
+menu[menupage.keys1,1] = "JUMP: " + string(key_to_string(global.key[input.action0]));
+menu[menupage.keys1,2] = "SPIN: " + string(key_to_string(global.key[input.action2]));
+menu[menupage.keys1,3] = "RESERVE   : " + string(key_to_string(global.key[input.select]));
+menu[menupage.keys1,4] = "PAUSE     : " + string(key_to_string(global.key[input.start]));
+menu[menupage.keys1,5] = "RESET KEYS TO DEFAULT"
+menu[menupage.keys1,6] = "NEXT PAGE"
+menu[menupage.keys1,7] = "BACK"
+
+//Menu 6: Keys 2 / 2
+menu[menupage.keys2,0] = "Up        : " + string(key_to_string(global.key[input.up]));
+menu[menupage.keys2,1] = "Down      : " + string(key_to_string(global.key[input.down]));
+menu[menupage.keys2,2] = "Left      : " + string(key_to_string(global.key[input.left]));
+menu[menupage.keys2,3] = "Right     : " + string(key_to_string(global.key[input.right]));
+menu[menupage.keys2,4] = "RESET KEYS TO DEFAULT"
+menu[menupage.keys2,5] = "PREVIOUS PAGE";
+menu[menupage.keys2,6] = "BACK";
+
+//File info
+event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Go to the intro sequence
+
+//Disable pixelation
+with (obj_controller) {
+
+    pixelate = 60;
+}
+
+//Go to the engine test
+room_goto(rm_intro);
 </string>
           </argument>
         </arguments>
@@ -370,6 +430,8 @@ background_x[1] -= 2;
 //If the menu is not on key change mode
 if (mode == 2) {
 
+    var current_page = page;
+
     //If the player presses the 'Up' key
     if (input_check_pressed(input.up)) {
     
@@ -377,7 +439,7 @@ if (mode == 2) {
         display = true;
         alarm[0] = 20;
     
-        //Play 'Menu' sound
+        //Play 'Fireball' sound
         audio_stop_play_sound(snd_fireball, 0, false);
     
         //Cycle between options
@@ -397,7 +459,7 @@ if (mode == 2) {
         display = true;
         alarm[0] = 20;
     
-        //Play 'Menu' sound
+        //Play 'Fireball' sound
         audio_stop_play_sound(snd_fireball, 0, false);
     
         //Cycle between options        
@@ -410,40 +472,133 @@ if (mode == 2) {
             current ++;
     }
     
+    //Otherwise, if the player presses the 'Action 1' key
+    else if (input_check_pressed(input.action1)) {
+    
+        var current_page = page;
+    
+        //File select &amp; Options
+        if (page == menupage.fileselect || page == menupage.options1) {
+        
+            //Go back to the 'Options' selection if you were in the Options menu
+            if (page == menupage.options1)
+            
+                current = 1;
+                
+            else
+            
+                current = 0;
+        
+            //Go to first page
+            page = menupage.main;
+            
+            //Play 'Fireball' sound
+            audio_stop_play_sound(snd_fireball, 0, false);
+            
+        }
+        
+        //File Delete
+        else if (page == menupage.filedelete) {
+        
+            //Go to File Select
+            page = menupage.fileselect;
+            
+            //Reset current selection
+            current = 0;
+                
+            //Play 'Fireball' sound
+            audio_stop_play_sound(snd_fireball, 0, false);
+        
+        }
+        
+        //Options page 2
+        else if (page == menupage.options2) {
+    
+            //Go to Options 1
+            page = menupage.options1;
+    
+            //Bring the pointer selection 1 up
+            current ++;
+                
+            //Play 'Fireball' sound
+            audio_stop_play_sound(snd_fireball, 0, false);
+            
+        }
+        
+        //Keys 1/2
+        else if (page == menupage.keys1) {
+        
+            //Go to Options
+            page = menupage.options1;
+            
+            //Reset selection
+            current = 0;
+            
+            //Play 'Fireball' sound
+            audio_stop_play_sound(snd_fireball, 0, false);
+        
+        }
+        
+        //Keys 2/2
+        else if (page == menupage.keys2) {
+        
+            //Go to Keys page 1
+            page = menupage.keys1;
+            
+            //Bring the pointer selection 1 up
+            current ++;
+            
+            //Play 'Fireball' sound
+            audio_stop_play_sound(snd_fireball, 0, false);
+        
+        }
+        
+        //If the page has changed from pressing a button...
+        if (page != current_page) {
+        
+            //Make the pointer show up
+            display = true;
+            
+            //Set pointer timer
+            alarm[0] = 20;
+        
+        }
+    
+    }
+    
     //Otherwise, if the player presses 'Action 0'
     else if ((input_check_pressed(input.start))
     || (input_check_pressed(input.action0))
     || (input_check_pressed(input.action2))) {
     
-        //Page 0: Main
-        if (page == 0) {
+        //Main
+        if (page == menupage.main) {
         
             //Option 1: Start Game (Will need to change once saving is added)
             if (current == 0) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Play 'Correct' sound
-                audio_stop_play_sound(snd_correct, 0, false);    
+                //Go to file select
+                page = menupage.fileselect;
                 
-                //Stop the stream...
-                audio_stop_sound(global.stream);
+                //Reset option to the top
+                current = 0;
                 
-                //...and free it from memory
-                audio_destroy_stream(global.stream);
-                global.stream = noone;
-                
-                //Prepare to go to the next room
-                alarm[2] = 2;
+                //File info
+                event_user(0);
         
             }
             
             //Option 2: Options
             else if (current == 1) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 2
-                page = 2;
+                //Go to Options 1 page
+                page = menupage.options1;
                 
                 //Reset option to top
                 current = 0;
@@ -452,87 +607,105 @@ if (mode == 2) {
             //Option 3: Exit
             else if (current == 2) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
                 //Exit the game
                 game_end();
+                
             }
+            
         }
-        
-        /*
-        //Page 1: File selection
-        else if (page == 1) {
+
+        //File selection
+        else if (page == menupage.fileselect) {
         
             //Options 1 to 3: File selection
-            if (current != 4) {
-        
-                //Stop stream if it's playing
-                audio_stop_sound(bgm_title);
+            if (current &lt; 3) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Stop the stream...
+                audio_stop_sound(global.stream);
+                
+                //...and free it from memory
+                audio_destroy_stream(global.stream);
+                global.stream = noone;
                 
                 //Check what file is selected
                 switch (current) {
                 
                     //File A
-                    case (1): global.file = "GMEASaveA.sav"; break;
+                    case (0): global.file = "MWDSave1.sav"; break;
                     
                     //File B
-                    case (2): global.file = "GMEASaveB.sav"; break;
+                    case (1): global.file = "MWDSave2.sav"; break;
                     
                     //File C
-                    case (3): global.file = "GMEASaveC.sav"; break;
+                    case (2): global.file = "MWDSave3.sav"; break;
+                    
                 }
                 
                 //If the file exists
                 if (file_exists(global.file)) {
                 
+                    //Load the game file
                     load(global.file);
-                    if (instance_number(obj_curtainout) == 0) {
                     
-                        audio_play_sound(snd_enterstage, 0, false);     
-                        with (instance_create(view_xview[0]+global.gw/2,view_yview[0]+global.gh/2,obj_curtainout))                        
-                            target = rm_map;                        
-                    }
+                    //Prepare to go to the next room
+                    alarm[2] = 2;
+
                 }
                 
                 //Otherwise, go to the intro screen
                 else {
-
-                    if (instance_number(obj_curtainout) == 0) {
-                    
-                        audio_play_sound(snd_enterstage, 0, false);     
-                        with (instance_create(view_xview[0]+global.gw/2,view_yview[0]+global.gh/2,obj_curtainout))
-                            target = rm_intro;
-                    }                    
+                
+                    alarm[5] = 2;
+                   
                 }
+                
             }
             
-            //Choice 3: Back
+            //Chose 3: File Delete
+            else if (current == 3) {
+            
+                //Go to file delete
+                page = menupage.filedelete;
+                
+                //Set the choice
+                current = 0;
+                
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+            
+            }
+            
+            //Choice 4: Back
             else if (current == 4) {
                                 
-                //Play 'Correct' sound
-                audio_play_sound(snd_correct, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
             
-                //Go to page 0
-                page = 0;
+                //Go to Main page
+                page = menupage.main;
                 
                 //Set the choice
                 current = 0;       
             }            
         }
-        */
         
         //Page 2: Options
-        else if (page == 2) {
+        else if (page == menupage.options1) {
         
             //Option 1: Keyboard configuration
             if (current == 0) {
                 
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 3
-                page = 3;
+                //Go to Keys 1 page
+                page = menupage.keys1;
                 
                 //Set the choice
                 current = 0;
@@ -542,8 +715,8 @@ if (mode == 2) {
             //Option 2: Window size
             else if (current == 1) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
             
                 //Switch filter
                 with (obj_controller) {
@@ -567,45 +740,24 @@ if (mode == 2) {
                     event_user(1);
                       
                 }
+                
             }
             
-            //Option 3: V-Sync
+            //Option 3: Auto-Save
             else if (current == 2) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+            
+                global.autosave = !global.autosave;
                 
-                //Enable V-Sync
-                with (obj_controller) {
-                
-                    //Toggle vertical syncronization
-                    vsync = !vsync;
-                    
-                    //Apply settings
-                    event_user(1);
-                    
-                }
             }
             
-            //Option 4: FPS
+            //Option 4: HUD Style
             else if (current == 3) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
-                
-                //Enable FPS on screen
-                with (obj_controller) {
-                
-                    //Toggle FPS
-                    showfps = !showfps;
-                }
-            }
-            
-            //Option 5: HUD Style
-            else if (current == 4) {
-            
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
                 //Enable FPS on screen
                 with (obj_controller) {
@@ -618,8 +770,74 @@ if (mode == 2) {
                 
             }
             
-            //Option 6: Credits
+            //Option 5: Next Page
+            else if (current == 4) {
+                            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Go to page page 2 of options
+                page = menupage.options2;
+                
+                //Set the choice
+                current --;   
+                                 
+            }
+            
+            //Option 6: Back
             else if (current == 5) {
+                            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Go to Main page
+                page = menupage.main;
+                
+                //Set the choice
+                current = 0;   
+                                 
+            }
+            
+        }
+        
+        else if (page == menupage.options2) {
+
+            //Option 1: V-Sync
+            if (current == 0) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Enable V-Sync
+                with (obj_controller) {
+                
+                    //Toggle vertical syncronization
+                    vsync = !vsync;
+                    
+                    //Apply settings
+                    event_user(1);
+                    
+                }
+                
+            }
+            
+            //Option 2: FPS
+            else if (current == 1) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Enable FPS on screen
+                with (obj_controller) {
+                
+                    //Toggle FPS
+                    showfps = !showfps;
+                }
+                
+            }
+            
+            //Option 6: Credits
+            else if (current == 2) {
             
                 //Stop the stream...
                 audio_stop_sound(global.stream);
@@ -639,28 +857,44 @@ if (mode == 2) {
 
             }
             
-            //Option 7: Back
-            else if (current == 6) {
+            //Option 5: Next Page
+            else if (current == 3) {
                             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 3
-                page = 0;
+                //Go to page page 1 of options
+                page = menupage.options1;
                 
                 //Set the choice
-                current = 0;                    
+                current ++;   
+                                 
             }
+            
+            //Option 6: Back
+            else if (current == 4) {
+                            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Go to Main page
+                page = menupage.main;
+                
+                //Set the choice
+                current = 0;   
+                                 
+            }
+            
         }
         
-        //Page 3: Keys 1/2
-        else if (page == 3) {
+        //Keys 1/2
+        else if (page == menupage.keys1) {
         
             //Options 1 to 5
             if (current &lt; 5) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
                 //Set 'Key' mode
                 mode = 3;
@@ -682,8 +916,8 @@ if (mode == 2) {
             //Option 6: Reset keys
             else if (current == 5) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
                 //Reset all keys
                 alarm[4] = 1;
@@ -692,11 +926,11 @@ if (mode == 2) {
             //Option 7: Page 2 / 2
             else if (current == 6) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 4
-                page = 4;
+                //Go to Keys 2
+                page = menupage.keys2;
                 
                 //Move pointer selection down 1
                 current --;
@@ -706,11 +940,11 @@ if (mode == 2) {
             //Option 8: Back
             else if (current == 7) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 2
-                page = 2;
+                //Go to Options 1 menu
+                page = menupage.options1;
                 
                 //Set the choice
                 current = 0;
@@ -718,15 +952,14 @@ if (mode == 2) {
             
         }
         
-        //Page 2: Keys 2/2
+        //Keys 2/2
         else if (page == 4) {
-            
     
             //Options 1 to 4
             if (current &lt; 4) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
                 //Set 'Key' mode
                 mode = 3;
@@ -747,21 +980,21 @@ if (mode == 2) {
             //Option 5: Reset keys
             else if (current == 4) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Correct' sound
+                audio_stop_play_sound(snd_correct, 0, false);
                 
                 //Reset all keys
                 alarm[4] = 1;
             }
             
-            //Option 6: Page 2 / 2
+            //Option 6: Page 1 / 2
             else if (current == 5) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 4
-                page = 3;
+                //Go to Keys 1 menu
+                page = menupage.keys1;
                 
                 //Bring the pointer selection 1 up
                 current ++;
@@ -771,17 +1004,84 @@ if (mode == 2) {
             //Option 7: Back
             else if (current == 6) {
             
-                //Play 'Menu' sound
-                audio_stop_play_sound(snd_fireball, 0, false);
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
                 
-                //Go to page 2
-                page = 2;
+                //Go to Options 1 menu
+                page = menupage.options1;
                 
                 //Set the choice
                 current = 0;
             }
+            
         }
+        
+        //File delete
+        else if (page == menupage.filedelete) {
+        
+            //Options 1 to 3: File deletion
+            if (current &lt; 3) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+                
+                //Check what file is selected
+                switch (current) {
+                
+                    //File A
+                    case (0):
+                        file_delete("MWDSave1.sav");
+                        file_delete("MWDInfo1.ini");
+                        break;
+                    
+                    //File B
+                    case (1):
+                        file_delete("MWDSave2.sav");
+                        file_delete("MWDInfo2.ini");
+                        break;
+                    
+                    //File C
+                    case (2):
+                        file_delete("MWDSave3.sav");
+                        file_delete("MWDInfo3.ini");
+                        break;
+                    
+                }
+                
+                //Update file info
+                event_user(0);
+                
+            }
+            
+            //Chose 3: Go back to File Select
+            else if (current == 3) {
+            
+                //Play 'Coin' sound
+                audio_stop_play_sound(snd_coin, 0, false);
+            
+                //Go to file select
+                page = menupage.fileselect;
+                
+                //Set the choice
+                current = 0;
+            
+            }
+          
+        }
+        
     }
+    
+    //If the page has changed from pressing a button...
+    if (page != current_page) {
+    
+        //Make the pointer show up
+        display = true;
+        
+        //Set pointer timer
+        alarm[0] = 20;
+    
+    }
+        
 }
 
 //Update HUD message
@@ -790,50 +1090,93 @@ with (obj_controller) {
    switch (hud_type) {
     
         //SMA2
-        case (1): other.menu[2,4] = "HUD TYPE: SMA2"; break;
+        case (1): other.menu[menupage.options1,3] = "HUD TYPE: SMA2"; break;
         
         //SMA4
-        case (2): other.menu[2,4] = "HUD TYPE: SMA4"; break;
+        case (2): other.menu[menupage.options1,3] = "HUD TYPE: SMA4"; break;
         
         //Minimalist
-        case (3): other.menu[2,4] = "HUD TYPE: MINI/SCORE"; break;
+        case (3): other.menu[menupage.options1,3] = "HUD TYPE: MINI/SCORE"; break;
         
         //Minimalist (No Score)
-        case (4): other.menu[2,4] = "HUD TYPE: MINI/NO SCORE"; break;
+        case (4): other.menu[menupage.options1,3] = "HUD TYPE: MINI/NO SCORE"; break;
         
         //Hello Engine
-        case (5): other.menu[2,4] = "HUD TYPE: HELLO ENGINE"; break;
+        case (5): other.menu[menupage.options1,3] = "HUD TYPE: HELLO ENGINE"; break;
         
         //Default
-        default: other.menu[2,4] = "HUD TYPE: DEFAULT"; break;
+        default: other.menu[menupage.options1,3] = "HUD TYPE: DEFAULT"; break;
     }
         
 }
 
+//Update auto-save text
+if (global.autosave)
+    menu[menupage.options1,2] = "AUTO-SAVE: ON";
+else
+    menu[menupage.options1,2] = "AUTO-SAVE: OFF";
+
 //Update V-Sync text
 if (obj_controller.vsync)
-    menu[2,2] = "V-Sync: ON";
+    menu[menupage.options2,0] = "V-Sync: ON";
 else
-    menu[2,2] = "V-Sync: OFF";
+    menu[menupage.options2,0] = "V-Sync: OFF";
     
 //Update FPS text
 if (obj_controller.showfps)
-    menu[2,3] = "FPS: ON";
+    menu[menupage.options2,1] = "FPS: ON";
 else
-    menu[2,3] = "FPS: OFF";
+    menu[menupage.options2,1] = "FPS: OFF";
     
 //Update Key Text
-menu[3,0] = "RUN/SHOOT ... " + string(key_to_string(global.key[input.action1]));
-menu[3,1] = "JUMP      ... " + string(key_to_string(global.key[input.action0]));
-menu[3,2] = "SPIN      ... " + string(key_to_string(global.key[input.action2]));
-menu[3,3] = "RESERVE   ... " + string(key_to_string(global.key[input.select]));
-menu[3,4] = "PAUSE     ... " + string(key_to_string(global.key[input.start]));
-menu[4,0] = "Up        ... " + string(key_to_string(global.key[input.up]));
-menu[4,1] = "Down      ... " + string(key_to_string(global.key[input.down]));
-menu[4,2] = "Left      ... " + string(key_to_string(global.key[input.left]));
-menu[4,3] = "Right     ... " + string(key_to_string(global.key[input.right]));
+menu[menupage.keys1,0] = "RUN/SHOOT ... " + string(key_to_string(global.key[input.action1]));
+menu[menupage.keys1,1] = "JUMP      ... " + string(key_to_string(global.key[input.action0]));
+menu[menupage.keys1,2] = "SPIN      ... " + string(key_to_string(global.key[input.action2]));
+menu[menupage.keys1,3] = "RESERVE   ... " + string(key_to_string(global.key[input.select]));
+menu[menupage.keys1,4] = "PAUSE     ... " + string(key_to_string(global.key[input.start]));
+menu[menupage.keys2,0] = "Up        ... " + string(key_to_string(global.key[input.up]));
+menu[menupage.keys2,1] = "Down      ... " + string(key_to_string(global.key[input.down]));
+menu[menupage.keys2,2] = "Left      ... " + string(key_to_string(global.key[input.left]));
+menu[menupage.keys2,3] = "Right     ... " + string(key_to_string(global.key[input.right]));
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update file info
+
+for (var i = 1; i &lt;= 3; i ++) {
+
+    fileinfo[i] = -1;
+        
+    if (file_exists("MWDInfo"+string(i)+".ini")) {
+    
+        ini_open("MWDInfo"+string(i)+".ini");
+        fileinfo[i] = ini_read_real("Exits", "Completion", 0);
+        ini_close();
+    
+    }
+    
+}
 </string>
           </argument>
         </arguments>
@@ -928,6 +1271,41 @@ if (scale &lt; 300) {
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Dark background during deletion
+
+//If on file deletion...
+if (page == menupage.filedelete) {
+
+    //Set alpha
+    draw_set_alpha(0.5);
+    
+    //Draw rectangle
+    draw_rectangle_colour(view_xview[view_current], view_yview[view_current], view_xview[view_current] + view_wview[view_current], view_yview[view_current] + view_hview[view_current], c_black, c_black, c_black, c_black, false);
+    
+    //Set alpha
+    draw_set_alpha(1);
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Title Text
 
 //Set the font
@@ -942,7 +1320,7 @@ draw_text(view_xview[0]+18, view_yview[0]+18, string(cs_version));
 //Draw option text
 if (mode &gt; 1) {
     
-    for (var i = 0; i &lt; array_length_2d(menu,page); i ++;) {
+    for (var i = 0; i &lt; array_length_2d(menu,page); i ++) {
     
         //Spacing between lines
         var spacing = 16;
@@ -954,29 +1332,74 @@ if (mode &gt; 1) {
         var text_yoffset = 16;
         
         //Slight line scale change if the row length is too large
-        if (array_length_2d(menu,page) &gt; 4)
+        if (array_length_2d(menu,page) &gt; 6)
         
             var spacing = 12;
             
-        //Bump the text to the left slightly for more room
-        if (page == 3)
-        || (page == 4) {
+        //Adjust the text on File Select
+        if (page == menupage.fileselect) {
+        
+            text_xoffset = 80;
+            text_yoffset = 8;
+            
+        }
+        
+        //Adjust the text on File Delete
+        if (page == menupage.filedelete) {
+        
+            text_xoffset = 48;
+            text_yoffset = 8;
+            
+        }
+            
+        //Adjust the text on Options
+        if (page == menupage.options1 || page == menupage.options2) {
+        
+            text_xoffset = 48;
+            text_yoffset = 4;
+            
+        }
+            
+        //Adjust the text on Key input
+        if (page == menupage.keys1)
+        || (page == menupage.keys2) {
         
             text_xoffset = 40;
             text_yoffset = 0;
             
         }
         
-        //Bump the text to the left slightly for more room
-        if (page == 2) {
-        
-            text_xoffset = 50;
-            text_yoffset = 8;
-            
-        }
-    
         //Draw the text
         draw_text(view_xview[0]+text_xoffset, view_yview[0]+(view_hview[0]/2)+text_yoffset+(spacing*(i)), menu[page,i]);
+        
+        //Draw file info if your selection is within the files
+        if ((page == menupage.fileselect || page == menupage.filedelete)
+        &amp;&amp; i &lt; 3) {
+
+            draw_text_colour(view_xview[0]+text_xoffset+string_width(menu[page,i]), view_yview[0]+(view_hview[0]/2)+text_yoffset+(spacing*(i)), " ...", c_smwyellow, c_smwyellow, c_smwyellow, c_smwyellow, 1);
+            
+            var file_info = "EMPTY";
+            var extra_offset = 0;
+            var col = c_white;
+            
+            if (fileinfo[i+1] != -1) {
+                
+                //Change info to current file number    
+                file_info = fileinfo[i+1];
+                
+                //Set color to yellow
+                col = c_smwyellow;
+                
+                //Offset number
+                if (string_length(file_info) &lt; 2)
+                
+                    extra_offset = 8;
+                
+            }
+            
+            draw_text_colour(view_xview[0]+text_xoffset+string_width(menu[page,i])+string_width(" ...")+extra_offset, view_yview[0]+(view_hview[0]/2)+text_yoffset+(spacing*(i)), file_info, col, col, col, col, 1);
+        
+        }        
             
         //Draw the cursor
         if (i == current) &amp;&amp; (display == 1)

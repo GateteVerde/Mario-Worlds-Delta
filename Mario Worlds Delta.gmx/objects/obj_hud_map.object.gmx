@@ -32,6 +32,33 @@ anim = 0;
 
 //Prints the name of the level
 levelname = "";
+
+//Show saved
+show_saved = false;
+fade_save = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fade_save = 0.99;
 </string>
           </argument>
         </arguments>
@@ -59,6 +86,25 @@ levelname = "";
 if (obj_controller.fade == 1) || (obj_controller.mode == 0)
 
     anim += 0.15;
+    
+if (fade_save &lt; 1) {
+
+    if (fade_save == 0.99) {
+    
+        fade_save = 1;
+        
+    }
+    
+    fade_save -= 0.025;
+    
+    if (fade_save &lt;= 0) {
+    
+        show_saved = false;
+        fade_save = 1;
+        
+    }
+    
+}
 </string>
           </argument>
         </arguments>
@@ -124,6 +170,19 @@ if (levelname != "") {
 
 //Reset the text colour
 draw_set_colour(c_white);
+
+//Set up the map font
+draw_set_font(global.font);
+
+if (show_saved) {
+
+    draw_set_alpha(fade_save);
+
+    draw_text(_xx+18,_yy+view_hview[0]-26,"GAME SAVED!");
+    
+    draw_set_alpha(1);
+
+}
 </string>
           </argument>
         </arguments>
@@ -146,47 +205,8 @@ draw_set_colour(c_white);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draws the HUD
+            <string>///Don't draw here
 exit;
-
-//Draw the border
-draw_sprite_ext(spr_hud_map, 0, view_xview[0], view_yview[0], 1, 1, 0, c_white, 1);
-
-//Set up palette
-player_set_palette(id);
-
-//If the player has a cape, draw it first...
-if (global.powerup == cs_pow_cape) {
-
-    draw_sprite_ext(spr_cape_walk, anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 0, c_white, 1); 
-}
-
-//...then draw the player
-draw_sprite_ext(player_walk(), anim, view_xview[0]+38, view_yview[0]+23, -1, 1, 0, c_white, 1);
-
-//Reset shader
-pal_swap_reset();
-
-//Set up the font
-draw_set_font(global.font);
-
-//Draw lives
-draw_text(view_xview[0]+56, view_yview[0]+31, string("*") + string(lives));
-
-//Set up the map font
-draw_set_font(global.fontmsg);
-
-//Set up the colour
-draw_set_colour(c_black);
-
-//Draw the level name 
-if (levelname != "") {
-
-    draw_text(view_xview[0]+89, view_yview[0]+32, string_upper(levelname));
-}
-
-//Reset the text colour
-draw_set_colour(c_white);
 </string>
           </argument>
         </arguments>

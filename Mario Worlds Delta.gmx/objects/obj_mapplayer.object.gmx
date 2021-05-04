@@ -75,6 +75,18 @@ xscale = 1;
 //Reset global variables
 variable_global_reset();
 
+//Tick for another player to show up (lower for map entry)
+player_wait = -20;
+
+//Time for the player to show up
+wait_time = 8;
+
+//Previous player
+last_player = global.player;
+
+//To save the game
+savegame = false;
+
 //If the level has been beaten
 if (global.clear &gt; 0) {
 
@@ -129,9 +141,34 @@ if (status == mapstate.preidle)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Ask to save the game
+            <string>///Save the game
 
-status = mapstate.idle;
+//Normal exit
+if (!savegame &amp;&amp; !global.alt_save) {
+    
+    status = mapstate.idle;
+    exit;
+    
+}
+
+//Otherwise, save
+
+//If autosaving is enabled
+if (global.autosave == 1) {
+
+    save(global.file);
+    status = mapstate.idle;
+    obj_hud_map.show_saved = true;
+    obj_hud_map.alarm[0] = 90;
+    
+} else {
+
+    //Create save object
+    instance_create(0,0,obj_save);
+    
+}
+    
+savegame = false;
 </string>
           </argument>
         </arguments>
@@ -159,12 +196,33 @@ status = mapstate.idle;
 //Find nearest panel
 check = collision_point(x+xorig, y+yorig, obj_levelpanel, 0, 0);
 
+//Handle the visual "clear levels" for the title screen
+with (check) {
+
+    //If you didn't warp...
+    if (global.clear &lt; 3) {
+
+        //And the normal/secret exit wasn't cleared...
+        if (is_undefined(ds_map_find_value(global.worldmap_beaten,string(id)+"_"+string(global.clear)))) {
+        
+            //Note this
+            global.cleared_levels ++;
+            ds_map_replace(global.worldmap_beaten,string(id)+"_"+string(global.clear),1);
+        
+        }
+        
+    }
+    
+}
+
 //If the level has been cleared with the normal exit
 if (global.clear == 1) {
 
     //If this panel is a switch palace, do not open paths
     if (check.paneltype == 2) {
         
+        savegame = true;
+    
         //Mark panel as beaten
         with (check) {
         
@@ -181,6 +239,8 @@ if (global.clear == 1) {
         if (check.paneltype == 1) {
         
             if (check.beaten != 2) {
+            
+                savegame = true;
             
                 with (check) {
                 
@@ -307,6 +367,17 @@ else if (global.clear == 3) {
     event_user(15);
 }
 
+//Mark level as beaten
+with (check) {
+
+    if (paneltype != 1) {
+    
+        ds_map_replace(global.worldmap_beaten, id, 1);
+        
+    }
+    
+}
+
 //Reset clear variable
 global.clear = 0;
 
@@ -314,19 +385,16 @@ if (instance_exists(check)) {
 
     //If no map openers were made...
     if ((instance_number(obj_mapopener) == 0) &amp;&amp; (check.paneltype == 0)) {
-    
-        //Be able to move again
-        status = mapstate.idle;
+        
+        //Save game
+        alarm[1] = 2;
     
     }
     
-} else status = mapstate.idle;
+} else {
 
-//Mark level as beaten
-with (check) {
-
-    if (paneltype != 1) 
-        ds_map_replace(global.worldmap_beaten, id, 1);
+    status = mapstate.idle;
+    
 }
 
 //Do not remember checkpoint for this level
@@ -355,6 +423,14 @@ if (variable_instance_exists(check, "checkpoint"))
           <argument>
             <kind>1</kind>
             <string>///Animate the object
+
+var current_player = global.player;
+
+if (status == mapstate.switching) {
+
+    global.player = last_player;
+
+}
 
 //If the player is ready
 if (is_ready) {
@@ -426,6 +502,8 @@ else {
         }
     }
 }
+
+global.player = current_player;
 </string>
           </argument>
         </arguments>
@@ -493,7 +571,7 @@ if (status == mapstate.idle)
                 &amp;&amp; (pathU.image_alpha == 1) {
                 
                     direct = 90;
-                    status = mapstate.walk;
+                    status = mapstate.prep;
                 }
             }
             
@@ -508,7 +586,7 @@ if (status == mapstate.idle)
                 &amp;&amp; (pathD.image_alpha == 1) {
                 
                     direct = 270;
-                    status = mapstate.walk;
+                    status = mapstate.prep;
                 }
             }
             
@@ -523,7 +601,7 @@ if (status == mapstate.idle)
                 &amp;&amp; (pathL.image_alpha == 1) {
                 
                     direct = 180;
-                    status = mapstate.walk;
+                    status = mapstate.prep;
                 }
             }
             
@@ -538,16 +616,21 @@ if (status == mapstate.idle)
                 &amp;&amp; (pathR.image_alpha == 1) {
                 
                     direct = 0;
-                    status = mapstate.walk;
+                    status = mapstate.prep;
                 }
             }
                 
             //Change player
-            if (input_check_pressed(input.select)) {
+            if (input_check_pressed(input.select) &amp;&amp; instance_exists(obj_mapplayer_switcher)) {
             
-                global.player++;
+                last_player = global.player;
+            
+                global.player ++;
                 if (global.player &gt; 3)
                     global.player = 0;
+                    
+                status = mapstate.switching;
+                    
             }
             
             //If there's a panel and this panel is available        
@@ -570,12 +653,6 @@ if (status == mapstate.idle)
                 //Go to the stage
                 panel.alarm[1] = 60;
             }
-            
-            /*Open adyancent paths on map if debug mode is enabled.
-            if (node)
-            &amp;&amp; (input_check_pressed(input.select))
-                event_user(15);
-            */
         
         }
     }
@@ -673,6 +750,84 @@ if (collision_point(x+xorig, y+yorig, obj_swim, 0, 0))
     is_swimming = true;
 else
     is_swimming = false;
+    
+//If the player is standing still...
+if (status == mapstate.idle) {
+
+    //If a level isn't about to start and there is no map switcher already...
+    if (!is_ready &amp;&amp; !instance_exists(obj_mapplayer_switcher)) {
+    
+        //If wait time isn't over
+        if (player_wait &lt; wait_time) {
+    
+            //Add to wait time
+            player_wait ++;
+            
+            //If wait time has been reached...
+            if (player_wait == wait_time) {
+            
+                //Create the switcher, and...
+                with (instance_create(x,y,obj_mapplayer_switcher)) {
+                
+                    //Set their destination position
+                    dest_x = other.x + 16;
+                
+                }
+                
+                //Rest the player wait timer
+                player_wait = 0;
+            
+            }
+            
+        }
+        
+    }
+
+} else {
+
+    //If the player is getting ready to move...
+    if (status == mapstate.prep) {
+
+        //And there's no map buddy...
+        if (!instance_exists(obj_mapplayer_switcher)) {
+    
+            //Start walking.
+            status = mapstate.walk;
+        
+        //Otherwise...
+        } else {
+        
+            //If the map buddy has finished their initial movement...
+            if (obj_mapplayer_switcher.state == 2) {
+            
+                //Start bringing them back to the player.
+                obj_mapplayer_switcher.state = 3;
+            
+            }
+            
+        }
+        
+    } else if (status == mapstate.switching) {
+    
+        //Face forward
+        direct = 270;
+    
+        //If the map buddy has finished their initial movement...
+        if (obj_mapplayer_switcher.state == 2) {
+        
+            //Start bringing them back to the player.
+            obj_mapplayer_switcher.state = 3;
+            obj_mapplayer_switcher.switching = true;
+            obj_mapplayer_switcher.depth = depth-1;
+        
+        }
+    
+    }
+    
+    //Reset wait time
+    player_wait = 0;
+
+}
 </string>
           </argument>
         </arguments>

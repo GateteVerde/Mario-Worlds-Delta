@@ -75,7 +75,10 @@ enum mapstate {
     preidle,
     idle,
     wait,
-    walk
+    walk,
+    prep,
+    switching
+    
 }
 
 //Remember music from rooms
@@ -137,6 +140,9 @@ global.mariostart = 0;
 //Checkpoint
 global.checkpoint = noone;
 
+//Yoshi Rescued
+global.yoshi_rescued = false;
+
 //Checkpoint Room
 global.checkpointroom = -1;
 
@@ -196,3 +202,6 @@ global.worldmap_beaten = ds_map_create();
 
 //Handle the data structure of the world map.
 global.worldmap = ds_map_create();
+
+//Levels beaten
+global.cleared_levels = 0;

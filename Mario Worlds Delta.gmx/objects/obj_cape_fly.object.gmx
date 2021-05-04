@@ -340,6 +340,7 @@ if (!input_check(input.left))
 &amp;&amp; (!input_check(input.right))
 &amp;&amp; (vspeed_goal == -1)
 &amp;&amp; (state == statetype.jump)
+|| (dive_index &gt; 3)
 
     can_fly = true;
     
@@ -744,8 +745,8 @@ else if (smash == 1) {
     switch (charge_amount) {
     
         default: vspeed_goal = -3; break;
-        case (4): vspeed_goal = -3.5; break;
-        case (5): vspeed_goal = -4.5; break;
+        case (4): vspeed_goal = -4; break;
+        case (5): vspeed_goal = -6; break;
         
     }
 }

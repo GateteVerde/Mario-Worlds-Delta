@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="45" name="datafiles">
-    <datafiles number="45" name="music">
+  <datafiles number="46" name="datafiles">
+    <datafiles number="46" name="music">
       <datafile>
         <name>bgm_airship.ogg</name>
         <exists>-1</exists>
@@ -422,6 +422,7 @@
     <sound>sound\snd_trampoline</sound>
     <sound>sound\snd_vinesprout</sound>
     <sound>sound\snd_whistle</sound>
+    <sound>sound\snd_worldclear</sound>
     <sound>sound\snd_wrong</sound>
     <sound>sound\snd_yoshi</sound>
     <sound>sound\snd_zappakoopa_fire</sound>
@@ -1805,6 +1806,7 @@
             <sprite>sprites\spr_cursor_continue</sprite>
           </sprites>
           <sprite>sprites\spr_dialog</sprite>
+          <sprite>sprites\spr_save</sprite>
           <sprite>sprites\spr_message</sprite>
         </sprites>
         <sprites name="Level">
@@ -1854,8 +1856,8 @@
         <sprite>sprites\spr_font_numb</sprite>
         <sprite>sprites\spr_font_numb_gold</sprite>
         <sprite>sprites\spr_font_numb_large</sprite>
-        <sprite>sprites\spr_font_dialogue</sprite>
         <sprite>sprites\spr_font_message</sprite>
+        <sprite>sprites\spr_font_dialogue</sprite>
         <sprite>sprites\spr_font_message_alt</sprite>
       </sprites>
       <sprites name="Masks">
@@ -2049,6 +2051,15 @@
     <path>paths\pth_snow</path>
   </paths>
   <scripts name="scripts">
+    <scripts name="Input">
+      <scripts name="Key Mapping">
+        <script>scripts\set_keys.gml</script>
+        <script>scripts\key_to_string.gml</script>
+      </scripts>
+      <script>scripts\input_check.gml</script>
+      <script>scripts\input_check_pressed.gml</script>
+      <script>scripts\input_check_released.gml</script>
+    </scripts>
     <scripts name="Player">
       <scripts name="Animation">
         <scripts name="In-Level">
@@ -2099,15 +2110,6 @@
       <script>scripts\allow_move.gml</script>
       <script>scripts\player_create.gml</script>
       <script>scripts\player_set_palette.gml</script>
-    </scripts>
-    <scripts name="Input">
-      <scripts name="Key Mapping">
-        <script>scripts\set_keys.gml</script>
-        <script>scripts\key_to_string.gml</script>
-      </scripts>
-      <script>scripts\input_check.gml</script>
-      <script>scripts\input_check_pressed.gml</script>
-      <script>scripts\input_check_released.gml</script>
     </scripts>
     <scripts name="Shaders">
       <scripts name="Palette">
@@ -2164,9 +2166,11 @@
       <script>scripts\draw_background_tiled_horizontal_ext.gml</script>
       <script>scripts\instance_nearest_below.gml</script>
       <script>scripts\create_prefreeze_surface.gml</script>
+      <script>scripts\save.gml</script>
+      <script>scripts\load.gml</script>
     </scripts>
-    <script>scripts\move_contact_object.gml</script>
     <script>scripts\shard_create.gml</script>
+    <script>scripts\move_contact_object.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_palette_swapper.shader</shader>
@@ -3120,6 +3124,7 @@
             <object>objects\obj_mapcloud</object>
           </objects>
           <object>objects\obj_mapopener</object>
+          <object>objects\obj_mapplayer_switcher</object>
         </objects>
         <objects name="Decoration">
           <object>objects\obj_light_lava_top</object>
@@ -3163,6 +3168,7 @@
           <objects name="Dialogues">
             <object>objects\obj_dialog</object>
             <object>objects\obj_message</object>
+            <object>objects\obj_save</object>
           </objects>
           <objects name="Title / Credits">
             <object>objects\obj_credits</object>
@@ -3179,6 +3185,7 @@
         <object>objects\obj_blockbumper</object>
         <object>objects\obj_lightningsheet</object>
       </objects>
+      <object>objects\obj_intro</object>
       <object>objects\obj_npc</object>
       <object>objects\obj_noyoshi_cutscene</object>
       <object>objects\obj_controller</object>
@@ -3196,6 +3203,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_intro</room>
     <room>rooms\rm_title</room>
     <room>rooms\rm_worldmap</room>
     <rooms name="Levels">

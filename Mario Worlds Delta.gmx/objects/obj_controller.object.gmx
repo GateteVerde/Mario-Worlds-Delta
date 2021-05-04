@@ -27,12 +27,29 @@
             <kind>1</kind>
             <string>///Mario Worlds Delta Controller Object (This is required to run the game, do not remove it.)
 
+/*Change this option to 'true' for save files to load:
+-Powerup State
+-Current Mount &amp; Mount Colour
+-Lives
+-Coins
+-Score
+-Reserve item
+-Goal tape bonus*/
+global.load_state = false;
+
+//Change this option to 'true' to save after every level!
+//(Otherwise, saves after castles &amp; Switch Palaces)
+global.alt_save = false;
+
 //Initialize Global Variables
 init_globals();
 
 //Initialize Shader Variables
 init_pixel();
 init_shockwave();
+
+//Current file
+global.file = 0;
 
 //Remember last room
 last_room = noone;
@@ -78,6 +95,9 @@ alarm[7] = 1;
 
 //Frames
 frame = 0;
+
+//Restart game
+restart = false;
 
 //Game width / heigh
 global.gw = 256;
@@ -927,6 +947,10 @@ file_text_writeln(file);
 file_text_write_string(file, string(global.button[input.start]));
 file_text_writeln(file);
 
+//Autosave
+file_text_write_string(file, string(global.autosave));
+file_text_writeln(file);
+
 //Close the file
 file_text_close(file);
 </string>
@@ -1045,6 +1069,10 @@ if (file_exists("settings.dat")) {
     
     //Set saved 'Start' Button (Default: Start)
     global.button[input.start] = real(file_text_read_string(file));
+    file_text_readln(file);
+    
+    //Set autosave state (Default: true)
+    global.autosave = real(file_text_read_string(file));
 
     //Close the file
     file_text_close(file);
@@ -1118,6 +1146,10 @@ else {
     
     //Start (Start)
     global.button[input.start] = gp_start;
+    
+    //Set autosave default to true
+    global.autosave = true;
+    
 }
 
 //Apply loaded settings
