@@ -1372,6 +1372,9 @@
         <sprite>sprites\spr_hothead</sprite>
         <sprite>sprites\spr_hothead_eyes</sprite>
         <sprite>sprites\spr_hothead_dead</sprite>
+        <sprite>sprites\spr_bowserstatue</sprite>
+        <sprite>sprites\spr_bowserstatue_gold</sprite>
+        <sprite>sprites\spr_bowserstatue_fire</sprite>
         <sprite>sprites\spr_fallingspike</sprite>
       </sprites>
       <sprites name="Ghost">
@@ -1404,6 +1407,7 @@
           <sprite>sprites\spr_missilebill</sprite>
           <sprite>sprites\spr_missilebill_mask</sprite>
           <sprite>sprites\spr_missilebill_dead</sprite>
+          <sprite>sprites\spr_blaster_pipe</sprite>
         </sprites>
         <sprites name="Banzai Bill">
           <sprite>sprites\spr_blaster_banzai</sprite>
@@ -2646,6 +2650,8 @@
         <object>objects\obj_lilspark</object>
         <object>objects\obj_hothead</object>
         <object>objects\obj_fallingspike</object>
+        <object>objects\obj_bowserstatue</object>
+        <object>objects\obj_bowserstatue_gold</object>
         <object>objects\obj_ninji</object>
       </objects>
       <objects name="Ghost">
@@ -2666,6 +2672,7 @@
         <objects name="Bullet Bill">
           <object>objects\obj_blaster</object>
           <object>objects\obj_blaster_missile</object>
+          <object>objects\obj_blaster_pipe</object>
         </objects>
         <objects name="Banzai Bill">
           <object>objects\obj_blaster_banzai</object>
@@ -3096,6 +3103,7 @@
               <object>objects\obj_ballnchain_chain</object>
             </objects>
             <object>objects\obj_magic</object>
+            <object>objects\obj_bowserstatue_fire</object>
           </objects>
           <objects name="Ghost">
             <object>objects\obj_boo_trail</object>
