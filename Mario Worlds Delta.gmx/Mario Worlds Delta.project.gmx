@@ -1252,6 +1252,10 @@
             <sprite>sprites\spr_lakitu_green</sprite>
             <sprite>sprites\spr_lakitu_green_dead</sprite>
           </sprites>
+          <sprites name="Pipe">
+            <sprite>sprites\spr_lakitu_pipe</sprite>
+            <sprite>sprites\spr_lakitu_pipe_dead</sprite>
+          </sprites>
           <sprite>sprites\spr_lakitu_cloud</sprite>
           <sprite>sprites\spr_lakitu_cloud_front</sprite>
           <sprite>sprites\spr_lakitu_cloud_destroy</sprite>
@@ -2593,6 +2597,7 @@
         <object>objects\obj_lakitu</object>
         <object>objects\obj_lakitugreen</object>
         <object>objects\obj_fishinglakitu</object>
+        <object>objects\obj_pipelakitu</object>
         <object>objects\obj_monty</object>
         <object>objects\obj_monty_chase</object>
         <object>objects\obj_monty_dig</object>

@@ -195,7 +195,7 @@ alarm[1] = 35;
 with (instance_create(x, y, obj_spiny_thrown)) {
 
     vspeed = -3;
-    if (instance_exists(obj_playerparent))
+    if (!instance_exists(obj_playerparent))
     || (obj_playerparent.x &lt; x)
         hspeed = -1.5;
     else
