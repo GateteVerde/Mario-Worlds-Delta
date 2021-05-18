@@ -160,6 +160,12 @@ stun_anim = 0;
 //Projectile direction when spinning
 dir = 1;
 
+//Wall / Ceiling Trigger
+l = 0;
+r = 0;
+t = 0;
+b = 0;
+
 //Begin alarms
 alarm[3] = 1;
 alarm[6] = 1;
@@ -1232,8 +1238,18 @@ else {
     
     //Otherwise, let's do a special check if the player is not stuck in a solid
     else if ((inwall == false) &amp;&amp; (direct2 == 0)) {
-
-        /* UNDER CONSTRUCTION */
+    
+        //Check boundaries
+        event_user(12);
+        
+        //Kill if the following conditions meet
+        if ((l) &amp;&amp; (r))
+        || ((t) &amp;&amp; (b)) {
+        
+            instance_create(x, y, obj_player_dead);
+            instance_destroy();
+            exit;
+        }
     }
 }
 </string>
@@ -1346,6 +1362,53 @@ hspd_s = hspeed;
 hspeed = 0;
 vspd_s = vspeed;
 vspeed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check boundaries
+
+//Collision with left wall
+if ((collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom, obj_solid, 0, 0)) || (collision_rectangle(bbox_left-1, bbox_top+4, bbox_left, bbox_bottom, obj_solid_moving, 0, 0)))
+    l = 1;
+else
+    l = 0;
+    
+//Collision with right wall
+if ((collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom, obj_solid, 0, 0)) || (collision_rectangle(bbox_right, bbox_top+4, bbox_right+1, bbox_bottom, obj_solid_moving, 0, 0)))
+    r = 1;
+else
+    r = 0;
+
+//Collision with ceiling
+if ((collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top-1, obj_solid, 0, 0)) || (collision_rectangle(bbox_left, bbox_top-1, bbox_right, bbox_top-1, obj_solid_moving, 0, 0)))
+    t = 1;
+else
+    t = 0;
+    
+//Collision with floor
+if ((collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid, 0, 0)) || (collision_point(x, bbox_bottom+1, obj_slopeparent, 1, 0)) || (collision_rectangle(bbox_left, bbox_bottom+1, bbox_right, bbox_bottom+1, obj_semisolid_moving, 0, 0)))
+    b = 1;
+else
+    b = 0;
 </string>
           </argument>
         </arguments>
@@ -1628,6 +1691,9 @@ else {
     //Reset palette
     pal_swap_reset();
 }
+
+//Draw markers
+draw_text(x-4, bbox_top-16, string(l) + ", " + string(r) + ", " + string(t) + ", " + string(b));
 </string>
           </argument>
         </arguments>

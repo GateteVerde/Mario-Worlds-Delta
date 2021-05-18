@@ -1412,6 +1412,7 @@
           <sprite>sprites\spr_missilebill_mask</sprite>
           <sprite>sprites\spr_missilebill_dead</sprite>
           <sprite>sprites\spr_blaster_pipe</sprite>
+          <sprite>sprites\spr_blaster_pipe_missile</sprite>
         </sprites>
         <sprites name="Banzai Bill">
           <sprite>sprites\spr_blaster_banzai</sprite>
@@ -2678,6 +2679,7 @@
           <object>objects\obj_blaster</object>
           <object>objects\obj_blaster_missile</object>
           <object>objects\obj_blaster_pipe</object>
+          <object>objects\obj_blaster_pipe_missile</object>
         </objects>
         <objects name="Banzai Bill">
           <object>objects\obj_blaster_banzai</object>
