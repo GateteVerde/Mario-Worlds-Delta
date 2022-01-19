@@ -65,7 +65,7 @@
     <instance objName="obj_coin" x="272" y="192" name="inst_BEC0AF49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_coin" x="256" y="192" name="inst_9A6AB29C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="40" y="192" name="inst_A5C347D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_37260B8C" locked="0" code="inisection = 'Overworld';&#xA;leveltime = 500;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_levelcontrol" x="0" y="-16" name="inst_37260B8C" locked="0" code="inisection = 'Overworld';&#xA;leveltime = 500;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_warpleft_branch" x="448" y="176" name="inst_62FED209" locked="0" code="//Destination A&#xA;destination[0] = rm_level_2b_branch1;&#xA;exit_id[0] = 0;&#xA;&#xA;//Destination B&#xA;destination[1] = rm_level_2b_branch2;&#xA;exit_id[1] = 0;&#xA;&#xA;//Destination C&#xA;destination[2] = rm_level_2b_branch3;&#xA;exit_id[2] = 0;&#xA;&#xA;//Set dragon coin mode&#xA;mode = 0;&#xA;&#xA;//Set target&#xA;target_a = 0;&#xA;target_b = 5;&#xA;target_c = 10;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mushroom" x="136" y="192" name="inst_A582D4D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fireflower" x="168" y="192" name="inst_CF590BC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

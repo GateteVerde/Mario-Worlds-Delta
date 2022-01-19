@@ -1242,7 +1242,7 @@ else {
         //Check boundaries
         event_user(12);
         
-        //Kill if the following conditions meet
+        /*Kill if the following conditions meet
         if ((l) &amp;&amp; (r))
         || ((t) &amp;&amp; (b)) {
         
@@ -1250,6 +1250,7 @@ else {
             instance_destroy();
             exit;
         }
+        */
     }
 }
 </string>
@@ -1691,9 +1692,6 @@ else {
     //Reset palette
     pal_swap_reset();
 }
-
-//Draw markers
-draw_text(x-4, bbox_top-16, string(l) + ", " + string(r) + ", " + string(t) + ", " + string(b));
 </string>
           </argument>
         </arguments>
